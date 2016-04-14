@@ -44,7 +44,7 @@
 ?> 
 
 
-<!-- 房源搜索开始 -->
+<!-- 房源搜索列表开始 -->
 <div id="searcharea"  class="ui-corner-all ui-nodisc-icon ui-alt-icon ui-mini">
 
 <!-- search province/city start -->
@@ -202,13 +202,17 @@
 <!-- search row3 end -->
 
 
- 
+
+</div>
+<!-- 房源搜索列表结束 -->
+
 
 
 <script>
 
-
-
+$( document ).delegate("#aboutPage", "pagecreate", function() {
+  alert('A page with an ID of "aboutPage" was just created by jQuery Mobile!');
+});
 	
   $(function() {
 	var cache = {};
@@ -274,13 +278,8 @@
   });
   
 
-	</script>
-			
-
-
-</div>
-<!-- 房源搜索结束 -->
-
+</script>
+		
 
 <!-- 地图开始 --> 
 <!-- 地图结束 -->

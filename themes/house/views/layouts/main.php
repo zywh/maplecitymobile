@@ -17,7 +17,7 @@
 		$db = Yii::app()->db;
 	?>
 
-<div data-role="page" id="main" data-title="枫之都-加拿大地产置业">
+<div data-role="page" id="main"  data-dom-cache="true" data-title="枫之都-加拿大地产置业">
 	<!-- head开始 -->
 		<div data-role="panel" id="main_menu" data-display="overlay" data-position-fixed="true">
 			<a href="/"  > <h3>首页</h3></a>
@@ -31,11 +31,11 @@
     
 		</div> 
 		<div data-role="header" >
-		<a href="#main_menu"  class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon ui-alt-icon
+		<a href="/" data-transition="pop" data-prefetch class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon ui-alt-icon
 		">Home</a>
 		<h1>枫之都</h1>
-		<a href="index.php?r=mhouse/index"  class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left  ui-nodisc-icon ui-alt-icon
-		" data-prefetch >房源搜索</a>
+		<a href="index.php?r=mhouse/index" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left  ui-nodisc-icon ui-alt-icon
+		" data-prefetch>房源搜索</a>
 		</div>
 	<!-- head结束 -->
 
