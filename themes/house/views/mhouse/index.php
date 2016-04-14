@@ -45,7 +45,7 @@
 
 
 <!-- 房源搜索列表开始 -->
-<div id="searcharea"  class="ui-corner-all ui-mini">
+<div id="search_area"  class="ui-corner-all ui-mini">
 
 <!-- search province/city start -->
 <div class="ui-grid-b">
@@ -208,10 +208,14 @@
 
 
 
+
+
 <script>
 
-$( document ).delegate("#aboutPage", "pagecreate", function() {
-  alert('A page with an ID of "aboutPage" was just created by jQuery Mobile!');
+$(document).on("pagecreate","#search_area",function(){
+  $("p").on("tap",function(){
+    $(this).hide();
+  });                       
 });
 	
   $(function() {
@@ -275,7 +279,7 @@ $( document ).delegate("#aboutPage", "pagecreate", function() {
 		  
 		}
 	});
-  });
+	});
   
 
 </script>
@@ -285,6 +289,13 @@ $( document ).delegate("#aboutPage", "pagecreate", function() {
 <!-- 地图结束 -->
 
 <!-- 房源列表开始 --> 
+
+  <div id="house_list" data-role="main" class="ui-content">
+    <p>If you tap me, I will disappear.</p>
+    <p>Tap me away!</p>
+    <p>Tap me too!</p>
+  </div>
+
 <!-- 房源列表结束 -->
 
 
