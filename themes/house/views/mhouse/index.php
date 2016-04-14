@@ -266,13 +266,7 @@
 		select: function( event, ui ) {
  
 			var city = ui.item.id;
-			//var url = "index.php";
-			var url = '<?php echo Yii::app()->createUrl('house/index', array('type' => $type,'cd1' => $cd1, 'cd3' => $cd3, 'cd4' => $cd4, 'cd5' => $cd5, 'cd6' => $cd6, 'cd7' => $cd7, 'cd8' => $cd8, 'cd9' => $cd9, 'cd10' => $cd10, 'cd11' => $cd11, 'cd12' => $cd12, 'cd13' => $cd13,'cd14' => $cd14, 'cd15' => $cd15, 'cd16' => $cd16, 'cd17' => $cd17, 'cd18' => $cd18)) ?> ' +'&cd2=' + city + '#001';
-		
-			if( city != '') {
-				location.href = url;
-		
-			}		
+		//Need change to jquery update
 		
 		  
 		}
