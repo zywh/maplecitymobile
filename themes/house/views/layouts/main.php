@@ -17,25 +17,25 @@
 		$db = Yii::app()->db;
 	?>
 
-	<div data-role="page" id="main" data-title="枫之都-加拿大地产置业">
+<div data-role="page" id="main" data-title="枫之都-加拿大地产置业">
 	<!-- head开始 -->
 		<div data-role="panel" id="main_menu" data-display="overlay" data-position-fixed="true">
-			<a href="/"><h3>首页</h3></a>
-		    <ul data-role="listview" data-inset="true" data-ajax="false">
-				<li><a href="<?php echo Yii::app()->createUrl('mhouse/index'); ?>" data-ajax="false">房源查询NOAJAX</a></li>
-				<li><a href="<?php echo Yii::app()->createUrl('mhouse/index'); ?>" >地图查询AJAX</a></li>
-				<li><a href="<?php echo Yii::app()->createUrl('mhouse/index'); ?>"  >新房查询</a></li>
+			<a href="/"  > <h3>首页</h3></a>
+		    <ul data-role="listview" data-inset="true" >
+				<li><a href="index.php?r=mhouse/index" data-prefetch >房源查询</a></li>
+				<li><a href="index.php?r=mhouse/index"  >地图查询</a></li>
+				<li><a href="index.php?r=mhouse/index" >新房查询</a></li>
 			</ul>
 
 
     
-  </div> 
+		</div> 
 		<div data-role="header" >
-		<a href="#main_menu" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon ui-alt-icon
+		<a href="#main_menu"  class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon ui-alt-icon
 		">Home</a>
 		<h1>枫之都</h1>
-		<a href="<?php echo Yii::app()->createUrl('mhouse/index'); ?>" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left  ui-nodisc-icon ui-alt-icon
-		">房源搜索</a>
+		<a href="index.php?r=mhouse/index"  class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left  ui-nodisc-icon ui-alt-icon
+		" data-prefetch >房源搜索</a>
 		</div>
 	<!-- head结束 -->
 
@@ -50,10 +50,11 @@
   <div data-role="footer" style="text-align:center;">
     Insert Footer Text Here
   </div>
-</div> 
+
 
 	<!-- foot结束 -->
-	</page>
+
+</div> 
 
 </body>
 </html>
