@@ -45,7 +45,7 @@
 
 
 <!-- 房源搜索列表开始 -->
-<div id="searcharea"  class="ui-corner-all ui-nodisc-icon ui-alt-icon ui-mini">
+<div id="searcharea"  class="ui-corner-all ui-mini">
 
 <!-- search province/city start -->
 <div class="ui-grid-b">

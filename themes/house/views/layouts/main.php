@@ -3,10 +3,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/mobile.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/maplcity-mobile.min.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jquery.mobile.icons.min.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jquery.mobile.structure-1.4.5.min.css" />
 	<title> 加拿大房产_枫之都
 	</title>
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	
@@ -17,7 +18,7 @@
 		$db = Yii::app()->db;
 	?>
 
-<div data-role="page" id="main"  data-dom-cache="true" data-title="枫之都-加拿大地产置业">
+<div data-role="page" id="main" data-theme="a" data-dom-cache="true" data-title="枫之都-加拿大地产置业">
 	<!-- head开始 -->
 		<div data-role="panel" id="main_menu" data-display="overlay" data-position-fixed="true">
 			<a href="/"  > <h3>首页</h3></a>
@@ -31,10 +32,10 @@
     
 		</div> 
 		<div data-role="header" >
-		<a href="/" data-transition="pop" data-prefetch class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext ui-nodisc-icon ui-alt-icon
+		<a href="/" data-transition="pop" data-prefetch class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext
 		">Home</a>
 		<h1>枫之都</h1>
-		<a href="index.php?r=mhouse/index" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left  ui-nodisc-icon ui-alt-icon
+		<a href="index.php?r=mhouse/index" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left 
 		" data-prefetch>房源搜索</a>
 		</div>
 	<!-- head结束 -->
