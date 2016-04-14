@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>加拿大房产置业平台</title>
+</head>
+<body>
+<div class="main">
+    <!-- head开始 -->
+    <div class="head">
+        <div class="headleft"><a href="<?php echo Yii::app()->createUrl('site/index'); ?>"><img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/layout/logo.jpg" border="0" /></a></div>
+        <div class="headright">
+            <span class="headrightone">加拿大房产置业平台</span>
+            <span class="headrighttwo">400-870-1029</span>
+        </div>
+        <div class="cl"></div>
+    </div>
+    <!-- head结束 -->
+    <!-- 登陆开始 -->
+    <div class="duibi_box">
+        <div class="main fix" style="text-align: center;">
+            <table class="houseCompare ft" width="1000" border="1" align="center" style="border-collapse: collapse; border: 1px #c0c0c0 solid;">
+                <tbody>
+                <tr><td colspan="5" class="title">基础信息</td></tr>
+                <tr class="photo">
+                    <td width="150">照&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;片：</td>
+                    <?php foreach($house_list as $house){ ?>
+                    <td style="padding: 10px 0;">
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/<?php echo $house->house_image; ?>" width="158" height="116" alt="房源对比">
+                    </td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">房源名称：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td>
+                            <a href="<?php echo Yii::app()->createUrl('house/view',array('id'=>$house->id)); ?>" target="_blank">
+                                <?php echo $house->addr; ?>
+                            </a>
+                        </td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">城&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;市：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->city->name; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->district->name; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">社&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->community; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->addr; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">首&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;付：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->prepay; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">总&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;价：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->lp_dol; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">户&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->br; ?>卧&nbsp;<?php echo $house->bath_tot; ?>卫&nbsp;<?php echo $house->num_kit; ?>厨</td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">配&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;套：</td>
+                    <?php foreach($house_list as $house){ ?>
+                    <td class="fyxq_ptpd">
+                    <?php
+                        $house_match = explode(',', $house->match);
+                        foreach($matches as $match){
+                            if(in_array($match['id'], $house_match)){
+                    ?>
+                        <span class="fyxq_ptss_you"><?php echo $match['name']; ?></span>
+                    <?php }else{ ?>
+                        <span><?php echo $match['name']; ?></span>
+                    <?php }} ?>
+                    </td>
+                    <?php } ?>
+                </tr>
+
+                <tr><td colspan="5" class="title">房屋信息：</td></tr>
+                <tr>
+                    <td class="compareType">物业类型：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->propertyType->name; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">投资类型：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->investType->name; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">房屋层数：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->style; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">房屋面积：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->sqft; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">土地面积：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->depth; ?></td>
+                    <?php } ?>
+                </tr>
+                <!--
+				<tr>
+                
+				<td class="compareType">房屋规格：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->house_size; ?></td>
+                    <?php } ?>
+				-->
+                </tr>
+                <tr>
+                    <td class="compareType">卧室数量：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->br; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">卫生间数量：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->bath_tot; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">厨房数量：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->num_kit; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">停车位数量：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->gar_spaces; ?></td>
+                    <?php } ?>
+                </tr>
+				<!--
+                <tr>
+				
+				
+                    <td class="compareType">土地所有权：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->land_ownership; ?></td>
+                    <?php } ?>
+                </tr>
+				-->
+                <tr>
+                    <td class="compareType">认证房源：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->certificate == 1 ? '是' : '否'; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">大门朝向：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->door_direction; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">建造年份：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->construction_year; ?></td>
+                    <?php } ?>
+                </tr>
+                <tr>
+                    <td class="compareType">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->floor_num; ?></td>
+                    <?php } ?>
+                </tr>
+                <!--
+				<tr>
+                    <td class="compareType">会&nbsp;客&nbsp;厅：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->embassy; ?></td>
+                    <?php } ?>
+                </tr>
+				-->
+                <tr>
+                    <td class="compareType">MLS编号：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->ml_num; ?></td>
+                    <?php } ?>
+                </tr>
+                <!--
+				<tr>
+                    <td class="compareType">停&nbsp;车&nbsp;库：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->carport; ?></td>
+                    <?php } ?>
+                </tr>
+				-->
+                <tr>
+                    <td class="compareType">附近设施：</td>
+                    <?php foreach($house_list as $house){ ?>
+                        <td><?php echo $house->prop_feat1_out; ?></td>
+                    <?php } ?>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- 登陆结束 -->
+    <!-- foot开始 -->
+    <div class="foot">
+        <div class="footup">
+            <div class="f_linkup">
+                友情链接
+            </div>
+            <div class="f_linkdown">
+                <?php foreach($link_list as $obj){ ?>
+                    <a href="<?php echo $obj->url; ?>"><?php echo $obj->title; ?></a>
+                <?php } ?>
+                <div class="cl"></div>
+            </div>
+        </div>
+        <div class="footdown">
+            <div class="footdownone">
+                <a href="#">关于我们</a>
+                <a href="#">加入我们</a>
+                <a href="#">媒体报道</a>
+                <a href="#">海外房展</a>
+                <a href="#">公司动态</a>
+                <a href="#">联系我们</a>
+                <a href="#">投资须知</a>
+            </div>
+            <div class="footdowntwo">邮箱:info@ausingroup.com    Copyright@2002-2014 AUSIN GROUP Inc.All Rights Reserved <br />
+                枫之都   版权所有    苏ICP备10045531号-4</div>
+        </div>
+    </div>
+    <!-- foot结束 -->
+</div>
+</body>
+</html>
