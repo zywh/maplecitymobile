@@ -2,7 +2,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Cache-Control" content="no-siteapp" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="format-detection" content="telephone=no">
+        <!-- viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="renderer" content="webkit">
+        <meta name="screen-orientation" content="portrait">
+        <meta name="full-screen" content="yes">
+        <meta name="x5-orientation" content="portrait">
+        <meta name="x5-fullscreen" content="true">
+
 	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/maplcity-mobile.min.css" />
 	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jquery.mobile.icons.min.css" />
 	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jquery.mobile.structure-1.4.5.min.css" />
@@ -23,9 +35,7 @@
 		<div data-role="panel" id="main_menu" data-display="overlay" data-position-fixed="true">
 			<a href="/"  > <h3>首页</h3></a>
 		    <ul data-role="listview" data-inset="true" >
-				<li><a href="index.php?r=mhouse/index" data-prefetch >房源查询</a></li>
-				<li><a href="index.php?r=mhouse/index"  >地图查询</a></li>
-				<li><a href="index.php?r=mhouse/index" >新房查询</a></li>
+				<li><a href="index.php?r=mhouse/index"  >房源查询</a></li>
 			</ul>
 
 
@@ -35,8 +45,8 @@
 			<div data-role="navbar" data-iconpos="left">
 			  <ul>
 				<li><a href="/" data-prefetch  >首页</a></li>
-				<li><a href="index.php?r=mhouse/index&sr=Sale"  >二手房</a></li>
-				<li><a href="index.php?r=mhouse/index&sr=Lease" >出租</a></li>
+				<li><a href="index.php?r=mhouse/index&sr=Sale" rel="external" data-prefetch >二手房</a></li>
+				<li><a href="index.php?r=mhouse/index&sr=Lease" rel="external"  data-prefetch >出租</a></li>
 				<li><a href="#main_menu" >更多</a></li>
 			  </ul>
 			</div>
