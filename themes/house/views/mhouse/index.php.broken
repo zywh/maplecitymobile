@@ -1,11 +1,11 @@
 
-
 <script>
+
+
+
 $(document).on("pagecreate","#main",function(){
 	
-	var srSwitch = '<select id="sr" data-role="flipswitch">	<option value="Lease">租</option>	<option value="Sale" selected="selected" >售</option></select>';
 	
-	//$("#topright").replaceWith(srSwitch);
 	var arr = $('select').map(function(){
 		  return this.value ;
 	  }).get().join(",")
@@ -13,23 +13,29 @@ $(document).on("pagecreate","#main",function(){
 	  
 	//Start Select Change Event  
 	$("select").change(function () {
+
 	arr = $('select').map(function(){
 		  return this.value ;
 	  }).get().join(",")
 	 
+
 	  $("#pricetext").text(arr);
 	});
+
 	//Start Select Change Event        
 	
   
 });
+
   
+
 </script>
 
 <?php
     $db = Yii::app()->db;
     ini_set("log_errors", 1);
 	ini_set("error_log", "/tmp/php-error.log");
+
 	function get_firstimage($county,$ml_num){
 		
 		$county = preg_replace('/\s+/', '', $county);
@@ -43,6 +49,7 @@ $(document).on("pagecreate","#main",function(){
 		}
 		if ( $num_files >= 1)    {
 			return $dir.$picfiles[2];
+
 		}else { return 'static/images/zanwu.jpg';}
 	}
 	
@@ -65,7 +72,6 @@ $(document).on("pagecreate","#main",function(){
 	}	
 	
 ?> 
-
 
 
 <!-- 房源搜索列表开始 -->
@@ -252,5 +258,6 @@ $(document).on("pagecreate","#main",function(){
 </div>
 
 <!-- 房源列表结束 -->
+
 
 
