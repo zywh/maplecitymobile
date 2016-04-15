@@ -32,12 +32,12 @@
     
 		</div> 
 		<div data-role="header" data-position="fixed" >
-			<div data-role="navbar">
+			<div data-role="navbar" data-iconpos="left">
 			  <ul>
-				<li><a href="/" data-prefetch  >首页</a></li>
-				<li><a href="index.php?r=mhouse/index" data-prefetch >二手房</a></li>
-				<li><a href="index.php?r=mhouse/index" data-prefetch >出租</a></li>
-				<li><a href="#main_menu">更多</a></li>
+				<li><a href="/" data-prefetch  data-icon="home">首页</a></li>
+				<li><a href="index.php?r=mhouse/index" data-prefetch data-icon="search" >二手房</a></li>
+				<li><a href="index.php?r=mhouse/index" data-prefetch data-icon="search">出租</a></li>
+				<li><a href="#main_menu" data-icon="plus" >更多</a></li>
 			  </ul>
 			</div>
 		</div>
