@@ -32,11 +32,17 @@
     
 		</div> 
 		<div data-role="header" >
-		<a href="/" data-transition="pop" data-prefetch class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext
+		<a href="/" data-transition="pop"  class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext
 		">Home</a>
 		<h1>枫之都</h1>
+		<div style="display:inline;" class="ui-corner-all ui-mini">
+		<select id="sr"  data-role="flipswitch">	
+		<option value="Lease">租</option>	<option value="Sale" selected="selected" >售</option>
+		</select>
+		</div>
+		
 		<a href="index.php?r=mhouse/index" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left 
-		" data-prefetch>房源搜索</a>
+		" data-prefetch id="topright">房源搜索</a>
 		</div>
 	<!-- head结束 -->
 

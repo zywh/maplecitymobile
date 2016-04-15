@@ -4,13 +4,16 @@
 
 
 $(document).on("pagecreate","#main",function(){
-
+	
+	var srSwitch = '<select id="sr" data-role="flipswitch">	<option value="Lease">租</option>	<option value="Sale" selected="selected" >售</option></select>';
+	
+	//$("#topright").replaceWith(srSwitch);
 	var arr = $('select').map(function(){
 		  return this.value ;
 	  }).get().join(",")
 	$("#pricetext").text(arr);  
 	  
-//Start Select Change Event  
+	//Start Select Change Event  
 	$("select").change(function () {
 
 	arr = $('select').map(function(){
@@ -21,7 +24,7 @@ $(document).on("pagecreate","#main",function(){
 	  $("#pricetext").text(arr);
 	});
 
-//Start Select Change Event        
+	//Start Select Change Event        
 	
   
 });
