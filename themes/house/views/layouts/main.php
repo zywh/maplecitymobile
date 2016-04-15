@@ -19,11 +19,13 @@
 	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jquery.mobile.icons.min.css" />
 	
 	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jquery.mobile.structure-1.4.5.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/mhouse.css" />
 	
 	<title> 加拿大房产_枫之都
 	</title>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	
 	
 
 </head>
@@ -32,7 +34,7 @@
 		$db = Yii::app()->db;
 	?>
 
-<div data-role="page" id="main" data-theme="a" data-dom-cache="false" data-title="枫之都-加拿大地产置业">
+<div data-role="page" id="main" data-theme="a" data-dom-cache="true" data-title="枫之都-加拿大地产置业">
 	<!-- head开始 -->
 		<div data-role="panel" id="main_menu" data-display="overlay" data-position-fixed="true">
 			<a href="/"  > <h3>首页</h3></a>
@@ -46,7 +48,7 @@
 		<div data-role="header" data-position="fixed" id="main_header" >
 			<div data-role="navbar" data-iconpos="left">
 			  <ul>
-				<li><a href="/" data-prefetch >首页</a></li>
+				<li><a href="/" >首页</a></li>
 				<li><a href="index.php?r=mhouse/index&sr=Sale" rel="external" data-prefetch >二手房</a></li>
 				<li><a href="index.php?r=mhouse/index&sr=Lease" rel="external"  data-prefetch >出租</a></li>
 				<li><a href="#main_menu" >更多</a></li>

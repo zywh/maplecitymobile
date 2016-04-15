@@ -13,7 +13,6 @@ class MhouseController extends XFrontBase
 {
   
     public function actionIndex() {
-        Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/house.css');
  		 $this->render('index');
     }
 
