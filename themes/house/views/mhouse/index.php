@@ -1,11 +1,23 @@
 
 
 <script>
+
+
+var sr = '<?php echo $_GET['sr'];?>';
+
+function getURLParameter(name) {
+    return decodeURI(
+        (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+    );
+}
+
 $(document).on("pagecreate","#main",function(){
+
 	
-	var srSwitch = '<select id="sr" data-role="flipswitch">	<option value="Lease">租</option>	<option value="Sale" selected="selected" >售</option></select>';
+    //sr = getURLParameter("sr"); 
+    console.log("sr = " + sr);
+	$("#srtext").text(sr);	
 	
-	//$("#topright").replaceWith(srSwitch);
 	var arr = $('select').map(function(){
 		  return this.value ;
 	  }).get().join(",")
@@ -18,6 +30,7 @@ $(document).on("pagecreate","#main",function(){
 	  }).get().join(",")
 	 
 	  $("#pricetext").text(arr);
+	  
 	});
 	//Start Select Change Event        
 	
@@ -76,11 +89,7 @@ $(document).on("pagecreate","#main",function(){
 	
 	<!-- select1 -->
 	<div class="ui-block-a" >	
-	<select id="sr" data-role="flipswitch">
-		<option value="Lease">租</option>
-		<option value="Sale" selected="selected" >售</option>
-		
-	</select>
+
 	</div>
 	
 	<!-- select -->
@@ -247,7 +256,8 @@ $(document).on("pagecreate","#main",function(){
 <!-- 房源列表开始 --> 
 
 <div id="house_list" data-role="main" class="ui-content">
-	Options:<span id="pricetext"></span>
+	Options:<p id="pricetext"></p>
+	Sale or Lease:<p id="srtext"></p>
 
 </div>
 
