@@ -11,49 +11,8 @@
  */
 class MhouseController extends XFrontBase
 {
-    static $searchData = array(
-        'cd5' => array(
-            1 => array('min'=>0, 'max'=>30),
-            2 => array('min'=>30, 'max'=>50),
-            3 => array('min'=>50, 'max'=>100),
-            4 => array('min'=>100, 'max'=>150),
-            5 => array('min'=>150, 'max'=>300),
-            6 => array('min'=>300, 'max'=>''),
-        ),
-        'cd6' => array(
-            1 => array('min'=>0, 'max'=>700),
-            2 => array('min'=>700, 'max'=>1100),
-            3 => array('min'=>1100, 'max'=>1500),
-            4 => array('min'=>1500, 'max'=>2000),
-            5 => array('min'=>2000, 'max'=>2500),
-			6 => array('min'=>2500, 'max'=>3000),
-			7 => array('min'=>3000, 'max'=>3500),
-			8 => array('min'=>3500, 'max'=>4000),
-			9 => array('min'=>4000, 'max'=>''),
-        ),
-        'cd7' => array(
-            1 => array('min'=>0, 'max'=>1000),
-            2 => array('min'=>1000, 'max'=>2000),
-            3 => array('min'=>2000, 'max'=>3000),
-            4 => array('min'=>3000, 'max'=>4000),
-            5 => array('min'=>4000, 'max'=>5000),
-            6 => array('min'=>5000, 'max'=>6000),
-            7 => array('min'=>6000, 'max'=>''),
-        ),
-        'cd9' => array(
-            1 => array('min'=>0, 'max'=>1970),
-            2 => array('min'=>1970, 'max'=>1980),
-            3 => array('min'=>1980, 'max'=>1990),
-            4 => array('min'=>1990, 'max'=>2000),
-            5 => array('min'=>2000, 'max'=>2005),
-            6 => array('min'=>2005, 'max'=>2010),
-            7 => array('min'=>2010, 'max'=>''),
-        ),
-    );
 
-    /**
-     * 房源列表
-     */
+
     public function actionIndex() {
         Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/house.css');
         $city_id           = Yii::app()->request->getQuery('cd1', 0);
