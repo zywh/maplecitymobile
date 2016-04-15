@@ -4,6 +4,7 @@
 
 
 var sr = '<?php echo $_GET['sr'];?>';
+var selectOptions;
 
 function getURLParameter(name) {
     return decodeURI(
@@ -17,18 +18,19 @@ $(document).on("pagecreate","#main",function(){
     	//sr = getURLParameter("sr"); 
 	$("#srtext").text(sr);	
 	
-	var arr = $('select').map(function(){
+	selectOptions = $('select').map(function(){
 		  return this.value ;
 	}).get().join(",")
-	$("#pricetext").text(arr);  
+	
+	$("#pricetext").text(selectOptions);  
 	  
 	//Start Select Change Event  
 	$("select").change(function () {
-	arr = $('select').map(function(){
+	selectOptions = $('select').map(function(){
 		  return this.value ;
 	  }).get().join(",")
 	 
-	  $("#pricetext").text(arr);
+	  $("#pricetext").text(selectOptions);
 	  
 	});
 	//Start Select Change Event        
@@ -84,15 +86,7 @@ $(document).on("pagecreate","#main",function(){
 <div id="search_area"  class="ui-corner-all ui-mini">
 
 <!-- search province/city start -->
-<div class="ui-grid-b">
-	
-	<!-- select1 -->
-	<div class="ui-block-a" >	
-
-	</div>
-	
-	<!-- select -->
-	<div class="ui-block-b" >
+<div data-role="controlgroup" data-type="horizontal"  >
 		<select name="province" id="province" data-native-menu="false" >
 			<option >省份</option>
 			<option value="3" selected="selected">安省</option>
@@ -103,18 +97,15 @@ $(document).on("pagecreate","#main",function(){
 			<option value="8">爱德华王子岛省</option>
 			<option value="9">纽芬兰及拉布拉多</option>
 		</select>
-	</div>
-	<div class="ui-block-b">
+	
 		<ul id="citysearch" class="ui-shadow" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="输入城市 中/英文" data-filter-theme="a"  ></ul>
-	</div>
+	
 </div>
 <!-- search province/city end  -->
 
-
-
 <!-- search row1 start -->
- <div data-role="controlgroup" data-type="horizontal" data-iconpos="noicon">
-		<select name="type" id="type" data-native-menu="false" >
+ <div data-role="controlgroup" data-type="horizontal"  >
+		<select name="type" id="type" data-native-menu="false" data-iconpos="noicon" >
 			<option >房型</option>
 			<option value="1" selected="selected">独栋别墅</option>
 			<option value="2">联排别墅</option>
@@ -126,7 +117,7 @@ $(document).on("pagecreate","#main",function(){
 			<option value="8">其他</option>
 		</select>
 	
-		<select name="price" id="price" data-native-menu="false" >
+		<select name="price" id="price"  data-native-menu="false" data-iconpos="noicon">
 			<option >价格</option>
 			<option value="0-30" >30万以下</option>
 			<option value="30-50" >30-50万</option>
@@ -138,7 +129,7 @@ $(document).on("pagecreate","#main",function(){
 			<option value="600-0" >600以上</option>
 		</select>
 	
-		<select name="date" id="date" data-native-menu="false" >
+		<select name="date" id="date" data-native-menu="false" data-iconpos="noicon">
 			<option > 挂牌时间 </option>
 			<option value="1" selected="selected">昨日挂牌</option>
 			<option value="2">一周</option>
@@ -146,25 +137,17 @@ $(document).on("pagecreate","#main",function(){
 			<option value="4">三个月</option>
 		
 		</select>	
-</div>
-<!-- search row1 end  -->
+		<select name="bedroom" id="bedroom" data-native-menu="false"  data-iconpos="noicon">
+                        <option >卧室</option>
+                        <option value="1"> &gt1 </option>
+                        <option value="2"> &gt2 </option>
+                        <option value="3"> &gt3 </option>
+                        <option value="4"> &gt4 </option>
+                        <option value="5"> &gt5 </option>
 
-<!-- search row2 start -->
-<div class="ui-grid-b">
-    <div class="ui-block-a">
-		<select name="bedroom" id="bedroom" data-native-menu="false" >
-			<option >卧室</option>
-			<option value="1"> &gt1 </option>
-			<option value="2"> &gt2 </option>
-			<option value="3"> &gt3 </option>
-			<option value="4"> &gt4 </option>
-			<option value="5"> &gt5 </option>
-			
-			
-		</select>
-	</div>
-    <div class="ui-block-b">
-		<select name="washroom" id="washroom" data-native-menu="false" >
+
+                </select>
+		<select name="washroom" id="washroom" data-native-menu="false" data-iconpos="noicon" >
 			<option > 洗手间</option>
 			<option value="1"> &gt1 </option>
 			<option value="2"> &gt2 </option>
@@ -174,9 +157,10 @@ $(document).on("pagecreate","#main",function(){
 			
 			
 		</select>
-	</div>	
-	<div class="ui-block-c">		
-	  		<select name="year" id="year" data-native-menu="false" >
+
+
+	
+	  		<select name="year" id="year" data-native-menu="false" data-iconpos="noicon" >
 			<option >建造年份</option>
 			<option value="1" >0-5年</option>
 			<option value="2">5-15年</option>
@@ -185,16 +169,10 @@ $(document).on("pagecreate","#main",function(){
 			
 		
 		</select>	
-	</div>
+	
 
-</div>
-<!-- search row2 end  -->
 
-<!-- search row3 start  -->
-<div class="ui-grid-b">
- 
- 	<div class="ui-block-a">
-		<select name="housearea" id="housearea" multiple="multiple" data-native-menu="false" >
+		<select name="housearea" id="housearea" multiple="multiple" data-native-menu="false"  data-iconpos="noicon">
 			<option >房屋尺寸</option>
 			<option value="0-700" >700平方尺以下</option>
 			<option value="700-1100">700-1100平方尺</option>
@@ -208,9 +186,8 @@ $(document).on("pagecreate","#main",function(){
 
 
 		</select>
-	</div>
-	<div class="ui-block-b">
-		<select name="landarea" id="landarea" multiple="multiple" data-native-menu="false" >
+	
+		<select name="landarea" id="landarea" multiple="multiple" data-native-menu="false" data-iconpos="noicon">
 			<option >土地尺寸</option>
 			<option value="0-2000" >2000平方尺以下</option>
 			<option value="2000-4000">2000-4000平方尺</option>
@@ -220,21 +197,19 @@ $(document).on("pagecreate","#main",function(){
 			<option value="435600-0">1英亩以上</option>
 		
 		</select>	
-	</div>
-	<div class="ui-block-c">	
-		
-        <label for="features" class="ui-hidden-accessible">物业特点</label>
-        <select name="features" id="features" multiple="multiple" data-native-menu="false">
+	
+      
+        <select name="features" id="features" multiple="multiple" data-native-menu="false" data-iconpos="noicon">
           <option >物业特点</option>
           <option value="1">临树</option>
           <option value="2">临水</option>
           <option value="3">学校</option>
  
         </select>
-	</div>
+
 		
 </div>		
-<!-- search row3 end -->
+<!-- search row2 end -->
 
 
 
