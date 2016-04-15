@@ -83,7 +83,8 @@ $(document).on("pagecreate","#main",function(){
 
 
 <!-- 房源搜索列表开始 -->
-<div id="search_area"  class="ui-corner-all ui-mini">
+<div id="house-search"  class="search-area ui-mini">
+
 
 <!-- search province/city start -->
 <div data-role="controlgroup" data-type="horizontal"  >

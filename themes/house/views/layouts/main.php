@@ -43,10 +43,10 @@
 
     
 		</div> 
-		<div data-role="header" data-position="fixed" >
+		<div data-role="header" data-position="fixed" id="main_header" >
 			<div data-role="navbar" data-iconpos="left">
 			  <ul>
-				<li><a href="/" data-prefetch  >首页</a></li>
+				<li><a href="/" data-prefetch >首页</a></li>
 				<li><a href="index.php?r=mhouse/index&sr=Sale" rel="external" data-prefetch >二手房</a></li>
 				<li><a href="index.php?r=mhouse/index&sr=Lease" rel="external"  data-prefetch >出租</a></li>
 				<li><a href="#main_menu" >更多</a></li>
@@ -63,7 +63,7 @@
 		
 
 	<!-- foot开始 -->
-  <div data-role="footer" data-position="fixed" data-fullscreen="true" style="text-align:center;">
+  <div data-role="footer" data-position="fixed" data-fullscreen="true" style="text-align:center;" id="main_footer">
    		 
 		
 		<a href="/" data-transition="pop"  class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext

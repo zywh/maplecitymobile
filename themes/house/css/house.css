@@ -912,3 +912,10 @@ button[disabled],
 	outline-width: 1px;
 	outline-style: auto;
 }
+.search-area  .ui-btn {
+        padding:0;
+}
+[id=main_header] > .ui-navbar li {
+	font-size: 130%;
+}
+
