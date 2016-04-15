@@ -52,16 +52,17 @@
 
 	<!-- foot开始 -->
   <div data-role="footer" data-position="fixed" data-fullscreen="true" style="text-align:center;">
-   		 <div data-role="controlgroup" data-type="horizontal">
-			<a href="/" data-transition="pop"  class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext
+   		 
+		<a href="index.php" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
+		<a href="/" data-transition="pop"  class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext
 		">Home</a>
 			
 		
 		
 			<a href="index.php?r=mhouse/index" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-notext ui-btn-icon-left 
-		" data-prefetch id="topright">房源搜索</a>
+		" data-prefetch>房源搜索</a>
 		</div>
-		</div>
+		
   </div>
 
 
