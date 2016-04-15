@@ -14,13 +14,12 @@ function getURLParameter(name) {
 $(document).on("pagecreate","#main",function(){
 
 	
-    //sr = getURLParameter("sr"); 
-    console.log("sr = " + sr);
+    	//sr = getURLParameter("sr"); 
 	$("#srtext").text(sr);	
 	
 	var arr = $('select').map(function(){
 		  return this.value ;
-	  }).get().join(",")
+	}).get().join(",")
 	$("#pricetext").text(arr);  
 	  
 	//Start Select Change Event  
@@ -114,8 +113,7 @@ $(document).on("pagecreate","#main",function(){
 
 
 <!-- search row1 start -->
-<div class="ui-grid-b" >
-    <div class="ui-block-a">
+ <div data-role="controlgroup" data-type="horizontal" data-iconpos="noicon">
 		<select name="type" id="type" data-native-menu="false" >
 			<option >房型</option>
 			<option value="1" selected="selected">独栋别墅</option>
@@ -127,9 +125,7 @@ $(document).on("pagecreate","#main",function(){
 			<option value="7">空地</option>
 			<option value="8">其他</option>
 		</select>
-	</div>
 	
-	<div class="ui-block-b">
 		<select name="price" id="price" data-native-menu="false" >
 			<option >价格</option>
 			<option value="0-30" >30万以下</option>
@@ -141,9 +137,7 @@ $(document).on("pagecreate","#main",function(){
 			<option value="450-500" >450-600万</option>
 			<option value="600-0" >600以上</option>
 		</select>
-	</div>
 	
-	<div class="ui-block-c">
 		<select name="date" id="date" data-native-menu="false" >
 			<option > 挂牌时间 </option>
 			<option value="1" selected="selected">昨日挂牌</option>
@@ -152,7 +146,6 @@ $(document).on("pagecreate","#main",function(){
 			<option value="4">三个月</option>
 		
 		</select>	
-	</div>
 </div>
 <!-- search row1 end  -->
 
