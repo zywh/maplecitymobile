@@ -15,9 +15,11 @@
         <meta name="x5-orientation" content="portrait">
         <meta name="x5-fullscreen" content="true">
 
-	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/maplcity-mobile.min.css" />
+
 	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jquery.mobile.icons.min.css" />
-	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jquery.mobile.structure-1.4.5.min.css" />
+	
+	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jquery.mobile.structure-1.4.5.css" />
+	
 	<title> 加拿大房产_枫之都
 	</title>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>

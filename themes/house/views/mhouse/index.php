@@ -104,8 +104,9 @@ $(document).on("pagecreate","#main",function(){
 <!-- search province/city end  -->
 
 <!-- search row1 start -->
- <div data-role="controlgroup" data-type="horizontal"  >
-		<select name="type" id="type" data-native-menu="false" data-iconpos="noicon" >
+<div class="ui-grid-c" >
+    <div class="ui-block-a">
+		<select name="type" id="type" data-native-menu="false" data-iconpos="noicon" style=>
 			<option >房型</option>
 			<option value="1" selected="selected">独栋别墅</option>
 			<option value="2">联排别墅</option>
@@ -116,7 +117,8 @@ $(document).on("pagecreate","#main",function(){
 			<option value="7">空地</option>
 			<option value="8">其他</option>
 		</select>
-	
+	</div>
+	<div class="ui-block-b">	
 		<select name="price" id="price"  data-native-menu="false" data-iconpos="noicon">
 			<option >价格</option>
 			<option value="0-30" >30万以下</option>
@@ -128,7 +130,8 @@ $(document).on("pagecreate","#main",function(){
 			<option value="450-500" >450-600万</option>
 			<option value="600-0" >600以上</option>
 		</select>
-	
+	</div>
+	<div class="ui-block-c">	
 		<select name="date" id="date" data-native-menu="false" data-iconpos="noicon">
 			<option > 挂牌时间 </option>
 			<option value="1" selected="selected">昨日挂牌</option>
@@ -136,42 +139,39 @@ $(document).on("pagecreate","#main",function(){
 			<option value="3">一个月</option>
 			<option value="4">三个月</option>
 		
-		</select>	
+		</select>
+	</div>
+	<div class="ui-block-d">		
 		<select name="bedroom" id="bedroom" data-native-menu="false"  data-iconpos="noicon">
-                        <option >卧室</option>
-                        <option value="1"> &gt1 </option>
-                        <option value="2"> &gt2 </option>
-                        <option value="3"> &gt3 </option>
-                        <option value="4"> &gt4 </option>
-                        <option value="5"> &gt5 </option>
+			<option >卧室</option>
+			<option value="1"> &gt1 </option>
+			<option value="2"> &gt2 </option>
+			<option value="3"> &gt3 </option>
+			<option value="4"> &gt4 </option>
+			<option value="5"> &gt5 </option>
+		</select>
+	</div>
+	<div class="ui-block-a">	
 
-
-                </select>
 		<select name="washroom" id="washroom" data-native-menu="false" data-iconpos="noicon" >
 			<option > 洗手间</option>
 			<option value="1"> &gt1 </option>
 			<option value="2"> &gt2 </option>
 			<option value="3"> &gt3 </option>
 			<option value="4"> &gt4 </option>
-			
-			
-			
 		</select>
 
-
-	
-	  		<select name="year" id="year" data-native-menu="false" data-iconpos="noicon" >
+	</div>
+	<div class="ui-block-b">
+		<select name="year" id="year" data-native-menu="false" data-iconpos="noicon" >
 			<option >建造年份</option>
 			<option value="1" >0-5年</option>
 			<option value="2">5-15年</option>
 			<option value="3">15-30年</option>
 			<option value="4">30年以上</option>
-			
-		
 		</select>	
-	
-
-
+	</div>
+	<div class="ui-block-c">	
 		<select name="housearea" id="housearea" multiple="multiple" data-native-menu="false"  data-iconpos="noicon">
 			<option >房屋尺寸</option>
 			<option value="0-700" >700平方尺以下</option>
@@ -183,10 +183,9 @@ $(document).on("pagecreate","#main",function(){
 			<option value="3000-3500">3000-3500平方尺</option>
 			<option value="3500-4000">3500-4000平方尺</option>
 			<option value="4000-0">4000以上</option>
-
-
 		</select>
-	
+	</div>
+	<div class="ui-block-d">	
 		<select name="landarea" id="landarea" multiple="multiple" data-native-menu="false" data-iconpos="noicon">
 			<option >土地尺寸</option>
 			<option value="0-2000" >2000平方尺以下</option>
@@ -197,7 +196,8 @@ $(document).on("pagecreate","#main",function(){
 			<option value="435600-0">1英亩以上</option>
 		
 		</select>	
-	
+	</div>
+	<div class="ui-block-a">	
       
         <select name="features" id="features" multiple="multiple" data-native-menu="false" data-iconpos="noicon">
           <option >物业特点</option>
@@ -206,7 +206,7 @@ $(document).on("pagecreate","#main",function(){
           <option value="3">学校</option>
  
         </select>
-
+	</div>
 		
 </div>		
 <!-- search row2 end -->

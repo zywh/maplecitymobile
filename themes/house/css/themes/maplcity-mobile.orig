@@ -908,7 +908,4 @@ button[disabled],
 	outline-width: 1px;
 	outline-style: auto;
 }
-.ui-block-a, .ui-block-b, .ui-block-c ,.ui-block-d {
-    border: 1px solid;
-    text-align: center;
-}
+			
