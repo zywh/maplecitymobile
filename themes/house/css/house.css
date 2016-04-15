@@ -226,7 +226,7 @@ html .ui-bar-a .ui-bar-inherit,
 html .ui-body-a .ui-bar-inherit,
 html body .ui-group-theme-a .ui-bar-inherit {
 	background-color: #f6f6f6 /*{a-bar-background-color}*/;
-	border-color: #8c8c8c /*{a-bar-border}*/;
+	border-color: #e4dede /*{a-bar-border}*/;
 	color: #ff4000 /*{a-bar-color}*/;
 	text-shadow: 0 /*{a-bar-shadow-x}*/ 1px /*{a-bar-shadow-y}*/ 0 /*{a-bar-shadow-radius}*/ #eeeeee /*{a-bar-shadow-color}*/;
 	font-weight: bold;
@@ -915,7 +915,10 @@ button[disabled],
 .search-area  .ui-btn {
         padding:0;
 }
-[id=main_header] > .ui-navbar li {
-	font-size: 130%;
+.ui-header .ui-navbar li .ui-btn {
+	font-size: 15.5px;
 }
 
+.search-area .ui-select .ui-li-has-count.ui-btn {
+	padding-right:0;
+}

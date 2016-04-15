@@ -83,33 +83,36 @@ $(document).on("pagecreate","#main",function(){
 
 
 <!-- 房源搜索列表开始 -->
-<div id="house-search"  class="search-area ui-mini">
+<div id="house-search"  class="search-area">
 
 
 <!-- search province/city start -->
 <div data-role="controlgroup" data-type="horizontal"  >
-		<select name="province" id="province" data-native-menu="false" >
-			<option >省份</option>
-			<option value="3" selected="selected">安省</option>
-			<option value="4">BC省</option>
-			<option value="5">阿尔伯塔</option>
-			<option value="6">新不伦瑞克</option>
-			<option value="7">新斯科舍省</option>
-			<option value="8">爱德华王子岛省</option>
-			<option value="9">纽芬兰及拉布拉多</option>
-		</select>
+
 	
-		<ul id="citysearch" class="ui-shadow" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="输入城市 中/英文" data-filter-theme="a"  ></ul>
+		<ul id="citysearch" class="ui-shadow ui-mini" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="输入城市 中/英文" data-filter-theme="a"  ></ul>
 	
 </div>
 <!-- search province/city end  -->
 
 <!-- search row1 start -->
 <div class="ui-grid-c" >
-    <div class="ui-block-a">
+	<div class="ui-block-a">
+	<select name="province" id="province" data-native-menu="false" data-iconpos="noicon">
+		<option >省份</option>
+		<option value="3">安省</option>
+		<option value="4">BC省</option>
+		<option value="5">阿尔伯塔</option>
+		<option value="6">新不伦瑞克</option>
+		<option value="7">新斯科舍省</option>
+		<option value="8">爱德华王子岛省</option>
+		<option value="9">纽芬兰及拉布拉多</option>
+	</select>
+	</div>
+    <div class="ui-block-b">
 		<select name="type" id="type" data-native-menu="false" data-iconpos="noicon" style=>
 			<option >房型</option>
-			<option value="1" selected="selected">独栋别墅</option>
+			<option value="1" >独栋别墅</option>
 			<option value="2">联排别墅</option>
 			<option value="3">豪华公寓</option>
 			<option value="4">双拼别墅</option>
@@ -119,7 +122,7 @@ $(document).on("pagecreate","#main",function(){
 			<option value="8">其他</option>
 		</select>
 	</div>
-	<div class="ui-block-b">	
+	<div class="ui-block-c">	
 		<select name="price" id="price"  data-native-menu="false" data-iconpos="noicon">
 			<option >价格</option>
 			<option value="0-30" >30万以下</option>
@@ -132,16 +135,7 @@ $(document).on("pagecreate","#main",function(){
 			<option value="600-0" >600以上</option>
 		</select>
 	</div>
-	<div class="ui-block-c">	
-		<select name="date" id="date" data-native-menu="false" data-iconpos="noicon">
-			<option > 挂牌时间 </option>
-			<option value="1" selected="selected">昨日挂牌</option>
-			<option value="2">一周</option>
-			<option value="3">一个月</option>
-			<option value="4">三个月</option>
-		
-		</select>
-	</div>
+
 	<div class="ui-block-d">		
 		<select name="bedroom" id="bedroom" data-native-menu="false"  data-iconpos="noicon">
 			<option >卧室</option>
@@ -163,16 +157,8 @@ $(document).on("pagecreate","#main",function(){
 		</select>
 
 	</div>
-	<div class="ui-block-b">
-		<select name="year" id="year" data-native-menu="false" data-iconpos="noicon" >
-			<option >建造年份</option>
-			<option value="1" >0-5年</option>
-			<option value="2">5-15年</option>
-			<option value="3">15-30年</option>
-			<option value="4">30年以上</option>
-		</select>	
-	</div>
-	<div class="ui-block-c">	
+
+	<div class="ui-block-b">	
 		<select name="housearea" id="housearea" multiple="multiple" data-native-menu="false"  data-iconpos="noicon">
 			<option >房屋尺寸</option>
 			<option value="0-700" >700平方尺以下</option>
@@ -186,7 +172,7 @@ $(document).on("pagecreate","#main",function(){
 			<option value="4000-0">4000以上</option>
 		</select>
 	</div>
-	<div class="ui-block-d">	
+	<div class="ui-block-c">	
 		<select name="landarea" id="landarea" multiple="multiple" data-native-menu="false" data-iconpos="noicon">
 			<option >土地尺寸</option>
 			<option value="0-2000" >2000平方尺以下</option>
@@ -198,17 +184,9 @@ $(document).on("pagecreate","#main",function(){
 		
 		</select>	
 	</div>
-	<div class="ui-block-a">	
-      
-        <select name="features" id="features" multiple="multiple" data-native-menu="false" data-iconpos="noicon">
-          <option >物业特点</option>
-          <option value="1">临树</option>
-          <option value="2">临水</option>
-          <option value="3">学校</option>
- 
-        </select>
-	</div>
-		
+	<div class="ui-block-d">
+		<a href="/" class="ui-select ui-btn">更多</a>
+	</div>	
 </div>		
 <!-- search row2 end -->
 
