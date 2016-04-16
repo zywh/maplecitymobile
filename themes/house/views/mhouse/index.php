@@ -56,6 +56,8 @@ function update_houselist(options) {
 			//Display HouseList Start
 
 			$("#house_count").text(houseCount);
+	
+            total_groups = houseCount/pageSize; //page size
 			//$(".house_count").text(houseCount);
 								
 			var tableHtml = "";
@@ -87,6 +89,7 @@ function getFieldValues() {
 }
 
 var options = {};
+var pageSize = 10;
 var forIndex = 0;
 var Arrayindex = 0;
 var HouseArray = [];
@@ -94,7 +97,9 @@ var lenght = 1;
 var sr = '<?php echo $_GET['sr'];?>';
 var selectOptions;
 options['sr'] = sr;
-
+var track_load = 0; //total loaded record group(s)
+var loading  = false; //to prevents multipal ajax loads
+var total_groups = 1 ;
 
 $(document).on("pageshow","#page_main",function(){
 	
