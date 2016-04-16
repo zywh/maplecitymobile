@@ -1,6 +1,72 @@
 
 
 <script>
+function update_houselist(arg1){
+	$.ajax({
+		url: '/index.php?r=map/GetCitylocation',
+		type: 'POST', 
+		dataType: 'json', 
+		data: { 
+		city: arg1
+		},
+		success: function(result) {
+			var lat = result.Lat;
+			var lng = result.Lng;
+			$("#result_text").text(lat + ":" + lng);  
+
+		}
+	});
+			
+}
+
+function update_houselist_dev(arg1){
+	
+	//Ajax Start
+	$.ajax({
+		url: '/index.php?r=mhouse/SearchHouse',
+		type: 'POST', 
+		dataType: 'json', 
+		data: { 
+		city: arg1
+		},
+		//Success Start
+		success: function(result) {
+			//Result Loop Start
+			$(result.Data.MapHouseList).each(function(index) {
+				
+			}
+			//Result Loop End
+			
+			//Display HouseList Start
+			if (lenght == forIndex) {
+					//console.log("Build Left list");
+					//$(".Houses_count").text(HouseArray.length % 100 == 0 ? HouseArray.length + "+" : HouseArray.length);
+					//$(".house_count").text(HouseArray.length % 100 == 0 ? HouseArray.length + "+" : HouseArray.length);
+					$(".Houses_count").text(houseCount);
+					$(".house_count").text(houseCount);
+										
+					var tableHtml = "";
+					$.each(HouseArray, function(index) {
+						if (index < 10) {
+							if (HouseArray[index]) {
+								tableHtml = tableHtml + HouseArray[index];
+							}
+						}
+					});
+					if (Math.ceil(HouseArray.length / 10.00) < 1) {
+						$('#house_next').hide();
+					}
+					$("#ul_house_list").html(tableHtml);
+					pageIndex = 1;
+					$("#pageIndex").text(pageIndex);
+			}
+			//Display HouseList End
+		}
+		//Success End
+	});
+	//Ajax End
+			
+}
 
 
 var sr = '<?php echo $_GET['sr'];?>';
@@ -11,23 +77,19 @@ function getURLParameter(name) {
         (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
     );
 }
-/*
-$(document).on("pageshow","#page_main",function(event){
-  $("#header_sale").addClass('ui-btn-active'); //make it active
-  //$("#header_sale").text("test");
-}); 
-*/
+
+
+
 $(document).on("pageshow","#page_main",function(){
 	
 	
-    	//sr = getURLParameter("sr"); 
+    //sr = getURLParameter("sr"); 
 	if ( sr == "Sale"){
 		$("#header_sale").addClass('ui-btn-active'); //make it active
 	} else if ( sr == "Lease") {
 		$("#header_lease").addClass('ui-btn-active'); //make it active
 	}
-	//$("#srtext").text(sr);	
-	
+		
 	selectOptions = $('select').map(function(){
 		  return this.value ;
 	}).get().join(",")
@@ -41,9 +103,13 @@ $(document).on("pageshow","#page_main",function(){
 	  }).get().join(",")
 	 
 	  $("#pricetext").text(selectOptions);
+	  update_houselist("Mississauga");
 	  
 	});
-	//Start Select Change Event        
+	 
+	//Ajax Start
+	update_houselist("Toronto");
+	//Ajax End
 	
  
 });
@@ -214,6 +280,7 @@ $(document).on("pageshow","#page_main",function(){
 
 	Options:<p id="pricetext"></p>
 	Sale or Lease:<p id="srtext"></p>
+	Result:<p id="result_text"></p>
 	
 
 </div>
