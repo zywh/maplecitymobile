@@ -24,8 +24,6 @@ class MhouseController extends XFrontBase
         ini_set("error_log", "/tmp/php-error.log");
 
 
-        Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/house.css');
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/js/flowplayer-3.2.11.min.js');
 
         $cookies = Yii::app()->request->getCookies();
  
