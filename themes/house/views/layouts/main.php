@@ -34,38 +34,37 @@
 		$db = Yii::app()->db;
 	?>
 
-<div data-role="page" id="main" data-theme="a" data-dom-cache="true" data-title="枫之都-加拿大地产置业">
+<div data-role="page" id="page_main" data-theme="a" data-dom-cache="false" data-title="枫之都-加拿大地产置业">
+
 	<!-- head开始 -->
 		<div data-role="panel" id="main_menu" data-display="overlay" data-position-fixed="true">
 			<a href="/"  > <h3>首页</h3></a>
 		    <ul data-role="listview" data-inset="true" >
 				<li><a href="index.php?r=mhouse/index"  >房源查询</a></li>
 			</ul>
+   
+		</div>
 
-
-    
-		</div> 
+		
 		<div data-role="header" data-position="fixed" id="main_header" >
 			<div data-role="navbar" data-iconpos="left">
 			  <ul>
-				<li><a href="/" >首页</a></li>
-				<li><a href="index.php?r=mhouse/index&sr=Sale" rel="external" data-prefetch >二手房</a></li>
-				<li><a href="index.php?r=mhouse/index&sr=Lease" rel="external"  data-prefetch >出租</a></li>
-				<li><a href="#main_menu" >更多</a></li>
+				<li><a href="/" id="header_home" data-transition="pop" >首页</a></li>
+				<li><a href="index.php?r=mhouse/index&sr=Sale" id= "header_sale" data-transition="pop">二手房</a></li>
+				<li><a href="index.php?r=mhouse/index&sr=Lease" id="header_lease" data-transition="pop" >出租</a></li>
+				<li><a href="#main_menu" id="header_more">更多</a></li>
 			  </ul>
 			</div>
 		</div>
 	<!-- head结束 -->
 
 	<!-- body开始 -->
-		<div data-role="main" >
+	
 		<?php echo $content; ?>
-		</div>
+	
 	<!-- body结束 -->
-		
-
-	<!-- foot开始 -->
-  <div data-role="footer" data-position="fixed" data-fullscreen="true" style="text-align:center;" id="main_footer">
+	
+	<div data-role="footer" data-position="fixed" data-fullscreen="true" style="text-align:center;" id="main_footer">
    		 
 		
 		<a href="/" data-transition="pop"  class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext
@@ -85,12 +84,11 @@
 			
 		
 		
-		</div>
+	</div>
 		
-  </div>
+</div>		
 
 
-	<!-- foot结束 -->
 
 </div> 
 

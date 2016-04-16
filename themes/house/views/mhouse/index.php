@@ -12,8 +12,13 @@ function getURLParameter(name) {
     );
 }
 /*
-$(document).on("pagecreate","#main",function(){
+$(document).on("pageshow","#page_search",function(event){
+  $("#header_sale").addClass('ui-btn-active'); //make it active
+  $("#header_sale").text("test");
+}); 
 
+$(document).on("pagecreate","#page_search",function(){
+	
 	
     	//sr = getURLParameter("sr"); 
 	$("#srtext").text(sr);	
@@ -37,7 +42,8 @@ $(document).on("pagecreate","#main",function(){
 	
  
 });
-  */ 
+*/
+  
 </script>
 
 <?php
