@@ -11,7 +11,7 @@ function getURLParameter(name) {
         (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
     );
 }
-
+/*
 $(document).on("pagecreate","#main",function(){
 
 	
@@ -35,9 +35,9 @@ $(document).on("pagecreate","#main",function(){
 	});
 	//Start Select Change Event        
 	
-  
+ 
 });
-  
+  */ 
 </script>
 
 <?php
@@ -80,24 +80,9 @@ $(document).on("pagecreate","#main",function(){
 	
 ?> 
 
-
-
-<!-- 房源搜索列表开始 -->
-<div id="house-search"  class="search-area">
-
-
-<!-- search province/city start -->
-<div data-role="controlgroup" data-type="horizontal"  >
-
+<div data-role="panel" id="panel-city" data-display="overlay" data-position-fixed="true">
 	
-		<ul id="citysearch" class="ui-shadow ui-mini" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="输入城市 中/英文" data-filter-theme="a"  ></ul>
-	
-</div>
-<!-- search province/city end  -->
-
-<!-- search row1 start -->
-<div class="ui-grid-c" >
-	<div class="ui-block-a">
+	<ul id="citysearch" class="ui-shadow ui-mini" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="输入城市 中/英文" data-filter-theme="a"  ></ul>
 	<select name="province" id="province" data-native-menu="false" data-iconpos="noicon">
 		<option >省份</option>
 		<option value="3">安省</option>
@@ -107,7 +92,19 @@ $(document).on("pagecreate","#main",function(){
 		<option value="7">新斯科舍省</option>
 		<option value="8">爱德华王子岛省</option>
 		<option value="9">纽芬兰及拉布拉多</option>
-	</select>
+	</select>	
+
+</div>
+
+<!-- 房源搜索列表开始 -->
+<p></p>
+<div id="house-search"  class="search-area">
+
+
+<!-- search row1 start -->
+<div class="ui-grid-c" >
+	<div class="ui-block-a">
+		<a href="#panel-city" class="ui-select ui-btn">地区</a>
 	</div>
     <div class="ui-block-b">
 		<select name="type" id="type" data-native-menu="false" data-iconpos="noicon" style=>
@@ -205,8 +202,32 @@ $(document).on("pagecreate","#main",function(){
 <div id="house_list" data-role="main" class="ui-content">
 	Options:<p id="pricetext"></p>
 	Sale or Lease:<p id="srtext"></p>
+	
 
 </div>
+  <div data-role="panel" id="overlayPanel" data-display="overlay"> 
+    <h2>Overlay Panel</h2>
+    <p>You can close the panel by clicking outside the panel, pressing the Esc key, by swiping, or by clicking the button below:</p>
+    <a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left">Close panel</a>
+  </div> 
+  <div data-role="panel" id="revealPanel" data-display="reveal"> 
+    <h2>Reveal Panel</h2>
+    <p>You can close the panel by clicking outside the panel, pressing the Esc key, by swiping, or by clicking the button below:</p>
+    <a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left">Close panel</a>
+  </div> 
+   <div data-role="panel" id="pushPanel" data-display="push"> 
+    <h2>Push Panel</h2>
+    <p>You can close the panel by clicking outside the panel, pressing the Esc key, by swiping, or by clicking the button below:</p>
+    <a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left">Close panel</a>
+  </div> 
+
+  
+   <div data-role="main" class="ui-content">
+    <p>Click on one of the the buttons to open the Panel with different display modes.</p>
+    <a href="#overlayPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Overlay Panel</a>
+     <a href="#revealPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Reveal Panel</a>
+      <a href="#pushPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Push Panel</a>
+  </div>
 
 <!-- 房源列表结束 -->
 
