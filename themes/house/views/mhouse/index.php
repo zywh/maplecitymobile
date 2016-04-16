@@ -12,16 +12,21 @@ function getURLParameter(name) {
     );
 }
 /*
-$(document).on("pageshow","#page_search",function(event){
+$(document).on("pageshow","#page_main",function(event){
   $("#header_sale").addClass('ui-btn-active'); //make it active
-  $("#header_sale").text("test");
+  //$("#header_sale").text("test");
 }); 
-
-$(document).on("pagecreate","#page_search",function(){
+*/
+$(document).on("pageshow","#page_main",function(){
 	
 	
     	//sr = getURLParameter("sr"); 
-	$("#srtext").text(sr);	
+	if ( sr == "Sale"){
+		$("#header_sale").addClass('ui-btn-active'); //make it active
+	} else if ( sr == "Lease") {
+		$("#header_lease").addClass('ui-btn-active'); //make it active
+	}
+	//$("#srtext").text(sr);	
 	
 	selectOptions = $('select').map(function(){
 		  return this.value ;
@@ -42,7 +47,7 @@ $(document).on("pagecreate","#page_search",function(){
 	
  
 });
-*/
+
   
 </script>
 
@@ -206,34 +211,13 @@ $(document).on("pagecreate","#page_search",function(){
 <!-- 房源列表开始 --> 
 
 <div id="house_list" data-role="main" class="ui-content">
+
 	Options:<p id="pricetext"></p>
 	Sale or Lease:<p id="srtext"></p>
 	
 
 </div>
-  <div data-role="panel" id="overlayPanel" data-display="overlay"> 
-    <h2>Overlay Panel</h2>
-    <p>You can close the panel by clicking outside the panel, pressing the Esc key, by swiping, or by clicking the button below:</p>
-    <a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left">Close panel</a>
-  </div> 
-  <div data-role="panel" id="revealPanel" data-display="reveal"> 
-    <h2>Reveal Panel</h2>
-    <p>You can close the panel by clicking outside the panel, pressing the Esc key, by swiping, or by clicking the button below:</p>
-    <a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left">Close panel</a>
-  </div> 
-   <div data-role="panel" id="pushPanel" data-display="push"> 
-    <h2>Push Panel</h2>
-    <p>You can close the panel by clicking outside the panel, pressing the Esc key, by swiping, or by clicking the button below:</p>
-    <a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left">Close panel</a>
-  </div> 
 
-  
-   <div data-role="main" class="ui-content">
-    <p>Click on one of the the buttons to open the Panel with different display modes.</p>
-    <a href="#overlayPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Overlay Panel</a>
-     <a href="#revealPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Reveal Panel</a>
-      <a href="#pushPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Push Panel</a>
-  </div>
 
 <!-- 房源列表结束 -->
 

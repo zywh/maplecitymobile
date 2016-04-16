@@ -38,23 +38,26 @@
 
 	<!-- head开始 -->
 		<div data-role="panel" id="main_menu" data-display="overlay" data-position-fixed="true">
-			<a href="/"  > <h3>首页</h3></a>
+			<a href="/" data-ajax="false" > <h3>首页</h3></a>
 		    <ul data-role="listview" data-inset="true" >
 				<li><a href="index.php?r=mhouse/index"  >房源查询</a></li>
 			</ul>
    
 		</div>
-
 		
 		<div data-role="header" data-position="fixed" id="main_header" >
 			<div data-role="navbar" data-iconpos="left">
 			  <ul>
-				<li><a href="/" id="header_home" data-transition="pop" >首页</a></li>
-				<li><a href="index.php?r=mhouse/index&sr=Sale" id= "header_sale" data-transition="pop">二手房</a></li>
-				<li><a href="index.php?r=mhouse/index&sr=Lease" id="header_lease" data-transition="pop" >出租</a></li>
-				<li><a href="#main_menu" id="header_more">更多</a></li>
+				<li><a href="#main_menu" data-ajax="false" id="header_menu" data-icon="plus">菜单</a> </li>
+				<li><a href="/" data-ajax="false" id="header_home" data-icon="home">主页</a> </li>
+				<li><a href="index.php?r=mhouse/index&sr=Sale" id= "header_sale" data-icon="search" data-ajax="false">二手房</a></li>
+				<li><a href="index.php?r=mhouse/index&sr=Lease" id="header_lease" data-icon="search" data-ajax="false" >出租</a></li>
+				
 			  </ul>
 			</div>
+		
+		
+			
 		</div>
 	<!-- head结束 -->
 
