@@ -29,35 +29,19 @@ function update_houselist(options) {
 			//Result Loop Start
 			var houseCount = result.Data.Total;
 			$(result.Data.MapHouseList).each(function(index) {
-				console.log("Build House list HTML");
+				//console.log("Build House list HTML");
 					
-				var imgurl = "/" + this.CoverImg;
-
+				var hprice = ( sr == 'Lease' )? this.Price*10000 +'  加元/月' : Math.round(this.Price) +'  万加元';
 				
-				var hprice = ( type == 'rent' )? this.Price*10000 +'  加元/月' : Math.round(this.Price) +'  万加元';
-				//console.log(hprice);
-				var li = "<div class='fclist' onclick = window.open('<?php echo Yii::app()->createUrl('mhouse/view'); ?>&id=" + this.Id + "')"
-
-				+ " index='" + Arrayindex + "' type='" + (this.Beds > 0 ? this.Beds + "卧" : "") 
-				+ (this.Baths > 0 ? this.Baths + "卫 " : "") 
-				+ (this.Kitchen > 0 ? this.Kitchen + "厨" : "") 
-				+ "' Jd='" + this.Id 
-				+ "'  lat='" + this.GeocodeLat 
-				+ "' lng='" + this.GeocodeLng 
-				+ "' Address='" + this.Address 
-				+ "' imgurl='" + imgurl 
-				+ "' Price='" + hprice 
-				+ "' HouseType='" + this.HouseType 
-				+ "' Id='" + this.Id 
-				+ "' Country=" + this.Country 
-				+ " Zip=" + this.Zip 
-				+ " CountryName=" + this.CountryName 
-				+ " ProvinceEname=" + this.ProvinceEname 
-				+ " MunicipalityName=" + this.MunicipalityName 
-				+ " ProvinceCname=" + this.ProvinceCname 
-				+ " Money=" + this.Money 
-				+ " ><a href='javascript:;'><div class='fclistleft'><div class='house_pic'><img src='<?php echo Yii::app()->request->baseUrl; ?>" + imgurl + "' style='width:151px;height:116px' alt='" + this.MunicipalityName + "房产_" + this.Area2Name + "房产_" + this.MunicipalityName + this.Area2Name + this.HouseType + "房产' /></div></div><div class='fclistright'><div class='house_con2'><p class='house_no1 fc_title'><i>" + (Arrayindex + 1) + "</i><span>" + hprice + "</span></p><p>类型：" + this.HouseType + "</p><p>城市：" + this.MunicipalityName + "</p><p>地址：" + this.Address + "</p><p>户型：" + (this.Beds > 0 ? this.Beds + "卧" : "") + (this.Baths > 0 ? this.Baths + "卫 " : "") + (this.Kitchen > 0 ? this.Kitchen + "厨" : "") + "</p></div></div><div class='cl'></div></a></div>";
-
+				var li = "<li> " 
+				+ " <a href='<?php echo Yii::app()->createUrl('mhouse/view'); ?>&id=" + this.Id + "'>" 
+				+ "<img src='chrome.png'>" 
+				+ "<h2>Google Chrome</h2>" 
+				+ "<p>Google Chrome is a free, open-source web browser. Released in 2008.</p> " 
+				+ "</a></li>";
+				//console.log(li);
+					
+	
 				HouseArray[Arrayindex] = li;
 				Arrayindex++;
 			});
@@ -65,28 +49,20 @@ function update_houselist(options) {
 			
 			
 			//Display HouseList Start
-			if (lenght == forIndex) {
-				console.log("Build Left list");
-				//$(".Houses_count").text(HouseArray.length % 100 == 0 ? HouseArray.length + "+" : HouseArray.length);
-				//$(".house_count").text(HouseArray.length % 100 == 0 ? HouseArray.length + "+" : HouseArray.length);
-				$("#house_count").text(houseCount);
-				//$(".house_count").text(houseCount);
-									
-				var tableHtml = "";
-				$.each(HouseArray, function(index) {
-					if (index < 10) {
-						if (HouseArray[index]) {
-							tableHtml = tableHtml + HouseArray[index];
-						}
+
+			$("#house_count").text(houseCount);
+			//$(".house_count").text(houseCount);
+								
+			var tableHtml = "";
+			$.each(HouseArray, function(index) {
+				if (index < 10) {
+					if (HouseArray[index]) {
+						tableHtml = tableHtml + HouseArray[index];
 					}
-				});
-				//if (Math.ceil(HouseArray.length / 10.00) < 1) {
-				//	$('#house_next').hide();
-				//}
-				$("#house_list").html(tableHtml);
-				pageIndex = 1;
-				//$("#pageIndex").text(pageIndex);
-			}
+				}
+			});
+			$("#house_list").html(tableHtml).enhanceWithin();
+			pageIndex = 1;
 			//Display HouseList End
 			
 		}
@@ -102,12 +78,6 @@ function getFieldValues() {
         options[this.id] = this.value; //push value into options object
     });
     
-}
-
-function getURLParameter(name) {
-    return decodeURI(
-        (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
-    );
 }
 
 var options = {};
@@ -132,12 +102,15 @@ $(document).on("pageshow","#page_main",function(){
 	getFieldValues();
 	//$("#pricetext").text(options["sr"] + ":" +  options['type']);  
 	update_houselist(options);
+	//$('ul').listview('refresh');
 	
 	//Start Select Change Event  
 	$("select").change(function () {
 		getFieldValues(); //Get updated Select
-		//$("#pricetext").text(options["sr"] + ":" +  options['type']);  
+		//$("#pricetext").text(options["sr"] + ":" +  options['type']); 
+			console.log("Change Detected");
 		update_houselist(options);
+		//$('ul').listview('refresh');
 	  
 	});
 	 
@@ -151,45 +124,6 @@ $(document).on("pageshow","#page_main",function(){
   
 </script>
 
-<?php
-    $db = Yii::app()->db;
-    ini_set("log_errors", 1);
-	ini_set("error_log", "/tmp/php-error.log");
-	function get_firstimage($county,$ml_num){
-		
-		$county = preg_replace('/\s+/', '', $county);
-		$county = str_replace("&","",$county);
-		$dir="mlspic/crea/".$county."/Photo".$ml_num."/";
-		#$dir="mlspic/crea/creamid/".$county."/Photo".$ml_num."/";
-		$num_files = 0;
-		if(is_dir($dir)){
-			$picfiles = scandir($dir);
-			$num_files = count(scandir($dir))-2;
-		}
-		if ( $num_files >= 1)    {
-			return $dir.$picfiles[2];
-		}else { return 'static/images/zanwu.jpg';}
-	}
-	
-	function get_tn_image($county,$ml_num){
-		
-		$county = preg_replace('/\s+/', '', $county);
-		$county = str_replace("&","",$county);
-		$dir="mlspic/crea/creatn/".$county."/Photo".$ml_num."/";
-		$num_files = 0;
-		if(is_dir($dir)){
-			$picfiles = scandir($dir);
-			$num_files = count(scandir($dir))-2;
-		}
-		if ( $num_files >= 1)    {
-			
-			$s = implode(",",array_slice($picfiles,2,3)); //return 3 comma seperated list with offset 2 which is subdir . and ..
-			$s = str_replace("Photo",$dir."Photo",$s); // Insert DIR in front
-			return $s;
-		} else { return 'static/images/zanwu.jpg';}
-	}	
-	
-?> 
 
 <div data-role="panel" id="panel-city" data-display="overlay" data-position-fixed="true">
 	
@@ -310,18 +244,13 @@ $(document).on("pageshow","#page_main",function(){
 
 <!-- 房源列表开始 --> 
 
-<div id="house_total" >
-	Total House:<p id="house_count"></p>
+<div data-role="main" class="ui-content">
+    <h2>房源数目：<span id="house_count"> </span> </h2>
+    <ul data-role="listview" data-inset="true" id="house_list" >
+
+    </ul>
 </div>
-<div id="house_list" data-role="main" class="ui-content">
 
-
-	Options:<p id="pricetext"></p>
-	Sale or Lease:<p id="srtext"></p>
-	Result:<p id="result_text"></p>
-	
-
-</div>
 
 
 <!-- 房源列表结束 -->

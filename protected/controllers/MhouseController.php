@@ -166,7 +166,7 @@ class MhouseController extends XFrontBase
 			$county = $val->county;
 			$county = preg_replace('/\s+/', '', $county);
 			$county = str_replace("&","",$county);
-			$dir="mlspic/crea/creamid/".$county."/Photo".$val->ml_num."/";
+			$dir="mlspic/crea/".$county."/Photo".$val->ml_num."/";
 			error_log($dir);
 			$num_files = 0;
 
