@@ -48,10 +48,10 @@
 		<div data-role="header" data-position="fixed" id="main_header" >
 			<div data-role="navbar" data-iconpos="left">
 			  <ul>
-				<li><a href="#main_menu" data-ajax="false" id="header_menu" data-icon="plus">菜单</a> </li>
-				<li><a href="/" data-ajax="false" id="header_home" data-icon="home">主页</a> </li>
-				<li><a href="index.php?r=mhouse/index&sr=Sale" id= "header_sale" data-icon="search" data-ajax="false">二手房</a></li>
-				<li><a href="index.php?r=mhouse/index&sr=Lease" id="header_lease" data-icon="search" data-ajax="false" >出租</a></li>
+				<li><a href="#main_menu" data-ajax="false" id="header_menu" >菜单</a> </li>
+				<li><a href="/" data-ajax="false" id="header_home" >主页</a> </li>
+				<li><a href="index.php?r=mhouse/index&sr=Sale" id= "header_sale" data-ajax="false">二手房</a></li>
+				<li><a href="index.php?r=mhouse/index&sr=Lease" id="header_lease"  data-ajax="false" >出租</a></li>
 				
 			  </ul>
 			</div>

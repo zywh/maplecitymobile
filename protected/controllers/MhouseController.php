@@ -156,6 +156,7 @@ class MhouseController extends XFrontBase
 			$mapHouseList['CountryName'] = $val->municipality;
 			$mapHouseList['Zip'] = $val->zip;
 			$mapHouseList['Country'] = $val->city_id;
+			$mapHouseList['MlsNumber'] = $val->ml_num;
 			$mapHouseList['ProvinceEname'] = $val->county;
 			$mapHouseList['ProvinceCname'] = $val->city->name;
 			$mapHouseList['Money'] = 'CAD';
@@ -166,7 +167,7 @@ class MhouseController extends XFrontBase
 			$county = $val->county;
 			$county = preg_replace('/\s+/', '', $county);
 			$county = str_replace("&","",$county);
-			$dir="mlspic/crea/".$county."/Photo".$val->ml_num."/";
+			$dir="mlspic/crea/creatn/".$county."/Photo".$val->ml_num."/";
 			error_log($dir);
 			$num_files = 0;
 

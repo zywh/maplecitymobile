@@ -918,6 +918,9 @@ button[disabled],
 .ui-header .ui-navbar li .ui-btn {
 	font-size: 15.5px;
 }
+.ui-header .ui-btn {
+	border-style: none;
+}
 
 .search-area .ui-select .ui-li-has-count.ui-btn {
 	padding-right:0;

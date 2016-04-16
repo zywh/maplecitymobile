@@ -33,13 +33,17 @@ function update_houselist(options) {
 					
 				var hprice = ( sr == 'Lease' )? this.Price*10000 +'  加元/月' : Math.round(this.Price) +'  万加元';
 				
-				var li = "<li> " 
-				+ " <a href='<?php echo Yii::app()->createUrl('mhouse/view'); ?>&id=" + this.Id + "'>" 
-				+ "<img src='chrome.png'>" 
-				+ "<h2>Google Chrome</h2>" 
-				+ "<p>Google Chrome is a free, open-source web browser. Released in 2008.</p> " 
-				+ "</a></li>";
-				//console.log(li);
+				var li = "<li data-icon='mail'> " 
+				+ " <a data-ajax='false' href='<?php echo Yii::app()->createUrl('mhouse/view'); ?>&id=" + this.Id + "'>" 
+				+ "<img src=' " + this.CoverImg + "'>" 
+				+ "<h2>" + this.Address + "</h2>" 
+				+ "<p>" + hprice + "</p> " 
+				+ "</a>"
+				+ "<a href='mailto:info@maplecity.com.cn?subject=查询房源-" + this.MlsNumber + "'>"
+				+ "</a>"
+				
+				+"</li>";
+				
 					
 	
 				HouseArray[Arrayindex] = li;
@@ -61,7 +65,8 @@ function update_houselist(options) {
 					}
 				}
 			});
-			$("#house_list").html(tableHtml).enhanceWithin();
+			$("#house_list").html(tableHtml).listview('refresh');
+			
 			pageIndex = 1;
 			//Display HouseList End
 			
@@ -143,7 +148,7 @@ $(document).on("pageshow","#page_main",function(){
 
 <!-- 房源搜索列表开始 -->
 <p></p>
-<div id="house-search"  class="search-area">
+<div id="house-search"  class="search-area " >
 
 
 <!-- search row1 start -->
@@ -152,7 +157,7 @@ $(document).on("pageshow","#page_main",function(){
 		<a href="#panel-city" class="ui-select ui-btn">地区</a>
 	</div>
     <div class="ui-block-b">
-		<select name="type" id="type" data-native-menu="false" data-iconpos="noicon" style=>
+		<select name="type" id="type" data-corners="false" data-native-menu="false" data-iconpos="noicon" style=>
 			<option >房型</option>
 			<option value="1" >独栋别墅</option>
 			<option value="2">联排别墅</option>
@@ -165,7 +170,7 @@ $(document).on("pageshow","#page_main",function(){
 		</select>
 	</div>
 	<div class="ui-block-c">	
-		<select name="price" id="price"  data-native-menu="false" data-iconpos="noicon">
+		<select name="price" id="price" data-corners="false" data-native-menu="false" data-iconpos="noicon">
 			<option >价格</option>
 			<option value="0-30" >30万以下</option>
 			<option value="30-50" >30-50万</option>
@@ -179,7 +184,7 @@ $(document).on("pageshow","#page_main",function(){
 	</div>
 
 	<div class="ui-block-d">		
-		<select name="bedroom" id="bedroom" data-native-menu="false"  data-iconpos="noicon">
+		<select name="bedroom" id="bedroom" data-corners="false" data-native-menu="false"  data-iconpos="noicon">
 			<option >卧室</option>
 			<option value="1"> &gt1 </option>
 			<option value="2"> &gt2 </option>
@@ -190,7 +195,7 @@ $(document).on("pageshow","#page_main",function(){
 	</div>
 	<div class="ui-block-a">	
 
-		<select name="washroom" id="washroom" data-native-menu="false" data-iconpos="noicon" >
+		<select name="washroom" id="washroom"  data-corners="false" data-native-menu="false" data-iconpos="noicon" >
 			<option > 洗手间</option>
 			<option value="1"> &gt1 </option>
 			<option value="2"> &gt2 </option>
@@ -201,7 +206,7 @@ $(document).on("pageshow","#page_main",function(){
 	</div>
 
 	<div class="ui-block-b">	
-		<select name="housearea" id="housearea" multiple="multiple" data-native-menu="false"  data-iconpos="noicon">
+		<select name="housearea" id="housearea"  data-corners="false"  multiple="multiple" data-native-menu="false"  data-iconpos="noicon">
 			<option >房屋尺寸</option>
 			<option value="0-700" >700平方尺以下</option>
 			<option value="700-1100">700-1100平方尺</option>
@@ -215,7 +220,7 @@ $(document).on("pageshow","#page_main",function(){
 		</select>
 	</div>
 	<div class="ui-block-c">	
-		<select name="landarea" id="landarea" multiple="multiple" data-native-menu="false" data-iconpos="noicon">
+		<select name="landarea" id="landarea" multiple="multiple"  data-corners="false" data-native-menu="false" data-iconpos="noicon">
 			<option >土地尺寸</option>
 			<option value="0-2000" >2000平方尺以下</option>
 			<option value="2000-4000">2000-4000平方尺</option>
