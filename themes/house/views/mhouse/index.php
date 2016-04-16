@@ -31,18 +31,19 @@ function update_houselist(options) {
 			$(result.Data.MapHouseList).each(function(index) {
 				//console.log("Build House list HTML");
 					
-				var hprice = ( sr == 'Lease' )? this.Price*10000 +'  加元/月' : Math.round(this.Price) +'  万加元';
+				var hprice = ( sr == 'Lease' )? Math.round(this.Price*10000) +'  加元/月' : Math.round(this.Price) +'  万加元';
 				
-				var li = "<li data-icon='mail'> " 
+				var li = "<li data-icon='false'> " 
 				+ " <a data-ajax='false' href='<?php echo Yii::app()->createUrl('mhouse/view'); ?>&id=" + this.Id + "'>" 
 				+ "<img src=' " + this.CoverImg + "'>" 
-				+ "<h2>" + this.Address + "</h2>" 
+				+ "<h3>" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</h3>" 
+				+ "<p>" + this.Address + "," + this.MunicipalityName + "</p>" 
 				+ "<p>" + hprice + "</p> " 
 				+ "</a>"
-				+ "<a href='mailto:info@maplecity.com.cn?subject=查询房源-" + this.MlsNumber + "'>"
-				+ "</a>"
+				//+ "<a href='mailto:info@maplecity.com.cn?subject=查询房源-" + this.MlsNumber + "'>"
+				//+ "</a>"
 				
-				+"</li>";
+				+ "</li>";
 				
 					
 	
@@ -249,8 +250,8 @@ $(document).on("pageshow","#page_main",function(){
 
 <!-- 房源列表开始 --> 
 
-<div data-role="main" class="ui-content">
-    <h2>房源数目：<span id="house_count"> </span> </h2>
+<div data-role="main" class="house_preview ui-content">
+    <h3>房源数目：<span id="house_count"> </span> </h3>
     <ul data-role="listview" data-inset="true" id="house_list" >
 
     </ul>
