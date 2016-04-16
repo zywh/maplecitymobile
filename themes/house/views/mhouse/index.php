@@ -19,7 +19,7 @@ function update_houselist(arg1){
 			
 }
 
-function update_houselist_dev(arg1){
+function update_houselist_dev(arg1) {
 	
 	//Ajax Start
 	$.ajax({
@@ -33,34 +33,36 @@ function update_houselist_dev(arg1){
 		success: function(result) {
 			//Result Loop Start
 			$(result.Data.MapHouseList).each(function(index) {
-				
-			}
+				console.log("Build Left list");
+			});
 			//Result Loop End
+			
 			
 			//Display HouseList Start
 			if (lenght == forIndex) {
-					//console.log("Build Left list");
-					//$(".Houses_count").text(HouseArray.length % 100 == 0 ? HouseArray.length + "+" : HouseArray.length);
-					//$(".house_count").text(HouseArray.length % 100 == 0 ? HouseArray.length + "+" : HouseArray.length);
-					$(".Houses_count").text(houseCount);
-					$(".house_count").text(houseCount);
-										
-					var tableHtml = "";
-					$.each(HouseArray, function(index) {
-						if (index < 10) {
-							if (HouseArray[index]) {
-								tableHtml = tableHtml + HouseArray[index];
-							}
+				console.log("Build Left list");
+				//$(".Houses_count").text(HouseArray.length % 100 == 0 ? HouseArray.length + "+" : HouseArray.length);
+				//$(".house_count").text(HouseArray.length % 100 == 0 ? HouseArray.length + "+" : HouseArray.length);
+				$("#house_count").text(houseCount);
+				//$(".house_count").text(houseCount);
+									
+				var tableHtml = "";
+				$.each(HouseArray, function(index) {
+					if (index < 10) {
+						if (HouseArray[index]) {
+							tableHtml = tableHtml + HouseArray[index];
 						}
-					});
-					if (Math.ceil(HouseArray.length / 10.00) < 1) {
-						$('#house_next').hide();
 					}
-					$("#ul_house_list").html(tableHtml);
-					pageIndex = 1;
-					$("#pageIndex").text(pageIndex);
+				});
+				if (Math.ceil(HouseArray.length / 10.00) < 1) {
+					$('#house_next').hide();
+				}
+				$("#ul_house_list").html(tableHtml);
+				pageIndex = 1;
+				$("#pageIndex").text(pageIndex);
 			}
 			//Display HouseList End
+			
 		}
 		//Success End
 	});
@@ -276,7 +278,9 @@ $(document).on("pageshow","#page_main",function(){
 
 <!-- 房源列表开始 --> 
 
+<div id="house_count" ></div>
 <div id="house_list" data-role="main" class="ui-content">
+
 
 	Options:<p id="pricetext"></p>
 	Sale or Lease:<p id="srtext"></p>
