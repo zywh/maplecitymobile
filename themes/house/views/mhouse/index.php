@@ -31,9 +31,40 @@ function update_houselist_dev(arg1) {
 		},
 		//Success Start
 		success: function(result) {
+			forIndex++;
 			//Result Loop Start
 			$(result.Data.MapHouseList).each(function(index) {
-				console.log("Build Left list");
+				console.log("Build House list HTML");
+					
+				var imgurl = "/" + this.CoverImg;
+
+				
+				var hprice = ( type == 'rent' )? this.Price*10000 +'  加元/月' : Math.round(this.Price) +'  万加元';
+				//console.log(hprice);
+				var li = "<div class='fclist' onclick = window.open('<?php echo Yii::app()->createUrl('mhouse/view'); ?>&id=" + this.Id + "')"
+
+				+ " index='" + Arrayindex + "' type='" + (this.Beds > 0 ? this.Beds + "卧" : "") 
+				+ (this.Baths > 0 ? this.Baths + "卫 " : "") 
+				+ (this.Kitchen > 0 ? this.Kitchen + "厨" : "") 
+				+ "' Jd='" + this.Id 
+				+ "'  lat='" + this.GeocodeLat 
+				+ "' lng='" + this.GeocodeLng 
+				+ "' Address='" + this.Address 
+				+ "' imgurl='" + imgurl 
+				+ "' Price='" + hprice 
+				+ "' HouseType='" + this.HouseType 
+				+ "' Id='" + this.Id 
+				+ "' Country=" + this.Country 
+				+ " Zip=" + this.Zip 
+				+ " CountryName=" + this.CountryName 
+				+ " ProvinceEname=" + this.ProvinceEname 
+				+ " MunicipalityName=" + this.MunicipalityName 
+				+ " ProvinceCname=" + this.ProvinceCname 
+				+ " Money=" + this.Money 
+				+ " ><a href='javascript:;'><div class='fclistleft'><div class='house_pic'><img src='<?php echo Yii::app()->request->baseUrl; ?>" + imgurl + "' style='width:151px;height:116px' alt='" + this.MunicipalityName + "房产_" + this.Area2Name + "房产_" + this.MunicipalityName + this.Area2Name + this.HouseType + "房产' /></div></div><div class='fclistright'><div class='house_con2'><p class='house_no1 fc_title'><i>" + (Arrayindex + 1) + "</i><span>" + hprice + "</span></p><p>类型：" + this.HouseType + "</p><p>城市：" + this.MunicipalityName + "</p><p>地址：" + this.Address + "</p><p>户型：" + (this.Beds > 0 ? this.Beds + "卧" : "") + (this.Baths > 0 ? this.Baths + "卫 " : "") + (this.Kitchen > 0 ? this.Kitchen + "厨" : "") + "</p></div></div><div class='cl'></div></a></div>";
+
+				HouseArray[Arrayindex] = li;
+				Arrayindex++;
 			});
 			//Result Loop End
 			
@@ -54,12 +85,12 @@ function update_houselist_dev(arg1) {
 						}
 					}
 				});
-				if (Math.ceil(HouseArray.length / 10.00) < 1) {
-					$('#house_next').hide();
-				}
-				$("#ul_house_list").html(tableHtml);
+				//if (Math.ceil(HouseArray.length / 10.00) < 1) {
+				//	$('#house_next').hide();
+				//}
+				$("#house_list").html(tableHtml);
 				pageIndex = 1;
-				$("#pageIndex").text(pageIndex);
+				//$("#pageIndex").text(pageIndex);
 			}
 			//Display HouseList End
 			
