@@ -1,25 +1,8 @@
 
 
 <script>
-function update_houselist(arg1){
-	$.ajax({
-		url: '/index.php?r=map/GetCitylocation',
-		type: 'POST', 
-		dataType: 'json', 
-		data: { 
-		city: arg1
-		},
-		success: function(result) {
-			var lat = result.Lat;
-			var lng = result.Lng;
-			$("#result_text").text(lat + ":" + lng);  
 
-		}
-	});
-			
-}
-
-function update_houselist_dev(options) {
+function update_houselist(options) {
 	
 	//Ajax Start
 	$.ajax({
@@ -28,20 +11,23 @@ function update_houselist_dev(options) {
 		dataType: 'json', 
 		data: { 
 			sr : 	options['sr'],
-			housetype: options['type'],
-			houseprice: options['price'],
-			houseroom: options['bedroom'],
-			housebaths: options['washroom'],
-			househousearea: options['housearea'],
-			houselandarea: options['landarea'],
-			orderby: options['orderby'],
-			city: options['city]
+			page: options['page']
+			//housetype: options['type'],
+			//houseprice: options['price'],
+			//houseroom: options['bedroom'],
+			//housebaths: options['washroom'],
+			//househousearea: options['housearea'],
+			//houselandarea: options['landarea'],
+			//orderby: options['orderby'],
+			//city: options['city'],
+			
 			
 		},
 		//Success Start
 		success: function(result) {
 			forIndex++;
 			//Result Loop Start
+			var houseCount = result.Data.Total;
 			$(result.Data.MapHouseList).each(function(index) {
 				console.log("Build House list HTML");
 					
@@ -125,6 +111,10 @@ function getURLParameter(name) {
 }
 
 var options = {};
+var forIndex = 0;
+var Arrayindex = 0;
+var HouseArray = [];
+var lenght = 1;
 var sr = '<?php echo $_GET['sr'];?>';
 var selectOptions;
 options['sr'] = sr;
@@ -140,18 +130,19 @@ $(document).on("pageshow","#page_main",function(){
 	}
 		
 	getFieldValues();
-	$("#pricetext").text(options["sr"] + ":" +  options['type']);  
+	//$("#pricetext").text(options["sr"] + ":" +  options['type']);  
+	update_houselist(options);
 	
 	//Start Select Change Event  
 	$("select").change(function () {
 		getFieldValues(); //Get updated Select
-		$("#pricetext").text(options["sr"] + ":" +  options['type']);  
-		update_houselist("Mississauga");
+		//$("#pricetext").text(options["sr"] + ":" +  options['type']);  
+		update_houselist(options);
 	  
 	});
 	 
 	//Ajax Start
-	update_houselist("Toronto");
+	//update_houselist("Toronto");
 	//Ajax End
 	
  
@@ -319,7 +310,9 @@ $(document).on("pageshow","#page_main",function(){
 
 <!-- 房源列表开始 --> 
 
-<div id="house_count" ></div>
+<div id="house_total" >
+	Total House:<p id="house_count"></p>
+</div>
 <div id="house_list" data-role="main" class="ui-content">
 
 

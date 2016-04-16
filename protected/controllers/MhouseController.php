@@ -31,7 +31,9 @@ class MhouseController extends XFrontBase
 		$criteria = new CDbCriteria();
 		$criteria->select = 'ml_num,zip,county,municipality,lp_dol,num_kit,construction_year,depth,front_ft,br,addr,house_image,longitude,latitude,area,bath_tot';
 
+
 		//Search By Lease or Sale
+		
 		if ($_POST['sr'] == "Lease" )  {
 			$criteria->addCondition('s_r = "Lease"');
 			$ss = " AND s_r = 'Lease' ";
@@ -118,8 +120,13 @@ class MhouseController extends XFrontBase
 
 
 		$criteria->with = array('mname','propertyType','city');
+		$count = House::model()->count($criteria);
 		$pager = new CPagination($count);
 		$pager->pageSize = 10;
+		if (!empty($_POST['page'])) {
+			$pager->currentPage = $_POST['page'];
+		}
+		
 		$pager->applyLimit($criteria);
 		//End of Criteria
 		
@@ -129,7 +136,7 @@ class MhouseController extends XFrontBase
 
 
 		$house = House::model()->findAll($criteria);
-		$totalcount = count($house);
+		$totalcount = $count;
 		$result['Data']['Total'] = $totalcount;
 		$result['Message'] = '成功';
 
@@ -159,7 +166,8 @@ class MhouseController extends XFrontBase
 			$county = $val->county;
 			$county = preg_replace('/\s+/', '', $county);
 			$county = str_replace("&","",$county);
-			$dir="mlspic/crea/".$county."/Photo".$val->ml_num."/";
+			$dir="mlspic/crea/creamid/".$county."/Photo".$val->ml_num."/";
+			error_log($dir);
 			$num_files = 0;
 
 			if(is_dir($dir)){
@@ -168,14 +176,13 @@ class MhouseController extends XFrontBase
 			}
 			//error_log($county.":".$dir);
 
-			if ( $num_files > 1)    {
+			if ( $num_files > 0)    {
 				$mapHouseList['CoverImg'] = $dir.$picfiles[2];
 			}else {
 				$mapHouseList['CoverImg'] = 'uploads/201501/29cd77e5f187df554a1ff9facdc190e2.jpg';
 			}
 
 
-			//$mapHouseList['CoverImg'] = !empty($val->house_image) ? $val->house_image : 'uploads/201501/29cd77e5f187df554a1ff9facdc190e2.jpg';
 			$mapHouseList['BuildYear'] = $val->yr_built;
 			$result['Data']['MapHouseList'][] = $mapHouseList;
 
