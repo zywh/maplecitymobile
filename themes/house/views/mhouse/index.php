@@ -19,7 +19,7 @@ function update_houselist(arg1){
 			
 }
 
-function update_houselist_dev(arg1) {
+function update_houselist_dev(options) {
 	
 	//Ajax Start
 	$.ajax({
@@ -27,7 +27,16 @@ function update_houselist_dev(arg1) {
 		type: 'POST', 
 		dataType: 'json', 
 		data: { 
-		city: arg1
+			sr : 	options['sr'],
+			housetype: options['type'],
+			houseprice: options['price'],
+			houseroom: options['bedroom'],
+			housebaths: options['washroom'],
+			househousearea: options['housearea'],
+			houselandarea: options['landarea'],
+			orderby: options['orderby'],
+			city: options['city]
+			
 		},
 		//Success Start
 		success: function(result) {
@@ -101,9 +110,13 @@ function update_houselist_dev(arg1) {
 			
 }
 
-
-var sr = '<?php echo $_GET['sr'];?>';
-var selectOptions;
+function getFieldValues() {
+   
+    $('select').each(function() {
+        options[this.id] = this.value; //push value into options object
+    });
+    
+}
 
 function getURLParameter(name) {
     return decodeURI(
@@ -111,32 +124,29 @@ function getURLParameter(name) {
     );
 }
 
+var options = {};
+var sr = '<?php echo $_GET['sr'];?>';
+var selectOptions;
+options['sr'] = sr;
 
 
 $(document).on("pageshow","#page_main",function(){
 	
 	
-    //sr = getURLParameter("sr"); 
-	if ( sr == "Sale"){
-		$("#header_sale").addClass('ui-btn-active'); //make it active
+  	if ( sr == "Sale"){
+		$("#header_sale").addClass('ui-btn-active'); //make Sales Header active
 	} else if ( sr == "Lease") {
-		$("#header_lease").addClass('ui-btn-active'); //make it active
+		$("#header_lease").addClass('ui-btn-active'); //make Lease Header active
 	}
 		
-	selectOptions = $('select').map(function(){
-		  return this.value ;
-	}).get().join(",")
+	getFieldValues();
+	$("#pricetext").text(options["sr"] + ":" +  options['type']);  
 	
-	$("#pricetext").text(selectOptions);  
-	  
 	//Start Select Change Event  
 	$("select").change(function () {
-	selectOptions = $('select').map(function(){
-		  return this.value ;
-	  }).get().join(",")
-	 
-	  $("#pricetext").text(selectOptions);
-	  update_houselist("Mississauga");
+		getFieldValues(); //Get updated Select
+		$("#pricetext").text(options["sr"] + ":" +  options['type']);  
+		update_houselist("Mississauga");
 	  
 	});
 	 
