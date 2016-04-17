@@ -4,6 +4,7 @@
 
 function update_houselist(options) {
 	
+	loading = true; //prevent further ajax loading
 	//Ajax Start
 	$.ajax({
 		url: '/index.php?r=mhouse/SearchHouse',
@@ -11,11 +12,11 @@ function update_houselist(options) {
 		dataType: 'json', 
 		data: { 
 			sr : 	options['sr'],
-			page: options['page']
-			//housetype: options['type'],
+			pageindex: options['pageindex'],
+			housetype: options['type'],
 			//houseprice: options['price'],
-			//houseroom: options['bedroom'],
-			//housebaths: options['washroom'],
+			houseroom: options['bedroom'],
+			housebaths: options['washroom']
 			//househousearea: options['housearea'],
 			//houselandarea: options['landarea'],
 			//orderby: options['orderby'],
@@ -36,9 +37,9 @@ function update_houselist(options) {
 				var li = "<li data-icon='false'> " 
 				+ " <a data-ajax='false' href='<?php echo Yii::app()->createUrl('mhouse/view'); ?>&id=" + this.Id + "'>" 
 				+ "<img src=' " + this.CoverImg + "'>" 
-				+ "<h3>" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</h3>" 
+				+ "<h3>" + this.HouseType + ":" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</h3>" 
 				+ "<p>" + this.Address + "," + this.MunicipalityName + "</p>" 
-				+ "<p>" + hprice + "</p> " 
+				+ "<p>价钱:"  + hprice + "</p> " 
 				+ "</a>"
 				//+ "<a href='mailto:info@maplecity.com.cn?subject=查询房源-" + this.MlsNumber + "'>"
 				//+ "</a>"
@@ -73,6 +74,8 @@ function update_houselist(options) {
 				$("#house_list").html(tableHtml).listview('refresh');
 			} else {
 				$("#house_list").append(tableHtml).listview('refresh');
+				$('.animation_image').hide(); //show loading image
+				loading = false; //prevent further ajax loading
 			}
 			
 			
@@ -103,7 +106,7 @@ var loading  = false; //to prevents multipal ajax loads
 var total_groups = 1 ;
 
 options['sr'] = sr;
-options['page'] = page;
+options['pageindex'] = page;
 
 $(document).on("pageshow","#page_main",function(){
 	
@@ -123,7 +126,7 @@ $(document).on("pageshow","#page_main",function(){
 	$("select").change(function () {
 		getFieldValues(); //Get updated Select
 		//$("#pricetext").text(options["sr"] + ":" +  options['type']); 
-			console.log("Change Detected");
+		
 		update_houselist(options);
 		//$('ul').listview('refresh');
 	  
@@ -135,14 +138,16 @@ $(document).on("pageshow","#page_main",function(){
 		if($(document).height() > $(window).height()) {
 			if($(window).scrollTop() == $(document).height() - $(window).height()){
 			  //alert("The Bottom");
-			  loading = true; //prevent further ajax loading
+			  
+			  if ( loading == false ) {
+			  
               $('.animation_image').show(); //show loading image
 			  ++page;
-			  options["[page]"] = page;
+			  console.log("Refresh Page:" + page);
+			  options["pageindex"] = page;
 			  update_houselist(options);
-			  
-			  $('.animation_image').show(); //show loading image
-			  loading = false; //prevent further ajax loading
+			  }
+
 		 
 		   }
 		}

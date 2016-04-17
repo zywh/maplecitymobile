@@ -25,7 +25,7 @@ class MhouseController extends XFrontBase
 		ini_set("error_log", "/tmp/php-error.log");
 		
 		$result = array();
-		error_log($_POST['sr'],$_POST['housetype']);
+		error_log($_POST['sr'].$_POST['housetype'].$_POST['pageindex']);
 
 		//根据条件查询地图
 		$criteria = new CDbCriteria();
@@ -112,8 +112,8 @@ class MhouseController extends XFrontBase
 		}
 
 		//房屋类型
-		if (!empty($_POST['housetype']) && intval($_POST['housetype']) != 0) {
-			$criteria->addSearchCondition('propertyType_id',$_POST['housetype']);
+		if (!empty($_POST['housetype']) && intval($_POST['housetype']) > 0) {
+			$criteria->addCondition("propertyType_id =".$_POST['housetype']);
 			$ss = $ss." AND propertyType_id = ".$_POST['housetype'];
 		}
 
@@ -123,8 +123,8 @@ class MhouseController extends XFrontBase
 		$count = House::model()->count($criteria);
 		$pager = new CPagination($count);
 		$pager->pageSize = 10;
-		if (!empty($_POST['page'])) {
-			$pager->currentPage = $_POST['page'];
+		if (!empty($_POST['pageindex'])) {
+			$pager->currentPage = $_POST['pageindex'];
 		}
 		
 		$pager->applyLimit($criteria);
@@ -161,26 +161,26 @@ class MhouseController extends XFrontBase
 			$mapHouseList['ProvinceCname'] = $val->city->name;
 			$mapHouseList['Money'] = 'CAD';
 			//$area2Name = District::model()->findByPk($val->district_id);
-			$mapHouseList['Area2Name'] = !empty($area2Name) ? $area2Name->name : '';
+			
 			//Get image from county
 			
 			$county = $val->county;
 			$county = preg_replace('/\s+/', '', $county);
 			$county = str_replace("&","",$county);
 			$dir="mlspic/crea/creatn/".$county."/Photo".$val->ml_num."/";
-			error_log($dir);
+			
 			$num_files = 0;
 
 			if(is_dir($dir)){
 				$picfiles =  scandir($dir);
 				$num_files = count(scandir($dir))-2;
 			}
-			//error_log($county.":".$dir);
+			
 
 			if ( $num_files > 0)    {
 				$mapHouseList['CoverImg'] = $dir.$picfiles[2];
 			}else {
-				$mapHouseList['CoverImg'] = 'uploads/201501/29cd77e5f187df554a1ff9facdc190e2.jpg';
+				$mapHouseList['CoverImg'] = 'static/images/zanwu.jpg';
 			}
 
 
