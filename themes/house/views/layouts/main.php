@@ -38,14 +38,19 @@
 
 	<!-- head开始 -->
 		<div data-role="panel" id="main_menu" data-display="overlay" data-position-fixed="true">
-			<a href="/" data-ajax="false" > <h3>首页</h3></a>
-		    <ul data-role="listview" data-inset="true" >
-				<li><a href="index.php?r=mhouse/index"  >房源查询</a></li>
+			
+			<ul data-role="listview" data-inset="true">
+			    <li data-icon="custom" id="skull"><a href="#">custom-icon</a></li>
+			    <li data-icon="delete"><a href="#">data-icon="delete"</a></li>
+			    <li data-icon="gear"><a href="#">data-icon="gear"</a></li>
+			    <li data-icon="info"><a href="#">data-icon="info"</a></li>
+			    <li data-icon="false"><a href="#">data-icon="false"</a></li>
 			</ul>
+			
    
 		</div>
 		
-		<div data-role="header" data-position="fixed" data-fullscreen="true" class="main_header " id="main_header" data-theme="b" >
+		<div data-role="header" data-position="fixed"  class="main_header " id="main_header" data-theme="b" >
 			
 			<!-- Navbar as Header 
 			<div data-role="navbar" data-iconpos="left">
