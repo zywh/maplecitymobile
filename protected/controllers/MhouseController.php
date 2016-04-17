@@ -47,18 +47,9 @@ class MhouseController extends XFrontBase
 		  <span data-value="3">日期：从后到前</span>
 		  <span data-value="4">日期：从前到后</span>
 		 */
+		$criteria->order = 'pix_updt DESC,city_id ASC,lp_dol DESC';
 
-		if ($_POST['orderby'] == 1) {
-			$criteria->order = 't.lp_dol desc';
-		} else if ($_POST['orderby'] == 2) {
-			$criteria->order = 't.lp_dol asc';
-		} else if ($_POST['orderby'] == 3) {
-			$criteria->order = 't.construction_year asc';
-		} else if ($_POST['orderby'] == 4) {
-			$criteria->order = 't.construction_year desc';
-		} else {
-			$criteria->order = 't.id desc';
-		}
+
 
 
 		//卫生间数量 1-5
