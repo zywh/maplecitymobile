@@ -55,7 +55,7 @@ function update_houselist(options) {
 			
 			//Display HouseList Start
 
-			$("#house_count").text(houseCount);
+			$("#house_count").text(houseCount + ":" + page);
 	
             total_groups = houseCount/pageSize; //page size
 			//$(".house_count").text(houseCount);
@@ -68,10 +68,13 @@ function update_houselist(options) {
 					}
 				}
 			});
-			$("#house_list").html(tableHtml).listview('refresh');
 			
-			pageIndex = 1;
-			//Display HouseList End
+			if ( options["page"] = 0){
+				$("#house_list").html(tableHtml).listview('refresh');
+			} else {
+				$("#house_list").append(tableHtml).listview('refresh');
+			}
+			
 			
 		}
 		//Success End
@@ -95,11 +98,12 @@ var Arrayindex = 0;
 var HouseArray = [];
 var lenght = 1;
 var sr = '<?php echo $_GET['sr'];?>';
-var selectOptions;
-options['sr'] = sr;
-var track_load = 0; //total loaded record group(s)
+var page = 0; //total loaded page zero for first page
 var loading  = false; //to prevents multipal ajax loads
 var total_groups = 1 ;
+
+options['sr'] = sr;
+options['page'] = page;
 
 $(document).on("pageshow","#page_main",function(){
 	
@@ -128,14 +132,21 @@ $(document).on("pageshow","#page_main",function(){
 
 	//Detect scroll to bottom
 	$(window).scroll(function(){
-    if($(document).height() > $(window).height())
-    {
-        if($(window).scrollTop() == $(document).height() - $(window).height()){
-          alert("The Bottom");
-     
-	   }
-    }
-});
+		if($(document).height() > $(window).height()) {
+			if($(window).scrollTop() == $(document).height() - $(window).height()){
+			  //alert("The Bottom");
+			  loading = true; //prevent further ajax loading
+              $('.animation_image').show(); //show loading image
+			  ++page;
+			  options["[page]"] = page;
+			  update_houselist(options);
+			  
+			  $('.animation_image').show(); //show loading image
+			  loading = false; //prevent further ajax loading
+		 
+		   }
+		}
+	});
  
 });
 
@@ -261,16 +272,19 @@ $(document).on("pageshow","#page_main",function(){
 <!-- 地图结束 -->
 
 <!-- 房源列表开始 --> 
-
 <div data-role="main" class="house_preview ui-content">
     <h3>房源数目：<span id="house_count"> </span> </h3>
     <ul data-role="listview" data-inset="true" id="house_list" >
 
     </ul>
 </div>
-
-
-
 <!-- 房源列表结束 -->
 
+<!-- 下一页装载进程图标开始 --> 
 
+<div class="animation_image" style="display:none" align="center">
+	<img src="static/images/ajax-loader2.gif">
+<div>
+
+</div>
+<!-- 下一页装载进程图标结束 --> 
