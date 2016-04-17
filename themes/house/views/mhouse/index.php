@@ -80,7 +80,7 @@ function update_houselist(options) {
 				console.log("Append Page index:" + page);
 				$("#house_list").append(tableHtml).listview('refresh');
 				$('.animation_image').hide(); //show loading image
-				//loading = false; //prevent further ajax loading
+				loading = false; 
 			}
 			
 			
