@@ -30,7 +30,6 @@ function update_houselist(options) {
 			forIndex++;
 			//Result Loop Start
 			var houseCount = result.Data.Total;
-			var tableHtml = "";
 			$(result.Data.MapHouseList).each(function(index) {
 				//console.log("Build House list HTML");
 					
@@ -48,10 +47,10 @@ function update_houselist(options) {
 				
 				+ "</li>";
 				
-				tableHtml = tableHtml + li;	
+					
 	
-				//HouseArray[Arrayindex] = li;
-				//Arrayindex++;
+				HouseArray[Arrayindex] = li;
+				Arrayindex++;
 			});
 			//Result Loop End
 			
@@ -59,7 +58,7 @@ function update_houselist(options) {
 			//Display HouseList Start
 
 			$("#house_count").text(houseCount + ":" + page);
-			/*
+	
             var tableHtml = "";
 			$.each(HouseArray, function(index) {
 				
@@ -67,15 +66,19 @@ function update_houselist(options) {
 			
 			});
 			
-			*/
+			
 			if ( page == "0" ){
-				//console.log("Refresh Page index:" + page);
-				//console.log(tableHtml);
+				console.log("Refresh Page index:" + page);
 				$("#house_list").html(tableHtml).promise().done(function () {
 				  $("#house_list").listview().listview('refresh');
 				});
-				
-
+				/*
+				$('#house_list').empty();
+				$('#house_list').append(tableHtml);
+				$('#house_list').trigger('create');
+				$('#house_list').listview('refresh');
+				$('#house_list ul').listview('refresh');
+				*/
 			} else {
 				console.log("Append Page index:" + page);
 				$("#house_list").append(tableHtml).listview('refresh');
@@ -284,7 +287,7 @@ $(document).on("pageshow","#page_main",function(){
 
 <!-- 房源列表开始 --> 
 <div data-role="main" class="house_preview ui-content">
-    <span>房源数目:</span><span id="house_count"> </span> 
+    <h3>房源数目：<span id="house_count"> </span> </h3>
     <ul data-role="listview" data-inset="true" data-filter="true" id="house_list" >
 
     </ul>
