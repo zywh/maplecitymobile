@@ -125,10 +125,17 @@ $(document).on("pageshow","#page_main",function(){
 	  
 	});
 	 
-	//Ajax Start
-	//update_houselist("Toronto");
-	//Ajax End
-	
+
+	//Detect scroll to bottom
+	$(window).scroll(function(){
+    if($(document).height() > $(window).height())
+    {
+        if($(window).scrollTop() == $(document).height() - $(window).height()){
+          alert("The Bottom");
+     
+	   }
+    }
+});
  
 });
 
