@@ -24,6 +24,7 @@ function update_houselist(options) {
 			
 			
 		},
+
 		//Success Start
 		success: function(result) {
 			forIndex++;
@@ -58,21 +59,28 @@ function update_houselist(options) {
 
 			$("#house_count").text(houseCount + ":" + page);
 	
-            total_groups = houseCount/pageSize; //page size
-			//$(".house_count").text(houseCount);
-								
-			var tableHtml = "";
+            var tableHtml = "";
 			$.each(HouseArray, function(index) {
-				if (index < 10) {
-					if (HouseArray[index]) {
-						tableHtml = tableHtml + HouseArray[index];
-					}
-				}
+				
+				tableHtml = tableHtml + HouseArray[index];
+			
 			});
 			
-			if ( options["page"] = 0){
-				$("#house_list").html(tableHtml).listview('refresh');
+			
+			if ( page == "0" ){
+				console.log("Refresh Page index:" + page);
+				$("#house_list").html(tableHtml).promise().done(function () {
+				  $(this).attr("data-role", "list view").listview().listview('refresh');
+				});
+				/*
+				$('#house_list').empty();
+				$('#house_list').append(tableHtml);
+				$('#house_list').trigger('create');
+				$('#house_list').listview('refresh');
+				$('#house_list ul').listview('refresh');
+				*/
 			} else {
+				console.log("Append Page index:" + page);
 				$("#house_list").append(tableHtml).listview('refresh');
 				$('.animation_image').hide(); //show loading image
 				loading = false; //prevent further ajax loading
@@ -128,7 +136,9 @@ $(document).on("pageshow","#page_main",function(){
 		//$("#pricetext").text(options["sr"] + ":" +  options['type']); 
 		
 		update_houselist(options);
-		//$('ul').listview('refresh');
+		$('ul').listview('refresh');
+		$('#house_list').empty();
+		$('#house_list').empty();
 	  
 	});
 	 
@@ -279,7 +289,7 @@ $(document).on("pageshow","#page_main",function(){
 <!-- 房源列表开始 --> 
 <div data-role="main" class="house_preview ui-content">
     <h3>房源数目：<span id="house_count"> </span> </h3>
-    <ul data-role="listview" data-inset="true" id="house_list" >
+    <ul data-role="listview" data-inset="true" data-filter="true" id="house_list" >
 
     </ul>
 </div>

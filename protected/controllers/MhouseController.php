@@ -25,7 +25,7 @@ class MhouseController extends XFrontBase
 		ini_set("error_log", "/tmp/php-error.log");
 		
 		$result = array();
-		error_log($_POST['sr'].$_POST['housetype'].$_POST['pageindex']);
+		error_log($_POST['sr'].$_POST['housetype'].$_POST['pageindex']."br:".$_POST['houseroom']);
 
 		//根据条件查询地图
 		$criteria = new CDbCriteria();
@@ -63,7 +63,7 @@ class MhouseController extends XFrontBase
 
 		//卫生间数量 1-5
 		if (!empty($_POST['housebaths']) && intval($_POST['housebaths']) > 0) {
-			$criteria->addCondition("t.bath_tot = :bath_tot");
+			$criteria->addCondition("t.bath_tot > :bath_tot");
 			$criteria->params += array(':bath_tot' => intval($_POST['housebaths']));
 			$ss = $ss." AND bath_tot = ".$_POST['housebaths'];
 		}
@@ -103,11 +103,7 @@ class MhouseController extends XFrontBase
 		//Bedroom
 		if (!empty($_POST['houseroom']) && intval($_POST['houseroom']) > 0) {
 			$houseroom = intval($_POST['houseroom']);
-			if ($houseroom == '6') {
-				$criteria->addCondition("t.br >= :br");
-			} else if ($houseroom > 0) {
-				$criteria->addCondition("t.br = :br");
-			}
+			$criteria->addCondition("t.br > :br");
 			$criteria->params += array(':br' => $houseroom);
 		}
 
@@ -143,6 +139,7 @@ class MhouseController extends XFrontBase
 		foreach ($house as $val) {
 			$mapHouseList = array();
 			$mapHouseList['Beds'] = $val->br;
+			error_log($val->br."mls:".$val->ml_num);
 			$mapHouseList['Baths'] = $val->bath_tot;
 			$mapHouseList['Kitchen'] = $val->num_kit;
 			$mapHouseList['GeocodeLat'] = $val->latitude;
