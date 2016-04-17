@@ -45,7 +45,7 @@
    
 		</div>
 		
-		<div data-role="header" data-position="fixed" class="main_header" id="main_header" data-theme="b" >
+		<div data-role="header" data-position="fixed" data-fullscreen="true" class="main_header " id="main_header" data-theme="b" >
 			
 			<!-- Navbar as Header 
 			<div data-role="navbar" data-iconpos="left">
@@ -66,10 +66,10 @@
 				<li><a href="/" data-ajax="false" id="header_home" ></a> </li>
 				
 				<li>
-				    <select id="sr111" name="select_sr" data-role="flipswitch"  data-mini="true">
-				        <option value="Lease">租</option>
-				        <option value="Sale" >售</option>
-			    	</select>
+				  
+				</li>
+				<li>
+				  
 				</li>
 				
 			  </ul>
