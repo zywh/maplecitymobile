@@ -32,7 +32,7 @@ function update_houselist(options) {
 			var houseCount = result.Data.Total;
 			var tableHtml = "";
 			$(result.Data.MapHouseList).each(function(index) {
-				//console.log("Build House list HTML");
+				
 					
 				var hprice = ( sr == 'Lease' )? Math.round(this.Price*10000) +'  加元/月' : Math.round(this.Price) +'  万加元';
 				
@@ -70,7 +70,7 @@ function update_houselist(options) {
 			*/
 			if ( page == "0" ){
 				//console.log("Refresh Page index:" + page);
-				console.log(tableHtml);
+				//console.log(tableHtml);
 				$("#house_list").html(tableHtml).promise().done(function () {
 				  $("#house_list").listview().listview('refresh');
 				});
@@ -331,14 +331,23 @@ $(document).on("pageshow","#page_main",function(){
 
 <!-- 房源列表开始 --> 
 <div data-role="main" class="house_preview ui-content">
-	<div id="house_list_header" data-role="controlgroup" data-mini="true" data-type="horizontal">
-	    <a href="#" class="ui-btn ui-corner-all"> <span>房源数目:</span><span id="house_count"> </span> </a>
-	    <a href="#" id="search_clear" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left" style="display:none">清除选择</a>
+	<div id="house_list_header1" data-role="controlgroup" data-mini="true" data-type="horizontal">
+	     
+	    <a href="#" class="ui-btn ui-corner-all"> <span>房源:</span><span id="house_count"> </span> </a>
+		<a href="#" id="search_clear" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left" style="display:none">清除选择</a>
+	   
+	</div>
+	<div id="house_list_header2" data-role="controlgroup" data-mini="true" data-type="horizontal" >
+	     
+	 
+		<a href="#" class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-notext ui-btn-icon-left"></a>
+   		 <a href="#" class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-notext ui-btn-icon-right"></a>
+	  
 	   
 	</div>
    
 	
-    <ul data-role="listview" data-inset="true" data-filter="true" id="house_list" >
+    <ul data-role="listview" data-inset="true" id="house_list" >
 
     </ul>
 </div>

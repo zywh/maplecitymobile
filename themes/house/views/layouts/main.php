@@ -46,6 +46,8 @@
 		</div>
 		
 		<div data-role="header" data-position="fixed" id="main_header" >
+			
+			<!-- Navbar as Header 
 			<div data-role="navbar" data-iconpos="left">
 			  <ul>
 				<li><a href="#main_menu" data-ajax="false" id="header_menu" >菜单</a> </li>
@@ -55,7 +57,25 @@
 				
 			  </ul>
 			</div>
+			-->
+			
 		
+			<div data-role="navbar" data-iconpos="left">
+			  <ul>
+				<a href="#main_menu" data-transition="pop"  class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext
+		">Home</a>
+				<li><a href="/" data-ajax="false" id="header_home" ></a> </li>
+				
+				<li>
+				    <select id="sr111" name="select_sr" data-role="flipswitch"  data-mini="true">
+				        <option value="Lease">租</option>
+				        <option value="Sale" >售</option>
+			    	</select>
+				</li>
+				
+			  </ul>
+			</div>
+			
 		
 			
 		</div>
