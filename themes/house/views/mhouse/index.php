@@ -115,13 +115,14 @@ options['pageindex'] = page;
 
 $(document).on("pageshow","#page_main",function(){
 	
+	/*
 	
   	if ( sr == "Sale"){
 		$("#header_sale").addClass('ui-btn-active'); //make Sales Header active
 	} else if ( sr == "Lease") {
 		$("#header_lease").addClass('ui-btn-active'); //make Lease Header active
 	}
-		
+	*/	
 	getFieldValues();
 	update_houselist(options);
 	

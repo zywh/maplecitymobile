@@ -45,7 +45,7 @@
    
 		</div>
 		
-		<div data-role="header" data-position="fixed" id="main_header" >
+		<div data-role="header" data-position="fixed" class="main_header" id="main_header" data-theme="b" >
 			
 			<!-- Navbar as Header 
 			<div data-role="navbar" data-iconpos="left">
@@ -60,10 +60,9 @@
 			-->
 			
 		
-			<div data-role="navbar" data-iconpos="left">
+			<div data-role="navbar" >
 			  <ul>
-				<a href="#main_menu" data-transition="pop"  class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext
-		">Home</a>
+				<a href="#main_menu" data-transition="pop"  class="ui-btn  ui-icon-bullets  ui-btn-icon-notext	">Home</a>
 				<li><a href="/" data-ajax="false" id="header_home" ></a> </li>
 				
 				<li>
