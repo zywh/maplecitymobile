@@ -70,7 +70,7 @@ function update_houselist(options) {
 			if ( page == "0" ){
 				console.log("Refresh Page index:" + page);
 				$("#house_list").html(tableHtml).promise().done(function () {
-				  $(this).attr("data-role", "list view").listview().listview('refresh');
+				  $("#house_list").listview().listview('refresh');
 				});
 				/*
 				$('#house_list').empty();
@@ -136,9 +136,8 @@ $(document).on("pageshow","#page_main",function(){
 		//$("#pricetext").text(options["sr"] + ":" +  options['type']); 
 		
 		update_houselist(options);
-		$('ul').listview('refresh');
-		$('#house_list').empty();
-		$('#house_list').empty();
+		
+		
 	  
 	});
 	 
