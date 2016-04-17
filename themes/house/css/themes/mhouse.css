@@ -959,3 +959,6 @@ button[disabled],
         border-style: solid;
 }
 
+.province-panel .ui-btn {
+	font-size: 15px;
+}
