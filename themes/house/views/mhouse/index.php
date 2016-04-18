@@ -251,12 +251,12 @@ $(document).on("pageshow","#page_main",function(){
 <!-- House Size Popup -->
 
 <!-- search row1 start -->
-<div class="ui-grid-c no-shadow" >
+<div class="ui-grid-c " >
 	<div class="ui-block-a">
-		<a href="#panel-city" class="ui-select ui-btn">区域</a>
+		<a href="#panel-city" class="ui-btn ui-icon-carat-d ui-btn-icon-right">区域</a>
 	</div>
 	<div class="ui-block-b">
-		<select name="sr" id="sr"   data-corners="false" data-iconpos="noicon" data-native-menu="false"  style=>
+		<select name="sr" id="sr"   data-corners="false"  data-native-menu="false"  >
 			<option >状态</option>
 			<option value="Sale" selected="selected">出售</option>
 			<option value="Lease" >出租</option>
@@ -264,7 +264,7 @@ $(document).on("pageshow","#page_main",function(){
 		</select>
 	</div>	
 	<div class="ui-block-c">
-		<select name="type" id="type" data-corners="false" data-iconpos="noicon" data-native-menu="false"  style=>
+		<select name="type" id="type" data-corners="false"  data-native-menu="false"  style=>
 			<option >房型</option>
 			<option value="1" >独栋别墅</option>
 			<option value="2">联排别墅</option>
@@ -277,7 +277,7 @@ $(document).on("pageshow","#page_main",function(){
 		</select>
 	</div>
 	<div class="ui-block-d">	
-		<select name="price" id="price" data-corners="false" data-native-menu="false" data-iconpos="noicon">
+		<select name="price" id="price" data-corners="false" data-native-menu="false" >
 			<option >价格</option>
 			<option value="0-30" >30万以下</option>
 			<option value="30-50" >30-50万</option>
@@ -291,7 +291,7 @@ $(document).on("pageshow","#page_main",function(){
 	</div>
 	
 	<div class="ui-block-a">		
-		<select name="bedroom" id="bedroom"   data-corners="false"  data-native-menu="false"  data-iconpos="noicon">
+		<select name="bedroom" id="bedroom"   data-corners="false"  data-native-menu="false"  >
 			<option >卧室</option>
 			<option value="1"> &gt1 </option>
 			<option value="2"> &gt2 </option>
@@ -302,7 +302,7 @@ $(document).on("pageshow","#page_main",function(){
 	</div>
 	<div class="ui-block-b">	
 
-		<select name="washroom" id="washroom"  data-corners="false" data-native-menu="false" data-iconpos="noicon" >
+		<select name="washroom" id="washroom"  data-corners="false" data-native-menu="false"  >
 			<option > 洗手间</option>
 			<option value="1"> &gt1 </option>
 			<option value="2"> &gt2 </option>
@@ -312,7 +312,7 @@ $(document).on("pageshow","#page_main",function(){
 
 	</div>
 	<div class="ui-block-c">	
-		<select name="housearea" id="housearea"  data-corners="false"  multiple="multiple" data-native-menu="false"  data-iconpos="noicon">
+		<select name="housearea" id="housearea"  data-corners="false"  multiple="multiple" data-native-menu="false"  >
 			<option >房屋尺寸</option>
 			<option value="0-700" >700平方尺以下</option>
 			<option value="700-1100">700-1100平方尺</option>
@@ -326,7 +326,6 @@ $(document).on("pageshow","#page_main",function(){
 		</select>
 	</div>
 	<div class="ui-block-d">	
-		<a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all"  data-position-to="window">尺寸</a>
 	</div>
 
 </div>		

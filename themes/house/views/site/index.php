@@ -13,12 +13,15 @@ $(document).on("pageshow","#page_main",function(){
   
 </script>
 
-<select  class="search-area" data-iconpos="right" data-icon="home"  name="select-choice-0" id="select-choice-0">
+
+<div  class="search-area" >
+<select   data-iconpos="right" data-icon="home"  name="searchtest" id="searchtest">
   <option value="standard">Standard: 7 day </option>
   <option value="rush">Rush: 3 days</option>
   <option value="express">Express: next day</option>
   <option value="overnight">Overnight</option>
 </select>
+</div>
 <i class="material-icons">cloud</i>
 <i class="material-icons">favorite</i>
 <i class="material-icons">attachment</i>

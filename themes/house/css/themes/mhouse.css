@@ -1031,10 +1031,11 @@ html head + body .ui-btn.ui-btn-b:visited {
     box-shadow: none !important;
 
 }
-.search-area .ui-btn::after {
-    background-size: 10px !important;
-    width: 10px !important;
-    height: 10px !important;
+.search-area .ui-btn-icon-right:after {
+    background-size: 8px !important;
+    width: 8px !important;
+    height: 8px !important;
+	margin: -4px -8px 0 0;
 }
 
 
@@ -1045,3 +1046,5 @@ html head + body .ui-btn.ui-btn-b:visited {
 .full-width-slider .ui-slider-track {
  margin: 0  !important;
 }
+
+
