@@ -14,10 +14,10 @@ function update_houselist(options) {
 			sr : 	options['sr'],
 			pageindex: options['pageindex'],
 			housetype: options['type'],
-			//houseprice: options['price'],
+			houseprice: options['price'],
 			houseroom: options['bedroom'],
-			housebaths: options['washroom']
-			//househousearea: options['housearea'],
+			housebaths: options['washroom'],
+			househousearea: options['housearea']
 			//houselandarea: options['landarea'],
 			//orderby: options['orderby'],
 			//city: options['city'],
@@ -33,7 +33,7 @@ function update_houselist(options) {
 			var tableHtml = "";
 			$(result.Data.MapHouseList).each(function(index) {
 				
-					
+				sr = options['sr'];
 				var hprice = ( sr == 'Lease' )? Math.round(this.Price*10000) +'  加元/月' : Math.round(this.Price) +'  万加元';
 				
 				var li = "<li data-icon='false'> " 
@@ -95,6 +95,7 @@ function getFieldValues() {
    
     $('select').each(function() {
         options[this.id] = this.value; //push value into options object
+		//console.log (this.id + ":" + options[this.id]);
     });
     
 }
@@ -118,11 +119,11 @@ $(document).on("pageshow","#page_main",function(){
 	
 	
   	if ( sr == "Sale"){
-		$("#menu_sale").addClass('ui-btn-active'); //make Sales Header active
-		$('#sr').val('Sale').selectmenu('refresh');
+		$("#menu_sale").addClass('ui-btn-active'); //make Sales Menu active
+		$('#sr').val('Sale').selectmenu('refresh'); //Select Sale from SR select
 	} else if ( sr == "Lease") {
-		$("#menu_lease").addClass('ui-btn-active'); //make Lease Header active
-		$('#sr').val('Lease').selectmenu('refresh');
+		$("#menu_lease").addClass('ui-btn-active'); //make Lease Menu active
+		$('#sr').val('Lease').selectmenu('refresh'); //Select Lease
 	}
 	
 	getFieldValues();
@@ -242,7 +243,7 @@ $(document).on("pageshow","#page_main",function(){
 		<a href="#panel-city" class="ui-select ui-btn">区域</a>
 	</div>
 	<div class="ui-block-b">
-		<select name="sr" id="sr" data-corners="false" data-iconpos="noicon" data-native-menu="false"  style=>
+		<select name="sr" id="sr"   data-corners="false" data-iconpos="noicon" data-native-menu="false"  style=>
 			<option >状态</option>
 			<option value="Sale" selected="selected">出售</option>
 			<option value="Lease" >出租</option>
@@ -277,7 +278,7 @@ $(document).on("pageshow","#page_main",function(){
 	</div>
 	
 	<div class="ui-block-a">		
-		<select name="bedroom" id="bedroom" data-corners="false" data-native-menu="false"  data-iconpos="noicon">
+		<select name="bedroom" id="bedroom"   data-corners="false" data-native-menu="false"  data-iconpos="noicon">
 			<option >卧室</option>
 			<option value="1"> &gt1 </option>
 			<option value="2"> &gt2 </option>

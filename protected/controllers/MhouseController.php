@@ -26,6 +26,7 @@ class MhouseController extends XFrontBase
 		
 		$result = array();
 		error_log($_POST['sr'].$_POST['housetype'].$_POST['pageindex']."br:".$_POST['houseroom']);
+		error_log("Price:".$_POST['houseprice']."Housearea:".$_POST['housearea']);
 
 		//根据条件查询地图
 		$criteria = new CDbCriteria();
@@ -76,20 +77,20 @@ class MhouseController extends XFrontBase
 
 		//价格区间
 		if (!empty($_POST['houseprice'])) {
-			$price = explode(',', $_POST['houseprice']);
+			$price = explode('-', $_POST['houseprice']);
 			$minPrice = intval($price[0]) *10000;
 			$maxPrice = intval($price[1]) *10000;
+			error_log ("MinPrice:".$minPrice);
 			if ($maxPrice != 0 || $minPrice != 0) {
-				if ($maxPrice > $minPrice) {
-					$criteria->addCondition("t.lp_dol <= :maxPrice");
-					$criteria->params += array(':maxPrice' => $maxPrice);
-					$ss = $ss." AND lp_dol <= ".$maxPrice;
+			    if ($maxPrice > $minPrice) {
+					$criteria->addCondition('lp_dol <'.$maxPrice);
 				}
-				$criteria->addCondition("t.lp_dol >= :minPrice");
-				$criteria->params += array(':minPrice' => $minPrice);
-				$ss = $ss." AND lp_dol >= ".$minPrice;
+			
+				$criteria->addCondition('lp_dol >='.$minPrice);
 			}
 		}
+
+
 
 		//Bedroom
 		if (!empty($_POST['houseroom']) && intval($_POST['houseroom']) > 0) {
@@ -130,7 +131,6 @@ class MhouseController extends XFrontBase
 		foreach ($house as $val) {
 			$mapHouseList = array();
 			$mapHouseList['Beds'] = $val->br;
-			error_log($val->br."mls:".$val->ml_num);
 			$mapHouseList['Baths'] = $val->bath_tot;
 			$mapHouseList['Kitchen'] = $val->num_kit;
 			$mapHouseList['GeocodeLat'] = $val->latitude;
