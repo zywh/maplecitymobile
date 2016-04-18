@@ -11,11 +11,11 @@ function update_houselist(options) {
 		type: 'POST', 
 		dataType: 'json', 
 		data: { 
-			sr : 	options['sr'],
-			pageindex: options['pageindex'],
-			housetype: options['type'],
+			sr : 	options['sr'], 
+			pageindex: options['pageindex'], 
+			housetype: options['type'], 
 			houseprice: options['price'],
-			houseroom: options['bedroom'],
+			houseroom: options['bedroom'],	
 			housebaths: options['washroom'],
 			househousearea: options['housearea']
 			//houselandarea: options['landarea'],
@@ -113,6 +113,7 @@ var total_groups = 1 ;
 
 //options['sr'] = sr;
 options['pageindex'] = page;
+
 
 $(document).on("pageshow","#page_main",function(){
 	
@@ -236,9 +237,21 @@ $(document).on("pageshow","#page_main",function(){
 <p></p>
 <div id="house-search"  class="search-area " >
 
+<!-- House Size Popup -->
+<div data-role="popup" id="search_housesize" class="search-housesize ui-content">
+ 
+		<div data-role="rangeslider" data-mini="true">
+        <label for="housearea">房屋面积(平方尺):</label>
+        <input type="range" name="housearea" id="housearea" min="0" max="6000" step="100" value="5000">
+        <label for="landarea">土地面积(平方尺):</label>
+        <input type="range" name="landarea" id="landarea" min="0" max="45600" step="500" value="50000">
+		</div>
+   
+</div>
+<!-- House Size Popup -->
 
 <!-- search row1 start -->
-<div class="ui-grid-c" >
+<div class="ui-grid-c no-shadow" >
 	<div class="ui-block-a">
 		<a href="#panel-city" class="ui-select ui-btn">区域</a>
 	</div>
@@ -278,7 +291,7 @@ $(document).on("pageshow","#page_main",function(){
 	</div>
 	
 	<div class="ui-block-a">		
-		<select name="bedroom" id="bedroom"   data-corners="false" data-native-menu="false"  data-iconpos="noicon">
+		<select name="bedroom" id="bedroom"   data-corners="false"  data-native-menu="false"  data-iconpos="noicon">
 			<option >卧室</option>
 			<option value="1"> &gt1 </option>
 			<option value="2"> &gt2 </option>
@@ -313,16 +326,7 @@ $(document).on("pageshow","#page_main",function(){
 		</select>
 	</div>
 	<div class="ui-block-d">	
-		<select name="landarea" id="landarea" multiple="multiple"  data-corners="false" data-native-menu="false" data-iconpos="noicon">
-			<option >土地尺寸</option>
-			<option value="0-2000" >2000平方尺以下</option>
-			<option value="2000-4000">2000-4000平方尺</option>
-			<option value="4000-6000">4000-6000平方尺</option>
-			<option value="6000-12000">6000-12000平方尺</option>
-			<option value="12000-435600">12000-1英亩</option>
-			<option value="435600-0">1英亩以上</option>
-		
-		</select>	
+		<a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all"  data-position-to="window">尺寸</a>
 	</div>
 
 </div>		
@@ -332,7 +336,19 @@ $(document).on("pageshow","#page_main",function(){
 
 </div>
 <!-- 房源搜索列表结束 -->
+    <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all">Show Popup</a>
+		<div data-role="rangeslider" data-mini="true">
+        <label for="housearea">房屋面积(平方尺):</label>
+        <input type="range" name="housearea" id="housearea" min="0" max="6000" step="100" value="5000">
+        <label for="landarea">土地面积(平方尺):</label>
+        <input type="range" name="landarea" id="landarea" min="0" max="45600" step="500" value="50000">
+		</div>
 
+    <div data-role="popup" id="myPopup" class="ui-content">
+      <h3>Welcome!</h3>
+      <p>The "ui-content" class is especially useful when you have a popup with <span style="font-size:55px;">styled text</span>, and want the edges and corners to look extra clean and sleek. <strong>Note:</strong> The text will wrap to multiple lines if needed.</p>
+    </div>
+  
 
 
 <!-- 地图开始 --> 
