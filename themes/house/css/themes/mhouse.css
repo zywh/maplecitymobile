@@ -1029,3 +1029,10 @@ html head + body .ui-btn.ui-btn-b:visited {
 }
 
 
+/* Hide the number input */
+.full-width-slider input {
+    display: none;
+}
+.full-width-slider .ui-slider-track {
+ margin: 0  !important;
+}

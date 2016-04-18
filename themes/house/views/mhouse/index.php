@@ -117,7 +117,7 @@ options['pageindex'] = page;
 
 $(document).on("pageshow","#page_main",function(){
 	
-	
+	//$(".full-width-slider input").remove();
 	
   	if ( sr == "Sale"){
 		$("#menu_sale").addClass('ui-btn-active'); //make Sales Menu active
@@ -337,16 +337,29 @@ $(document).on("pageshow","#page_main",function(){
 </div>
 <!-- 房源搜索列表结束 -->
     <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all">Show Popup</a>
-		<div data-role="rangeslider" data-mini="true">
-        <label for="housearea">房屋面积(平方尺):</label>
-        <input type="range" name="housearea" id="housearea" min="0" max="6000" step="100" value="5000">
-        <label for="landarea">土地面积(平方尺):</label>
-        <input type="range" name="landarea" id="landarea" min="0" max="45600" step="500" value="50000">
-		</div>
+
 
     <div data-role="popup" id="myPopup" class="ui-content">
-      <h3>Welcome!</h3>
-      <p>The "ui-content" class is especially useful when you have a popup with <span style="font-size:55px;">styled text</span>, and want the edges and corners to look extra clean and sleek. <strong>Note:</strong> The text will wrap to multiple lines if needed.</p>
+     
+	 <h3 style="width:300px;">选择房屋和土地面积</h3>
+		<form class="full-width-slider">
+		    <div data-role="rangeslider" id="housearea" >
+		        <label for="range-1a">房屋面积(平方尺):</label>
+		        <input class="ui-hidden-accessible" type="range" name="range-1a" id="range-1a" min="0" max="100" value="40">
+		        <label for="range-1b">房屋面积(平方尺):</label>
+		        <input class="ui-hidden-accessible" type="range" name="range-1b" id="range-1b" min="0" max="100" value="80">
+		    </div>
+		</form>
+	  
+		<form class="full-width-slider">
+	    <div data-role="rangeslider" id="housearea" >
+	        <label for="range-1a">土地面积(平方尺):</label>
+	        <input type="range" name="range-1a" id="range-1a" min="0" max="100" value="40">
+	        <label for="range-1b">土地面积(平方尺):</label>
+	        <input type="range" name="range-1b" id="range-1b" min="0" max="100" value="80">
+	    </div>
+		</form>
+	
     </div>
   
 
