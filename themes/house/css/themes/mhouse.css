@@ -921,7 +921,11 @@ button[disabled],
 	outline-style: auto;
 }
 .search-area  .ui-btn {
-        padding:0;
+        padding: 0;
+	margin: 0;
+        font-weight: normal;
+        border-style: none;
+
 }
 .ui-header .ui-navbar li .ui-btn {
 	font-size: 15.5px;
@@ -956,13 +960,6 @@ button[disabled],
         font-weight: normal;
 }
 
-.search-area .ui-btn,
-.search-area label.ui-btn {
-        font-weight: normal;
-        border-width: 1px;
-        border-style: solid;
-}
-
 .province-panel .ui-btn {
 	font-size: 15px;
 }
@@ -993,7 +990,7 @@ html .ui-body-b .ui-btn:visited,
 html body .ui-group-theme-b .ui-btn:visited,
 html head + body .ui-btn.ui-btn-b:visited {
         background-color: #ff4103 /*{a-bup-background-color}*/;
-        border-color: #dddddd /*{a-bup-border}*/;
+        border-color: #ffe6cc /*{a-bup-border}*/;
         *color: #ff4103 /*{a-bup-color}*/;
         color: #000 /*{a-bup-color}*/;
         text-shadow: 0 /*{a-bup-shadow-x}*/ 1px /*{a-bup-shadow-y}*/ 0 /*{a-bup-shadow-radius}*/ #f3f3f3 /*{a-bup-shadow-color}*/;
@@ -1006,8 +1003,17 @@ html head + body .ui-btn.ui-btn-b:visited {
 }
 
 */
+
 .main-menu .ui-listview > li {
 	margin: -12px 0;
+}
+
+.search-area  .ui-btn {
+        padding: 0;
+        margin: 0;
+        font-weight: normal;
+        border-style: none;
+
 }
 
 /* remove space beteween buttons*/
@@ -1035,7 +1041,7 @@ html head + body .ui-btn.ui-btn-b:visited {
     background-size: 8px !important;
     width: 8px !important;
     height: 8px !important;
-	margin: -4px -8px 0 0;
+	margin: -4px -7px 0 0;
 }
 
 
