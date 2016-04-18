@@ -5,7 +5,7 @@
 $(document).on("pageshow","#page_main",function(){
 	
 	
-	//$("#header_home").addClass('ui-btn-active'); //make it active
+	$("#menu_home").addClass('ui-btn-active'); //make it active
 
  
 });

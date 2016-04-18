@@ -58,7 +58,7 @@ function update_houselist(options) {
 			
 			//Display HouseList Start
 
-			$("#house_count").text(houseCount + ":" + page);
+			$("#house_count").text(houseCount);
 			/*
             var tableHtml = "";
 			$.each(HouseArray, function(index) {
@@ -110,19 +110,21 @@ var page = 0; //total loaded page zero for first page
 var loading  = false; //to prevents multipal ajax loads
 var total_groups = 1 ;
 
-options['sr'] = sr;
+//options['sr'] = sr;
 options['pageindex'] = page;
 
 $(document).on("pageshow","#page_main",function(){
 	
-	/*
+	
 	
   	if ( sr == "Sale"){
-		$("#header_sale").addClass('ui-btn-active'); //make Sales Header active
+		$("#menu_sale").addClass('ui-btn-active'); //make Sales Header active
+		$('#sr').val('Sale').selectmenu('refresh');
 	} else if ( sr == "Lease") {
-		$("#header_lease").addClass('ui-btn-active'); //make Lease Header active
+		$("#menu_lease").addClass('ui-btn-active'); //make Lease Header active
+		$('#sr').val('Lease').selectmenu('refresh');
 	}
-	*/	
+	
 	getFieldValues();
 	update_houselist(options);
 	
@@ -237,10 +239,18 @@ $(document).on("pageshow","#page_main",function(){
 <!-- search row1 start -->
 <div class="ui-grid-c" >
 	<div class="ui-block-a">
-		<a href="#panel-city" class="ui-select ui-btn">地区</a>
+		<a href="#panel-city" class="ui-select ui-btn">区域</a>
 	</div>
-    <div class="ui-block-b">
-		<select name="type" id="type" data-corners="false" data-native-menu="false" data-iconpos="noicon" style=>
+	<div class="ui-block-b">
+		<select name="sr" id="sr" data-corners="false" data-iconpos="noicon" data-native-menu="false"  style=>
+			<option >状态</option>
+			<option value="Sale" selected="selected">出售</option>
+			<option value="Lease" >出租</option>
+			
+		</select>
+	</div>	
+	<div class="ui-block-c">
+		<select name="type" id="type" data-corners="false" data-iconpos="noicon" data-native-menu="false"  style=>
 			<option >房型</option>
 			<option value="1" >独栋别墅</option>
 			<option value="2">联排别墅</option>
@@ -252,7 +262,7 @@ $(document).on("pageshow","#page_main",function(){
 			<option value="8">其他</option>
 		</select>
 	</div>
-	<div class="ui-block-c">	
+	<div class="ui-block-d">	
 		<select name="price" id="price" data-corners="false" data-native-menu="false" data-iconpos="noicon">
 			<option >价格</option>
 			<option value="0-30" >30万以下</option>
@@ -265,8 +275,8 @@ $(document).on("pageshow","#page_main",function(){
 			<option value="600-0" >600以上</option>
 		</select>
 	</div>
-
-	<div class="ui-block-d">		
+	
+	<div class="ui-block-a">		
 		<select name="bedroom" id="bedroom" data-corners="false" data-native-menu="false"  data-iconpos="noicon">
 			<option >卧室</option>
 			<option value="1"> &gt1 </option>
@@ -276,7 +286,7 @@ $(document).on("pageshow","#page_main",function(){
 			<option value="5"> &gt5 </option>
 		</select>
 	</div>
-	<div class="ui-block-a">	
+	<div class="ui-block-b">	
 
 		<select name="washroom" id="washroom"  data-corners="false" data-native-menu="false" data-iconpos="noicon" >
 			<option > 洗手间</option>
@@ -287,8 +297,7 @@ $(document).on("pageshow","#page_main",function(){
 		</select>
 
 	</div>
-
-	<div class="ui-block-b">	
+	<div class="ui-block-c">	
 		<select name="housearea" id="housearea"  data-corners="false"  multiple="multiple" data-native-menu="false"  data-iconpos="noicon">
 			<option >房屋尺寸</option>
 			<option value="0-700" >700平方尺以下</option>
@@ -302,7 +311,7 @@ $(document).on("pageshow","#page_main",function(){
 			<option value="4000-0">4000以上</option>
 		</select>
 	</div>
-	<div class="ui-block-c">	
+	<div class="ui-block-d">	
 		<select name="landarea" id="landarea" multiple="multiple"  data-corners="false" data-native-menu="false" data-iconpos="noicon">
 			<option >土地尺寸</option>
 			<option value="0-2000" >2000平方尺以下</option>
@@ -314,9 +323,7 @@ $(document).on("pageshow","#page_main",function(){
 		
 		</select>	
 	</div>
-	<div class="ui-block-d">
-		<a href="/" class="ui-select ui-btn">更多</a>
-	</div>	
+
 </div>		
 <!-- search row2 end -->
 
@@ -332,12 +339,15 @@ $(document).on("pageshow","#page_main",function(){
 
 <!-- 房源列表开始 --> 
 <div data-role="main" class="house_preview ui-content">
+
 	<div id="house_list_header1" data-role="controlgroup" data-mini="true" data-type="horizontal">
 	     
 	    <a href="#" class="ui-btn ui-corner-all"> <span>房源:</span><span id="house_count"> </span> </a>
 		<a href="#" id="search_clear" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left" style="display:none">清除选择</a>
 	   
 	</div>
+	
+	<!--
 	<div id="house_list_header2" data-role="controlgroup" data-mini="true" data-type="horizontal" >
 	     
 	 
@@ -346,8 +356,8 @@ $(document).on("pageshow","#page_main",function(){
 	  
 	   
 	</div>
-   
-	
+  
+	--> 
     <ul data-role="listview" data-inset="true" id="house_list" >
 
     </ul>
