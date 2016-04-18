@@ -18,7 +18,7 @@
 
 	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jquery.mobile.icons.min.css" />
 	
-	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jquery.mobile.structure-1.4.5.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jquery.mobile.structure-1.4.5.min.css" />
 	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/mhouse.css" />
 	
 	<title> 加拿大房产_枫之都
@@ -37,17 +37,22 @@
 <div data-role="page" id="page_main" data-theme="a" data-dom-cache="false" data-title="枫之都-加拿大地产置业">
 
 	<!-- head开始 -->
-		<div data-role="panel" id="main_menu" data-display="overlay" data-position-fixed="true">
+		<div data-role="panel" id="main_menu" data-theme="a" class="main-menu" data-display="overlay" data-position-fixed="true">
+			<ul data-role="listview"  data-inset="true">
+			    <li data-icon="home"><a href="/" data-icon="home" >首页</a></li>
+				
+			    <li data-icon="search"><a href="index.php?r=mhouse/index&sr=Lease" data-ajax="false" >出租房</a></li>
+			    <li data-icon="search"><a href="index.php?r=mhouse/index&sr=Sale" data-ajax="false" >二手房</a></li>
+			    <li data-icon="search"><a href="index.php?r=mhouse/index&sr=Sale" data-ajax="false" >预售房</a></li>
+			 	<li data-icon="search"><a href="http://maplecity.com.cn/index.php?r=column/index" data-ajax="false" data-icon="search">学区房</a></li>
 			
-			<ul data-role="listview" data-inset="true">
-			    <li data-icon="custom" id="skull"><a href="#">custom-icon</a></li>
-			    <li data-icon="delete"><a href="#">data-icon="delete"</a></li>
-			    <li data-icon="gear"><a href="#">data-icon="gear"</a></li>
-			    <li data-icon="info"><a href="#">data-icon="info"</a></li>
-			    <li data-icon="false"><a href="#">data-icon="false"</a></li>
+			    <li data-icon="calendar"><a href="http://maplecity.com.cn/index.php?r=stats/current" data-ajax="false" >房源统计</a></li>
+			    <li data-icon="calendar"><a href="http://maplecity.com.cn/index.php?r=stats/current" data-ajax="false" >房源统计</a></li>
+			    <li data-icon="calendar"><a href="http://maplecity.com.cn/index.php?r=stats/current" data-ajax="false" >房源统计</a></li>
+				<li data-icon="calendar"><a href="http://maplecity.com.cn/index.php?r=stats" data-ajax="false" data-icon="calendar">房源历史数据</a></li>
+				
+				
 			</ul>
-			
-   
 		</div>
 		
 		<div data-role="header" data-position="fixed"  class="main_header " id="main_header" data-theme="b" >

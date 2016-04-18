@@ -1304,8 +1304,8 @@ li.ui-block-e {
 [class*="ui-block-"] > button.ui-btn-icon-notext,
 .ui-header [class*="ui-block-"] > button.ui-btn,
 .ui-footer [class*="ui-block-"] > button.ui-btn {
-	*margin-right: .3125em;
-	*margin-left: .3125em;
+	margin-right: .3125em;
+	margin-left: .3125em;
 }
 .ui-grid-a > .ui-block-a,
 .ui-grid-a > .ui-block-b {

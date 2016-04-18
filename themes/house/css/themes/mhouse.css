@@ -1002,3 +1002,20 @@ html head + body .ui-btn.ui-btn-b:visited {
 }
 
 */
+.main-menu .ui-listview > li {
+	margin: -10px 0;
+}
+
+/* remove space beteween buttons*/
+[class*="ui-block-"] > .ui-btn,
+[class*="ui-block-"] > .ui-select,
+[class*="ui-block-"] > .ui-checkbox,
+[class*="ui-block-"] > .ui-radio,
+[class*="ui-block-"] > button.ui-btn-inline,
+[class*="ui-block-"] > button.ui-btn-icon-notext,
+.ui-header [class*="ui-block-"] > button.ui-btn,
+.ui-footer [class*="ui-block-"] > button.ui-btn {
+        margin-right: 0;
+        margin-left: 0;
+}
+
