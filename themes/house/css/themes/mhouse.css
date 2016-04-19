@@ -934,7 +934,7 @@ button[disabled],
 }
 
 .search-area .ui-select .ui-li-has-count.ui-btn {
-	padding-right:0;
+	padding-right:15px;
 }
 
 .house_preview .ui-listview .ui-li-has-thumb > img:first-child,
@@ -1016,13 +1016,13 @@ html head + body .ui-btn.ui-btn-b:visited {
 .main-menu .ui-listview > li {
 	margin: -12px 0;
 }
-.house_preview  .ui-btn,
-.search-area  .ui-btn {
+
+
+.house_preview  .ui-btn {
         padding: 0;
         margin: 0;
-      
-
 }
+
 
 /* remove space beteween buttons*/
 [class*="ui-block-"] > .ui-btn,
@@ -1035,6 +1035,17 @@ html head + body .ui-btn.ui-btn-b:visited {
 .ui-footer [class*="ui-block-"] > button.ui-btn {
         margin-right: 0;
         margin-left: 0;
+}
+
+.search-area  .ui-btn {
+        padding-right: 15px;
+	background-position: right center;
+    margin-right: 3px;
+    text-align: right;
+    white-space: nowrap;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAApUlEQVQY02MoKSnpLi8v/08NDDKLAQgYgZyFVDBwIcgskIEM9vb2LKWlpVvJNQykF2QGAzJIS0vjAkocI8OwYyC9DNhAYWGhUFlZ2TViDQOpBelhwAeKiopkgbY+IsJlj0BqGYgBQJs1gRre4jHsLUgNAykAqMECqPkrFgO/guQYyAFAl3gBDfiNZNhvkBgDJQBoQBwQ/4PiOAZqAKDLSkCYYSAAAO1/HbAP08NHAAAAAElFTkSuQmCC);
+    background-repeat: no-repeat;
+    background-size: 7px 4px;
 }
 
 /* Remove glowing shadow for select focus */
