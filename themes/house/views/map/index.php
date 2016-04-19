@@ -5,7 +5,7 @@
 
 <!-- map开始 -->
 
-<h4>Maps</h4>
+
     
 <div role="main" class="ui-content" id="google_map">
         <!-- map loads here... -->
@@ -30,13 +30,16 @@ function setMapView(lat, lng, zoom) {
 
 function setContent(lat, lng, content, html, isShow, index) {
 	var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-	var marker = new RichMarker({
+	//console.log(lat + ":" + lng);
+	var marker = new  google.maps.Marker({
 		position: point,
 		map: map,
 		draggable: false,
-		content: content,
-		flat: true
+		title: "Name"
+		
 	});
+	
+	
 	markerArray.push(marker);
 	var info = new google.maps.InfoWindow({
 		content: html,
@@ -51,19 +54,9 @@ function setContent(lat, lng, content, html, isShow, index) {
 		//    infowindow[i].close();
 		//}
 		info.open(map, marker);
-		googleMap.setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
-		if (mapZoom > 8) {
-			$("li.first_li").remove();
-			$(".fclistbox").html(HouseArray[index] + $(".fclistbox").html());
-		}
+		setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
 	});
-	if (isShow) {
-		for (i = 0; i < infowindow.length; i++) {
-			infowindow[i].close();
-		}
-		info.open(map, marker);
-		googleMap.setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
-	}
+	
  
 }
 
@@ -74,12 +67,11 @@ function setContentCount(lat, lng, totalCount, city) {
 	//console.log(lat + ":" + lng +":" + totalCount +":" + city);
 
 
-	var marker = new RichMarker({
+	var marker = google.maps.Marker({
 		position: point,
 		map: map,
 		draggable: false,
-		content: content,
-		flat: true
+		title: totalCount
 	});
 	markerArray.push(marker);
 	var infocontent = '<p style="margin-bottom:0px;">' + city + ' 共有' + totalCount + '个楼盘</p>';
@@ -105,7 +97,7 @@ function setContentCount(lat, lng, totalCount, city) {
 	});
 
 
-};
+}
 
 function createMarker(place) {
 	var placeLoc = place.geometry.location;
@@ -154,7 +146,8 @@ function createMarker(place) {
 	});
 
 	publicArray[publicArray.length] = marker;
-} //清空所有信息内容
+} 
+
 function clearAll(map) {
 	if (markerArray) {
 		for (var i in markerArray) {
@@ -260,7 +253,7 @@ changeMap = function() {
                     if (houseCount >= maxMarkers) {
                         for (var p in data.Data.AreaHouseCount) {
                             var areaHouse = data.Data.AreaHouseCount[p];
-                            googleMap.setContentCount(areaHouse['Count'].GeocodeLat, areaHouse['Count'].GeocodeLng, areaHouse['Count'].HouseCount, areaHouse['Count'].NameCn);
+                            setContentCount(areaHouse['Count'].GeocodeLat, areaHouse['Count'].GeocodeLng, areaHouse['Count'].HouseCount, areaHouse['Count'].NameCn);
 
                         }
                     }
@@ -340,7 +333,7 @@ var openInfo = function(num, obj) {
         var info = $(obj);
         var html = "<div class='map_info_title'>" + $(info).attr("Address") + ", " + $(info).attr("CountryName") + ", " + $(info).attr("ProvinceEname") + " " + $(info).attr("Zip") + "</div><div class='map_info_content'><div class='map_info_left'><img src='<?php echo Yii::app()->request->baseUrl; ?>" + $(info).attr("imgurl") + "' style='width:188px;height:148px'/></div><div class='map_info_right'><p class='orange map_info_price'><i class='common_bg'></i><span>价 格：</span>" + $(info).attr("Price") + "<br /></p><p><a class='preferential common_bg' target='blank'  href='<?php echo Yii::app()->createUrl('house/view'); ?>&id=" +
             $(info).attr("Id") + "'>查看详情</a></p><p class='map_info_address'><i class='common_bg'></i>城 市：" + $(info).attr("MunicipalityName") + " " + $(info).attr("ProvinceCname") + "</p><p class='map_info_phone'><i class='common_bg'></i>类 型：" + $(info).attr("HouseType") + "</p><p class='map_info_type'><i class='common_bg'></i>户 型：" + $(info).attr("type") + "</p></div><div class='clear'></div></div>"; //打开房产信息
-        googleMap.setContent($(info).attr("lat"), parseFloat($(info).attr("lng")), "<i class='common_bg icon_map_mark'><span>" + num + "</span></i>", html, true, $(info).attr("index"));
+        setContent($(info).attr("lat"), parseFloat($(info).attr("lng")), "<i class='common_bg icon_map_mark'><span>" + num + "</span></i>", html, true, $(info).attr("index"));
 
     }
 
@@ -444,10 +437,13 @@ var changeURLArg = function(arg, arg_val) {
 					lng = pos.coords.longitude;
 					//mapCenter = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
 					console.log("GeoLocation Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
-					mapZoom = 17;
+					mapZoom = 10;
 					setMapView(lat,lng,mapZoom);
+					
 					google.maps.event.addListener(map, "bounds_changed", function() {
 						changeMap();
+						mapZoom = map.mapZoom();
+						console.log("Zoom:" + mapZoom);
 					});
 					
 					//changeMap();

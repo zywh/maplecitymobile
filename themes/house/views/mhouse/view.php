@@ -358,9 +358,9 @@ var swiper = new Swiper(".swiper-container", {
   nextButton: '.swiper-button-next',
   prevButton: '.swiper-button-prev',
   paginationClickable: true,
-  //autoplay: 3500,
-  //speed: 1000,
-  //autoplayDisableOnInteraction: true,
+  autoplay: 3500,
+  speed: 1000,
+  autoplayDisableOnInteraction: true,
 });
 </script>
 </div>
@@ -626,19 +626,21 @@ echo "<script>alert('预约成功，我们会尽快联系您');location.href='in
     </div>
     
     
-    <div class="fyxqdown">
-        <div class="fyxqdown_left">
+    <div class="fyxqdown" data-role="tabs">
+        <div class="fyxqdown_left" >
             <div class="xxlb_box">
-                <div class="fyxqdown_left_title">
-                    <a class="fyxqdown_left_cur" href="javascript:void(0);">详情列表</a>
-                    <a href="#buju">房屋布局</a>
-                    <a href="#mshu">房源描述</a>
-                    <a href="#tup">房源图片</a>
-                    <a href="#fjin">附近房源</a>
-                    <a href="#liulan">最近浏览</a>
-                    <a href="#fydt" onclick="daolumap();">房源地图</a>
+                <div class="fyxqdown_left_title "data-role="navbar">
+                 <ul>
+				 <li><a class="fyxqdown_left_cur" href="javascript:void(0);">详情列表</a></li>
+                 <li><a href="#buju">房屋布局</a></li>
+                  <li><a href="#mshu">房源描述</a></li>
+                  <li><a href="#tup">房源图片</a></li>
+                  <li><a href="#fjin">附近房源</a></li>
+                  <li><a href="#liulan">最近浏览</a></li>
+                  <li><a href="#fydt" onclick="daolumap();">房源地图</a></li>
                     <span class="dlh_btn">英尺 &gt; 米</span>
                     <div class="cl"></div>
+				</ul>	
                 </div>
                 
 <script language="javascript" type="text/javascript">
@@ -1042,7 +1044,7 @@ $(function(){
                 
 
                 </div>
-            </div> -->
+            </div>  -->
         </div>
         <div class="fyxqdown_right">
 <div class="zczl">
