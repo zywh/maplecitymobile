@@ -1040,7 +1040,7 @@ html head + body .ui-btn.ui-btn-b:visited {
 .search-area  .ui-btn {
         padding-right: 15px;
 	background-position: right center;
-    margin-right: 3px;
+    margin-right: 10px;
     text-align: right;
     white-space: nowrap;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAApUlEQVQY02MoKSnpLi8v/08NDDKLAQgYgZyFVDBwIcgskIEM9vb2LKWlpVvJNQykF2QGAzJIS0vjAkocI8OwYyC9DNhAYWGhUFlZ2TViDQOpBelhwAeKiopkgbY+IsJlj0BqGYgBQJs1gRre4jHsLUgNAykAqMECqPkrFgO/guQYyAFAl3gBDfiNZNhvkBgDJQBoQBwQ/4PiOAZqAKDLSkCYYSAAAO1/HbAP08NHAAAAAElFTkSuQmCC);
@@ -1055,12 +1055,6 @@ html head + body .ui-btn.ui-btn-b:visited {
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
 
-}
-.search-area .ui-btn-icon-right:after {
-    background-size: 8px !important;
-    width: 8px !important;
-    height: 8px !important;
-	margin: -4px -7px 0 0;
 }
 
 

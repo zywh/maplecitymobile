@@ -75,7 +75,7 @@
 			  <ul>
 				<li><a href="#main_menu" data-transition="pop"  class="ui-btn  ui-icon-bullets  ui-btn-icon-left 	">枫之都</a></li>
 				
-				<li><a href="/" data-ajax="false" id="header_home" ></a> </li>
+			
 						
 				<li></li>
 				
@@ -95,16 +95,10 @@
 	
 	<div data-role="footer" data-position="fixed" data-fullscreen="true" style="text-align:center;" id="main_footer">
    		 
-		
-<div class="ui-nodisc-icon"><!-- Class added to the wrapper -->
-    <a href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext  ui-btn-inline">Delete</a>
-    <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-plus ui-btn-icon-notext ui-btn-b ui-btn-inline">Plus</a>
-    <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-minus ui-btn-icon-notext ui-btn-b ui-btn-inline">Minus</a>
-    <a href="#" class="ui-btn ui-shadow ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-b ui-btn-inline">Check</a>
-</div>
+
 		<a href="/" data-transition="pop"  class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext
 		">Home</a>
-		<a href="index.php?r=mhouse/index" data-transition="pop"  class=" ui-nodisc-icon ui-btn-inline ui-btn ui-corner-all ui-icon-search ui-btn-icon-left ui-btn-icon-notext
+		<a href="index.php?r=mhouse/index" data-transition="pop"  class=" ui-btn ui-corner-all ui-icon-search ui-btn-icon-left ui-btn-icon-notext
 		">Home</a>
 		<a href="/" data-transition="pop" data-rel="back"  class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-left ui-btn-icon-notext
 		">Home</a>

@@ -335,9 +335,7 @@ $(document).on("pageshow","#page_main",function(){
 
 </div>
 <!-- 房源搜索列表结束 -->
-    <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all">Show Popup</a>
-
-
+    
     <div data-role="popup" id="myPopup" class="ui-content">
      
 	 <h3 style="width:300px;">选择房屋和土地面积</h3>
@@ -367,11 +365,11 @@ $(document).on("pageshow","#page_main",function(){
 <!-- 地图结束 -->
 
 <!-- 房源列表开始 --> 
-<div data-role="main" class="house_preview ui-content">
+<div data-role="main" class="ui-content">
 
-	<div id="house_list_header1" data-role="controlgroup" data-mini="true" data-type="horizontal">
+	<div id="house_list_header1" class="house_preview_total" data-role="controlgroup" data-mini="true" data-type="horizontal">
 	     
-	    <a href="#" class="ui-btn ui-corner-all"> <span>房源:</span><span id="house_count"> </span> </a>
+	    <a href="#" class="ui-btn "> <span>房源:</span><span id="house_count"> </span> </a>
 		<a href="#" id="search_clear" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left" style="display:none">清除选择</a>
 	   
 	</div>
@@ -387,9 +385,12 @@ $(document).on("pageshow","#page_main",function(){
 	</div>
   
 	--> 
-    <ul data-role="listview" data-inset="true" id="house_list" >
+    
+	<div class="house_preview"  >
+	<ul data-role="listview"  data-inset="true" id="house_list" >
 
     </ul>
+	<div>
 </div>
 <!-- 房源列表结束 -->
 
