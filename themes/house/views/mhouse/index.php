@@ -175,13 +175,62 @@ $(document).on("pageshow","#page_main",function(){
 	
 	<ul id="search_city_text" class="ui-shadow ui-mini" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="输入城市 中/英文" data-filter-theme="a"  ></ul>
 
+	<div data-role="collapsibleset" data-theme="a" data-content-theme="a" data-mini="true">
+	    <div data-role="collapsible">
+	        <h3>I'm a mini collapsible</h3>
+	     <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+		    <legend>Horizontal, mini sized:</legend>
+		    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6a" value="on" checked="checked">
+		    <label for="radio-choice-h-6a">One</label>
+		    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6b" value="off">
+		    <label for="radio-choice-h-6b">Two</label>
+		    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6c" value="other">
+		    <label for="radio-choice-h-6c">Three</label>
+				    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6a" value="on" checked="checked">
+		    <label for="radio-choice-h-6a">One</label>
+		    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6b" value="off">
+		    <label for="radio-choice-h-6b">Two</label>
+		    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6c" value="other">
+		    <label for="radio-choice-h-6c">Three</label>
+				    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6a" value="on" checked="checked">
+		    <label for="radio-choice-h-6a">One</label>
+		    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6b" value="off">
+		    <label for="radio-choice-h-6b">Two</label>
+		    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6c" value="other">
+		    <label for="radio-choice-h-6c">Three</label>
+		</fieldset>
+	    </div>
+	    <div data-role="collapsible">
+	        <h3>I'm another mini</h3>
+	    <p>Here's some collapsible content.</p>
+	    </div>
+	    <div data-role="collapsible">
+	        <h3>Last one</h3>
+	    <p>Final bit of collapsible content.</p>
+	    </div>
+	</div>
+	
+	
 	<fieldset data-role="controlgroup" data-mini="true">
 		<select name="ontario" id="ontario" multiple="multiple" data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
 			<option >安省</option>
-			<option value="Toronto" >多伦多</option>
-			<option value="Mississauga">Mississauga</option>
-	
-		
+			<div data-role="navbar" >
+			    <ul>
+			        <li><a href="#" class="ui-btn-active">One</a></li>
+			        <li><a href="#">Two</a></li>
+			        <li><a href="#">Three</a></li>
+			        <li><a href="#">Four</a></li>
+			        <li><a href="#">Five</a></li>
+			        <li><a href="#">Six</a></li>
+			        <li><a href="#">Seven</a></li>
+			        <li><a href="#">Eight</a></li>
+			        <li><a href="#">Nine</a></li>
+			        <li><a href="#">Ten</a></li>
+			    </ul>
+			</div><!-- /navbar -->
+			
+
+					
 		</select>	
 		<select name="ontario" id="ontario" multiple="multiple" data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
 			<option >爱德华王子岛省</option>
