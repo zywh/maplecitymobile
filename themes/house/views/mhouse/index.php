@@ -279,14 +279,14 @@ $(document).on("pageshow","#page_main",function(){
 	<div class="ui-block-d">	
 		<select name="price" id="price" data-corners="false" data-native-menu="false" >
 			<option >价格</option>
-			<option value="0-30" >30万以下</option>
-			<option value="30-50" >30-50万</option>
-			<option value="50-100" >50-100万</option>
-			<option value="100-150" >100-150万</option>
-			<option value="150-300" >150-300万</option>
-			<option value="300-400" >300-450万</option>
-			<option value="450-500" >450-600万</option>
-			<option value="600-0" >600以上</option>
+			<option value="0-30" > &lt 30</option>
+			<option value="30-50" >30-50</option>
+			<option value="50-100" >50-100</option>
+			<option value="100-150" >100-150</option>
+			<option value="150-300" >150-300</option>
+			<option value="300-400" >300-450</option>
+			<option value="450-500" >450-600</option>
+			<option value="600-0" > &gt 600</option>
 		</select>
 	</div>
 	
@@ -313,7 +313,7 @@ $(document).on("pageshow","#page_main",function(){
 	</div>
 	<div class="ui-block-c">	
 		<select name="housearea" id="housearea"  data-corners="false"  multiple="multiple" data-native-menu="false"  >
-			<option >房屋尺寸</option>
+			<option >尺寸</option>
 			<option value="0-700" >700平方尺以下</option>
 			<option value="700-1100">700-1100平方尺</option>
 			<option value="1100-1500">1100-1500平方尺</option>
