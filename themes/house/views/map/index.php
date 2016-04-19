@@ -188,7 +188,10 @@
             map.setCenter(new google.maps.LatLng(parseFloat(lat), parseFloat(lng)));
             map.setZoom(parseInt(zoom));
         },
-
+	   setMapCenter: function(mapCenter, zoom) {
+            map.setCenter(mapCenter);
+            map.setZoom(parseInt(zoom));
+        },
 
         localSearh: function(searchName) {
             request = {
@@ -215,10 +218,10 @@
 
     var changeMap = function() {
         console.log("Change Map");
+
 		googleMap.clearAll(map);
         	
-        mapCenter = map.getCenter();
-        mapZoom = map.getZoom();
+        
         var _sw = map.getBounds().getSouthWest();
         var _ne = map.getBounds().getNorthEast();
         var centerlat = (_ne.lat() + _sw.lat()) / 2;
@@ -230,9 +233,6 @@
         var number3 = centerlat + "," + _sw.lng() + "," + _ne.lat() + "," + centerlng;
         var number4 = _sw.lat() + "," + centerlng + "," + centerlat + "," + _ne.lng();
         var lenght = 1;
-        if (city == '州名/市名(中英)') {
-            city = '';
-        }
 
         
         HouseArray = [];
@@ -419,11 +419,10 @@
     //google map
     var cityname = 0;
     //var cd2 = '<?php echo $_GET["cd2"]; ?>';
-    var map;
     var mapInfo = null;
     var mapMark = null;
     var mapCenter;
-    var mapZoom = null;
+    var mapZoom = 17; //Default MapZoom
     var infowindow = [];
     var markerArray = [];
     var markers = [];
@@ -431,7 +430,6 @@
     var HouseAreaArray = [];
     var publicArray = [];
     var mapisInit = true;
-
     var map_type = "";
     var map_price = "";
     var map_room = "";
@@ -446,15 +444,9 @@
     var mapOptions;
     var pageIndex = 1;
     var markerClusterer = null;
-	
-	$( document ).on( "pagecreate", "#page_main", function() {
-		console.log("Start Page Create");
-		
-
-		mapOptions = {
-			//center: new google.maps.LatLng(43.6686333, -79.4450250),
-			center: new google.maps.LatLng(54.649739, -93.045726),
-			zoom: 5, //keep zoom and minZoom differen to trigger initial map search
+	var mapOptions = {
+			center: new google.maps.LatLng(43.6686333, -79.4450250),
+			zoom: mapZoom, //keep zoom and minZoom different to trigger initial map search
 			zoomControl: true,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			minZoom: 4,
@@ -463,20 +455,60 @@
 				opened: true
 			}
 		};
-		map = new google.maps.Map(document.getElementById("google_map"), mapOptions);
-		mapCenter = map.getCenter();
-		mapZoom = map.getZoom();
-
+		
+	var	map = new google.maps.Map(document.getElementById("google_map"), mapOptions);
+		
 	 
 
-		google.maps.event.addListener(map, "bounds_changed", function() {
-			if (mapZoom != map.getZoom()) {
+	google.maps.event.addListener(map, "bounds_changed", function() {
+		changeMap();
+	});
+	google.maps.event.addListener(map, 'dragend', function() {
+		changeMap();
+	});
+	
+	
+	$( document ).on( "pagecreate", "#page_main", function() {
+		
+		if ( $cityname == '') {
+			//If city is NULL and User Location can be identified. Center to user location
+			if ( navigator.geolocation ) {
+		        function success(pos) {
+					lat = pos.coords.latitude;
+					lng = pos.coords.longitude;
+					//mapCenter = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+					console.log("Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
+					mapZoom = 19;
+					changeMap();
+				}
+		        function fail(error) {
+					mapCenter = new google.maps.LatLng(54.649739, -93.045726); 
+					
+					changeMap();
+		        }
+		        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
+		        navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
+	    	} else {
+        lat="54.649739";
+				lng="-93.045726";
 				changeMap();
-			}
-		});
-		google.maps.event.addListener(map, 'dragend', function() {
+	   		}
+		
+		} else {
+			//Get City Lat and Lng
+			
+			lat="54.649739";
+			lng="-93.045726";
+			mapZoom="11"; //Default zoom level for city
+			console.log("Center to City:" + lat + ":" + lng);
+			map.setCenter(new google.maps.LatLng(parseFloat(lat), parseFloat(lng)));
+			map.setZoom(parseInt(cityZoom));
+
 			changeMap();
-		});
+			//
+		}
+			
+
 		
 		
 

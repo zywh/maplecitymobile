@@ -310,6 +310,7 @@ $idxia=$housexiai["id"];
             
           <div>
 <!--效果开始-->
+<div class="ink_phoBok">
 <div class="swiper-container" style="margin-bottom: 10px;">
 <div class="swiper-wrapper">
 <?php
@@ -358,100 +359,11 @@ var swiper = new Swiper(".swiper-container", {
   autoplayDisableOnInteraction: true,
 });
 </script>
-
-<div class="ink_phoBok">
- <div id="ifocus">
-    <div id="ifocus_pic" class="pics">
-      <div id="ifocus_piclist">
-        <ul>
-<?php
-//打开 images 目录
-
-$county = $house->county;
-$county = preg_replace('/\s+/', '', $county);
-$county = str_replace("&","",$county);
-$dir="mlspic/crea/".$county."/Photo".$house->ml_num."/";
-$num_files = 0;
-if(is_dir($dir)){
-	$picfiles = scandir($dir);
-	$num_files = count(scandir($dir))-2;
-}
-
-if ( $num_files > 0)	{
-	
-	for ($x = 2; $x <= $num_files + 1; $x++) {
-	  //$filePath = $dir."Photo".$house->ml_num."-".$x.".jpeg";
-	  $filePath = $dir.$picfiles[$x];
-	  ?>
-	  <li><a target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/<?php echo $filePath; ?>"width="465" height="308" /></a></li>
-	 <?php
-
-	}
-}
-	
-else{
-echo "<img src='/static/images/zanwu.jpg' width='465' height='308'>";
-}
-?> 
-    
-        </ul>
-      </div>
-      <div id="ifocus_opdiv"></div>
-      <div id="ifocus_tx" class="tFocusText">
-        <ul>
-          <li class="current">
-
-          </li>
-          <li class="normal">
-          </li>
-          <li class="normal">
-          </li>
-          <li class="normal">
-         
-          </li>
-          <li class="normal">
-         
-          </li>
-          <li class="normal">
-           
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div id="tFocusBtn">      
-      <span class="tFocus-nextBtn"></span>
-      <div id="ifocus_btn">
-        <ul class="btns">
-<?php
-//打开 images 目录
-
-
-if ( $num_files > 0)	{
-	
-	for ($x = 2; $x <= $num_files + 1; $x++) {
-	  $filePath = $dir.$picfiles[$x];
-	  ?>
-	  <li class="current"><a target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/<?php echo $filePath; ?>" width="128" height="88" /></a></li>
-	  <?php
-	 
-	}
-		
-}
-else{
-echo "<img src='/static/images/zanwu.jpg' width='128' height='88'>";
-}
-?> 
-        </ul>
-      </div>
-    <span class="tFocus-prevBtn"></span>
-   </div>
-  </div>
-  <script type="text/javascript">new tFocus('ifocus',{changeStyle:'opac',timer:3000});</script>
 </div>
 <!--End-->
 </div>
-            
-            
+          
+          
         </div>
         <div class="fyxqupright">
             <div class="fyxqupright_titile">MLS：<?php echo $house->ml_num; ?></div>
