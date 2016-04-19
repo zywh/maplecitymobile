@@ -25,8 +25,11 @@
 	
 	<title> 加拿大房产_枫之都
 	</title>
+	<script type="text/javascript" src="http://ditu.google.cn/maps/api/js?libraries=places&language=zh-cn"></script>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="/static/map/js/markercluster.js"></script>
+	<script type="text/javascript" src="/static/map/js/richmarker-compiled.js"></script>
 	
 	
 
@@ -45,7 +48,7 @@
 				
 			    <li data-icon="search"><a href="index.php?r=mhouse/index&sr=Lease" data-ajax="false" id="menu_lease" >出租房</a></li>
 			    <li data-icon="search"><a href="index.php?r=mhouse/index&sr=Sale" data-ajax="false" id="menu_sale">二手房</a></li>
-			    <li data-icon="search"><a href="index.php?r=mhouse/index&sr=Sale" data-ajax="false" id="menu_new">预售房</a></li>
+			    <li data-icon="search"><a href="index.php?r=map/index" data-ajax="false" id="menu_new">Map</a></li>
 			 	<li data-icon="search"><a href="http://maplecity.com.cn/index.php?r=column/index" data-ajax="false" data-icon="search" id="menu_school">学区房</a></li>
 			
 			    <li data-icon="calendar"><a href="http://maplecity.com.cn/index.php?r=stats/current" data-ajax="false" id="menu_homestats">房源统计</a></li>
