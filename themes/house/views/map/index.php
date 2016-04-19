@@ -22,204 +22,178 @@
 
 
 <script>
-   
-    //汇率
-    var getRate = function(code) {
-        return '加元';
-    }
+ 
+function setMapView(lat, lng, zoom) {
+	map.setCenter(new google.maps.LatLng(parseFloat(lat), parseFloat(lng)));
+	map.setZoom(parseInt(zoom));
+} 
 
-    var googleMap = {
-        //向地图添加信息内容
-        setContent: function(lat, lng, content, html, isShow, index) {
-            var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-            var marker = new RichMarker({
-                position: point,
-                map: map,
-                draggable: false,
-                content: content,
-                flat: true
-            });
-            markerArray.push(marker);
-            var info = new google.maps.InfoWindow({
-                content: html,
-                size: new google.maps.Size(50, 50),
-                pixelOffset: new google.maps.Size(0, -24)
-            });
-            infowindow.push(info);
+function setContent(lat, lng, content, html, isShow, index) {
+	var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
+	var marker = new RichMarker({
+		position: point,
+		map: map,
+		draggable: false,
+		content: content,
+		flat: true
+	});
+	markerArray.push(marker);
+	var info = new google.maps.InfoWindow({
+		content: html,
+		size: new google.maps.Size(50, 50),
+		pixelOffset: new google.maps.Size(0, -24)
+	});
+	infowindow.push(info);
 
 
-            google.maps.event.addListener(marker, 'click', function(e) {
-                //for (i = 0; i < infowindow.length; i++) {
-                //    infowindow[i].close();
-                //}
-                info.open(map, marker);
-                googleMap.setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
-                if (mapZoom > 8) {
-                    $("li.first_li").remove();
-                    $(".fclistbox").html(HouseArray[index] + $(".fclistbox").html());
-                }
-            });
-            if (isShow) {
-                for (i = 0; i < infowindow.length; i++) {
-                    infowindow[i].close();
-                }
-                info.open(map, marker);
-                googleMap.setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
-            }
-         
-        }, //在地图添加房源数量信息
-        setContentCount: function(lat, lng, totalCount, city) {
-            var content = "<i class='common_bg icon_map_mark'><span>" + totalCount + "</span></i>";
-            var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-            //console.log(lat + ":" + lng +":" + totalCount +":" + city);
+	google.maps.event.addListener(marker, 'click', function(e) {
+		//for (i = 0; i < infowindow.length; i++) {
+		//    infowindow[i].close();
+		//}
+		info.open(map, marker);
+		googleMap.setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
+		if (mapZoom > 8) {
+			$("li.first_li").remove();
+			$(".fclistbox").html(HouseArray[index] + $(".fclistbox").html());
+		}
+	});
+	if (isShow) {
+		for (i = 0; i < infowindow.length; i++) {
+			infowindow[i].close();
+		}
+		info.open(map, marker);
+		googleMap.setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
+	}
+ 
+}
 
 
-            var marker = new RichMarker({
-                position: point,
-                map: map,
-                draggable: false,
-                content: content,
-                flat: true
-            });
-            markerArray.push(marker);
-            var infocontent = '<p style="margin-bottom:0px;">' + city + ' 共有' + totalCount + '个楼盘</p>';
-            var infowindow = new google.maps.InfoWindow({
-                pixelOffset: new google.maps.Size(0, -24)
-            });
-            google.maps.event.addListener(marker, 'mouseover', (function(marker, infocontent, infowindow) {
-                return function() {
-                    infowindow.setContent(infocontent);
-                    infowindow.open(map, marker);
-                };
-            })(marker, infocontent, infowindow));
-
-            google.maps.event.addListener(marker, 'mouseout', (function(marker, infocontent, infowindow) {
-                return function() {
-                    infowindow.close();
-                };
-            })(marker, content, infowindow));
-
-            google.maps.event.addListener(marker, 'click', function() {
-                map.setCenter(this.position);
-                map.setZoom(12);
-            });
+function setContentCount(lat, lng, totalCount, city) {
+	var content = "<i class='common_bg icon_map_mark'><span>" + totalCount + "</span></i>";
+	var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
+	//console.log(lat + ":" + lng +":" + totalCount +":" + city);
 
 
-        }, ///本地信息
+	var marker = new RichMarker({
+		position: point,
+		map: map,
+		draggable: false,
+		content: content,
+		flat: true
+	});
+	markerArray.push(marker);
+	var infocontent = '<p style="margin-bottom:0px;">' + city + ' 共有' + totalCount + '个楼盘</p>';
+	var infowindow = new google.maps.InfoWindow({
+		pixelOffset: new google.maps.Size(0, -24)
+	});
+	google.maps.event.addListener(marker, 'mouseover', (function(marker, infocontent, infowindow) {
+		return function() {
+			infowindow.setContent(infocontent);
+			infowindow.open(map, marker);
+		};
+	})(marker, infocontent, infowindow));
 
-        createMarker: function(place) {
-            var placeLoc = place.geometry.location;
-            var html;
-            var iconbase = "/static/map/images/";
-            var iconurl;
+	google.maps.event.addListener(marker, 'mouseout', (function(marker, infocontent, infowindow) {
+		return function() {
+			infowindow.close();
+		};
+	})(marker, content, infowindow));
 
-            if (local_type == "school") {
-                html = "<i class='homelist icon_scool3'></i>";
-                iconurl = iconbase + "m1.jpg";
-            } else if (local_type == "restaurant") {
-                html = "<i class='homelist icon_dining3'></i>";
-                iconurl = iconbase + "m2.jpg";
-            } else if (local_type == "bus_station") {
-                html = "<i class='homelist icon_traffic3'></i>";
-                iconurl = iconbase + "m3.jpg";
-            } else if (local_type == "grocery_or_supermarket") {
-                html = "<i class='homelist icon_shopping3'></i>";
-                iconurl = iconbase + "m4.jpg";
-            } else if (local_type == "hospital") {
-                html = "<i class='homelist icon_hospital3'></i>";
-                iconurl = iconbase + "m5.jpg";
-            } else if (local_type == "bank") {
-                html = "<i class='homelist icon_bank3'></i>";
-                iconurl = iconbase + "m6.jpg";
-            } else {
-                html = "<i class='common_bg icon_map_mark'></i>";
-            }
-
-            var infowindow = new google.maps.InfoWindow();
-            var currentMark;
-            var marker = new google.maps.Marker({
-                map: map,
-                position: place.geometry.location,
-                icon: iconurl
-            });
-            google.maps.event.addListener(marker, 'mouseover', function() {
-                infowindow.setContent(place.name);
-                infowindow.open(map, this);
-                currentMark = this;
-            });
-            google.maps.event.addListener(marker, 'mouseout', function() {
-                currentMark.setMap(null);
-                //infowindow.setContent(place.name);
-                //infowindow.open(map, this);
-            });
-
-            publicArray[publicArray.length] = marker;
-        }, //清空所有信息内容
-        clearAll: function(map) {
-            if (markerArray) {
-                for (var i in markerArray) {
-                    markerArray[i].setMap(null);
-                }
-                markerArray.length = 0;
-            }
-            if (markerClusterer) {
-                //console.log("Clear Cluster Markers");
-                markerClusterer.clearMarkers();
-            }
+	google.maps.event.addListener(marker, 'click', function() {
+		map.setCenter(this.position);
+		map.setZoom(12);
+	});
 
 
-            if (infowindow) {
-                for (var i in infowindow) {
-                    infowindow[i] = null;
-                }
-                infowindow.length = 0;
-            }
-            if (publicArray) {
-                for (var i in publicArray) {
-                    publicArray[i].setMap(null);
-                }
-                publicArray.length = 0;
-            }
-            for (var i = 0; i < markers.length; i++) {
-                markers[i].setMap(null);
-            }
-        }, ///设置地图位置大小
-        setMapView: function(lat, lng, zoom) {
-            map.setCenter(new google.maps.LatLng(parseFloat(lat), parseFloat(lng)));
-            map.setZoom(parseInt(zoom));
-        },
-	   setMapCenter: function(mapCenter, zoom) {
-            map.setCenter(mapCenter);
-            map.setZoom(parseInt(zoom));
-        },
+};
 
-        localSearh: function(searchName) {
-            request = {
-                location: mapCenter,
-                radius: '10000',
-                types: [local_type]
-            };
-            service = new google.maps.places.PlacesService(map);
-            service.search(request, function(results, status) {
-                if (publicArray) {
-                    for (var i in publicArray) {
-                        publicArray[i].setMap(null);
-                    }
-                    publicArray.length = 0;
-                }
-                if (status == google.maps.places.PlacesServiceStatus.OK) {
-                    for (var i = 0; i < results.length; i++) {
-                        googleMap.createMarker(results[i]);
-                    }
-                }
-            });
-        }
-    };
+function createMarker(place) {
+	var placeLoc = place.geometry.location;
+	var html;
+	var iconbase = "/static/map/images/";
+	var iconurl;
 
-    var changeMap = function() {
+	if (local_type == "school") {
+		html = "<i class='homelist icon_scool3'></i>";
+		iconurl = iconbase + "m1.jpg";
+	} else if (local_type == "restaurant") {
+		html = "<i class='homelist icon_dining3'></i>";
+		iconurl = iconbase + "m2.jpg";
+	} else if (local_type == "bus_station") {
+		html = "<i class='homelist icon_traffic3'></i>";
+		iconurl = iconbase + "m3.jpg";
+	} else if (local_type == "grocery_or_supermarket") {
+		html = "<i class='homelist icon_shopping3'></i>";
+		iconurl = iconbase + "m4.jpg";
+	} else if (local_type == "hospital") {
+		html = "<i class='homelist icon_hospital3'></i>";
+		iconurl = iconbase + "m5.jpg";
+	} else if (local_type == "bank") {
+		html = "<i class='homelist icon_bank3'></i>";
+		iconurl = iconbase + "m6.jpg";
+	} else {
+		html = "<i class='common_bg icon_map_mark'></i>";
+	}
+
+	var infowindow = new google.maps.InfoWindow();
+	var currentMark;
+	var marker = new google.maps.Marker({
+		map: map,
+		position: place.geometry.location,
+		icon: iconurl
+	});
+	google.maps.event.addListener(marker, 'mouseover', function() {
+		infowindow.setContent(place.name);
+		infowindow.open(map, this);
+		currentMark = this;
+	});
+	google.maps.event.addListener(marker, 'mouseout', function() {
+		currentMark.setMap(null);
+		//infowindow.setContent(place.name);
+		//infowindow.open(map, this);
+	});
+
+	publicArray[publicArray.length] = marker;
+} //清空所有信息内容
+function clearAll(map) {
+	if (markerArray) {
+		for (var i in markerArray) {
+			markerArray[i].setMap(null);
+		}
+		markerArray.length = 0;
+	}
+	if (markerClusterer) {
+		//console.log("Clear Cluster Markers");
+		markerClusterer.clearMarkers();
+	}
+
+
+	if (infowindow) {
+		for (var i in infowindow) {
+			infowindow[i] = null;
+		}
+		infowindow.length = 0;
+	}
+	if (publicArray) {
+		for (var i in publicArray) {
+			publicArray[i].setMap(null);
+		}
+		publicArray.length = 0;
+	}
+	for (var i = 0; i < markers.length; i++) {
+		markers[i].setMap(null);
+	}
+} ///设置地图位置大小
+        
+//汇率
+var getRate = function(code) {
+	return '加元';
+}
+
+changeMap = function() {
         console.log("Change Map");
 
-		googleMap.clearAll(map);
+		clearAll(map);
         	
         
         var _sw = map.getBounds().getSouthWest();
@@ -322,7 +296,7 @@
 
 
                             var html = "<div class='map_info_title'>" + this.Address + ", " + this.CountryName + ", " + this.ProvinceEname + "</div><div class='map_info_content'><div class='map_info_left'><img src='<?php echo Yii::app()->request->baseUrl; ?>" + imgurl + "' style='width:188px;height:148px'/></div><div class='map_info_right'><p class='orange map_info_price'><i class='common_bg'></i><span>价 格：</span> " + hprice + "</p> <p><a href='<?php echo Yii::app()->createUrl('house/view'); ?>&id=" + this.Id + "' target='_blank'>查看详情</a></p><p class='map_info_address'><i class='common_bg'></i>地 址：" + this.MunicipalityName + " " + this.ProvinceCname + "</p><p class='map_info_phone'><i class='common_bg'></i>类型：" + this.HouseType + "</p><p class='map_info_type'><i class='common_bg'></i>户 型：" + this.Beds + "卧 " + this.Baths + "卫 " + this.Kitchen + "厨</p></div><div class='clear'></div></div>";
-                            googleMap.setContent(tlat, tlng, content, html, false, Arrayindex);
+                            setContent(tlat, tlng, content, html, false, Arrayindex);
                             Arrayindex++;
 
                         });
@@ -360,15 +334,8 @@
         });
 
     }
-    var search_box = function() {
-        if ($("#search_table").html() != "") {
-            $(".dizhileft").attr("style", "overflow-y:hidden;overflow-x:hidden");
-        } else {
-            $(".dizhileft").attr("style", "height:27px;");
-        }
-    }
 
-    var openInfo = function(num, obj) {
+var openInfo = function(num, obj) {
         num = num + 1;
         var info = $(obj);
         var html = "<div class='map_info_title'>" + $(info).attr("Address") + ", " + $(info).attr("CountryName") + ", " + $(info).attr("ProvinceEname") + " " + $(info).attr("Zip") + "</div><div class='map_info_content'><div class='map_info_left'><img src='<?php echo Yii::app()->request->baseUrl; ?>" + $(info).attr("imgurl") + "' style='width:188px;height:148px'/></div><div class='map_info_right'><p class='orange map_info_price'><i class='common_bg'></i><span>价 格：</span>" + $(info).attr("Price") + "<br /></p><p><a class='preferential common_bg' target='blank'  href='<?php echo Yii::app()->createUrl('house/view'); ?>&id=" +
@@ -382,42 +349,43 @@
 
 
     //获取url参数
-    var getUrlParam = function(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-        var r = window.location.search.substr(1).match(reg); //匹配目标参数
-        if (r != null)
-            return unescape(r[2]);
-        return null; //返回参数值
-    }
+var getUrlParam = function(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+	var r = window.location.search.substr(1).match(reg); //匹配目标参数
+	if (r != null)
+		return unescape(r[2]);
+	return null; //返回参数值
+}
 
-    //更改url参数
-    var changeURLArg = function(arg, arg_val) {
-        var url = window.location.href;
-        if (getUrlParam(arg)) {
-            var pattern = arg + '=([^&]*)';
-            var replaceText = arg + '=' + arg_val;
-            if (url.match(pattern)) {
-                var tmp = '/(' + arg + '=)([^&]*)/gi';
-                tmp = url.replace(eval(tmp), replaceText);
-                window.history.replaceState('{}', '', tmp);
-                return tmp;
-            } else {
-                if (url.match('[\?]')) {
-                    window.history.replaceState('{}', '', url + '&' + replaceText);
-                    return url + '&' + replaceText;
-                } else {
-                    window.history.replaceState('{}', '', url + '?' + replaceText);
-                    return url + '?' + replaceText;
-                }
-            }
-            window.history.replaceState(url + '\n' + arg + '\n' + arg_val);
-            return url + '\n' + arg + '\n' + arg_val;
-        }
-    }
+//更改url参数
+var changeURLArg = function(arg, arg_val) {
+	var url = window.location.href;
+	if (getUrlParam(arg)) {
+		var pattern = arg + '=([^&]*)';
+		var replaceText = arg + '=' + arg_val;
+		if (url.match(pattern)) {
+			var tmp = '/(' + arg + '=)([^&]*)/gi';
+			tmp = url.replace(eval(tmp), replaceText);
+			window.history.replaceState('{}', '', tmp);
+			return tmp;
+		} else {
+			if (url.match('[\?]')) {
+				window.history.replaceState('{}', '', url + '&' + replaceText);
+				return url + '&' + replaceText;
+			} else {
+				window.history.replaceState('{}', '', url + '?' + replaceText);
+				return url + '?' + replaceText;
+			}
+		}
+		window.history.replaceState(url + '\n' + arg + '\n' + arg_val);
+		return url + '\n' + arg + '\n' + arg_val;
+	}
+}
 
 
     //google map
     var cityname = 0;
+	
     //var cd2 = '<?php echo $_GET["cd2"]; ?>';
     var mapInfo = null;
     var mapMark = null;
@@ -429,6 +397,7 @@
     var HouseArray = [];
     var HouseAreaArray = [];
     var publicArray = [];
+	var map;
     var mapisInit = true;
     var map_type = "";
     var map_price = "";
@@ -456,42 +425,58 @@
 			}
 		};
 		
-	var	map = new google.maps.Map(document.getElementById("google_map"), mapOptions);
-		
-	 
 
-	google.maps.event.addListener(map, "bounds_changed", function() {
-		changeMap();
-	});
-	google.maps.event.addListener(map, 'dragend', function() {
-		changeMap();
-	});
-	
 	
 	$( document ).on( "pagecreate", "#page_main", function() {
 		
-		if ( $cityname == '') {
+		map = new google.maps.Map(document.getElementById("google_map"), mapOptions);
+	
+		google.maps.event.addListener(map, 'dragend', function() {
+			changeMap();
+		});
+	
+		
+		if ( city == '') {
 			//If city is NULL and User Location can be identified. Center to user location
 			if ( navigator.geolocation ) {
 		        function success(pos) {
 					lat = pos.coords.latitude;
 					lng = pos.coords.longitude;
 					//mapCenter = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-					console.log("Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
-					mapZoom = 19;
-					changeMap();
+					console.log("GeoLocation Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
+					mapZoom = 17;
+					setMapView(lat,lng,mapZoom);
+					google.maps.event.addListener(map, "bounds_changed", function() {
+						changeMap();
+					});
+					
+					//changeMap();
 				}
 		        function fail(error) {
-					mapCenter = new google.maps.LatLng(54.649739, -93.045726); 
-					
-					changeMap();
+					lat="54.649739";
+					lng="-93.045726";
+	        		mapZoom="11"; //Default zoom level for city
+					console.log("Fail to Get Geo Location Center to City:" + lat + ":" + lng);
+					setMapView(lat,lng,mapZoom);
+						
+					google.maps.event.addListener(map, "bounds_changed", function() {
+						changeMap();
+					});
 		        }
 		        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
 		        navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
 	    	} else {
-        lat="54.649739";
+				
+				//If location is allowed from browser
+				lat="54.649739";
 				lng="-93.045726";
-				changeMap();
+        		mapZoom="11"; //Default zoom level for city
+				console.log("Center to City:" + lat + ":" + lng);
+				google.setMapView(lat,lng,mapZoom);
+					
+				google.maps.event.addListener(map, "bounds_changed", function() {
+					changeMap();
+				});
 	   		}
 		
 		} else {
@@ -501,10 +486,11 @@
 			lng="-93.045726";
 			mapZoom="11"; //Default zoom level for city
 			console.log("Center to City:" + lat + ":" + lng);
-			map.setCenter(new google.maps.LatLng(parseFloat(lat), parseFloat(lng)));
-			map.setZoom(parseInt(cityZoom));
-
-			changeMap();
+			google.setMapView(lat,lng,mapZoom);
+				
+			google.maps.event.addListener(map, "bounds_changed", function() {
+				changeMap();
+			});
 			//
 		}
 			

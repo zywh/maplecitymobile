@@ -343,20 +343,24 @@ else{
 ?>
 <div class="swiper-slide" style="width: 100%;">
   <div style="padding-top: 65%;"></div>
-  <img style="width: 100%; height: auto; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-color: silver;" src="'/static/images/zanwu.jpg">
+  <img style="width: 100%; height: auto; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-color: silver;" src="/static/images/zanwu.jpg">
 </div>
 <?php
 }
 ?> 
 <div class="swiper-pagination"></div>
+<div class="swiper-button-next"></div>
+<div class="swiper-button-prev"></div>
 </div>
 <script>
 var swiper = new Swiper(".swiper-container", {
   pagination: ".swiper-pagination",
+  nextButton: '.swiper-button-next',
+  prevButton: '.swiper-button-prev',
   paginationClickable: true,
-  autoplay: 3500,
-  speed: 1000,
-  autoplayDisableOnInteraction: true,
+  //autoplay: 3500,
+  //speed: 1000,
+  //autoplayDisableOnInteraction: true,
 });
 </script>
 </div>
@@ -1008,7 +1012,8 @@ $(function(){
                 </div>
             </div>
             <a href="javascript:;" name="fytp" style="text-indent:-99999em; display:block;margin-bottom: -5px;zoom: 1;">1</a>
-            <div class="fwbj_box">
+<!-- removed by hu
+             <div class="fwbj_box">
                 <div class="fyxqdown_left_title">
                     <a class="fyxqdown_left_cur" id="tup" href="javascript:;">房屋图片</a><div class="cl"></div>
                 </div>
@@ -1037,7 +1042,7 @@ $(function(){
                 
 
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="fyxqdown_right">
 <div class="zczl">
