@@ -73,15 +73,11 @@
 		
 			<div data-role="navbar" >
 			  <ul>
-				<a href="#main_menu" data-transition="pop"  class="ui-btn  ui-icon-bullets  ui-btn-icon-left 	">枫之都</a>
-				<li><a href="/" data-ajax="false" id="header_home" ></a> </li>
+				<li><a href="#main_menu" data-transition="pop"  class="ui-btn  ui-icon-bullets  ui-btn-icon-left 	">枫之都</a></li>
 				
-				<li>
-				  
-				</li>
-				<li>
-				  
-				</li>
+				<li><a href="/" data-ajax="false" id="header_home" ></a> </li>
+						
+				<li></li>
 				
 			  </ul>
 			</div>
