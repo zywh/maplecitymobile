@@ -22,7 +22,7 @@
 
 
 <script>
-	  
+ 
 function setMapView(lat, lng, zoom) {
 	map.setCenter(new google.maps.LatLng(parseFloat(lat), parseFloat(lng)));
 	map.setZoom(parseInt(zoom));
@@ -30,12 +30,12 @@ function setMapView(lat, lng, zoom) {
 
 function setContent(lat, lng, content, html, isShow, index) {
 	var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-	console.log(lat + ":" + lng);
+	//console.log(lat + ":" + lng);
 	var marker = new  google.maps.Marker({
 		position: point,
 		map: map,
 		draggable: false,
-		label: "1"
+		title: "B"
 		
 	});
 	
@@ -64,14 +64,14 @@ function setContent(lat, lng, content, html, isShow, index) {
 function setContentCount(lat, lng, totalCount, city) {
 	var content = "<i class='common_bg icon_map_mark'><span>" + totalCount + "</span></i>";
 	var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-	console.log(lat + ":" + lng +":" + totalCount +":" + city);
+	//console.log(lat + ":" + lng +":" + totalCount +":" + city);
 
 
 	var marker = google.maps.Marker({
 		position: point,
 		map: map,
 		draggable: false,
-		label: totalCount
+		title: totalCount
 	});
 	markerArray.push(marker);
 	var infocontent = '<p style="margin-bottom:0px;">' + city + ' 共有' + totalCount + '个楼盘</p>';

@@ -28,7 +28,8 @@
 	<script type="text/javascript" src="http://ditu.google.cn/maps/api/js?libraries=places&language=zh-cn"></script>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script type="text/javascript" src="/static/map/js/markercluster.js"></script>
+	
+	<script type="text/javascript" src="/static/map/js/markerclusterer_packed.js"></script>
 	<script type="text/javascript" src="/static/map/js/richmarker-compiled.js"></script>
 	
 	
