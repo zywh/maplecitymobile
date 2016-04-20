@@ -98,11 +98,7 @@ function getFieldValues() {
 		//console.log (this.id + ":" + options[this.id]);
     });
 	
-	$('.province-panel select').each(function() {
-        options["city"] = this.value; //push value into options object
-		//console.log (this.id + ":" + options[this.id]);
-    });
-	
+
     
 }
 
@@ -145,24 +141,35 @@ $(document).on("pageshow","#page_main",function(){
 	});
 	
 	//
-	/*
+	
 	$(".province-panel select").change(function () {
 		
-		var id = this.id;
+		var id = "#" + this.id + "-button";
+		var currentid = this.id;
 		console.log("ID is selected:" + id + "value:" + this.value);
+		$(id).addClass('ui-btn-active');
 	
-       	 console.log("CheckAll ID:" + this.id + ":" + this.value);
-		//$('province-panel select').not(this).val('').selectmenu("refresh");
-		$('province-panel select').not(this).replaceWith("");
+        
+		$('.province-panel .ui-btn').removeClass('ui-btn-active');
+		$(id).addClass('ui-btn-active');
+		//$('.province-panel select').not(this).val('').selectmenu("refresh");
+		$('.province-panel select').each(function() {
+			console.log ("Current Select:" + this.id + " Existing Select:" + currentid);
+			if (this.value && this.id != currentid) {
+				console.log("There are more than 1 selection" + this.id + ":" + this.value);
+			} 
+		});
+	
 		getFieldValues(); //Get updated Select
 		$('#search_clear').show(); 
 		
 		//update_houselist(options);
 	});
-	*/
+	
 	//Search Clear
 	$('#search_clear').click(function()	{ 
-		$("select").val('').selectmenu('refresh');;
+		$("select").val('').selectmenu('refresh');
+		$('.province-panel .ui-btn').removeClass('ui-btn-active'); 
 		//$("select").selectedIndex = -1;
 		//$("select").selectmenu('refresh');
 		//console.log("Clear Select");
@@ -344,11 +351,11 @@ $(document).on("pageshow","#page_main",function(){
 	<div class="ui-block-c">
 		<select name="type" id="sel_type" data-corners="false"  data-iconpos="none" data-native-menu="false"  style=>
 			<option >房型</option>
-			<option value="1" >独栋别墅</option>
-			<option value="2">联排别墅</option>
-			<option value="3">豪华公寓</option>
-			<option value="4">双拼别墅</option>
-			<option value="5">度假屋</option>
+			<option value="1" >独栋</option>
+			<option value="2">联排</option>
+			<option value="3">公寓</option>
+			<option value="4">双拼</option>
+			<option value="5">度假</option>
 			<option value="6">农场</option>
 			<option value="7">空地</option>
 			<option value="8">其他</option>
