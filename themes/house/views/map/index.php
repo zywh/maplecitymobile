@@ -441,7 +441,7 @@ var changeURLArg = function(arg, arg_val) {
 					setMapView(lat,lng,mapZoom);
 					
 					google.maps.event.addListener(map, "bounds_changed", function() {
-						changeMap();
+						//changeMap();
 						mapZoom = map.mapZoom();
 						console.log("Zoom:" + mapZoom);
 					});
