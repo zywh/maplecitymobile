@@ -145,34 +145,40 @@ $(document).on("pageshow","#page_main",function(){
 	});
 	
 	//
+	/*
 	$(".province-panel select").change(function () {
-	var id = $(this).find('option:selected').attr('id');
-	console.log("ID is selected:" + id + this.id + this.value);
-	//getFieldValues(); //Get updated Select
-	$('#search_clear').show(); 
-	//update_houselist(options);
+		
+		var id = this.id;
+		console.log("ID is selected:" + id + "value:" + this.value);
+	
+       	 console.log("CheckAll ID:" + this.id + ":" + this.value);
+		//$('province-panel select').not(this).val('').selectmenu("refresh");
+		$('province-panel select').not(this).replaceWith("");
+		getFieldValues(); //Get updated Select
+		$('#search_clear').show(); 
+		
+		//update_houselist(options);
 	});
+	*/
 	//Search Clear
 	$('#search_clear').click(function()	{ 
-		$("select").val([]);
-		$("select").selectedIndex = -1;
-		$("select").selectmenu('refresh');
-		console.log("Clear Select");
+		$("select").val('').selectmenu('refresh');;
+		//$("select").selectedIndex = -1;
+		//$("select").selectmenu('refresh');
+		//console.log("Clear Select");
 		$('#search_clear').hide(); 
 		getFieldValues();
 		update_houselist(options);
-		//return false; 
+		
 	});	
 
 	//Detect scroll to bottom
 	$(window).scroll(function(){
 		if($(document).height() > $(window).height()) {
 			if($(window).scrollTop() == $(document).height() - $(window).height()){
-			  //alert("The Bottom");
 			  loading = true; //prevent further ajax loading
 			  $('.animation_image').show(); //show loading image
 			  ++page;
-			  console.log("Refresh Page:" + page);
 			  options["pageindex"] = page;
 			  update_houselist(options);
 			 		 
