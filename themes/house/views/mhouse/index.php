@@ -175,108 +175,116 @@ $(document).on("pageshow","#page_main",function(){
 	
 	<ul id="search_city_text" class="ui-shadow ui-mini" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="输入城市 中/英文" data-filter-theme="a"  ></ul>
 
-	<div data-role="collapsibleset" data-theme="a" data-content-theme="a" data-mini="true">
-	    <div data-role="collapsible">
-	        <h3>I'm a mini collapsible</h3>
-	     <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-		    <legend>Horizontal, mini sized:</legend>
-		    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6a" value="on" checked="checked">
-		    <label for="radio-choice-h-6a">One</label>
-		    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6b" value="off">
-		    <label for="radio-choice-h-6b">Two</label>
-		    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6c" value="other">
-		    <label for="radio-choice-h-6c">Three</label>
-				    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6a" value="on" checked="checked">
-		    <label for="radio-choice-h-6a">One</label>
-		    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6b" value="off">
-		    <label for="radio-choice-h-6b">Two</label>
-		    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6c" value="other">
-		    <label for="radio-choice-h-6c">Three</label>
-				    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6a" value="on" checked="checked">
-		    <label for="radio-choice-h-6a">One</label>
-		    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6b" value="off">
-		    <label for="radio-choice-h-6b">Two</label>
-		    <input type="radio" name="radio-choice-h-6" id="radio-choice-h-6c" value="other">
-		    <label for="radio-choice-h-6c">Three</label>
-		</fieldset>
-	    </div>
-	    <div data-role="collapsible">
-	        <h3>I'm another mini</h3>
-	    <p>Here's some collapsible content.</p>
-	    </div>
-	    <div data-role="collapsible">
-	        <h3>Last one</h3>
-	    <p>Final bit of collapsible content.</p>
-	    </div>
-	</div>
-	
-	
 	<fieldset data-role="controlgroup" data-mini="true">
-		<select name="ontario" id="ontario" multiple="multiple" data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
+		<select name="pro_on" id="prov_on" data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
 			<option >安省</option>
-			<div data-role="navbar" >
-			    <ul>
-			        <li><a href="#" class="ui-btn-active">One</a></li>
-			        <li><a href="#">Two</a></li>
-			        <li><a href="#">Three</a></li>
-			        <li><a href="#">Four</a></li>
-			        <li><a href="#">Five</a></li>
-			        <li><a href="#">Six</a></li>
-			        <li><a href="#">Seven</a></li>
-			        <li><a href="#">Eight</a></li>
-			        <li><a href="#">Nine</a></li>
-			        <li><a href="#">Ten</a></li>
-			    </ul>
-			</div><!-- /navbar -->
-			
-
-					
-		</select>	
-		<select name="ontario" id="ontario" multiple="multiple" data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
-			<option >爱德华王子岛省</option>
 			<option value="Toronto" >多伦多</option>
-			<option value="Mississauga">Mississauga</option>
-	
+			<option value="Vaughan" >旺市</option>
+			<option value="Markham" >万锦</option>
+			<option value="Richmond Hill" >列治文山</option>
+			<option value="Mississauga" >密西沙加</option>
+			<option value="Brampton" >布兰普顿</option>
+			<option value="Oakville" >奥克维尔</option>
+			<option value="Burlington" >伯灵顿</option>
+			<option value="Waterloo" >滑铁卢</option>
+			<option value="Hamilton" >哈密尔顿</option>
+			<option value="Kingston" >金斯敦</option>
+			<option value="Windsor" >温莎</option>
+			<option value="Kitchener" >基奇纳</option>
+			<option value="Ottawa" >渥太华</option>
+			<option value="London" >伦敦</option>
+			<option value="Niagara Falls" >尼亚加拉瀑布</option>
+
+
+		</select>	
+		
+		<select name="pro_bc" id="pro_bc"  data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
+			<option >BC省</option>
+			<option value="Surrey" >素里</option>
+			<option value="Vancouver" >温哥华</option>
+			<option value="Kelowna" >基洛拿</option>
+			<option value="Kamloops" >坎卢普斯</option>
+			<option value="Victoria" >维多利亚</option>
+			<option value="NANAIMO" >纳奈莫</option>
+			<option value="Richmond" >列治文</option>
+			<option value="Abbotsford" >阿伯茨福德</option>
+			<option value="Langley" >兰利</option>
+			<option value="Vernon" >弗农</option>
+			<option value="Burnaby" >本那比</option>
+
 		
 		</select>	
-	    		
-	    
+	    <select name="pro_alberta" id="pro_alberta"  data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
+			<option >阿尔伯塔</option>
+			<option value="Calgary" >卡尔加里</option>
+			<option value="Edmonton" >埃德蒙顿</option>
+			<option value="Grande Prairie" >大草原城</option>
+			<option value="Fort McMurray" >麦克默里堡</option>
+			<option value="Lethbridge" >莱斯布里奇</option>
+			<option value="Red Deer" >红鹿</option>
+			<option value="Rural Parkland County" >农村帕克兰县</option>
+			<option value="Airdrie" >艾尔德里</option>
+			<option value="Medicine Hat" >梅迪辛哈特</option>
+			
+		</select>
+	    <select name="pro_newb" id="pro_newb"  data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
+			<option >新不伦瑞克</option>	
+			<option value="Moncton" >蒙克顿</option>
+			<option value="SAINT JOHN" >圣约翰</option>
+			<option value="Dieppe" >迪耶普</option>
+			<option value="FREDERICTON" >弗雷德里克顿</option>
+			<option value="Riverview" >江景</option>
+			<option value="QUISPAMSIS" >QUISPAMSIS</option>
+			<option value="MIRAMICHI" >米罗米奇</option>
+			<option value="OROMOCTO" >奥罗莫克托</option>
+			<option value="Shediac" >Shediac的</option>
+			<option value="ROTHESAY" >罗斯西</option>
+			<option value="HAMPTON" >HAMPTON</option>
+			<option value="GRAND FALLS" >大瀑布</option>
+			<option value="WOODSTOCK" >伍德司托克</option>
+			<option value="EDMUNDSTON" >埃德门兹顿</option>
+						
+		</select>
+	    <select name="pro_news" id="pro_news"  data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
+			<option >新斯科舍省</option>
+			<option value="Halifax" >哈利法克斯</option>
+			<option value="Dartmouth" >达特茅斯</option>
+			<option value="Bedford" >贝德福德</option>
+			<option value="Hammonds Plains" >哈蒙兹平原</option>
+			<option value="Middle Sackville" >中东萨克维尔</option>
+			<option value="Bridgewater" >布里奇沃特</option>
+			<option value="Lower Sackville" >下萨克维尔</option>
+			<option value="Beaver Bank" >海狸银行</option>
+			<option value="New Glasgow" >新格拉斯哥</option>
+			<option value="Kingston" >金斯敦</option>
+						
+			
+		</select>
+	    <select name="pro_ed" id="pro_ed"  data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
+			<option >爱德华王子岛省</option>	
+			<option value="SUMMERSIDE" >萨默赛德</option>
+			<option value="CHARLOTTETOWN" >夏洛特敦</option>
+			<option value="STRATFORD" >斯特拉特福</option>
+			<option value="CORNWALL" >康沃尔</option>
+			
+		</select>		
+	    <select name="pro_newf" id="pro_newf"  data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
+			<option >纽芬兰及拉布拉多</option>	
+			<option value="ST. JOHN'S" >圣约翰</option>
+			<option value="CONCEPTION BAY SOUTH" >CONCEPTION BAY SOUTH</option>
+			<option value="PARADISE" >天堂</option>
+			<option value="MOUNT PEARL" >芒特波尔</option>
+			<option value="CORNER BROOK" >科纳布鲁克</option>
+			<option value="ST. PHILIPS" >圣菲力普</option>
+			<option value="CARBONEAR" >CARBONEAR</option>
+			<option value="GANDER" >甘德</option>
+
+		</select>		    
 
 	</fieldset>
 
-		
-		
-	<div data-role="collapsibleset" id="search_city_list">
-      <div data-role="collapsible">
-        <h3>安省</h3>
-          <button class="ui-btn">Button</button>
-      </div>
-      <div data-role="collapsible">
-        <h3>BC省</h3>
-        <p>I'm the expanded content.</p>
-      </div>
-      <div data-role="collapsible">
-        <h3>阿尔伯塔</h3>
-        <p>I'm the expanded content.</p>
-      </div>
-      <div data-role="collapsible">
-        <h3>新不伦瑞克</h3>
-        <p>I'm the expanded content.</p>
-      </div>
-	       <div data-role="collapsible">
-        <h3>新斯科舍省</h3>
-        <p>I'm the expanded content.</p>
-      </div>
-	       <div data-role="collapsible">
-        <h3>爱德华王子岛省</h3>
-        <p>I'm the expanded content.</p>
-      </div>
-	       <div data-role="collapsible">
-        <h3>纽芬兰及拉布拉多</h3>
-        <p>I'm the expanded content.</p>
-      </div>
-    </div>
-	
+
+
 
 
 </div>
