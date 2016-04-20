@@ -961,6 +961,9 @@ button[disabled],
 
 .province-panel .ui-btn {
 	font-size: 15px;
+	text-align: left;
+
+	
 }
 
 .ui-bar-b,
@@ -1047,6 +1050,7 @@ html head + body .ui-btn.ui-btn-b:visited {
     background-repeat: no-repeat;
     background-size: 7px 4px;
 }
+
 
 /* Remove glowing shadow for select focus */
 .search-area .ui-btn:focus,

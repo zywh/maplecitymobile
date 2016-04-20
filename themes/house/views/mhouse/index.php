@@ -11,16 +11,16 @@ function update_houselist(options) {
 		type: 'POST', 
 		dataType: 'json', 
 		data: { 
-			sr : 	options['sr'], 
+			sr : 	options['sel_sr'], 
 			pageindex: options['pageindex'], 
-			housetype: options['type'], 
-			houseprice: options['price'],
-			houseroom: options['bedroom'],	
-			housebaths: options['washroom'],
-			househousearea: options['housearea']
+			housetype: options['sel_type'], 
+			houseprice: options['sel_price'],
+			houseroom: options['sel_bedroom'],	
+			housebaths: options['sel_washroom'],
+			househousearea: options['sel_housearea'],
 			//houselandarea: options['landarea'],
 			//orderby: options['orderby'],
-			//city: options['city'],
+			city: options['city']
 			
 			
 		},
@@ -93,10 +93,16 @@ function update_houselist(options) {
 
 function getFieldValues() {
    
-    $('select').each(function() {
+    $('.search-area select').each(function() {
         options[this.id] = this.value; //push value into options object
 		//console.log (this.id + ":" + options[this.id]);
     });
+	
+	$('.province-panel select').each(function() {
+        options["city"] = this.value; //push value into options object
+		//console.log (this.id + ":" + options[this.id]);
+    });
+	
     
 }
 
@@ -132,10 +138,19 @@ $(document).on("pageshow","#page_main",function(){
 	
 	
 	//Start Select Change Event  
-	$("select").change(function () {
+	$(".search-area  select").change(function () {
 		getFieldValues(); //Get updated Select
 		$('#search_clear').show(); 
 		update_houselist(options);
+	});
+	
+	//
+	$(".province-panel select").change(function () {
+	var id = $(this).find('option:selected').attr('id');
+	console.log("ID is selected:" + id + this.id + this.value);
+	//getFieldValues(); //Get updated Select
+	$('#search_clear').show(); 
+	//update_houselist(options);
 	});
 	//Search Clear
 	$('#search_clear').click(function()	{ 
@@ -175,7 +190,7 @@ $(document).on("pageshow","#page_main",function(){
 	
 	<ul id="search_city_text" class="ui-shadow ui-mini" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="输入城市 中/英文" data-filter-theme="a"  ></ul>
 
-	<fieldset data-role="controlgroup" data-mini="true">
+	<fieldset class="city-area" data-role="controlgroup" data-mini="true">
 		<select name="pro_on" id="prov_on" data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
 			<option >安省</option>
 			<option value="Toronto" >多伦多</option>
@@ -313,7 +328,7 @@ $(document).on("pageshow","#page_main",function(){
 		<a href="#panel-city" class="ui-btn ">区域</a>
 	</div>
 	<div class="ui-block-b">
-		<select name="sr" id="sr"   data-corners="false" data-iconpos="none" data-native-menu="false"  >
+		<select name="sr" id="sel_sr"   data-corners="false" data-iconpos="none" data-native-menu="false"  >
 			<option >状态</option>
 			<option value="Sale" selected="selected">出售</option>
 			<option value="Lease" >出租</option>
@@ -321,7 +336,7 @@ $(document).on("pageshow","#page_main",function(){
 		</select>
 	</div>	
 	<div class="ui-block-c">
-		<select name="type" id="type" data-corners="false"  data-iconpos="none" data-native-menu="false"  style=>
+		<select name="type" id="sel_type" data-corners="false"  data-iconpos="none" data-native-menu="false"  style=>
 			<option >房型</option>
 			<option value="1" >独栋别墅</option>
 			<option value="2">联排别墅</option>
@@ -334,7 +349,7 @@ $(document).on("pageshow","#page_main",function(){
 		</select>
 	</div>
 	<div class="ui-block-d">	
-		<select name="price" id="price" data-corners="false" data-iconpos="none" data-native-menu="false" >
+		<select name="price" id="sel_price" data-corners="false" data-iconpos="none" data-native-menu="false" >
 			<option >价格</option>
 			<option value="0-30" > &lt 30</option>
 			<option value="30-50" >30-50</option>
@@ -348,7 +363,7 @@ $(document).on("pageshow","#page_main",function(){
 	</div>
 	
 	<div class="ui-block-a">		
-		<select name="bedroom" id="bedroom"   data-corners="false"  data-iconpos="none" data-native-menu="false"  >
+		<select name="bedroom" id="sel_bedroom"   data-corners="false"  data-iconpos="none" data-native-menu="false"  >
 			<option >卧室</option>
 			<option value="1"> &gt1 </option>
 			<option value="2"> &gt2 </option>
@@ -359,7 +374,7 @@ $(document).on("pageshow","#page_main",function(){
 	</div>
 	<div class="ui-block-b">	
 
-		<select name="washroom" id="washroom"  data-corners="false" data-iconpos="none" data-native-menu="false"  >
+		<select name="washroom" id="sel_washroom"  data-corners="false" data-iconpos="none" data-native-menu="false"  >
 			<option > 洗手间</option>
 			<option value="1"> &gt1 </option>
 			<option value="2"> &gt2 </option>
@@ -369,7 +384,7 @@ $(document).on("pageshow","#page_main",function(){
 
 	</div>
 	<div class="ui-block-c">	
-		<select name="housearea" id="housearea"  data-corners="false" data-iconpos="none" multiple="multiple" data-native-menu="false"  >
+		<select name="housearea" id="sel_housearea"  data-corners="false" data-iconpos="none" multiple="multiple" data-native-menu="false"  >
 			<option >尺寸</option>
 			<option value="0-700" >700平方尺以下</option>
 			<option value="700-1100">700-1100平方尺</option>
