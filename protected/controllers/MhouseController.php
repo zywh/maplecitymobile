@@ -25,8 +25,9 @@ class MhouseController extends XFrontBase
 		ini_set("error_log", "/tmp/php-error.log");
 		
 		$result = array();
-		error_log($_POST['sr'].$_POST['housetype'].$_POST['pageindex']."br:".$_POST['houseroom']);
-		error_log("Price:".$_POST['houseprice']."Housearea:".$_POST['housearea']);
+		//error_log($_POST['sr'].$_POST['housetype'].$_POST['pageindex']."br:".$_POST['houseroom']);
+		error_log("Price:".$_POST['houseprice']."City:".$_POST['city']);
+		
 
 		//根据条件查询地图
 		$criteria = new CDbCriteria();
@@ -102,9 +103,14 @@ class MhouseController extends XFrontBase
 		//房屋类型
 		if (!empty($_POST['housetype']) && intval($_POST['housetype']) > 0) {
 			$criteria->addCondition("propertyType_id =".$_POST['housetype']);
-			$ss = $ss." AND propertyType_id = ".$_POST['housetype'];
+			
 		}
 
+		//房屋类型
+		if (!empty($_POST['city']) ) {
+			$criteria->addCondition("t.municipality ='".$_POST['city']."'");
+		
+		}
 
 
 		$criteria->with = array('mname','propertyType','city');
