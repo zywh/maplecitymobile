@@ -52,7 +52,7 @@ function setMapView(lat, lng, zoom) {
 
 function setContent(lat, lng, content, html, isShow, index) {
 	var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-	console.log(lat + ":" + lng);
+	//console.log(lat + ":" + lng);
 	var marker = new  google.maps.Marker({
 		position: point,
 		map: map,
@@ -93,7 +93,7 @@ function setContent(lat, lng, content, html, isShow, index) {
 function setContentCount(lat, lng, totalCount, city) {
 	var content = "<i class='common_bg icon_map_mark'><span>" + totalCount + "</span></i>";
 	var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-	console.log(lat + ":" + lng +":" + totalCount +":" + city);
+	//console.log(lat + ":" + lng +":" + totalCount +":" + city);
 
 
 	var marker = new google.maps.Marker({
