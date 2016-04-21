@@ -7,8 +7,8 @@
 
 
     
-<div role="main" class="ui-content" id="google_map">
-        <!-- map loads here... -->
+<div role="main" class="ui-content" id="map_container">
+     <div id="google_map"> </div>   <!-- map loads here... -->
 </div>
 
 <!-- map结束 -->
@@ -22,7 +22,30 @@
 
 
 <script>
-	  
+
+function initMap(lat,lng,zoomLevel) {
+	
+	var mapOptions = {
+		center: new google.maps.LatLng(43.6686333, -79.4450250),
+		zoom: zoomLevel, //keep zoom and minZoom different to trigger initial map search
+		zoomControl: true,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		minZoom: 4,
+		overviewMapControl: true,
+		overviewMapControlOptions: {
+			opened: true
+		}
+	};
+	map = new google.maps.Map(document.getElementById("google_map"), mapOptions);
+
+	google.maps.event.addListener(map, 'dragend', function() {
+		changeMap();
+	});
+	google.maps.event.addListener(map, "bounds_changed", function() {
+		changeMap();
+		console.log("Zoom:" + mapZoom);
+	});
+}	  
 function setMapView(lat, lng, zoom) {
 	map.setCenter(new google.maps.LatLng(parseFloat(lat), parseFloat(lng)));
 	map.setZoom(parseInt(zoom));
@@ -379,7 +402,8 @@ var changeURLArg = function(arg, arg_val) {
     //google map
     var cityname = 0;
 	
-    //var cd2 = '<?php echo $_GET["cd2"]; ?>';
+    var lat = '<?php echo $_GET["lat"]; ?>';
+	var lng = '<?php echo $_GET["lng"]; ?>';
     var mapInfo = null;
     var mapMark = null;
     var mapCenter;
@@ -406,29 +430,18 @@ var changeURLArg = function(arg, arg_val) {
     var mapOptions;
     var pageIndex = 1;
     var markerClusterer = null;
-	var mapOptions = {
-			center: new google.maps.LatLng(43.6686333, -79.4450250),
-			zoom: mapZoom, //keep zoom and minZoom different to trigger initial map search
-			zoomControl: true,
-			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			minZoom: 4,
-			overviewMapControl: true,
-			overviewMapControlOptions: {
-				opened: true
-			}
-		};
+
 		
 
 	
 	$( document ).on( "pagecreate", "#page_main", function() {
 		
-		map = new google.maps.Map(document.getElementById("google_map"), mapOptions);
-	
-		google.maps.event.addListener(map, 'dragend', function() {
-			changeMap();
-		});
-	
-		
+		//Default Center
+				
+		lat= (lat) ? lat: "54.649739";
+		lng= (lng) ? lng: "-93.045726";
+		initMap(lat,lng,mapZoom);
+
 		if ( city == '') {
 			//If city is NULL and User Location can be identified. Center to user location
 			if ( navigator.geolocation ) {
@@ -439,14 +452,7 @@ var changeURLArg = function(arg, arg_val) {
 					console.log("GeoLocation Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
 					mapZoom = 10;
 					setMapView(lat,lng,mapZoom);
-					
-					google.maps.event.addListener(map, "bounds_changed", function() {
-						//changeMap();
-						mapZoom = map.mapZoom();
-						console.log("Zoom:" + mapZoom);
-					});
-					
-					//changeMap();
+					changeMap();
 				}
 		        function fail(error) {
 					lat="54.649739";
