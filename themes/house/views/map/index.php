@@ -23,7 +23,7 @@
 
 <script>
 
-function initMap(lat,lng,zoomLevel) {
+function initMap(mapId,lat,lng,zoomLevel) {
 	
 	var mapOptions = {
 		center: new google.maps.LatLng(43.6686333, -79.4450250),
@@ -36,13 +36,13 @@ function initMap(lat,lng,zoomLevel) {
 			opened: true
 		}
 	};
-	map = new google.maps.Map(document.getElementById("google_map"), mapOptions);
+	map = new google.maps.Map(document.getElementById(mapId), mapOptions);
 
 	google.maps.event.addListener(map, 'dragend', function() {
-		changeMap();
+		changeMap(mapId);
 	});
 	google.maps.event.addListener(map, "bounds_changed", function() {
-		changeMap();		
+		changeMap(mapId);		
 	});
 }	  
 function setMapView(lat, lng, zoom) {
@@ -212,12 +212,15 @@ var getRate = function(code) {
 	return '加元';
 }
 
-changeMap = function() {
+function changeMap(mapId) {
         console.log("Change Map");
 
 		clearAll(map);
         	
-        
+        //get element size to calcute number of grid
+		var mapHeight = $("#" + mapId).height();
+		var mapWidth = $("#" + mapId).width();
+		console.log("W:" + mapWidth + "H:" + mapHeight );
         var _sw = map.getBounds().getSouthWest();
         var _ne = map.getBounds().getNorthEast();
         var centerlat = (_ne.lat() + _sw.lat()) / 2;
@@ -417,7 +420,7 @@ var changeURLArg = function(arg, arg_val) {
 		lat= (lat) ? lat: "54.649739";
 		lng= (lng) ? lng: "-93.045726";
 		console.log("Map Init" + lat + ":" + lng);
-		initMap(lat,lng,mapZoom);
+		initMap("google_map",lat,lng,mapZoom);
 
 		if ( city == '') {
 			//If city is NULL and User Location can be identified. Center to user location
@@ -428,8 +431,9 @@ var changeURLArg = function(arg, arg_val) {
 					//mapCenter = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
 					console.log("GeoLocation Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
 					mapZoom = 10;
+					
 					setMapView(lat,lng,mapZoom);
-					//changeMap();
+					//changeMap("google_map");
 				}
 		        function fail(error) {
 					lat="54.649739";
