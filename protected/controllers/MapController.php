@@ -168,21 +168,23 @@ class MapController extends XFrontBase {
 			
 			//Generate Data for City Count Marker Start
 			if ( $count >= $maxmarkers) {
-				error_log("Generate Grid View Count");
+				error_log("Generate City View Count");
 				$groupcriteria = $criteria;
-				$groupcriteria->select = 'municipality,count(id) id';
+				$groupcriteria->select = 'municipality,count(id) as id';
 				$groupcriteria->with = array('mname');
 				$groupcriteria->group = "t.municipality";
 				$groupcriteria->order = "id DESC";
 				$groupcriteria->limit = $maxcitymarkers;
 				
 				$groupresult= House::model()->findAll($groupcriteria);
+				$result['Message'] = '成功';
+				//error_log(get_object_vars($groupcriteria));
 				foreach ($groupresult as $val) {
-					$result['Message'] = '成功';
+					error_log("Generate City View List".$val.municipality);
 					$city = $val->municipality;
 					$lat = $val->mname->lat;
 					$lng = $val->mname->lng;
-					$citycn = $val->mname->municipality_cname);
+					$citycn = $val->mname->municipality_cname;
 					
 					if ( $lat > 20 ) {
 						$result['Data']['AreaHouseCount'][$city]['Count'] ['NameCn'] = !empty($citycn)? ($citycn):"其他";
