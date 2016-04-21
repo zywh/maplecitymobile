@@ -144,7 +144,7 @@ class MapController extends XFrontBase {
 
             }
 
-			$criteria->with = array('mname','propertyType','city');
+			
 
 			//End of Condition
 
@@ -188,33 +188,33 @@ class MapController extends XFrontBase {
 			
 			//Generate Data for Grid Counter Marker Start
 			if (( $count < $maxmarkers) && ($count >= $maxhouse) ){
-				error_log("Generate Grid View Count");
-				$result['Data']['Type'] = "grid";
-				$groupcriteria = $criteria;
-				$groupcriteria->select = 't.municipality as municipality,count(id) as id';
-				$groupcriteria->with = array('mname');
-				$groupcriteria->group = "substr(t.zip,0,2)";
-				$groupcriteria->order = "id DESC";
-				$groupcriteria->limit = $maxcitymarkers;
 				
-				$groupresult = House::model()->findAll($groupcriteria);
+				$result['Data']['Type'] = "grid";
+				$gridx =  ( $_POST['gridx'])? ( $_POST['gridx']): 5;
+				$gridy =  ( $_POST['gridy'])? ( $_POST['gridy']): 5;
+				
+				$gridcriteria = $criteria;
+				$gridcriteria->select = 'longitude,latitude';
+				$location = House::model()->findAll($criteria);
 				$result['Message'] = '成功';
-				//error_log(get_object_vars($groupcriteria));
-				foreach ($groupresult as $val) {
-					
-					$city = $val->municipality;
-					$lat = $val->mname->lat;
-					$lng = $val->mname->lng;
-					$citycn = $val->mname->municipality_cname;
-					
-					if ( $lat > 20 ) {
-						$result['Data']['AreaHouseCount'][$city]['Count'] ['NameCn'] = !empty($citycn)? ($citycn):"其他";
-						$result['Data']['AreaHouseCount'][$city]['Count'] ['HouseCount'] = $val->id;
-						$result['Data']['AreaHouseCount'][$city]['Count'] ['GeocodeLat'] = $lat;
-						$result['Data']['AreaHouseCount'][$city]['Count'] ['GeocodeLng'] = $lng;
+				$tilex = (($maxLat - $minLat ) / $gridx) * 100000;
+				$tiley = (($maxLon - $minLon ) / $gridy) * 100000;
+				error_log("Generate Grid View Count:".$tilex.":".$tiley);
+				//Generate grid center Lat/Lng
+				for ( $x=1; $x <= $gridx ; $x++){
+					for ( $y=1; $y <= $gridy ; $y++){
+						
 					}
-		
-				}				
+				}
+				//Get count of house in each tile
+				foreach ($location as $val) {
+					$gridlat = ceil((($val->latitude - $minLat ) * 100000 / $tilex));
+					$gridlng = ceil((($val->longitude - $minLon) * 100000 / $tiley));
+					error_log("XY".$val->latitude.":".$val->longitude."Tile:".$gridlat."x".$gridlng);
+					
+					
+				}
+				
 				
 			}
 			
@@ -223,6 +223,7 @@ class MapController extends XFrontBase {
 			//Generate Data for  House Marker Start
 			if ($count < $maxhouse ){
 				$result['Data']['Type'] = "house";
+				$criteria->with = array('mname','propertyType','city');
 				$house = House::model()->findAll($criteria);
 				$result['Message'] = '成功';
 

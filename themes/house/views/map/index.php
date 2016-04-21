@@ -217,11 +217,14 @@ function changeMap(mapId) {
         console.log("Change Map");
 
 		clearAll(map);
-        	
+        var gridSize = 50;	
         //get element size to calcute number of grid
 		var mapHeight = $("#" + mapId).height();
 		var mapWidth = $("#" + mapId).width();
-		console.log("W:" + mapWidth + "H:" + mapHeight );
+		gridx = Math.ceil(mapWidth/gridSize);
+		gridy = Math.ceil(mapHeight/gridSize);
+		console.log("W:" + mapWidth + "H:" + mapHeight + "XY:" + gridx + "x" + gridy );
+		
         var _sw = map.getBounds().getSouthWest();
         var _ne = map.getBounds().getNorthEast();
         var centerlat = (_ne.lat() + _sw.lat()) / 2;
@@ -249,6 +252,8 @@ function changeMap(mapId) {
             dataType: 'json',
             data: {
                 bounds: _bounds,
+				gridx : gridx,
+				gridy : gridy,
                 zoom: mapZoom
    
             },
@@ -386,6 +391,8 @@ var changeURLArg = function(arg, arg_val) {
     var publicArray = [];
 	var map;
     var markerClusterer = null;
+	var gridx;
+	var gridy;
 
 		
 
