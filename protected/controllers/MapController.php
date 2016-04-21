@@ -210,8 +210,11 @@ class MapController extends XFrontBase {
 				foreach ($location as $val) {
 					$gridlat = ceil((($val->latitude - $minLat ) * 100000 / $tilex));
 					$gridlng = ceil((($val->longitude - $minLon) * 100000 / $tiley));
-					error_log("XY".$val->latitude.":".$val->longitude."Tile:".$gridlat."x".$gridlng);
 					
+					
+					$result['Data']['AreaHouseCount'][$gridlat.$gridlng]['NameCn'] = $gridlat.$gridlng;
+					$result['Data']['AreaHouseCount'][$gridlat.$gridlng]['HouseCount']++; 
+					error_log("XY".$val->latitude.":".$val->longitude."Tile:".$result['Data']['AreaHouseCount'][$gridlat.$gridlng]['HouseCount']);
 					
 				}
 				
