@@ -398,7 +398,7 @@ var changeURLArg = function(arg, arg_val) {
 		lat= (lat) ? lat: "54.649739";
 		lng= (lng) ? lng: "-93.045726";
 		console.log("Map Init" + lat + ":" + lng);
-		//initMap("google_map",lat,lng,mapZoom);
+		initMap("google_map",lat,lng,mapZoom);
 
 		if ( city == '') {
 			//If city is NULL and User Location can be identified. Center to user location
@@ -409,16 +409,16 @@ var changeURLArg = function(arg, arg_val) {
 					//mapCenter = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
 					console.log("GeoLocation Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
 					mapZoom = 10;
-					initMap("google_map",lat,lng,mapZoom);
 					
+					setMapView(lat,lng,mapZoom);
+					//changeMap("google_map");
 				}
 		        function fail(error) {
 					lat="54.649739";
 					lng="-93.045726";
-	        		mapZoom="10"; //Default zoom level for city
+	        		mapZoom="11"; //Default zoom level for city
 					console.log("Fail to Get Geo Location Center to City:" + lat + ":" + lng);
-					initMap("google_map",lat,lng,mapZoom);
-					//setMapView(lat,lng,mapZoom);
+					setMapView(lat,lng,mapZoom);
 									
 		        }
 		        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
@@ -430,7 +430,7 @@ var changeURLArg = function(arg, arg_val) {
 				lng="-93.045726";
         		mapZoom="11"; //Default zoom level for city
 				console.log("Center to City:" + lat + ":" + lng);
-				initMap("google_map",lat,lng,mapZoom);
+				google.setMapView(lat,lng,mapZoom);
 							
 	   		}
 		
