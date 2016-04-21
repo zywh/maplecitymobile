@@ -42,8 +42,7 @@ function initMap(lat,lng,zoomLevel) {
 		changeMap();
 	});
 	google.maps.event.addListener(map, "bounds_changed", function() {
-		changeMap();
-		console.log("Zoom:" + mapZoom);
+		changeMap();		
 	});
 }	  
 function setMapView(lat, lng, zoom) {
@@ -67,7 +66,7 @@ function setContent(lat, lng, content, html, isShow, index) {
 	var info = new google.maps.InfoWindow({
 		content: html,
 		size: new google.maps.Size(50, 50),
-		pixelOffset: new google.maps.Size(0, -24)
+		//pixelOffset: new google.maps.Size(0, -24)
 	});
 	infowindow.push(info);
 
@@ -76,8 +75,15 @@ function setContent(lat, lng, content, html, isShow, index) {
 		//for (i = 0; i < infowindow.length; i++) {
 		//    infowindow[i].close();
 		//}
-		info.open(map, marker);
-		setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
+		//map.setZoom(16);
+		map.setCenter(marker.getPosition());
+
+		setTimeout(function() {
+			info.open(map, marker);
+		}, 300);
+			//info.open(map, marker);
+		
+		//setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
 	});
 	
  
@@ -90,7 +96,7 @@ function setContentCount(lat, lng, totalCount, city) {
 	console.log(lat + ":" + lng +":" + totalCount +":" + city);
 
 
-	var marker = google.maps.Marker({
+	var marker = new google.maps.Marker({
 		position: point,
 		map: map,
 		draggable: false,
@@ -228,17 +234,10 @@ changeMap = function() {
         HouseArray = [];
         var forIndex = 0;
         var Arrayindex = 0;
-        var city = $.trim($('#city').val());
+      
 
         _bounds = _sw.lat() + "," + _sw.lng() + "," + _ne.lat() + "," + _ne.lng();
-        map_type = getUrlParam('cd4') ? getUrlParam('cd4') : map_type;
-        map_price = getUrlParam('cd5') ? getUrlParam('cd5') : map_price;
-        map_room = getUrlParam('cd8') ? getUrlParam('cd8') : map_room;
-        map_year = getUrlParam('cd9') ? getUrlParam('cd9') : map_year;
-        map_Ground = getUrlParam('cd7') ? getUrlParam('cd7') : map_Ground;
-        province = getUrlParam('cd1') ? getUrlParam('cd1') : province;
-        district = getUrlParam('cd2') ? getUrlParam('cd2') : district;
-        type = getUrlParam('type') ? getUrlParam('type') : "sale";
+   
 
         $.ajax({
             url: '<?php echo Yii::app()->createUrl('map/getMapHouse'); ?>',
@@ -246,18 +245,8 @@ changeMap = function() {
             dataType: 'json',
             data: {
                 bounds: _bounds,
-                zoom: mapZoom,
-                housetype: map_type,
-                houseprice: map_price,
-                houseroom: map_room,
-                houseyear: map_year,
-                houseground: map_Ground,
-                housebaths: map_Baths,
-                orderby: orderby,
-                province: province,
-                city: city,
-                district: district,
-                type: type
+                zoom: mapZoom
+   
             },
             beforeSend: function() {
                 $(".loadhouse").show();
@@ -297,11 +286,11 @@ changeMap = function() {
                                 BuildYear = "";
                             }
 
-                            var hprice = (type == 'rent') ? this.Price * 10000 + '  加元/月' : Math.round(this.Price) + '  万加元';
+                            var hprice = (this.SaleLease == 'Lease') ? this.Price * 10000 + '  加元/月' : Math.round(this.Price) + '  万加元';
                             //console.log(hprice);
                             var li = "<div class='fclist' onmouseover='openInfo(" + index + ", this)' " + "onclick = window.open('<?php echo Yii::app()->createUrl('house/view'); ?>&id=" + this.Id + "')"
 
-                            +" index='" + Arrayindex + "' type='" + (this.Beds > 0 ? this.Beds + "卧" : "") + (this.Baths > 0 ? this.Baths + "卫 " : "") + (this.Kitchen > 0 ? this.Kitchen + "厨" : "") + "' Jd='" + this.Id + "'  lat='" + this.GeocodeLat + "' lng='" + this.GeocodeLng + "' Address='" + this.Address + "' imgurl='" + imgurl + "' Price='" + hprice + "' HouseType='" + this.HouseType + "' Id='" + this.Id + "' Country=" + this.Country + " Zip=" + this.Zip + " CountryName=" + this.CountryName + " ProvinceEname=" + this.ProvinceEname + " MunicipalityName=" + this.MunicipalityName + " ProvinceCname=" + this.ProvinceCname + " Money=" + this.Money + " ><a href='javascript:;'><div class='fclistleft'><div class='house_pic'><img src='<?php echo Yii::app()->request->baseUrl; ?>" + imgurl + "' style='width:151px;height:116px' alt='" + this.MunicipalityName + "房产_" + this.Area2Name + "房产_" + this.MunicipalityName + this.Area2Name + this.HouseType + "房产' /></div></div><div class='fclistright'><div class='house_con2'><p class='house_no1 fc_title'><i>" + (Arrayindex + 1) + "</i><span>" + hprice + "</span></p><p>类型：" + this.HouseType + "</p><p>城市：" + this.MunicipalityName + "</p><p>地址：" + this.Address + "</p><p>户型：" + (this.Beds > 0 ? this.Beds + "卧" : "") + (this.Baths > 0 ? this.Baths + "卫 " : "") + (this.Kitchen > 0 ? this.Kitchen + "厨" : "") + "</p></div></div><div class='cl'></div></a></div>";
+                            +" index='" + Arrayindex + "' type='" + (this.Beds > 0 ? this.Beds + "卧" : "") + (this.Baths > 0 ? this.Baths + "卫 " : "") + (this.Kitchen > 0 ? this.Kitchen + "厨" : "") + "' Jd='" + this.Id + "'  lat='" + this.GeocodeLat + "' lng='" + this.GeocodeLng + "' Address='" + this.Address + "' imgurl='" + imgurl + "' Price='" + hprice + "' HouseType='" + this.HouseType + "' Id='" + this.Id + "' Country=" + this.Country + " Zip=" + this.Zip + " CountryName=" + this.CountryName + " ProvinceEname=" + this.ProvinceEname + " MunicipalityName=" + this.MunicipalityName + " ProvinceCname=" + this.ProvinceCname + " Money=CAD ><a href='javascript:;'><div class='fclistleft'><div class='house_pic'><img src='<?php echo Yii::app()->request->baseUrl; ?>" + imgurl + "' style='width:151px;height:116px' alt='" + this.MunicipalityName + "房产_" + this.Area2Name + "房产_" + this.MunicipalityName + this.Area2Name + this.HouseType + "房产' /></div></div><div class='fclistright'><div class='house_con2'><p class='house_no1 fc_title'><i>" + (Arrayindex + 1) + "</i><span>" + hprice + "</span></p><p>类型：" + this.HouseType + "</p><p>城市：" + this.MunicipalityName + "</p><p>地址：" + this.Address + "</p><p>户型：" + (this.Beds > 0 ? this.Beds + "卧" : "") + (this.Baths > 0 ? this.Baths + "卫 " : "") + (this.Kitchen > 0 ? this.Kitchen + "厨" : "") + "</p></div></div><div class='cl'></div></a></div>";
 
                             HouseArray[Arrayindex] = li;
 
@@ -400,7 +389,7 @@ var changeURLArg = function(arg, arg_val) {
 
 
     //google map
-    var cityname = 0;
+    var city = 0;
 	
     var lat = '<?php echo $_GET["lat"]; ?>';
 	var lng = '<?php echo $_GET["lng"]; ?>';
@@ -415,31 +404,19 @@ var changeURLArg = function(arg, arg_val) {
     var HouseAreaArray = [];
     var publicArray = [];
 	var map;
-    var mapisInit = true;
-    var map_type = "";
-    var map_price = "";
-    var map_room = "";
-    var map_year = "";
-    var map_Ground = "";
-    var map_Baths = "";
-    var orderby = 0;
-    var province = "";
-    var city = '';
-    var district = '';
-    var local_type;
-    var mapOptions;
-    var pageIndex = 1;
     var markerClusterer = null;
 
 		
 
 	
 	$( document ).on( "pagecreate", "#page_main", function() {
-		
+		//Hide Footer
+		$("#main_footer").hide();
 		//Default Center
 				
 		lat= (lat) ? lat: "54.649739";
 		lng= (lng) ? lng: "-93.045726";
+		console.log("Map Init" + lat + ":" + lng);
 		initMap(lat,lng,mapZoom);
 
 		if ( city == '') {
@@ -452,7 +429,7 @@ var changeURLArg = function(arg, arg_val) {
 					console.log("GeoLocation Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
 					mapZoom = 10;
 					setMapView(lat,lng,mapZoom);
-					changeMap();
+					//changeMap();
 				}
 		        function fail(error) {
 					lat="54.649739";
@@ -460,10 +437,7 @@ var changeURLArg = function(arg, arg_val) {
 	        		mapZoom="11"; //Default zoom level for city
 					console.log("Fail to Get Geo Location Center to City:" + lat + ":" + lng);
 					setMapView(lat,lng,mapZoom);
-						
-					google.maps.event.addListener(map, "bounds_changed", function() {
-						changeMap();
-					});
+									
 		        }
 		        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
 		        navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
@@ -475,10 +449,7 @@ var changeURLArg = function(arg, arg_val) {
         		mapZoom="11"; //Default zoom level for city
 				console.log("Center to City:" + lat + ":" + lng);
 				google.setMapView(lat,lng,mapZoom);
-					
-				google.maps.event.addListener(map, "bounds_changed", function() {
-					changeMap();
-				});
+							
 	   		}
 		
 		} else {

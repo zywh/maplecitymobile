@@ -97,7 +97,7 @@
 	
 	<!-- body结束 -->
 	
-	<div data-role="footer" data-position="fixed" data-fullscreen="true" style="text-align:center;" id="main_footer">
+	<div data-role="footer"  style="text-align:center;" id="main_footer">
    		 
 
 		<a href="/" data-transition="pop"  class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext

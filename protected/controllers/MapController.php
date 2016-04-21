@@ -38,7 +38,7 @@ class MapController extends XFrontBase {
 
             //根据条件查询地图
             $criteria = new CDbCriteria();
-            $criteria->select = 'id,ml_num,zip,county,municipality,lp_dol,num_kit,construction_year,depth,front_ft,br,addr,house_image,longitude,latitude,area,bath_tot';
+            $criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,depth,front_ft,br,addr,house_image,longitude,latitude,area,bath_tot';
 
 			//Search By Lease or Sale
             if ($_POST['type'] == "rent" )  {
@@ -243,6 +243,7 @@ class MapController extends XFrontBase {
                     $mapHouseList['GeocodeLat'] = $val->latitude;
                     $mapHouseList['GeocodeLng'] = $val->longitude;
                     $mapHouseList['Address'] = $val->addr; 
+					$mapHouseList['SaleLease'] = $val->s_r; 
                     $mapHouseList['sqft'] = $val->sqft;
                     $mapHouseList['Price'] = $val->lp_dol/10000;
                     $mapHouseList['Id'] = $val->id;
@@ -253,7 +254,6 @@ class MapController extends XFrontBase {
                     $mapHouseList['Country'] = $val->city_id;
                     $mapHouseList['ProvinceEname'] = $val->county;
                     $mapHouseList['ProvinceCname'] = $val->city->name;
-                    $mapHouseList['Money'] = 'CAD';
                     //$area2Name = District::model()->findByPk($val->district_id);
                     $mapHouseList['Area2Name'] = !empty($area2Name) ? $area2Name->name : '';
                     //Get image from county
