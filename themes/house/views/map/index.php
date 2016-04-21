@@ -25,8 +25,9 @@
 
 function initMap(mapId,lat,lng,zoomLevel) {
 	
+	var initCenter = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
 	var mapOptions = {
-		center: new google.maps.LatLng(43.6686333, -79.4450250),
+		center: initCenter,
 		zoom: zoomLevel, //keep zoom and minZoom different to trigger initial map search
 		zoomControl: true,
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -39,7 +40,7 @@ function initMap(mapId,lat,lng,zoomLevel) {
 	map = new google.maps.Map(document.getElementById(mapId), mapOptions);
 
 	google.maps.event.addListener(map, 'dragend', function() {
-		changeMap(mapId);
+		//changeMap(mapId);
 	});
 	google.maps.event.addListener(map, "bounds_changed", function() {
 		changeMap(mapId);		
@@ -262,9 +263,9 @@ function changeMap(mapId) {
                 if (!data.IsError) {
 
 
-                    var maxMarkers = 2000;
+                    var maxMarkers = 100;
                     var houseCount = data.Data.Total;
-
+					//Start City Markers
                     if (houseCount >= maxMarkers) {
                         for (var p in data.Data.AreaHouseCount) {
                             var areaHouse = data.Data.AreaHouseCount[p];
@@ -272,7 +273,6 @@ function changeMap(mapId) {
 
                         }
                     }
-
                     //End of City Markers
 
 
@@ -310,7 +310,7 @@ function changeMap(mapId) {
                         });
 
                         //END of LOOP
-                        if (houseCount > 100) {
+                        if (houseCount > 30) {
                             markerClusterer = new MarkerClusterer(map, markerArray);
                         }
                     }
@@ -320,8 +320,8 @@ function changeMap(mapId) {
                     //console.log("Build Left list");
                     //$(".Houses_count").text(HouseArray.length % 100 == 0 ? HouseArray.length + "+" : HouseArray.length);
                     //$(".house_count").text(HouseArray.length % 100 == 0 ? HouseArray.length + "+" : HouseArray.length);
-                    $(".Houses_count").text(houseCount);
-                    $(".house_count").text(houseCount);
+                    //$(".Houses_count").text(houseCount);
+                    //$(".house_count").text(houseCount);
 
                     var tableHtml = "";
                     $.each(HouseArray, function(index) {
