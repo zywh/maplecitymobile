@@ -45,9 +45,7 @@ function initMap(mapId,lat,lng,zoomLevel) {
 	};
 	map = new google.maps.Map(document.getElementById(mapId), mapOptions);
 
-	google.maps.event.addListener(map, 'dragend', function() {
-		//changeMap(mapId);
-	});
+	
 	google.maps.event.addListener(map, "bounds_changed", function() {
 		changeMap(mapId);		
 	});
@@ -57,7 +55,7 @@ function setMapView(lat, lng, zoom) {
 	map.setZoom(parseInt(zoom));
 } 
 
-function setContent(lat, lng, content, html, isShow, index) {
+function setContent(lat, lng, content, html, isShow) {
 	var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
 	//console.log(lat + ":" + lng);
 	
@@ -83,7 +81,7 @@ function setContent(lat, lng, content, html, isShow, index) {
 	var info = new google.maps.InfoWindow({
 		content: html,
 		size: new google.maps.Size(50, 50),
-		//pixelOffset: new google.maps.Size(0, -24)
+		pixelOffset: new google.maps.Size(0, -24)
 	});
 	infowindow.push(info);
 
@@ -98,7 +96,7 @@ function setContent(lat, lng, content, html, isShow, index) {
 		//setTimeout(function() {
 			//info.open(map, marker);
 		//}, 300);
-			//info.open(map, marker);
+			info.open(map, marker);
 		
 		//setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
 	});
@@ -134,6 +132,7 @@ function setContentCount(lat, lng, totalCount, city) {
 	var infowindow = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0, -24)
 	});
+	/*
 	google.maps.event.addListener(marker, 'mouseover', (function(marker, infocontent, infowindow) {
 		return function() {
 			infowindow.setContent(infocontent);
@@ -146,6 +145,7 @@ function setContentCount(lat, lng, totalCount, city) {
 			infowindow.close();
 		};
 	})(marker, infocontent, infowindow));
+	*/
 
 	google.maps.event.addListener(marker, 'click', function() {
 		map.setCenter(this.position);
@@ -243,7 +243,7 @@ function changeMap(mapId) {
         console.log("Change Map");
 
 		clearAll(map);
-        var gridSize = 50;	
+        var gridSize = 50;	//50px
         //get element size to calcute number of grid
 		var mapHeight = $("#" + mapId).height();
 		var mapWidth = $("#" + mapId).width();
@@ -256,13 +256,13 @@ function changeMap(mapId) {
         var centerlat = (_ne.lat() + _sw.lat()) / 2;
         var centerlng = (_ne.lng() + _sw.lng()) / 2;
 
-
+		/*
         var number1 = _sw.lat() + "," + _sw.lng() + "," + centerlat + "," + centerlng;
         var number2 = centerlat + "," + centerlng + "," + _ne.lat() + "," + _ne.lng();
         var number3 = centerlat + "," + _sw.lng() + "," + _ne.lat() + "," + centerlng;
         var number4 = _sw.lat() + "," + centerlng + "," + centerlat + "," + _ne.lng();
         var lenght = 1;
-
+	    */
         
         HouseArray = [];
         var forIndex = 0;
@@ -284,13 +284,13 @@ function changeMap(mapId) {
    
             },
             beforeSend: function() {
-                $(".loadhouse").show();
+                //$(".loadhouse").show();
             },
             complete: function() {
                 //$(".loadhouse").hide();
             },
             success: function(data) {
-                forIndex++;
+                
                 if (!data.IsError) {
 					houseCount =  data.Data.Total;
 					$("#house_count").text(houseCount);
@@ -301,7 +301,7 @@ function changeMap(mapId) {
                            
 							var areaHouse = data.Data.AreaHouseCount[p];
 							if (areaHouse.HouseCount > 0){
-								console.log( "Name:" + areaHouse.NameCn + "Lat:" + areaHouse.GeocodeLat + "Count:"+ areaHouse.HouseCount );
+							//	console.log( "Name:" + areaHouse.NameCn + "Lat:" + areaHouse.GeocodeLat + "Count:"+ areaHouse.HouseCount );
                             setContentCount(areaHouse.GeocodeLat, areaHouse.GeocodeLng, areaHouse.HouseCount.toString(), areaHouse.NameCn);
 							}
                         }
@@ -332,14 +332,15 @@ function changeMap(mapId) {
                             tlat = parseFloat(this.GeocodeLat);
                             tlng = parseFloat(this.GeocodeLng);
                             //var content = "<i class='common_bg icon_map_mark'><span>" + (Arrayindex + 1) + "</span></i>";
+							//var content = "<i class='common_bg icon_map_mark'><span>" + (Arrayindex + 1) + "</span></i>";
 							
-							var content = "<a href='#infopage' data-rel='popup' class='ui-btn ui-btn-inline ui-corner-all' data-position-to=;window'>Open</a>";
-                            //var content = "<i class='common_bg icon_map_mark'></i>";
+							//var content = "<a href='#infopage' data-rel='popup' class='ui-btn ui-btn-inline ui-corner-all' data-position-to=;window'>Open</a>";
+                            var content = "<i class='common_bg icon_map_mark'></i>";
 
 
                             var html = "<div class='map_info_title'>" + this.Address + ", " + this.CountryName + ", " + this.ProvinceEname + "</div><div class='map_info_content'><div class='map_info_left'><img src='<?php echo Yii::app()->request->baseUrl; ?>" + imgurl + "' style='width:188px;height:148px'/></div><div class='map_info_right'><p class='orange map_info_price'><i class='common_bg'></i><span>价 格：</span> " + hprice + "</p> <p><a href='<?php echo Yii::app()->createUrl('house/view'); ?>&id=" + this.Id + "' target='_blank'>查看详情</a></p><p class='map_info_address'><i class='common_bg'></i>地 址：" + this.MunicipalityName + " " + this.ProvinceCname + "</p><p class='map_info_phone'><i class='common_bg'></i>类型：" + this.HouseType + "</p><p class='map_info_type'><i class='common_bg'></i>户 型：" + this.Beds + "卧 " + this.Baths + "卫 " + this.Kitchen + "厨</p></div><div class='clear'></div></div>";
-                            setContent(tlat, tlng, content, html, false, Arrayindex);
-                            Arrayindex++;
+                            setContent(tlat, tlng, content, html, false);
+                            
 
                         });
 
@@ -370,50 +371,16 @@ var openInfo = function(num, obj) {
 
 
 
-    //获取url参数
-var getUrlParam = function(name) {
-	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-	var r = window.location.search.substr(1).match(reg); //匹配目标参数
-	if (r != null)
-		return unescape(r[2]);
-	return null; //返回参数值
-}
-
-//更改url参数
-var changeURLArg = function(arg, arg_val) {
-	var url = window.location.href;
-	if (getUrlParam(arg)) {
-		var pattern = arg + '=([^&]*)';
-		var replaceText = arg + '=' + arg_val;
-		if (url.match(pattern)) {
-			var tmp = '/(' + arg + '=)([^&]*)/gi';
-			tmp = url.replace(eval(tmp), replaceText);
-			window.history.replaceState('{}', '', tmp);
-			return tmp;
-		} else {
-			if (url.match('[\?]')) {
-				window.history.replaceState('{}', '', url + '&' + replaceText);
-				return url + '&' + replaceText;
-			} else {
-				window.history.replaceState('{}', '', url + '?' + replaceText);
-				return url + '?' + replaceText;
-			}
-		}
-		window.history.replaceState(url + '\n' + arg + '\n' + arg_val);
-		return url + '\n' + arg + '\n' + arg_val;
-	}
-}
 
 
     //google map
     var city = 0;
-	
-    var lat = '<?php echo $_GET["lat"]; ?>';
+	var lat = '<?php echo $_GET["lat"]; ?>';
 	var lng = '<?php echo $_GET["lng"]; ?>';
     var mapInfo = null;
     var mapMark = null;
     var mapCenter;
-    var mapZoom = 17; //Default MapZoom
+    var mapZoom = '<?php echo $_GET["zoom"]; ?>';
     var infowindow = [];
     var markerArray = [];
     var markers = [];
@@ -430,62 +397,45 @@ var changeURLArg = function(arg, arg_val) {
 	
 	$( document ).on( "pagecreate", "#page_main", function() {
 		//Hide Footer
-		$("#main_footer").hide();
-		//Default Center
+		//$("#main_footer").hide();
+		
+		//Default Center and zoom
 				
 		lat= (lat) ? lat: "54.649739";
 		lng= (lng) ? lng: "-93.045726";
+		mapZoom= (mapZoom) ? mapZoom: 10;
 		console.log("Map Init" + lat + ":" + lng);
-		//initMap("google_map",lat,lng,mapZoom);
-
-		if ( city == '') {
-			//If city is NULL and User Location can be identified. Center to user location
-			if ( navigator.geolocation ) {
-		        function success(pos) {
-					lat = pos.coords.latitude;
-					lng = pos.coords.longitude;
-					//mapCenter = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-					console.log("GeoLocation Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
-					mapZoom = 10;
-					initMap("google_map",lat,lng,mapZoom);
-					
-				}
-		        function fail(error) {
-					lat="54.649739";
-					lng="-93.045726";
-	        		mapZoom="10"; //Default zoom level for city
-					console.log("Fail to Get Geo Location Center to City:" + lat + ":" + lng);
-					initMap("google_map",lat,lng,mapZoom);
-					//setMapView(lat,lng,mapZoom);
-									
-		        }
-		        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
-		        navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
-	    	} else {
-				
-				//If location is allowed from browser
-				lat="54.649739";
-				lng="-93.045726";
-        		mapZoom="11"; //Default zoom level for city
-				console.log("Center to City:" + lat + ":" + lng);
-				initMap("google_map",lat,lng,mapZoom);
-							
-	   		}
 		
-		} else {
-			//Get City Lat and Lng
-			
-			lat="54.649739";
-			lng="-93.045726";
-			mapZoom="11"; //Default zoom level for city
-			console.log("Center to City:" + lat + ":" + lng);
-			google.setMapView(lat,lng,mapZoom);
+
+		
+		
+		if ( navigator.geolocation ) {
+	        function success(pos) {
+				lat = pos.coords.latitude;
+				lng = pos.coords.longitude;
+				console.log("GeoLocation Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
+				initMap("google_map",lat,lng,mapZoom);
 				
-			google.maps.event.addListener(map, "bounds_changed", function() {
-				changeMap();
-			});
-			//
-		}
+			}
+	        function fail(error) {
+				
+        		mapZoom="10"; //Default zoom level for city
+				console.log("Fail to Get Geo Location Center to City:" + lat + ":" + lng);
+				initMap("google_map",lat,lng,mapZoom);
+				//setMapView(lat,lng,mapZoom);
+								
+	        }
+	        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
+	        navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
+    	} else {
+			
+			//NO location is found
+			console.log("Center to City:" + lat + ":" + lng);
+			initMap("google_map",lat,lng,mapZoom);
+							
+   		}
+		
+		
 			
 
 		
