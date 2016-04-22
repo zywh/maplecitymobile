@@ -34,11 +34,12 @@ function max_height() {
   
     var viewport_height = $(window).height();
 	//$('#ID').css("height", $(document).height());
-	var doc_height = $(document).height();
+	var header_height = $("main_header").height();
+	var footer_height = $("main_footer").height();
     
    // var content_height = viewport_height - header.outerHeight() - footer.outerHeight();
    
-   $('#map_area').css("height", $(document).height());
+   $('#map_area').css("height", $(document).height() - footer_height - header_height);
 }
 
 
@@ -59,7 +60,8 @@ function initMap(mapId,lat,lng,zoomLevel) {
 	map = new google.maps.Map(document.getElementById(mapId), mapOptions);
 
 	
-	google.maps.event.addListener(map, "bounds_changed", function() {
+	//google.maps.event.addListener(map, "bounds_changed", function() {
+	google.maps.event.addListener(map, "idle", function() {
 		changeMap(mapId);		
 	});
 }	  
