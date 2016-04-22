@@ -8,13 +8,12 @@
 
     
 <div role="main" class="ui-content" id="map_container">
-     <div class="google_map" id="google_map"> 
-		<div class="loadhouse">
-			正在加载房源数据，请稍候...
-		</div>
-	</div>   <!-- map loads here... -->
+     <div class="google_map" id="google_map"> </div> 
+	 <div data-role="popup" id="houseviewpopup" class="ui-content">
+     </div>
 	
 </div>
+
 
 <!-- map结束 -->
 
@@ -24,7 +23,7 @@
 <div id="house_list" class="house-list">
    <p>找到房源:<span id="house_count"></span></p> 
 </div>
-<!-- List End -->
+
 
 
 
@@ -61,13 +60,23 @@ function setMapView(lat, lng, zoom) {
 function setContent(lat, lng, content, html, isShow, index) {
 	var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
 	//console.log(lat + ":" + lng);
+	
+   var marker = new RichMarker({
+		position: point,
+		map: map,
+		draggable: false,
+		content: content,
+		flat: true
+	});
+	
+	/*
 	var marker = new  google.maps.Marker({
 		position: point,
 		map: map,
 		draggable: false,
 		label: "1"
 		
-	});
+	});*/
 	
 	
 	markerArray.push(marker);
@@ -84,11 +93,11 @@ function setContent(lat, lng, content, html, isShow, index) {
 		//    infowindow[i].close();
 		//}
 		//map.setZoom(16);
-		map.setCenter(marker.getPosition());
+		//map.setCenter(marker.getPosition());
 
-		setTimeout(function() {
-			info.open(map, marker);
-		}, 300);
+		//setTimeout(function() {
+			//info.open(map, marker);
+		//}, 300);
 			//info.open(map, marker);
 		
 		//setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
@@ -101,16 +110,26 @@ function setContent(lat, lng, content, html, isShow, index) {
 function setContentCount(lat, lng, totalCount, city) {
 	var content = "<i class='common_bg icon_map_mark'><span>" + totalCount + "</span></i>";
 	var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-	//console.log(lat + ":" + lng +":" + totalCount +":" + city);
+	
+   var marker = new RichMarker({
+		position: point,
+		map: map,
+		draggable: false,
+		content: content,
+		flat: true
+	});
 
-
+	
+	/*Regular Marker
 	var marker = new google.maps.Marker({
 		position: point,
 		map: map,
 		draggable: false,
 		label: totalCount
 	});
+	*/
 	markerArray.push(marker);
+	
 	var infocontent = '<p style="margin-bottom:0px;">' + city + ' 共有' + totalCount + '个楼盘</p>';
 	var infowindow = new google.maps.InfoWindow({
 		pixelOffset: new google.maps.Size(0, -24)
@@ -126,11 +145,11 @@ function setContentCount(lat, lng, totalCount, city) {
 		return function() {
 			infowindow.close();
 		};
-	})(marker, content, infowindow));
+	})(marker, infocontent, infowindow));
 
 	google.maps.event.addListener(marker, 'click', function() {
 		map.setCenter(this.position);
-		map.setZoom(12);
+		map.setZoom(14);
 	});
 
 
@@ -283,7 +302,7 @@ function changeMap(mapId) {
 							var areaHouse = data.Data.AreaHouseCount[p];
 							if (areaHouse.HouseCount > 0){
 								console.log( "Name:" + areaHouse.NameCn + "Lat:" + areaHouse.GeocodeLat + "Count:"+ areaHouse.HouseCount );
-                            setContentCount(areaHouse.GeocodeLat, areaHouse.GeocodeLng, areaHouse.HouseCount, areaHouse.NameCn);
+                            setContentCount(areaHouse.GeocodeLat, areaHouse.GeocodeLng, areaHouse.HouseCount.toString(), areaHouse.NameCn);
 							}
                         }
                     }
@@ -312,7 +331,9 @@ function changeMap(mapId) {
 
                             tlat = parseFloat(this.GeocodeLat);
                             tlng = parseFloat(this.GeocodeLng);
-                            var content = "<i class='common_bg icon_map_mark'><span>" + (Arrayindex + 1) + "</span></i>";
+                            //var content = "<i class='common_bg icon_map_mark'><span>" + (Arrayindex + 1) + "</span></i>";
+							
+							var content = "<a href='#infopage' data-rel='popup' class='ui-btn ui-btn-inline ui-corner-all' data-position-to=;window'>Open</a>";
                             //var content = "<i class='common_bg icon_map_mark'></i>";
 
 
