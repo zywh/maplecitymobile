@@ -6,13 +6,14 @@
 <!-- map开始 -->
 
 
-    
-<div role="main" class="ui-content" id="map_container">
-     <div class="google_map" id="google_map"> </div> 
-	 <div data-role="popup" id="houseviewpopup" class="ui-content">
-     </div>
-	
+<div data-role="content" style="width:100%; height:100%; padding:0;" id="map_area">
+	<div data-role="popup" id="houseviewpopup">
+		<p> This is popup</p>
+	</div>
+	<div id="google_map" style="width:100%;height:100%"></div>                 
 </div>
+    
+
 
 
 <!-- map结束 -->
@@ -28,6 +29,17 @@
 
 
 <script>
+function max_height() {
+  
+    var viewport_height = $(window).height();
+	//$('#ID').css("height", $(document).height());
+	var doc_height = $(document).height();
+    
+   // var content_height = viewport_height - header.outerHeight() - footer.outerHeight();
+   
+   $('#map_area').css("height", $(document).height());
+}
+
 
 function initMap(mapId,lat,lng,zoomLevel) {
 	
@@ -87,16 +99,9 @@ function setContent(lat, lng, content, html, isShow) {
 
 
 	google.maps.event.addListener(marker, 'click', function(e) {
-		//for (i = 0; i < infowindow.length; i++) {
-		//    infowindow[i].close();
-		//}
-		//map.setZoom(16);
-		//map.setCenter(marker.getPosition());
-
-		//setTimeout(function() {
-			//info.open(map, marker);
-		//}, 300);
-			info.open(map, marker);
+		
+		
+		//info.open(map, marker);
 		
 		//setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
 	});
@@ -334,8 +339,8 @@ function changeMap(mapId) {
                             //var content = "<i class='common_bg icon_map_mark'><span>" + (Arrayindex + 1) + "</span></i>";
 							//var content = "<i class='common_bg icon_map_mark'><span>" + (Arrayindex + 1) + "</span></i>";
 							
-							//var content = "<a href='#infopage' data-rel='popup' class='ui-btn ui-btn-inline ui-corner-all' data-position-to=;window'>Open</a>";
-                            var content = "<i class='common_bg icon_map_mark'></i>";
+							var content = "<a href='#houseviewpopup' data-rel='popup' class='ui-btn ui-btn-inline ui-corner-all' data-position-to='window'>Open</a>";
+                            //var content = "<i class='common_bg icon_map_mark'></i>";
 
 
                             var html = "<div class='map_info_title'>" + this.Address + ", " + this.CountryName + ", " + this.ProvinceEname + "</div><div class='map_info_content'><div class='map_info_left'><img src='<?php echo Yii::app()->request->baseUrl; ?>" + imgurl + "' style='width:188px;height:148px'/></div><div class='map_info_right'><p class='orange map_info_price'><i class='common_bg'></i><span>价 格：</span> " + hprice + "</p> <p><a href='<?php echo Yii::app()->createUrl('house/view'); ?>&id=" + this.Id + "' target='_blank'>查看详情</a></p><p class='map_info_address'><i class='common_bg'></i>地 址：" + this.MunicipalityName + " " + this.ProvinceCname + "</p><p class='map_info_phone'><i class='common_bg'></i>类型：" + this.HouseType + "</p><p class='map_info_type'><i class='common_bg'></i>户 型：" + this.Beds + "卧 " + this.Baths + "卫 " + this.Kitchen + "厨</p></div><div class='clear'></div></div>";
@@ -400,7 +405,7 @@ var openInfo = function(num, obj) {
 		//$("#main_footer").hide();
 		
 		//Default Center and zoom
-				
+		$('#map_area').css("height", $(document).height());	
 		lat= (lat) ? lat: "54.649739";
 		lng= (lng) ? lng: "-93.045726";
 		mapZoom= (mapZoom) ? mapZoom: 10;
@@ -434,11 +439,6 @@ var openInfo = function(num, obj) {
 			initMap("google_map",lat,lng,mapZoom);
 							
    		}
-		
-		
-			
-
-		
 		
 
 	});
