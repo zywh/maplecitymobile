@@ -241,12 +241,12 @@ class MapController extends XFrontBase {
                 foreach ($house as $val) {
                     $mapHouseList = array();
                     $mapHouseList['Beds'] = $val->br;
-                    $mapHouseList['Baths'] = $val->bath_tot;
-                    $mapHouseList['Kitchen'] = $val->num_kit;
+                    $mapHouseList['Baths'] = !empty($val->tot)?$val->bath_tot:"0";
+                    $mapHouseList['Kitchen'] = !empty($val->kit)?$val->num_kit:"0";
                     $mapHouseList['GeocodeLat'] = $val->latitude;
                     $mapHouseList['GeocodeLng'] = $val->longitude;
-                    $mapHouseList['Address'] = $val->addr; 
-					$mapHouseList['SaleLease'] = $val->s_r; 
+                    $mapHouseList['Address'] = !empty($val->addr)?$val->addr : "不详";
+			$mapHouseList['SaleLease'] = $val->s_r; 
                     $mapHouseList['sqft'] = $val->sqft;
                     $mapHouseList['Price'] = $val->lp_dol/10000;
                     $mapHouseList['Id'] = $val->id;
@@ -275,7 +275,7 @@ class MapController extends XFrontBase {
 					if ( $num_files > 1)    {
 						$mapHouseList['CoverImg'] = $dir.$picfiles[2];
 					}else {
-						$mapHouseList['CoverImg'] = 'uploads/201501/29cd77e5f187df554a1ff9facdc190e2.jpg';
+						$mapHouseList['CoverImg'] = 'static/images/zanwu.jpg';
 					}
 
 
