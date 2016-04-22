@@ -28,6 +28,7 @@
 	</title>
 	<script type="text/javascript" src="http://ditu.google.cn/maps/api/js?libraries=places&language=zh-cn"></script>
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="/static/js/jquery/jquery-ui.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	
 	<!--
@@ -41,9 +42,8 @@
 
 </head>
 <body>
-	<?php
-		$db = Yii::app()->db;
-	?>
+
+	
 
 <div data-role="page" id="page_main" data-theme="a" data-dom-cache="false" data-title="枫之都-加拿大地产置业">
 
@@ -65,21 +65,17 @@
 			</ul>
 		</div>
 		
-		<div data-role="header" data-position="fixed"  class="main_header " id="main_header" data-theme="b" >
+		<div data-role="header" data-position="fixed"  class="main-header " id="main_header" data-theme="b" >
 			
-			<!-- Navbar as Header 
-			<div data-role="navbar" data-iconpos="left">
-			  <ul>
-				<li><a href="#main_menu" data-ajax="false" id="header_menu" >菜单</a> </li>
-				<li><a href="/" data-ajax="false" id="header_home" >主页</a> </li>
-				<li><a href="index.php?r=mhouse/index&sr=Sale" id= "header_sale" data-ajax="false">二手房</a></li>
-				<li><a href="index.php?r=mhouse/index&sr=Lease" id="header_lease"  data-ajax="false" >出租</a></li>
-				
-			  </ul>
-			</div>
-			-->
 			
-		
+			
+			<a href="#main_menu" data-transition="pop" class="ui-btn ui-icon-bullets ui-btn-icon-left ui-btn-icon-notext"></a>
+			<ul  data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Find a city..." data-filter-theme="a"></ul>
+			<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left ui-btn-icon-notext">Search</a>
+
+			
+			
+		<!-- Navbar as Header 
 			<div data-role="navbar" >
 			  <ul>
 				<li><a href="#main_menu" data-transition="pop"  class="ui-btn  ui-icon-bullets  ui-btn-icon-left 	">枫之都</a></li>
@@ -91,9 +87,64 @@
 			  </ul>
 			</div>
 			
-		
+		-->
 			
 		</div>
+<script>
+	 
+$(document).on( "pageinit", "#myPage", function() {
+	var cache = {};
+	
+	$( ".main-header input" ).autocomplete({
+	  //source: "/index.php?r=house/getCityList",
+		source: function(request, response) {
+					var term = request.term; //cache result if term is typed in past
+					if ( term in cache ) {
+						response( cache[ term ] );
+						return;
+					}
+			
+					$.getJSON(
+					"/index.php?r=house/getCityList", 
+					{ term: term, cd1: '<?php echo $cd1;?>' },  //pass province for city search
+					//response
+					function( data, status, xhr ) {
+						cache[ term ] = data;
+						response( data );
+						}
+					);
+			
+		},
+		minLength: 1,
+		autoFocus: true,
+		select: function( event, ui ) {
+ 
+			var city = ui.item.id;
+			var matches = city.match(/\d+/g);
+			if ( matches != null) {
+				console.log("MLS# is found:" + city);
+				var url = 'index.php?r=house/view&id=' + city;
+				location.href = url;
+				
+			} else {
+				var url = '<?php echo Yii::app()->createUrl('house/index', array('type' => $type,'cd1' => $cd1, 'cd3' => $cd3, 'cd4' => $cd4, 'cd5' => $cd5, 'cd6' => $cd6, 'cd7' => $cd7, 'cd8' => $cd8, 'cd9' => $cd9, 'cd10' => $cd10, 'cd11' => $cd11, 'cd12' => $cd12,'cd12_2' => $cd12_2,'cd12_3' => $cd12_3,'cd12_4' => $cd12_4,'cd12_5' => $cd12_5, 'cd13' => $cd13,'cd14' => $cd14, 'cd15' => $cd15, 'cd16' => $cd16, 'cd17' => $cd17, 'cd18' => $cd18)) ?> ' +'&cd2=' + city + '#001';
+			
+				if( city != '') {
+					location.href = url;
+			
+				}		
+		
+			}
+		}
+	});
+  });
+  
+ 
+  
+</script>
+			
+			
+		
 	<!-- head结束 -->
 
 	<!-- body开始 -->
