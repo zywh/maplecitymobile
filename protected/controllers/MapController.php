@@ -241,8 +241,8 @@ class MapController extends XFrontBase {
                 foreach ($house as $val) {
                     $mapHouseList = array();
                     $mapHouseList['Beds'] = $val->br;
-                    $mapHouseList['Baths'] = !empty($val->tot)?$val->bath_tot:"0";
-                    $mapHouseList['Kitchen'] = !empty($val->kit)?$val->num_kit:"0";
+                    $mapHouseList['Baths'] = $val->bath_tot;
+                    $mapHouseList['Kitchen'] = $val->num_kit;
                     $mapHouseList['GeocodeLat'] = $val->latitude;
                     $mapHouseList['GeocodeLng'] = $val->longitude;
                     $mapHouseList['Address'] = !empty($val->addr)?$val->addr : "不详";
