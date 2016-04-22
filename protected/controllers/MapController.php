@@ -175,10 +175,10 @@ class MapController extends XFrontBase {
 					$citycn = $val->mname->municipality_cname;
 					
 					if ( $lat > 20 ) {
-						$result['Data']['AreaHouseCount'][$city]['Count'] ['NameCn'] = !empty($citycn)? ($citycn):"其他";
-						$result['Data']['AreaHouseCount'][$city]['Count'] ['HouseCount'] = $val->id;
-						$result['Data']['AreaHouseCount'][$city]['Count'] ['GeocodeLat'] = $lat;
-						$result['Data']['AreaHouseCount'][$city]['Count'] ['GeocodeLng'] = $lng;
+						$result['Data']['AreaHouseCount'][$city]['NameCn'] = !empty($citycn)? ($citycn):"其他";
+						$result['Data']['AreaHouseCount'][$city]['HouseCount'] = $val->id;
+						$result['Data']['AreaHouseCount'][$city]['GeocodeLat'] = $lat;
+						$result['Data']['AreaHouseCount'][$city]['GeocodeLng'] = $lng;
 					}
 		
 				}
@@ -197,23 +197,31 @@ class MapController extends XFrontBase {
 				$gridcriteria->select = 'longitude,latitude';
 				$location = House::model()->findAll($criteria);
 				$result['Message'] = '成功';
-				$tilex = (($maxLat - $minLat ) / $gridx) * 100000;
-				$tiley = (($maxLon - $minLon ) / $gridy) * 100000;
+				//$tilex = (($maxLat - $minLat ) / $gridx) * 100000;
+				//$tiley = (($maxLon - $minLon ) / $gridy) * 100000;
+				$tilex = (($maxLat - $minLat ) / $gridx) ;
+				$tiley = (($maxLon - $minLon ) / $gridy) ;
 				error_log("Generate Grid View Count:".$tilex.":".$tiley);
 				//Generate grid center Lat/Lng
 				for ( $x=1; $x <= $gridx ; $x++){
 					for ( $y=1; $y <= $gridy ; $y++){
+						$gridCenterlat = $minLat + ($tilex/2) + ($x -1)*$tilex ;
+						$gridCenterlng = $minLon + ($tiley/2) + ($y -1)*$tiley ;
+						$result['Data']['AreaHouseCount']["G".$x.$y]['GeocodeLat'] = $gridCenterlat;
+						$result['Data']['AreaHouseCount']["G".$x.$y]['GeocodeLng'] = $gridCenterlng;
 						
 					}
 				}
 				//Get count of house in each tile
 				foreach ($location as $val) {
-					$gridlat = ceil((($val->latitude - $minLat ) * 100000 / $tilex));
-					$gridlng = ceil((($val->longitude - $minLon) * 100000 / $tiley));
+					//$gridlat = ceil((($val->latitude - $minLat ) * 100000 / $tilex));
+					//$gridlng = ceil((($val->longitude - $minLon) * 100000 / $tiley));
+					$gridlat = ceil((($val->latitude - $minLat ) / $tilex));
+					$gridlng = ceil((($val->longitude - $minLon) / $tiley));
 					
 					
-					$result['Data']['AreaHouseCount'][$gridlat.$gridlng]['NameCn'] = $gridlat.$gridlng;
-					$result['Data']['AreaHouseCount'][$gridlat.$gridlng]['HouseCount']++; 
+					$result['Data']['AreaHouseCount']["G".$gridlat.$gridlng]['NameCn'] = $gridlat.$gridlng;
+					$result['Data']['AreaHouseCount']["G".$gridlat.$gridlng]['HouseCount']++; 
 					error_log("XY".$val->latitude.":".$val->longitude."Tile:".$result['Data']['AreaHouseCount'][$gridlat.$gridlng]['HouseCount']);
 					
 				}

@@ -8,14 +8,21 @@
 
     
 <div role="main" class="ui-content" id="map_container">
-     <div id="google_map"> </div>   <!-- map loads here... -->
+     <div class="google_map" id="google_map"> 
+		<div class="loadhouse">
+			正在加载房源数据，请稍候...
+		</div>
+	</div>   <!-- map loads here... -->
+	
 </div>
 
 <!-- map结束 -->
 
+
+
 <!-- List Start -->
 <div id="house_list" class="house-list">
-   <p>Total:</p> <span id="houst_count"></span>
+   <p>找到房源:<span id="house_count"></span></p> 
 </div>
 <!-- List End -->
 
@@ -261,20 +268,23 @@ function changeMap(mapId) {
                 $(".loadhouse").show();
             },
             complete: function() {
-                $(".loadhouse").hide();
+                //$(".loadhouse").hide();
             },
             success: function(data) {
                 forIndex++;
                 if (!data.IsError) {
-
-
+					houseCount =  data.Data.Total;
+					$("#house_count").text(houseCount);
                     var markerType = data.Data.Type;
 					//Start City Markers
                     if ((markerType == 'city') || (markerType == 'grid')) {
                         for (var p in data.Data.AreaHouseCount) {
-                            var areaHouse = data.Data.AreaHouseCount[p];
-                            setContentCount(areaHouse['Count'].GeocodeLat, areaHouse['Count'].GeocodeLng, areaHouse['Count'].HouseCount, areaHouse['Count'].NameCn);
-
+                           
+							var areaHouse = data.Data.AreaHouseCount[p];
+							if (areaHouse.HouseCount > 0){
+								console.log( "Name:" + areaHouse.NameCn + "Lat:" + areaHouse.GeocodeLat + "Count:"+ areaHouse.HouseCount );
+                            setContentCount(areaHouse.GeocodeLat, areaHouse.GeocodeLng, areaHouse.HouseCount, areaHouse.NameCn);
+							}
                         }
                     }
                     //End of City Markers
