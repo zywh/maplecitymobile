@@ -8,7 +8,7 @@
 
 <div data-role="content" style="width:100%; height:100%; padding:0;" id="map_area">
 	<div data-role="popup" id="houseviewpopup">
-		<p> This is popup</p>
+		
 	</div>
 	<div id="google_map" style="width:100%;height:100%"></div>                 
 </div>
@@ -100,7 +100,7 @@ function setContent(lat, lng, content, html, isShow) {
 
 	google.maps.event.addListener(marker, 'click', function(e) {
 		
-		
+		$("#houseviewpopup").html(html);
 		//info.open(map, marker);
 		
 		//setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
