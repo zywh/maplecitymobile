@@ -8,7 +8,8 @@
 
 <div data-role="content" style="width:100%; height:100%; padding:0;" id="map_area">
 	<div data-role="popup" id="houseviewpopup">
-		
+	<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>	
+	<div id="popuphtml"></div>
 	</div>
 	<div id="google_map" style="width:100%;height:100%"></div>                 
 </div>
@@ -100,7 +101,8 @@ function setContent(lat, lng, content, html, isShow) {
 
 	google.maps.event.addListener(marker, 'click', function(e) {
 		
-		$("#houseviewpopup").html(html);
+		$("#popuphtml").html(html);
+		$("#houseviewpopup").popup( "open" );
 		//info.open(map, marker);
 		
 		//setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
@@ -328,22 +330,22 @@ function changeMap(mapId) {
 
                             var hprice = (this.SaleLease == 'Lease') ? this.Price * 10000 + '  加元/月' : Math.round(this.Price) + '  万加元';
                             //console.log(hprice);
-                            var li = "<div class='fclist' onmouseover='openInfo(" + index + ", this)' " + "onclick = window.open('<?php echo Yii::app()->createUrl('house/view'); ?>&id=" + this.Id + "')"
+                            //var li = "<div class='fclist' onmouseover='openInfo(" + index + ", this)' " + "onclick = window.open('<?php echo Yii::app()->createUrl('house/view'); ?>&id=" + this.Id + "')"
 
                             +" index='" + Arrayindex + "' type='" + (this.Beds > 0 ? this.Beds + "卧" : "") + (this.Baths > 0 ? this.Baths + "卫 " : "") + (this.Kitchen > 0 ? this.Kitchen + "厨" : "") + "' Jd='" + this.Id + "'  lat='" + this.GeocodeLat + "' lng='" + this.GeocodeLng + "' Address='" + this.Address + "' imgurl='" + imgurl + "' Price='" + hprice + "' HouseType='" + this.HouseType + "' Id='" + this.Id + "' Country=" + this.Country + " Zip=" + this.Zip + " CountryName=" + this.CountryName + " ProvinceEname=" + this.ProvinceEname + " MunicipalityName=" + this.MunicipalityName + " ProvinceCname=" + this.ProvinceCname + " Money=CAD ><a href='javascript:;'><div class='fclistleft'><div class='house_pic'><img src='<?php echo Yii::app()->request->baseUrl; ?>" + imgurl + "' style='width:151px;height:116px' alt='" + this.MunicipalityName + "房产_" + this.Area2Name + "房产_" + this.MunicipalityName + this.Area2Name + this.HouseType + "房产' /></div></div><div class='fclistright'><div class='house_con2'><p class='house_no1 fc_title'><i>" + (Arrayindex + 1) + "</i><span>" + hprice + "</span></p><p>类型：" + this.HouseType + "</p><p>城市：" + this.MunicipalityName + "</p><p>地址：" + this.Address + "</p><p>户型：" + (this.Beds > 0 ? this.Beds + "卧" : "") + (this.Baths > 0 ? this.Baths + "卫 " : "") + (this.Kitchen > 0 ? this.Kitchen + "厨" : "") + "</p></div></div><div class='cl'></div></a></div>";
 
-                            HouseArray[Arrayindex] = li;
+                            //HouseArray[Arrayindex] = li;
 
                             tlat = parseFloat(this.GeocodeLat);
                             tlng = parseFloat(this.GeocodeLng);
                             //var content = "<i class='common_bg icon_map_mark'><span>" + (Arrayindex + 1) + "</span></i>";
 							//var content = "<i class='common_bg icon_map_mark'><span>" + (Arrayindex + 1) + "</span></i>";
 							
-							var content = "<a href='#houseviewpopup' data-rel='popup' class='ui-btn ui-btn-inline ui-corner-all' data-position-to='window'>Open</a>";
-                            //var content = "<i class='common_bg icon_map_mark'></i>";
+							//var content = "<a href='#houseviewpopup' data-rel='popup' class='ui-btn ui-btn-inline ui-corner-all' data-position-to='window'>Open</a>";
+                            var content = "<i class='common_bg icon_map_mark'></i>";
 
 
-                            var html = "<div class='map_info_title'>" + this.Address + ", " + this.CountryName + ", " + this.ProvinceEname + "</div><div class='map_info_content'><div class='map_info_left'><img src='<?php echo Yii::app()->request->baseUrl; ?>" + imgurl + "' style='width:188px;height:148px'/></div><div class='map_info_right'><p class='orange map_info_price'><i class='common_bg'></i><span>价 格：</span> " + hprice + "</p> <p><a href='<?php echo Yii::app()->createUrl('house/view'); ?>&id=" + this.Id + "' target='_blank'>查看详情</a></p><p class='map_info_address'><i class='common_bg'></i>地 址：" + this.MunicipalityName + " " + this.ProvinceCname + "</p><p class='map_info_phone'><i class='common_bg'></i>类型：" + this.HouseType + "</p><p class='map_info_type'><i class='common_bg'></i>户 型：" + this.Beds + "卧 " + this.Baths + "卫 " + this.Kitchen + "厨</p></div><div class='clear'></div></div>";
+                            var html = "<div >" + this.Address + ", " + this.CountryName + ", " + this.ProvinceEname + "</div><div class='map_info_content'><div class='map_info_left'><img src='<?php echo Yii::app()->request->baseUrl; ?>" + imgurl + "' style='width:300px;height:200px'/></div><div class='map_info_right'><p class='orange map_info_price'><span>价 格：</span> " + hprice + "</p> <p><a href='<?php echo Yii::app()->createUrl('house/view'); ?>&id=" + this.Id + "' target='_blank'>查看详情</a></p><p class='map_info_address'>地 址：" + this.MunicipalityName + " " + this.ProvinceCname + "</p><p class='map_info_phone'>类型：" + this.HouseType + "</p><p class='map_info_type'>户 型：" + this.Beds + "卧 " + this.Baths + "卫 " + this.Kitchen + "厨</p></div><div class='clear'></div></div>";
                             setContent(tlat, tlng, content, html, false);
                             
 
@@ -351,7 +353,7 @@ function changeMap(mapId) {
 
                         //END of LOOP
                         if (houseCount > 30) {
-                            markerClusterer = new MarkerClusterer(map, markerArray);
+                            //markerClusterer = new MarkerClusterer(map, markerArray);
                         }
                     }
                     //End of House Marker

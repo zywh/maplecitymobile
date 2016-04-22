@@ -49,11 +49,11 @@
 				
 			    <li data-icon="search"><a href="index.php?r=mhouse/index&sr=Lease" data-ajax="false" id="menu_lease" >出租房</a></li>
 			    <li data-icon="search"><a href="index.php?r=mhouse/index&sr=Sale" data-ajax="false" id="menu_sale">二手房</a></li>
-			    <li data-icon="search"><a href="index.php?r=map/index" data-ajax="false" id="menu_new">Map</a></li>
+			    <li data-icon="location"><a href="index.php?r=map/index" data-ajax="false" id="menu_new">地图搜索</a></li>
 			 	<li data-icon="search"><a href="http://maplecity.com.cn/index.php?r=column/index" data-ajax="false" data-icon="search" id="menu_school">学区房</a></li>
 			
 			    <li data-icon="calendar"><a href="http://maplecity.com.cn/index.php?r=stats/current" data-ajax="false" id="menu_homestats">房源统计</a></li>
-			    <li data-icon="calendar"><a href="http://maplecity.com.cn/index.php?r=stats/current" data-ajax="false" >房源统计</a></li>
+			   
 			    <li data-icon="calendar"><a href="http://maplecity.com.cn/index.php?r=stats" data-ajax="false" id="menu_homehist">历史统计</a></li>
 		
 				
