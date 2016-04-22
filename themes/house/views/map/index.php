@@ -44,6 +44,8 @@ function max_height() {
 	var lat = '<?php echo $_GET["lat"]; ?>';
 	var lng = '<?php echo $_GET["lng"]; ?>';
     var mapZoom = '<?php echo $_GET["zoom"]; ?>';
+	var markerArray = [];
+	//var map;
     
 	
 	
@@ -63,7 +65,7 @@ function max_height() {
 				lat = pos.coords.latitude;
 				lng = pos.coords.longitude;
 				console.log("GeoLocation Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
-				var init = new initMap("google_map",lat,lng,mapZoom);
+				maplemap.initMap("google_map",lat,lng,mapZoom);
 				
 			}
 	        function fail(error) {

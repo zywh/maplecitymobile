@@ -263,23 +263,7 @@ var swiper = new Swiper(".swiper-container", {
                 </div>
                  <div class="cl"></div>
                 </div>
-    <div class="fyxqdown" data-role="tabs">
-        <div class="fyxqdown_left" >
-            <div class="xxlb_box">
-                <div class="fyxqdown_left_title "data-role="navbar">
-                 <ul>
-				 <li><a class="fyxqdown_left_cur" href="javascript:void(0);">详情列表</a></li>
-                 <li><a href="#buju">房屋布局</a></li>
-                  <li><a href="#mshu">房源描述</a></li>
-                  <li><a href="#tup">房源图片</a></li>
-                  <li><a href="#fjin">附近房源</a></li>
-                  <li><a href="#liulan">最近浏览</a></li>
-                  <li><a href="#fydt" onclick="daolumap();">房源地图</a></li>
-                    <span class="dlh_btn">英尺 &gt; 米</span>
-                    <div class="cl"></div>
-				</ul>	
-                </div>
-                
+               
 <script language="javascript" type="text/javascript">
 $(function(){
 
@@ -324,6 +308,8 @@ $(function(){
       <div class="fyxqdown_left_cont">
 				<ul data-role="listview">
 				<li data-role="list-divider">详情列表</li>
+                        <li class="xqlb_list"><span class="xqlb_label">MLS编号：</span><?php echo $house->ml_num; ?></li>
+                        <li class="xqlb_list"><span class="xqlb_label">交叉路口：</span><?php echo $house->cross_st; ?></li>
                         <li class="xqlb_list"><span class="xqlb_label">物业类别：</span><?php echo $house->propertyType->name; ?></li>
                         <li class="xqlb_list"><span class="xqlb_label">挂牌时间：</span><?php echo $house->pix_updt; ?></li>
                         <li class="xqlb_list"><span class="xqlb_label">房屋层数：</span><?php echo $house->style; ?></li>
@@ -358,8 +344,6 @@ $(function(){
                         <li class="xqlb_list"><span class="xqlb_label">空调：</span><?php echo $house->a_c; ?></li>
                         <li class="xqlb_list"><span class="xqlb_label">邮编：</span><?php echo $house->zip; ?></li>
                         <li class="xqlb_list"><span class="xqlb_label">中央吸尘：</span><?php if($house->central_vac=="Y"){echo "是";}else{echo "否";} ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">MLS编号：</span><?php echo $house->ml_num; ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">交叉路口：</span><?php echo $house->cross_st; ?></li>
 						<li class="xqlb_list"><span class="xqlb_label">游泳池：</span><?php echo $house->pool; ?></li>
 					    <li class="xqlb_list"><span class="xqlb_label">出售/出租：</span>
 						<?php 
@@ -370,18 +354,15 @@ $(function(){
 						echo "出租";
 						}
 						?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">周边环境和配套：</span><?php echo $house->prop_feat1_out; ?><?php if($house->prop_feat2_out!=""){echo " , ";}?><?php echo $house->prop_feat2_out; ?><?php if($house->prop_feat3_out!=""){echo " , ";}?><?php echo $house->prop_feat3_out; ?><?php if($house->prop_feat4_out!=""){echo " , ";}?><?php echo $house->prop_feat4_out; ?><?php if($house->prop_feat5_out!=""){echo " , ";}?><?php echo $house->prop_feat5_out; ?><?php if($house->prop_feat6_out!=""){echo " , ";}?><?php echo $house->prop_feat6_out; ?></li>
+                        <li class="xqlb_list"><span class="xqlb_label">周边和配套：</span><?php echo $house->prop_feat1_out; ?><?php if($house->prop_feat2_out!=""){echo " , ";}?><?php echo $house->prop_feat2_out; ?><?php if($house->prop_feat3_out!=""){echo " , ";}?><?php echo $house->prop_feat3_out; ?><?php if($house->prop_feat4_out!=""){echo " , ";}?><?php echo $house->prop_feat4_out; ?><?php if($house->prop_feat5_out!=""){echo " , ";}?><?php echo $house->prop_feat5_out; ?><?php if($house->prop_feat6_out!=""){echo " , ";}?><?php echo $house->prop_feat6_out; ?></li>
 <!--                    <div class="xqlb_list">
                             <div class="xqlb_list_left">是否壁炉：<?php if($house->fpl_num=="N"){echo "没有";}else{echo "有";}?></div>
                             <div class="xqlb_list_right">是否游泳池：<?php if($house->pool=="None"){echo "没有";}else{echo "有";} ?></div>
                         <div class="cl"></div>
                     </div> -->
-                </ul>
-            </div>
- <a href="javascript:;" name="fwbj" style="text-indent:-99999em; display:block;margin-bottom: -5px;zoom: 1;">1</a>
-            <div class="fwbj_box">
-            
-<script language="javascript" type="text/javascript">
+				<li data-role="list-divider">房屋布局</li>
+<li>
+				<script language="javascript" type="text/javascript">
 $(function(){
 
 		var p1 = $(".f1_1").html();
@@ -438,11 +419,7 @@ $(function(){
 	})
 })
 </script>             
-                <div class="fyxqdown_left_title">
-                    <a class="fyxqdown_left_cur" id="buju" href="javascript:;">房屋布局</a>
-                </div>
-                <div class="fwbj_cont">
-           <table width="750" border="0" cellspacing="0" cellpadding="0" style="line-height:30PX;">
+           <table data-role="table" class="ui-responsive" data-mode="columntoggle">
   <tr>
     <td width="12%" style="border-bottom: 1px solid #CCCCCC;">楼层</td>
     <td width="12%" style="border-bottom: 1px solid #CCCCCC;">房间</td>
@@ -575,7 +552,13 @@ $(function(){
   </tr>
   <?php }?>
 </table>
-
+</li>
+<li data-role="list-divider"><a class="fyxqdown_left_cur" href="javascript:daolumap()">地图</a><a href="javascript:streetmap(1)">街景</a></li>
+               </ul>
+            </div>
+ 
+            
+<
      </div>
                            
 <script>
@@ -585,13 +568,6 @@ window.onload=function(){
 daolumap();
 }
 </script>
-        <a href="javascript:;" name="fydt" style="text-indent:-99999em; display:block;margin-bottom:25px;zoom: 1;">1</a>
-        <div class="dtck_box hsdts_box5">
-            <div class="fyxqdown_left_title">
-                <a class="fyxqdown_left_cur" href="javascript:daolumap()">地图</a>
-                <a href="javascript:streetmap(1)">街景</a>
-                <div class="cl"></div>
-            </div>
 </div>
 <!-- 房源详情页面结束 -->
 
