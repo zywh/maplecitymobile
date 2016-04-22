@@ -2,7 +2,9 @@
 var markerArray = [];
 var map;
 
-function initMap(mapId,lat,lng,zoomLevel) {
+
+function initMap(mapId,lat,lng,zoomLevel,gridx,gridy) {
+	
 	
 	var initCenter = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
 	var mapOptions = {
@@ -21,7 +23,7 @@ function initMap(mapId,lat,lng,zoomLevel) {
 	
 	//google.maps.event.addListener(map, "bounds_changed", function() {
 	google.maps.event.addListener(map, "idle", function() {
-		changeMap(mapId);		
+		changeMap(mapId,gridx,gridy);		
 	});
 }	  
 function setMapView(lat, lng, zoom) {
@@ -51,7 +53,7 @@ function setContent(lat, lng, content, html, isShow) {
 	});*/
 	
  	
-	var markerArray.push(marker);
+	markerArray.push(marker);
 	var info = new google.maps.InfoWindow({
 		content: html,
 		size: new google.maps.Size(50, 50),
@@ -168,7 +170,6 @@ function createMarker(place) {
 		//infowindow.open(map, this);
 	});
 
-	publicArray[publicArray.length] = marker;
 } 
 
 function clearAll(map) {
@@ -178,23 +179,12 @@ function clearAll(map) {
 		}
 		markerArray.length = 0;
 	}
-	if (markerClusterer) {
-		//console.log("Clear Cluster Markers");
-		markerClusterer.clearMarkers();
-	}
-
 
 	if (infowindow) {
 		for (var i in infowindow) {
 			infowindow[i] = null;
 		}
 		infowindow.length = 0;
-	}
-	if (publicArray) {
-		for (var i in publicArray) {
-			publicArray[i].setMap(null);
-		}
-		publicArray.length = 0;
 	}
 	for (var i = 0; i < markers.length; i++) {
 		markers[i].setMap(null);
@@ -204,40 +194,40 @@ function clearAll(map) {
 //汇率
 
 function changeMap(mapId) {
-        console.log("Change Map");
+	console.log("Change Map");
 
 	clearAll(map);
-        var gridSize = 50;	//50px
-        //get element size to calcute number of grid
-		var mapHeight = $("#" + mapId).height();
-		var mapWidth = $("#" + mapId).width();
-		gridx = Math.ceil(mapWidth/gridSize);
-		gridy = Math.ceil(mapHeight/gridSize);
-		console.log("W:" + mapWidth + "H:" + mapHeight + "XY:" + gridx + "x" + gridy );
-		
-        var _sw = map.getBounds().getSouthWest();
-        var _ne = map.getBounds().getNorthEast();
-        var centerlat = (_ne.lat() + _sw.lat()) / 2;
-        var centerlng = (_ne.lng() + _sw.lng()) / 2;
+	var gridSize = 50;	//50px
+	//get element size to calcute number of grid
+	var mapHeight = $("#" + mapId).height();
+	var mapWidth = $("#" + mapId).width();
+	var gridx = Math.ceil(mapWidth/gridSize);
+	var gridy = Math.ceil(mapHeight/gridSize);
+	console.log("W:" + mapWidth + "H:" + mapHeight + "XY:" + gridx + "x" + gridy );
+	
+	var _sw = map.getBounds().getSouthWest();
+	var _ne = map.getBounds().getNorthEast();
+	var centerlat = (_ne.lat() + _sw.lat()) / 2;
+	var centerlng = (_ne.lng() + _sw.lng()) / 2;
 
-		/*
-        var number1 = _sw.lat() + "," + _sw.lng() + "," + centerlat + "," + centerlng;
-        var number2 = centerlat + "," + centerlng + "," + _ne.lat() + "," + _ne.lng();
-        var number3 = centerlat + "," + _sw.lng() + "," + _ne.lat() + "," + centerlng;
-        var number4 = _sw.lat() + "," + centerlng + "," + centerlat + "," + _ne.lng();
-        var lenght = 1;
-	    */
+	/*
+	var number1 = _sw.lat() + "," + _sw.lng() + "," + centerlat + "," + centerlng;
+	var number2 = centerlat + "," + centerlng + "," + _ne.lat() + "," + _ne.lng();
+	var number3 = centerlat + "," + _sw.lng() + "," + _ne.lat() + "," + centerlng;
+	var number4 = _sw.lat() + "," + centerlng + "," + centerlat + "," + _ne.lng();
+	var lenght = 1;
+	*/
         
-        var HouseArray = [];	
+	var HouseArray = [];	
 	var markerArray = [];
 
-        var forIndex = 0;
-        var Arrayindex = 0;
+	var forIndex = 0;
+	var Arrayindex = 0;
       
 
         _bounds = _sw.lat() + "," + _sw.lng() + "," + _ne.lat() + "," + _ne.lng();
    
-
+	
         $.ajax({
             url: '<?php echo Yii::app()->createUrl('map/getMapHouse'); ?>',
             type: 'POST',
@@ -246,8 +236,7 @@ function changeMap(mapId) {
                 bounds: _bounds,
 				gridx : gridx,
 				gridy : gridy,
-                zoom: mapZoom
-   
+                
             },
             beforeSend: function() {
                 //$(".loadhouse").show();

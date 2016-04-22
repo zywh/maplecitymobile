@@ -50,6 +50,11 @@ _top:       expression(eval(document.compatMode &&
 .dlh_btn a{ color:#FF6600}
 .dlh_btn:hover{ text-decoration:underline}
 .nytb_dz a:hover{ color:#FF6600}
+span.xqlb_label{ 
+    float: left;
+    width: 100px;
+	display:block;
+}
 </style>
 
 <?php
