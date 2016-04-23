@@ -13,11 +13,12 @@ $(document).on("pageshow","#page_main",function(){
   
 </script>
 
+<div id="home_page_img" class="home-page-img" >
+<div >
+  <a href="index.php?r=map/index">
+    <img src="/static/images/mapsearch.jpg" >
+  </a>
+  <div class="text">地图搜索</div>
+</div>
 
-
-Google Icons
-<i class="material-icons">cloud</i>
-<i class="material-icons">favorite</i>
-<i class="material-icons">attachment</i>
-<i class="material-icons">computer</i>
-<i class="material-icons">traffic</i>
+</div>

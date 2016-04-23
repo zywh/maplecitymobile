@@ -6,7 +6,8 @@ function update_houselist(options) {
 	
 	loading = true; //prevent further ajax loading
 	//Ajax Start
-	console.log("AJAX Parm:" + options['city']);
+	console.log("AJAX Parm:" + options['pageindex']);
+	
 	$.ajax({
 		url: '/index.php?r=mhouse/SearchHouse',
 		type: 'POST', 
@@ -79,6 +80,7 @@ function update_houselist(options) {
 			//Display HouseList Start
 
 			$("#house_count").text(houseCount);
+			$("#page_count").text(page + 1);
 			/*
             var tableHtml = "";
 			$.each(HouseArray, function(index) {
@@ -88,13 +90,14 @@ function update_houselist(options) {
 			});
 			
 			*/
-			if ( page == "0" ){
-				//console.log("Refresh Page index:" + page);
+			console.log(pageclick);
+			if (( page == "0" ) || ( pageclick == true )){
+				console.log("Refresh Page index:" + page);
 				//console.log(tableHtml);
 				$("#house_list").html(tableHtml).promise().done(function () {
 				  $("#house_list").listview().listview('refresh');
 				});
-				
+				pageclick = false;
 
 			} else {
 				console.log("Append Page index:" + page);
@@ -148,6 +151,7 @@ var sr = '<?php echo $_GET['sr'];?>';
 var page = 0; //total loaded page zero for first page
 var loading  = false; //to prevents multipal ajax loads
 var total_groups = 1 ;
+var pageclick = false;
 
 //options['sr'] = sr;
 options['pageindex'] = page;
@@ -181,6 +185,21 @@ $(document).on("pageshow","#page_main",function(){
 	
 	$('#search_clear').click(function()	{ 
 		clearSelect();
+	});
+	
+	
+	$('#page_previous').click(function()	{ 
+		  pageclick = true;
+		  options["pageindex"] = ( page > 0)? --page: 0;
+		  update_houselist(options);
+		  
+	});
+	$('#page_next').click(function()	{ 
+	  ++page;
+	  pageclick = true;
+	  options["pageindex"] = page;
+	  update_houselist(options);
+	  
 	});
 	
 	$(".province-panel select").change(function () {
@@ -480,10 +499,10 @@ $(document).on("pageshow","#page_main",function(){
 
 	
 	<div id="house_list_header1" class="house-preview-total" data-role="controlgroup" data-type="horizontal" data-mini="true">
-			<a href="#"  data-role="button" data-icon="arrow-l" data-iconpos="notext">Left</a>
-			<a href="#"  data-role="button" data-icon="arrow-r" data-iconpos="notext">Right</a>
+			<a href="#"  id="page_previous" data-role="button" data-icon="arrow-l" data-iconpos="notext">Left</a>
+			<a href="#"  id= "page_next" data-role="button" data-icon="arrow-r" data-iconpos="notext">Right</a>
 			 <a href="#" id="search_clear" data-role="button" data-icon="delete" data-iconpos="notext" style="display:none">清除选择</a>
-		   <a href="#" data-role="button" >房源:</span><span id="house_count"></a>
+		   <a href="#" data-role="button" >第<span id="page_count"></span>页: <span id="house_count"></span>套</a>
 		   <div> </div>
 	</div>
 
@@ -503,3 +522,4 @@ $(document).on("pageshow","#page_main",function(){
 
 </div>
 <!-- 下一页装载进程图标结束 --> 
+

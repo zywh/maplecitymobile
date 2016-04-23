@@ -931,7 +931,7 @@ button[disabled],
 
 .search-area .ui-select .ui-li-has-count.ui-btn { padding-right:15px; }
 .house-preview-total { margin:3px 0 0 0; }
-.house-preview-total .ui-btn {border:0;background-color:#fff;border-color:#fff;}
+.house-preview-total .ui-btn {border:0;border-color:#fff;}
 
 
 .house_preview .ui-listview > .ui-li-static { padding: 0; }
@@ -1137,3 +1137,27 @@ html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% i
 }
 
 /*end of autocomplete JUI*/
+
+/*site index.php CSS*/
+.home-page-img {
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    *width: 180px;
+}	
+
+.home-page-img:hover {
+    border: 1px solid #ff4103;
+}
+
+.home-page-img img {
+    width: 60px;
+    height: 60px;
+}
+
+
+.home-page-img .text {
+    padding: 15px;
+    text-align: center;
+}
+/* End of Site index.php CSS*/
