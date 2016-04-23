@@ -9,6 +9,7 @@
  * @license       http://www.bagecms.com/license
  * @version       v3.1.0
  */
+ 
 class MhouseController extends XFrontBase
 {
   
@@ -21,9 +22,9 @@ class MhouseController extends XFrontBase
      */
 	
     public function actionSearchHouse() {
+		
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
-		
 		$result = array();
 		//error_log($_POST['sr'].$_POST['housetype'].$_POST['pageindex']."br:".$_POST['houseroom']);
 		error_log("Price:".$_POST['houseprice']."City:".$_POST['city']);
@@ -266,27 +267,31 @@ class MhouseController extends XFrontBase
     }
 
 	public function actionGetCityList(){
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
 		$db = Yii::app()->db;
 		//$result = array();
 		$term = trim($_GET['term']);
 		$city_id='0';
 		$limit = 10;
 		$chinese = preg_match("/\p{Han}+/u", $term);
+		//error_log("Search:".$term);
 		//
 		
 		if ( is_numeric($term) || preg_match("/^[a-zA-Z]\d+/",$term) ) {
 			//MLS search
 			$sql = "
-			SELECT id,ml_num FROM h_house 
+			SELECT ml_num FROM h_house 
 			WHERE  ml_num like '".$term."%' 
 			ORDER by city_id
 			limit " .$limit;
 			$resultsql = $db->createCommand($sql)->query();
 			foreach($resultsql as $row){
 
-				$result['id'] = $row["id"]; 
+				$result['id'] = $row["ml_num"]; 
 				$result['value'] = $row["ml_num"]; 
 				$results[] = $result;
+				
 			}
 			
 		} else{
@@ -296,21 +301,21 @@ class MhouseController extends XFrontBase
 				if ($chinese) { //if province = 0 and chinese search
 				
 					$sql = "
-					SELECT m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+					SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
 					FROM h_mname m, h_city c 
 					WHERE  m.province = c.englishname 
 					AND  m.municipality_cname like '".$term."%' 
-					AND  m.count > 10 order by count desc limit " .$limit;
+					AND  m.count > 1 order by count desc limit " .$limit;
 								
 				
 				} else { //if province = 0  and english search
 				
 					$sql = "
-					SELECT m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+					SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
 					FROM h_mname m, h_city c 
 					WHERE  m.province = c.englishname 
 					AND  municipality like '".$term."%' 
-					AND  m.count > 10 order by count desc limit ". $limit;
+					AND  m.count > 1 order by count desc limit ". $limit;
 					
 				}
 				
@@ -319,22 +324,22 @@ class MhouseController extends XFrontBase
 				if ($chinese) { //if province = 0 and chinese search			
 				
 					$sql = "
-					SELECT m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+					SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
 					FROM h_mname m, h_city c 
 					WHERE m.province = c.englishname 
 					AND  c.id=".$city_id." 
 					AND m.municipality_cname like '".$term."%'  
-					AND  m.count > 10 order by count desc limit ". $limit;
+					AND  m.count > 1 order by count desc limit ". $limit;
 					
 				} else {
 					
 					$sql = "
-					SELECT m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+					SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
 					FROM h_mname m, h_city c 
 					WHERE m.province = c.englishname 
 					AND  c.id=".$city_id." 
 					AND m.municipality like '".$term."%' 
-					AND  m.count > 10 order by count desc ". $limit;
+					AND  m.count > 1 order by count desc ". $limit;
 					
 				}
 				
@@ -347,8 +352,9 @@ class MhouseController extends XFrontBase
 			$citycount = count($resultsql);
 			
 			foreach($resultsql as $row){
-
-				$result['id'] = $row["citye"]; 
+				$idArray = array($row["citye"],$row["lat"],$row["lng"]);
+				
+			$result['id'] = implode("|",$idArray); 
 				if ( $chinese ) {
 					
 					$result['value'] = $row["cityc"].", ".$row["provincec"]; 
@@ -362,19 +368,19 @@ class MhouseController extends XFrontBase
 		
 			}
 			
-			
+			//Address Search and Return ML_NUM
 			if ($citycount < $limit){
 				//start address selection
 				$limit = $limit - $citycount;
 				$sql = "
-				SELECT id,addr,municipality,county FROM h_house  
+				SELECT ml_num,addr,municipality,county,latitude,longitude FROM h_house  
 				WHERE  addr like '%".$term."%' order by city_id
 				limit " .$limit;
 				$resultsql = $db->createCommand($sql)->query();
 				
 				foreach($resultsql as $row){
 
-					$result['id'] = $row["id"]; 
+					$result['id'] = $row["ml_num"]; 
 					$result['value'] = $row["addr"].", ".$row["municipality"].", ".$row["county"]; 
 					$results[] = $result;
 				}

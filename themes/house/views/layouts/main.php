@@ -121,15 +121,21 @@ $(".main-header input").autocomplete({
 	select: function( event, ui ) {
 
 		var city = ui.item.id;
-		var matches = city.match(/\d+/g);
+		//var matches = city.match(/\d+/g);
+		var matches = city.match(/\|/g);
 		if ( matches != null) {
-			//console.log("MLS# is found:" + city);
-			var url = 'index.php?r=mhouse/view&id=' + city;
+			
+			
+			
+			var citys = city.split("|");
+			console.log("CityLat" + citys[0] + citys[1] + citys[2]);
+			var url = 'index.php?r=map/index&lat=' + citys[1] + "&lat=" + citys[2] + "&zoom=10&type=1"; 
 			location.href = url;
 			
 		} else {
 			//var url = '<?php echo Yii::app()->createUrl('map/index', array('lat' => $lat,'lng' => $lng)); ?> ';
-			console.log("Location Map:" + $city);
+			//console.log("MLS:" + city);
+			var url = 'index.php?r=mhouse/view&id=' + city;
 			//location.href = url;
 				
 		}

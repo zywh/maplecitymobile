@@ -117,17 +117,18 @@ function getFieldValues() {
 		//Hide Footer
 		//$("#main_footer").hide();
 		
-		//Default Center and zoom
-		//$('#map_area').css("height", $(document).height());	
+
 		max_height();
 		lat = (lat) ? lat: "54.649739";
 		lng= (lng) ? lng: "-93.045726";
 		type = (type) ? type: "0";
 		sr = (sr) ? sr: "Sale";
 		mapZoom= (mapZoom) ? mapZoom: 14;
+		mapZoom = Number(mapZoom);
 		
 		
-				//Start Select Change Event  
+		console.log("Type" + type);
+		//Start Select Change Event  
 		$(".search-area  select").change(function () {
 			getFieldValues(); //Get updated Select
 			//$('#search_clear').show(); 
@@ -136,30 +137,33 @@ function getFieldValues() {
 			maplemap.changeMap(map);
 			//console.log(options['Price']);
 		});
+		if ( type != '0' ) {
+			if ( navigator.geolocation ) {
+		        function success(pos) {
+					lat = pos.coords.latitude;
+					lng = pos.coords.longitude;
+					//console.log("GeoLocation Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
+					maplemap.initMap("google_map",lat,lng,mapZoom);
+					
+				}
+		        function fail(error) {
+					
+	        		mapZoom="10"; //Default zoom level for city
+					//console.log("Fail to Get Geo Location Center to City:" + lat + ":" + lng);
+					maplemap.initMap("google_map",lat,lng,mapZoom);
+					//setMapView(lat,lng,mapZoom);
+									
+		        }
 		
-		if ( navigator.geolocation ) {
-	        function success(pos) {
-				lat = pos.coords.latitude;
-				lng = pos.coords.longitude;
-				//console.log("GeoLocation Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
-				maplemap.initMap("google_map",lat,lng,mapZoom);
+				navigator.geolocation.getCurrentPosition(success, fail, {enableHighAccuracy:true});
+	    	} else {
 				
-			}
-	        function fail(error) {
-				
-        		mapZoom="10"; //Default zoom level for city
-				//console.log("Fail to Get Geo Location Center to City:" + lat + ":" + lng);
 				maplemap.initMap("google_map",lat,lng,mapZoom);
-				//setMapView(lat,lng,mapZoom);
-								
-	        }
-	
-			navigator.geolocation.getCurrentPosition(success, fail, {enableHighAccuracy:true});
-    	} else {
-			
+	   		}
+		} else {
+			console.log("Start City map:" + lat +lng);
 			maplemap.initMap("google_map",lat,lng,mapZoom);
-   		}
-		
+		}
 
 	});
 
