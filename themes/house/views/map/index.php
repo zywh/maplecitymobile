@@ -34,7 +34,7 @@ function max_height() {
 	var doc_height = $(document).height();
     //console.log("ViewH:" + viewport_height + "DocH:" + doc_height+ "HeaderH:" + header_height + "FooterH:" + footer_height);
   
-   $('#map_area').css("height", $(document).height() - 41);
+   $('#map_area').css("height", $(document).height() - 21);
 }
 
 
@@ -55,7 +55,7 @@ function max_height() {
 		max_height();
 		lat= (lat) ? lat: "54.649739";
 		lng= (lng) ? lng: "-93.045726";
-		mapZoom= (mapZoom) ? mapZoom: 10;
+		mapZoom= (mapZoom) ? mapZoom: 14;
 		console.log("Map Init" + lat + ":" + lng);
 		
 		if ( navigator.geolocation ) {
@@ -75,7 +75,8 @@ function max_height() {
 								
 	        }
 	        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
-	        navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
+	        //navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
+			navigator.geolocation.getCurrentPosition(success, fail, {enableHighAccuracy:true});
     	} else {
 			
 			//NO location is found

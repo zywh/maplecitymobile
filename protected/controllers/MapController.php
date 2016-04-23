@@ -254,6 +254,7 @@ class MapController extends XFrontBase {
 					$mapHouseList['MunicipalityName'] = !empty($val->mname->municipality_cname)? ($val->mname->municipality_cname):"其他";
                     $mapHouseList['CountryName'] = $val->municipality;
                     $mapHouseList['Zip'] = $val->zip;
+                    $mapHouseList['MLS'] = $val->ml_num;
                     $mapHouseList['Country'] = $val->city_id;
                     $mapHouseList['ProvinceEname'] = $val->county;
                     $mapHouseList['ProvinceCname'] = $val->city->name;

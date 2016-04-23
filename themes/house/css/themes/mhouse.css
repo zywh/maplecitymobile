@@ -1100,10 +1100,11 @@ html head + body .ui-btn.ui-btn-b:visited {
 
 #houseviewpopup {
     width: 280px !important;
-    height: 400px !important;    
+    height: 341px !important;    
 }
-.map_info_content{background:#fff;height:166px;}
 .map_info_content img {width:280px;height:200px;}
+.map_info_text { margin:8px;white-space: nowrap; overflow: hidden;}
+
 
 /*start of autocomplete JUI*/
 

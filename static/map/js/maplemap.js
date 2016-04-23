@@ -268,13 +268,13 @@ var maplemap = {
 
 
 								//var html = "<div >" + this.Address + "</div><div class='map_info_content'><div class='map_info_left'><img src='" + imgurl + "' style='width:280px;height:220px'/></div><div class='map_info_right'><p class='orange map_info_price'><span>价 格：</span> " + hprice + "</p> <p><a href='index.php?r=mhouse/view&id=" + this.Id + "' target='_blank'>查看详情</a></p><p class='map_info_address'>地 址：" + this.MunicipalityName + " " + this.ProvinceCname + "</p><p class='map_info_phone'>类型：" + this.HouseType + "</p><p class='map_info_type'>户 型：" + this.Beds + "卧 " + this.Baths + "卫 " + this.Kitchen + "厨</p></div><div class='clear'></div></div>";
-								var html = "<h4 >" + this.Address + "</h4>" 
-								+ "<div class='map_info_content'><img src='" + imgurl + "'></div>"
-								+ "<p >价 格：" + hprice + "</p>"
-								+ "<p><a href='index.php?r=mhouse/view&id=" + this.Id + "' target='_blank'>查看详情</a></p>"
-								+ "<p >地 址：" + this.MunicipalityName + " " + this.ProvinceCname + "</p>"
-								+ "<p >类型：" + this.HouseType + " " + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨</p>"
-								+ "</div>";
+								var html = "<div class='map_info_content'><a href='index.php?r=mhouse/view&id=" + this.Id + "' data-ajax='false'> <img src='" + imgurl + "'></a></div>"
+								+ "<div class='map_info_text'><div><a href='index.php?r=mhouse/view&id=" + this.Id + "' data-ajax='false'>MLS: " + this.MLS + "</a><div>"
+								+ "<div >价格：" + hprice + "</div>"
+								+ "<div>地址：" + this.Address + "</div>" 
+								+ "<div>城市：" + this.MunicipalityName + " " + this.ProvinceCname + " " + this.Zip + "</div>"
+								+ "<div >类型：" + this.HouseType + " " + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨</div></div>";
+								
 								//var html = "<div class='map_info_content'><img src='" + imgurl + "'><a href='index.php?r=mhouse/view&id=" + this.Id + "' target='_blank'>查看详情</a></p><p>地 址：" + address + "</p><p>地 址：" + this.MunicipalityName + " " + this.ProvinceCname + "</p><p >类型：" + this.HouseType + " " + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨</p><p>价 格：" + hprice + "</p></div>";
 								maplemap.setContent(map,tlat, tlng, content, html, false);
 								
