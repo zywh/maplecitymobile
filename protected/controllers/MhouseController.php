@@ -142,6 +142,8 @@ class MhouseController extends XFrontBase
 			$mapHouseList['Kitchen'] = $val->num_kit;
 			$mapHouseList['GeocodeLat'] = $val->latitude;
 			$mapHouseList['GeocodeLng'] = $val->longitude;
+			$mapHouseList['CityLat'] = $val->mname->lat;
+			$mapHouseList['CityLng'] = $val->mname->lng;
 			$mapHouseList['Address'] = $val->addr; 
 			$mapHouseList['sqft'] = $val->sqft;
 			$mapHouseList['Price'] = $val->lp_dol/10000;
@@ -154,8 +156,7 @@ class MhouseController extends XFrontBase
 			$mapHouseList['MlsNumber'] = $val->ml_num;
 			$mapHouseList['ProvinceEname'] = $val->county;
 			$mapHouseList['ProvinceCname'] = $val->city->name;
-			$mapHouseList['Money'] = 'CAD';
-			//$area2Name = District::model()->findByPk($val->district_id);
+			
 			
 			//Get image from county
 			

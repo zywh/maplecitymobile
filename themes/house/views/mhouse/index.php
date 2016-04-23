@@ -48,15 +48,19 @@ function update_houselist(options) {
 				////+ "</a>"
 				//
 				//+ "</li>";
-				var li = "<li data-icon='false'> " 
-				+ "<div class='houseviewlist'><a data-ajax='false' href='<?php echo Yii::app()->createUrl('mhouse/view'); ?>&id=" + this.MlsNumber + "'>" 
+				var li = "<li data-icon='false'>" 
+				+ "<div class='houseview-area houseview-tn'><a data-ajax='false' href='<?php echo Yii::app()->createUrl('mhouse/view'); ?>&id=" + this.MlsNumber + "'>" 
 				+ "<img src=' " + this.CoverImg + "'>" 
 				+ "</a></div>"
-				+ "<div class='houseviewlist'>"
-				+ "<div>" + this.HouseType + ":" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</div>" 
+				+ "<div class='houseview-area houseview-text'>"
+				
 				+ "<a data-ajax='false' href='index.php?r=map/index&lat=" + this.GeocodeLat + "&lng=" + this.GeocodeLng + "&zoom=15&type=house'>"
-				+ "<div>" + this.Address + "," + this.MunicipalityName + "</div>" 
+				+ "<div>地址:" + this.Address + "</div>" 
 				+ "</a>"
+				+ "<a data-ajax='false' href='index.php?r=map/index&lat=" + this.GeocodeLat + "&lng=" + this.GeocodeLng + "&zoom=15&type=house'>"
+				+ "<div>城市:" + this.MunicipalityName + " " + this.ProvinceCname + "</div>" 
+				+ "</a>"
+				+ "<div>" + this.HouseType + ":" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</div>" 
 				+ "<div>价钱:"  + hprice + "</div> " 
 				
 				//+ "<a href='mailto:info@maplecity.com.cn?subject=查询房源-" + this.MlsNumber + "'>"
