@@ -90,8 +90,8 @@ label.ui-btn {
 -----------------------------------------------------------------------------------------------------------*/
 /* Class ui-btn-corner-all deprecated in 1.4 */
 .ui-corner-all {
-	-webkit-border-radius: .6em /*{global-radii-blocks}*/;
-	border-radius: .6em /*{global-radii-blocks}*/;
+	-webkit-border-radius: 1px /*{global-radii-blocks}*/;
+	border-radius: 1px /*{global-radii-blocks}*/;
 }
 /* Buttons */
 .ui-btn-corner-all,
@@ -926,37 +926,24 @@ button[disabled],
         border-style: none;
 
 }
-.ui-header .ui-navbar li .ui-btn {
-	font-size: 15.5px;
-}
-.ui-header .ui-btn {
-	border-style: none;
-}
+.ui-header .ui-navbar li .ui-btn { font-size: 15.5px; }
+.ui-header .ui-btn { border-style: none; }
 
-.search-area .ui-select .ui-li-has-count.ui-btn {
-	padding-right:15px;
-}
-.house-preview-total {
-	margin:0;
-}
+.search-area .ui-select .ui-li-has-count.ui-btn { padding-right:15px; }
+.house-preview-total { margin:3px 0 0 0; }
+.house-preview-total .ui-btn {border:0;background-color:#fff;border-color:#fff;}
 
-.house_preview .ui-listview > .ui-li-static {
-        padding: 0;
-}
+
+.house_preview .ui-listview > .ui-li-static { padding: 0; }
 
 .house_preview .houseview-area { display:inline-block;}
 .house_preview .houseview-tn  img{ max-height: 5em; max-width: 5em; min-height: 5em; min-width: 5em; }
 .house_preview .houseview-text  {position: absolute; margin: 3px 4px 4px;font-size:90%; }
 
 .house_preview .ui-listview > li h3,
-.house_preview .ui-listview > li h4 {
-	margin: 0;
-}
+.house_preview .ui-listview > li h4 { margin: 0; }
 
-.house_preview  .ui-btn {
-        padding: 0;
-        margin: 0;
-}
+.house_preview  .ui-btn { padding: 0; margin: 0; }
 
 .search-area .ui-page-theme-a a,
 .search-area .ui-bar-a a,
@@ -966,12 +953,7 @@ button[disabled],
         font-weight: normal;
 }
 
-.province-panel .ui-btn {
-	font-size: 15px;
-	text-align: left;
-
-	
-}
+.province-panel .ui-btn { font-size: 15px; text-align: left; }
 
 .ui-bar-b,
 .ui-page-theme-b .ui-bar-inherit,
@@ -1044,10 +1026,10 @@ html head + body .ui-btn.ui-btn-b:visited {
 }
 
 .search-area  .ui-btn {
-        padding-right: 15px;
+        padding-left: 10px;
 	background-position: right center;
-    margin-right: 10px;
-    text-align: right;
+    *margin-left: 2px;
+    text-align: left;
     white-space: nowrap;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAApUlEQVQY02MoKSnpLi8v/08NDDKLAQgYgZyFVDBwIcgskIEM9vb2LKWlpVvJNQykF2QGAzJIS0vjAkocI8OwYyC9DNhAYWGhUFlZ2TViDQOpBelhwAeKiopkgbY+IsJlj0BqGYgBQJs1gRre4jHsLUgNAykAqMECqPkrFgO/guQYyAFAl3gBDfiNZNhvkBgDJQBoQBwQ/4PiOAZqAKDLSkCYYSAAAO1/HbAP08NHAAAAAElFTkSuQmCC);
     background-repeat: no-repeat;

@@ -476,12 +476,15 @@ $(document).on("pageshow","#page_main",function(){
 <!-- 地图结束 -->
 
 <!-- 房源列表开始 --> 
-<div data-role="main" class="ui-content">
+<div >
 
-	<div data-role="header"  data-mini="true">
-	  <a href="#" data-transition="pop" class="ui-btn ui-icon-bullets ui-btn-icon-left ui-btn-icon-notext">Home</a>
-	   <h4>房源:</span><span id="house_count"> </h4>
-	  <a href="#" id="search_clear" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left" style="display:none">清除选择</a>
+	
+	<div id="house_list_header1" class="house-preview-total" data-role="controlgroup" data-type="horizontal" data-mini="true">
+			<a href="#"  data-role="button" data-icon="arrow-l" data-iconpos="notext">Left</a>
+			<a href="#"  data-role="button" data-icon="arrow-r" data-iconpos="notext">Right</a>
+			 <a href="#" id="search_clear" data-role="button" data-icon="delete" data-iconpos="notext" style="display:none">清除选择</a>
+		   <a href="#" data-role="button" >房源:</span><span id="house_count"></a>
+		   <div> </div>
 	</div>
 
 
