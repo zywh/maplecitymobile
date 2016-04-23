@@ -19,7 +19,7 @@ function update_houselist(options) {
 			houseprice: options['sel_price'],
 			houseroom: options['sel_bedroom'],	
 			housebaths: options['sel_washroom'],
-			househousearea: options['sel_housearea'],
+			housearea: options['sel_housearea'],
 			//houselandarea: options['landarea'],
 			//orderby: options['orderby'],
 			city: options['city']
@@ -246,8 +246,7 @@ $(document).on("pageshow","#page_main",function(){
 <!-- CITY Search Panel Start -->
 <div data-role="panel" id="panel-city" class="province-panel" data-display="overlay" data-position-fixed="true">
 	
-	<ul id="search_city_text" class="ui-shadow ui-mini" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="输入城市 中/英文" data-filter-theme="a"  ></ul>
-
+	
 	<fieldset class="city-area" data-role="controlgroup" data-mini="true">
 		<select name="pro_on" id="prov_on" data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
 			<option >安省</option>

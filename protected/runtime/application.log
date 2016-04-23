@@ -322,3 +322,103 @@ Stack trace:
 REQUEST_URI=/index.php?r=mhouse/getCityList&term=t
 HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map
 ---
+2016/04/24 04:59:15 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'housearea' in 'where clause'. The SQL statement executed was: SELECT COUNT(DISTINCT `t`.`id`) FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((s_r = "Sale") AND (housearea <1500)) AND (housearea >=1100)).
+2016/04/24 04:59:15 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'housearea' in 'where clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(759): CDbCommand->queryScalar()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(151): CJoinElement->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(7948): CActiveFinder->count(Object(CDbCriteria))
+#4 /var/www/mhtml/protected/controllers/MhouseController.php(120): CActiveRecord->count(Object(CDbCriteria))
+#5 /var/www/mhtml/framework/yiilite.php(4058): MhouseController->actionSearchHouse()
+#6 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#7 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#8 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/mhtml/framework/yiilite.php(1746): CController->run('SearchHouse')
+#10 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('mhouse/SearchHo...')
+#11 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#12 /var/www/mhtml/index.php(19): CApplication->run()
+#13 {main}
+REQUEST_URI=/index.php?r=mhouse/SearchHouse
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=mhouse/index&sr=Sale
+---
+2016/04/24 04:59:18 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'housearea' in 'where clause'. The SQL statement executed was: SELECT COUNT(DISTINCT `t`.`id`) FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((s_r = "Sale") AND (housearea <2500)) AND (housearea >=2000)).
+2016/04/24 04:59:18 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'housearea' in 'where clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(759): CDbCommand->queryScalar()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(151): CJoinElement->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(7948): CActiveFinder->count(Object(CDbCriteria))
+#4 /var/www/mhtml/protected/controllers/MhouseController.php(120): CActiveRecord->count(Object(CDbCriteria))
+#5 /var/www/mhtml/framework/yiilite.php(4058): MhouseController->actionSearchHouse()
+#6 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#7 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#8 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/mhtml/framework/yiilite.php(1746): CController->run('SearchHouse')
+#10 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('mhouse/SearchHo...')
+#11 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#12 /var/www/mhtml/index.php(19): CApplication->run()
+#13 {main}
+REQUEST_URI=/index.php?r=mhouse/SearchHouse
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=mhouse/index&sr=Sale
+---
+2016/04/24 04:59:23 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'housearea' in 'where clause'. The SQL statement executed was: SELECT COUNT(DISTINCT `t`.`id`) FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((s_r = "Sale") AND (housearea <3000)) AND (housearea >=2500)).
+2016/04/24 04:59:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'housearea' in 'where clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(759): CDbCommand->queryScalar()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(151): CJoinElement->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(7948): CActiveFinder->count(Object(CDbCriteria))
+#4 /var/www/mhtml/protected/controllers/MhouseController.php(120): CActiveRecord->count(Object(CDbCriteria))
+#5 /var/www/mhtml/framework/yiilite.php(4058): MhouseController->actionSearchHouse()
+#6 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#7 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#8 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/mhtml/framework/yiilite.php(1746): CController->run('SearchHouse')
+#10 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('mhouse/SearchHo...')
+#11 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#12 /var/www/mhtml/index.php(19): CApplication->run()
+#13 {main}
+REQUEST_URI=/index.php?r=mhouse/SearchHouse
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=mhouse/index&sr=Sale
+---
+2016/04/24 05:04:06 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'housearea' in 'where clause'. The SQL statement executed was: SELECT COUNT(DISTINCT `t`.`id`) FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((s_r = "Sale") AND (housearea <2000)) AND (housearea >=1500)).
+2016/04/24 05:04:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'housearea' in 'where clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(759): CDbCommand->queryScalar()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(151): CJoinElement->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(7948): CActiveFinder->count(Object(CDbCriteria))
+#4 /var/www/mhtml/protected/controllers/MhouseController.php(120): CActiveRecord->count(Object(CDbCriteria))
+#5 /var/www/mhtml/framework/yiilite.php(4058): MhouseController->actionSearchHouse()
+#6 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#7 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#8 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/mhtml/framework/yiilite.php(1746): CController->run('SearchHouse')
+#10 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('mhouse/SearchHo...')
+#11 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#12 /var/www/mhtml/index.php(19): CApplication->run()
+#13 {main}
+REQUEST_URI=/index.php?r=mhouse/SearchHouse
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=mhouse/index&sr=Sale
+---
+2016/04/24 05:04:06 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'housearea' in 'where clause'. The SQL statement executed was: SELECT COUNT(DISTINCT `t`.`id`) FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((s_r = "Sale") AND (housearea <2000)) AND (housearea >=1500)).
+2016/04/24 05:04:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'housearea' in 'where clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(759): CDbCommand->queryScalar()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(151): CJoinElement->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(7948): CActiveFinder->count(Object(CDbCriteria))
+#4 /var/www/mhtml/protected/controllers/MhouseController.php(120): CActiveRecord->count(Object(CDbCriteria))
+#5 /var/www/mhtml/framework/yiilite.php(4058): MhouseController->actionSearchHouse()
+#6 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#7 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#8 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 /var/www/mhtml/framework/yiilite.php(1746): CController->run('SearchHouse')
+#10 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('mhouse/SearchHo...')
+#11 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#12 /var/www/mhtml/index.php(19): CApplication->run()
+#13 {main}
+REQUEST_URI=/index.php?r=mhouse/SearchHouse
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=mhouse/index&sr=Sale
+---

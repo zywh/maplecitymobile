@@ -1,8 +1,6 @@
  <script src="/static/js/Highstock-4.2.1/js/highstock.js"></script>
   <script src="/static/js/plotly/plotly-latest.min.js"></script>
    <script src="/static/js/DataTables-1.10.11/media/js/jquery.dataTables.min.js"></script>
- 
-  
   <link rel="stylesheet" href="/static/js/DataTables-1.10.11/media/css/jquery.dataTables.min.css">
 
 
@@ -12,7 +10,7 @@
 <div class="ui-field-contain" class="chart-select" >
 	<select name="chartname"  id="chartname" data-corners="false" data-native-menu="false" data-iconpos="left" data-mini="true">
 		<option >选择图表</option>
-		<option value="1">城市分布图</option>
+		<option value="city">城市分布图</option>
 		<option value="province">省分布图</option>
 		<option value="type">房屋类型分布图</option>
 		<option value="price">房价分布图</option>
@@ -23,7 +21,7 @@
  </div>
   
   	<div class="chartbox" id="citychart" >  
-		<p > ( <font color="#ff4e00"><?php echo date("Y-m-d", time() - 60 * 60 * 24); ?> </font> 实时统计 ) </p>
+		<p style="text-align:center"> <font color="#ff4e00"><?php echo date("Y-m-d", time() - 60 * 60 * 24); ?> </font> 实时统计  </p>
 		<p id="chart_graph"> </p>
 		<p class="datatabletop"> </p>
 		<table id="tablecity" class="display" width="100%"></table>
@@ -125,13 +123,13 @@ $.ajax({
 		    $('#tablecity').DataTable( {
 				"language":{
 					"sProcessing":   "处理中...",
-					"sLengthMenu":   "显示 _MENU_ 项结果",
+					"sLengthMenu":   "_MENU_",
 					"sZeroRecords":  "没有匹配结果",
 					"sInfo":         "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
 					"sInfoEmpty":    "显示第 0 至 0 项结果，共 0 项",
 					"sInfoFiltered": "(由 _MAX_ 项结果过滤)",
 					"sInfoPostFix":  "",
-					"sSearch":       "搜索(城市/省 中/英文）:",
+					"sSearch":       "",
 					"sUrl":          "",
 					"sEmptyTable":     "表中数据为空",
 					"sLoadingRecords": "载入中...",
@@ -147,6 +145,10 @@ $.ajax({
 						"sSortDescending": ": 以降序排列此列"
 					}
 				},
+				//"info":     false,
+				//"paging":   false,
+			    "bLengthChange": false,
+				"columnDefs": [{ "width": "40%", "targets": 0 }],
 				data: result.city,
 				columns: [
 					{ title: "城市" },
@@ -287,6 +289,9 @@ $(document).on("pageshow","#page_main",function(){
 			case "city":
 				Plotly.newPlot('chart_graph', data_city, layout_city);
 				break;
+			case "province":
+				Plotly.newPlot('chart_graph', data_province, layout_province);
+				break;				
 			case "house":
 				Plotly.newPlot('chart_graph', data_house, layout_house);
 				break;

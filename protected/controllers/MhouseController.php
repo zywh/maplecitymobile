@@ -62,20 +62,22 @@ class MhouseController extends XFrontBase
 			$ss = $ss." AND bath_tot = ".$_POST['housebaths'];
 		}
 
-		//土地面积
-		if (!empty($_POST['houseground'])) {
-			$ground = explode(',', $_POST['houseground']);
-			$minGround = intval($ground[0]);
-			$maxGround = intval($ground[1]);
-			if ($minGround != 0 || $maxGround != 0) {
-				if ($maxGround > $minGround) {
-					$criteria->addCondition("t.depth*t.front_ft <= :maxGround");
-					$criteria->params += array(':maxGround' => $maxGround);
+		
+		//House Area
+		if (!empty($_POST['housearea'])) {
+			$housearea = explode('-', $_POST['housearea']);
+			$minArea = intval($housearea[0]) ;
+			$maxArea = intval($housearea[1]) ;
+			//error_log ("MinPrice:".$minPrice);
+			if ($maxArea != 0 || $minArea != 0) {
+			    if ($maxArea > $minArea) {
+					$criteria->addCondition('house_area <'.$maxArea);
 				}
-				$criteria->addCondition("t.depth*t.front_ft >= :minGround");
-				$criteria->params += array(':minGround' => $minGround);
+			
+				$criteria->addCondition('house_area >='.$minArea);
 			}
 		}
+
 
 		//价格区间
 		if (!empty($_POST['houseprice'])) {

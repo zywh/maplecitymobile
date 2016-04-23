@@ -218,7 +218,7 @@ var maplemap = {
 					housetype: options['sel_type'], 
 					houseprice: options['sel_price'],
 					houseroom: options['sel_bedroom'],	
-					househousearea: options['sel_housearea']
+					housearea: options['sel_housearea']
 					
 				},
 				beforeSend: function() {

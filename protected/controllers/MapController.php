@@ -78,7 +78,19 @@ class MapController extends XFrontBase {
                     $criteria->params += array(':minGround' => $minGround);
                 }
             }
-
+			//House Area
+			if (!empty($_POST['housearea'])) {
+				$housearea = explode('-', $_POST['housearea']);
+				$minArea = intval($housearea[0]) ;
+				$maxArea = intval($housearea[1]) ;
+				//error_log ("MinPrice:".$minPrice);
+				if ($maxArea != 0 || $minArea != 0) {
+					if ($maxArea > $minArea) {
+						$criteria->addCondition('house_area <'.$maxArea);
+					}
+					$criteria->addCondition('house_area >='.$minArea);
+				}
+			}			
 			//价格区间
 			if (!empty($_POST['houseprice'])) {
 				$price = explode('-', $_POST['houseprice']);
