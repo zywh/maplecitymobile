@@ -1104,3 +1104,51 @@ html head + body .ui-btn.ui-btn-b:visited {
 .map_info_content{background:#fff;height:166px;}
 .map_info_content img {width:280px;height:200px;}
 
+/*start of autocomplete JUI*/
+
+
+html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
+.ui-autocomplete {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  background-color: #fff;
+  background-clip: padding-box;
+}
+/* Move over to selet item */
+.ui-widget-content .ui-state-hover, .ui-widget-content .ui-state-focus {
+    *border: 1px solid #ffece6;
+    background-color: #ffece6;
+    color: #ff4e00;
+    font-weight: bold;
+}
+
+
+/* input focus to glow*/
+/*adjust LI space*/
+.ui-menu {
+   list-style:none;
+   line-height: 21px;
+   color: #000;
+   display:block;
+  /*box-shadow: 0 0 1px #ff4e00;*/
+  float: left;
+  outline: none;
+  border: solid #ffece6;;
+  border-width: 0 1px 1px 1px;
+  margin: 0;
+  padding: 0;
+  -webkit-box-shadow: 3px 3px 10px 0px rgba(255,78,0,0.66);
+  -moz-box-shadow: 3px 3px 10px 0px rgba(255,78,0,0.66);
+  box-shadow: 3px 3px 10px 0px rgba(255,78,0,0.66);
+
+}
+.ui-menu-item {
+  padding: 3px 0px 3px 25px; /*match input box margin 25px*/
+  margin: 5px 1px 3px 0px;
+  background: white url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAIVBMVEW/v7+/v78AAAC/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v79QUkolAAAAC3RSTlOLYAAJeoMjRhpOcbsbtd4AAABJSURBVHjaVc1JDsAgDATB9uAF8v8Hx0QcSN9KssZI5eClDj18PRsFlmlQDcfUGd6A3EgYP1xncQ+sa5qYOk9jRQt1Y0izhU5bL2o2AW3ZQKeJAAAAAElFTkSuQmCC) 7px 7px no-repeat;
+
+}
+
+/*end of autocomplete JUI*/

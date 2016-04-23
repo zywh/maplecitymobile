@@ -268,7 +268,7 @@ class MhouseController extends XFrontBase
 		$db = Yii::app()->db;
 		//$result = array();
 		$term = trim($_GET['term']);
-		$city_id = trim($_GET['cd1']);
+		$city_id='0';
 		$chinese = preg_match("/\p{Han}+/u", $term);
 		//
 		

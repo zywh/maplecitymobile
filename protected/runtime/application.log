@@ -175,3 +175,107 @@ Stack trace:
 #4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
 #5 /var/www/mhtml/index.php(19): CWebApplication->run()
 REQUEST_URI=/index.php?r=map/getMapHouse
+2016/04/23 07:10:32 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND m.municipality like 't%' 
+				AND  m.count > 10 order by count desc limit 1' at line 5. The SQL statement executed was: 
+				SELECT m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+				FROM h_mname m, h_city c 
+				WHERE m.province = c.englishname 
+				AND  c.id= 
+				AND m.municipality like 't%' 
+				AND  m.count > 10 order by count desc limit 10;
+				.
+2016/04/23 07:10:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND m.municipality like 't%' 
+				AND  m.count > 10 order by count desc limit 1' at line 5' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/HouseController.php(631): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): HouseController->actionGetCityList()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getCityList')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('house/getCityLi...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=house/getCityList&term=t&cd1=
+HTTP_REFERER=http://m.maplecity.com.cn/
+---
+2016/04/23 07:10:35 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND m.municipality like 'tr%' 
+				AND  m.count > 10 order by count desc limit ' at line 5. The SQL statement executed was: 
+				SELECT m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+				FROM h_mname m, h_city c 
+				WHERE m.province = c.englishname 
+				AND  c.id= 
+				AND m.municipality like 'tr%' 
+				AND  m.count > 10 order by count desc limit 10;
+				.
+2016/04/23 07:10:35 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND m.municipality like 'tr%' 
+				AND  m.count > 10 order by count desc limit ' at line 5' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/HouseController.php(631): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): HouseController->actionGetCityList()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getCityList')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('house/getCityLi...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=house/getCityList&term=tr&cd1=
+HTTP_REFERER=http://m.maplecity.com.cn/
+---
+2016/04/23 07:11:49 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND m.municipality like 't%' 
+				AND  m.count > 10 order by count desc limit 1' at line 5. The SQL statement executed was: 
+				SELECT m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+				FROM h_mname m, h_city c 
+				WHERE m.province = c.englishname 
+				AND  c.id= 
+				AND m.municipality like 't%' 
+				AND  m.count > 10 order by count desc limit 10;
+				.
+2016/04/23 07:11:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND m.municipality like 't%' 
+				AND  m.count > 10 order by count desc limit 1' at line 5' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/HouseController.php(631): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): HouseController->actionGetCityList()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getCityList')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('house/getCityLi...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=house/getCityList&term=t
+HTTP_REFERER=http://m.maplecity.com.cn/
+---
+2016/04/23 07:14:55 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND m.municipality like 't%' 
+				AND  m.count > 10 order by count desc limit 1' at line 5. The SQL statement executed was: 
+				SELECT m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+				FROM h_mname m, h_city c 
+				WHERE m.province = c.englishname 
+				AND  c.id= 
+				AND m.municipality like 't%' 
+				AND  m.count > 10 order by count desc limit 10;
+				.
+2016/04/23 07:14:55 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND m.municipality like 't%' 
+				AND  m.count > 10 order by count desc limit 1' at line 5' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/HouseController.php(631): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): HouseController->actionGetCityList()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getCityList')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('house/getCityLi...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=house/getCityList&term=t
+HTTP_REFERER=http://m.maplecity.com.cn/
+---

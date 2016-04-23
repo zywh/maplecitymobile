@@ -92,11 +92,11 @@
 		</div>
 <script>
 	 
-$(document).on( "pageinit", "#myPage", function() {
+$(document).on( "pageinit", "#page_main", function() {
 	var cache = {};
 	
-	$( ".main-header input" ).autocomplete({
-	  //source: "/index.php?r=house/getCityList",
+	$(".main-header input").autocomplete({
+	  //source: "/index.php?r=mhouse/getCityList",
 		source: function(request, response) {
 					var term = request.term; //cache result if term is typed in past
 					if ( term in cache ) {
@@ -105,8 +105,8 @@ $(document).on( "pageinit", "#myPage", function() {
 					}
 			
 					$.getJSON(
-					"/index.php?r=house/getCityList", 
-					{ term: term, cd1: '<?php echo $cd1;?>' },  //pass province for city search
+					"/index.php?r=mhouse/getCityList", 
+					{ term: term  },  
 					//response
 					function( data, status, xhr ) {
 						cache[ term ] = data;
