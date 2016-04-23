@@ -38,7 +38,7 @@ function update_houselist(options) {
 				var hprice = ( sr == 'Lease' )? Math.round(this.Price*10000) +'  加元/月' : Math.round(this.Price) +'  万加元';
 				
 				var li = "<li data-icon='false'> " 
-				+ " <a data-ajax='false' href='<?php echo Yii::app()->createUrl('mhouse/view'); ?>&id=" + this.Id + "'>" 
+				+ " <a data-ajax='false' href='<?php echo Yii::app()->createUrl('mhouse/view'); ?>&id=" + this.MlsNumber + "'>" 
 				+ "<img src=' " + this.CoverImg + "'>" 
 				+ "<h3>" + this.HouseType + ":" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</h3>" 
 				+ "<p>" + this.Address + "," + this.MunicipalityName + "</p>" 
@@ -404,7 +404,7 @@ $(document).on("pageshow","#page_main",function(){
 
 	</div>
 	<div class="ui-block-c">	
-		<select name="housearea" id="sel_housearea"  data-corners="false" data-iconpos="none" multiple="multiple" data-native-menu="false"  >
+		<select name="housearea" id="sel_housearea"  data-corners="false" data-iconpos="none"  data-native-menu="false"  >
 			<option >尺寸</option>
 			<option value="0-700" >700平方尺以下</option>
 			<option value="700-1100">700-1100平方尺</option>

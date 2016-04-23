@@ -70,7 +70,8 @@
 			
 			
 			<a href="#main_menu" data-transition="pop" class="ui-btn ui-icon-bullets ui-btn-icon-left ui-btn-icon-notext"></a>
-			<ul   data-inset="true" data-filter="true" data-filter-placeholder="Find a city..." data-filter-theme="a"></ul>
+			<ul   data-inset="true" data-filter="true" data-filter-placeholder="输入城市（中英文）/地址/MLS" data-filter-theme="a"></ul>
+			
 			<a href="#"  class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left ui-btn-icon-notext">Search</a>
 
 			
@@ -93,52 +94,49 @@
 <script>
 	 
 $(document).on( "pageinit", "#page_main", function() {
-	var cache = {};
-	
-	$(".main-header input").autocomplete({
-	  //source: "/index.php?r=mhouse/getCityList",
-		source: function(request, response) {
-					var term = request.term; //cache result if term is typed in past
-					if ( term in cache ) {
-						response( cache[ term ] );
-						return;
-					}
-			
-					$.getJSON(
-					"/index.php?r=mhouse/getCityList", 
-					{ term: term  },  
-					//response
-					function( data, status, xhr ) {
-						cache[ term ] = data;
-						response( data );
-						}
-					);
-			
-		},
-		minLength: 1,
-		autoFocus: true,
-		select: function( event, ui ) {
- 
-			var city = ui.item.id;
-			var matches = city.match(/\d+/g);
-			if ( matches != null) {
-				console.log("MLS# is found:" + city);
-				var url = 'index.php?r=house/view&id=' + city;
-				location.href = url;
-				
-			} else {
-				var url = '<?php echo Yii::app()->createUrl('house/index', array('type' => $type,'cd1' => $cd1, 'cd3' => $cd3, 'cd4' => $cd4, 'cd5' => $cd5, 'cd6' => $cd6, 'cd7' => $cd7, 'cd8' => $cd8, 'cd9' => $cd9, 'cd10' => $cd10, 'cd11' => $cd11, 'cd12' => $cd12,'cd12_2' => $cd12_2,'cd12_3' => $cd12_3,'cd12_4' => $cd12_4,'cd12_5' => $cd12_5, 'cd13' => $cd13,'cd14' => $cd14, 'cd15' => $cd15, 'cd16' => $cd16, 'cd17' => $cd17, 'cd18' => $cd18)) ?> ' +'&cd2=' + city + '#001';
-			
-				if( city != '') {
-					location.href = url;
-			
-				}		
-		
-			}
+var cache = {};
+
+$(".main-header input").autocomplete({
+  //source: "/index.php?r=mhouse/getCityList",
+	source: function(request, response) {
+	var term = request.term; //cache result if term is typed in past
+	if ( term in cache ) {
+		response( cache[ term ] );
+		return;
+	}
+
+	$.getJSON(
+	"/index.php?r=mhouse/getCityList", 
+	{ term: term  },  
+	//response
+	function( data, status, xhr ) {
+		cache[ term ] = data;
+		response( data );
 		}
-	});
-  });
-  
+	);
+		
+	},
+	minLength: 1,
+	autoFocus: true,
+	select: function( event, ui ) {
+
+		var city = ui.item.id;
+		var matches = city.match(/\d+/g);
+		if ( matches != null) {
+			//console.log("MLS# is found:" + city);
+			var url = 'index.php?r=mhouse/view&id=' + city;
+			location.href = url;
+			
+		} else {
+			//var url = '<?php echo Yii::app()->createUrl('map/index', array('lat' => $lat,'lng' => $lng)); ?> ';
+			console.log("Location Map:" + $city);
+			//location.href = url;
+				
+		}
+	}
+});
+});
+
  
   
 </script>
