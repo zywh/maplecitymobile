@@ -57,8 +57,8 @@ function update_houselist(options) {
 				+ "<a data-ajax='false' href='index.php?r=map/index&lat=" + this.GeocodeLat + "&lng=" + this.GeocodeLng + "&zoom=15&type=house'>"
 				+ "<div>地址:" + this.Address + "</div>" 
 				+ "</a>"
-				+ "<a data-ajax='false' href='index.php?r=map/index&lat=" + this.GeocodeLat + "&lng=" + this.GeocodeLng + "&zoom=15&type=house'>"
-				+ "<div>城市:" + this.MunicipalityName + " " + this.ProvinceCname + "</div>" 
+				+ "<a data-ajax='false' href='index.php?r=map/index&lat=" + this.CityLat + "&lng=" + this.CityLng + "&zoom=13&type=city'>"
+				+ "<div>城市:" + this.MunicipalityName + " " + this.ProvinceCname +  "</div>" 
 				+ "</a>"
 				+ "<div>" + this.HouseType + ":" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</div>" 
 				+ "<div>价钱:"  + hprice + "</div> " 
@@ -478,29 +478,16 @@ $(document).on("pageshow","#page_main",function(){
 <!-- 房源列表开始 --> 
 <div data-role="main" class="ui-content">
 
-	<div id="house_list_header1" class="house_preview_total" data-role="controlgroup" data-mini="true" data-type="horizontal">
-	     
-	    <a href="#" class="ui-btn "> <span>房源:</span><span id="house_count"> </span> </a>
-		<a href="#" id="search_clear" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left" style="display:none">清除选择</a>
-	   
+	<div data-role="header"  data-mini="true">
+	  <a href="#" data-transition="pop" class="ui-btn ui-icon-bullets ui-btn-icon-left ui-btn-icon-notext">Home</a>
+	   <h4>房源:</span><span id="house_count"> </h4>
+	  <a href="#" id="search_clear" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left" style="display:none">清除选择</a>
 	</div>
-	
-	<!--
-	<div id="house_list_header2" data-role="controlgroup" data-mini="true" data-type="horizontal" >
-	     
-	 
-		<a href="#" class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-notext ui-btn-icon-left"></a>
-   		 <a href="#" class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-notext ui-btn-icon-right"></a>
-	  
-	   
-	</div>
-  
-	--> 
-    
-	<div class="house_preview"  >
-	<ul data-role="listview"  data-inset="true" id="house_list" >
 
-    </ul>
+
+	
+	<div class="house_preview"  >
+		<ul data-role="listview"  data-inset="true" id="house_list" ></ul>
 	<div>
 </div>
 <!-- 房源列表结束 -->
