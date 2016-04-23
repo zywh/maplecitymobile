@@ -46,15 +46,15 @@ class MapController extends XFrontBase {
             $criteria = new CDbCriteria();
             $criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,depth,front_ft,br,addr,house_image,longitude,latitude,area,bath_tot';
 
-			//Search By Lease or Sale
-            if ($_POST['type'] == "rent" )  {
+			if ($_POST['sr'] == "Lease" )  {
 				$criteria->addCondition('s_r = "Lease"');
-				
-            }
-			else{
+			
+			} elseif ($_POST['sr'] == "Sale"){
 				$criteria->addCondition('s_r = "Sale"');
 				
-            }
+			} else {
+				error_log("S_R is default");
+			}
  
 
             //卫生间数量 1-5
@@ -79,39 +79,34 @@ class MapController extends XFrontBase {
                 }
             }
 
-            //价格区间
-            if (!empty($_POST['houseprice'])) {
-                $price = explode(',', $_POST['houseprice']);
-                $minPrice = intval($price[0]) *10000;
-                $maxPrice = intval($price[1]) *10000;
-                if ($maxPrice != 0 || $minPrice != 0) {
-                    if ($maxPrice > $minPrice) {
-                        $criteria->addCondition("t.lp_dol <= :maxPrice");
-                        $criteria->params += array(':maxPrice' => $maxPrice);
-						
-                    }
-                    $criteria->addCondition("t.lp_dol >= :minPrice");
-                    $criteria->params += array(':minPrice' => $minPrice);
-					
-                }
-            }
-
-            //房型
-            if (!empty($_POST['houseroom']) && intval($_POST['houseroom']) > 0) {
-                $houseroom = intval($_POST['houseroom']);
-                if ($houseroom == '6') {
-                    $criteria->addCondition("t.br >= :br");
-                } else if ($houseroom > 0) {
-                    $criteria->addCondition("t.br = :br");
-                }
-                $criteria->params += array(':br' => $houseroom);
-            }
-
-            //房屋类型
-            if (!empty($_POST['housetype']) && intval($_POST['housetype']) != 0) {
- 				$criteria->addSearchCondition('propertyType_id',$_POST['housetype']);
+			//价格区间
+			if (!empty($_POST['houseprice'])) {
+				$price = explode('-', $_POST['houseprice']);
+				$minPrice = intval($price[0]) *10000;
+				$maxPrice = intval($price[1]) *10000;
+				error_log ("MinPrice:".$minPrice);
+				if ($maxPrice != 0 || $minPrice != 0) {
+					if ($maxPrice > $minPrice) {
+						$criteria->addCondition('lp_dol <'.$maxPrice);
+					}
 				
-            }
+					$criteria->addCondition('lp_dol >='.$minPrice);
+				}
+			}
+
+	 
+			//Bedroom
+			if (!empty($_POST['houseroom']) && intval($_POST['houseroom']) > 0) {
+				$houseroom = intval($_POST['houseroom']);
+				$criteria->addCondition("t.br > :br");
+				$criteria->params += array(':br' => $houseroom);
+			}
+
+			//房屋类型
+			if (!empty($_POST['housetype']) && intval($_POST['housetype']) > 0) {
+				$criteria->addCondition("propertyType_id =".$_POST['housetype']);
+				
+			}
 
   
             //建造年份

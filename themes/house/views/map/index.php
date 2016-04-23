@@ -98,7 +98,7 @@ function getFieldValues() {
    
     $('.search-area select').each(function() {
         options[this.id] = this.value; //push value into options object
-		//console.log (this.id + ":" + options[this.id]);
+		console.log (this.id + ":" + options[this.id]);
     });
 	
 
@@ -125,14 +125,15 @@ function getFieldValues() {
 		type = (type) ? type: "0";
 		sr = (sr) ? sr: "Sale";
 		mapZoom= (mapZoom) ? mapZoom: 14;
-		console.log("Map Init" + lat + ":" + lng);
+		
 		
 				//Start Select Change Event  
 		$(".search-area  select").change(function () {
 			getFieldValues(); //Get updated Select
 			//$('#search_clear').show(); 
-			maplemap.initMap("google_map",lat,lng,mapZoom);
-			//maplemap.changeMap();
+			//center = 
+			//maplemap.initMap("google_map",lat,lng,mapZoom);
+			maplemap.changeMap(map);
 			//console.log(options['Price']);
 		});
 		
@@ -140,25 +141,22 @@ function getFieldValues() {
 	        function success(pos) {
 				lat = pos.coords.latitude;
 				lng = pos.coords.longitude;
-				console.log("GeoLocation Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
+				//console.log("GeoLocation Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
 				maplemap.initMap("google_map",lat,lng,mapZoom);
 				
 			}
 	        function fail(error) {
 				
         		mapZoom="10"; //Default zoom level for city
-				console.log("Fail to Get Geo Location Center to City:" + lat + ":" + lng);
+				//console.log("Fail to Get Geo Location Center to City:" + lat + ":" + lng);
 				maplemap.initMap("google_map",lat,lng,mapZoom);
 				//setMapView(lat,lng,mapZoom);
 								
 	        }
-	        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
-	        //navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
+	
 			navigator.geolocation.getCurrentPosition(success, fail, {enableHighAccuracy:true});
     	} else {
 			
-			//NO location is found
-			console.log("Center to City:" + lat + ":" + lng);
 			maplemap.initMap("google_map",lat,lng,mapZoom);
    		}
 		
