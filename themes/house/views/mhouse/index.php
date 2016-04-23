@@ -164,10 +164,12 @@ $(document).on("pageshow","#page_main",function(){
 	
   	if ( sr == "Sale"){
 		$("#menu_sale").addClass('ui-btn-active'); //make Sales Menu active
-		$('#sr').val('Sale').selectmenu('refresh'); //Select Sale from SR select
+		//options['sr'] = "Sale";
+		$('#sel_sr').val('Sale').selectmenu('refresh'); //Select Sale from SR select
 	} else if ( sr == "Lease") {
 		$("#menu_lease").addClass('ui-btn-active'); //make Lease Menu active
-		$('#sr').val('Lease').selectmenu('refresh'); //Select Lease
+		$('#sel_sr').val('Lease').selectmenu('refresh'); //Select Lease
+		//options['sr'] = "Lease";
 	}
 	
 	getFieldValues();

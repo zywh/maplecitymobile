@@ -1,0 +1,59 @@
+
+/* select */
+.select{ padding-top:20px;}
+.select li{list-style:none;padding:0 0 5px 0px;float: left;
+width: 100%;}
+.select .select-list{position:relative;}
+.select dl{zoom:1; overflow:hidden; width:970px;white-space:nowrap; height:24px;}
+.select #select12{ overflow:visible; }
+.select dl:after{content:" ";display:block;clear:both;height:0;overflow:hidden}
+.select dt{ float:left; margin-bottom:5px; font-weight:bold; font-size:14px; text-align:right;color:#000000;}
+.select dd{float:left;display:inline;margin:0 5px 5px 10px; }
+.select span{ float:left;line-height:19px;  }
+.select a{display:inline-block;white-space:nowrap; line-height:19px;padding: 0 5px; text-decoration:none;color:#000; font-size:14px;}
+input[type="checkbox"]{ float:left;  }
+.select a:hover{color:#f60;background-color:#f3edc2}
+.select .selected a{color:#fff;background-color:#ff4e00; padding:0 5px;  text-align:center; }
+.select-all a{color:#fff;background:url(../images/buxian.jpg) 0 0 no-repeat; padding:0; width:42px; text-align:center; }
+
+.select-result dt{font-weight:bold}
+.select-no{color:#999}
+.select .select-result a{padding-right:20px;background:#f60 url("close.gif") right 9px no-repeat}
+.select .select-result a:hover{background-position:right -15px}
+
+
+
+.syss_xltj {
+float: left;
+position: relative;
+width: 90px;
+height: 20px;
+line-height: 20px;
+padding-left: 5px;
+border: 1px solid #CCCCCC;
+background: url(../images/xlico.jpg) right center no-repeat;
+margin-right: 20px;
+margin-bottom: 3px;
+}
+.syss_xltj {
+line-height: 20px;
+}
+.syss_xltjdown {
+position: absolute;
+padding: 5px 0;
+border: 1px solid #CCCCCC;
+background-color: #fff;
+left: -1px;
+display: none;
+z-index:1000;
+}
+.syss_xltjdown a {
+display: block;
+height: 25px;
+line-height: 25px;
+width: 85px;
+padding-left: 10px;
+padding-right:0;
+color: #333333;
+text-decoration: none;
+}

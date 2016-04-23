@@ -287,7 +287,7 @@ class MapController extends XFrontBase {
 					}
 
 
-					//$mapHouseList['CoverImg'] = !empty($val->house_image) ? $val->house_image : 'uploads/201501/29cd77e5f187df554a1ff9facdc190e2.jpg';
+					
                     $mapHouseList['BuildYear'] = $val->yr_built;
                     $result['Data']['MapHouseList'][] = $mapHouseList;
 
