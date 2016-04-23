@@ -1139,25 +1139,3 @@ html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% i
 /*end of autocomplete JUI*/
 
 /*site index.php CSS*/
-.home-page-img {
-    margin: 5px;
-    border: 1px solid #ccc;
-    float: left;
-    *width: 180px;
-}	
-
-.home-page-img:hover {
-    border: 1px solid #ff4103;
-}
-
-.home-page-img img {
-    width: 60px;
-    height: 60px;
-}
-
-
-.home-page-img .text {
-    padding: 15px;
-    text-align: center;
-}
-/* End of Site index.php CSS*/
