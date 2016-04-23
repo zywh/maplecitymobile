@@ -938,7 +938,8 @@ button[disabled],
 
 .house_preview .houseview-area { display:inline-block;}
 .house_preview .houseview-tn  img{ max-height: 5em; max-width: 5em; min-height: 5em; min-width: 5em; }
-.house_preview .houseview-text  {position: absolute; margin: 3px 4px 4px;font-size:90%; }
+.house_preview .houseview-text  {position: absolute; margin: 3px 4px 4px; }
+.house_preview .houseview-text > .pv-text {margin: 5px 0px; font-size:90%; }
 
 .house_preview .ui-listview > li h3,
 .house_preview .ui-listview > li h4 { margin: 0; }

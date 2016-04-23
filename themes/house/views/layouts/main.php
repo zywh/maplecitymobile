@@ -57,9 +57,9 @@
 			    <li data-icon="location"><a href="index.php?r=map/index" data-ajax="false" id="menu_new">地图搜索</a></li>
 			 	<li data-icon="search"><a href="http://maplecity.com.cn/index.php?r=column/index" data-ajax="false" data-icon="search" id="menu_school">学区房</a></li>
 			
-			    <li data-icon="calendar"><a href="http://maplecity.com.cn/index.php?r=stats/current" data-ajax="false" id="menu_homestats">房源统计</a></li>
+			    <li data-icon="calendar"><a href="index.php?r=stats/current" data-ajax="false" id="menu_homestats">房源统计</a></li>
 			   
-			    <li data-icon="calendar"><a href="http://maplecity.com.cn/index.php?r=stats" data-ajax="false" id="menu_homehist">历史统计</a></li>
+			    <li data-icon="calendar"><a href="index.php?r=stats" data-ajax="false" id="menu_homehist">历史统计</a></li>
 		
 				
 			</ul>
@@ -72,7 +72,7 @@
 			<a href="#main_menu" data-transition="pop" class="ui-btn ui-icon-bullets ui-btn-icon-left ui-btn-icon-notext"></a>
 			<ul   data-inset="true" data-filter="true" data-filter-placeholder="输入城市（中英文）/地址/MLS" data-filter-theme="a"></ul>
 			
-			<a href="#"  class="ui-btn ui-corner-all ui-shadow ui-icon-search ui-btn-icon-left ui-btn-icon-notext">Search</a>
+			<a href="index.php?r=map/index" data-ajax="false"   class="ui-btn ui-corner-all ui-shadow ui-icon-location ui-btn-icon-left ui-btn-icon-notext">Search</a>
 
 			
 			
