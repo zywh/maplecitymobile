@@ -89,12 +89,13 @@ class StatsController extends XFrontBase
 		foreach($resultsql as $row){
 			if ( $row["chartname"] == 'city')	{
 				//City
-				$result["city"][] = array($row["n1"],$row["n3"],$row["n2"],$row["n4"],$row["i1"],$row["i2"]); 
+				//$result["city"][] = array($row["n1"],$row["n3"],$row["n2"],$row["n4"],$row["i1"],$row["i2"]); 
+				$result["city"][] = array($row["n1"],$row["i1"],$row["i2"]); 
 			}
-                       if ( $row["chartname"] == 'province')       {
-                                //City
-                                $result["province"][] = array($row["n2"],$row["n4"],$row["i1"],$row["i2"]);
-                        }
+		   if ( $row["chartname"] == 'province')       {
+					//City
+					$result["province"][] = array($row["n2"],$row["n4"],$row["i1"],$row["i2"]);
+			}
 
 		  
 			if ( $row["chartname"] == 'price')	{

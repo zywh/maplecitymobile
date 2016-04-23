@@ -2,16 +2,17 @@
   <script src="/static/js/plotly/plotly-latest.min.js"></script>
    <script src="/static/js/DataTables-1.10.11/media/js/jquery.dataTables.min.js"></script>
  
-  <link rel="stylesheet" href="/themes/house/css/stats.css">
+  
   <link rel="stylesheet" href="/static/js/DataTables-1.10.11/media/css/jquery.dataTables.min.css">
 
 
 
 
 
-<div class="ui-field-contain">
-	<select name="chart_select" class="chart-select" id="chart_select" data-mini="true">
-		<option value="city">城市分布图</option>
+<div class="ui-field-contain" class="chart-select" >
+	<select name="chartname"  id="chartname" data-corners="false" data-native-menu="false" data-iconpos="left" data-mini="true">
+		<option >选择图表</option>
+		<option value="1">城市分布图</option>
 		<option value="province">省分布图</option>
 		<option value="type">房屋类型分布图</option>
 		<option value="price">房价分布图</option>
@@ -22,8 +23,7 @@
  </div>
   
   	<div class="chartbox" id="citychart" >  
-		<h3>全国房源 - 城市分布图</h3>
-		<p class="chartboxtitle2"> ( <font color="#ff4e00"><?php echo date("Y-m-d", time() - 60 * 60 * 24); ?> </font> 实时统计 ) </p>
+		<p > ( <font color="#ff4e00"><?php echo date("Y-m-d", time() - 60 * 60 * 24); ?> </font> 实时统计 ) </p>
 		<p id="chart_graph"> </p>
 		<p class="datatabletop"> </p>
 		<table id="tablecity" class="display" width="100%"></table>
@@ -33,13 +33,23 @@
 
 	
 <script type="text/javascript">
+
+
+function getFieldValues() {
+   
+    $('select').each(function() {
+        options[this.id] = this.value; //push value into options object
+		//console.log (this.id + ":" + options[this.id]);
+    });
 	
-//Plotly.newPlot('chart_price', data_price, layout_price);
-//Plotly.newPlot('chart_type', data_type, layout_type);
-//Plotly.newPlot('chart_city', data_city, layout_city);
+
+    
+}	
 
 
-		
+options = {};
+
+$(document).on("pagebeforecreate","#page_main",function(){			
 $.ajax({
 		url: '<?php echo Yii::app()->createUrl('stats/getHouseStats'); ?>',
 		dataType: "json",
@@ -94,8 +104,8 @@ $.ajax({
 			var city_label= [];
 			
 			$.each(result.city, function (key, value) {
-				if ( Number(value[4]) > 500 ) {
-					city_count.push(Number(value[4]));
+				if ( Number(value[1]) > 500 ) {
+					city_count.push(Number(value[1]));
 					city_label.push(value[0]);
 				}
 			});
@@ -139,14 +149,11 @@ $.ajax({
 				},
 				data: result.city,
 				columns: [
-					{ title: "城市名" },
-					{ title: "城市英文名" },
-					{ title: "省名" },
-					{ title: "省英文名" },
-					{ title: "房源数量" },
-					{ title: "平均房价（万）" }
+					{ title: "城市" },
+					{ title: "数量" },
+					{ title: "平均价" }
 				],
-				"order": [[ 5, "desc" ]],
+				"order": [[ 2, "desc" ]],
 				"pageLength": 25
 
 			
@@ -263,12 +270,36 @@ $.ajax({
 	//ajax close	
 	});
 
-$(document).on("pageshow","#page_main",function(){	
-	$("select").change(function () {
-	//getFieldValues(); //Get updated Select
-	console.log("Select changed");
-	Plotly.newPlot('chart_graph', data_price, layout_price);
 	});
+	
+$(document).on("pageshow","#page_main",function(){	
+	
+	$("select").change(function () {
+		getFieldValues(); //Get updated Select
+		
+		switch(options['chartname']) {
+			case "price":
+				Plotly.newPlot('chart_graph', data_price, layout_price);
+				break;
+			case "type":
+				Plotly.newPlot('chart_graph', data_type, layout_type);
+				break;
+			case "city":
+				Plotly.newPlot('chart_graph', data_city, layout_city);
+				break;
+			case "house":
+				Plotly.newPlot('chart_graph', data_house, layout_house);
+				break;
+			case "land":
+				Plotly.newPlot('chart_graph', data_land, layout_land);
+				break;
+			default:
+				Plotly.newPlot('chart_graph', data_price, layout_price);
+				
+																					
+		}
+	});
+	
 });
 		
 </script>
