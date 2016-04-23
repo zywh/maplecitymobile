@@ -108,6 +108,7 @@ function getFieldValues() {
 	var sr = '<?php echo $_GET['sr'];?>';	
 	var lat = '<?php echo $_GET["lat"]; ?>';
 	var lng = '<?php echo $_GET["lng"]; ?>';
+	console.log("lat" + lat + "|" +lng);
 	var type = '<?php echo $_GET["type"]; ?>'; //city or house or school
     var mapZoom = '<?php echo $_GET["zoom"]; ?>';
 
@@ -121,13 +122,13 @@ function getFieldValues() {
 		max_height();
 		lat = (lat) ? lat: "54.649739";
 		lng= (lng) ? lng: "-93.045726";
-		type = (type) ? type: "0";
+		type = (type) ? type: "default";
 		sr = (sr) ? sr: "Sale";
 		mapZoom= (mapZoom) ? mapZoom: 14;
 		mapZoom = Number(mapZoom);
 		
 		
-		console.log("Type" + type);
+		
 		//Start Select Change Event  
 		$(".search-area  select").change(function () {
 			getFieldValues(); //Get updated Select
@@ -137,7 +138,7 @@ function getFieldValues() {
 			maplemap.changeMap(map);
 			//console.log(options['Price']);
 		});
-		if ( type != '0' ) {
+		if ( type == 'default' ) {
 			if ( navigator.geolocation ) {
 		        function success(pos) {
 					lat = pos.coords.latitude;
@@ -162,7 +163,7 @@ function getFieldValues() {
 	   		}
 		} else {
 			console.log("Start City map:" + lat +lng);
-			maplemap.initMap("google_map",lat,lng,mapZoom);
+			maplemap.initMap("google_map",lat,lng,14);
 		}
 
 	});
