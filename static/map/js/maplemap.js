@@ -3,7 +3,7 @@ var maplemap = {
 
 
 	initMap: function(mapId,lat,lng,zoomLevel) {
-	
+		markerArray = []; //make it global
 		
 		var initCenter = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
 		var mapOptions = {
@@ -98,31 +98,13 @@ var maplemap = {
 		*/
 		
 		markerArray.push(marker);
-		var infocontent = '<p style="margin-bottom:0px;">' + city + ' 共有' + totalCount + '个楼盘</p>';
-		var infowindow = new google.maps.InfoWindow({
-			pixelOffset: new google.maps.Size(0, -24)
-		});
-		/*
-		google.maps.event.addListener(marker, 'mouseover', (function(marker, infocontent, infowindow) {
-			return function() {
-				infowindow.setContent(infocontent);
-				infowindow.open(map, marker);
-			};
-		})(marker, infocontent, infowindow));
-
-		google.maps.event.addListener(marker, 'mouseout', (function(marker, infocontent, infowindow) {
-			return function() {
-				infowindow.close();
-			};
-		})(marker, infocontent, infowindow));
-		*/
-
 		google.maps.event.addListener(marker, 'click', function() {
 			map.setCenter(this.position);
-			map.setZoom(14);
+			var currentzoom = map.getZoom();
+			map.setZoom(currentzoom + 2);
 		});
 
-		return marker;
+		
 	},
 
 	createMarker: function(place) {
@@ -286,7 +268,13 @@ var maplemap = {
 
 
 								//var html = "<div >" + this.Address + "</div><div class='map_info_content'><div class='map_info_left'><img src='" + imgurl + "' style='width:280px;height:220px'/></div><div class='map_info_right'><p class='orange map_info_price'><span>价 格：</span> " + hprice + "</p> <p><a href='index.php?r=mhouse/view&id=" + this.Id + "' target='_blank'>查看详情</a></p><p class='map_info_address'>地 址：" + this.MunicipalityName + " " + this.ProvinceCname + "</p><p class='map_info_phone'>类型：" + this.HouseType + "</p><p class='map_info_type'>户 型：" + this.Beds + "卧 " + this.Baths + "卫 " + this.Kitchen + "厨</p></div><div class='clear'></div></div>";
-								var html = "<div >" + this.Address + "</div><div class='map_info_content'><div class='map_info_left'><img src='" + imgurl + "' style='width:280px;height:220px'/></div><p >价 格：" + hprice + "</p> <p><a href='index.php?r=mhouse/view&id=" + this.Id + "' target='_blank'>查看详情</a></p><p >地 址：" + this.MunicipalityName + " " + this.ProvinceCname + "</p><p >类型：" + this.HouseType + " " + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨</p></div>";
+								var html = "<h4 >" + this.Address + "</h4>" 
+								+ "<div class='map_info_content'><img src='" + imgurl + "'></div>"
+								+ "<p >价 格：" + hprice + "</p>"
+								+ "<p><a href='index.php?r=mhouse/view&id=" + this.Id + "' target='_blank'>查看详情</a></p>"
+								+ "<p >地 址：" + this.MunicipalityName + " " + this.ProvinceCname + "</p>"
+								+ "<p >类型：" + this.HouseType + " " + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨</p>"
+								+ "</div>";
 								//var html = "<div class='map_info_content'><img src='" + imgurl + "'><a href='index.php?r=mhouse/view&id=" + this.Id + "' target='_blank'>查看详情</a></p><p>地 址：" + address + "</p><p>地 址：" + this.MunicipalityName + " " + this.ProvinceCname + "</p><p >类型：" + this.HouseType + " " + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨</p><p>价 格：" + hprice + "</p></div>";
 								maplemap.setContent(map,tlat, tlng, content, html, false);
 								

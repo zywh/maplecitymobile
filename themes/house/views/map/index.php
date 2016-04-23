@@ -29,24 +29,21 @@
 function max_height() {
   
     var viewport_height = $(window).height();
-	//$('#ID').css("height", $(document).height());
-	var header_height = $("main_header").height();
-	var footer_height = $("main_footer").height();
-    
-   // var content_height = viewport_height - header.outerHeight() - footer.outerHeight();
-   
-   $('#map_area').css("height", $(document).height() - footer_height - header_height);
+	var header_height = $("#main_header").height();
+	var footer_height = $("#main_footer").height();
+	var doc_height = $(document).height();
+    //console.log("ViewH:" + viewport_height + "DocH:" + doc_height+ "HeaderH:" + header_height + "FooterH:" + footer_height);
+  
+   $('#map_area').css("height", $(document).height() - 41);
 }
 
 
-    //google map
-    var city = 0;
+ 
+  
 	var lat = '<?php echo $_GET["lat"]; ?>';
 	var lng = '<?php echo $_GET["lng"]; ?>';
     var mapZoom = '<?php echo $_GET["zoom"]; ?>';
-	var markerArray = [];
-	//var map;
-    
+
 	
 	
 	$( document ).on( "pagecreate", "#page_main", function() {
@@ -54,7 +51,8 @@ function max_height() {
 		//$("#main_footer").hide();
 		
 		//Default Center and zoom
-		$('#map_area').css("height", $(document).height());	
+		//$('#map_area').css("height", $(document).height());	
+		max_height();
 		lat= (lat) ? lat: "54.649739";
 		lng= (lng) ? lng: "-93.045726";
 		mapZoom= (mapZoom) ? mapZoom: 10;
@@ -72,7 +70,7 @@ function max_height() {
 				
         		mapZoom="10"; //Default zoom level for city
 				console.log("Fail to Get Geo Location Center to City:" + lat + ":" + lng);
-				initMap("google_map",lat,lng,mapZoom);
+				maplemap.initMap("google_map",lat,lng,mapZoom);
 				//setMapView(lat,lng,mapZoom);
 								
 	        }
@@ -82,8 +80,7 @@ function max_height() {
 			
 			//NO location is found
 			console.log("Center to City:" + lat + ":" + lng);
-			initMap("google_map",lat,lng,mapZoom);
-							
+			maplemap.initMap("google_map",lat,lng,mapZoom);
    		}
 		
 
