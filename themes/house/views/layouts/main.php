@@ -75,7 +75,7 @@
 			
 			<a href="#main_menu" data-transition="pop" class="ui-btn ui-icon-fa-navicon ui-btn-icon-left ui-btn-icon-notext"></a>
 			
-			<ul data-inset="true" data-filter="true" data-filter-placeholder="城市/地址/MLS" data-filter-theme="a"></ul>
+			<ul  data-inset="true" data-filter="true" data-filter-placeholder="城市/地址/MLS" data-filter-theme="a"></ul>
 			
 			
 			<a href="index.php?r=map/index" data-ajax="false"   class="ui-btn ui-corner-all ui-shadow ui-icon-location ui-btn-icon-left ui-btn-icon-notext">Search</a>

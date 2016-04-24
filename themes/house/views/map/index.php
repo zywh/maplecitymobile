@@ -4,8 +4,6 @@
 <p></p>
 <div id="house-search"  class="search-area " >
 
-
-<!-- search row1 start -->
 <div class="ui-grid-c " >
 	<div class="ui-block-a">
 		<select name="type" id="sel_type" data-corners="false"  data-iconpos="none" data-native-menu="false"  style=>
@@ -61,13 +59,16 @@
 
 </div>
 <!-- 房源搜索列表结束 -->
+<div data-role="panel" id="houseviewpanel" data-display="overlay"> 
+	<div id="panelhtml"></div>
+</div> 
+<div data-role="popup" id="houseviewpopup">
+	<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>	
+	<div id="popuphtml"></div>
+</div>
 
 <!-- map开始 -->
 <div data-role="content" style="width:100%; height:100%; padding:0;" id="map_area">
-	<div data-role="popup" id="houseviewpopup">
-	<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>	
-	<div id="popuphtml"></div>
-	</div>
 	<div id="google_map" style="width:100%;height:100%"></div>                 
 </div>
 <!-- map结束 -->

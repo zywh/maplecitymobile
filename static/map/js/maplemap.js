@@ -32,10 +32,10 @@ var maplemap = {
 		map.setZoom(parseInt(zoom));
 	}, 
 
-	setContent: function(map,lat, lng, content, html, isShow) {
+	setContent: function(map,lat, lng, count, html) {
 		var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
 		//console.log(lat + ":" + lng);
-		
+		var content = "<i class='common_bg icon_map_mark'><span>" + count + "</span></i>";
 	   var marker = new RichMarker({
 			position: point,
 			map: map,
@@ -53,19 +53,13 @@ var maplemap = {
 			
 		});*/
 		
+	
 		
-		
-		var info = new google.maps.InfoWindow({
-			content: html,
-			size: new google.maps.Size(50, 50),
-			pixelOffset: new google.maps.Size(0, -24)
-		});
-
-
 		google.maps.event.addListener(marker, 'click', function(e) {
 			
 			$("#popuphtml").html(html);
 			$("#houseviewpopup").popup( "open" );
+			//$("#houseviewpanel").panel( "open" );
 			//info.open(map, marker);
 			
 			//setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
@@ -251,43 +245,43 @@ var maplemap = {
 									  
 						if ( markerType == 'house'  ) {
 							
-							var count = 0;
+							var count = 1;
+							var panelhtml = '';
 							$(data.Data.MapHouseList).each(function(index) {
-								var nextLng = $(this).prev().GeocodeLng;
-								var nextLat = $(this).prev().GeocodeLat;
+								var nextLng = data.Data.MapHouseList[index + 1].GeocodeLng;
+								var nextLat = data.Data.MapHouseList[index + 1].GeocodeLat;
 								
-								console.log("Current:" + this.GeocodeLng + "Next:" + nextLng);
+								console.log("Current:" + this.GeocodeLng + "Next:" + nextLng + "Count:" + count);
 								var imgurl = "/" + this.CoverImg;
-								var BuildYear = "";
-								if (this.BuildYear != null && this.BuildYear > 100) {
-									BuildYear = (new Date()).getFullYear() - this.BuildYear + "年";
-								} else {
-									BuildYear = "";
-								}
-
 								var hprice = (this.SaleLease == 'Lease') ? this.Price * 10000 + '  加元/月' : Math.round(this.Price) + '  万加元';
-								//var address = (this.Address) ? this.Address : "不详"；
 
 								var tlat = parseFloat(this.GeocodeLat);
 								var tlng = parseFloat(this.GeocodeLng);
 
 								
-								var content = "<i class='common_bg icon_map_mark'></i>";
-	
-
-								var html = "<div class='map_info_content'><a href='index.php?r=mhouse/view&id=" + this.MLS + "' data-ajax='false'> <img src='" + imgurl + "'></a></div>"
-								+ "<div class='map_info_text'><div><a href='index.php?r=mhouse/view&id=" + this.MLS + "' data-ajax='false'>MLS: " + this.MLS + "</a><div>"
-								+ "<div >价格：" + hprice + "</div>"
-								+ "<div>地址：" + this.Address + "</div>" 
-								+ "<div>城市：" + this.MunicipalityName + " " + this.ProvinceCname + " " + this.Zip + "</div>"
-								+ "<div >类型：" + this.HouseType + " " + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨</div></div>";
-								
 								if (( nextLng != this.GeocodeLng) || (nextLat != this.GeocodeLat)){
-									maplemap.setContent(map,tlat, tlng, content, html, false);
-									count = 0;
+									
+									if ( count == 1) {
+									//Generate single house popup view
+									var html = "<div class='map_info_content'><a href='index.php?r=mhouse/view&id=" + this.MLS + "' data-ajax='false'> <img src='" + imgurl + "'></a></div>"
+									+ "<div class='map_info_text'><div><a href='index.php?r=mhouse/view&id=" + this.MLS + "' data-ajax='false'>MLS: " + this.MLS + "</a><div>"
+									+ "<div >价格：" + hprice + "</div>"
+									+ "<div>地址：" + this.Address + "</div>" 
+									+ "<div>城市：" + this.MunicipalityName + " " + this.ProvinceCname + " " + this.Zip + "</div>"
+									+ "<div >类型：" + this.HouseType + " " + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨</div></div>";
+									} else {
+										//generate panel list view
+										html = panelhtml;
+									}
+									console.log (html);
+									maplemap.setContent(map,tlat, tlng, count, html);
+									count = 1;
 								} else { 
 									++count;
-									console.log("Duplication" + count);
+									panelhtml = panelhtml + "<div class='map_list_content'>"
+									+ "MLS:" + this.MLS + "</div>";
+									console.log("Duplication:" + count);
+									
 								}
 								
 
