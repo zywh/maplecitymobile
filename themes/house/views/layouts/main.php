@@ -17,8 +17,12 @@
 
 	<!--
 	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jqm-fa-img/jqm-font-awesome-isvg-ipng.min.css" />
+	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		-->
+	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jqm-fa-img/jqm-font-awesome-maple.css" />
+		
+		
 	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jquery.mobile.icons.min.css" />
 	
 	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jquery.mobile.structure-1.4.5.css" />
@@ -53,13 +57,13 @@
 			    <li data-icon="home"><a href="/" data-icon="home" id="menu_home">首页</a></li>
 				
 			    <li data-icon="search"><a href="index.php?r=mhouse/index&sr=Lease" data-ajax="false" id="menu_lease" >出租房</a></li>
-			    <li data-icon="search"><a href="index.php?r=mhouse/index&sr=Sale" data-ajax="false" id="menu_sale">二手房</a></li>
+			    <li data-icon="fa-map"><a href="index.php?r=mhouse/index&sr=Sale" data-ajax="false" id="menu_sale">二手房</a></li>
 			    <li data-icon="location"><a href="index.php?r=map/index" data-ajax="false" id="menu_new">地图搜索</a></li>
-			 	<li data-icon="search"><a href="http://maplecity.com.cn/index.php?r=column/index" data-ajax="false" data-icon="search" id="menu_school">学区房</a></li>
+			 	<li data-icon="fa-university"><a href="http://maplecity.com.cn/index.php?r=column/index" data-ajax="false" data-icon="search" id="menu_school">学区房</a></li>
 			
 			    <li data-icon="calendar"><a href="index.php?r=stats/current" data-ajax="false" id="menu_homestats">房源统计</a></li>
 			   
-			    <li data-icon="calendar"><a href="index.php?r=stats" data-ajax="false" id="menu_homehist">历史统计</a></li>
+			    <li data-icon="fa-signal"><a href="index.php?r=stats" data-ajax="false" id="menu_homehist">历史统计</a></li>
 		
 				
 			</ul>
@@ -69,7 +73,7 @@
 			
 			
 			
-			<a href="#main_menu" data-transition="pop" class="ui-btn ui-icon-bullets ui-btn-icon-left ui-btn-icon-notext"></a>
+			<a href="#main_menu" data-transition="pop" class="ui-btn ui-icon-fa-navicon ui-btn-icon-left ui-btn-icon-notext"></a>
 			<ul   data-inset="true" data-filter="true" data-filter-placeholder="城市/地址/MLS" data-filter-theme="a"></ul>
 			
 			<a href="index.php?r=map/index" data-ajax="false"   class="ui-btn ui-corner-all ui-shadow ui-icon-location ui-btn-icon-left ui-btn-icon-notext">Search</a>
