@@ -250,13 +250,8 @@ var maplemap = {
 
 									  
 						if ( markerType == 'house'  ) {
-							
-							var count = 0;
 							$(data.Data.MapHouseList).each(function(index) {
-								var nextLng = $(this).prev().GeocodeLng;
-								var nextLat = $(this).prev().GeocodeLat;
-								
-								console.log("Current:" + this.GeocodeLng + "Next:" + nextLng);
+
 								var imgurl = "/" + this.CoverImg;
 								var BuildYear = "";
 								if (this.BuildYear != null && this.BuildYear > 100) {
@@ -268,13 +263,16 @@ var maplemap = {
 								var hprice = (this.SaleLease == 'Lease') ? this.Price * 10000 + '  加元/月' : Math.round(this.Price) + '  万加元';
 								//var address = (this.Address) ? this.Address : "不详"；
 
-								var tlat = parseFloat(this.GeocodeLat);
-								var tlng = parseFloat(this.GeocodeLng);
-
+								tlat = parseFloat(this.GeocodeLat);
+								tlng = parseFloat(this.GeocodeLng);
+								//var content = "<i class='common_bg icon_map_mark'><span>" + (Arrayindex + 1) + "</span></i>";
+								//var content = "<i class='common_bg icon_map_mark'><span>" + (Arrayindex + 1) + "</span></i>";
+								
 								
 								var content = "<i class='common_bg icon_map_mark'></i>";
-	
 
+
+								//var html = "<div >" + this.Address + "</div><div class='map_info_content'><div class='map_info_left'><img src='" + imgurl + "' style='width:280px;height:220px'/></div><div class='map_info_right'><p class='orange map_info_price'><span>价 格：</span> " + hprice + "</p> <p><a href='index.php?r=mhouse/view&id=" + this.Id + "' target='_blank'>查看详情</a></p><p class='map_info_address'>地 址：" + this.MunicipalityName + " " + this.ProvinceCname + "</p><p class='map_info_phone'>类型：" + this.HouseType + "</p><p class='map_info_type'>户 型：" + this.Beds + "卧 " + this.Baths + "卫 " + this.Kitchen + "厨</p></div><div class='clear'></div></div>";
 								var html = "<div class='map_info_content'><a href='index.php?r=mhouse/view&id=" + this.MLS + "' data-ajax='false'> <img src='" + imgurl + "'></a></div>"
 								+ "<div class='map_info_text'><div><a href='index.php?r=mhouse/view&id=" + this.MLS + "' data-ajax='false'>MLS: " + this.MLS + "</a><div>"
 								+ "<div >价格：" + hprice + "</div>"
@@ -282,13 +280,9 @@ var maplemap = {
 								+ "<div>城市：" + this.MunicipalityName + " " + this.ProvinceCname + " " + this.Zip + "</div>"
 								+ "<div >类型：" + this.HouseType + " " + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨</div></div>";
 								
-								if (( nextLng != this.GeocodeLng) || (nextLat != this.GeocodeLat)){
-									maplemap.setContent(map,tlat, tlng, content, html, false);
-									count = 0;
-								} else { 
-									++count;
-									console.log("Duplication" + count);
-								}
+								//var html = "<div class='map_info_content'><img src='" + imgurl + "'><a href='index.php?r=mhouse/view&id=" + this.Id + "' target='_blank'>查看详情</a></p><p>地 址：" + address + "</p><p>地 址：" + this.MunicipalityName + " " + this.ProvinceCname + "</p><p >类型：" + this.HouseType + " " + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨</p><p>价 格：" + hprice + "</p></div>";
+								maplemap.setContent(map,tlat, tlng, content, html, false);
+								
 								
 
 							});

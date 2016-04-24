@@ -208,7 +208,6 @@ class MapController extends XFrontBase {
 				//$tiley = (($maxLon - $minLon ) / $gridy) * 100000;
 				$tilex = (($maxLat - $minLat ) / $gridx) ;
 				$tiley = (($maxLon - $minLon ) / $gridy) ;
-				error_log("Generate Grid View Count:".$tilex.":".$tiley);
 				//Generate grid center Lat/Lng
 				for ( $x=1; $x <= $gridx ; $x++){
 					for ( $y=1; $y <= $gridy ; $y++){
@@ -229,7 +228,6 @@ class MapController extends XFrontBase {
 					
 					$result['Data']['AreaHouseCount']["G".$gridlat.$gridlng]['NameCn'] = "G".$gridlat.$gridlng;
 					$result['Data']['AreaHouseCount']["G".$gridlat.$gridlng]['HouseCount']++; 
-					error_log("XY".$val->latitude.":".$val->longitude."Tile:".$result['Data']['AreaHouseCount'][$gridlat.$gridlng]['HouseCount']);
 					
 				}
 				
@@ -242,6 +240,7 @@ class MapController extends XFrontBase {
 			if ($count < $maxhouse ){
 				$result['Data']['Type'] = "house";
 				$criteria->with = array('mname','propertyType','city');
+				$criteria->order = "t.latitude,t.longitude";
 				$house = House::model()->findAll($criteria);
 				$result['Message'] = '成功';
 
@@ -267,6 +266,7 @@ class MapController extends XFrontBase {
                     $mapHouseList['ProvinceCname'] = $val->city->name;
                     $mapHouseList['Area2Name'] = !empty($area2Name) ? $area2Name->name : '';
                     //Get image from county
+			error_log("Lat:".$val->latitude."Lng:".$val->longitude);
 					
 					$county = $val->county;
 					$county = preg_replace('/\s+/', '', $county);

@@ -1057,7 +1057,7 @@ html head + body .ui-btn.ui-btn-b:visited {
  margin: 0  !important;
 }
 
-.main-header .ui-input-search {     margin: 3px 38px -13px; border-width: 0px;}
+.main-header .ui-input-search { width: 206px;    margin: 3px 38px -13px; border-width: 0px;} /* 206px to match autocomplete item*/
 
 #map_container {
 	width: 100%; height: 400px; padding: 0; 
@@ -1122,18 +1122,20 @@ html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% i
   float: left;
   outline: none;
   border: solid #ffece6;;
-  border-width: 0 1px 1px 1px;
+  *border-width: 0 1px 1px 1px;
+  border-width: 0 ;
   margin: 0;
   padding: 0;
-  -webkit-box-shadow: 3px 3px 10px 0px rgba(255,78,0,0.66);
-  -moz-box-shadow: 3px 3px 10px 0px rgba(255,78,0,0.66);
-  box-shadow: 3px 3px 10px 0px rgba(255,78,0,0.66);
+  *-webkit-box-shadow: 3px 3px 10px 0px rgba(255,78,0,0.66);
+  *-moz-box-shadow: 3px 3px 10px 0px rgba(255,78,0,0.66);
+  *box-shadow: 3px 3px 10px 0px rgba(255,78,0,0.66);
 
 }
 .ui-menu-item {
+  width: 219px;
   padding: 3px 0px 3px 25px; /*match input box margin 25px*/
-  margin: 5px 1px 3px 0px;
-  width: 200px;
+  *margin: 5px 1px 3px 0px;
+  margin:  0px;
   background: white url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAIVBMVEW/v7+/v78AAAC/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v79QUkolAAAAC3RSTlOLYAAJeoMjRhpOcbsbtd4AAABJSURBVHjaVc1JDsAgDATB9uAF8v8Hx0QcSN9KssZI5eClDj18PRsFlmlQDcfUGd6A3EgYP1xncQ+sa5qYOk9jRQt1Y0izhU5bL2o2AW3ZQKeJAAAAAElFTkSuQmCC) 7px 7px no-repeat;
 
 }
