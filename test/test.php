@@ -407,7 +407,7 @@
 		var request = new XMLHttpRequest({mozSystem: true});
 		//request.open("GET", "secondary.xml", true);
 		
-	    request.open("POST", "https://www.app.edu.gov.on.ca/eng/sift/searchElementaryXLS.asp", true);
+	    request.open("POST", "index.php", true);
         var content_type = 'application/x-www-form-urlencoded';
 		request.setRequestHeader('Content-Type', content_type);
 		var inputAddressToString = inputAddress+''

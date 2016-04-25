@@ -1,4 +1,3 @@
-test
 <?php
                         $url = 'https://www.app.edu.gov.on.ca/eng/sift/searchElementaryXLS.asp';
                         // header
@@ -21,24 +20,32 @@ test
                         curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0");
                         curl_setopt($ch, CURLOPT_REFERER, "https://www.app.edu.gov.on.ca/eng/sift/PCsearchSec.asp");
                         curl_setopt($ch, CURLOPT_USERAGENT, $userAgent[rand(0, count($userAgent) - 1)]);
-                        $headerOrigin = array("Host:www.app.edu.gov.on.ca");
+                        // 伪造IP头
+                        $ip = rand(27, 64) . "." . rand(100, 200) . "." . rand(2, 200) . "." . rand(2, 200);
+                        $headerIp = array("X-FORWARDED-FOR:{$ip}", "CLIENT-IP:{$ip}","Host:www.app.edu.gov.on.ca");
+                        //$headerOrigin = array("Host:www.app.edu.gov.on.ca");
+
                         curl_setopt($ch, CURLOPT_URL, $url);
-                        curl_setopt($ch, CURLOPT_HTTPHEADER, $headerOrigin);
+                        curl_setopt($ch, CURLOPT_HTTPHEADER, $headerIp);
 			$fields = array(
 				'chosenLevel' => urlencode("Secondary"),
 				'compareLat' => urlencode("43.5596118"),
 				'compareLong' => urlencode("-79.72719280000001"),
 				'refineDistance' => urlencode("NN"),
 			);
+
+
 			$fields_string='';
 			foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+
 			rtrim($fields_string, '&');
 			curl_setopt($ch,CURLOPT_POST, count($fields));
 			curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
                         // 读取数据
-                        $res = @curl_exec($ch);
+                        $res = curl_exec($ch);
                         curl_close($ch);
-                       	print_r($res) ;
+			header('Content-type: application/xml');
+			echo $res;
 
 
 ?>
