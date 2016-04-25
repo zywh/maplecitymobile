@@ -151,11 +151,12 @@ var swiper = new Swiper(".swiper-container", {
           
           
         </div>
-        <div class="fyxqupright">
-            <div class="fyxqupright_title">MLS：<?php echo $house->ml_num; ?></div>
+
+        <div class="fyxqupright ui-corner-all custom-corners">
+            <div class="fyxqupright_title ui-bar ui-bar-a">MLS：<?php echo $house->ml_num; ?></div>
 		</div>
         <div class="cl"></div>
-		<div class="fyxqupright_cont">
+		<div class="fyxqupright_cont ui-body ui-body-a">
                 <div class="fyxq_ptss">
                     <div class="fyxq_ptssleft">价格：</div>
                     <div class="fyxq_ptssright">
