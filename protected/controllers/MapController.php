@@ -253,9 +253,9 @@ class MapController extends XFrontBase {
                     $mapHouseList['GeocodeLng'] = $val->longitude;
                     $mapHouseList['Address'] = !empty($val->addr)?$val->addr : "不详";
 			$mapHouseList['SaleLease'] = $val->s_r; 
-                    $mapHouseList['sqft'] = $val->sqft;
+                    //$mapHouseList['sqft'] = $val->sqft;
                     $mapHouseList['Price'] = $val->lp_dol/10000;
-                    $mapHouseList['Id'] = $val->id;
+                    //$mapHouseList['Id'] = $val->id;
                     $mapHouseList['HouseType'] = !empty($val->propertyType->name) ? $val->propertyType->name : '其他';
 					$mapHouseList['MunicipalityName'] = !empty($val->mname->municipality_cname)? ($val->mname->municipality_cname):"其他";
                     $mapHouseList['CountryName'] = $val->municipality;
@@ -264,9 +264,9 @@ class MapController extends XFrontBase {
                     $mapHouseList['Country'] = $val->city_id;
                     $mapHouseList['ProvinceEname'] = $val->county;
                     $mapHouseList['ProvinceCname'] = $val->city->name;
-                    $mapHouseList['Area2Name'] = !empty($area2Name) ? $area2Name->name : '';
+                    //$mapHouseList['Area2Name'] = !empty($area2Name) ? $area2Name->name : '';
                     //Get image from county
-			error_log("Lat:".$val->latitude."Lng:".$val->longitude);
+					//error_log("Lat:".$val->latitude."Lng:".$val->longitude);
 					
 					$county = $val->county;
 					$county = preg_replace('/\s+/', '', $county);
@@ -287,11 +287,12 @@ class MapController extends XFrontBase {
 						
 					}else {
 						$mapHouseList['CoverImg'] = 'static/images/zanwu.jpg';
+						$mapHouseList['CoverImgtn'] = 'static/images/zanwu.jpg';
 					}
 
 
 					
-                    $mapHouseList['BuildYear'] = $val->yr_built;
+                    //$mapHouseList['BuildYear'] = $val->yr_built;
                     $result['Data']['MapHouseList'][] = $mapHouseList;
 
 

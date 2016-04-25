@@ -55,6 +55,27 @@ span.xqlb_label{
     width: 100px;
 	display:block;
 }
+
+/* .fyxq{ margin:0 auto; width:1030px;} */
+.fyxq_tab{ border-bottom: 1px solid #c5c5c5;}
+.fyxq_tab a{ width:97px; height:30px; line-height:30px; display:block; float:left; color:#333333; text-decoration:none; background: url(../images/ny_btn2.png) 0 0 no-repeat; margin-right:-1px; text-align:center; font-size:14px;}
+a.fyxq_tab_cur,.fyxq_tab a:hover{ color:#FFFFFF; background: url(../images/ny_btn1.png) 0 0 no-repeat;}
+.fyxqupright_title{ height:30px; font-size:20px; /*background:url(../images/ny_title.png)*/ 0 0 no-repeat; width: 142px; /*color:#FFFFFF;*/ text-align: center; float:left; line-height:30px;}
+.fyxq_ptssright{ float:left; /* width:268px;*/ font-size:20px;}
+.fyxq_ptssleft{  float:left; font-size:20px; font-weight:bold;}
+.fyxq_ptpd span b{ background:url(../images/xz.jpg) 0 center no-repeat; width:22px; height:14px; display:inline-block;}
+.fyxq_ptpd span s{ background:url(../images/wxz.jpg) 0 0 no-repeat; vertical-align:middle; width:22px; height:14px; display:inline-block;}
+.fyxq_ptpd span{ display:block; margin-left:5px; margin-right:10px; margin-bottom:10px; white-space:nowrap; background:url(../images/house/wu.jpg) left center  no-repeat; color:#999999; float:left; margin-top:3px; height:20px;}
+.fyxq_phone{ float:left; padding-right:8px;}
+.fyxq_rx{ float:left; line-height:30px; padding-top:5px;}
+.fyxq_rx span{ padding-left:8px; font-weight:bold; font-size:28px;}
+
+.fyxq_ptss .kf{ float:right; margin-right:10px;}
+.fyxqdown_left_title{ border-bottom:1px solid #c5c5c5; height:30px; overflow:hidden;}
+.fyxqdown_left_title a{ background:url(../images/ny_btn2.png) 0 0 no-repeat; margin-right:-1px; font-weight:bold; text-decoration:none; height:30px; line-height:30px; width:97px; text-align:center; font-size:14px; display:block; float:left; border-bottom:0; color:#000; }
+a.fyxqdown_left_cur,.fyxqdown_left_title a:hover{ background:url(../images/ny_btn1.png) 0 0 no-repeat; color:#FFFFFF; font-weight:bold;}
+.fyxqdown_left{ float:left; /*width:747px;*/}
+.cl {clear: both; }
 </style>
 
 <?php
@@ -102,7 +123,7 @@ $slng=$_GET["lng"];
 ?>    
 <!-- 房源详情页面开始 -->
 
-<div class="fyxq" style="margin-top:5px;">
+<div class="fyxq">
 <!--效果开始-->
 <div class="ink_phoBok">
 <?php
@@ -156,7 +177,11 @@ var swiper = new Swiper(".swiper-container", {
           
           
         </div>
-            <div class="fyxqupright_cont">
+        <div class="fyxqupright">
+            <div class="fyxqupright_title">MLS：<?php echo $house->ml_num; ?></div>
+		</div>
+        <div class="cl"></div>
+		<div class="fyxqupright_cont">
                 <div class="fyxq_ptss">
                     <div class="fyxq_ptssleft">价格：</div>
                     <div class="fyxq_ptssright">
