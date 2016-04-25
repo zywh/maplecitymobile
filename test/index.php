@@ -44,8 +44,25 @@
                         // 读取数据
                         $res = curl_exec($ch);
                         curl_close($ch);
-			header('Content-type: application/xml');
-			echo $res;
+			//header('Content-type: application/xml');
+			//echo $res;
+			$xml = simplexml_load_string($res) or die("Error: Cannot create object");
+			foreach($xml->children() as $school) {
+			    $schoolList['SCH_NO']   = $school['SCH_NO'];
+				echo  $school['SCH_NO']."<br>";
+			    $schoolList['SCH_NAME'] = $school['SCH_NAME'];
+				$schoolList['lat'] = $school['lat'];
+				$schoolList['lng'] = $school['lng'];
+				$schoolList['SCH_STREET'] = $school['SCH_STREET'];
+				$schoolList['SCH_CITY'] = $school['SCH_CITY'];
+				$schoolList['SCH_POSTALCODE'] = $school['SCH_POSTALCODE'];
+				$schoolList['SCH_TYPE_DESC'] = $school['SCH_TYPE_DESC'];
+				$schoolList['SCH_LANGUAGE_DESC'] = $school['SCH_LANGUAGE_DESC'];
+				$result['School'][] = $schoolList;
+			}
+			
+			print_r($result);
+			
 
 
 ?>

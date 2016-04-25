@@ -76,7 +76,14 @@ $xmlOrig = <<<XML
 </schools> 
 
 XML;
+       ini_set("log_errors", 1);
+       ini_set("error_log", "/tmp/php-error.log");
 
-$oXML = new SimpleXMLElement($xmlOrgin);
-print_r($oXML);
+
+//$oXML = new SimpleXMLElement($xmlOrig);
+$xml = simplexml_load_string($xmlOrig) or die("Error: Cannot create object");
+foreach($xml->children() as $school) { 
+    echo $school['SCH_NO'] . ", "; 
+    echo $school['SCH_NAME'] . "br "; 
+} 
 ?>
