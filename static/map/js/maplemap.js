@@ -247,11 +247,16 @@ var maplemap = {
 							
 							var count = 1;
 							var panelhtml = '';
+							var totalhouse = data.Data.MapHouseList.length;
 							$(data.Data.MapHouseList).each(function(index) {
-								var nextLng = data.Data.MapHouseList[index + 1].GeocodeLng;
-								var nextLat = data.Data.MapHouseList[index + 1].GeocodeLat;
 								
-								console.log("Current:" + this.GeocodeLng + "Next:" + nextLng + "Count:" + count);
+								if ( index < (totalhouse - 1) ) {
+								var nextLat = data.Data.MapHouseList[index + 1].GeocodeLat;
+								nextLat = (nextLat)? nextLat: 0;
+								var nextLng = data.Data.MapHouseList[index + 1].GeocodeLng;
+								nextLng = (nextLng)? nextLng: 0;
+								}
+								console.log("Current:" + this.GeocodeLng + "Next:" + nextLng + "Total:" + totalhouse + "index:" + index + "Count:" + count);
 								var imgurl = "/" + this.CoverImg;
 								var hprice = (this.SaleLease == 'Lease') ? this.Price * 10000 + '  加元/月' : Math.round(this.Price) + '  万加元';
 
@@ -269,13 +274,18 @@ var maplemap = {
 									+ "<div>地址：" + this.Address + "</div>" 
 									+ "<div>城市：" + this.MunicipalityName + " " + this.ProvinceCname + " " + this.Zip + "</div>"
 									+ "<div >类型：" + this.HouseType + " " + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨</div></div>";
-									} else {
+									 
+									maplemap.setContent(map,tlat, tlng, 1, html);
+									} else 
+									{
 										//generate panel list view
 										html = panelhtml;
+										console.log (html);
+										maplemap.setContent(map,tlat, tlng, count, html);
+										count = 1;
 									}
-									console.log (html);
-									maplemap.setContent(map,tlat, tlng, count, html);
-									count = 1;
+									
+									
 								} else { 
 									++count;
 									panelhtml = panelhtml + "<div class='map_list_content'>"
