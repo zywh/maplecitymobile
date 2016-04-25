@@ -60,8 +60,8 @@ span.xqlb_label{
 .fyxq_tab{ border-bottom: 1px solid #c5c5c5;}
 .fyxq_tab a{ width:97px; height:30px; line-height:30px; display:block; float:left; color:#333333; text-decoration:none; background: url(../images/ny_btn2.png) 0 0 no-repeat; margin-right:-1px; text-align:center; font-size:14px;}
 a.fyxq_tab_cur,.fyxq_tab a:hover{ color:#FFFFFF; background: url(../images/ny_btn1.png) 0 0 no-repeat;}
-.fyxqupright_title{ height:30px; font-size:20px; /*background:url(../images/ny_title.png)*/ 0 0 no-repeat; width: 142px; /*color:#FFFFFF;*/ text-align: center; float:left; line-height:30px;}
-.fyxq_ptssright{ float:left; /* width:268px;*/ font-size:20px;}
+.fyxqupright_title{ /* height:30px; */ font-size:20px; /*background:url(../images/ny_title.png)*/ 0 0 no-repeat; /*width: 142px;*/ /*color:#FFFFFF;*/ text-align: center; float:left; line-height:30px;}
+.fyxq_ptssright{ /* float:left;  width:268px;*/ font-size:20px;}
 .fyxq_ptssleft{  float:left; font-size:20px; font-weight:bold;}
 .fyxq_ptpd span b{ background:url(../images/xz.jpg) 0 center no-repeat; width:22px; height:14px; display:inline-block;}
 .fyxq_ptpd span s{ background:url(../images/wxz.jpg) 0 0 no-repeat; vertical-align:middle; width:22px; height:14px; display:inline-block;}
@@ -444,15 +444,16 @@ $(function(){
 	})
 })
 </script>             
-           <table data-role="table" class="ui-responsive" data-mode="columntoggle">
-  <tr>
+<table data-role="table" id="xqlb_fwbj" class="ui-responsive" data-mode="columntoggle" >
+  <thead><tr>
     <td width="12%" style="border-bottom: 1px solid #CCCCCC;">楼层</td>
     <td width="12%" style="border-bottom: 1px solid #CCCCCC;">房间</td>
     <td width="10%" style="border-bottom: 1px solid #CCCCCC;">长(M)</td>
     <td width="12%" style="border-bottom: 1px solid #CCCCCC;">宽(M)</td>
     <td width="17%" style="border-bottom: 1px solid #CCCCCC;">面积(M2)</td>
     <td width="37%" style="border-bottom: 1px solid #CCCCCC;">说明</td>
-  </tr>
+  </tr></thead>
+  </body>
   <?php if($house->level1!="" || $house->rm1_out!=""){?>
   <tr>
     <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level1;?></td>
@@ -576,7 +577,7 @@ $(function(){
     <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm12_dc1_out; ?><?php if($house->rm12_dc2_out!=""){echo ",";}?><?php echo $house->rm12_dc2_out; ?><?php if($house->rm12_dc3_out!=""){echo ",";}?><?php echo $house->rm12_dc3_out; ?></td>
   </tr>
   <?php }?>
-</table>
+</tbody></table>
 </li>
 <li data-role="list-divider"><a class="fyxqdown_left_cur" href="javascript:daolumap()">地图</a><a href="javascript:streetmap(1)">街景</a></li>
                </ul>

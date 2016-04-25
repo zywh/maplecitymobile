@@ -1,124 +1,39 @@
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script src="/static/js/Highstock-4.2.1/js/highstock.js"></script>
-<link rel="stylesheet" href="/themes/house/css/jquery-ui.css">
-<link rel="stylesheet" href="/themes/house/css/stats.css">
- 
-       
-
-<div class="cl"></div>
-<div class="fyss">
-
-<div id="tabs" class="chartcontainer_treb">
-
- <ul>
-    <li><a href="#pricechart">价格走势图</a></li>
-	<li><a href="#saleschart">月销售房源走势图</a></li>
-    <li><a href="#newlistchart">新房源走势图</a></li>
-    <li><a href="#snlrchart">SNLR走势图</a></li>
-	<li><a href="#activechart">在售房源走势图</a></li>
-	<li><a href="#moichart">MOI走势图</a></li>
-	<li><a href="#domchart">DOM走势图</a></li>
-	<li><a href="#splpchart">SP/LP走势图</a></li>
- </ul>
 
 
-	<div class="chartbox_treb" id="pricechart">
-		<p class="chartboxtitle1">大多地区 - 价格走势</p>
-		<p class="chartboxtitle2"> </p>
-		<span class="chart_area" id="chart_price"> </span>
-		<p class="chart_beforetext"> </p>
-		<p class="chart_text">多伦多地产经纪协会公布的数据显示，大多伦多地区2月房屋销售再次创下新高。2月大多地区总共卖出7621套房屋，相比1月的6294套增长21.1%。即使排除今年2月份比往年多一天的因素，2016年2月的房屋销量也处在近十年来最高水平。报告显示，目前大部分房屋销售位于多伦多市区以外，在七千多套房屋中，仅有三分之一来自多伦多市区。其他部分主要位于密西沙加等外部地区。除了房屋销售水平外，大多地区的房屋平均价格也较去年和上个月有很大增长。报告显示，多伦多MLS房屋均价在2016年2月达到68.5万加元。而1月为63.1万加元。去年2月数据则为59.6万加元。多伦多市区的房屋均价相比大多地区整个价格还要更高，达到了71.9万加元。
-	</p>
-		<p class="chart_aftertext"> </p>
+<div class="ui-field-contain" class="chart-select" >
+	<select name="chartname"  id="chartname" data-corners="false" data-native-menu="false" data-iconpos="left" data-mini="true">
+		<option >选择图表</option>
+		<option value="price">价格走势图</option>
+		<option value="sale">月销售房源走势图</option>
+		<option value="newlist">新房源走势图</option>
+		<option value="snlr">SNLR走势图</option>
+		<option value="active">在售房源走势图</option>
+		<option value="moi">MOI走势图</option>
+		<option value="dom">DOM走势图</option>
+		<option value="splp">SP/LP走势图</option>
 
-		
-	</div>
-	<div class="chartbox_treb" id="saleschart" >
-		<p class="chartboxtitle1">大多地区 - 月销售房源</p>
-		<p class="chartboxtitle2"> </p>
-		<p class="chart_area" id="chart_sales"> </p>
-		<p class="chart_beforetext"> </p>	
-		<p class="chart_text">多伦多地产经纪协会公布的数据显示，大多伦多地区2月房屋销售再次创下新高。2月大多地区总共卖出7621套房屋，相比1月的6294套增长21.1%。即使排除今年2月份比往年多一天的因素，2016年2月的房屋销量也处在近十年来最高水平。报告显示，目前大部分房屋销售位于多伦多市区以外，在七千多套房屋中，仅有三分之一来自多伦多市区。其他部分主要位于密西沙加等外部地区。除了房屋销售水平外，大多地区的房屋平均价格也较去年和上个月有很大增长。报告显示，多伦多MLS房屋均价在2016年2月达到68.5万加元。而1月为63.1万加元。去年2月数据则为59.6万加元。多伦多市区的房屋均价相比大多地区整个价格还要更高，达到了71.9万加元。
- </p>
-		<p class="chart_aftertext"> </p>
-		
-	</div>
-	<div class="chartbox_treb" id="newlistchart" >
-		<p class="chartboxtitle1">大多地区 - 月新增房源 </p>
-		<p class="chartboxtitle2"> </p>
-		<p class="chart_area" id="chart_newlist"> </p>
-		<p class="chart_beforetext"> </p>	
-		<p class="chart_text">多伦多地产经纪协会公布的数据显示，大多伦多地区2月房屋销售再次创下新高。2月大多地区总共卖出7621套房屋，相比1月的6294套增长21.1%。即使排除今年2月份比往年多一天的因素，2016年2月的房屋销量也处在近十年来最高水平。报告显示，目前大部分房屋销售位于多伦多市区以外，在七千多套房屋中，仅有三分之一来自多伦多市区。其他部分主要位于密西沙加等外部地区。除了房屋销售水平外，大多地区的房屋平均价格也较去年和上个月有很大增长。报告显示，多伦多MLS房屋均价在2016年2月达到68.5万加元。而1月为63.1万加元。去年2月数据则为59.6万加元。多伦多市区的房屋均价相比大多地区整个价格还要更高，达到了71.9万加元。
- </p>
-		<p class="chart_aftertext"> </p>
-		
-	</div>
-	<div class="chartbox_treb" id="snlrchart" >
-		<p class="chartboxtitle1">大多地区 - 销售/新盘比</p>
-		<p class="chartboxtitle2"> </p>
-		<p  class="chart_area" id="chart_snlr"> </p>
-		<p class="chart_beforetext"> </p>	
-		<p class="chart_text">本图的数据是大多地区年度月销售和新上市房源的比率（SNLR）。这个数据会出现的季节性趋势，此图表可以用来比较每个月/年变化。当SNLR移动走高，表示销售增长超过新的上市房源增长。一般表示趋向卖方市场。当SNLR移动走低，表示销售增长少于新的上市房源增长。一般表示趋向买方市场。大多市场近20年基本保持50% - 100%。表示销售量和新上市比例在1：1 到1：2。考虑到这是月报表，上市房平均在一个月到两个月会售出。请参考其他图标作为参考。
- </p>
-		<p class="chart_aftertext"> </p>
-	</div>	
-	
-	<div class="chartbox_treb" id="activechart" >
-		 <p class="chartboxtitle1">大多地区 - 在售房源数目</p>
-		 <p class="chartboxtitle2"> </p>
-		 <p class="chart_beforetext"> </p>
-		 <p class="chart_area" id="chart_active"> </p>
-		 <p class="chart_beforetext"> </p>
-		 <p class="chart_text">多伦多地产经纪协会公布的数据显示，大多伦多地区2月房屋销售再次创下新高。2月大多地区总共卖出7621套房屋，相比1月的6294套增长21.1%。即使排除今年2月份比往年多一天的因素，2016年2月的房屋销量也处在近十年来最高水平。报告显示，目前大部分房屋销售位于多伦多市区以外，在七千多套房屋中，仅有三分之一来自多伦多市区。其他部分主要位于密西沙加等外部地区。除了房屋销售水平外，大多地区的房屋平均价格也较去年和上个月有很大增长。报告显示，多伦多MLS房屋均价在2016年2月达到68.5万加元。而1月为63.1万加元。去年2月数据则为59.6万加元。多伦多市区的房屋均价相比大多地区整个价格还要更高，达到了71.9万加元。
-		</p>
-		 <p class="chart_aftertext"> </p>
-	</div>
-	
-	<div class="chartbox_treb" id="moichart" >
-		 <p class="chartboxtitle1">大多地区 - 存量月份</p>
-		 <p class="chartboxtitle2"> </p>
-		 <p class="chart_beforetext"> </p>
-		 <p class="chart_area" id="chart_moi"> </p>
-		 <p class="chart_beforetext"> </p>
-		 <p class="chart_text">本指标是如果没有新增房源的情况下，需要卖掉所有库存房源所需的月份（Months of Inventory）。这个数据会出现的季节性趋势，此图表可以用来比较每个月/年变化。当
-MOI移动走低时，表示库存减少。一般表示趋向卖方市场。当MOI移动走高，表示库存增加。一般表示趋向买方市场。房地产业内一般同意，0-4月表示卖方市场，5-7月表示中性市场，8-12月表示买方市场。 近20年大多地区的MOI基本保持在2-4月。请参考其他图标作为参考。
-		</p>
-		 <p class="chart_aftertext"> </p>		 
-	</div>
-	<div class="chartbox_treb" id="domchart" >
-		 <p class="chartboxtitle1">大多地区 - 平均售出日</p>
-		 <p class="chartboxtitle2"> </p>
-		 <p class="chart_beforetext"> </p>
-		 <p class="chart_area" id="chart_dom"> </p>
-		 <p class="chart_beforetext"> </p>
-		 <p class="chart_text">本图的数据是大多地区房源的平均销售日期(Days on Market)。这个数据会出现的季节性趋势，此图表可以用来比较每个月/年变化。当DOM移动走低时，表示销售日期减少。一般价格会增加，市场趋向卖方市场。当DOM移动走高，表示销售日期增加。一般表示趋向买方市场。大多市场的这个指标近20年一直在走低，表示卖方市场的趋势一直在增加。2012以后这个平均指标低于30。 表示平均挂盘时间少于30天。三月份降到16天，强劲的卖方市场。请参考其他图标作为参考。
-		</p>
-		 <p class="chart_aftertext"> </p>
-	</div>
-	<div class="chartbox_treb" id="splpchart" >
-		 <p class="chartboxtitle1">大多地区 - 成交价/挂盘价比</p>
-		 <p class="chartboxtitle2"> </p>
-		 <p class="chart_beforetext"> </p>
-		 <p class="chart_area" id="chart_splp"> </p>
-		 <p class="chart_beforetext"> </p>
-		 <p class="chart_text">本图的数据是大多地区年月成交价格和挂盘价格的比率（Sale Price / Listing Price）。这个数据会出现的季节性趋势，此图表可以用来比较每个月/年变化。当SPLP移动走高s时，表示成交价格增长超过挂盘价格增长。一般表示趋向卖方市场。当SPLP移动走低，表示成交价格增长少于挂盘价格变化。一般表示趋向买方市场。大多市场的这个指标近20年一直在增长，表示卖方市场的趋势一直在增加。三月份这个平均指标超过100%。 表示想在市场上用挂盘价格买到房子的机会已经不多了。请参考其他图标作为参考。
-		</p>
-		 <p class="chart_aftertext"> </p>
-	</div>		
+	</select>
+ </div> 
+
+<div class="chartbox" id="citychart" >  
+
+	<p id="chart_graph"> </p>
+
 </div>
 
-<div class="cl"></div>
 	
 <script type="text/javascript">
 
 
-
-$(function() {
-	$( "#tabs" ).tabs();
-	$(".chart_beforetext").text('枫之都专业分析：');
-	$(".chart_aftertext").html('希望得到大多地区房屋销售更多资讯，可邮件<a href="mailto:info_Canada@maplecity.com.cn?Subject=希望得到大多地区房屋销售更多资讯" target="_top">info_Canada@maplecity.com.cn</a>');
-});
+function getFieldValues() {
+     $('select').each(function() {
+        options[this.id] = this.value; //push value into options object
+		//console.log (this.id + ":" + options[this.id]);
+    });
+}
+	
+options = {};
 	
 var highchartsOptions = Highcharts.setOptions({
     lang: {
@@ -137,7 +52,9 @@ var highchartsOptions = Highcharts.setOptions({
         downloadSVG: '下载SVG格式'
     }
 });
-		
+
+$(document).on("pagebeforecreate","#page_main",function(){	
+
  $.ajax({
 	url: '<?php echo Yii::app()->createUrl('stats/getMlsData'); ?>',
 	dataType: "json",
@@ -204,10 +121,9 @@ var highchartsOptions = Highcharts.setOptions({
 			
 			});
 		});
-		//console.log(seriesOptions.all_snlr);
-
+		
 			
-		var priceOptions = {
+		priceOptions = {
 			credits: { enabled: false },
 			chart: { zoomType: 'x'},
 			rangeSelector : {selected : 5},
@@ -237,14 +153,8 @@ var highchartsOptions = Highcharts.setOptions({
 			
 
 		};
-
-
-		
-		$('#chart_price').highcharts('StockChart', priceOptions);
-		//End of  Price Chart
-		
-		
-		var moiOptions = {
+		$('#chart_graph').highcharts('StockChart', priceOptions);
+		moiOptions = {
 			credits: { enabled: false },
 			chart: { zoomType: 'x'},
 			rangeSelector : {selected : 5},
@@ -269,10 +179,7 @@ var highchartsOptions = Highcharts.setOptions({
 			
 		}
 
-		$('#chart_moi').highcharts('StockChart', moiOptions);
-		//End of MOI Chart
-
-		var snlrOptions = {
+		snlrOptions = {
 			credits: { enabled: false },
 			chart: { zoomType: 'x'},
 			rangeSelector : {selected : 5},
@@ -297,10 +204,7 @@ var highchartsOptions = Highcharts.setOptions({
 			
 		}
 
-		$('#chart_snlr').highcharts('StockChart', snlrOptions);
-		//End of SNLR Chart
-		
-		var salesOptions = {
+		salesOptions = {
 			credits: { enabled: false },
 			chart: { zoomType: 'x'},
 			rangeSelector : {selected : 5},
@@ -324,11 +228,8 @@ var highchartsOptions = Highcharts.setOptions({
 			]
 			
 		}
-		
-		$('#chart_sales').highcharts('StockChart', salesOptions);
-		//End of SALES Chart
 
-		var newlistOptions = {
+		newlistOptions = {
 			credits: { enabled: false },
 			chart: { zoomType: 'x'},
 			rangeSelector : {selected : 5},
@@ -352,11 +253,8 @@ var highchartsOptions = Highcharts.setOptions({
 			]
 			
 		}
-		
-		$('#chart_newlist').highcharts('StockChart', newlistOptions);
-		//End of NEWLIST Chart
 
-		var activeOptions = {
+		activeOptions = {
 			credits: { enabled: false },
 			chart: { zoomType: 'x'},
 			rangeSelector : {selected : 5},
@@ -380,10 +278,8 @@ var highchartsOptions = Highcharts.setOptions({
 			]
 			
 		}
-		$('#chart_active').highcharts('StockChart', activeOptions);
-		//End of active Chart		
-				
-		var domOptions = {
+		
+		domOptions = {
 			credits: { enabled: false },
 			chart: { zoomType: 'x'},
 			rangeSelector : {selected : 5},
@@ -409,10 +305,7 @@ var highchartsOptions = Highcharts.setOptions({
 			
 		}
 
-		$('#chart_dom').highcharts('StockChart', domOptions);
-		//End of DOM Chart
-		
-		var splpOptions = {
+		splpOptions = {
 			credits: { enabled: false },
 			chart: { zoomType: 'x'},
 			rangeSelector : {selected : 5},
@@ -438,11 +331,59 @@ var highchartsOptions = Highcharts.setOptions({
 			
 		}
 		
-		$('#chart_splp').highcharts('StockChart', splpOptions);	
-		//End of SPLP Chart
+		
 	}
 });
 
+});
+
+	
+$(document).on("pageshow","#page_main",function(){	
+	
+	
+	$("select").change(function () {
+		getFieldValues(); //Get updated Select
+		console.log("Select:" + options['chartname']);
+		
+		switch(options['chartname']) {
+			case "price":
+				
+				$('#chart_graph').highcharts('StockChart', priceOptions);
+				break;
+			case "moi":
+				
+				$('#chart_graph').highcharts('StockChart', moiOptions);
+				break;
+			case "sales":
+				
+				$('#chart_graph').highcharts('StockChart', salesOptions);
+				break;
+			case "snlr":
+				
+				$('#chart_graph').highcharts('StockChart', snlrOptions);
+				break;				
+			case "dom":
+				
+				$('#chart_graph').highcharts('StockChart', domOptions);
+				break;
+			case "newlist":
+			
+				$('#chart_graph').highcharts('StockChart', newlistOptions);
+				break;
+			case "active":
+				$('#chart_graph').highcharts('StockChart', activeOptions);
+				break;				
+			case "splp":
+				$('#chart_graph').highcharts('StockChart', splpOptions);
+				break;
+			default:
+				$('#chart_graph').highcharts('StockChart', priceOptions);
+				
+																					
+		}
+	});
+	
+});
 
 		
 </script>

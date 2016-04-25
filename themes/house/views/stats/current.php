@@ -18,16 +18,15 @@
 		<option value="land">土地面积分布图</option>
 
 	</select>
- </div>
+</div>
   
-  	<div class="chartbox" id="citychart" >  
-		<p style="text-align:center"> <font color="#ff4e00"><?php echo date("Y-m-d", time() - 60 * 60 * 24); ?> </font> 实时统计  </p>
-		<p id="chart_graph"> </p>
-		<p class="datatabletop"> </p>
-		<table id="tablecity" class="display" width="100%"></table>
-	</div>
+<div class="chartbox" id="citychart" >  
+	<p style="text-align:center"> <font color="#ff4e00"><?php echo date("Y-m-d", time() - 60 * 60 * 24); ?> </font> 实时统计  </p>
+	<p id="chart_graph"> </p>
+	<p class="datatabletop"> </p>
+	<table id="tablecity" class="display" width="100%"></table>
+</div>
 
- 
 
 	
 <script type="text/javascript">
