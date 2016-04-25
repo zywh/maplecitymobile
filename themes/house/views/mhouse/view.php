@@ -60,9 +60,9 @@ span.xqlb_label{
 .fyxq_tab{ border-bottom: 1px solid #c5c5c5;}
 .fyxq_tab a{ width:97px; height:30px; line-height:30px; display:block; float:left; color:#333333; text-decoration:none; background: url(../images/ny_btn2.png) 0 0 no-repeat; margin-right:-1px; text-align:center; font-size:14px;}
 a.fyxq_tab_cur,.fyxq_tab a:hover{ color:#FFFFFF; background: url(../images/ny_btn1.png) 0 0 no-repeat;}
-.fyxqupright_title{ /* height:30px; */ font-size:20px; /*background:url(../images/ny_title.png)*/ 0 0 no-repeat; /*width: 142px;*/ /*color:#FFFFFF;*/ text-align: center; float:left; line-height:30px;}
-.fyxq_ptssright{ /* float:left;  width:268px;*/ font-size:20px;}
-.fyxq_ptssleft{  float:left; font-size:20px; font-weight:bold;}
+.fyxqupright_title{ /* height:30px; */ font-size:14px; /*background:url(../images/ny_title.png)*/ 0 0 no-repeat; /*width: 142px;*/ /*color:#FFFFFF;*/ text-align: center; float:left; line-height:30px;}
+.fyxq_ptssright{ /* float:left;  width:268px;*/ font-size:14px;}
+.fyxq_ptssleft{  float:left; font-size:14px; font-weight:bold;}
 .fyxq_ptpd span b{ background:url(../images/xz.jpg) 0 center no-repeat; width:22px; height:14px; display:inline-block;}
 .fyxq_ptpd span s{ background:url(../images/wxz.jpg) 0 0 no-repeat; vertical-align:middle; width:22px; height:14px; display:inline-block;}
 .fyxq_ptpd span{ display:block; margin-left:5px; margin-right:10px; margin-bottom:10px; white-space:nowrap; background:url(../images/house/wu.jpg) left center  no-repeat; color:#999999; float:left; margin-top:3px; height:20px;}
