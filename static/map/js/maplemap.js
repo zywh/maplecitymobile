@@ -57,9 +57,15 @@ var maplemap = {
 		
 		google.maps.event.addListener(marker, 'click', function(e) {
 			
-			$("#popuphtml").html(html);
-			$("#houseviewpopup").popup( "open" );
-			//$("#houseviewpanel").panel( "open" );
+			if ( count >1) {
+				$("#panelhtml").html(html);
+				$("#houseviewpanel").panel( "open" );
+			}else {
+				$("#popuphtml").html(html);
+				$("#houseviewpopup").popup( "open" );
+			}
+		
+			
 			//info.open(map, marker);
 			
 			//setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
@@ -251,10 +257,9 @@ var maplemap = {
 							$(data.Data.MapHouseList).each(function(index) {
 								
 								if ( index < (totalhouse - 1) ) {
-								var nextLat = data.Data.MapHouseList[index + 1].GeocodeLat;
-								nextLat = (nextLat)? nextLat: 0;
-								var nextLng = data.Data.MapHouseList[index + 1].GeocodeLng;
-								nextLng = (nextLng)? nextLng: 0;
+									var nextLat = data.Data.MapHouseList[index + 1].GeocodeLat;
+									var nextLng = data.Data.MapHouseList[index + 1].GeocodeLng;
+								
 								}
 								console.log("Current:" + this.GeocodeLng + "Next:" + nextLng + "Total:" + totalhouse + "index:" + index + "Count:" + count);
 								var imgurl = "/" + this.CoverImg;
@@ -263,7 +268,8 @@ var maplemap = {
 								var tlat = parseFloat(this.GeocodeLat);
 								var tlng = parseFloat(this.GeocodeLng);
 
-								
+					  
+									
 								if (( nextLng != this.GeocodeLng) || (nextLat != this.GeocodeLat)){
 									
 									if ( count == 1) {
@@ -288,10 +294,17 @@ var maplemap = {
 									
 								} else { 
 									++count;
-									panelhtml = panelhtml + "<div class='map_list_content'>"
-									+ "MLS:" + this.MLS + "</div>";
-									console.log("Duplication:" + count);
-									
+									var li =  "<li data-icon='false'>" 
+								
+									+ "<a data-ajax='false' href='index.php?r=mhouse/view&id=" + this.MLS + "'>" 
+									+ "<img src=' " + imgurl + "'>" 
+									+ "<div class='panel-house-view'>地址:" + this.Address + "," + this.MunicipalityName + "</div>" 
+									+ "<div class='panel-house-text'>" + this.HouseType + ":" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</div>" 
+									+ "<div class='panel-house-text'>价钱:"  + hprice + "</div> " 
+									+ "</a>"
+									+ "</li>";
+									panelhtml = panelhtml + li;
+																		
 								}
 								
 

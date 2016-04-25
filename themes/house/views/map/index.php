@@ -60,7 +60,9 @@
 </div>
 <!-- 房源搜索列表结束 -->
 <div data-role="panel" id="houseviewpanel" data-display="overlay"> 
-	<div id="panelhtml"></div>
+	<ul data-role="listview" data-inset="true" id="panelhtml">
+	
+	</ul>
 </div> 
 <div data-role="popup" id="houseviewpopup">
 	<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>	
