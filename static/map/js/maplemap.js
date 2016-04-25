@@ -262,7 +262,7 @@ var maplemap = {
 								
 								}
 								console.log("Current:" + this.GeocodeLng + "Next:" + nextLng + "Total:" + totalhouse + "index:" + index + "Count:" + count);
-								var imgurl = "/" + this.CoverImg;
+								var imgurl = "/" + this.CoverImgtn;
 								var hprice = (this.SaleLease == 'Lease') ? this.Price * 10000 + '  加元/月' : Math.round(this.Price) + '  万加元';
 
 								var tlat = parseFloat(this.GeocodeLat);
@@ -294,14 +294,16 @@ var maplemap = {
 									
 								} else { 
 									++count;
-									var li =  "<li data-icon='false'>" 
+									var li =  "<li class='panel_house_view' data-icon='false'>" 
 								
 									+ "<a data-ajax='false' href='index.php?r=mhouse/view&id=" + this.MLS + "'>" 
 									+ "<img src=' " + imgurl + "'>" 
-									+ "<div class='panel-house-view'>地址:" + this.Address + "," + this.MunicipalityName + "</div>" 
-									+ "<div class='panel-house-text'>" + this.HouseType + ":" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</div>" 
-									+ "<div class='panel-house-text'>价钱:"  + hprice + "</div> " 
+									+ " <div class='panel_house_text'>"
+									+ "<p >地址:" + this.Address + "," + this.MunicipalityName + "</p>" 
+									+ "<p >" + this.HouseType + ":" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</p>" 
+									+ "<p>价钱:"  + hprice + "</p> </div>" 
 									+ "</a>"
+									
 									+ "</li>";
 									panelhtml = panelhtml + li;
 																		

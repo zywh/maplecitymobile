@@ -272,6 +272,7 @@ class MapController extends XFrontBase {
 					$county = preg_replace('/\s+/', '', $county);
 					$county = str_replace("&","",$county);
 					$dir="mlspic/crea/".$county."/Photo".$val->ml_num."/";
+					$dirtn="mlspic/crea/creatn/".$county."/Photo".$val->ml_num."/";
 					$num_files = 0;
 
 					if(is_dir($dir)){
@@ -282,6 +283,8 @@ class MapController extends XFrontBase {
 
 					if ( $num_files > 1)    {
 						$mapHouseList['CoverImg'] = $dir.$picfiles[2];
+						$mapHouseList['CoverImgtn'] = $dirtn.$picfiles[2];
+						
 					}else {
 						$mapHouseList['CoverImg'] = 'static/images/zanwu.jpg';
 					}
