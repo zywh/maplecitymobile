@@ -61,7 +61,7 @@
 				$result['School'][] = $schoolList;
 			}
 			
-			print_r($result);
+			print_r($result['School']);
 			
 
 

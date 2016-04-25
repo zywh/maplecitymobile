@@ -399,7 +399,7 @@ class MhouseController extends XFrontBase
 	
 	public function actionGetSchoolList(){
 			
-		$result = array();
+		$schoolList = array();
 		$lat = $_POST['lat'];
 		$lng = $_POST['lng'];
 		$url = 'https://www.app.edu.gov.on.ca/eng/sift/searchElementaryXLS.asp';
@@ -446,21 +446,11 @@ class MhouseController extends XFrontBase
 		// 读取数据
 		$res = curl_exec($ch);
 		curl_close($ch);
-		$xml = simplexml_load_string($res) or die("Error: Cannot create object");
-		foreach($xml->children() as $school) {
-			$schoolList['SCH_NO']   = $school['SCH_NO'];
-			$schoolList['SCH_NAME'] = $school['SCH_NAME'];
-			$schoolList['lat'] = $school['lat'];
-			$schoolList['lng'] = $school['lng'];
-			$schoolList['SCH_STREET'] = $school['SCH_STREET'];
-			$schoolList['SCH_CITY'] = $school['SCH_CITY'];
-			$schoolList['SCH_POSTALCODE'] = $school['SCH_POSTALCODE'];
-			$schoolList['SCH_TYPE_DESC'] = $school['SCH_TYPE_DESC'];
-			$schoolList['SCH_LANGUAGE_DESC'] = $school['SCH_LANGUAGE_DESC'];
-			$result['School'][] = $schoolList;
-		}
-		
-		echo json_encode($results);
+		//$xml = simplexml_load_string($res) or die("Error: Cannot create object");
+		header('Content-type: application/xml');
+		echo $res;
+
+		//echo json_encode($xml);
 
 	}
 	
