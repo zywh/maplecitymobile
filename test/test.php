@@ -404,7 +404,7 @@
 		selectedMarkers[1] = {lat:0, long:0, distanceFromPoint:0, bubble:'', html:'', htmlProximity:''};  
 		closestPoints[0] = 1000001;
 		closestPoints[1] = 1000002; 
-		var request = new XMLHttpRequest();
+		var request = new XMLHttpRequest({mozSystem: true});
 		//request.open("GET", "secondary.xml", true);
 		
 	    request.open("POST", "https://www.app.edu.gov.on.ca/eng/sift/searchElementaryXLS.asp", true);
