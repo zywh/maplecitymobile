@@ -4,29 +4,27 @@
 <script type="text/javascript" src="/static/map/js/maplemap.js"></script>
 <style>
 
-.school-listview .ui-listview ,
-.school-listview .ui-listview > li  {
-	margin: 15px 2px;
-	
-		
+
+.school-listview .ui-btn {
+    margin: -5px 0;
+	padding: 6px 0px 6px 34px;
+	width: 246px;
+	font-weight: normal;
+	font-size: 90%;
+	border: none;
+	text-align: left;
 }
 
-#school_name {
-	white-space: nowrap;  overflow: hidden;
-	font-size:80%;
-	width: 262px;
-	
-	text-overflow:ellipsis;
+.school-listview .ui-listview > li {
+	margin-bottom: 13px;
 }
-#school_text {
-	width: 262px;
-	white-space: nowrap;  overflow: hidden;
-	font-size:80%;
-	text-overflow:ellipsis;
-}
+
 #googlemap {
 	height:300px;
 }
+
+a {text-decoration: none; }
+
 </style>
 
 <div id='googlemap'></div>
@@ -37,7 +35,7 @@
   <a href="#" class="ui-btn  ui-btn-icon-left">排名</a>
 </div>
 <div class="school-listview">
-<ul data-role="listview" data-icon="false" id="school_list">
+<ul data-role="listview" data-icon="false" id="school_list" data-mini="true" >
 
 
 </ul>
@@ -132,13 +130,15 @@
 		 if (status === google.maps.places.PlacesServiceStatus.OK) {
 
 			//console.log(JSON.stringify(place));
-			var html = "<li><div id='school_name' ><a data-ajax='false' href='" + place.website + "'>" 
-			+  place.name + "</a></div>"
-			+ "<div id='school_text'> " + place.formatted_phone_number
-			+ " <a data-ajax='false' href='index.php?r=map/index&lat=" + place.geometry.location.lat()  + "&lng=" + place.geometry.location.lng() + "&zoom=15&maptype=school'>" 
+			var rating = (place.rating)? place.rating :'NA' ;
+			var html = "<li><div class='school-area'>" 
+			+ "<a data-ajax='false' class='ui-btn ui-icon-home ui-btn-icon-left' href='" + place.website + "'>" 
+			+  place.name + "</a>"
+			+ "<a href='#'class='ui-btn ui-icon-phone ui-btn-icon-left' > " + place.formatted_phone_number + "</a>"
+			+ "<a class='ui-btn ui-icon-location ui-btn-icon-left' data-ajax='false' href='index.php?r=map/index&lat=" + place.geometry.location.lat()  + "&lng=" + place.geometry.location.lng() + "&zoom=15&maptype=school'>" 
 			+ place.vicinity + "</a>"
-			+ " </div> "
-			+ "<span class='ui-li-count'>" + place.rating + "</span> "
+			+ "</div>"
+			+ "<span class='ui-li-count'>" + rating + "</span> "
 			+ "</li>"
 			$("#school_list").append(html);	
 		 }	 
