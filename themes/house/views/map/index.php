@@ -117,7 +117,7 @@ function getFieldValues() {
 	var lat = '<?php echo $_GET["lat"]; ?>';
 	var lng = '<?php echo $_GET["lng"]; ?>';
 	console.log("lat" + lat + "|" +lng);
-	var type = '<?php echo $_GET["type"]; ?>'; //city or house or school
+	var maptype = '<?php echo $_GET["maptype"]; ?>'; //city or house or school
     var mapZoom = '<?php echo $_GET["zoom"]; ?>';
 
 	
@@ -131,7 +131,7 @@ function getFieldValues() {
 		lat = (lat) ? lat: "54.649739";
 		lng= (lng) ? lng: "-93.045726";
 		
-		type = (type) ? type: "default";
+		maptype = (maptype) ? maptype: "default";
 		sr = (sr) ? sr: "Sale";
 		mapZoom= (mapZoom) ? mapZoom: 14;
 		mapZoom = Number(mapZoom);
@@ -147,7 +147,7 @@ function getFieldValues() {
 			maplemap.changeMap(map);
 			//console.log(options['Price']);
 		});
-		if ( type == 'default' ) {
+		if ( maptype == 'default' ) {
 			if ( navigator.geolocation ) {
 		        function success(pos) {
 					lat = pos.coords.latitude;
@@ -170,11 +170,23 @@ function getFieldValues() {
 				
 				maplemap.initMap("google_map",lat,lng,mapZoom);
 	   		}
-		} else {
-			console.log("Start City map:" + lat +lng);
-			maplemap.initMap("google_map",lat,lng,14);
+		} 
+		
+		if ( maptype == 'city' ) {
+			maplemap.initMap("google_map",lat,lng,mapZoom);
+			maplemap.addCenterMarker(map,lat,lng,'city');
 		}
-
+		
+		if ( maptype == 'school' ) {
+			maplemap.initMap("google_map",lat,lng,mapZoom);
+			maplemap.addCenterMarker(map,lat,lng,'school');
+			
+		}
+		
+		if ( maptype == 'house' ) {
+			maplemap.initMap("google_map",lat,lng,mapZoom);
+			maplemap.addCenterMarker(map,lat,lng,'house');
+		}
 	});
 
 

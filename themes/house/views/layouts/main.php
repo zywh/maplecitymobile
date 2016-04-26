@@ -131,7 +131,7 @@ $(".main-header input").autocomplete({
 	
 			var citys = city.split("|");
 			console.log("CityLat" + citys[0] + citys[1] + citys[2]);
-			var url = 'index.php?r=map/index&lat=' + citys[1] + "&lng=" + citys[2] + "&zoom=10&type=1"; 
+			var url = 'index.php?r=map/index&lat=' + citys[1] + "&lng=" + citys[2] + "&zoom=10&maptype=city"; 
 			location.href = url;
 			
 		} else {

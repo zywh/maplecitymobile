@@ -348,7 +348,8 @@
 				var html = "  <li><a data-ajax='false' href='https://www.app.edu.gov.on.ca/eng/sift/schoolProfileSec.asp?SCH_NUMBER=" + $(this).attr('SCH_NO') + "'> "
 				+ "<div id='school_name'>" + $(this).attr('SCH_NAME') + "</a></div>"
 				+ "<div id='school_text'> " + schoolType + " "
-				+ schoolLanguage + " " +  $(this).attr('SCH_STREET')
+				+ schoolLanguage + " " +  "<a data-ajax='false' href='index.php?r=map/index&lat=" + $(this).attr('lat')  + "&lng=" + $(this).attr('lng') + "&zoom=15&maptype=school'>" 
+				+ $(this).attr('SCH_STREET') + "</a>"
 				+ " </div> "
 				+ "<span class='ui-li-count'>25</span> "
 				+ "</li>"

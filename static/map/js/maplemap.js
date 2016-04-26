@@ -73,7 +73,29 @@ var maplemap = {
 		return marker;
 	 
 	},
+	
+	addCenterMarker: function(map,lat,lng,maptype) {
+		
+		var iconbase = "/static/map/images/";
+		var iconurl;
 
+		if ( maptype == "school") {
+			iconurl = iconbase + "m1.jpg";
+		} else if (maptype == "house") {
+			iconurl = iconbase + "m2.jpg";
+		} else if (maptype == "city") {
+			iconurl = iconbase + "m3.jpg";
+		} else {
+			iconurl = iconbase + "m4.jpg";
+		}
+		
+		var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
+		var marker = new google.maps.Marker({
+				map: map,
+				position: point,
+				icon: iconurl
+		});
+	},
 
 	setContentCount: function(map,lat, lng, totalCount, city) {
 		var content = "<i class='common_bg icon_map_mark'><span>" + totalCount + "</span></i>";
@@ -185,20 +207,12 @@ var maplemap = {
 		var mapWidth = $("#" + mapId).width();
 		var gridx = Math.ceil(mapWidth/gridSize);
 		var gridy = Math.ceil(mapHeight/gridSize);
-		console.log("W:" + mapWidth + "H:" + mapHeight + "XY:" + gridx + "x" + gridy );
-		
+				
 		var _sw = map.getBounds().getSouthWest();
 		var _ne = map.getBounds().getNorthEast();
 		var centerlat = (_ne.lat() + _sw.lat()) / 2;
 		var centerlng = (_ne.lng() + _sw.lng()) / 2;
 
-		/*
-		var number1 = _sw.lat() + "," + _sw.lng() + "," + centerlat + "," + centerlng;
-		var number2 = centerlat + "," + centerlng + "," + _ne.lat() + "," + _ne.lng();
-		var number3 = centerlat + "," + _sw.lng() + "," + _ne.lat() + "," + centerlng;
-		var number4 = _sw.lat() + "," + centerlng + "," + centerlat + "," + _ne.lng();
-		var lenght = 1;
-		*/
 			
 		var HouseArray = [];	
 		var marker;
@@ -261,7 +275,7 @@ var maplemap = {
 									var nextLng = data.Data.MapHouseList[index + 1].GeocodeLng;
 								
 								}
-								console.log("Current:" + this.GeocodeLng + "Next:" + nextLng + "Total:" + totalhouse + "index:" + index + "Count:" + count);
+								//console.log("Current:" + this.GeocodeLng + "Next:" + nextLng + "Total:" + totalhouse + "index:" + index + "Count:" + count);
 								var imgurl = "/" + this.CoverImg;
 								var imgurltn = "/" + this.CoverImgtn;
 								var hprice = (this.SaleLease == 'Lease') ? Math.round(this.Price) * 10000 + '加元/月' : Math.round(this.Price) + '万加元';
@@ -285,9 +299,20 @@ var maplemap = {
 									maplemap.setContent(map,tlat, tlng, 1, html);
 									} else 
 									{
-										//generate panel list view
-										html = panelhtml;
-										console.log (html);
+									//generate panel list view
+									//var li =  "<li class='panel_house_view' data-icon='false'>" 
+								
+									+ "<a data-ajax='false' href='index.php?r=mhouse/view&id=" + this.MLS + "'>" 
+									+ "<img src=' " + imgurltn + "'>" 
+									+ " <div class='panel_house_text'>"
+									+ "<div>" + this.Address + "</div>" 
+									+ "<div >" + this.MunicipalityName + " " + this.ProvinceCname + "</div>" 
+									+ "<div >" + this.HouseType + ":" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</div>" 
+									+ "<div>价钱:"  + hprice + "</div> </div>" 
+									+ "</a>"
+									
+									+ "</li>";
+										html = panelhtml ;
 										maplemap.setContent(map,tlat, tlng, count, html);
 										count = 1;
 									}
