@@ -402,7 +402,9 @@ class MhouseController extends XFrontBase
 	
 	
 	public function actionGetSchoolList(){
-			
+		ini_set("log_errors", 1);
+        ini_set("error_log", "/tmp/php-error.log");
+	
 		$schoolList = array();
 		$lat = $_POST['lat'];
 		$lng = $_POST['lng'];
@@ -430,8 +432,11 @@ class MhouseController extends XFrontBase
 		// 伪造IP头
 		$ip = rand(27, 64) . "." . rand(100, 200) . "." . rand(2, 200) . "." . rand(2, 200);
 		$headerIp = array("X-FORWARDED-FOR:{$ip}", "CLIENT-IP:{$ip}","Host:www.app.edu.gov.on.ca");
-		$lat = '43.5596118';
-		$lng = '-79.72719280000001';
+		//$lat = '43.5596118';
+		//$lng = '-79.72719280000001';
+		//$lng = '-79.40317140000002';
+		//$lat = '43.6363265';
+		error_log("School Lat:".$lat."Lng:".$lng);
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headerIp);
 		$fields = array(

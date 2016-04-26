@@ -130,6 +130,7 @@ function getFieldValues() {
 		max_height();
 		lat = (lat) ? lat: "54.649739";
 		lng= (lng) ? lng: "-93.045726";
+		
 		type = (type) ? type: "default";
 		sr = (sr) ? sr: "Sale";
 		mapZoom= (mapZoom) ? mapZoom: 14;

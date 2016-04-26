@@ -1171,15 +1171,15 @@ a.fyxq_tab_cur,.fyxq_tab a:hover{ color:#FFFFFF; background: url(../images/ny_bt
 .fyxq_phone{ float:left; padding-right:8px;}
 .fyxq_rx{ float:left; line-height:30px; padding-top:5px;}
 .fyxq_rx span{ padding-left:8px; font-weight:bold; font-size:28px;}
-.fyxq_ptss { line-height: 16px}
+/*.fyxq_ptss { line-height: 16px} */
 .fyxq_ptss .kf{ float:right; margin-right:10px;}
 .fyxqdown_left_title{ border-bottom:1px solid #c5c5c5; height:30px; overflow:hidden;}
 .fyxqdown_left_title a{ background:url(../images/ny_btn2.png) 0 0 no-repeat; margin-right:-1px; font-weight:bold; text-decoration:none; height:30px; line-height:30px; width:97px; text-align:center; font-size:14px; display:block; float:left; border-bottom:0; color:#000; }
 a.fyxqdown_left_cur,.fyxqdown_left_title a:hover{ background:url(../images/ny_btn1.png) 0 0 no-repeat; color:#FFFFFF; font-weight:bold;}
 .fyxqdown_left{ float:left; /*width:747px;*/}
 .cl {clear: both; }
-#xqlb_list li {
-   height: 14px;
+ul.xqlb_list li {
+   padding: 0.1em
 }
 .fwbjtable {
     overflow: auto;

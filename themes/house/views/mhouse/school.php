@@ -4,25 +4,24 @@
 <script type="text/javascript" src="/static/map/js/maplemap.js"></script>
 <style>
 
-.ui-listview,
-.ui-listview > li {
-	margin: 5px;
+.school-listview .ui-listview ,
+.school-listview .ui-listview > li  {
+	margin: 6px 2px;
 	
+		
 }
 
-.school-list .ui-listview,
-.school-list .ui-listview > li {
-	margin: 4px 0 0 0;
-	white-space: nowrap; overflow: hidden;
-}
 #school_name {
-	font_size:85%;
-	width: 285px;
+	white-space: nowrap; overflow: hidden;
+	font-size:80%;
+	width: 262px;
+	margin-top:12px;
 }
 #school_text {
-	font_size:80%;
-	width: 285px;
-		
+	width: 262px;
+	white-space: nowrap; overflow: hidden;
+	font-size:80%;
+	margin-top:6px;	
 }
 </style>
 
@@ -31,11 +30,11 @@
   <h1></h1>
   <a href="#" class="ui-btn  ui-btn-icon-left">排名</a>
 </div>
-
-<ul data-role="listview" data-icon="false" class="school-list" id="school_list">
+<div class="school-listview">
+<ul data-role="listview" data-icon="false" id="school_list">
 
 </ul>
-
+</div>
 <!-- GoogleMaps info --> 
  
  <script type="text/javascript"> 
@@ -324,7 +323,7 @@
     }
 	
 	function getSchool(lat,lng) {
-			
+			console.log("Lat:" + lat + " Lng:" + lng);
 	$.ajax({
 		url: '/index.php?r=mhouse/getSchoolList',
 		type: 'POST', 
@@ -346,7 +345,7 @@
 				if ($(this).attr('SCH_TYPE_DESC') == "Catholic") {
 					schoolType = "天主教";
 				}
-				var html = "  <li><a href='#'> "
+				var html = "  <li><a data-ajax='false' href='https://www.app.edu.gov.on.ca/eng/sift/schoolProfileSec.asp?SCH_NUMBER=" + $(this).attr('SCH_NO') + "'> "
 				+ "<div id='school_name'>" + $(this).attr('SCH_NAME') + "</a></div>"
 				+ "<div id='school_text'> " + schoolType + " "
 				+ schoolLanguage + " " +  $(this).attr('SCH_STREET')
@@ -365,8 +364,9 @@
 	$( document ).on( "pagecreate", "#page_main", function() {	
 		var lat = '<?php echo $_GET["lat"]; ?>';
 		var lng = '<?php echo $_GET["lng"]; ?>';
-		lat = (lat) ? lat: "54.649739";
-		lng= (lng) ? lng: "-93.045726";
+		
+		lat = (lat) ? lat: "43.5596118";
+		lng= (lng) ? lng: "-79.72719280000001";
 		getSchool(lat,lng);
 		
 	});

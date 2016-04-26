@@ -62,8 +62,10 @@ function update_houselist(options) {
 				//+ "<div>城市:" + this.MunicipalityName + " " + this.ProvinceCname +  "</div>" 
 				//+ "</a>"
 				+ "<div class='pv-text'>" + this.HouseType + ":" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</div>" 
-				+ "<div class='pv-text'>价钱:"  + hprice + "</div> " 
-				
+				+ "<div class='pv-text'>价钱:"  + hprice 
+				+ "<a data-ajax='false' href='index.php?r=mhouse/school&lat=" 
+				+ this.GeocodeLat + "&lng=" + this.GeocodeLng + "'>school</a>"
+				+ "</div> " 
 				//+ "<a href='mailto:info@maplecity.com.cn?subject=查询房源-" + this.MlsNumber + "'>"
 				//+ "</a>"
 				+ "</div>"
