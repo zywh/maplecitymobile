@@ -2,22 +2,38 @@
 
 <script type="text/javascript" src="/static/map/js/richmarker-compiled.js"></script>
 <script type="text/javascript" src="/static/map/js/maplemap.js"></script>
+<style>
 
+.ui-listview,
+.ui-listview > li {
+	margin: 5px;
+	
+}
 
-<ul data-role="listview" data-icon="false" id="school_list">
-  <li><a href="#">
-  <h3>school Name</h3>
-  <p> Address:dfasdfdsafasdfasd Enlish Other </p>
-  <span class="ui-li-count">25</span>
-  </a></li>
-  <li><a href="#">
-  <h3>school Name</h3>
-  <p> Address:dfasdfdsafasdfasd Enlish Other </p>
-  <span class="ui-li-count">432</span></a></li>
-  <li><a href="#">
-   <h3>school Name</h3>
-  <p> Address:dfasdfdsafasdfasd Enlish Other </p>
-  <span class="ui-li-count">N/A</span></a></li>
+.school-list .ui-listview,
+.school-list .ui-listview > li {
+	margin: 4px 0 0 0;
+	white-space: nowrap; overflow: hidden;
+}
+#school_name {
+	font_size:85%;
+	width: 285px;
+}
+#school_text {
+	font_size:80%;
+	width: 285px;
+		
+}
+</style>
+
+<div data-role="header">
+  <a href="#" class="ui-btn ui-btn-icon-left">学校</a>
+  <h1></h1>
+  <a href="#" class="ui-btn  ui-btn-icon-left">排名</a>
+</div>
+
+<ul data-role="listview" data-icon="false" class="school-list" id="school_list">
+
 </ul>
 
 <!-- GoogleMaps info --> 
@@ -321,7 +337,23 @@
 		//Success Start
 		success: function(xml) {
 			$(xml).find('marker').each(function(){
-				console.log("School:" + $(this).attr('SCH_NO'))
+				
+				var schoolLanguage = "英文";
+				if ($(this).attr('SCH_LANGUAGE_DESC') == "French" ) {
+					schoolLanguage = "法文";
+				}
+				var schoolType = "公立  ";
+				if ($(this).attr('SCH_TYPE_DESC') == "Catholic") {
+					schoolType = "天主教";
+				}
+				var html = "  <li><a href='#'> "
+				+ "<div id='school_name'>" + $(this).attr('SCH_NAME') + "</a></div>"
+				+ "<div id='school_text'> " + schoolType + " "
+				+ schoolLanguage + " " +  $(this).attr('SCH_STREET')
+				+ " </div> "
+				+ "<span class='ui-li-count'>25</span> "
+				+ "</li>"
+				$("#school_list").append(html);
 			});
 			
 		}

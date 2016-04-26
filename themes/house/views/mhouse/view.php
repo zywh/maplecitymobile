@@ -306,27 +306,27 @@ $(function(){
 </script>
                 
       <div class="fyxqdown_left_cont">
-				<ul data-role="listview">
+				<ul class="xqlb_list" data-role="listview">
 				<li data-role="list-divider">详情列表</li>
-                        <li class="xqlb_list"><span class="xqlb_label">MLS编号：</span><?php echo $house->ml_num; ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">交叉路口：</span><?php echo $house->cross_st; ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">物业类别：</span><?php echo $house->propertyType->name; ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">挂牌时间：</span><?php echo $house->pix_updt; ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">房屋层数：</span><?php echo $house->style; ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">土地面积：</span><span class="s1"><?php echo $house->land_area; ?></span><span class="c1">平方英尺</span></li>
-                        <li class="xqlb_list"><span class="xqlb_label">房屋面积：</span><span class="s2"><?php echo $house->sqft; ?></span><span class="c2">平方英尺</span></li>
-                        <li class="xqlb_list"><span class="xqlb_label">土地描述：</span><span class="s3"></span><span class="c3"><?php echo $house->acres; ?></span></li>
-                        <li class="xqlb_list"><span class="xqlb_label">房屋数量：</span><?php echo (int)$house->rms+(int)$house->rooms_plus; ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">地税/年份：</span><?php echo '$ '.$house->taxes; ?>/<?php echo $house->yr." 年"; ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">卧房数量：</span><?php echo (int)$house->br+(int)$house->br_plus; ?></li>
-                      <li class="xqlb_list"><span class="xqlb_label">物业管理费：无</span></li>
-                        <li class="xqlb_list"><span class="xqlb_label">厨房数量：</span><?php echo (int)$house->num_kit+(int)$house->kit_plus; ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">建造年份：</span><?php echo $house->yr_built; ?>年</li>
-                       <li class="xqlb_list"><span class="xqlb_label">卫生间数量：</span><?php echo $house->bath_tot; ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">地下室：</span><?php echo $house->bsmt1_out; ?>　<?php echo $house->bsmt2_out; ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">车库数量：</span><?php echo $house->gar_spaces; ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">暖气：</span><?php echo $house->heating; ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">大门朝向：</span>
+                        <li><span class="xqlb_label">MLS编号：</span><?php echo $house->ml_num; ?></li>
+                        <li><span class="xqlb_label">交叉路口：</span><?php echo $house->cross_st; ?></li>
+                        <li><span class="xqlb_label">物业类别：</span><?php echo $house->propertyType->name; ?></li>
+                        <li><span class="xqlb_label">挂牌时间：</span><?php echo $house->pix_updt; ?></li>
+                        <li><span class="xqlb_label">房屋层数：</span><?php echo $house->style; ?></li>
+                        <li><span class="xqlb_label">土地面积：</span><span class="s1"><?php echo $house->land_area; ?></span><span class="c1">平方英尺</span></li>
+                        <li><span class="xqlb_label">房屋面积：</span><span class="s2"><?php echo $house->sqft; ?></span><span class="c2">平方英尺</span></li>
+                        <li><span class="xqlb_label">土地描述：</span><span class="s3"></span><span class="c3"><?php echo $house->acres; ?></span></li>
+                        <li><span class="xqlb_label">房屋数量：</span><?php echo (int)$house->rms+(int)$house->rooms_plus; ?></li>
+                        <li><span class="xqlb_label">地税/年份：</span><?php echo '$ '.$house->taxes; ?>/<?php echo $house->yr." 年"; ?></li>
+                        <li><span class="xqlb_label">卧房数量：</span><?php echo (int)$house->br+(int)$house->br_plus; ?></li>
+                      <li><span class="xqlb_label">物业管理费：无</span></li>
+                        <li><span class="xqlb_label">厨房数量：</span><?php echo (int)$house->num_kit+(int)$house->kit_plus; ?></li>
+                        <li><span class="xqlb_label">建造年份：</span><?php echo $house->yr_built; ?>年</li>
+                       <li><span class="xqlb_label">卫生间数量：</span><?php echo $house->bath_tot; ?></li>
+                        <li><span class="xqlb_label">地下室：</span><?php echo $house->bsmt1_out; ?>　<?php echo $house->bsmt2_out; ?></li>
+                        <li><span class="xqlb_label">车库数量：</span><?php echo $house->gar_spaces; ?></li>
+                        <li><span class="xqlb_label">暖气：</span><?php echo $house->heating; ?></li>
+                        <li><span class="xqlb_label">大门朝向：</span>
 						<?php 
 						if($house->comp_pts=="N"){
 						echo "北";
@@ -341,11 +341,11 @@ $(function(){
 						echo "东";
 						} ?>
                         </li>
-                        <li class="xqlb_list"><span class="xqlb_label">空调：</span><?php echo $house->a_c; ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">邮编：</span><?php echo $house->zip; ?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">中央吸尘：</span><?php if($house->central_vac=="Y"){echo "是";}else{echo "否";} ?></li>
-						<li class="xqlb_list"><span class="xqlb_label">游泳池：</span><?php echo $house->pool; ?></li>
-					    <li class="xqlb_list"><span class="xqlb_label">出售/出租：</span>
+                        <li><span class="xqlb_label">空调：</span><?php echo $house->a_c; ?></li>
+                        <li><span class="xqlb_label">邮编：</span><?php echo $house->zip; ?></li>
+                        <li><span class="xqlb_label">中央吸尘：</span><?php if($house->central_vac=="Y"){echo "是";}else{echo "否";} ?></li>
+						<li><span class="xqlb_label">游泳池：</span><?php echo $house->pool; ?></li>
+					    <li><span class="xqlb_label">出售/出租：</span>
 						<?php 
 						if($house->s_r=="Sale"){
 						echo "出售";
@@ -354,7 +354,7 @@ $(function(){
 						echo "出租";
 						}
 						?></li>
-                        <li class="xqlb_list"><span class="xqlb_label">周边和配套：</span><?php echo $house->prop_feat1_out; ?><?php if($house->prop_feat2_out!=""){echo " , ";}?><?php echo $house->prop_feat2_out; ?><?php if($house->prop_feat3_out!=""){echo " , ";}?><?php echo $house->prop_feat3_out; ?><?php if($house->prop_feat4_out!=""){echo " , ";}?><?php echo $house->prop_feat4_out; ?><?php if($house->prop_feat5_out!=""){echo " , ";}?><?php echo $house->prop_feat5_out; ?><?php if($house->prop_feat6_out!=""){echo " , ";}?><?php echo $house->prop_feat6_out; ?></li>
+                        <li><span class="xqlb_label">周边和配套：</span><?php echo $house->prop_feat1_out; ?><?php if($house->prop_feat2_out!=""){echo " , ";}?><?php echo $house->prop_feat2_out; ?><?php if($house->prop_feat3_out!=""){echo " , ";}?><?php echo $house->prop_feat3_out; ?><?php if($house->prop_feat4_out!=""){echo " , ";}?><?php echo $house->prop_feat4_out; ?><?php if($house->prop_feat5_out!=""){echo " , ";}?><?php echo $house->prop_feat5_out; ?><?php if($house->prop_feat6_out!=""){echo " , ";}?><?php echo $house->prop_feat6_out; ?></li>
 <!--                    <div class="xqlb_list">
                             <div class="xqlb_list_left">是否壁炉：<?php if($house->fpl_num=="N"){echo "没有";}else{echo "有";}?></div>
                             <div class="xqlb_list_right">是否游泳池：<?php if($house->pool=="None"){echo "没有";}else{echo "有";} ?></div>
@@ -418,17 +418,18 @@ $(function(){
       }
 	})
 })
-</script>             
-<table data-role="table" id="xqlb_fwbj" class="ui-responsive" data-mode="columntoggle" >
+</script> 
+<div class="fwbjtable table-stroke">            
+<table data-role="table" id="fwbj" class="ui-responsive" data-mode="columntoggle">
   <thead><tr>
-    <td width="12%" style="border-bottom: 1px solid #CCCCCC;">楼层</td>
-    <td width="12%" style="border-bottom: 1px solid #CCCCCC;">房间</td>
-    <td width="10%" style="border-bottom: 1px solid #CCCCCC;">长(M)</td>
-    <td width="12%" style="border-bottom: 1px solid #CCCCCC;">宽(M)</td>
-    <td width="17%" style="border-bottom: 1px solid #CCCCCC;">面积(M2)</td>
-    <td width="37%" style="border-bottom: 1px solid #CCCCCC;">说明</td>
+    <th width="12%" style="border-bottom: 1px solid #CCCCCC;">楼层</th>
+    <th width="12%" style="border-bottom: 1px solid #CCCCCC;">房间</th>
+    <th width="10%" style="border-bottom: 1px solid #CCCCCC;">长(M)</th>
+    <th width="12%" style="border-bottom: 1px solid #CCCCCC;">宽(M)</th>
+    <th width="17%" style="border-bottom: 1px solid #CCCCCC;">面积(M2)</th>
+    <th width="37%" style="border-bottom: 1px solid #CCCCCC;">说明</th>
   </tr></thead>
-  </body>
+  <tbody>
   <?php if($house->level1!="" || $house->rm1_out!=""){?>
   <tr>
     <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level1;?></td>
@@ -553,6 +554,7 @@ $(function(){
   </tr>
   <?php }?>
 </tbody></table>
+</div>
 </li>
 <li data-role="list-divider"><a class="fyxqdown_left_cur" href="javascript:daolumap()">地图</a><a href="javascript:streetmap(1)">街景</a></li>
                </ul>
