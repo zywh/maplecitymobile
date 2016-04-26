@@ -18,7 +18,90 @@ class MhouseController extends XFrontBase
     }
 
 	public function actionSchool() {
- 		 $this->render('school');
+		ini_set("log_errors", 1);
+        ini_set("error_log", "/tmp/php-error.log");
+		$db = Yii::app()->db;
+		$schoolList = array();
+		$lat = $_POST['lat'];
+		$lng = $_POST['lng'];
+		$url = 'https://www.app.edu.gov.on.ca/eng/sift/searchElementaryXLS.asp';
+		// header
+		$userAgent = array(
+		'Mozilla/5.0 (Windows NT 6.1; rv:22.0) Gecko/20100101 Firefox/22.0', // FF 22
+		'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36', // Chrome 27
+		'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', // IE 9
+		'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E)', // IE 8
+		'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E)', // IE 7
+		'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/4.1.0.4000 Chrome/26.0.1410.43 Safari/537.1', // Maxthon 4
+		'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E)', // 2345 2
+		'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; QQBrowser/7.3.11251.400)', // QQ 7
+		'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E; SE 2.X MetaSr 1.0)', // Sougo 4
+		'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0) LBBROWSER', //  liebao 4
+		);
+
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_0);
+		curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0");
+		curl_setopt($ch, CURLOPT_REFERER, "https://www.app.edu.gov.on.ca/eng/sift/PCsearchSec.asp");
+		curl_setopt($ch, CURLOPT_USERAGENT, $userAgent[rand(0, count($userAgent) - 1)]);
+		// 伪造IP头
+		$ip = rand(27, 64) . "." . rand(100, 200) . "." . rand(2, 200) . "." . rand(2, 200);
+		$headerIp = array("X-FORWARDED-FOR:{$ip}", "CLIENT-IP:{$ip}","Host:www.app.edu.gov.on.ca");
+		//$lat = '43.5596118';
+		//$lng = '-79.72719280000001';
+		$lng = '-79.40317140000002';
+		$lat = '43.6363265';
+		error_log("School Lat:".$lat."Lng:".$lng);
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headerIp);
+		$fields = array(
+			'chosenLevel' => urlencode("Secondary"),
+			'compareLat' => urlencode($lat),
+			'compareLong' => urlencode($lng),
+			'refineDistance' => urlencode("NN"),
+		);
+
+
+		$fields_string='';
+		foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+		rtrim($fields_string, '&');
+		curl_setopt($ch,CURLOPT_POST, count($fields));
+		curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+		// 读取数据
+		$res = curl_exec($ch);
+		curl_close($ch);
+		$xml = simplexml_load_string($res);
+		$schools = array();
+		foreach($xml->children() as $var) {
+			$school['no'] = $var['SCH_NO'];
+			$school['name'] = $var['SCH_NAME'];
+			$school['type'] = $var['SCH_TYPE_DESC'];
+			$school['lang'] = $var['SCH_LANGUAGE_DESC'];
+			$school['lat'] = $var['lat'];
+			$school['lng'] = $var['lng'];
+			$school['addr'] = $var['SCH_STREET'];
+			
+			$schoolSearch = str_replace("Secondary School","",$var['SCH_NAME']);
+			$schoolSearch = str_replace("High School","",$schoolSearch);
+			$schoolSearch = str_replace("'s","",$schoolSearch);
+			
+			$sql = "select rank from h_school_rank 
+			where name ='". $schoolSearch."' 
+			and city='".$var['SCH_CITY']."' 
+			and type=2;";
+			$resultsql = $db->createCommand($sql)->query();
+			$rank = $resultsql->readColumn(0);
+			$school['rank'] = ($rank)? $rank : '无';
+			error_log("School No:" . $school['no']." Rank:".$rank." Name:".$school['name'] );
+			$schools[] = $school;
+		}
+	    $data = array(
+            'schools'           => $schools,
+        );
+        
+ 		$this->render('school',$data);
+		 
     }	
 	
     /**

@@ -35,6 +35,10 @@
 
 </ul>
 </div>
+
+<?php
+	echo $schools[0]['no'].$schools[0]['name'].$schools[0]['rank'];
+?>
 <!-- GoogleMaps info --> 
  
  <script type="text/javascript"> 
@@ -368,7 +372,7 @@
 		
 		lat = (lat) ? lat: "43.5596118";
 		lng= (lng) ? lng: "-79.72719280000001";
-		getSchool(lat,lng);
+		//getSchool(lat,lng);
 		
 	});
    
