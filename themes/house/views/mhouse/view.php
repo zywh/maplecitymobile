@@ -105,7 +105,7 @@ $slng=$_GET["lng"];
 $county = $house->county;
 $county = preg_replace('/\s+/', '', $county);
 $county = str_replace("&","",$county);
-$dir="mlspic/crea/creamid/".$county."/Photo".$house->ml_num."/";
+$dir="mlspic/crea/".$county."/Photo".$house->ml_num."/";
 $num_files = 0;
 
 if(is_dir($dir)){
@@ -153,7 +153,7 @@ var swiper = new Swiper(".swiper-container", {
         </div>
 
         <div class="fyxqupright ui-corner-all custom-corners">
-            <div class="fyxqupright_title ui-bar ui-bar-a">MLS：<?php echo $house->ml_num; ?></div>
+            <div class="fyxqupright_title">MLS：<?php echo $house->ml_num; ?></div>
 		</div>
         <div class="cl"></div>
 		<div class="fyxqupright_cont ui-body ui-body-a">
@@ -305,7 +305,7 @@ $(function(){
 })
 </script>
                 
-      <div class="fyxqdown_left_cont">
+      <div class="fyxqdown_left_cont ui-bar">
 				<ul class="xqlb_list" data-role="listview">
 				<li data-role="list-divider">详情列表</li>
                         <li><span class="xqlb_label">MLS编号：</span><?php echo $house->ml_num; ?></li>
@@ -420,7 +420,8 @@ $(function(){
 })
 </script> 
 <div class="fwbjtable table-stroke">            
-<table data-role="table" id="fwbj" class="ui-responsive" data-mode="columntoggle">
+<!-- <table data-role="table" id="fwbj" class="ui-responsive" data-mode="columntoggle"> --!>
+<table id="fwbj" class="ui-responsive">
   <thead><tr>
     <th width="12%" style="border-bottom: 1px solid #CCCCCC;">楼层</th>
     <th width="12%" style="border-bottom: 1px solid #CCCCCC;">房间</th>
@@ -555,15 +556,10 @@ $(function(){
   <?php }?>
 </tbody></table>
 </div>
-</li>
 <li data-role="list-divider"><a class="fyxqdown_left_cur" href="javascript:daolumap()">地图</a><a href="javascript:streetmap(1)">街景</a></li>
                </ul>
             </div>
- 
-            
-<
-     </div>
-                           
+
 <script>
 
 //用window的onload事件，窗体加载完毕的时候
