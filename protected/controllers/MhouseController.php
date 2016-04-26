@@ -22,8 +22,8 @@ class MhouseController extends XFrontBase
         ini_set("error_log", "/tmp/php-error.log");
 		$db = Yii::app()->db;
 		$schoolList = array();
-		$lat = $_POST['lat'];
-		$lng = $_POST['lng'];
+		$lat = ($_GET['lat'])? $_GET['lat']: '43.6363265';
+		$lng = ($_GET['lng'])? $_GET['lng'] : '-79.403171400000';
 		$url = 'https://www.app.edu.gov.on.ca/eng/sift/searchElementaryXLS.asp';
 		// header
 		$userAgent = array(
@@ -50,8 +50,8 @@ class MhouseController extends XFrontBase
 		$headerIp = array("X-FORWARDED-FOR:{$ip}", "CLIENT-IP:{$ip}","Host:www.app.edu.gov.on.ca");
 		//$lat = '43.5596118';
 		//$lng = '-79.72719280000001';
-		$lng = '-79.40317140000002';
-		$lat = '43.6363265';
+		//$lng = '-79.40317140000002';
+		//$lat = '43.6363265';
 		error_log("School Lat:".$lat."Lng:".$lng);
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headerIp);
@@ -93,7 +93,7 @@ class MhouseController extends XFrontBase
 			$resultsql = $db->createCommand($sql)->query();
 			$rank = $resultsql->readColumn(0);
 			$school['rank'] = ($rank)? $rank : '无';
-			error_log("School No:" . $school['no']." Rank:".$rank." Name:".$school['name'] );
+			
 			$schools[] = $school;
 		}
 	    $data = array(

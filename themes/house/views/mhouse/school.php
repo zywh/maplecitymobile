@@ -6,22 +6,26 @@
 
 .school-listview .ui-listview ,
 .school-listview .ui-listview > li  {
-	margin: 6px 2px;
+	margin: 0px 0px;
 	
 		
 }
 
 #school_name {
-	white-space: nowrap; overflow: hidden;
+	white-space: nowrap; 
 	font-size:80%;
 	width: 262px;
-	margin-top:12px;
+	margin-top:2px;
+	margin-left: -9px;
+	text-overflow:ellipsis
 }
 #school_text {
 	width: 262px;
-	white-space: nowrap; overflow: hidden;
+	white-space: nowrap; 
 	font-size:80%;
-	margin-top:6px;	
+	margin-top:3px;	
+	margin-left: 3px;
+	text-overflow:ellipsis
 }
 </style>
 
@@ -33,12 +37,16 @@
 <div class="school-listview">
 <ul data-role="listview" data-icon="false" id="school_list">
 
+	<?php 	foreach ($schools as $school) {	?> 
+	<li> <div id='school_name'><a   data-ajax='false' href='https://www.app.edu.gov.on.ca/eng/sift/schoolProfileSec.asp?SCH_NUMBER=<?php  echo $school['no']; ?>'><?php  echo $school['name'];  ?></a></div>
+	<div id='school_text'> <?php echo  $school['type']." ".$school['lang'] ?>
+	<a data-ajax='false' href='index.php?r=map/index&lat= <?php echo $school['lat'] ;?>&lng=<?php echo $school['lng'] ?>&zoom=15&maptype=school'> <?php echo $school['addr'];?></a></div> 
+	<span class='ui-li-count'> <?php echo $school[rank];?></span></li>
+	
+    <?php } ?>
 </ul>
 </div>
 
-<?php
-	echo $schools[0]['no'].$schools[0]['name'].$schools[0]['rank'];
-?>
 <!-- GoogleMaps info --> 
  
  <script type="text/javascript"> 
