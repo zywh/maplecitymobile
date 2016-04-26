@@ -12,22 +12,27 @@
 }
 
 #school_name {
-	white-space: nowrap; 
+	white-space: nowrap;  overflow: hidden;
 	font-size:80%;
 	width: 262px;
 	margin-top:2px;
 	margin-left: -9px;
-	text-overflow:ellipsis
+	text-overflow:ellipsis;
 }
 #school_text {
 	width: 262px;
-	white-space: nowrap; 
+	white-space: nowrap;  overflow: hidden;
 	font-size:80%;
 	margin-top:3px;	
-	margin-left: 3px;
-	text-overflow:ellipsis
+	margin-left: -9px;
+	text-overflow:ellipsis;
+}
+#googlemap {
+	height:300px;
 }
 </style>
+
+<div id='googlemap'></div>
 
 <div data-role="header">
   <a href="#" class="ui-btn ui-btn-icon-left">学校</a>
@@ -41,6 +46,7 @@
 	<li> <div id='school_name'><a   data-ajax='false' href='https://www.app.edu.gov.on.ca/eng/sift/schoolProfileSec.asp?SCH_NUMBER=<?php  echo $school['no']; ?>'><?php  echo $school['name'];  ?></a></div>
 	<div id='school_text'> <?php echo  $school['type']." ".$school['lang'] ?>
 	<a data-ajax='false' href='index.php?r=map/index&lat= <?php echo $school['lat'] ;?>&lng=<?php echo $school['lng'] ?>&zoom=15&maptype=school'> <?php echo $school['addr'];?></a></div> 
+	<div id='school_text'> <?php echo  $school['postcode']." ".$school['city']; ?></div>
 	<span class='ui-li-count'> <?php echo $school[rank];?></span></li>
 	
     <?php } ?>
@@ -373,14 +379,59 @@
 	});
 	//Ajax End
 	}
+
+	
+	function initMap(lat,lng) {
+		var point = {lat: lat, lng: lng};
+
+		map = new google.maps.Map(document.getElementById('googlemap'), {
+		center: point,
+		zoom: 15
+		});
+
+		infowindow = new google.maps.InfoWindow();
+		var service = new google.maps.places.PlacesService(map);
+		service.nearbySearch({
+			location: point,
+			radius: 500,
+			type: ['school']
+		}, placecallback);
+	}
+	function placecallback(results, status) {
+	  if (status === google.maps.places.PlacesServiceStatus.OK) {
+		for (var i = 0; i < results.length; i++) {
+		  createMarker(results[i]);
+		}
+	  }
+	}
+
+	function createMarker(place) {
+	  var placeLoc = place.geometry.location;
+	  var marker = new google.maps.Marker({
+		map: map,
+		icon:place.icon,
+		position: place.geometry.location
+	  });
+
+	  google.maps.event.addListener(marker, 'click', function() {
+		infowindow.setContent(place.name);
+		infowindow.open(map, this);
+	  });
+	}	
+
+
 	
 	$( document ).on( "pagecreate", "#page_main", function() {	
+		var map;
+		var infowindow;
+
 		var lat = '<?php echo $_GET["lat"]; ?>';
 		var lng = '<?php echo $_GET["lng"]; ?>';
 		
 		lat = (lat) ? lat: "43.5596118";
 		lng= (lng) ? lng: "-79.72719280000001";
 		//getSchool(lat,lng);
+		initMap(lat,lng);
 		
 	});
    

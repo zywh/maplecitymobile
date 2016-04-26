@@ -76,12 +76,14 @@ class MhouseController extends XFrontBase
 		foreach($xml->children() as $var) {
 			$school['no'] = $var['SCH_NO'];
 			$school['name'] = $var['SCH_NAME'];
-			$school['type'] = $var['SCH_TYPE_DESC'];
-			$school['lang'] = $var['SCH_LANGUAGE_DESC'];
+			
+			$school['type'] = ($var['SCH_TYPE_DESC'] == "Catholic" )? '天主教': '公立';
+			$school['lang'] = ($var['SCH_LANGUAGE_DESC'] == 'French' ) ? '法文':'英文';
 			$school['lat'] = $var['lat'];
 			$school['lng'] = $var['lng'];
 			$school['addr'] = $var['SCH_STREET'];
-			
+			$school['city'] = $var['SCH_CITY'];
+			$school['postcode'] = $var['SCH_POSTALCODE'];
 			$schoolSearch = str_replace("Secondary School","",$var['SCH_NAME']);
 			$schoolSearch = str_replace("High School","",$schoolSearch);
 			$schoolSearch = str_replace("'s","",$schoolSearch);
