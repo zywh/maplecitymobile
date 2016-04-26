@@ -560,3 +560,27 @@ Stack trace:
 REQUEST_URI=/index.php?r=mhouse/school
 HTTP_REFERER=http://m.maplecity.com.cn/
 ---
+2016/04/27 06:25:39 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Amoreaux Collegiate Institute' 
+			and city='Agincourt' 
+			and type=2' at line 2. The SQL statement executed was: select rank from h_school_rank 
+			where name ='L'Amoreaux Collegiate Institute' 
+			and city='Agincourt' 
+			and type=2;.
+2016/04/27 06:25:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Amoreaux Collegiate Institute' 
+			and city='Agincourt' 
+			and type=2' at line 2' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/MhouseController.php(95): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): MhouseController->actionSchool()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('school')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('mhouse/school')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=mhouse/school&lat=43.863745&lng=-79.394965
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=mhouse/index&sr=Sale
+---

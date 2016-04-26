@@ -136,10 +136,11 @@ var swiper = new Swiper(".swiper-container", {
   pagination: ".swiper-pagination",
   nextButton: '.swiper-button-next',
   prevButton: '.swiper-button-prev',
+  slidesPerView: 1,
   paginationClickable: true,
-  autoplay: 3500,
+  autoplay: 10,
   speed: 1000,
-  autoplayDisableOnInteraction: true,
+  autoplayDisableOnInteraction: true
 });
 </script>
 </div>
