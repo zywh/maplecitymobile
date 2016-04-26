@@ -20,6 +20,7 @@
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		-->
+
 	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jqm-fa-img/jqm-font-awesome-maple.css" />
 		
 		
@@ -30,7 +31,7 @@
 	
 	<title> 加拿大房产_枫之都
 	</title>
-	<script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyA8e2Aha2ksuqOCP06qBBm2eP_WQGets0E&libraries=places&language=zh-cn"></script>
+
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="/static/js/jquery/jquery-ui.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -39,10 +40,6 @@
 	<script type="text/javascript" src="/static/map/js/markerclusterer_packed.js"></script>
 	 -->
 
-	<script type="text/javascript" src="/static/map/js/richmarker-compiled.js"></script>
-	<script type="text/javascript" src="/static/map/js/maplemap.js"></script>
-	
-	
 
 </head>
 <body>

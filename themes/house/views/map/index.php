@@ -1,3 +1,8 @@
+<script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyA8e2Aha2ksuqOCP06qBBm2eP_WQGets0E&libraries=places&language=zh-cn"></script>
+
+<script type="text/javascript" src="/static/map/js/richmarker-compiled.js"></script>
+<script type="text/javascript" src="/static/map/js/maplemap.js"></script>
+
 
 
 <!-- 房源搜索列表开始 -->
