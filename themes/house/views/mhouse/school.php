@@ -4,7 +4,21 @@
 <script type="text/javascript" src="/static/map/js/maplemap.js"></script>
 
 
-
+<ul data-role="listview" data-icon="false" id="school_list">
+  <li><a href="#">
+  <h3>school Name</h3>
+  <p> Address:dfasdfdsafasdfasd Enlish Other </p>
+  <span class="ui-li-count">25</span>
+  </a></li>
+  <li><a href="#">
+  <h3>school Name</h3>
+  <p> Address:dfasdfdsafasdfasd Enlish Other </p>
+  <span class="ui-li-count">432</span></a></li>
+  <li><a href="#">
+   <h3>school Name</h3>
+  <p> Address:dfasdfdsafasdfasd Enlish Other </p>
+  <span class="ui-li-count">N/A</span></a></li>
+</ul>
 
 <!-- GoogleMaps info --> 
  
@@ -292,6 +306,37 @@
         //console.log("Remove All Markers 222");
 		
     }
+	
+	function getSchool(lat,lng) {
+			
+	$.ajax({
+		url: '/index.php?r=mhouse/getSchoolList',
+		type: 'POST', 
+		dataType: 'xml', 
+		data: { 
+			lat : lat, 
+			lng : lng
+		},
 
+		//Success Start
+		success: function(xml) {
+			$(xml).find('marker').each(function(){
+				console.log("School:" + $(this).attr('SCH_NO'))
+			});
+			
+		}
+		//Success End
+	});
+	//Ajax End
+	}
+	
+	$( document ).on( "pagecreate", "#page_main", function() {	
+		var lat = '<?php echo $_GET["lat"]; ?>';
+		var lng = '<?php echo $_GET["lng"]; ?>';
+		lat = (lat) ? lat: "54.649739";
+		lng= (lng) ? lng: "-93.045726";
+		getSchool(lat,lng);
+		
+	});
    
 </script>

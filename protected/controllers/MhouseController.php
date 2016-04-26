@@ -17,6 +17,10 @@ class MhouseController extends XFrontBase
  		 $this->render('index');
     }
 
+	public function actionSchool() {
+ 		 $this->render('school');
+    }	
+	
     /**
      * 房源详情
      */
