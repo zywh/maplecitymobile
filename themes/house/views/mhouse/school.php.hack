@@ -6,7 +6,7 @@
 
 .school-listview .ui-listview ,
 .school-listview .ui-listview > li  {
-	margin: 15px 2px;
+	margin: 0px 0px;
 	
 		
 }
@@ -15,13 +15,16 @@
 	white-space: nowrap;  overflow: hidden;
 	font-size:80%;
 	width: 262px;
-	
+	margin-top:2px;
+	margin-left: -9px;
 	text-overflow:ellipsis;
 }
 #school_text {
 	width: 262px;
 	white-space: nowrap;  overflow: hidden;
 	font-size:80%;
+	margin-top:3px;	
+	margin-left: -9px;
 	text-overflow:ellipsis;
 }
 #googlemap {
@@ -39,7 +42,14 @@
 <div class="school-listview">
 <ul data-role="listview" data-icon="false" id="school_list">
 
-
+	<?php 	foreach ($schools as $school) {	?> 
+	<li> <div id='school_name'><a   data-ajax='false' href='https://www.app.edu.gov.on.ca/eng/sift/schoolProfileSec.asp?SCH_NUMBER=<?php  echo $school['no']; ?>'><?php  echo $school['name'];  ?></a></div>
+	<div id='school_text'> <?php echo  $school['type']." ".$school['lang'] ?>
+	<a data-ajax='false' href='index.php?r=map/index&lat= <?php echo $school['lat'] ;?>&lng=<?php echo $school['lng'] ?>&zoom=15&maptype=school'> <?php echo $school['addr'];?></a></div> 
+	<div id='school_text'> <?php echo  $school['postcode']." ".$school['city']; ?></div>
+	<span class='ui-li-count'> <?php echo $school[rank];?></span></li>
+	
+    <?php } ?>
 </ul>
 </div>
 
@@ -116,31 +126,19 @@
 	  if (status === google.maps.places.PlacesServiceStatus.OK) {
 		var service = new google.maps.places.PlacesService(map);
 		for (var i = 0; i < results.length; i++) {
-		  if ( results[i].name.indexOf("School") > -1){
-			  createMarker(results[i]);
-			  //console.log(results[i].name + " " + results[i].place_id + " " +results[i].html_attributions);
-			  //console.log(results[i].vicinity );
-			  
-			  service.getDetails({
-					placeId: results[i].place_id
-				},detailcallback) ;
-		  }
+		  createMarker(results[i]);
+		  //console.log(results[i].name + " " + results[i].place_id + " " +results[i].html_attributions);
+		  //console.log(results[i].vicinity );
+		  service.getDetails({
+				placeId: results[i].place_id
+			},detailcallback) ;
 		}
 	  }
 	}
 	function detailcallback(place,status){
 		 if (status === google.maps.places.PlacesServiceStatus.OK) {
-
-			//console.log(JSON.stringify(place));
-			var html = "<li><div id='school_name' ><a data-ajax='false' href='" + place.website + "'>" 
-			+  place.name + "</a></div>"
-			+ "<div id='school_text'> " + place.formatted_phone_number
-			+ " <a data-ajax='false' href='index.php?r=map/index&lat=" + place.geometry.location.lat()  + "&lng=" + place.geometry.location.lng() + "&zoom=15&maptype=school'>" 
-			+ place.vicinity + "</a>"
-			+ " </div> "
-			+ "<span class='ui-li-count'>" + place.rating + "</span> "
-			+ "</li>"
-			$("#school_list").append(html);	
+			 //console.log("Detail:" + place.formatted_address + ":" + place.html_attributions + " " + place.formatted_phone_number + " " + place.website + " " );
+				console.log(JSON.stringify(place));
 		 }	 
 	}
 	function createMarker(place) {
