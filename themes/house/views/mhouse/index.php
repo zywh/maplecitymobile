@@ -56,7 +56,7 @@ function update_houselist(options) {
 				+ "<div class='houseview-area houseview-text'>"
 				
 				+ "<a class='pv-text1 ui-btn' data-ajax='false' href='index.php?r=map/index&lat=" + this.GeocodeLat + "&lng=" + this.GeocodeLng + "&zoom=15&type=house'>"
-				+ "地址:" + this.Address + "," + this.MunicipalityName  
+				+ "<i class='material-icons md16'>school</i> " + this.Address + "," + this.MunicipalityName  
 				+ "</a>"
 				//+ "<a data-ajax='false' href='index.php?r=map/index&lat=" + this.CityLat + "&lng=" + this.CityLng + "&zoom=13&type=city'>"
 				//+ "<div>城市:" + this.MunicipalityName + " " + this.ProvinceCname +  "</div>" 

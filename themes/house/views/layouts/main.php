@@ -20,6 +20,8 @@
 	
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		-->
+	 <link type="text/css" rel="stylesheet" href="/googlefont/material-icons.css" />
+
 
 	<link type="text/css" rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/themes/jqm-fa-img/jqm-font-awesome-maple.css" />
 		

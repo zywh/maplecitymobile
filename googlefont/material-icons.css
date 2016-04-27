@@ -34,6 +34,15 @@
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
-.material-icons.md-16 { font-size: 18px;color:#ff4103; }
+.material-icons.md16 { font-size: 16px;color:#ff4103; vertical-align: middle; }
+.material-icons.md16r { font-size: 14px;color:#fff; 
+ background: #ff4103;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 16px;
+    vertical-align: middle;
+}
 .material-icons.md-24 { font-size: 24px;color:#ff4103; } /* Default */
 .material-icons.md-36 { font-size: 36px;color:#ff4103; }
