@@ -80,13 +80,13 @@ var maplemap = {
 		var iconurl;
 
 		if ( maptype == "school") {
-			iconurl = iconbase + "m1.jpg";
+			iconurl = iconbase + "university.png";
 		} else if (maptype == "house") {
-			iconurl = iconbase + "m2.jpg";
+			iconurl = iconbase + "bighouse.png";
 		} else if (maptype == "city") {
-			iconurl = iconbase + "m3.jpg";
+			iconurl = iconbase + "city.png";
 		} else {
-			iconurl = iconbase + "m4.jpg";
+			iconurl = iconbase + "city.png";
 		}
 		
 		var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));

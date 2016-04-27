@@ -1,57 +1,10 @@
 <link type="text/css" rel="stylesheet" href="http://www.idangero.us/swiper/dist/css/swiper.min.css" media="all" />
 <script src="http://www.idangero.us/swiper/dist/js/swiper.min.js"></script>
-<style>
-.mydiv {
-*background-image:url(/themes/house/images/yuyuebf.png);
-text-align: center;
-line-height: 40px;
-font-size: 12px;
-font-weight: bold;
-z-index:99;
-width: 495px;
-height: 400px;
-left:40%;/*FF IE7*/
-top: 20%;/*FF IE7*/
-margin-left:-150px!important;/*FF IE7 该值为本身宽的一半 */
-margin-top:-60px!important;/*FF IE7 该值为本身高的一半*/
-margin-top:0px;
-position:fixed!important;/*FF IE7*/
-position:absolute;/*IE6*/
-_top:       expression(eval(document.compatMode &&
-            document.compatMode=='CSS1Compat') ?
-            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
-            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
+<!-- 房源详情页面开始 -->
 
-}
-.mydiv .guanbi{ width:475px; height:20px; padding-right:20px;text-align:right;}
-.mydiv .guanbi a{ color:#FFFFFF; font-size:14px; text-decoration:none}
-.bgbgbg {
-width: 100%;
-height: 100%;
-left:0;
-top:0;/*FF IE7*/
-filter:alpha(opacity=50);/*IE*/
-opacity:0.5;/*FF*/
-z-index:1;
-position:fixed!important;/*FF IE7*/
-position:absolute;/*IE6*/
-_top:       expression(eval(document.compatMode &&
-            document.compatMode=='CSS1Compat') ?
-            documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
-            document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);/*IE5 IE5.5*/
-
-}
-.zczltwo span a{ color:#666666; text-decoration:none;}
-.zczltwo span a:hover{ color:#FF6600}
-.syljcont a:hover{ color:#FF6600}
-.kf{ line-height:30px; width:81px; height:31px; text-align:center}
-.kf a{ color:#FFFFFF}
-.kf a:hover{ color:#000000}
-.dlh_btn a{ color:#FF6600}
-.dlh_btn:hover{ text-decoration:underline}
-.nytb_dz a:hover{ color:#FF6600}
-</style>
-
+<div class="fyxq">
+<!--效果开始-->
+<div class="ink_phoBok">
 <?php
 $db = Yii::app()->db;
 $jingdu=$house->latitude;
@@ -60,47 +13,8 @@ $sid=$_GET["sid"];
 $slat=$_GET["lat"];
 $slng=$_GET["lng"];
 
-	function get_firstimage($county,$ml_num){
-		
-		$county = preg_replace('/\s+/', '', $county);
-		$county = str_replace("&","",$county);
-		$dir="mlspic/crea/creamid/".$county."/Photo".$ml_num."/";
-		$num_files = 0;
-		if(is_dir($dir)){
-			$picfiles = scandir($dir);
-			$num_files = count(scandir($dir))-2;
-		}
-		if ( $num_files >= 1)    {
-			return $dir.$picfiles[2];
+$school_url="index.php?r=mhouse/school&lat="$jingdu"&lng="$weidu;
 
-		}else { return 'static/images/zanwu.jpg';}
-	}
-	
-	function get_tn_image($county,$ml_num){
-		
-		$county = preg_replace('/\s+/', '', $county);
-		$county = str_replace("&","",$county);
-		$dir="mlspic/crea/creatn/".$county."/Photo".$ml_num."/";
-		$num_files = 0;
-		if(is_dir($dir)){
-			$picfiles = scandir($dir);
-			$num_files = count(scandir($dir))-2;
-		}
-		if ( $num_files >= 1)    {
-			
-			$s = implode(",",array_slice($picfiles,2,3)); //return 3 comma seperated list with offset 2 which is subdir . and ..
-			$s = str_replace("Photo",$dir."Photo",$s); // Insert DIR in front
-			return $s;
-		} else { return 'static/images/zanwu.jpg';}
-	}
-
-?>    
-<!-- 房源详情页面开始 -->
-
-<div class="fyxq">
-<!--效果开始-->
-<div class="ink_phoBok">
-<?php
 //打开 images 目录
 $county = $house->county;
 $county = preg_replace('/\s+/', '', $county);
@@ -308,7 +222,9 @@ $(function(){
                 
       <div class="fyxqdown_left_cont ui-bar">
 				<ul class="xqlb_list" data-role="listview">
+				<li data-role="list-divider"><a class="fyxqdown_left_cur" href="<?php> echo $school_url; ?>">地图和学校</a></li>
 				<li data-role="list-divider">详情列表</li>
+
                         <li><span class="xqlb_label">MLS编号：</span><?php echo $house->ml_num; ?></li>
                         <li><span class="xqlb_label">交叉路口：</span><?php echo $house->cross_st; ?></li>
                         <li><span class="xqlb_label">物业类别：</span><?php echo $house->propertyType->name; ?></li>
@@ -557,112 +473,9 @@ $(function(){
   <?php }?>
 </tbody></table>
 </div>
-<li data-role="list-divider"><a class="fyxqdown_left_cur" href="javascript:daolumap()">地图</a><a href="javascript:streetmap(1)">街景</a></li>
-               </ul>
-            </div>
+</ul>
+</div>
 
-<script>
-
-//用window的onload事件，窗体加载完毕的时候
-window.onload=function(){
-daolumap();
-}
-</script>
 </div>
 <!-- 房源详情页面结束 -->
 
-<script type="text/javascript">
-    //google地图开始
-    $(function() {
-        mapinit();
-    });
-
-    function mapinit() {
-        ///地图
-        var mapLatLng = new google.maps.LatLng(parseFloat(<?php echo $jingdu; ?>), parseFloat(<?php echo $weidu; ?>));
-        var myOptions = {
-            zoom: 13,
-            center: mapLatLng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-
-        var map1 = new google.maps.Map(document.getElementById('map1'), myOptions);
-        var marker1 = new google.maps.Marker({
-            position: mapLatLng,
-            map: map1
-        });
-    }
-
-    function daolumap() {
-        $('.hsdts_box5 a').removeClass('fyxqdown_left_cur').eq(0).addClass('fyxqdown_left_cur');
-        $('.hsdts_box5 .dataWrap').hide().eq(0).show();
-        var mapLatLng = new google.maps.LatLng(parseFloat(<?php echo $jingdu; ?>), parseFloat(<?php echo $weidu; ?>));
-        var myOptions = {
-            zoom: 13,
-            center: mapLatLng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map1 = new google.maps.Map(document.getElementById('map1'), myOptions);
-        var marker1 = new google.maps.Marker({
-            position: mapLatLng,
-            map: map1
-        });
-		
-		var sid = "<?php echo $sid?>";
-		if ( sid != null) {
-			console.log(sid);
-			var schoolLatLng = new google.maps.LatLng(parseFloat(<?php echo $slat; ?>), parseFloat(<?php echo $slng; ?>));
-        
-			//Add school marker if sid exist
-			var surl = 	"<?php echo Yii::app()->createUrl('column/map'); ?>&id=" + sid ;
-		    //console.log(url);
-		    var smarker = new google.maps.Marker({
-            position: schoolLatLng,
-            map: map1,
-			icon: {
-				url: '/themes/house/images/house/m1.jpg',
-				size: new google.maps.Size(40,40)
-				},
-			url: surl
-			});
-			google.maps.event.addListener(smarker, 'click', function() {
-				window.open(this.url);
-            });
-		
-			//Add Direction Service
-			//var directionsService = new google.maps.DirectionsService;
-			//var directionsDisplay = new google.maps.DirectionsRenderer;
-			//directionsDisplay.setMap(map1);
-			//directionsService.route({
-			//	origin: mapLatLng,
-			//	destination: schoolLatLng,
-			//	travelMode: google.maps.TravelMode.DRIVING
-			//	}, function(response, status) {
-			//		if (status === google.maps.DirectionsStatus.OK) {
-			//				directionsDisplay.setDirections(response);
-			//		} else {
-			//		window.alert('Directions request failed due to ' + status);
-			//		}
-			//});
-		}
-    }
-
-    function streetmap(loca) {
-        if (true) {
-            var mapLatLng = new google.maps.LatLng(parseFloat(<?php echo $jingdu; ?>), parseFloat(<?php echo $weidu; ?>));
-            var panoramaOptions = {pov: {heading: 0, pitch: 0, zoom: 0}, position: mapLatLng};
-            if (loca == 0) {
-                var panorama = new google.maps.StreetViewPanorama(document.getElementById("streetMap"), panoramaOptions);
-            } else if (loca == 1) {
-                $('.hsdts_box5 a').removeClass('fyxqdown_left_cur').eq(1).addClass('fyxqdown_left_cur');
-                $('.hsdts_box5 .dataWrap').hide().eq(1).show();
-                var Streetmap2 = new google.maps.StreetViewPanorama(document.getElementById("map2"), panoramaOptions);
-            } else {
-                $('.hsdts_box5 a').removeClass('fyxqdown_left_cur').eq(1).addClass('fyxqdown_left_cur');
-                $('.hsdts_box5 .dataWrap').hide().eq(1).show();
-                var Streetmap2 = new google.maps.StreetViewPanorama(document.getElementById("map2"), panoramaOptions);
-                var panorama = new google.maps.StreetViewPanorama(document.getElementById("streetMap"), panoramaOptions);
-            }
-        }
-    }
-</script>

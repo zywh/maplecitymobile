@@ -45,46 +45,7 @@ a {text-decoration: none; }
  
  <script type="text/javascript"> 
  
-	
-	function getSchool(lat,lng) {
-			console.log("Lat:" + lat + " Lng:" + lng);
-	$.ajax({
-		url: '/index.php?r=mhouse/getSchoolList',
-		type: 'POST', 
-		dataType: 'xml', 
-		data: { 
-			lat : lat, 
-			lng : lng
-		},
 
-		//Success Start
-		success: function(xml) {
-			$(xml).find('marker').each(function(){
-				
-				var schoolLanguage = "英文";
-				if ($(this).attr('SCH_LANGUAGE_DESC') == "French" ) {
-					schoolLanguage = "法文";
-				}
-				var schoolType = "公立  ";
-				if ($(this).attr('SCH_TYPE_DESC') == "Catholic") {
-					schoolType = "天主教";
-				}
-				var html = "  <li><a data-ajax='false' href='https://www.app.edu.gov.on.ca/eng/sift/schoolProfileSec.asp?SCH_NUMBER=" + $(this).attr('SCH_NO') + "'> "
-				+ "<div id='school_name'>" + $(this).attr('SCH_NAME') + "</a></div>"
-				+ "<div id='school_text'> " + schoolType + " "
-				+ schoolLanguage + " " +  "<a data-ajax='false' href='index.php?r=map/index&lat=" + $(this).attr('lat')  + "&lng=" + $(this).attr('lng') + "&zoom=15&maptype=school'>" 
-				+ $(this).attr('SCH_STREET') + "</a>"
-				+ " </div> "
-				+ "<span class='ui-li-count'>25</span> "
-				+ "</li>"
-				$("#school_list").append(html);
-			});
-			
-		}
-		//Success End
-	});
-	//Ajax End
-	}
 
 	
 	function initMap(lat,lng) {
@@ -95,7 +56,7 @@ a {text-decoration: none; }
 		zoom: 13
 		});
 		
-		var iconurl = iconbase + "m2.jpg";
+		var iconurl = iconbase + "bighouse.png";
 		var marker = new google.maps.Marker({
 			map: map,
 			icon: iconurl,
@@ -114,7 +75,10 @@ a {text-decoration: none; }
 	  if (status === google.maps.places.PlacesServiceStatus.OK) {
 		var service = new google.maps.places.PlacesService(map);
 		for (var i = 0; i < results.length; i++) {
-		  if ( results[i].name.indexOf("School") > -1){
+			var name = results[i].name;
+			console.log(name);
+		  //if ( results[i].name.indexOf("School") > -1){
+			if ( name.match(/(Public School|High School|Secondary School)/)) {
 			  createMarker(results[i]);
 			  //console.log(results[i].name + " " + results[i].place_id + " " +results[i].html_attributions);
 			  //console.log(results[i].vicinity );
@@ -145,10 +109,10 @@ a {text-decoration: none; }
 	}
 	function createMarker(place) {
 	  var placeLoc = place.geometry.location;
-	  var iconurl = iconbase + "m1.jpg";
+	  var iconurl = iconbase + "university.png";
 	  var marker = new google.maps.Marker({
 		map: map,
-		//icon: iconurl,
+		icon: iconurl,
 		position: placeLoc
 	  });
 
