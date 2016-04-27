@@ -52,48 +52,19 @@
 		<div data-role="panel" id="main_menu" class="main-menu" data-display="overlay" data-position-fixed="true">
 			<ul data-role="listview"  data-inset="true">
 			    <li data-icon="home"><a href="/" data-icon="home" id="menu_home">首页</a></li>
-				
 			    <li data-icon="search"><a href="index.php?r=mhouse/index&sr=Lease" data-ajax="false" id="menu_lease" >出租房</a></li>
 			    <li data-icon="fa-map"><a href="index.php?r=mhouse/index&sr=Sale" data-ajax="false" id="menu_sale">二手房</a></li>
 			    <li data-icon="location"><a href="index.php?r=map/index" data-ajax="false" id="menu_new">地图搜索</a></li>
 			 	<li data-icon="fa-university"><a href="http://maplecity.com.cn/index.php?r=column/index" data-ajax="false" data-icon="search" id="menu_school">学区房</a></li>
-			
 			    <li data-icon="calendar"><a href="index.php?r=stats/current" data-ajax="false" id="menu_homestats">房源统计</a></li>
-			    <li data-icon="calendar"><a href="index.php?r=mhouse/school" data-ajax="false" id="menu_homestats">Test</a></li>
-			   
 			    <li data-icon="fa-signal"><a href="index.php?r=stats" data-ajax="false" id="menu_homehist">历史统计</a></li>
-		
-				
 			</ul>
 		</div>
 		
 		<div data-role="header" data-position="Fullscreen"  class="main-header " id="main_header" data-theme="b" >
-			
-			
-			
 			<a href="#main_menu" data-transition="pop" class="ui-btn ui-icon-fa-navicon ui-btn-icon-left ui-btn-icon-notext"></a>
-			
 			<ul  data-inset="true" data-filter="true" data-filter-placeholder="城市/地址/MLS" data-filter-theme="a"></ul>
-			
-			
 			<a href="index.php?r=map/index" data-ajax="false"   class="ui-btn ui-corner-all ui-shadow ui-icon-location ui-btn-icon-left ui-btn-icon-notext">Search</a>
-
-			
-			
-		<!-- Navbar as Header 
-			<div data-role="navbar" >
-			  <ul>
-				<li><a href="#main_menu" data-transition="pop"  class="ui-btn  ui-icon-bullets  ui-btn-icon-left 	">枫之都</a></li>
-				
-			
-						
-				<li></li>
-				
-			  </ul>
-			</div>
-			
-		-->
-			
 		</div>
 <script>
 	 

@@ -8,7 +8,7 @@
 .school-listview .ui-btn {
     margin: -5px 0;
 	padding: 6px 0px 6px 34px;
-	width: 246px;
+	width: 240px;
 	font-weight: normal;
 	font-size: 90%;
 	border: none;

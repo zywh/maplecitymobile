@@ -55,7 +55,7 @@ function update_houselist(options) {
 				+ "</a></div>"
 				+ "<div class='houseview-area houseview-text'>"
 				
-				+ "<a class='pv-text' data-ajax='false' href='index.php?r=map/index&lat=" + this.GeocodeLat + "&lng=" + this.GeocodeLng + "&zoom=15&type=house'>"
+				+ "<a class='pv-text ui-btn' data-ajax='false' href='index.php?r=map/index&lat=" + this.GeocodeLat + "&lng=" + this.GeocodeLng + "&zoom=15&type=house'>"
 				+ "<div class='pv-text'>地址:" + this.Address + "," + this.MunicipalityName + "</div>" 
 				+ "</a>"
 				//+ "<a data-ajax='false' href='index.php?r=map/index&lat=" + this.CityLat + "&lng=" + this.CityLng + "&zoom=13&type=city'>"
