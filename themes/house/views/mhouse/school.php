@@ -126,7 +126,7 @@ function getRank($name,$city,$type){
 			var html = "<li><div class='school-area'>" 
 			+ "<a data-ajax='false' class='ui-btn ui-icon-home ui-btn-icon-left' href='" + place.website + "'>" 
 			+  place.name + "</a>"
-			+ "<a href='#'class='ui-btn ui-icon-phone ui-btn-icon-left' > " + place.formatted_phone_number + "</a>"
+			+ "<a href='tel:" + place.formatted_phone_number + "'class='ui-btn ui-icon-phone ui-btn-icon-left' > " + place.formatted_phone_number + "</a>"
 			+ "<a class='ui-btn ui-icon-location ui-btn-icon-left' data-ajax='false' href='index.php?r=map/index&lat=" + place.geometry.location.lat()  + "&lng=" + place.geometry.location.lng() + "&zoom=15&maptype=school'>" 
 			+ place.vicinity + "</a>"
 			+ "</div>"

@@ -67,7 +67,7 @@
 			</ul>
 		</div>
 		
-		<div data-role="header" data-position="fixed"  class="main-header " id="main_header" data-theme="b" >
+		<div data-role="header" data-position="Fullscreen"  class="main-header " id="main_header" data-theme="b" >
 			
 			
 			
