@@ -27,6 +27,34 @@ a {text-decoration: none; }
 
 </style>
 
+<?php
+
+$db = Yii::app()->db;
+function getRank($name,$city,$type){
+	
+	$schoolSearch = str_replace("Secondary School","",$name);
+	$schoolSearch = str_replace("High School","",$schoolSearch);
+	$schoolSearch = str_replace("Secondary School","",$schoolSearch);
+	$schoolSearch = str_replace("Public School","",$schoolSearch);
+	$schoolSearch = str_replace("Elementary School","",$schoolSearch);
+	$schoolSearch = str_replace("'s","",$schoolSearch);
+	
+	if ( ( strpos($name, 'Secondary School') !== false ) || (strpos($name, 'High School') !== false )){
+		$searchType = 2;
+	} else {
+		$searchType = 1;
+	}
+		
+	$sql = "select rank from h_school_rank 
+	where name ='". $schoolSearch."' 
+	and city='".$city."' 
+	and type='".$searchType."';";
+	$resultsql = $db->createCommand($sql)->query();
+	$rank = $resultsql->readColumn(0);
+	$result = ($rank)? $rank : '无';
+	echo $result;
+}
+?>
 <div id='googlemap'></div>
 
 <div data-role="header">
@@ -78,7 +106,7 @@ a {text-decoration: none; }
 			var name = results[i].name;
 			console.log(name);
 		  //if ( results[i].name.indexOf("School") > -1){
-			if ( name.match(/(Public School|High School|Secondary School)/)) {
+			if ( name.match(/(Public School|High School|Secondary School|Elementary School)/)) {
 			  createMarker(results[i]);
 			  //console.log(results[i].name + " " + results[i].place_id + " " +results[i].html_attributions);
 			  //console.log(results[i].vicinity );

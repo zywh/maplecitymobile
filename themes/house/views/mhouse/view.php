@@ -13,7 +13,7 @@ $sid=$_GET["sid"];
 $slat=$_GET["lat"];
 $slng=$_GET["lng"];
 
-$school_url="index.php?r=mhouse/school&lat="$jingdu"&lng="$weidu;
+$school_url="index.php?r=mhouse/school&lat=".$jingdu."&lng=".$weidu;
 
 //打开 images 目录
 $county = $house->county;
@@ -69,6 +69,10 @@ var swiper = new Swiper(".swiper-container", {
 
         <div class="fyxqupright ui-corner-all custom-corners">
             <div class="fyxqupright_title">MLS：<?php echo $house->ml_num; ?></div>
+            <div class="fyxqupright_btn" style="float:right; padding-top:5px;">
+                <a data-ajax="false" href="<?php echo $school_url; ?>">地图和学校</a>
+				</div>
+
 		</div>
         <div class="cl"></div>
 		<div class="fyxqupright_cont ui-body ui-body-a">
@@ -222,7 +226,6 @@ $(function(){
                 
       <div class="fyxqdown_left_cont ui-bar">
 				<ul class="xqlb_list" data-role="listview">
-				<li data-role="list-divider"><a class="fyxqdown_left_cur" href="<?php> echo $school_url; ?>">地图和学校</a></li>
 				<li data-role="list-divider">详情列表</li>
 
                         <li><span class="xqlb_label">MLS编号：</span><?php echo $house->ml_num; ?></li>
@@ -476,6 +479,6 @@ $(function(){
 </ul>
 </div>
 
-</div>
+
 <!-- 房源详情页面结束 -->
 
