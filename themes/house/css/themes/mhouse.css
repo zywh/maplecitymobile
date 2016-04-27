@@ -934,17 +934,27 @@ button[disabled],
 .house-preview-total .ui-btn {border:0;border-color:#fff;}
 
 
-.house_preview .ui-listview > .ui-li-static { padding: 0; }
+.house_preview .ui-listview > .ui-li-static { padding: 0; background-color: #f9f9f9; }
 
 .house_preview .houseview-area { display:inline-block;}
 .house_preview .houseview-tn  img{ max-height: 5em; max-width: 5em; min-height: 5em; min-width: 5em; }
 .house_preview .houseview-text  {position: absolute; margin: 3px 4px 4px; }
+.house_preview .houseview-text > .pv-text1 {
+	margin: 0px 0px 4px; font-size:90%; width:229px;text-align:left; 
+	overflow: hidden;
+    white-space: nowrap;
+	text-overflow: ellipsis;
+	border: none;
+}
 .house_preview .houseview-text > .pv-text {
 	margin: 0px 0px; font-size:90%; width:229px;text-align:left; 
 	overflow: hidden;
     white-space: nowrap;
 	text-overflow: ellipsis;
+	padding-bottom: 2px;
 }
+
+
 
 .house_preview .ui-listview > li h3,
 .house_preview .ui-listview > li h4 { margin: 0; }
