@@ -2,7 +2,7 @@
 <script src="http://www.idangero.us/swiper/dist/js/swiper.min.js"></script>
 <!-- 房源详情页面开始 -->
 
-<div class="fyxq">
+
 <!--效果开始-->
 <div class="ink_phoBok">
 <?php
@@ -29,13 +29,13 @@ if(is_dir($dir)){
 if ( $num_files > 0) {
 ?> 
 <div class="swiper-container" style="margin-bottom: 10px;">
-<div class="swiper-wrapper">
-<?php
+	<div class="swiper-wrapper">
+	<?php
 	for ($x = 2; $x <= $num_files + 1; $x++) {
 	  $filePath = $dir.$picfiles[$x];
 	  ?>
-<div class="swiper-slide" style="width: 100%;">
-  <div style="padding-top: 65%;"></div>
+	<div class="swiper-slide" style="width: 100%;">
+	<div style="padding-top: 65%;"></div>
   <img style="width: 100%; height: auto; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-color: silver;" src="<?php echo Yii::app()->request->baseUrl; ?>/<?php echo $filePath; ?>">
 </div>
 	 <?php
@@ -62,20 +62,22 @@ var swiper = new Swiper(".swiper-container", {
 }
 ?>
 <!--End-->
+
+          
+          
+
+<!--START-->
+<div class="fyxqupright ui-corner-all custom-corners">
+	<div class="fyxqupright_title">MLS：<?php echo $house->ml_num; ?></div>
+	<div class="fyxqupright_btn" style="float:right; padding-top:5px;">
+		<a data-ajax="false" href="<?php echo $school_url; ?>">地图和学校</a>
+	</div>
+
 </div>
-          
-          
-        </div>
+<!--End-->
 
-        <div class="fyxqupright ui-corner-all custom-corners">
-            <div class="fyxqupright_title">MLS：<?php echo $house->ml_num; ?></div>
-            <div class="fyxqupright_btn" style="float:right; padding-top:5px;">
-                <a data-ajax="false" href="<?php echo $school_url; ?>">地图和学校</a>
-				</div>
-
-		</div>
-        <div class="cl"></div>
-		<div class="fyxqupright_cont ui-body ui-body-a">
+<!--START-->
+<div class="fyxqupright_cont ui-body ui-body-a">
                 <div class="fyxq_ptss">
                     <div class="fyxq_ptssleft">价格：</div>
                     <div class="fyxq_ptssright">
@@ -182,6 +184,269 @@ var swiper = new Swiper(".swiper-container", {
                 </div>
                  <div class="cl"></div>
                 </div>
+<!--End-->
+
+<!--START-->			
+<div class="fyxqdown_left_cont ui-bar">
+
+	<ul class="xqlb_list" data-role="listview">
+			<li data-role="list-divider">详情列表</li>
+
+			<li><span class="xqlb_label">MLS编号：</span><?php echo $house->ml_num; ?></li>
+			<li><span class="xqlb_label">交叉路口：</span><?php echo $house->cross_st; ?></li>
+			<li><span class="xqlb_label">物业类别：</span><?php echo $house->propertyType->name; ?></li>
+			<li><span class="xqlb_label">挂牌时间：</span><?php echo $house->pix_updt; ?></li>
+			<li><span class="xqlb_label">房屋层数：</span><?php echo $house->style; ?></li>
+			<li><span class="xqlb_label">土地面积：</span><span class="s1"><?php echo $house->land_area; ?></span><span class="c1">平方英尺</span></li>
+			<li><span class="xqlb_label">房屋面积：</span><span class="s2"><?php echo $house->sqft; ?></span><span class="c2">平方英尺</span></li>
+			<li><span class="xqlb_label">土地描述：</span><span class="s3"></span><span class="c3"><?php echo $house->acres; ?></span></li>
+			<li><span class="xqlb_label">房屋数量：</span><?php echo (int)$house->rms+(int)$house->rooms_plus; ?></li>
+			<li><span class="xqlb_label">地税/年份：</span><?php echo '$ '.$house->taxes; ?>/<?php echo $house->yr." 年"; ?></li>
+			<li><span class="xqlb_label">卧房数量：</span><?php echo (int)$house->br+(int)$house->br_plus; ?></li>
+			<li><span class="xqlb_label">物业管理费：</span>无</li>
+			<li><span class="xqlb_label">厨房数量：</span><?php echo (int)$house->num_kit+(int)$house->kit_plus; ?></li>
+			<li><span class="xqlb_label">建造年份：</span><?php echo $house->yr_built; ?>年</li>
+			<li><span class="xqlb_label">卫生间数量：</span><?php echo $house->bath_tot; ?></li>
+			<li><span class="xqlb_label">地下室：</span><?php echo $house->bsmt1_out; ?>　<?php echo $house->bsmt2_out; ?></li>
+			<li><span class="xqlb_label">车库数量：</span><?php echo $house->gar_spaces; ?></li>
+			<li><span class="xqlb_label">暖气：</span><?php echo $house->heating; ?></li>
+			<li><span class="xqlb_label">大门朝向：</span>
+			<?php 
+			if($house->comp_pts=="N"){
+			echo "北";
+			}
+			elseif($house->comp_pts=="S"){
+			echo "南";
+			}
+			elseif($house->comp_pts=="W"){
+			echo "西";
+			}
+			elseif($house->comp_pts=="E"){
+			echo "东";
+			} ?>
+			</li>
+			<li><span class="xqlb_label">空调：</span><?php echo $house->a_c; ?></li>
+			<li><span class="xqlb_label">邮编：</span><?php echo $house->zip; ?></li>
+			<li><span class="xqlb_label">中央吸尘：</span><?php if($house->central_vac=="Y"){echo "是";}else{echo "否";} ?></li>
+			<li><span class="xqlb_label">游泳池：</span><?php echo $house->pool; ?></li>
+			<li><span class="xqlb_label">出售/出租：</span>
+			<?php 
+			if($house->s_r=="Sale"){
+			echo "出售";
+			}
+			elseif($house->s_r=="Lease"){
+			echo "出租";
+			}
+			?></li>
+			<li><span class="xqlb_label">周边和配套：</span><?php echo $house->prop_feat1_out; ?><?php if($house->prop_feat2_out!=""){echo " , ";}?><?php echo $house->prop_feat2_out; ?><?php if($house->prop_feat3_out!=""){echo " , ";}?><?php echo $house->prop_feat3_out; ?><?php if($house->prop_feat4_out!=""){echo " , ";}?><?php echo $house->prop_feat4_out; ?><?php if($house->prop_feat5_out!=""){echo " , ";}?><?php echo $house->prop_feat5_out; ?><?php if($house->prop_feat6_out!=""){echo " , ";}?><?php echo $house->prop_feat6_out; ?></li>
+
+			<li data-role="list-divider">房屋布局</li>
+		<li>
+
+		<div class="fwbjtable table-stroke">            
+		<!-- <table data-role="table" id="fwbj" class="ui-responsive" data-mode="columntoggle"> -->
+		<table id="fwbj" class="ui-responsive">
+		<thead><tr>
+		<th width="12%" style="border-bottom: 1px solid #CCCCCC;">楼层</th>
+		<th width="12%" style="border-bottom: 1px solid #CCCCCC;">房间</th>
+		<th width="10%" style="border-bottom: 1px solid #CCCCCC;">长(M)</th>
+		<th width="12%" style="border-bottom: 1px solid #CCCCCC;">宽(M)</th>
+		<th width="17%" style="border-bottom: 1px solid #CCCCCC;">面积(M2)</th>
+		<th width="37%" style="border-bottom: 1px solid #CCCCCC;">说明</th>
+		</tr></thead>
+		<tbody>
+		<?php if($house->level1!="" || $house->rm1_out!=""){?>
+		<tr>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level1;?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm1_out; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm1_len; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm1_wth; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm1_len*$house->rm1_wth,1); ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm1_dc1_out; ?><?php if($house->rm1_dc2_out!=""){echo ",";}?><?php echo $house->rm1_dc2_out; ?><?php if($house->rm1_dc3_out!=""){echo ",";}?><?php echo $house->rm1_dc3_out; ?></td>
+		</tr>
+		<?php }?>
+		<?php if($house->level2!="" || $house->rm2_out!=""){?>
+		<tr>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level2;?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm2_out; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm2_len; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm2_wth; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm12_len*$house->rm2_wth,1); ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm2_dc1_out; ?><?php if($house->rm2_dc2_out!=""){echo ",";}?><?php echo $house->rm2_dc2_out; ?><?php if($house->rm2_dc3_out!=""){echo ",";}?><?php echo $house->rm2_dc3_out; ?></td>
+		</tr>
+		<?php }?>
+		<?php if($house->level3!="" || $house->rm3_out!=""){?>
+		<tr>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level3;?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm3_out; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm3_len; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm3_wth; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm3_len*$house->rm3_wth,1); ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm3_dc1_out; ?><?php if($house->rm3_dc2_out!=""){echo ",";}?><?php echo $house->rm3_dc2_out; ?><?php if($house->rm3_dc3_out!=""){echo ",";}?><?php echo $house->rm3_dc3_out; ?></td>
+		</tr>
+		<?php }?>
+		<?php if($house->level4!="" || $house->rm4_out!=""){?>
+		<tr>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level4;?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm4_out; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm4_len; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm4_wth; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm4_len*$house->rm4_wth,1); ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm4_dc1_out; ?><?php if($house->rm4_dc2_out!=""){echo ",";}?><?php echo $house->rm4_dc2_out; ?><?php if($house->rm4_dc3_out!=""){echo ",";}?><?php echo $house->rm4_dc3_out; ?></td>
+		</tr>
+		<?php }?>
+		<?php if($house->level5!="" || $house->rm5_out!=""){?>
+		<tr>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level5;?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm5_out; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm5_len; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm5_wth; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm5_len*$house->rm5_wth,1); ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm5_dc1_out; ?><?php if($house->rm5_dc2_out!=""){echo ",";}?><?php echo $house->rm5_dc2_out; ?><?php if($house->rm5_dc3_out!=""){echo ",";}?><?php echo $house->rm5_dc3_out; ?></td>
+		</tr>
+		<?php }?>
+		<?php if($house->level6!="" || $house->rm6_out!=""){?>
+		<tr>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level6;?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm6_out; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm6_len; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm6_wth; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm6_len*$house->rm6_wth,1); ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm6_dc1_out; ?><?php if($house->rm6_dc2_out!=""){echo ",";}?><?php echo $house->rm6_dc2_out; ?><?php if($house->rm6_dc3_out!=""){echo ",";}?><?php echo $house->rm6_dc3_out; ?></td>
+		</tr>
+		<?php }?>
+		<?php if($house->level7!=""|| $house->rm7_out!=""){?>
+		<tr>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level7;?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm7_out; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm7_len; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm7_wth; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm7_len*$house->rm7_wth,1); ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm7_dc1_out; ?><?php if($house->rm7_dc2_out!=""){echo ",";}?><?php echo $house->rm7_dc2_out; ?><?php if($house->rm7_dc3_out!=""){echo ",";}?><?php echo $house->rm7_dc3_out; ?></td>
+		</tr>
+		<?php }?>
+		<?php if($house->level8!="" || $house->rm8_out!=""){?>
+		<tr>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level8;?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm8_out; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm8_len; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm8_wth; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm8_len*$house->rm8_wth,1); ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm8_dc1_out; ?><?php if($house->rm8_dc2_out!=""){echo ",";}?><?php echo $house->rm8_dc2_out; ?><?php if($house->rm8_dc3_out!=""){echo ",";}?><?php echo $house->rm8_dc3_out; ?></td>
+		</tr>
+		<?php }?>
+		<?php if($house->level9!="" || $house->rm9_out!=""){?>
+		<tr>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level9;?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm9_out; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm9_len; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm9_wth; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm9_len*$house->rm9_wth,1); ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm9_dc1_out; ?><?php if($house->rm9_dc2_out!=""){echo ",";}?><?php echo $house->rm9_dc2_out; ?><?php if($house->rm9_dc3_out!=""){echo ",";}?><?php echo $house->rm9_dc3_out; ?></td>
+		</tr>
+		<?php }?>
+		<?php if($house->level10!="" || $house->rm10_out!=""){?>
+		<tr>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level10;?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm10_out; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm10_len; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm10_wth; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm10_len*$house->rm10_wth,1); ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm10_dc1_out; ?><?php if($house->rm10_dc2_out!=""){echo ",";}?><?php echo $house->rm10_dc2_out; ?><?php if($house->rm10_dc3_out!=""){echo ",";}?><?php echo $house->rm10_dc3_out; ?></td>
+		</tr>
+		<?php }?>
+
+		<?php if($house->level11!=""){?>
+		<tr>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level11;?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm11_out; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm11_len; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm11_wth; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm11_len*$house->rm11_wth,1); ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm11_dc1_out; ?><?php if($house->rm11_dc2_out!=""){echo ",";}?><?php echo $house->rm11_dc2_out; ?><?php if($house->rm11_dc3_out!=""){echo ",";}?><?php echo $house->rm11_dc3_out; ?></td>
+		</tr>
+		<?php }?>
+
+
+		<?php if($house->level12!=""){?>
+		<tr>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level12;?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm12_out; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm12_len; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm12_wth; ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm12_len*$house->rm12_wth,1); ?></td>
+		<td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm12_dc1_out; ?><?php if($house->rm12_dc2_out!=""){echo ",";}?><?php echo $house->rm12_dc2_out; ?><?php if($house->rm12_dc3_out!=""){echo ",";}?><?php echo $house->rm12_dc3_out; ?></td>
+		</tr>
+		<?php }?>
+		</tbody></table>
+		</div>
+	</li>
+	</ul>
+
+	
+</div>
+<!--End-->
+
+<!-- 房源详情页面结束 -->
+<script language="javascript" type="text/javascript">
+$(function(){
+
+	var p1 = $(".f1_1").html();
+	var p2 = $(".f1_2").html();
+	var p3 = $(".f1_3").html();
+	var p4 = $(".f2_1").html();
+	var p5 = $(".f2_2").html();
+	var p6 = $(".f2_3").html();
+	function decimal(num,v){
+	var vv = Math.pow(10,v);
+	return Math.round(num*vv)/vv;
+	}
+$(".fyxqdown_left_title").on("click",".ss",function(){
+
+
+	if($(this).hasClass("dlh_active"))
+	{
+		$(this).removeClass("dlh_active");
+		$(".f1_1").text(p1);
+		$(".f1_2").text(p2);
+		$(".f1_3").text(p3);
+		$(".f2_1").text(p4);
+		$(".f2_2").text(p5);
+		$(".f2_3").text(p6);
+		$(".t1").html("长(M)")
+		$(".t2").html("宽(M)")
+		$(".t3").html("面积(㎡)")
+		$(this).text("米 > 英制");
+
+
+   } 
+   else{
+		$(".t1").html("长（英尺）")
+		$(".t2").html("宽（英尺）")
+		$(".t3").html("面积（平方英尺）")
+		$(this).text("英制 > 米");
+		$(this).addClass("dlh_active");
+		
+
+		
+		var h1=decimal(p1/0.3048,2);
+		var h2=decimal(p2/0.3048,2);
+		var h3=decimal(p3/0.09290304,2);
+		var h4=decimal(p4/0.3048,2);
+		var h5=decimal(p5/0.3048,2);
+		var h6=decimal(p6/0.09290304,2);
+		$(".f1_1").text(h1);
+		$(".f1_2").text(h2);
+		$(".f1_3").text(h3);
+		$(".f2_1").text(h4);
+		$(".f2_2").text(h5);
+		$(".f2_3").text(h6);
+  }
+})
+})
+</script> 
+
+
                
 <script language="javascript" type="text/javascript">
 $(function(){
@@ -223,262 +488,4 @@ $(function(){
 	})
 })
 </script>
-                
-      <div class="fyxqdown_left_cont ui-bar">
-				<ul class="xqlb_list" data-role="listview">
-				<li data-role="list-divider">详情列表</li>
-
-                        <li><span class="xqlb_label">MLS编号：</span><?php echo $house->ml_num; ?></li>
-                        <li><span class="xqlb_label">交叉路口：</span><?php echo $house->cross_st; ?></li>
-                        <li><span class="xqlb_label">物业类别：</span><?php echo $house->propertyType->name; ?></li>
-                        <li><span class="xqlb_label">挂牌时间：</span><?php echo $house->pix_updt; ?></li>
-                        <li><span class="xqlb_label">房屋层数：</span><?php echo $house->style; ?></li>
-                        <li><span class="xqlb_label">土地面积：</span><span class="s1"><?php echo $house->land_area; ?></span><span class="c1">平方英尺</span></li>
-                        <li><span class="xqlb_label">房屋面积：</span><span class="s2"><?php echo $house->sqft; ?></span><span class="c2">平方英尺</span></li>
-                        <li><span class="xqlb_label">土地描述：</span><span class="s3"></span><span class="c3"><?php echo $house->acres; ?></span></li>
-                        <li><span class="xqlb_label">房屋数量：</span><?php echo (int)$house->rms+(int)$house->rooms_plus; ?></li>
-                        <li><span class="xqlb_label">地税/年份：</span><?php echo '$ '.$house->taxes; ?>/<?php echo $house->yr." 年"; ?></li>
-                        <li><span class="xqlb_label">卧房数量：</span><?php echo (int)$house->br+(int)$house->br_plus; ?></li>
-                      <li><span class="xqlb_label">物业管理费：</span>无</li>
-                        <li><span class="xqlb_label">厨房数量：</span><?php echo (int)$house->num_kit+(int)$house->kit_plus; ?></li>
-                        <li><span class="xqlb_label">建造年份：</span><?php echo $house->yr_built; ?>年</li>
-                       <li><span class="xqlb_label">卫生间数量：</span><?php echo $house->bath_tot; ?></li>
-                        <li><span class="xqlb_label">地下室：</span><?php echo $house->bsmt1_out; ?>　<?php echo $house->bsmt2_out; ?></li>
-                        <li><span class="xqlb_label">车库数量：</span><?php echo $house->gar_spaces; ?></li>
-                        <li><span class="xqlb_label">暖气：</span><?php echo $house->heating; ?></li>
-                        <li><span class="xqlb_label">大门朝向：</span>
-						<?php 
-						if($house->comp_pts=="N"){
-						echo "北";
-						}
-						elseif($house->comp_pts=="S"){
-						echo "南";
-						}
-						elseif($house->comp_pts=="W"){
-						echo "西";
-						}
-						elseif($house->comp_pts=="E"){
-						echo "东";
-						} ?>
-                        </li>
-                        <li><span class="xqlb_label">空调：</span><?php echo $house->a_c; ?></li>
-                        <li><span class="xqlb_label">邮编：</span><?php echo $house->zip; ?></li>
-                        <li><span class="xqlb_label">中央吸尘：</span><?php if($house->central_vac=="Y"){echo "是";}else{echo "否";} ?></li>
-						<li><span class="xqlb_label">游泳池：</span><?php echo $house->pool; ?></li>
-					    <li><span class="xqlb_label">出售/出租：</span>
-						<?php 
-						if($house->s_r=="Sale"){
-						echo "出售";
-						}
-						elseif($house->s_r=="Lease"){
-						echo "出租";
-						}
-						?></li>
-                        <li><span class="xqlb_label">周边和配套：</span><?php echo $house->prop_feat1_out; ?><?php if($house->prop_feat2_out!=""){echo " , ";}?><?php echo $house->prop_feat2_out; ?><?php if($house->prop_feat3_out!=""){echo " , ";}?><?php echo $house->prop_feat3_out; ?><?php if($house->prop_feat4_out!=""){echo " , ";}?><?php echo $house->prop_feat4_out; ?><?php if($house->prop_feat5_out!=""){echo " , ";}?><?php echo $house->prop_feat5_out; ?><?php if($house->prop_feat6_out!=""){echo " , ";}?><?php echo $house->prop_feat6_out; ?></li>
-<!--                    <div class="xqlb_list">
-                            <div class="xqlb_list_left">是否壁炉：<?php if($house->fpl_num=="N"){echo "没有";}else{echo "有";}?></div>
-                            <div class="xqlb_list_right">是否游泳池：<?php if($house->pool=="None"){echo "没有";}else{echo "有";} ?></div>
-                        <div class="cl"></div>
-                    </div> -->
-				<li data-role="list-divider">房屋布局</li>
-<li>
-				<script language="javascript" type="text/javascript">
-$(function(){
-
-		var p1 = $(".f1_1").html();
-		var p2 = $(".f1_2").html();
-		var p3 = $(".f1_3").html();
-		var p4 = $(".f2_1").html();
-		var p5 = $(".f2_2").html();
-		var p6 = $(".f2_3").html();
-		function decimal(num,v){
-		var vv = Math.pow(10,v);
-		return Math.round(num*vv)/vv;
-		}
-	$(".fyxqdown_left_title").on("click",".ss",function(){
-
-
-        if($(this).hasClass("dlh_active"))
-		{
-			$(this).removeClass("dlh_active");
-			$(".f1_1").text(p1);
-			$(".f1_2").text(p2);
-			$(".f1_3").text(p3);
-			$(".f2_1").text(p4);
-			$(".f2_2").text(p5);
-			$(".f2_3").text(p6);
-			$(".t1").html("长(M)")
-			$(".t2").html("宽(M)")
-			$(".t3").html("面积(㎡)")
-		    $(this).text("米 > 英制");
-
-
-	   } 
-	   else{
-		    $(".t1").html("长（英尺）")
-			$(".t2").html("宽（英尺）")
-			$(".t3").html("面积（平方英尺）")
-		    $(this).text("英制 > 米");
-		    $(this).addClass("dlh_active");
-			
-
-			
-			var h1=decimal(p1/0.3048,2);
-			var h2=decimal(p2/0.3048,2);
-			var h3=decimal(p3/0.09290304,2);
-			var h4=decimal(p4/0.3048,2);
-			var h5=decimal(p5/0.3048,2);
-			var h6=decimal(p6/0.09290304,2);
-			$(".f1_1").text(h1);
-			$(".f1_2").text(h2);
-			$(".f1_3").text(h3);
-			$(".f2_1").text(h4);
-			$(".f2_2").text(h5);
-			$(".f2_3").text(h6);
-      }
-	})
-})
-</script> 
-<div class="fwbjtable table-stroke">            
-<!-- <table data-role="table" id="fwbj" class="ui-responsive" data-mode="columntoggle"> --!>
-<table id="fwbj" class="ui-responsive">
-  <thead><tr>
-    <th width="12%" style="border-bottom: 1px solid #CCCCCC;">楼层</th>
-    <th width="12%" style="border-bottom: 1px solid #CCCCCC;">房间</th>
-    <th width="10%" style="border-bottom: 1px solid #CCCCCC;">长(M)</th>
-    <th width="12%" style="border-bottom: 1px solid #CCCCCC;">宽(M)</th>
-    <th width="17%" style="border-bottom: 1px solid #CCCCCC;">面积(M2)</th>
-    <th width="37%" style="border-bottom: 1px solid #CCCCCC;">说明</th>
-  </tr></thead>
-  <tbody>
-  <?php if($house->level1!="" || $house->rm1_out!=""){?>
-  <tr>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level1;?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm1_out; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm1_len; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm1_wth; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm1_len*$house->rm1_wth,1); ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm1_dc1_out; ?><?php if($house->rm1_dc2_out!=""){echo ",";}?><?php echo $house->rm1_dc2_out; ?><?php if($house->rm1_dc3_out!=""){echo ",";}?><?php echo $house->rm1_dc3_out; ?></td>
-  </tr>
-  <?php }?>
-  <?php if($house->level2!="" || $house->rm2_out!=""){?>
-  <tr>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level2;?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm2_out; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm2_len; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm2_wth; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm12_len*$house->rm2_wth,1); ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm2_dc1_out; ?><?php if($house->rm2_dc2_out!=""){echo ",";}?><?php echo $house->rm2_dc2_out; ?><?php if($house->rm2_dc3_out!=""){echo ",";}?><?php echo $house->rm2_dc3_out; ?></td>
-  </tr>
-   <?php }?>
-  <?php if($house->level3!="" || $house->rm3_out!=""){?>
-  <tr>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level3;?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm3_out; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm3_len; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm3_wth; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm3_len*$house->rm3_wth,1); ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm3_dc1_out; ?><?php if($house->rm3_dc2_out!=""){echo ",";}?><?php echo $house->rm3_dc2_out; ?><?php if($house->rm3_dc3_out!=""){echo ",";}?><?php echo $house->rm3_dc3_out; ?></td>
-  </tr>
-   <?php }?>
-  <?php if($house->level4!="" || $house->rm4_out!=""){?>
-  <tr>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level4;?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm4_out; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm4_len; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm4_wth; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm4_len*$house->rm4_wth,1); ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm4_dc1_out; ?><?php if($house->rm4_dc2_out!=""){echo ",";}?><?php echo $house->rm4_dc2_out; ?><?php if($house->rm4_dc3_out!=""){echo ",";}?><?php echo $house->rm4_dc3_out; ?></td>
-  </tr>
-  <?php }?>
-  <?php if($house->level5!="" || $house->rm5_out!=""){?>
-  <tr>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level5;?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm5_out; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm5_len; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm5_wth; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm5_len*$house->rm5_wth,1); ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm5_dc1_out; ?><?php if($house->rm5_dc2_out!=""){echo ",";}?><?php echo $house->rm5_dc2_out; ?><?php if($house->rm5_dc3_out!=""){echo ",";}?><?php echo $house->rm5_dc3_out; ?></td>
-  </tr>
-  <?php }?>
-  <?php if($house->level6!="" || $house->rm6_out!=""){?>
-  <tr>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level6;?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm6_out; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm6_len; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm6_wth; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm6_len*$house->rm6_wth,1); ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm6_dc1_out; ?><?php if($house->rm6_dc2_out!=""){echo ",";}?><?php echo $house->rm6_dc2_out; ?><?php if($house->rm6_dc3_out!=""){echo ",";}?><?php echo $house->rm6_dc3_out; ?></td>
-  </tr>
-  <?php }?>
-  <?php if($house->level7!=""|| $house->rm7_out!=""){?>
-  <tr>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level7;?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm7_out; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm7_len; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm7_wth; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm7_len*$house->rm7_wth,1); ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm7_dc1_out; ?><?php if($house->rm7_dc2_out!=""){echo ",";}?><?php echo $house->rm7_dc2_out; ?><?php if($house->rm7_dc3_out!=""){echo ",";}?><?php echo $house->rm7_dc3_out; ?></td>
-  </tr>
-  <?php }?>
-  <?php if($house->level8!="" || $house->rm8_out!=""){?>
-  <tr>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level8;?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm8_out; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm8_len; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm8_wth; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm8_len*$house->rm8_wth,1); ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm8_dc1_out; ?><?php if($house->rm8_dc2_out!=""){echo ",";}?><?php echo $house->rm8_dc2_out; ?><?php if($house->rm8_dc3_out!=""){echo ",";}?><?php echo $house->rm8_dc3_out; ?></td>
-  </tr>
-  <?php }?>
-   <?php if($house->level9!="" || $house->rm9_out!=""){?>
-  <tr>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level9;?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm9_out; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm9_len; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm9_wth; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm9_len*$house->rm9_wth,1); ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm9_dc1_out; ?><?php if($house->rm9_dc2_out!=""){echo ",";}?><?php echo $house->rm9_dc2_out; ?><?php if($house->rm9_dc3_out!=""){echo ",";}?><?php echo $house->rm9_dc3_out; ?></td>
-  </tr>
-  <?php }?>
-  <?php if($house->level10!="" || $house->rm10_out!=""){?>
-    <tr>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level10;?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm10_out; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm10_len; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm10_wth; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm10_len*$house->rm10_wth,1); ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm10_dc1_out; ?><?php if($house->rm10_dc2_out!=""){echo ",";}?><?php echo $house->rm10_dc2_out; ?><?php if($house->rm10_dc3_out!=""){echo ",";}?><?php echo $house->rm10_dc3_out; ?></td>
-  </tr>
-  <?php }?>
-  
-  <?php if($house->level11!=""){?>
-    <tr>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level11;?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm11_out; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm11_len; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm11_wth; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm11_len*$house->rm11_wth,1); ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm11_dc1_out; ?><?php if($house->rm11_dc2_out!=""){echo ",";}?><?php echo $house->rm11_dc2_out; ?><?php if($house->rm11_dc3_out!=""){echo ",";}?><?php echo $house->rm11_dc3_out; ?></td>
-  </tr>
-  <?php }?>
-  
-  
-    <?php if($house->level12!=""){?>
-    <tr>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->level12;?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm12_out; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm12_len; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm12_wth; ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo round($house->rm12_len*$house->rm12_wth,1); ?></td>
-    <td style="border-bottom: 1px solid #CCCCCC;"><?php echo $house->rm12_dc1_out; ?><?php if($house->rm12_dc2_out!=""){echo ",";}?><?php echo $house->rm12_dc2_out; ?><?php if($house->rm12_dc3_out!=""){echo ",";}?><?php echo $house->rm12_dc3_out; ?></td>
-  </tr>
-  <?php }?>
-</tbody></table>
-</div>
-</ul>
-</div>
-
-
-<!-- 房源详情页面结束 -->
-
+          
