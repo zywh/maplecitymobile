@@ -379,6 +379,10 @@ var swiper = new Swiper(".swiper-container", {
 		</tbody></table>
 		</div>
 	</li>
+			<li data-role="list-divider">房屋描述</li>
+                <div class="fwms_cont">
+                     <?php echo $house->ad_text; ?><BR /><?php echo $house->extras; ?>
+                                  </div>
 	</ul>
 
 	

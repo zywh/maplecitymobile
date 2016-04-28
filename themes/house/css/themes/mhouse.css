@@ -1176,8 +1176,9 @@ span.xqlb_label{float: left; width: 100px;display:block;}
 
 /* .fyxq{ margin:0 auto; width:1030px;} */
 .fyxqupright_cont.ui-body-a {
-	padding:3px;
+	padding:0px;
 }
+.fyxq_ptss { padding:3px;}
 
 .fyxq_tab{ border-bottom: 1px solid #c5c5c5;}
 .fyxq_tab a{ width:97px; height:30px; line-height:30px; display:block; float:left; color:#333333; text-decoration:none; background: url(../images/ny_btn2.png) 0 0 no-repeat; margin-right:-1px; text-align:center; font-size:14px;}
