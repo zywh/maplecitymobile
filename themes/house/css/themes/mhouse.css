@@ -1177,6 +1177,7 @@ html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% i
 
 /* for view.php */
 span.xqlb_label{float: left; width: 100px;display:block;}
+.view-navi-bar.ui-navbar { margin-top:-10px;}
 
 /* .fyxq{ margin:0 auto; width:1030px;} */
 .fyxqupright_cont.ui-body-a {
