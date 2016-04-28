@@ -1098,7 +1098,11 @@ html head + body .ui-btn.ui-btn-b:visited {
 .common_bg{background:url(../images/map_list_all.png) no-repeat;}
 .icon_map_mark{width:24px;height: 37px; background-position: -81px -92px;display:inline-block;cursor:pointer;text-align: center;font-style: normal;font-size:13px;letter-spacing:-2px}
 .icon_map_mark:hover,.icon_map_current{background-position:-105px -91px;display:inline-block;cursor:pointer;}
-.icon_map_mark span{line-height: 24px;margin-left: -1px;}
+.icon_map_mark span{
+	line-height: 24px;margin-left: 0px;
+    color: #ff4103;
+    font-weight: bold;
+}
 
 
 

@@ -279,11 +279,23 @@ var maplemap = {
 								var imgurl = "/" + this.CoverImg;
 								var imgurltn = "/" + this.CoverImgtn;
 								var hprice = (this.SaleLease == 'Lease') ? Math.round(this.Price) * 10000 + '加元/月' : Math.round(this.Price) + '万加元';
+								var markerprice = Math.round(this.Price) + '万';
 
 								var tlat = parseFloat(this.GeocodeLat);
 								var tlng = parseFloat(this.GeocodeLng);
 
-					  
+								var li =  "<li class='panel_house_view' data-icon='false'>" 
+								
+									+ "<a data-ajax='false' href='index.php?r=mhouse/view&id=" + this.MLS + "'>" 
+									+ "<img src=' " + imgurltn + "'>" 
+									+ " <div class='panel_house_text'>"
+									+ "<div>" + this.Address + "</div>" 
+									+ "<div >" + this.MunicipalityName + " " + this.ProvinceCname + "</div>" 
+									+ "<div >" + this.HouseType + ":" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</div>" 
+									+ "<div>价钱:"  + hprice + "</div> </div>" 
+									+ "</a>"
+									
+									+ "</li>";
 									
 								if (( nextLng != this.GeocodeLng) || (nextLat != this.GeocodeLat)){
 									
@@ -296,7 +308,7 @@ var maplemap = {
 									+ "<div>城市：" + this.MunicipalityName + " " + this.ProvinceCname + " " + this.Zip + "</div>"
 									+ "<div >类型：" + this.HouseType + " " + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨</div></div>";
 									 
-									maplemap.setContent(map,tlat, tlng, 1, html);
+									maplemap.setContent(map,tlat, tlng, markerprice, html);
 									} else 
 									{
 									//generate panel list view
@@ -312,7 +324,7 @@ var maplemap = {
 									+ "</a>"
 									
 									+ "</li>";
-										html = panelhtml ;
+										html = panelhtml + li;
 										maplemap.setContent(map,tlat, tlng, count, html);
 										count = 1;
 									}
@@ -320,18 +332,7 @@ var maplemap = {
 									
 								} else { 
 									++count;
-									var li =  "<li class='panel_house_view' data-icon='false'>" 
-								
-									+ "<a data-ajax='false' href='index.php?r=mhouse/view&id=" + this.MLS + "'>" 
-									+ "<img src=' " + imgurltn + "'>" 
-									+ " <div class='panel_house_text'>"
-									+ "<div>" + this.Address + "</div>" 
-									+ "<div >" + this.MunicipalityName + " " + this.ProvinceCname + "</div>" 
-									+ "<div >" + this.HouseType + ":" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</div>" 
-									+ "<div>价钱:"  + hprice + "</div> </div>" 
-									+ "</a>"
-									
-									+ "</li>";
+							
 									panelhtml = panelhtml + li;
 																		
 								}

@@ -206,13 +206,13 @@ class MapController extends XFrontBase {
 				$result['Message'] = '成功';
 				//$tilex = (($maxLat - $minLat ) / $gridx) * 100000;
 				//$tiley = (($maxLon - $minLon ) / $gridy) * 100000;
-				$tilex = (($maxLat - $minLat ) / $gridx) ;
-				$tiley = (($maxLon - $minLon ) / $gridy) ;
+				$tiley = (($maxLat - $minLat ) / $gridy) ;
+				$tilex = (($maxLon - $minLon ) / $gridx) ;
 				//Generate grid center Lat/Lng
 				for ( $x=1; $x <= $gridx ; $x++){
 					for ( $y=1; $y <= $gridy ; $y++){
-						$gridCenterlat = $minLat + ($tilex/2) + ($x -1)*$tilex ;
-						$gridCenterlng = $minLon + ($tiley/2) + ($y -1)*$tiley ;
+						$gridCenterlat = $minLat + ($tiley/2) + ($y -1)*$tiley ;
+						$gridCenterlng = $minLon + ($tilex/2) + ($x -1)*$tilex ;
 						$result['Data']['AreaHouseCount']["G".$x.$y]['GeocodeLat'] = $gridCenterlat;
 						$result['Data']['AreaHouseCount']["G".$x.$y]['GeocodeLng'] = $gridCenterlng;
 						
