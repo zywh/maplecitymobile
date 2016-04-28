@@ -62,10 +62,20 @@ var swiper = new Swiper(".swiper-container", {
 ?>
 <!--End-->
 
-          
-          
+<!-- /navbar start -->              
+<div data-role="navbar" data-grid="d">
+    <ul>
+        <li><a href="#houselayout" class="ui-btn-active">布局</a></li>
+        <li><a href="#">Two</a></li>
+        <li><a href="#">视频</a></li>
+        <li><a href="#">地图</a></li>
+        <li><a data-ajax="false" href="<?php echo $school_url; ?>">学校</a></li>
+    </ul>
+</div>
+<!-- /navbar end-->          
 
 <!--START-->
+
 <div class="fyxqupright ui-corner-all custom-corners">
 	<div class="fyxqupright_title">MLS：<?php echo $house->ml_num; ?></div>
 	<div class="fyxqupright_btn" style="float:right; padding-top:5px; padding-right:0.5em">
@@ -238,7 +248,7 @@ var swiper = new Swiper(".swiper-container", {
 			?></li>
 			<li><span class="xqlb_label">周边和配套：</span><?php echo $house->prop_feat1_out; ?><?php if($house->prop_feat2_out!=""){echo " , ";}?><?php echo $house->prop_feat2_out; ?><?php if($house->prop_feat3_out!=""){echo " , ";}?><?php echo $house->prop_feat3_out; ?><?php if($house->prop_feat4_out!=""){echo " , ";}?><?php echo $house->prop_feat4_out; ?><?php if($house->prop_feat5_out!=""){echo " , ";}?><?php echo $house->prop_feat5_out; ?><?php if($house->prop_feat6_out!=""){echo " , ";}?><?php echo $house->prop_feat6_out; ?></li>
 
-			<li data-role="list-divider">房屋布局</li>
+			<li id='houselayout' data-role="list-divider">房屋布局</li>
 		<li>
 
 		<div class="fwbjtable table-stroke">            
