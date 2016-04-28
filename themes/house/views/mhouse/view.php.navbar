@@ -16,6 +16,7 @@ $slat=$_GET["lat"];
 $slng=$_GET["lng"];
 
 $school_url="index.php?r=mhouse/school&lat=".$jingdu."&lng=".$weidu;
+$map_url="index.php?r=map/index&lat=".$jingdu."&lng=".$weidu;
 
 //打开 images 目录
 $county = $house->county;
@@ -64,16 +65,18 @@ var swiper = new Swiper(".swiper-container", {
 ?>
 <!--End-->
         
-
+<div class="view-navi-bar" data-role="navbar" data-grid="d">
+	<ul>
+		<li><a href="#" >社区</a></li>
+		<li><a href="#fwbj" >布局</a></li>
+		<li><a data-ajax="false"  href="<?php echo $map_url; ?>">地图</a></li>
+		<li><a data-ajax="false" href="<?php echo $school_url; ?>">学校</a></li>
+		<li><a href="#">视频</a></li>
+	</ul>
+</div><!-- /navbar -->
 <!--START-->
 
-<div class="fyxqupright ui-corner-all custom-corners">
-	<div class="fyxqupright_title">MLS：<?php echo $house->ml_num; ?></div>
-	<div class="fyxqupright_btn" style="float:right; padding-top:5px; padding-right:0.5em">
-		<a data-ajax="false" href="<?php echo $school_url; ?>">地图和学校</a>
-	</div>
 
-</div>
 <!--End-->
 
 <!--START-->
@@ -491,4 +494,4 @@ $(function(){
 	})
 })
 </script>
-          
+        

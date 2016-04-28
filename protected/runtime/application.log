@@ -654,3 +654,123 @@ Stack trace:
 #10 {main}
 REQUEST_URI=/index.php?r=mhouse/school&lat=43.741066&lng=-79.379797
 ---
+2016/04/29 06:41:55 [error] [exception.CException] exception 'CException' with message '属性 "CDbCriteria.AddCondition" 未被定义.' in /var/www/mhtml/framework/yiilite.php:638
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/SiteController.php(28): CComponent->__set('AddCondition', 's_r="Lease"')
+#1 /var/www/mhtml/framework/yiilite.php(4058): SiteController->actionIndex()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/?from=singlemessage&isappinstalled=0
+---
+2016/04/29 06:42:04 [error] [exception.CException] exception 'CException' with message '属性 "CDbCriteria.AddCondition" 未被定义.' in /var/www/mhtml/framework/yiilite.php:638
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/SiteController.php(28): CComponent->__set('AddCondition', 's_r="Lease"')
+#1 /var/www/mhtml/framework/yiilite.php(4058): SiteController->actionIndex()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/?from=singlemessage&isappinstalled=0
+---
+2016/04/29 06:43:09 [error] [exception.CException] exception 'CException' with message '属性 "CDbCriteria.AddCondition" 未被定义.' in /var/www/mhtml/framework/yiilite.php:638
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/SiteController.php(28): CComponent->__set('AddCondition', 's_r="Lease"')
+#1 /var/www/mhtml/framework/yiilite.php(4058): SiteController->actionIndex()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/?from=singlemessage&isappinstalled=0
+---
+2016/04/29 06:43:24 [error] [exception.CException] exception 'CException' with message '属性 "CDbCriteria.AddCondition" 未被定义.' in /var/www/mhtml/framework/yiilite.php:638
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/SiteController.php(28): CComponent->__set('AddCondition', 's_r="Lease"')
+#1 /var/www/mhtml/framework/yiilite.php(4058): SiteController->actionIndex()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/?from=singlemessage&isappinstalled=0
+---
+2016/04/29 06:47:08 [error] [exception.CException] exception 'CException' with message '属性 "CDbCriteria.AddCondition" 未被定义.' in /var/www/mhtml/framework/yiilite.php:638
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/SiteController.php(28): CComponent->__set('AddCondition', 's_r="Lease"')
+#1 /var/www/mhtml/framework/yiilite.php(4058): SiteController->actionIndex()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=mhouse/view&id=W3470864
+---
+2016/04/29 06:47:51 [error] [exception.CException] exception 'CException' with message '属性 "CDbCriteria.AddCondition" 未被定义.' in /var/www/mhtml/framework/yiilite.php:638
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/SiteController.php(28): CComponent->__set('AddCondition', 's_r="Lease"')
+#1 /var/www/mhtml/framework/yiilite.php(4058): SiteController->actionIndex()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=mhouse/view&id=W3470864
+---
+2016/04/29 06:49:50 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'longtitude' in 'where clause'. The SQL statement executed was: SELECT count(*) as lp_dol FROM `h_house` `t` WHERE longtitude !="".
+2016/04/29 06:49:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'longtitude' in 'where clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/SiteController.php(34): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): SiteController->actionIndex()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=mhouse/view&id=W3470864
+---
+2016/04/29 06:50:24 [error] [exception.CException] exception 'CException' with message 'SiteController 无法找到请求的视图 "view".' in /var/www/mhtml/framework/yiilite.php:3831
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3790): CController->renderPartial('view', Array, true)
+#1 /var/www/mhtml/protected/controllers/SiteController.php(43): CController->render('view', Array)
+#2 /var/www/mhtml/framework/yiilite.php(4058): SiteController->actionIndex()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=mhouse/view&id=W3470864
+---

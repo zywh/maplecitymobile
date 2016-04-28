@@ -6,7 +6,7 @@
 
 
 <!-- 房源搜索列表开始 -->
-<p></p>
+<p id='debug'></p>
 <div id="house-search"  class="search-area " >
 
 <div class="ui-grid-c " >
@@ -153,6 +153,7 @@ function getFieldValues() {
 					lat = pos.coords.latitude;
 					lng = pos.coords.longitude;
 					//console.log("GeoLocation Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
+					$("#debug").text("Geolocation is enabled");
 					maplemap.initMap("google_map",lat,lng,mapZoom);
 					
 				}
@@ -167,7 +168,7 @@ function getFieldValues() {
 		
 				navigator.geolocation.getCurrentPosition(success, fail, {enableHighAccuracy:true});
 	    	} else {
-				
+				$("#debug").text("Geolocation is not enabled");
 				maplemap.initMap("google_map",lat,lng,mapZoom);
 	   		}
 		} 

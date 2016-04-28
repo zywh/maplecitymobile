@@ -14,14 +14,7 @@ $(document).on("pageshow","#page_main",function(){
 </script>
 
 <?php
-	$db = Yii::app()->db;
-	$criteria = new CDbCriteria();
-	$criteria->order = 'date DESC';
-	$criteria->select = 'subdate(date, 1) as date,t_house as t_resi,u_house as u_resi ,round(avg_house/10000,2) as avg_price ';
-	$stats = Stats::model()->find($criteria);
-	//$criteria->select = 'count(*) as lp_dol';
-	//$criteria->AddCondition = 's_r="Lease"';
-	//$leaseCount = Stats::model()->find($criteria);
+
 
 ?>
 <div data-role="main" class="ui-content">
@@ -32,14 +25,14 @@ $(document).on("pageshow","#page_main",function(){
 		<img src="static/images/logo.png">
 		<h2>房源搜索</h2>
 		<p>搜索加拿大二手房</p>
-		<span class="ui-li-count"><?php echo $stats["t_resi"]; ?>套</span>
+		<span class="ui-li-count"><?php echo $totalHouse; ?>套</span>
 		</a>
 	  </li>
 	  <li>
 		<a href="index.php?r=mhouse/index&sr=Lease" data-ajax="false" >
 		<img src="static/images/logo.png">
 		<h2>租房搜索</h2>
-		<span class="ui-li-count">3456套</span>
+		<span class="ui-li-count"><?php echo $leaseTotal; ?>套</span>
 		<p>搜索</p>
 		</a>
 	  </li>
@@ -48,7 +41,7 @@ $(document).on("pageshow","#page_main",function(){
 		<img src="static/images/logo.png">
 		<h2>地图搜索</h2>
 		<p>搜索地图</p>
-		<span class="ui-li-count">84134套</span>
+		<span class="ui-li-count"><?php echo $mapTotal; ?>套</span>
 		</a>
 	  </li>
 
@@ -57,7 +50,7 @@ $(document).on("pageshow","#page_main",function(){
 		<img src="static/images/logo.png">
 		<h2>房源数据统计</h2>
 		<p>房源数据统计</p>
-		<span class="ui-li-count">平均:<?php echo $stats["avg_price"]; ?></span>
+		<span class="ui-li-count">平均:<?php echo $avgPrice; ?>万</span>
 		</a>
 	  </li>	  
 	  	  <li>
