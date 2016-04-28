@@ -49,19 +49,20 @@ function update_houselist(options) {
 				//
 				//+ "</li>";
 				var li = "<li data-icon='false'>" 
-				+ "<div class='houseview-area houseview-tn'><a data-ajax='false' href='<?php echo Yii::app()->createUrl('mhouse/view'); ?>&id=" + this.MlsNumber + "'>" 
-				+ "<img src=' " + this.CoverImg + "'>" 
-				+ "</a></div>"
-				+ "<div class='houseview-area houseview-text'>"
-				
-				+ "<a class='pv-text1 ui-btn' data-ajax='false' href='index.php?r=map/index&lat=" + this.GeocodeLat + "&lng=" + this.GeocodeLng + "&zoom=15&type=house'> <i class='material-icons md16'>place</i>"  + this.Address + "</a>" 
-				+ "<div class='pv-text'>" + this.MunicipalityName + "," + this.ProvinceCname + "</div>"
-				+ "<div class='pv-text'>" + this.HouseType + ":" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</div>" 
-				+ "<span class='ui-li-count'>" + hprice + "</span>"
-				+ "</div> " 
-				//+ "<a href='mailto:info@maplecity.com.cn?subject=查询房源-" + this.MlsNumber + "'>"
-				//+ "</a>"
+				+ "<a data-ajax='false' href='<?php echo Yii::app()->createUrl('mhouse/view'); ?>&id=" + this.MlsNumber + "'>" 
+				+ "<div >"
+					+ "<div class='houseview-area houseview-tn'><img src=' " + this.CoverImg + "'></div>"
+					+ "<div class='houseview-area houseview-text'>"
+						+ "<div class='pv-text1'> <i class='material-icons md16'>place</i>"  + this.Address + "</div>" 
+						+ "<div class='pv-text'>" + this.MunicipalityName + "," + this.ProvinceCname + "</div>"
+						+ "<div class='pv-text'>" + this.HouseType + ":" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</div>" 
+					+ "</div> " 
+					+ "<span class='ui-li-count'>" + hprice + "</span>"
+					
+					//+ "<a href='mailto:info@maplecity.com.cn?subject=查询房源-" + this.MlsNumber + "'>"
+					//+ "</a>"
 				+ "</div>"
+				+ "</a>"
 				+ "</li>";
 				
 				tableHtml = tableHtml + li;	

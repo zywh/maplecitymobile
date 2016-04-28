@@ -50,9 +50,8 @@ var swiper = new Swiper(".swiper-container", {
   pagination: ".swiper-pagination",
   nextButton: '.swiper-button-next',
   prevButton: '.swiper-button-prev',
-  slidesPerView: 1,
   paginationClickable: true,
-  autoplay: 10,
+  autoplay: 3500,
   speed: 1000,
   autoplayDisableOnInteraction: true
 });
@@ -69,7 +68,7 @@ var swiper = new Swiper(".swiper-container", {
 <!--START-->
 <div class="fyxqupright ui-corner-all custom-corners">
 	<div class="fyxqupright_title">MLS：<?php echo $house->ml_num; ?></div>
-	<div class="fyxqupright_btn" style="float:right; padding-top:5px;">
+	<div class="fyxqupright_btn" style="float:right; padding-top:5px; padding-right:0.5em">
 		<a data-ajax="false" href="<?php echo $school_url; ?>">地图和学校</a>
 	</div>
 
@@ -178,8 +177,7 @@ var swiper = new Swiper(".swiper-container", {
                     <div class="cl"></div>
                 </div>
                 
-                <div class="fyxq_phone"><img src="new/images/phone.jpg" width="78" height="78" /></div>
-                <div class="fyxq_rx">服务热线：<br/>
+                <div class="fyxq_rx">服务热线：
                   <img src="new/images/plat.jpg" width="23" height="15" /><span>400-870-1029</span>
                 </div>
                  <div class="cl"></div>
