@@ -36,7 +36,7 @@ function update_houselist(options) {
 			$(result.Data.MapHouseList).each(function(index) {
 				
 				sr = options['sr'];
-				var hprice = ( sr == 'Lease' )? Math.round(this.Price*10000) +'  加元/月' : Math.round(this.Price) +'  万加元';
+				var hprice = ( sr == 'Lease' )? Math.round(this.Price*10000) +'/月' : Math.round(this.Price) + '万';
 				
 				//var li = "<li data-icon='false'> " 
 				//+ " <a data-ajax='false' href='<?php echo Yii::app()->createUrl('mhouse/view'); ?>&id=" + this.MlsNumber + "'>" 
@@ -55,16 +55,10 @@ function update_houselist(options) {
 				+ "</a></div>"
 				+ "<div class='houseview-area houseview-text'>"
 				
-				+ "<a class='pv-text1 ui-btn' data-ajax='false' href='index.php?r=map/index&lat=" + this.GeocodeLat + "&lng=" + this.GeocodeLng + "&zoom=15&type=house'>"
-				+ "<i class='material-icons md16'>school</i> " + this.Address + "," + this.MunicipalityName  
-				+ "</a>"
-				//+ "<a data-ajax='false' href='index.php?r=map/index&lat=" + this.CityLat + "&lng=" + this.CityLng + "&zoom=13&type=city'>"
-				//+ "<div>城市:" + this.MunicipalityName + " " + this.ProvinceCname +  "</div>" 
-				//+ "</a>"
+				+ "<a class='pv-text1 ui-btn' data-ajax='false' href='index.php?r=map/index&lat=" + this.GeocodeLat + "&lng=" + this.GeocodeLng + "&zoom=15&type=house'> <i class='material-icons md16'>place</i>"  + this.Address + "</a>" 
+				+ "<div class='pv-text'>" + this.MunicipalityName + "," + this.ProvinceCname + "</div>"
 				+ "<div class='pv-text'>" + this.HouseType + ":" + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨" + "</div>" 
-				+ "<div class='pv-text'>价钱:"  + hprice 
-				+ "<a data-ajax='false' href='index.php?r=mhouse/school&lat=" 
-				+ this.GeocodeLat + "&lng=" + this.GeocodeLng + "'>school</a>"
+				+ "<span class='ui-li-count'>" + hprice + "</span>"
 				+ "</div> " 
 				//+ "<a href='mailto:info@maplecity.com.cn?subject=查询房源-" + this.MlsNumber + "'>"
 				//+ "</a>"
