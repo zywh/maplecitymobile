@@ -35,8 +35,7 @@ function update_houselist(options) {
 			var tableHtml = "";
 			$(result.Data.MapHouseList).each(function(index) {
 				
-				sr = options['sr'];
-				var hprice = ( sr == 'Lease' )? Math.round(this.Price*10000) +'/月' : Math.round(this.Price) + '万';
+				var hprice = ( this.Sr == 'Lease' )? Math.round(this.Price*10000) + '/月' : Math.round(this.Price) + '万';
 				
 				//var li = "<li data-icon='false'> " 
 				//+ " <a data-ajax='false' href='<?php echo Yii::app()->createUrl('mhouse/view'); ?>&id=" + this.MlsNumber + "'>" 
@@ -248,79 +247,79 @@ $(document).on("pageshow","#page_main",function(){
 	<fieldset class="city-area" data-role="controlgroup" data-mini="true">
 		<select name="pro_on" id="prov_on" data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
 			<option >安省</option>
-			<option value="Toronto" >多伦多</option>
-			<option value="Vaughan" >旺市</option>
-			<option value="Markham" >万锦</option>
-			<option value="Richmond Hill" >列治文山</option>
-			<option value="Mississauga" >密西沙加</option>
-			<option value="Brampton" >布兰普顿</option>
-			<option value="Oakville" >奥克维尔</option>
-			<option value="Burlington" >伯灵顿</option>
-			<option value="Waterloo" >滑铁卢</option>
-			<option value="Hamilton" >哈密尔顿</option>
-			<option value="Kingston" >金斯敦</option>
-			<option value="Windsor" >温莎</option>
-			<option value="Kitchener" >基奇纳</option>
-			<option value="Ottawa" >渥太华</option>
-			<option value="London" >伦敦</option>
-			<option value="Niagara Falls" >尼亚加拉瀑布</option>
+			<option value="Toronto" >多伦多(Toronto)</option>
+			<option value="Vaughan" >旺市(Vaughan)</option>
+			<option value="Markham" >万锦(Markham)</option>
+			<option value="Richmond Hill" >列治文山(Richmond Hill)</option>
+			<option value="Mississauga" >密西沙加(Mississauga)</option>
+			<option value="Brampton" >布兰普顿(Brampton)</option>
+			<option value="Oakville" >奥克维尔(Oakville)</option>
+			<option value="Burlington" >伯灵顿(Burlington)</option>
+			<option value="Waterloo" >滑铁卢(Waterloo)</option>
+			<option value="Hamilton" >哈密尔顿(Hamilton)</option>
+			<option value="Kingston" >金斯敦(Kingston)</option>
+			<option value="Windsor" >温莎(Windsor)</option>
+			<option value="Kitchener" >基奇纳(Kitchener)</option>
+			<option value="Ottawa" >渥太华(Ottawa)</option>
+			<option value="London" >伦敦(London)</option>
+			<option value="Niagara Falls" >尼亚加拉瀑布(Niagara Falls)</option>
 
 
 		</select>	
 		
 		<select name="pro_bc" id="pro_bc"  data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
 			<option >BC省</option>
-			<option value="Surrey" >素里</option>
-			<option value="Vancouver" >温哥华</option>
-			<option value="Kelowna" >基洛拿</option>
-			<option value="Kamloops" >坎卢普斯</option>
-			<option value="Victoria" >维多利亚</option>
-			<option value="NANAIMO" >纳奈莫</option>
-			<option value="Richmond" >列治文</option>
-			<option value="Abbotsford" >阿伯茨福德</option>
-			<option value="Langley" >兰利</option>
-			<option value="Vernon" >弗农</option>
-			<option value="Burnaby" >本那比</option>
+			<option value="Vancouver" >温哥华(Vancouver)</option>
+			<option value="Surrey" >素里(Surrey)</option>
+			<option value="Kelowna" >基洛拿(Kelowna)</option>
+			<option value="Kamloops" >坎卢普斯(Kamloops)</option>
+			<option value="Victoria" >维多利亚(Victoria)</option>
+			<option value="NANAIMO" >纳奈莫(Nanaimo)</option>
+			<option value="Richmond" >列治文(Richmond)</option>
+			<option value="Abbotsford" >阿伯茨福德(Abbotsford)</option>
+			<option value="Langley" >兰利(Langley)</option>
+			<option value="Vernon" >弗农(Vernon)</option>
+			<option value="Burnaby" >本那比(Burnaby)</option>
 
 		
 		</select>	
 	    <select name="pro_alberta" id="pro_alberta"  data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
 			<option >阿尔伯塔</option>
-			<option value="Calgary" >卡尔加里</option>
-			<option value="Edmonton" >埃德蒙顿</option>
-			<option value="Grande Prairie" >大草原城</option>
-			<option value="Fort McMurray" >麦克默里堡</option>
-			<option value="Lethbridge" >莱斯布里奇</option>
-			<option value="Red Deer" >红鹿</option>
-			<option value="Rural Parkland County" >农村帕克兰县</option>
-			<option value="Airdrie" >艾尔德里</option>
-			<option value="Medicine Hat" >梅迪辛哈特</option>
+			<option value="Calgary" >卡尔加里(Calgary)</option>
+			<option value="Edmonton" >埃德蒙顿(Edmonton)</option>
+			<option value="Grande Prairie" >大草原城(Grande Prairie)</option>
+			<option value="Fort McMurray" >麦克默里堡(Fort McMurray)</option>
+			<option value="Lethbridge" >莱斯布里奇(Lethbridge)</option>
+			<option value="Red Deer" >红鹿(Red Deer)</option>
+			<option value="Rural Parkland County" >农村帕克兰县(Rural Parkland County)</option>
+			<option value="Airdrie" >艾尔德里(Airdrie)</option>
+			<option value="Medicine Hat" >梅迪辛哈特(Medicine Hat)</option>
 			
 		</select>
 	    <select name="pro_newb" id="pro_newb"  data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
 			<option >新不伦瑞克</option>	
-			<option value="Moncton" >蒙克顿</option>
-			<option value="SAINT JOHN" >圣约翰</option>
-			<option value="Dieppe" >迪耶普</option>
-			<option value="FREDERICTON" >弗雷德里克顿</option>
-			<option value="Riverview" >江景</option>
+			<option value="Moncton" >蒙克顿(Moncton)</option>
+			<option value="SAINT JOHN" >圣约翰(SAINT JOHN)</option>
+			<option value="Dieppe" >迪耶普(Dieppe)</option>
+			<option value="FREDERICTON" >弗雷德里克顿(FREDERICTON)</option>
+			<option value="Riverview" >江景(Riverview)</option>
 			<option value="QUISPAMSIS" >QUISPAMSIS</option>
-			<option value="MIRAMICHI" >米罗米奇</option>
-			<option value="OROMOCTO" >奥罗莫克托</option>
-			<option value="Shediac" >Shediac的</option>
-			<option value="ROTHESAY" >罗斯西</option>
+			<option value="MIRAMICHI" >米罗米奇(MIRAMICHI)</option>
+			<option value="OROMOCTO" >奥罗莫克托(OROMOCTO)</option>
+			<option value="Shediac" >Shediac</option>
+			<option value="ROTHESAY" >罗斯西(ROTHESAY)</option>
 			<option value="HAMPTON" >HAMPTON</option>
-			<option value="GRAND FALLS" >大瀑布</option>
-			<option value="WOODSTOCK" >伍德司托克</option>
-			<option value="EDMUNDSTON" >埃德门兹顿</option>
+			<option value="GRAND FALLS" >大瀑布(GRAND FALLS)</option>
+			<option value="WOODSTOCK" >伍德司托克(WOODSTOCK)</option>
+			<option value="EDMUNDSTON" >埃德门兹顿(EDMUNDSTON)</option>
 						
 		</select>
 	    <select name="pro_news" id="pro_news"  data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
 			<option >新斯科舍省</option>
-			<option value="Halifax" >哈利法克斯</option>
-			<option value="Dartmouth" >达特茅斯</option>
-			<option value="Bedford" >贝德福德</option>
-			<option value="Hammonds Plains" >哈蒙兹平原</option>
+			<option value="Halifax" >哈利法克斯(Halifax)</option>
+			<option value="Dartmouth" >达特茅斯(Dartmouth)</option>
+			<option value="Bedford" >贝德福德(Bedford)</option>
+			<option value="Hammonds Plains" >哈蒙兹平原(Hammonds Plains)</option>
 			<option value="Middle Sackville" >中东萨克维尔</option>
 			<option value="Bridgewater" >布里奇沃特</option>
 			<option value="Lower Sackville" >下萨克维尔</option>
@@ -332,17 +331,17 @@ $(document).on("pageshow","#page_main",function(){
 		</select>
 	    <select name="pro_ed" id="pro_ed"  data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
 			<option >爱德华王子岛省</option>	
-			<option value="SUMMERSIDE" >萨默赛德</option>
-			<option value="CHARLOTTETOWN" >夏洛特敦</option>
+			<option value="SUMMERSIDE" >萨默赛德(SUMMERSIDE)</option>
+			<option value="CHARLOTTETOWN" >夏洛特敦(CHARLOTTETOWN)</option>
 			<option value="STRATFORD" >斯特拉特福</option>
 			<option value="CORNWALL" >康沃尔</option>
 			
 		</select>		
 	    <select name="pro_newf" id="pro_newf"  data-icon="plus" data-corners="false" data-native-menu="false" data-iconpos="left">
 			<option >纽芬兰及拉布拉多</option>	
-			<option value="ST. JOHN'S" >圣约翰</option>
+			<option value="ST. JOHN'S" >圣约翰(ST. JOHN'S)</option>
 			<option value="CONCEPTION BAY SOUTH" >CONCEPTION BAY SOUTH</option>
-			<option value="PARADISE" >天堂</option>
+			<option value="PARADISE" >天堂(PARADISE)</option>
 			<option value="MOUNT PEARL" >芒特波尔</option>
 			<option value="CORNER BROOK" >科纳布鲁克</option>
 			<option value="ST. PHILIPS" >圣菲力普</option>

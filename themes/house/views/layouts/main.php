@@ -54,12 +54,12 @@
 		<div data-role="panel" id="main_menu" class="main-menu" data-display="overlay" data-position-fixed="true">
 			<ul data-role="listview"  data-inset="true">
 			    <li data-icon="home"><a href="/" data-icon="home" id="menu_home">首页</a></li>
-			    <li data-icon="search"><a href="index.php?r=mhouse/index&sr=Lease" data-ajax="false" id="menu_lease" >出租房</a></li>
-			    <li data-icon="fa-map"><a href="index.php?r=mhouse/index&sr=Sale" data-ajax="false" id="menu_sale">二手房</a></li>
-			    <li data-icon="location"><a href="index.php?r=map/index" data-ajax="false" id="menu_new">地图搜索</a></li>
-			 	<li data-icon="fa-university"><a href="http://maplecity.com.cn/index.php?r=column/index" data-ajax="false" data-icon="search" id="menu_school">学区房</a></li>
+			    <li data-icon="fa-suitcase"><a href="index.php?r=mhouse/index&sr=Lease" data-ajax="false" id="menu_lease" >出租房</a></li>
+			    <li data-icon="fa-h-square"><a href="index.php?r=mhouse/index&sr=Sale" data-ajax="false" id="menu_sale">二手房</a></li>
+			    <li data-icon="fa-map"><a href="index.php?r=map/index" data-ajax="false" id="menu_new">地图搜索</a></li>
+			 	<li data-icon="fa-graduation-cap"><a href="http://maplecity.com.cn/index.php?r=column/index" data-ajax="false"  id="menu_school">学区房</a></li>
 			    <li data-icon="calendar"><a href="index.php?r=stats/current" data-ajax="false" id="menu_homestats">房源统计</a></li>
-			    <li data-icon="fa-signal"><a href="index.php?r=stats" data-ajax="false" id="menu_homehist">历史统计</a></li>
+			    <li data-icon="fa-line-chart"><a href="index.php?r=stats" data-ajax="false" id="menu_homehist">历史统计</a></li>
 			</ul>
 		</div>
 		
@@ -137,16 +137,14 @@ $(".main-header input").autocomplete({
 		<a href="/" data-transition="pop"  class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext
 		">Home</a>
 		<a href="index.php?r=mhouse/index" data-transition="pop"  class=" ui-btn ui-corner-all ui-icon-search ui-btn-icon-left ui-btn-icon-notext
-		">Home</a>
-		<a href="/" data-transition="pop" data-rel="back"  class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-left ui-btn-icon-notext
-		">Home</a>
-		<a href="/" data-transition="pop"  data-rel="back"  class="ui-btn ui-corner-all ui-icon-arrow-r ui-btn-icon-left ui-btn-icon-notext
-		">Home</a>
-		<a href="tel:(1) 888-8888"  class="ui-btn ui-corner-all ui-icon-phone ui-btn-icon-left ui-btn-icon-notext
+		">Search</a>
+		<a href="index.php?r=map/index" data-transition="pop" data-rel="back"  class="ui-btn ui-corner-all ui-icon-arrow-l ui-btn-icon-fa-map ui-btn-icon-notext
+		">Map</a>
+		<a href="tel:400-870-1029"  class="ui-btn ui-corner-all ui-icon-phone ui-btn-icon-left ui-btn-icon-notext
 		">Home</a>
 		<a href="mailto:info@maplecity.com.cn"  class="ui-btn ui-corner-all ui-icon-mail ui-btn-icon-left ui-btn-icon-notext
 		">Home</a>
-		<a href="#info" data-transition="pop"  class="ui-btn ui-corner-all ui-icon-info ui-btn-icon-left ui-btn-icon-notext
+		<a href="#infopage" data-transition="pop"  class="ui-btn ui-corner-all ui-icon-info ui-btn-icon-left ui-btn-icon-notext
 		">Home</a>
 			
 		
@@ -159,17 +157,19 @@ $(".main-header input").autocomplete({
 
 <div data-role="page" data-dialog="true" id="infopage">
   <div data-role="header">
-    <h1>I'm A Dialog Box!</h1>
+    <h1>枫之都-加拿大房产置业平台</h1>
   </div>
 
   <div data-role="main" class="ui-content">
-    <p>The dialog box is different from a normal page, it is displayed on top of the current page and it will not span the entire width of the page. The dialog has also an icon of "X" in the header to close the box.</p>
-    <a href="#pageone">Go to Page One</a>
+    <p>
+	枫之都投资置业顾问有限公司，是中国领先的加拿大房产置业及投资管理的专业服务机构。凭借公司核心团队对加拿大地产领域丰富的投资经验，枫之都为中国客户搭建了强大的加拿大房产置业销售平台，并为中国客户提供加拿大不动产置业、管理，投资贷款，留学自住，移民安家等一站式服务！</p>
+	<p>目前枫之都已与10多家加拿大知名房产开发商建立了合作关系，同时，与加拿大各大银行、知名律师行，投资公司以留学移民公司构建了长期的战略合作关系。枫之都投资置业顾问有限公司，不仅仅是加拿大房产置业的平台，同时还是一个公益事业的平台。枫之都将每年的部分销售利润注入枫之都俱乐部，搭建一个海外学子职业规划，就业指导，及紧急资助的平台！</p>
+
+	</p>
+    <a href="#page_main">返回</a>
   </div>
 
-  <div data-role="footer">
-    <h1>Footer Text In Dialog</h1>
-  </div>
+  
 </div> 
 
 

@@ -41,7 +41,7 @@ class MhouseController extends XFrontBase
 
 		//根据条件查询地图
 		$criteria = new CDbCriteria();
-		$criteria->select = 'ml_num,zip,county,municipality,lp_dol,num_kit,construction_year,depth,front_ft,br,addr,house_image,longitude,latitude,area,bath_tot';
+		$criteria->select = 'ml_num,zip,county,s_r,municipality,lp_dol,num_kit,construction_year,depth,front_ft,br,addr,house_image,longitude,latitude,area,bath_tot';
 
 
 		//Search By Lease or Sale
@@ -163,6 +163,7 @@ class MhouseController extends XFrontBase
 			$mapHouseList['MunicipalityName'] = !empty($val->mname->municipality_cname)? ($val->mname->municipality_cname):"其他";
 			$mapHouseList['CountryName'] = $val->municipality;
 			$mapHouseList['Zip'] = $val->zip;
+			$mapHouseList['Sr'] = $val->s_r;
 			$mapHouseList['Country'] = $val->city_id;
 			$mapHouseList['MlsNumber'] = $val->ml_num;
 			$mapHouseList['ProvinceEname'] = $val->county;
