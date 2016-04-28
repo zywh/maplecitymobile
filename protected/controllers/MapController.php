@@ -49,12 +49,15 @@ class MapController extends XFrontBase {
 			if ($_POST['sr'] == "Lease" )  {
 				$criteria->addCondition('s_r = "Lease"');
 			
-			} elseif ($_POST['sr'] == "Sale"){
+			//} elseif ($_POST['sr'] == "Sale"){
+			} else{
+					
 				$criteria->addCondition('s_r = "Sale"');
-				
-			} else {
+			} 
+			/*
+			else {
 				error_log("S_R is default");
-			}
+			}*/
  
 
             //卫生间数量 1-5

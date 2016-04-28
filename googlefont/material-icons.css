@@ -44,5 +44,5 @@
     line-height: 16px;
     vertical-align: middle;
 }
-.material-icons.md-24 { font-size: 24px;color:#ff4103; } /* Default */
-.material-icons.md-36 { font-size: 36px;color:#ff4103; }
+.material-icons.md24 { font-size: 24px;color:#ff4103; } /* Default */
+.material-icons.md48 { font-size: 48px;color:#ff4103; }
