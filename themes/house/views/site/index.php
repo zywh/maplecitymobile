@@ -19,6 +19,9 @@ $(document).on("pageshow","#page_main",function(){
 	$criteria->order = 'date DESC';
 	$criteria->select = 'subdate(date, 1) as date,t_house as t_resi,u_house as u_resi ,round(avg_house/10000,2) as avg_price ';
 	$stats = Stats::model()->find($criteria);
+	//$criteria->select = 'count(*) as lp_dol';
+	//$criteria->AddCondition = 's_r="Lease"';
+	//$leaseCount = Stats::model()->find($criteria);
 
 ?>
 <div data-role="main" class="ui-content">
