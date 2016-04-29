@@ -69,7 +69,8 @@ var swiper = new Swiper(".swiper-container", {
 <!--START-->
 <div class="view-navi-bar" data-role="navbar">
 	<ul>
-<li><div class="fyxqupright_title">MLS：<?php echo $house->ml_num; ?></div></li>
+<li><a href="#" class="ui-btn-active ui-state-persist"><?php echo $house->ml_num; ?></a>
+</li>
 		<li><a data-ajax="false" href="<?php echo $school_url; ?>">地图和学校</a></li>
 			<?php 
 				if($house->tour_url!=""){
