@@ -11,7 +11,7 @@ img{ border:0;}
 .zcwz_label_right{ float:left; color:#a9a9a9; padding-left:10px; padding-top:7px; font-size:18px;}
 
 
-.about_js img{ max-width:679px;_width:expression(this.width > 679 ? "679px" : this.width);}
+.about_js img{ max-width:318px;_width:expression(this.width > 679 ? "679px" : this.width);}
 
 .about_js{ color:#504D4D;}
 .about_js p{ font-size:14px; line-height:1.8em; display:block;}

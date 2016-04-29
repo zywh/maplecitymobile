@@ -60,7 +60,7 @@
 			 	<li data-icon="fa-graduation-cap"><a href="http://maplecity.com.cn/index.php?r=column/index" data-ajax="false"  id="menu_school">学区房</a></li>
 			    <li data-icon="calendar"><a href="index.php?r=stats/current" data-ajax="false" id="menu_homestats">房源统计</a></li>
 			    <li data-icon="fa-line-chart"><a href="index.php?r=stats" data-ajax="false" id="menu_homehist">历史统计</a></li>
-			 <li data-icon="fa-line-chart"><a href="index.php?r=about/about1&id=27" data-ajax="false" id="menu_homehist">关于我们</a></li>
+			 <li data-icon="fa-info"><a href="index.php?r=about/about1&id=27" data-ajax="false" id="menu_about">关于我们</a></li>
 			
 			</ul>
 		</div>
