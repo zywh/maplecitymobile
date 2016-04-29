@@ -820,3 +820,35 @@ Stack trace:
 REQUEST_URI=/index.php?r=mhouse/getCityList&term=to%E2%80%86r
 HTTP_REFERER=http://m.maplecity.com.cn/
 ---
+2016/04/30 02:55:23 [error] [exception.CException] exception 'CException' with message 'About2Controller 无法找到请求的视图 "about_2".' in /var/www/mhtml/framework/yiilite.php:3831
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3790): CController->renderPartial('about_2', Array, true)
+#1 /var/www/mhtml/protected/controllers/About2Controller.php(39): CController->render('about_2', Array)
+#2 /var/www/mhtml/framework/yiilite.php(4058): About2Controller->actionAbout2()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('about2')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('about2/about2')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=about2/about2&id=32
+HTTP_REFERER=http://m.maplecity.com.cn/index.php
+---
+2016/04/30 02:56:55 [error] [exception.CException] exception 'CException' with message 'About2Controller 无法找到请求的视图 "about_2".' in /var/www/mhtml/framework/yiilite.php:3831
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3790): CController->renderPartial('about_2', Array, true)
+#1 /var/www/mhtml/protected/controllers/About2Controller.php(39): CController->render('about_2', Array)
+#2 /var/www/mhtml/framework/yiilite.php(4058): About2Controller->actionAbout2()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('about2')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('about2/about2')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=about2/about2&id=32
+HTTP_REFERER=http://m.maplecity.com.cn/index.php
+---

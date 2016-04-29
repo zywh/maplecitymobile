@@ -30,7 +30,7 @@ class MapController extends XFrontBase {
 		
 		
 		$maxmarkers = 2000;  //City count if count(house) is over
-		$maxhouse = 50; //Grid count if count(house) is over
+		$maxhouse = 200; //Grid count if count(house) is over
 		$maxcitymarkers = 20;
         $result = array();
 		$result['Data']['AreaHouseCount'] = array();
@@ -275,7 +275,7 @@ class MapController extends XFrontBase {
 					$county = $val->county;
 					$county = preg_replace('/\s+/', '', $county);
 					$county = str_replace("&","",$county);
-					$dir="mlspic/crea/".$county."/Photo".$val->ml_num."/";
+					$dir="mlspic/crea/creamid/".$county."/Photo".$val->ml_num."/";
 					$dirtn="mlspic/crea/creatn/".$county."/Photo".$val->ml_num."/";
 					$num_files = 0;
 
@@ -285,7 +285,7 @@ class MapController extends XFrontBase {
 					}
 					//error_log($county.":".$dir);
 
-					if ( $num_files > 1)    {
+					if ( $num_files > 0)    {
 						$mapHouseList['CoverImg'] = $dir.$picfiles[2];
 						$mapHouseList['CoverImgtn'] = $dirtn.$picfiles[2];
 						

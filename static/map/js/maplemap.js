@@ -34,7 +34,6 @@ var maplemap = {
 	setContent: function(map,lat, lng, count, htmlinfo) {
 		
 		var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-		//console.log(lat + ":" + lng);
 		var content = "<i class='common_bg icon_map_mark'><span>" + count + "</span></i>";
 	   var marker = new RichMarker({
 			position: point,
@@ -43,19 +42,8 @@ var maplemap = {
 			content: content,
 			flat: true
 		});
-		//markerArray.push(marker);
-		//htmlArray[htmlArrayPosition] = htmlinfo;
-		
-		
-		/*
-		var marker = new  google.maps.Marker({
-			position: point,
-			map: map,
-			draggable: false,
-			label: "1"
-			
-		});*/
-		
+		markerArray.push(marker);
+
 	
 		
 		google.maps.event.addListener(marker, 'click', function(e) {
@@ -63,7 +51,6 @@ var maplemap = {
 			
 			if ( count >1) {
 				$("#panelhtml").html(htmlinfo);
-				//$("#panelhtml").html(htmlArray[htmlArrayPosition]);
 				$("#houseviewpanel").panel( "open" );
 				
 			}else {
@@ -320,7 +307,8 @@ var maplemap = {
 									+ "<div>城市：" + this.MunicipalityName + " " + this.ProvinceCname + " " + this.Zip + "</div>"
 									+ "<div >类型：" + this.HouseType + " " + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨</div></div>";
 									 
-									maplemap.setContent(map,tlat, tlng, markerprice, html);
+									//maplemap.setContent(map,tlat, tlng, markerprice, html);
+									maplemap.setContent(map,tlat, tlng, 1, html);
 									} else 
 									{
 									//generate panel list view
@@ -355,7 +343,7 @@ var maplemap = {
 
 							//END of LOOP
 							if (houseCount > 30) {
-								//markerClusterer = new MarkerClusterer(map, markerArray);
+								markerClusterer = new MarkerClusterer(map, markerArray);
 							}
 						}
 						//End of House Marker
