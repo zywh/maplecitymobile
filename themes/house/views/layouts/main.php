@@ -54,13 +54,12 @@
 		<div data-role="panel" id="main_menu" class="main-menu" data-display="overlay" data-position-fixed="true">
 			<ul data-role="listview"  data-inset="true">
 			    <li data-icon="home"><a href="/" data-icon="home" id="menu_home">首页</a></li>
-			    <li data-icon="fa-suitcase"><a href="index.php?r=mhouse/index&sr=Lease" data-ajax="false" id="menu_lease" >出租房</a></li>
-			    <li data-icon="fa-h-square"><a href="index.php?r=mhouse/index&sr=Sale" data-ajax="false" id="menu_sale">二手房</a></li>
+			    <li data-icon="fa-h-square"><a href="index.php?r=mhouse/index&sr=Sale" data-ajax="false" id="menu_sale">房源查询</a></li>
 			    <li data-icon="fa-map"><a href="index.php?r=map/index" data-ajax="false" id="menu_new">地图搜索</a></li>
 			 	<li data-icon="fa-graduation-cap"><a href="http://maplecity.com.cn/index.php?r=column/index" data-ajax="false"  id="menu_school">学区房</a></li>
 			    <li data-icon="calendar"><a href="index.php?r=stats/current" data-ajax="false" id="menu_homestats">房源统计</a></li>
 			    <li data-icon="fa-line-chart"><a href="index.php?r=stats" data-ajax="false" id="menu_homehist">历史统计</a></li>
-			 <li data-icon="fa-info"><a href="index.php?r=about/about1&id=27" data-ajax="false" id="menu_about">关于我们</a></li>
+			 <li data-icon="info"><a href="index.php?r=about/about1&id=27" data-ajax="false" id="menu_about">关于我们</a></li>
 			
 			</ul>
 		</div>

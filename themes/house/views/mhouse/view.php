@@ -67,14 +67,14 @@ var swiper = new Swiper(".swiper-container", {
         
 
 <!--START-->
-<div class="ui-grid-e">
-<div class="ui-block-a ui-block-b" data-role="navbar">
+<div class="ui-grid-a view-navi-bar">
+<div class="ui-block-a" data-role="navbar">
 	<ul>
 <li><a href="#" class="ui-btn-active ui-state-persist">MLS:<?php echo $house->ml_num; ?></a>
 </li>
 </ul>
 </div>
-<div class="ui-block-c ui-block-d ui-block-e" data-role="navbar">
+<div class="ui-block-b" data-role="navbar">
 	<ul>
 		<li><a data-ajax="false" href="<?php echo $school_url; ?>">地图和学校</a></li>
 			<?php 
