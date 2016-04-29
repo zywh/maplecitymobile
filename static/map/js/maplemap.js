@@ -4,7 +4,6 @@ var maplemap = {
 
 	initMap: function(mapId,lat,lng,zoomLevel) {
 		markerArray = []; //make it global
-		
 		var initCenter = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
 		var mapOptions = {
 			center: initCenter,
@@ -32,7 +31,8 @@ var maplemap = {
 		map.setZoom(parseInt(zoom));
 	}, 
 
-	setContent: function(map,lat, lng, count, html) {
+	setContent: function(map,lat, lng, count, htmlinfo) {
+		
 		var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
 		//console.log(lat + ":" + lng);
 		var content = "<i class='common_bg icon_map_mark'><span>" + count + "</span></i>";
@@ -43,7 +43,10 @@ var maplemap = {
 			content: content,
 			flat: true
 		});
-		markerArray.push(marker);
+		//markerArray.push(marker);
+		//htmlArray[htmlArrayPosition] = htmlinfo;
+		
+		
 		/*
 		var marker = new  google.maps.Marker({
 			position: point,
@@ -57,20 +60,25 @@ var maplemap = {
 		
 		google.maps.event.addListener(marker, 'click', function(e) {
 			
+			
 			if ( count >1) {
-				$("#panelhtml").html(html);
+				$("#panelhtml").html(htmlinfo);
+				//$("#panelhtml").html(htmlArray[htmlArrayPosition]);
 				$("#houseviewpanel").panel( "open" );
+				
 			}else {
-				$("#popuphtml").html(html);
+				$("#popuphtml").html(htmlinfo);
 				$("#houseviewpopup").popup( "open" );
 			}
-		
+			
 			
 			//info.open(map, marker);
 			
 			//setMapView(parseFloat(lat), parseFloat(lng), mapZoom);
 		});
-		return marker;
+		
+		//htmlArrayPosition++;
+		
 	 
 	},
 	
@@ -184,6 +192,9 @@ var maplemap = {
 			}
 			markerArray.length = 0;
 		}
+		
+		htmlArray = [];
+		htmlArrayPosition = 0;
 		/*
 		if (infowindow) {
 			for (var i in infowindow) {
@@ -201,6 +212,7 @@ var maplemap = {
 		console.log("Change Map");
 		
 		maplemap.clearAll(map);
+		
 		var gridSize = 50;	//50px
 		//get element size to calcute number of grid
 		var mapHeight = $("#" + mapId).height();
@@ -324,9 +336,10 @@ var maplemap = {
 									+ "</a>"
 									
 									+ "</li>";
-										html = panelhtml + li;
-										maplemap.setContent(map,tlat, tlng, count, html);
+										var htmlp = panelhtml + li;
+										maplemap.setContent(map,tlat, tlng, count, htmlp);
 										count = 1;
+										panelhtml = '';
 									}
 									
 									
