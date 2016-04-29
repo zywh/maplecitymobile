@@ -99,23 +99,61 @@ img{ border:0;height:92px;}
 
 .ny_mls_three{ font-size:14px;border-bottom:3px solid #666; *padding-bottom:30px; *padding-top:20px;}
 .ny_mls_three span{ font-size:18px; color:#ff3c00; }
-.ny_mls_four p{ margin:20px 0; font-size:14px; line-height:1.8em;}
+.ny_mls_four p{ margin:50px 0; font-size:14px; line-height:1.8em;}
 
 p.ny_mls_p{ color:#ff3c00; font-size:16px;}
 
 
 /*关于房产经纪*/
 
-.nybanner_fcjj{ background:url(../images/about/c32.jpg) center center no-repeat;height:386px; margin:0 auto;}
+.nybanner_fcjj{ background:url(../images/about/c32.jpg) center center no-repeat;background-size: cover; height: 100px; margin:0 auto;}
 .ny_fcjj_one span{ font-size:16px; display:block; margin:20px 0;}
 
-.ny_fcjj_two_label{ background:url(../images/about/c35.jpg) no-repeat; width:902px; height:101px; line-height:80px; margin:0 auto; font-size:32px; text-align:center; color:#FFF; margin-bottom:20px; margin-top:50px;}
-.ny_fcjj_two_listone{ background:url(../images/about/c36.jpg) no-repeat; padding-left:30px; width:879px; padding:10px 30px 0 80px; color:#FFF; font-size:15px; line-height:1.8em; padding-bottom:10px;}
+.ny_fcjj_two_label{
+background: url(../images/about/c35.jpg) no-repeat;
+    background-size: cover;
+    /* width: 902px; */
+    height: 50px;
+    line-height: 48px;
+    margin: 0px auto;
+    font-size: 80%;
+    text-align: center;
+    color: #FFF;
+    margin-bottom: 24px;
+    /* margin-top: 50px; */
+} 
+.ny_fcjj_two_listone{ background:url(../images/about/c36.jpg) no-repeat;background-size: cover;
+    height: 136px;
+    padding-left: 0px;
+    /* width: 879px; */
+    padding: 8px 10px 0 54px;
+    color: #FFF;
+    font-size: 78%;
+    line-height: 1em;
+    padding-bottom: 10px;
+} 
 
-.ny_fcjj_two_listtwo{ background:url(../images/about/c37.jpg) no-repeat; padding-left:30px; width:879px; padding:10px 30px 0 80px; color:#FFF; font-size:15px; line-height:1.8em; padding-bottom:10px; margin:25px 0;}
+.ny_fcjj_two_listtwo{ background:url(../images/about/c37.jpg) no-repeat; background-size: cover;
+    height: 136px;
+    padding-left: 0px;
+    /* width: 879px; */
+    padding: 8px 10px 0 54px;
+    color: #FFF;
+    font-size: 78%;
+    line-height: 1em;
+    padding-bottom: 10px;
+}
 
 
-.ny_fcjj_two_listthree{ background:url(../images/about/c38.jpg) no-repeat; padding-left:30px; width:879px; padding:10px 30px 0 80px; color:#FFF; font-size:15px; line-height:1.8em; padding-bottom:10px; margin-bottom:20px;}
+.ny_fcjj_two_listthree{ background:url(../images/about/c38.jpg) no-repeat; background-size: cover;
+    height: 136px;
+    padding-left: 0px;
+    /* width: 879px; */
+    padding: 8px 10px 0 54px;
+    color: #FFF;
+    font-size: 78%;
+    line-height: 1em;
+    padding-bottom: 10px;}
 
 
 /*关于购房合同*/
@@ -128,11 +166,20 @@ p.ny_mls_p{ color:#ff3c00; font-size:16px;}
 .ny_gfht_two{ background:url(../images/about/c40.jpg) no-repeat; background-size: cover;
     height: 515px;}
 .ny_gfht_two div{ color:#444;}
-.ny_gfht_x1{ font-size:14px;padding-top:130px; width:290px; padding-left:20px;}
-.ny_gfht_x2{ font-size:14px;padding-top:93px; width:290px; padding-left:340px;}
-.ny_gfht_x3{ font-size:14px;padding-top:94px; width:290px; padding-left:20px;}
-.ny_gfht_x4{ font-size:14px;padding-top:94px; width:290px; padding-left:340px;}
-.ny_gfht_x5{ font-size:14px;padding-top:100px; width:290px; padding-left:20px;}
+.ny_gfht_x1{ font-size: 70%;
+    padding-top: 64px;
+    width: 159px;}
+
+.ny_gfht_x2{     font-size: 70%;
+    padding-top: 0px;
+    width: 156px;
+    padding-left: 163px;}
+
+.ny_gfht_x3{ font-size:70%;padding-top:16px; width:156px; }
+.ny_gfht_x4{ font-size:70%;padding-top: 21px;
+    width: 156px;
+    padding-left: 161px;}
+.ny_gfht_x5{ font-size:70%;padding-top:13px; width:156px; }
 
 
 /*关于购房流程*/

@@ -24,13 +24,13 @@
 	</div>
 	<script>
 var swiper = new Swiper(".swiper-container", {
-  pagination: ".swiper-pagination",
-  nextButton: '.swiper-button-next',
-  prevButton: '.swiper-button-prev',
-  paginationClickable: true,
-  autoplay: 3500,
-  speed: 1000,
-  autoplayDisableOnInteraction: true
+	pagination: ".swiper-pagination",
+	nextButton: '.swiper-button-next',
+	prevButton: '.swiper-button-prev',
+	paginationClickable: true,
+	autoplay: 3500,
+	speed: 1000,
+	autoplayDisableOnInteraction: true
 });
 </script>
 </div>
