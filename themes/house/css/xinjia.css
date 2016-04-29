@@ -125,7 +125,8 @@ p.ny_mls_p{ color:#ff3c00; font-size:16px;}
 
 .ny_gfht_one{ font-size:14px; line-height:2em; color:#333;}
 
-.ny_gfht_two{ background:url(../images/about/c40.jpg) no-repeat; width:651px; height:1049px; margin:30px auto;}
+.ny_gfht_two{ background:url(../images/about/c40.jpg) no-repeat; background-size: cover;
+    height: 515px;}
 .ny_gfht_two div{ color:#444;}
 .ny_gfht_x1{ font-size:14px;padding-top:130px; width:290px; padding-left:20px;}
 .ny_gfht_x2{ font-size:14px;padding-top:93px; width:290px; padding-left:340px;}
