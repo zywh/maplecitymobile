@@ -31,7 +31,7 @@ if(is_dir($dir)){
 }
 if ( $num_files > 0) {
 ?> 
-<div class="swiper-container" style="margin-bottom: 10px;">
+<div class="swiper-container" style="margin-bottom: 0px;">
 	<div class="swiper-wrapper">
 	<?php
 	for ($x = 2; $x <= $num_files + 1; $x++) {
@@ -215,7 +215,10 @@ var swiper = new Swiper(".swiper-container", {
 <div class="fyxqdown_left_cont ui-bar">
 
 	<ul class="xqlb_list" data-role="listview">
-			<li data-role="list-divider">详情列表</li>
+			<li data-role="list-divider">详情列表
+                <div class="fyxqdown_left_title">
+                    <span class="dlh_btn">英尺 &gt; 米</span>
+                </div></li>
 
 			<li><span class="xqlb_label">MLS编号：</span><?php echo $house->ml_num; ?></li>
 			<li><span class="xqlb_label">交叉路口：</span><?php echo $house->cross_st; ?></li>
@@ -446,8 +449,6 @@ $(".fyxqdown_left_title").on("click",".ss",function(){
 		$(".t2").html("宽(M)")
 		$(".t3").html("面积(㎡)")
 		$(this).text("米 > 英制");
-
-
    } 
    else{
 		$(".t1").html("长（英尺）")
@@ -455,8 +456,6 @@ $(".fyxqdown_left_title").on("click",".ss",function(){
 		$(".t3").html("面积（平方英尺）")
 		$(this).text("英制 > 米");
 		$(this).addClass("dlh_active");
-		
-
 		
 		var h1=decimal(p1/0.3048,2);
 		var h2=decimal(p2/0.3048,2);
@@ -474,8 +473,6 @@ $(".fyxqdown_left_title").on("click",".ss",function(){
 })
 })
 </script> 
-
-
                
 <script language="javascript" type="text/javascript">
 $(function(){
