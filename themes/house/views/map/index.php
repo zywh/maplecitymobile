@@ -128,8 +128,8 @@ function getFieldValues() {
 		
 
 		max_height();
-		lat = (lat) ? lat: "54.649739";
-		lng= (lng) ? lng: "-93.045726";
+		lat = (lat) ? lat: "43.6532";
+		lng= (lng) ? lng: "-79.3832";
 		
 		maptype = (maptype) ? maptype: "default";
 		sr = (sr) ? sr: "Sale";
@@ -141,26 +141,25 @@ function getFieldValues() {
 		//Start Select Change Event  
 		$(".search-area  select").change(function () {
 			getFieldValues(); //Get updated Select
-			//$('#search_clear').show(); 
-			//center = 
-			//maplemap.initMap("google_map",lat,lng,mapZoom);
+		
 			maplemap.changeMap(map);
 			//console.log(options['Price']);
 		});
 		if ( maptype == 'default' ) {
+			//$("#debug").text(navigator.geolocation);
 			if ( navigator.geolocation ) {
 		        function success(pos) {
 					lat = pos.coords.latitude;
 					lng = pos.coords.longitude;
-					//console.log("GeoLocation Mapcenter:" + pos.coords.latitude +"," + pos.coords.longitude);
-					$("#debug").text("Geolocation is enabled");
+					
+				
 					maplemap.initMap("google_map",lat,lng,mapZoom);
 					
 				}
 		        function fail(error) {
 					
-	        		mapZoom="10"; //Default zoom level for city
-					//console.log("Fail to Get Geo Location Center to City:" + lat + ":" + lng);
+	        		//mapZoom=10; //Default zoom level for city
+				
 					maplemap.initMap("google_map",lat,lng,mapZoom);
 					//setMapView(lat,lng,mapZoom);
 									
@@ -168,7 +167,7 @@ function getFieldValues() {
 		
 				navigator.geolocation.getCurrentPosition(success, fail, {enableHighAccuracy:true});
 	    	} else {
-				$("#debug").text("Geolocation is not enabled");
+				
 				maplemap.initMap("google_map",lat,lng,mapZoom);
 	   		}
 		} 
