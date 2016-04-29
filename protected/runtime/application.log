@@ -774,3 +774,27 @@ Stack trace:
 REQUEST_URI=/
 HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=mhouse/view&id=W3470864
 ---
+2016/04/29 08:38:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "about"。' in /var/www/mhtml/framework/yiilite.php:1750
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('about')
+#1 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#2 /var/www/mhtml/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=about
+---
+2016/04/29 08:38:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "about/about1?id=28"。' in /var/www/mhtml/framework/yiilite.php:1750
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('about/about1?id...')
+#1 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#2 /var/www/mhtml/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=about/about1?id=28
+---
+2016/04/29 08:38:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "about/about1"。' in /var/www/mhtml/framework/yiilite.php:1750
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('about/about1')
+#1 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#2 /var/www/mhtml/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=about/about1&id=27
+---

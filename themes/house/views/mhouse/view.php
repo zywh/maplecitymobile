@@ -16,6 +16,7 @@ $slat=$_GET["lat"];
 $slng=$_GET["lng"];
 
 $school_url="index.php?r=mhouse/school&lat=".$jingdu."&lng=".$weidu;
+$map_url="index.php?r=map/index&lat=".$jingdu."&lng=".$weidu;
 
 //打开 images 目录
 $county = $house->county;
@@ -66,14 +67,32 @@ var swiper = new Swiper(".swiper-container", {
         
 
 <!--START-->
-
+<div class="view-navi-bar" data-role="navbar">
+	<ul>
+<li><div class="fyxqupright_title">MLS：<?php echo $house->ml_num; ?></div></li>
+		<li><a data-ajax="false" href="<?php echo $school_url; ?>">地图和学校</a></li>
+			<?php 
+				if($house->tour_url!=""){
+					echo "<li><a data-ajax='false'" ;
+					echo "href='",$house->tour_url,"' target='_blank'>视频 </a></li>";
+				} ?>
+	</ul>
+</div><!-- /navbar -->
+<!--
 <div class="fyxqupright ui-corner-all custom-corners">
 	<div class="fyxqupright_title">MLS：<?php echo $house->ml_num; ?></div>
 	<div class="fyxqupright_btn" style="float:right; padding-top:5px; padding-right:0.5em">
-		<a data-ajax="false" href="<?php echo $school_url; ?>">地图和学校</a>
+	<?php 
+				if($house->tour_url!=""){
+					echo "<a data-ajax='false'" ;
+					echo "href='",$house->tour_url,"' target='_blank'>视频 </a>";
+				} 
+	?>
+		<a data-ajax="false" href="<?php echo $school_url; ?>"> 地图和学校</a>
 	</div>
 
 </div>
+!-->
 <!--End-->
 
 <!--START-->
@@ -242,9 +261,9 @@ var swiper = new Swiper(".swiper-container", {
 			<li id='houselayout' data-role="list-divider">房屋布局</li>
 		<li>
 
-		<div class="fwbjtable table-stroke">            
+		<div id="fwbj" class="fwbjtable table-stroke">            
 		<!-- <table data-role="table" id="fwbj" class="ui-responsive" data-mode="columntoggle"> -->
-		<table id="fwbj" class="ui-responsive">
+		<table class="ui-responsive">
 		<thead><tr>
 		<th width="12%" style="border-bottom: 1px solid #CCCCCC;">楼层</th>
 		<th width="12%" style="border-bottom: 1px solid #CCCCCC;">房间</th>

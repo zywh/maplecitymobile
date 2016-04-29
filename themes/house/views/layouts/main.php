@@ -60,6 +60,8 @@
 			 	<li data-icon="fa-graduation-cap"><a href="http://maplecity.com.cn/index.php?r=column/index" data-ajax="false"  id="menu_school">学区房</a></li>
 			    <li data-icon="calendar"><a href="index.php?r=stats/current" data-ajax="false" id="menu_homestats">房源统计</a></li>
 			    <li data-icon="fa-line-chart"><a href="index.php?r=stats" data-ajax="false" id="menu_homehist">历史统计</a></li>
+			 <li data-icon="fa-line-chart"><a href="index.php?r=about/about1&id=27" data-ajax="false" id="menu_homehist">关于我们</a></li>
+			
 			</ul>
 		</div>
 		
@@ -149,7 +151,7 @@ $(".main-header input").autocomplete({
 		">Phone</a>
 		<a href="mailto:info@maplecity.com.cn"  class="ui-btn ui-corner-all ui-icon-mail ui-btn-icon-left ui-btn-icon-notext
 		">Email</a>
-		<a href="#infopage" data-transition="pop"  class="ui-btn ui-corner-all ui-icon-info ui-btn-icon-left ui-btn-icon-notext
+		<a href="index.php?r=about/about1&id=27" data-ajax="false"  class="ui-btn ui-corner-all ui-icon-info ui-btn-icon-left ui-btn-icon-notext
 		">Info</a>
 			
 		
