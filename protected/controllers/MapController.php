@@ -154,7 +154,7 @@ class MapController extends XFrontBase {
 
             }
 
-			
+			error_log("minLon:".$minLon."maxLon:".$maxLon."minLat:".$minLat."maxLat:".$maxLat);
 
 			//End of Condition
 
@@ -219,6 +219,7 @@ class MapController extends XFrontBase {
 						$result['Data']['AreaHouseCount']["G".$x.$y]['GeocodeLat'] = $gridCenterlat;
 						$result['Data']['AreaHouseCount']["G".$x.$y]['GeocodeLng'] = $gridCenterlng;
 						
+						
 					}
 				}
 				//Get count of house in each tile
@@ -231,7 +232,7 @@ class MapController extends XFrontBase {
 					
 					$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['NameCn'] = "G".$gridlng.$gridlat;
 					$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['HouseCount']++; 
-					
+					error_log("G".$gridlng.$gridlat."Count:".$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['HouseCount']);
 				}
 				
 				
