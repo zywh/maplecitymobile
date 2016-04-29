@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-img{ border:0;}
+img{ border:0;height:92px;}
 
 
 /*枫之都介绍*/
@@ -84,20 +84,20 @@ img{ border:0;}
 
 .nycont_bj{ background-color:#f8f8f8;}/*背景白色*/
 
-.nybanner_mls{ background:url(../images/about/c27.jpg) center center no-repeat; height:386px; margin:0 auto;}
+.nybanner_mls{ background:url(../images/about/c27.jpg) center center no-repeat;background-size: cover; height: 147px;  margin:0 auto;}
 .ewm_mls{ width:1100px; margin:0 auto; background-color:#FFF; padding-bottom:60px; margin-bottom:-60px; }
 
-.nycontnrbox{ width:1100px; margin:0 auto; background-color:#FFF; padding-bottom:40px;}
-.nycontnr{ width:1000px; margin:0 auto; }
+.nycontnrbox{ *width:1100px; margin:0 auto; background-color:#FFF; padding-bottom:40px;}
+.nycontnr{ *width:1000px; margin:0 auto; }
 .ny_cont_mls_title{ text-align:center; font-size:30px; color:#ff3c00; padding-top:40px;}
 
 .ny_cont_mls_info{ text-align:center; color:#666; margin-top:10px; font-size:16px;}
 
-.ny_cont_zy{ font-size:20px;color:#ff3c00; margin-top:40px; margin-bottom:10px;}
+.ny_cont_zy{ *font-size:20px;color:#ff3c00; }
 
 .ny_mls_one{ text-align:center;}
 
-.ny_mls_three{ font-size:14px;border-bottom:3px solid #666; padding-bottom:30px; padding-top:20px;}
+.ny_mls_three{ font-size:14px;border-bottom:3px solid #666; *padding-bottom:30px; *padding-top:20px;}
 .ny_mls_three span{ font-size:18px; color:#ff3c00; }
 .ny_mls_four p{ margin:20px 0; font-size:14px; line-height:1.8em;}
 
@@ -120,7 +120,8 @@ p.ny_mls_p{ color:#ff3c00; font-size:16px;}
 
 /*关于购房合同*/
 
-.nybanner_gfht{ background:url(../images/about/c39.jpg) center center no-repeat;height:386px; margin:0 auto;}
+.nybanner_gfht{ background:url(../images/about/c39.jpg) center center no-repeat;background-size: cover;
+    height: 115px; margin:0 auto;}
 
 .ny_gfht_one{ font-size:14px; line-height:2em; color:#333;}
 
@@ -255,54 +256,9 @@ text-decoration: none;
 
 .xjmy2{ color:#999;width:auto;}
 
-/* Jquery autocomplete CSS*/
-html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
-.ui-autocomplete {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  background-color: #fff;
-  background-clip: padding-box;
+.nycont_sgkjj .ui-mobile a img,
+.nycont_sgkjj .ui-mobile fieldset {
+	border-width: 0;
+	/* height: 60px; */
+	/* margin: auto; */
 }
-/* Move over to selet item */
-.ui-widget-content .ui-state-hover, .ui-widget-content .ui-state-focus {
-    *border: 1px solid #ffece6;
-    background-color: #ffece6;
-    color: #ff4e00;
-    font-weight: bold;
-}
-
-
-/* input focus to glow*/
-.ui-autocomplete-input:focus {
-  border: 1px solid #ff4e00;
-  -webkit-box-shadow: 3px 3px 10px 0px rgba(255,78,0,0.66);
-  -moz-box-shadow: 3px 3px 10px 0px rgba(255,78,0,0.66);
-  box-shadow: 3px 3px 10px 0px rgba(255,78,0,0.66);
-}
-/*adjust LI space*/
-.ui-menu {
-   list-style:none;
-   line-height: 21px;
-   color: #000;
-   display:block;
-  /*box-shadow: 0 0 1px #ff4e00;*/
-  float: left;
-  outline: none;
-  border: solid #ffece6;;
-  border-width: 0 1px 1px 1px;
-  margin: 0;
-  padding: 0;
-  -webkit-box-shadow: 3px 3px 10px 0px rgba(255,78,0,0.66);
-  -moz-box-shadow: 3px 3px 10px 0px rgba(255,78,0,0.66);
-  box-shadow: 3px 3px 10px 0px rgba(255,78,0,0.66);
-
-}
-.ui-menu-item { 
-  padding: 3px 0px 3px 25px; /*match input box margin 25px*/
-  margin: 5px 1px 3px 0px;
-  background: white url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAMAAABhq6zVAAAAIVBMVEW/v7+/v78AAAC/v7+/v7+/v7+/v7+/v7+/v7+/v7+/v79QUkolAAAAC3RSTlOLYAAJeoMjRhpOcbsbtd4AAABJSURBVHjaVc1JDsAgDATB9uAF8v8Hx0QcSN9KssZI5eClDj18PRsFlmlQDcfUGd6A3EgYP1xncQ+sa5qYOk9jRQt1Y0izhU5bL2o2AW3ZQKeJAAAAAElFTkSuQmCC) 7px 7px no-repeat;
-
-}
-

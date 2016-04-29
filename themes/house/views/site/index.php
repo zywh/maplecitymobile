@@ -64,12 +64,12 @@
 
 <div class="nycont_mls">
 <div class="nycont_sgkjj"><p id="socialicons3">
-	 <a style="margin-left:0px;" class="sgkjj1" target="_blank" href="index.php?r=about2/about2&id=32"><IMg src="/themes/house/images/index/btn1.jpg" border="0"/></a>
-	 <a class="sgkjj2" target="_blank" href="index.php?r=about2/about2&id=33"><IMg src="/themes/house/images/index/btn2.jpg" border="0"/></a>
-	 <a class="sgkjj3" target="_blank" href="index.php?r=about2/about2&id=34"><IMg src="/themes/house/images/index/btn3.jpg" border="0"/></a>
-	 <a style="margin-right:0px;" class="sgkjj4" target="_blank" href="index.php?r=about2/about2&id=36"><IMg src="/themes/house/images/index/btn4.jpg" border="0"/></a>
+	 <a style="margin-left:0px;" data-ajax="false" class="sgkjj1" href="index.php?r=about2/about2&id=32"><IMg src="/themes/house/images/index/btn1.jpg" border="0"/></a>
+	 <a class="sgkjj2" data-ajax="false" href="index.php?r=about2/about2&id=33"><IMg src="/themes/house/images/index/btn2.jpg" border="0"/></a>
+	 <a class="sgkjj3" data-ajax="false" href="index.php?r=about2/about2&id=34"><IMg src="/themes/house/images/index/btn3.jpg" border="0"/></a>
+	 <a style="margin-right:0px;" data-ajax="false" class="sgkjj4"  href="index.php?r=about2/about2&id=36"><IMg src="/themes/house/images/index/btn4.jpg" border="0"/></a>
 	 </p>
-	 <div class="cl"></div>
+	 
 </div>
 </div>
 
@@ -80,177 +80,7 @@
 <!-- 加国资讯开始 -->
 <div class="lm_four">
      <div class="lm_four_banner"><a href="index.php?r=about2/about2&id=33"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/index/tl_3.jpg" /></a></div>
-    <div class="lm_fourup"><a href="index.php?r=news/canadaNews"><img src="/static/images/news.jpg" /></a></div>
-    <div class="lm_fourdown">
-       
-        <div class="lm_four_news">
-            <div class="lm_four_left">
-                           <div class="lm_four_left_title">
-                                  <p>图片新闻<span><a href="">更多>></a></span></p>
-                            </div>
-                <div class="lm_four_flash">
-                    <div id="fsD1" class="focus">
-                        <div id="D1pic1" class="fPic">
-                            <div class="xwdt">
-                                <div class="xwdt_title">加国即时新闻动态</div>
-                            </div>
-                            <?php foreach($instant as $obj){ ?>
-                            <div class="fcon">
-                                <a href="<?php echo Yii::app()->createUrl('news/canadaNewsView',array('id'=>$obj->id)); ?>" target="_blank"><img src="<?php echo Yii::app()->request->baseUrl; ?>/<?php echo $obj->image; ?>" width="290" height="396" /></a>
-                                <span class="shadow"><a href="<?php echo Yii::app()->createUrl('news/canadaNewsView',array('id'=>$obj->id)); ?>" title="<?php echo $obj->title; ?>" target="_blank"><?php echo $obj->title; ?></a></span>
-                            </div>
-                            <?php } ?>
-                        </div>
-                        <div class="fbg">
-                            <div class="D1fBt" id="D1fBt">
-                                <a href="javascript:void(0);" class="current"><i>1</i></a>
-                                <a href="javascript:void(0);"><i>2</i></a>
-                                <a href="javascript:void(0);"><i>3</i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="lm_four_center">
-                         <div class="lm_four_center_title">
-                                  <p><a href="index.php?r=news/canadaNews&catalog_id=6">加国新闻</a><span><a href="index.php?r=news/canadaNews&catalog_id=6">更多>></a></span></p>
-                            </div>
-                            <div class="lm_four_center_rec">
-                                    <div class="lm_four_center_rec_left" >
-                                              <img src="/uploads/201510/e95a4b3a3b796d53c8dcfbf1ccdddf6d.jpg" width="145" height="125"/>
-                                    </div>
-                                    <div class="lm_four_center_rec_right">
-                                           <p><strong>加拿大买房过程全攻略 </strong><br />
-                                             更新：2015-05-26
-                                            </p>
-                                            <p>
-                                            新移民刚来加拿大，可能对加拿大买房过程
-                                            </p>
-                                            <span><a href="index.php?r=news/canadaNewsView&id=115">[详情]</a></span>
-                                    </div>
-                            </div>
-                <div class="lm_four_center_one">
-                    <div class="lm_four_cneter_newsinfo">
-                        <?php foreach($canada_news as $obj){ ?>
-                            <div class="news_a canada-news" style="width:315px;">
-                            <LI style="float:left; width:230px;"><a href="<?php echo Yii::app()->createUrl('news/canadaNewsView',array('id'=>$obj->id)); ?>" title="<?php echo $obj->title; ?>" target="_blank"><?php echo mb_substr($obj->title,0,20,'utf-8');?></a></LI>
-                            <LI style="float:right; color:#333333">					
-							<?php 
-					if($obj->last_update_time==0){
-					echo "[".date('Y-m-d', $obj->create_time)."]"; 
-					}else{
-					echo "[".date('Y-m-d', $obj->last_update_time)."]"; 
-					}
-					?></LI>
-                            </div>
-                        <?php } ?>
-                        <div class="cl"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="lm_four_right">
-                <div class="lm_four_right_newslist lm_four_right_newslist_two">
-                    <div class="lm_four_news_up">
-                        <div class="lm_four_news_up_left"><a href="index.php?r=news/canadaNews&catalog_id=7" class="moretwo" target="_blank"><?php echo $this->getCatalogName(7); ?></a></div>
-                        <a href="index.php?r=news/canadaNews&catalog_id=7" class="moretwo" target="_blank">更多>></a>
-                        <div class="cl"></div>
-                    </div>
-                    <div class="lm_four_news_down">
-                       
-                        <div class="lm_four_news_down_right" style="padding-left:0px;">
-                            <div class="lm_four_news_down_info">
-                                <?php foreach($summary as $obj){ ?>
-                                 
-                                          <div class="news_a" style="width:280px;">
-                                          <LI style="float:left; width:200px;">
-                                          <img src="/static/images/point.gif" align="absbottom"/><a href="<?php echo Yii::app()->createUrl('news/canadaNewsView',array('id'=>$obj->id)); ?>" title="<?php echo $obj->title; ?>" target="_blank" style="width:180px;"><?php echo $obj->title; ?></a>
-                                          </LI>
-                                         <LI style="float:right; color:#333333"><?php 
-					if($obj->last_update_time==0){
-					echo "[".date('Y-m-d', $obj->create_time)."]"; 
-					}else{
-					echo "[".date('Y-m-d', $obj->last_update_time)."]"; 
-					}
-					?></LI>
-                                          </div>
-                                         
-                          
-                                <?php } ?>
-                                <div class="cl"></div>
-                            </div>
-                            <div class="cl"></div>
-                        </div>
-                        <div class="cl"></div>
-                    </div>
-                </div>
-                <div class="lm_four_right_newslist lm_four_right_newslist_two">
-                    <div class="lm_four_news_up">
-                        <div class="lm_four_news_up_left"> <a href="index.php?r=news/canadaNews&catalog_id=8" class="moretwo" target="_blank"><?php echo $this->getCatalogName(8); ?></a></div>
-                        <a href="index.php?r=news/canadaNews&catalog_id=8" class="moretwo" target="_blank">更多>></a>
-                        <div class="cl"></div>
-                    </div>
-                    <div class="lm_four_news_down">
-                       
-                        <div class="lm_four_news_down_right" style="padding-left:0px;">
-                            <div class="lm_four_news_down_info">
-                                <?php foreach($life as $obj){ ?>
-                                          <div class="news_a" style="width:280px;">
-                                          <LI style="float:left; width:200px;">
-                                          <img src="/static/images/point.gif" align="absbottom"/><a href="<?php echo Yii::app()->createUrl('news/canadaNewsView',array('id'=>$obj->id)); ?>" title="<?php echo $obj->title; ?>" target="_blank" style="width:180px;"><?php echo $obj->title; ?></a>
-                                          </LI>
-                                         <LI style="float:right; color:#333333"><?php 
-					if($obj->last_update_time==0){
-					echo "[".date('Y-m-d', $obj->create_time)."]"; 
-					}else{
-					echo "[".date('Y-m-d', $obj->last_update_time)."]"; 
-					}
-					?></LI>
-                                          </div>
-                                <?php } ?>
-                                <div class="cl"></div>
-                            </div>
-                            <div class="cl"></div>
-                        </div>
-                        <div class="cl"></div>
-                    </div>
-                </div>
-                <div class="lm_four_right_newslist">
-                    <div class="lm_four_news_up">
-                        <div class="lm_four_news_up_left"><a href="index.php?r=news/canadaNews&catalog_id=9" class="moretwo" target="_blank"><?php echo $this->getCatalogName(9); ?></a></div>
-                        <a href="index.php?r=news/canadaNews&catalog_id=9" class="moretwo" target="_blank">更多>></a>
-                        <div class="cl"></div>
-                    </div>
-                    <div class="lm_four_news_down">
-                       
-                        <div class="lm_four_news_down_right" style="padding-left:0px;">
-                            <div class="lm_four_news_down_info">
-                                <?php foreach($travel as $obj){ ?>
-                                          <div class="news_a" style="width:280px;">
-                                          <LI style="float:left; width:200px;">
-                                          <img src="/static/images/point.gif" align="absbottom"/><a href="<?php echo Yii::app()->createUrl('news/canadaNewsView',array('id'=>$obj->id)); ?>" title="<?php echo $obj->title; ?>" target="_blank" style="width:180px;"><?php echo $obj->title; ?></a>
-                                          </LI>
-                                         <LI style="float:right; color:#333333">
-										 <?php 
-					if($obj->last_update_time==0){
-					echo "[".date('Y-m-d', $obj->create_time)."]"; 
-					}else{
-					echo "[".date('Y-m-d', $obj->last_update_time)."]"; 
-					}
-					?></LI>
-                                          </div>
-                                <?php } ?>
-                                <div class="cl"></div>
-                            </div>
-                            <div class="cl"></div>
-                        </div>
-                        <div class="cl"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="cl"></div>
-        </div>
-
-    </div>
+ 
 </div>
 <!-- 加国资讯结束 -->
 
@@ -258,9 +88,7 @@
 
 <!-- 加拿大留学开始 -->
 <div class="lm_five" >
-    <div class="lm_five_up"><a href=""><img src="/static/images/liuxue.jpg" /></a></div>
-    <div class="lm_five_down">
-<!--			<div class="lm_four_banner"><a href="<?php echo Yii::app()->createUrl('news/canadaNews2', array('catalog_id'=>17)); ?>"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/index/b_3.jpg" /></a></div>-->
+ 
 			
         <div class="lm_five_down_news">
             <div class="lm_five_left">
@@ -348,15 +176,14 @@
             </div>
             <div class="cl"></div>
         </div>
-    </div>
+   
 </div>
 <!-- 加拿大留学结束-->
 
 
 <!-- 加拿大移民开始 -->
 <div class="lm_five">
-    <div class="lm_five_up"><a href=""><img src="/static/images/yimin.jpg" /></a></div>
-    <div class="lm_five_down" >
+   
 			
         <div class="lm_five_down_news">
             <div class="lm_five_left">
@@ -445,16 +272,14 @@
             <div class="cl"></div>
             <div class="lm_four_banner" style="margin-top:40px;"><a href="index.php?r=about/about1&id=50"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/index/tl_2.jpg" /></a></div>
         </div>
-    </div>
+   
 </div>
 <!-- 加拿大移民结束-->
 
 
 <!-- 加拿大旅游开始 -->
 <div class="lm_five">
-    <div class="lm_five_up"><a href=""><img src="/static/images/lvyou.jpg" /></a></div>
-    <div class="lm_five_down">
-			
+   
         <div class="lm_five_down_news">
             <div class="lm_five_left">
                  <div class="lm_five_left_label">
@@ -541,7 +366,7 @@
             </div>
             <div class="cl"></div>
         </div>
-    </div>
+   
 </div>
 <!-- 加拿大旅游结束-->
 

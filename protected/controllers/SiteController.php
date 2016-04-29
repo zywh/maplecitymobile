@@ -18,9 +18,8 @@ class SiteController extends XFrontBase
     public function actionIndex ()
     {
         
-        Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/index.css');
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/js/flowplayer-3.2.11.min.js');
-
+        Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/homepage.css');
+ 
         //Banner
         $criteria = new CDbCriteria();
         $criteria->select = 'title, url, image';
@@ -365,7 +364,7 @@ class SiteController extends XFrontBase
     public function actionLogin ()
     {
         $this->layout = " ";
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/js/jquery-1.9.1.js');
+      
         Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/login.css');
         $original = Yii::app()->request->getQuery('original');
         $model = new User('login');
@@ -421,7 +420,7 @@ class SiteController extends XFrontBase
      */
     public function actionForgetPassword(){
         $this->layout = " ";
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/js/jquery-1.9.1.js');
+    
         Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/login.css');
         $this->render('forget_password');
     }
