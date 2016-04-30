@@ -41,7 +41,7 @@ var swiper = new Swiper(".swiper-container", {
 <!-- /navbar -->
 <div class="home-navi-bar" data-role="navbar" data-grid="c">
     <ul>
-	<li><a id='about_us' href="index.php?r=about/about1&id=27" data-ajax="false">关于我们</a></li>
+	<li><a id='about_us' href="index.php?r=about/about1&id=27" data-ajax="false" >关于我们</a></li>
 	<li><a id='mapsearch' href="index.php?r=map" data-ajax="false">地图搜索</a></li>
 	<li><a id='housesearch' href="index.php?r=mhouse" data-ajax="false">房源搜索</a></li>
 	<li><a id='about_hire' href="index.php?r=about/about1&id=31" data-ajax="false">招募</a></li>

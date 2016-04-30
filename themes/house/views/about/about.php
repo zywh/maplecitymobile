@@ -1,5 +1,4 @@
-<link href="/themes/house/css/xinjia.css" type="text/css" rel="stylesheet" />
-<link href="/themes/house/news/images_index/index.css" rel="stylesheet" type="text/css" />
+
 <?php
 $db = Yii::app()->db;
 ?>

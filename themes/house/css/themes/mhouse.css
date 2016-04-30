@@ -1179,6 +1179,7 @@ html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% i
 span.xqlb_label{float: left; width: 100px;display:block;}
 .view-navi-bar.ui-navbar { margin-top:-10px;}
 .about-navi-bar.ui-navbar { margin-top:-23px;}
+.home-navi-bar.ui-navbar { margin-top: -27px; } 
 div.view-navi-bar > div.ui-block-a { width: 35%;}
 div.view-navi-bar > div.ui-block-b { width: 65%;}
 

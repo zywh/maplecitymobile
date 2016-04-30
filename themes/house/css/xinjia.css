@@ -1,22 +1,22 @@
 @charset "utf-8";
 /* CSS Document */
-img{ border:0;height:92px;}
+img{ border:0; max-width: 100%;  height: auto;  width: auto\9; /* ie8 */}
 
 
 /*枫之都介绍*/
-.nybanner_about{ background:url(../images/c1.jpg) center center no-repeat; height:197px;}
+.nybanner_about{ background:url(../images/c1.jpg) center center no-repeat; background-size: cover;   height: 140px;}
 .fyxq{ margin-top:30px;}
-.zcwz_label{ border-bottom:4px solid #cfcfcf; }
+.zcwz_label{ border-bottom:4px solid #cfcfcf; margin: 5px; }
 .zcwz_label_left{ background:url(../images/c2.jpg) left bottom no-repeat; height:31px; margin-bottom:-4px; font-size:22px;  padding-left:33px; color:#ff3700; float:left; border-bottom:4px solid #ff3700; padding-right:6px;}
 .zcwz_label_right{ float:left; color:#a9a9a9; padding-left:10px; padding-top:7px; font-size:18px;}
+.fyxqdown {    margin: 5px;}
 
-
-.about_js img{ max-width:318px;_width:expression(this.width > 679 ? "679px" : this.width);}
+.about_js img{ }
 
 .about_js{ color:#504D4D;}
-.about_js p{ font-size:14px; line-height:1.8em; display:block;}
+.about_js p{ line-height:1.8em; display:block;}
 .img_p{ text-align:center; display:block;  }
-.about_bt1{ font-size:20px; color:#ff3700; text-align:center; display:block; font-weight:bold;}
+.about_bt1{ font-size:17px; color:#ff3700; text-align:center; display:block; font-weight:bold;}
 .about_bt2{ font-size:16px; color:#ff5a00;  display:block;}
 
 /*合作伙伴*/
@@ -35,20 +35,20 @@ img{ border:0;height:92px;}
 
 
 /*我的优势*/
-.wdys_ny{ background:url(../images/c14.jpg) right top no-repeat; width:328px; }
+.wdys_ny{ background:url(../images/c14.jpg) right top no-repeat; background-size: cover; }
 .wdys_label{ height:30px;}
 .wdys_one{ 
-	width: 324px;
+	
     /* margin-bottom: 20px; */
     background-color: #ffffff;
-    opacity: 0.7;
+    opacity: 0.8;
     filter: alpha(opacity=40);
     margin: 0;
 }
 .wdys_two{ margin-bottom:20px;}
 .wdys_label span{ color:#FFF; font-size:18px; background:url(../images/c15.jpg) no-repeat; width:55px; height:25px; text-align:center; display:block; float:left;}
 .wdys_label h2{ float:left; display:block; margin:0; padding-left:10px; font-weight:normal;}
-.wdys_cont{ padding-left:10px; line-height:1.7em; padding-top:5px; color:#474747;}
+.wdys_cont{ padding-left:8px; line-height:1.4em; padding-top:5px; }
 
 
 /*联系我们*/
@@ -60,19 +60,19 @@ img{ border:0;height:92px;}
 
 /*人才招募*/
 
-.join_ny img{ max-width:320px;_width:expression(this.width > 710 ? "710px" : this.width);}
-.join_list{ padding-top:20px; padding-bottom:10px; width:640px; margin:0 auto;}
-.join_list_label{ background:url(../images/c20.jpg) no-repeat; width:620px; height:37px; line-height:37px; margin:0 auto; padding-left:0px; font-size:16px;}
+.join_ny img{ }
+.join_list{}
+.join_list_label{ background:url(../images/c20.jpg) no-repeat;  height:37px; line-height:37px; margin:0 auto; padding-left:0px; font-size:16px;}
 .join_list_cont{ 
 	padding-left: 8px;
     padding-top: 0px;
     /* padding-right: 3px; */
-    color: #666;
-    width: 295px;
+   
+    
 }
 .join_zd{ font-size:16px; color:#fe6000;}
 
-.join_list_lx{ color:#f60000; width:600px; margin:0 auto; font-size:14px; margin-top:30px;}
+.join_list_lx{ color:#f60000;  margin:0 auto; font-size:14px; margin-top:30px;}
 
 
 

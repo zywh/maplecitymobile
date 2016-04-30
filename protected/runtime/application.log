@@ -874,3 +874,17 @@ Stack trace:
 REQUEST_URI=/index.php?r=mhouse/getCityList&term=va%E2%80%86b
 HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=mhouse/school&lat=43.613243&lng=-79.660057
 ---
+2016/04/30 10:56:57 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/themes/house/views/site/index.php:11)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3822): SiteController->renderFile()
+#1 /var/www/mhtml/framework/yiilite.php(3790): SiteController->renderPartial()
+#2 /var/www/mhtml/protected/controllers/SiteController.php(36): SiteController->render()
+#3 /var/www/mhtml/framework/yiilite.php(4058): SiteController->actionIndex()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#5 /var/www/mhtml/framework/yiilite.php(3555): SiteController->runAction()
+#6 /var/www/mhtml/framework/yiilite.php(3545): SiteController->runActionWithFilters()
+#7 /var/www/mhtml/framework/yiilite.php(1746): SiteController->run()
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/
