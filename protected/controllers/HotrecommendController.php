@@ -1,6 +1,11 @@
 <?php
-
-class EnjoyController extends XFrontBase
+/**
+ * Created by PhpStorm.
+ * User: ShengHui
+ * Date: 2015/1/24
+ * Time: 22:33
+ */
+class HotrecommendController extends XFrontBase
 {
     public function actionIndex(){
         Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/enjoy.css');
@@ -8,40 +13,22 @@ class EnjoyController extends XFrontBase
         Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/js/jquery.roundabout.js');
         Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/js/lanrenzhijia.js');
 
-        $house_image_list = House::model()->findAll(array(
-            'select'    => 'id, addr, image_list',
-            'condition' => 'lp_dol>3000000',
+        $hot_house = House::model()->findAll(array(
+            'select'    => 'id, name, house_image',
+            'condition' => 'recommend=1 AND house_image<>""',
             'order'     => 'id DESC',
-            'limit'     => 1
+            'limit'     => 5
         ));
 
-        $city_houses = array();
         $subject_list = Subject::model()->findAll(array(
-  
+            'condition' => 'recommend=1',
             'order'     => 'id DESC',
         ));
 
-        foreach($subject_list as $obj){
-            $criteria = new CDbCriteria();
-
-            $criteria->addCondition('city_id='.$obj->city_id);
-            $criteria->addCondition('lp_dol>3000000');
-            $criteria->order = 'id DESC';
-            $criteria->limit = 4;
-            $house_list = House::model()->findAll($criteria);
-
-            $city_houses[$obj->city_id] = $house_list;
-        }
-
-			$matches = Match::model()->findAll();
-	
         $data = array(
-            'house_image_list' => $house_image_list[0],
-            'subject_list'     => $subject_list,
-            'city_houses'      => $city_houses,
-		    'matches'         => $matches
+            'hot_house'    => $hot_house,
+            'subject_list' => $subject_list
         );
-
         $this->render('index', $data);
     }
 
@@ -49,7 +36,7 @@ class EnjoyController extends XFrontBase
         Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/enjoy.css');
         $city_id = Yii::app()->request->getQuery('city', 0);
         $time_sort = Yii::app()->request->getQuery('time_sort', 'DESC');
-        $price_sort = Yii::app()->request->getQuery('lp_dol');
+        $price_sort = Yii::app()->request->getQuery('price_sort');
 
         $criteria = new CDbCriteria();
         $criteria->order = 'id DESC';
@@ -60,9 +47,9 @@ class EnjoyController extends XFrontBase
             $criteria->order = 'accessDate '.$time_sort;
         }
         if(!empty($price_sort)){
-            $criteria->order = 'lp_dol '.$price_sort;
+            $criteria->order = 'total_price '.$price_sort;
         }
-        $criteria->addCondition('lp_dol>3000000');
+        $criteria->addCondition('recommend=1');
         $count = House::model()->count($criteria);
         $pager = new CPagination($count);
         $pager->pageSize = 10;
@@ -70,6 +57,7 @@ class EnjoyController extends XFrontBase
         $house_list = House::model()->findAll($criteria);
 
         $subject_list = Subject::model()->findAll(array(
+            'condition' => 'recommend=1',
             'order'     => 'id DESC',
         ));
 
@@ -88,4 +76,3 @@ class EnjoyController extends XFrontBase
         $this->render('more', $data);
     }
 }
-?>
