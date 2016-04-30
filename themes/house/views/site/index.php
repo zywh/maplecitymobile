@@ -44,7 +44,7 @@ var swiper = new Swiper(".swiper-container", {
 	<li><a id='about_us' href="index.php?r=about/about1&id=27" data-ajax="false" >关于我们</a></li>
 	<li><a id='mapsearch' href="index.php?r=map" data-ajax="false">地图搜索</a></li>
 	<li><a id='housesearch' href="index.php?r=mhouse" data-ajax="false">房源搜索</a></li>
-	<li><a id='about_hire' href="index.php?r=about/about1&id=31" data-ajax="false">招募</a></li>
+	<li><a id='about_hire' href="index.php?r=about/partner" data-ajax="false">合作伙伴</a></li>
 
     </ul>
 </div>
@@ -74,7 +74,7 @@ var swiper = new Swiper(".swiper-container", {
 
 <!-- 合作伙伴开始 -->
 <div class="lm_eight">
-    <div class="lm_eight_up"><a href="index.php?r=about/partner"><img src="/static/images/partner.jpg" /></a></div>
+    <div class="lm_eight_up"></div>
     <div class="lm_eight_down">
         <span><a href="http://www.maplecity.com.cn/index.php?r=about/tridel" target="_blank"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/index/h_1.jpg" /></a></span>
         <span><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/index/h_2.jpg" /></span>
@@ -84,8 +84,9 @@ var swiper = new Swiper(".swiper-container", {
         <span><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/index/h_6.jpg" /></span>
         <span><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/index/h_7.jpg" /></span>
         <span><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/index/h_8.jpg" /></span>
-        
+
         <div class="cl"></div>
     </div>
 </div>
+
 <!-- 合作伙伴结束 -->
