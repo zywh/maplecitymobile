@@ -21,27 +21,31 @@
 <div align="center"><img src="/themes/house/images/tuijian121.jpg" /></div>
 
   <div class="nytb_dz" style="width: 1022px;"> <a href="<?php echo Yii::app()->createUrl('site/index'); ?>">首页</a> &gt; <span style="font-size:14px;">热点推荐</span> </div>
-<div class="wrap">
+
+  
+  <div class="wrap">
      <div class="botton_nav">
-                <div class="nav_wrap" style="width: 1022px;">
-                                  <div class="nav_fl">
+              
+                                  <div class="about-navi-bar" data-role="navbar" >
                                                <ul>
-                                                    <li style="width:96px;"><img src="/themes/house/redian/images_redian/shouye.gif" align="absmiddle"/><a href="/">首页</a><span>|</span></li>
-                                                     <li><a href="#000">项目介绍</a><span>|</span></li>
-                                                      <li><a href="#001">项目优势</a><span>|</span></li>
-                                                       <li><a href="#002">周边介绍</a><span>|</span></li>
-                                                        <li><a href="#003">户型介绍</a><span>|</span></li>
-                                                         <li style="width:112px;"><a href="#004">开发商介绍</a><span>|</span></li>
-                                                          <li style="width:56px;"><a href="#005">地图</a><span>|</span></li>
-                                                           <li style="width:140px;"><a href="#006">为何选择枫之都</a></li>
+                                                 
+                                                     <li><a href="#000">介绍</a></li>
+                                                      <li><a href="#001">优势</a></li>
+                                                      <li><a href="#003">户型</a></li>
+                                                      <li ><a href="#004">开发商</a></li>
+                                                      <li ><a href="#005">地图</a></li>
+                                                         
                                                </ul>
                                   </div>
                                   <div class="nav_fr">
                                       <p> <img src="/themes/house/redian/images_redian/zixun.gif" align="absmiddle"/><a href="#">在线咨询</a></p>
                                   </div>
-                  </div>
+                  
      </div>
-     <div class="liucheng">
+     
+	 
+	 
+	 <div class="liucheng">
             <img src="/themes/house/redian/images_redian/liucheng.jpg"/>
      </div>
      <div class="project">
@@ -50,49 +54,7 @@
                                <img src="/themes/house/redian/images_redian/intro.jpg"/>
                           </div>
                           <div class="intro_top">
-<!-- 代码部分begin -->
-<div id="img_scroll">
-    <div id="img_small">
-        <a href="#1"><img src="/themes/house/images/PhotoC3185934-1.jpg" width="230" height="150" /></a>
-        <a href="#2"><img src="/themes/house/images/PhotoC3185934-20.jpg" width="230" height="150" /></a>
-        <a href="#3"><img src="/themes/house/images/PhotoC3194983-1.jpg" width="230" height="150" /></a>
-        <a class="curr" href="#1"></a>    </div>
-    <div id="img_big"> 
-   		<a style="display:block;" href="#"><img src="/themes/house/images/PhotoC3185934-1.jpg" width="700" height="465"></a> 
-        <a href="#"><img src="/themes/house/images/PhotoC3185934-20.jpg" width="700" height="465"></a> 
-        <a href="#"><img src="/themes/house/images/PhotoC3194983-1.jpg" width="700" height="465"></a>    </div>
-</div>
 
-<script type="text/javascript">   
-$(function($){
-	var showtime = 0;
-	$("#img_small a:lt(3)").mouseover(function(){
-		var showtime = $("#img_small a:lt(3)").index(this);
-		showImg(showtime)	
-	});
-	$("#img_scroll").hover(function(){
-		if(settime)clearInterval(settime);
-		},function(){
-		settime = setInterval(function(){
-			showImg(showtime)
-			showtime++;
-			if(showtime==3){showtime=0;}
-		} , 3000);
-	});
-	var settime = setInterval(function(){
-		showImg(showtime)
-		showtime++;
-		if(showtime==3){showtime=0;}
-	} , 3000);
-})
-function showImg(i){
-	var Link = $("#img_small").eq(i).find("a").attr("href");
-	$("#img_small .curr").attr("href",Link);
-	$("#img_big a").eq(i).fadeIn(800).siblings("a").fadeOut(600);
-	$("#img_small .curr").animate( { top: (i*155) } , 300);
-}
-</script> 
-<!-- 代码部分end -->
 
                           </div>
                           <div class="intro_info">
@@ -269,23 +231,6 @@ function showImg(i){
 
 
 
-    <div class="enjoy_hzjs_up">
-        <div id="tour" class="zebra">
-            <div class="wrap">
-                <div class="switcher-wrap slider">
-                    <a class="prev jQ_sliderPrev" href=""></a>
-                    <a class="next jQ_sliderNext" href=""></a>
-                    <ul id="img-slider" style="height:508px;">
-                        <?php foreach($hot_house as $obj){ ?>
-                            <li class="img"><a href="<?php echo Yii::app()->createUrl('house/view', array('id' => $obj->id)); ?>" target="_blank" title="<?php echo $obj->name; ?>"><img src="<?php echo Yii::app()->request->baseUrl; ?>/<?php echo $obj->house_image; ?>"/></a></li>
-                        <?php } ?>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
      </div>
      
      <a id="005" name="005"></a>
@@ -374,6 +319,9 @@ daolumap();
 
 
 </div>
+
+
+
 <script type="text/javascript">
     flowplayer("video_wrap", "/themes/house/js/flowplayer-3.2.12.swf", {
         clip: {
