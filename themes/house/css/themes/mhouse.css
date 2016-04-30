@@ -1185,9 +1185,8 @@ div.view-navi-bar > div.ui-block-b { width: 65%;}
 
 
 /* .fyxq{ margin:0 auto; width:1030px;} */
-.fyxqupright_cont.ui-body-a {
-	padding:0px;
-}
+.fyxqupright_cont.ui-body-a { padding:0px; }
+.fyxqdown_left_cont.ui-bar { padding:0px; }
 .fyxq_ptss { padding:3px;}
 
 .fyxq_tab{ border-bottom: 1px solid #c5c5c5;}
@@ -1210,7 +1209,7 @@ a.fyxq_tab_cur,.fyxq_tab a:hover{ color:#FFFFFF; background: url(../images/ny_bt
 a.fyxqdown_left_cur,.fyxqdown_left_title a:hover{ background:url(../images/ny_btn1.png) 0 0 no-repeat; color:#FFFFFF; font-weight:bold;}
 .fyxqdown_left{ float:left; /*width:747px;*/}
 .cl {clear: both; }
-ul.xqlb_list li.ui-li-static { padding: 0.1em; white-space: normal;}
+ul.xqlb_list li.ui-li-static { padding: 0em; white-space: normal;}
 .fwbjtable {
     overflow: auto;
     -webkit-overflow-scrolling: touch;

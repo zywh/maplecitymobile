@@ -16,7 +16,8 @@ $slat=$_GET["lat"];
 $slng=$_GET["lng"];
 
 $school_url="index.php?r=mhouse/school&lat=".$jingdu."&lng=".$weidu;
-$map_url="index.php?r=map/index&lat=".$jingdu."&lng=".$weidu;
+$map_url="index.php?r=map/index&lat=".$jingdu."&lng=".$weidu."&zoom=14&maptype=house";
+
 
 //打开 images 目录
 $county = $house->county;
@@ -76,7 +77,8 @@ var swiper = new Swiper(".swiper-container", {
 </div>
 <div class="ui-block-b" data-role="navbar">
 	<ul>
-		<li><a data-ajax="false" href="<?php echo $school_url; ?>">地图和学校</a></li>
+		<li><a data-ajax="false" href="<?php echo $map_url; ?>">地图</a></li>
+		<li><a data-ajax="false" href="<?php echo $school_url; ?>">学校</a></li>
 			<?php 
 				if($house->tour_url!=""){
 					echo "<li><a data-ajax='false'" ;
@@ -214,11 +216,10 @@ var swiper = new Swiper(".swiper-container", {
 <!--START-->			
 <div class="fyxqdown_left_cont ui-bar">
 
-	<ul class="xqlb_list" data-role="listview">
-			<li data-role="list-divider">详情列表
-                <div class="fyxqdown_left_title">
+	<ul class="xqlb_list" data-role="listview" >
+			<li data-role="list-divider">详情列表 <span class="fyxqdown_left_title">
                     <span class="dlh_btn">英尺 &gt; 米</span>
-                </div></li>
+                </span></li>
 
 			<li><span class="xqlb_label">MLS编号：</span><?php echo $house->ml_num; ?></li>
 			<li><span class="xqlb_label">交叉路口：</span><?php echo $house->cross_st; ?></li>
@@ -411,7 +412,7 @@ var swiper = new Swiper(".swiper-container", {
 	</li>
 			<li data-role="list-divider">房屋描述</li>
                 <div class="fwms_cont">
-                     <?php echo $house->ad_text; ?><BR /><?php echo $house->extras; ?>
+                     <?php echo $house->ad_text; ?><BR/><B>Extras:</B><BR/><?php echo $house->extras; ?>
                                   </div>
 	</ul>
 
