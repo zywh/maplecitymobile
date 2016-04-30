@@ -1,5 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+ 
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -43,7 +45,12 @@
 	 -->
 
 
+
+</script>	
+
 </head>
+
+
 <body>
 
 	
@@ -160,20 +167,6 @@ $(".main-header input").autocomplete({
 </div>		
 
 
-
-<div data-role="page" data-dialog="true" id="infopage">
-  <div data-role="header">
-    <h1>枫之都-加拿大房产置业平台</h1>
-  </div>
-
-  <div data-role="main" class="ui-content">
-    <p>
-	枫之都投资置业顾问有限公司，是中国领先的加拿大房产置业及投资管理的专业服务机构。凭借公司核心团队对加拿大地产领域丰富的投资经验，枫之都为中国客户搭建了强大的加拿大房产置业销售平台，并为中国客户提供加拿大不动产置业、管理，投资贷款，留学自住，移民安家等一站式服务！</p>
-	<p>目前枫之都已与10多家加拿大知名房产开发商建立了合作关系，同时，与加拿大各大银行、知名律师行，投资公司以留学移民公司构建了长期的战略合作关系。枫之都投资置业顾问有限公司，不仅仅是加拿大房产置业的平台，同时还是一个公益事业的平台。枫之都将每年的部分销售利润注入枫之都俱乐部，搭建一个海外学子职业规划，就业指导，及紧急资助的平台！</p>
-
-	</p>
-    <a href="#page_main">返回</a>
-  </div>
 
   
 </div> 
