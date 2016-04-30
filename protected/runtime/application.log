@@ -888,3 +888,53 @@ Stack trace:
 #9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
 #10 /var/www/mhtml/index.php(19): CWebApplication->run()
 REQUEST_URI=/
+2016/04/30 15:12:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index.php?r=about" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('index.php?r=abo...')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('index.php?r=abo...')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('about/index.php...')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=about/index.php?r=about/about1&id=27
+---
+2016/04/30 15:12:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index.php?r=map" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('index.php?r=map')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('index.php?r=map')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('about2/index.ph...')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=about2/index.php?r=map/index
+---
+2016/04/30 15:14:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index.php?r=map" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('index.php?r=map')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('index.php?r=map')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/index.php?r...')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=map/index.php?r=map/index
+---
+2016/04/30 15:14:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index.php?r=mhouse" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('index.php?r=mho...')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('index.php?r=mho...')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('about2/index.ph...')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=about2/index.php?r=mhouse/index
+---
+2016/04/30 15:16:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index.php?r=mhouse" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('index.php?r=mho...')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('index.php?r=mho...')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('about/index.php...')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=about/index.php?r=mhouse/index&sr=Sale
+---
