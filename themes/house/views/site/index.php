@@ -5,7 +5,7 @@
 <!-- banner开始 -->
 <div class="ink_phoBok" >
 
-	<div class="swiper-container" style="height: 85px;margin-bottom: 0px;">
+	<div class="swiper-container" style=" width: 100%;height: 100%;;margin-bottom: 0px;">
 		<div class="swiper-wrapper">
 				<?php 
 				foreach($banner as $k => $obj){ 
