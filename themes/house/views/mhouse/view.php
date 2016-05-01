@@ -1,6 +1,9 @@
 <link type="text/css" rel="stylesheet" href="http://www.idangero.us/swiper/dist/css/swiper.min.css" media="all" />
 <script src="http://www.idangero.us/swiper/dist/js/swiper.min.js"></script>
-
+<style>
+.swiper-pagination-bullet { opacity: 1; background: #fff; }
+.swiper-pagination-bullet-active { opacity: 1; background: #ff4103; }
+</style>
  
 <!-- 房源详情页面开始 -->
 
@@ -46,14 +49,10 @@ if ( $num_files > 0) {
 	}
 ?> </div>
 <div class="swiper-pagination"></div>
-<div class="swiper-button-next"></div>
-<div class="swiper-button-prev"></div>
 </div>
 <script>
 var swiper = new Swiper(".swiper-container", {
   pagination: ".swiper-pagination",
-  nextButton: '.swiper-button-next',
-  prevButton: '.swiper-button-prev',
   paginationClickable: true,
   autoplay: 3500,
   speed: 1000,
