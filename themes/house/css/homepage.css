@@ -1,7 +1,3 @@
-.nycont_sgkjj img {
-    height: auto;
-    width: 23%;
-}
 .lm_four_banner img {
     height: auto;
     width: 100%;
@@ -12,3 +8,9 @@ p#socialicons3 {
 .lm_eight_down img {
     width: 60px;
 }
+img.mlsimg { width: 90%; margin-left: 4px; }
+.lm_four {
+    margin-top: 19px;
+    margin-bottom: 80px;
+}
+

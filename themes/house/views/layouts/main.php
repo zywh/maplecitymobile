@@ -142,15 +142,15 @@ $(".main-header input").autocomplete({
 	<div data-role="footer" data-position="fixed" data-fullscreen="true" style="text-align:center;" id="main_footer">
    		 
 
-		<a href="/" data-transition="pop"  class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext
+		<a href="/" data-ajax="false" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext
 		">Home</a>
-		<a href="index.php?r=mhouse/index" data-transition="pop"  class=" ui-btn ui-corner-all ui-icon-search ui-btn-icon-left ui-btn-icon-notext
+		<a href="index.php?r=mhouse/index" data-ajax="false"  class=" ui-btn ui-corner-all ui-icon-search ui-btn-icon-left ui-btn-icon-notext
 		">Search</a>
-		<a href="index.php?r=map/index" data-ajax="false" data-transition="pop" class="ui-btn ui-corner-all ui-icon-fa-map ui-btn-icon-left ui-btn-icon-notext
+		<a href="index.php?r=map/index" data-ajax="false"  class="ui-btn ui-corner-all ui-icon-fa-map ui-btn-icon-left ui-btn-icon-notext
 		">Map</a>
-		<a href="index.php?r=map/index" data-ajax="false" data-transition="pop" class="ui-btn ui-corner-all ui-icon-fa-graduation-cap ui-btn-icon-left ui-btn-icon-notext
+		<a href="index.php?r=map/index" data-ajax="false"  class="ui-btn ui-corner-all ui-icon-fa-graduation-cap ui-btn-icon-left ui-btn-icon-notext
 		">School</a>
-		<a href="index.php?r=stats/index" data-ajax="false" data-transition="pop" class="ui-btn ui-corner-all ui-icon-fa-line-chart ui-btn-icon-left ui-btn-icon-notext
+		<a href="index.php?r=stats/index" data-ajax="false"  class="ui-btn ui-corner-all ui-icon-fa-line-chart ui-btn-icon-left ui-btn-icon-notext
 		">Stats</a>
 	
 		<a href="tel:400-870-1029"  class="ui-btn ui-corner-all ui-icon-phone ui-btn-icon-left ui-btn-icon-notext

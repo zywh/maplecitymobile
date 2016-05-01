@@ -53,14 +53,21 @@
 
 <!-- MLS START -->
 <div class="nycont_mls">
-<div class="nycont_sgkjj"><p id="socialicons3">
-	 <a style="margin-left:0px;" data-ajax="false" class="sgkjj1" href="index.php?r=about2/about2&id=32"><IMg src="/themes/house/images/index/btn1.jpg" border="0"/></a>
-	 <a class="sgkjj2" data-ajax="false" href="index.php?r=about2/about2&id=33"><IMg src="/themes/house/images/index/btn2.jpg" border="0"/></a>
-	 <a class="sgkjj3" data-ajax="false" href="index.php?r=about2/about2&id=34"><IMg src="/themes/house/images/index/btn3.jpg" border="0"/></a>
-	 <a style="margin-right:0px;" data-ajax="false" class="sgkjj4"  href="index.php?r=about2/about2&id=36"><IMg src="/themes/house/images/index/btn4.jpg" border="0"/></a>
-	 </p>
-	 
-</div>
+
+	<div class="ui-grid-c">
+		<div class="ui-block-a">
+			<a data-ajax="false"  href="index.php?r=about2/about2&id=32"><IMg class="mlsimg" src="/themes/house/images/index/btn1.jpg" ></a>
+		 </div>
+		<div class="ui-block-b">
+			<a  data-ajax="false" href="index.php?r=about2/about2&id=33"><IMg class="mlsimg" src="/themes/house/images/index/btn2.jpg" ></a>
+		   </div>
+		<div class="ui-block-c">
+			<a  data-ajax="false" href="index.php?r=about2/about2&id=34"><IMg class="mlsimg" src="/themes/house/images/index/btn3.jpg" ></a>
+		</div>
+		<div class="ui-block-d">
+		<a data-ajax="false"  href="index.php?r=about2/about2&id=36"><IMg class="mlsimg" src="/themes/house/images/index/btn4.jpg" ></a>
+	</div>
+	
 </div>
 
 <!-- MLS END -->
