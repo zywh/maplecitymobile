@@ -1,7 +1,27 @@
 
 var maplemap = {
 
-
+	setMarkerCss: function(countn) {
+		var markercontent = '';
+		var color = "#ff4103";
+		if (countn < 10){
+		// markercontent = "<i class='common_bg icon_map_mark16' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
+		markercontent = "<i class='common_bg icon_map_mark16' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
+		}
+		if ((countn >= 10) && (countn<100)){
+			 markercontent = "<i class='common_bg icon_map_mark18'><span>" + countn + "</span></i>";
+		}
+		if ((countn >= 100) && (countn<1000)){
+			 markercontent = "<i class='common_bg icon_map_mark22'><span>" + countn + "</span></i>";
+		}
+		if (countn >= 1000) {
+			 markercontent = "<i class='common_bg icon_map_mark24'><span>" + countn + "</span></i>";
+		}
+		
+		return markercontent;
+		
+	},
+	
 	initMap: function(mapId,lat,lng,zoomLevel) {
 		markerArray = []; //make it global
 		var initCenter = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
@@ -34,7 +54,7 @@ var maplemap = {
 	setContent: function(map,lat, lng, count, htmlinfo) {
 		
 		var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-		var content = "<i class='common_bg icon_map_mark'><span>" + count + "</span></i>";
+		var content = maplemap.setMarkerCss(count);
 	   var marker = new RichMarker({
 			position: point,
 			map: map,
@@ -43,7 +63,7 @@ var maplemap = {
 			flat: true
 		});
 		markerArray.push(marker);
-
+		//maplemap.setMarkerCss(count);
 	
 		
 		google.maps.event.addListener(marker, 'click', function(e) {
@@ -93,9 +113,9 @@ var maplemap = {
 	},
 
 	setContentCount: function(map,lat, lng, totalCount, city) {
-		var content = "<i class='common_bg icon_map_mark'><span>" + totalCount + "</span></i>";
+		//var content = "<i class='icon_map_mark'><span>" + totalCount + "</span></i>";
 		var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-		
+		var content = maplemap.setMarkerCss(totalCount);
 	   var marker = new RichMarker({
 			position: point,
 			map: map,
@@ -104,7 +124,7 @@ var maplemap = {
 			flat: true
 		});
 
-		
+		//maplemap.setMarkerCss(totalCount);
 		/*Regular Marker
 		var marker = new google.maps.Marker({
 			position: point,

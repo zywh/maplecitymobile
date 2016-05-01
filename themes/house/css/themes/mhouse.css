@@ -1100,23 +1100,52 @@ html head + body .ui-btn.ui-btn-b:visited {
 .icon_map_mark{width:24px;height: 37px; background-position: -81px -92px;display:inline-block;cursor:pointer;text-align: center;font-style: normal;font-size:13px;letter-spacing:-2px}
 .icon_map_mark:hover,.icon_map_current{background-position:-105px -91px;display:inline-block;cursor:pointer;}
 */
-.icon_map_mark span{
+.icon_map_mark24 span{
 	line-height: 22px;margin-left: 0px;
     color: #fff;
 }
-.icon_map_mark{width:24px;height: 24px; display:inline-block;cursor:pointer;text-align: center;font-style: normal;font-size:10px;
+.icon_map_mark24 {width:24px;height: 24px; display:inline-block;cursor:pointer;text-align: center;font-style: normal;font-size:10px;
         border-radius: 12px;
         -webkit-border-radius: 12px;
         -moz-border-radius: 12px;
 	background-color: #ff4103;
 	opacity: 0.8;
 }
-.icon_map_mark:hover {width:24px;height: 24px; display:inline-block;cursor:pointer;text-align: center;font-style: normal;font-size:10px;*letter-spacing:-2px
-        border-radius: 12px;
-        -webkit-border-radius: 12px;
-        -moz-border-radius: 12px;
-	background-color: #ff0505;
-	
+
+.icon_map_mark16 span{
+        line-height: 15px;margin-left: 0px;
+    color: #fff;
+}
+.icon_map_mark16 {width:16px;height: 16px; display:inline-block;cursor:pointer;text-align: center;font-style: normal;font-size:10px;
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        background-color: #ff4103;
+        opacity: 0.8;
+}
+.icon_map_mark18 span{
+        line-height: 17px;margin-left: 0px;
+    color: #fff;
+}
+.icon_map_mark18 {width:18px;height: 18px; display:inline-block;cursor:pointer;text-align: center;font-style: normal;font-size:10px;
+        border-radius: 9px;
+        -webkit-border-radius: 9px;
+        -moz-border-radius: 9px;
+        background-color: #ff4103;
+        opacity: 0.8;
+}
+
+
+.icon_map_mark22 span{
+        line-height: 21px;margin-left: 0px;
+    color: #fff;
+}
+.icon_map_mark22 {width:22px;height: 22px; display:inline-block;cursor:pointer;text-align: center;font-style: normal;font-size:10px;
+        border-radius: 11px;
+        -webkit-border-radius: 11px;
+        -moz-border-radius: 11px;
+        background-color: #ff4103;
+        opacity: 0.8;
 }
 
 
