@@ -1,37 +1,38 @@
 <link type="text/css" rel="stylesheet" href="http://www.idangero.us/swiper/dist/css/swiper.min.css" media="all" />
 <script src="http://www.idangero.us/swiper/dist/js/swiper.min.js"></script>
+<style>
+.swiper-pagination-bullet { opacity: 1; background: #fff; }
+.swiper-pagination-bullet-active { opacity: 1; background: #ff4103; }
 
+</style>
 
 <!-- banner开始 -->
 <div class="ink_phoBok" >
 
-	<div class="swiper-container" style=" width: 100%;height: 100%;;margin-bottom: 0px;">
+	<div class="swiper-container" >
 		<div class="swiper-wrapper">
 				<?php 
 				foreach($banner as $k => $obj){ 
 					
-					?><div class="swiper-slide" style="width: 100%;">
-					<div style="padding-top: 65%;"></div>
-					<img style="width: 100%; height: auto; position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-color: silver;" src="<?php 
+					?><div class="swiper-slide" >
+					
+					<img style=" 	width: 100%;height: auto;"		src="<?php 
 					echo Yii::app()->request->baseUrl;?>/<?php echo $obj->image; ?>">
 					
 				</div>
 				<?php }?> 
 		</div>
 		<div class="swiper-pagination"></div>
-		<div class="swiper-button-next"></div>
-		<div class="swiper-button-prev"></div>
+	
 	</div>
-	<script>
-var swiper = new Swiper(".swiper-container", {
-	pagination: ".swiper-pagination",
-	nextButton: '.swiper-button-next',
-	prevButton: '.swiper-button-prev',
-	paginationClickable: true,
-	autoplay: 3500,
-	speed: 1000,
-	autoplayDisableOnInteraction: true
-});
+<script>
+	var swiper = new Swiper(".swiper-container", {
+		pagination: ".swiper-pagination",
+		paginationClickable: true,
+		autoplay: 3000,
+		speed: 1000,
+		autoplayDisableOnInteraction: true
+	});
 </script>
 </div>
 
@@ -39,7 +40,7 @@ var swiper = new Swiper(".swiper-container", {
 
 
 <!-- /navbar -->
-<div class="home-navi-bar" data-role="navbar" data-grid="c">
+<div class="home-navi-bar" data-role="navbar" >
     <ul>
 	<li><a id='about_us' href="index.php?r=about/about1&id=27" data-ajax="false" >关于我们</a></li>
 	<li><a id='mapsearch' href="index.php?r=map" data-ajax="false">地图搜索</a></li>
