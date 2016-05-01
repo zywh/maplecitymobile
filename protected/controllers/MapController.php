@@ -30,8 +30,9 @@ class MapController extends XFrontBase {
 		
 		
 		$maxmarkers = 2000;  //City count if count(house) is over
-		$maxhouse = 200; //Grid count if count(house) is over
+		$maxhouse = 40; //Grid count if count(house) is over
 		$maxcitymarkers = 20;
+		$minGrid = 10; //Display house if gridcount is lower than mindGrid
         $result = array();
 		$result['Data']['AreaHouseCount'] = array();
 		$result['Data']['MapHouseList'] = array();
@@ -195,7 +196,7 @@ class MapController extends XFrontBase {
 			
 			}
 			
-			
+			$gridcount = '';
 			//Generate Data for Grid Counter Marker Start
 			if (( $count < $maxmarkers) && ($count >= $maxhouse) ){
 				
@@ -232,16 +233,29 @@ class MapController extends XFrontBase {
 					
 					$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['NameCn'] = "G".$gridlng.$gridlat;
 					$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['HouseCount']++; 
-					error_log("G".$gridlng.$gridlat."Count:".$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['HouseCount']);
+					//error_log("G".$gridlng.$gridlat."Count:".$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['HouseCount']);
 				}
 				
+				
+				
+				function moreThanOne($var)
+				{
+				return($var['HouseCount'] > 0);
+				}
+				$filteredResult = array_filter($result['Data']['AreaHouseCount'],"moreThanOne");
+				$gridcount = count($filteredResult);
+				error_log($gridcount);
+				
+				if ($gridcount > $minGrid) {
+				$result['Data']['Type'] = "grid";
+				}
 				
 			}
 			
 			
 			
 			//Generate Data for  House Marker Start
-			if ($count < $maxhouse ){
+			if (($count < $maxhouse ) || ( $gridcount <= $minGrid)){
 				$result['Data']['Type'] = "house";
 				$criteria->with = array('mname','propertyType','city');
 				$criteria->order = "t.latitude,t.longitude";

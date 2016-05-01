@@ -220,7 +220,7 @@ var maplemap = {
 		
 		maplemap.clearAll(map);
 		
-		var gridSize = 50;	//50px
+		var gridSize = 60;	//60px
 		//get element size to calcute number of grid
 		var mapHeight = $("#" + mapId).height();
 		var mapWidth = $("#" + mapId).width();
@@ -363,7 +363,7 @@ var maplemap = {
 
 							//END of LOOP
 							if (houseCount > 30) {
-								markerClusterer = new MarkerClusterer(map, markerArray);
+								//markerClusterer = new MarkerClusterer(map, markerArray);
 							}
 						}
 						//End of House Marker
