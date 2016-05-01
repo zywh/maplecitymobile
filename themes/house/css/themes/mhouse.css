@@ -1231,8 +1231,8 @@ div.view-navi-bar > div.ui-block-b { width: 65%;}
 
 
 /* .fyxq{ margin:0 auto; width:1030px;} */
-.fyxqupright_cont.ui-body-a { padding:0px; }
-.fyxqdown_left_cont.ui-bar { padding:0px; }
+.fyxqupright_cont.ui-body-a { padding-left:5px; padding-right:5px}
+.fyxqdown_left_cont.ui-bar { padding-left:5px; padding-right:5px }
 .fyxq_ptss { padding:3px;}
 
 .fyxq_tab{ border-bottom: 1px solid #c5c5c5;}
