@@ -27,9 +27,9 @@ $db = Yii::app()->db;
 															<div class="cl"></div>
 												 </div>
 												 <div class="hzhb_ny_cont">
-															 <a  href="index.php?r=about/tridel"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/about/c6.jpg" /></a>
+															 <a  data-ajax="false" href="index.php?r=about/tridel"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/about/c6.jpg" /></a>
 															 <a><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/about/c7.jpg" /></a>
-															 <a href="index.php?r=about/westbank"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/about/c8.jpg" /></a>
+															 <a data-ajax="false" href="index.php?r=about/westbank"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/about/c8.jpg" /></a>
 															 <div class="cl"></div>
 												 </div>
 									 </div>

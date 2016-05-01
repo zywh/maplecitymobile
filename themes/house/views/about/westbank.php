@@ -24,10 +24,7 @@
 								</div>
 								
 				  		</div>
-				  <div class="fyxqdown_right">
-					<?php $this->widget('application.widget.bagecms.EvaluateWidget');?>
-		      </div>
-			  <div class="cl"></div>
+
 			  		  
 			 
               

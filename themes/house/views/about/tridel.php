@@ -14,23 +14,16 @@
                  <div class="cl"></div>
            </div>
 	       <div class="fyxqdown">
-		          <div class="fyxqdown_left">
+			  <div class="fyxqdown_left">
               	<div class="zcwz hzhb_ny2">
-											<div class="hzhb_tp">
-													 <img src="<?php echo Yii::app()->theme->baseUrl;?>/images/about/c21.jpg" />
-													 <img src="<?php echo Yii::app()->theme->baseUrl;?>/images/about/c22.jpg" />
-													 <img src="<?php echo Yii::app()->theme->baseUrl;?>/images/about/c23.jpg" />
-											</div>
-								</div>			
-				  		</div>
-				  <div class="fyxqdown_right">
-					<?php $this->widget('application.widget.bagecms.EvaluateWidget');?>
-		      </div>
-			  <div class="cl"></div>
-			  		  
-			 
-              
-			  	   
+								<div class="hzhb_tp">
+										 <img src="<?php echo Yii::app()->theme->baseUrl;?>/images/about/c21.jpg" />
+										 <img src="<?php echo Yii::app()->theme->baseUrl;?>/images/about/c22.jpg" />
+										 <img src="<?php echo Yii::app()->theme->baseUrl;?>/images/about/c23.jpg" />
+								</div>
+				</div>			
+			 </div>
+
 		   </div>
 	 </div>
 

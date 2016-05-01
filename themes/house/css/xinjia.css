@@ -189,24 +189,22 @@ background: url(../images/about/c35.jpg) no-repeat;
 
 /*关于购房流程*/
 .nybanner_gflc{ background:url(../images/about/c41.jpg) center center no-repeat;background-size: cover; height: 127px; margin:0 auto;}
-.ny_cont_gflc{ font-size:64%;background:url(../images/about/c42.jpg) no-repeat; background-size: cover;  height: 333px;
-    /* margin: 30px auto; */
-    margin: -7px;  }
+.ny_cont_gflc{  }
 
-.ny_cont_gflc div{height: 14px;    margin: 16px 0;    margin-left: 50px;    margin-right: 49px;}
+.ny_cont_gflc div{  margin-top: 16px ;   }
 
-.gflc_1{ padding-top:19px;   text-align:left;}
+.gflc_1{ }
 
-.gflc_3{  text-align:right;}
+.gflc_3{ }
 
-.gflc_5{   text-align:right;}
+.gflc_5{ }
 
-.gflc_7{ text-align:right;}
+.gflc_7{ }
 
-.gflc_9{   text-align:right;}
+.gflc_9{ }
 
-.gflc_11{  text-align:right;}
-div.gflc_12{  margin-top:-5px; }
+.gflc_11{}
+div.gflc_12{   }
 
 
 /*四个快捷键*/
