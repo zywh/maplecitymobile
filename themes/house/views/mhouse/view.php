@@ -3,6 +3,7 @@
 <style>
 .swiper-pagination-bullet { opacity: 1; background: #fff; }
 .swiper-pagination-bullet-active { opacity: 1; background: #ff4103; }
+.ui-flipswitch { margin: 0px; float: right;}
 </style>
  
 <!-- 房源详情页面开始 -->
