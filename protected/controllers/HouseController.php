@@ -651,5 +651,36 @@ if(!empty($prop_featx_out3)){
     
 	//Function END  
     }
+
+	public function actionGetSchoolRank(){
+		$db = Yii::app()->db;
+		//$result = array();
+		$name = trim($_GET['name']);
+		$city = trim($_GET['city']);
+		$type = trim($_GET('type']);
+	
+		$schoolSearch = str_replace("Secondary School","",$name);
+		$schoolSearch = str_replace("High School","",$schoolSearch);
+		$schoolSearch = str_replace("Secondary School","",$schoolSearch);
+		$schoolSearch = str_replace("Public School","",$schoolSearch);
+		$schoolSearch = str_replace("Middle School","",$schoolSearch);
+		$schoolSearch = str_replace("Elementary School","",$schoolSearch);
+		$schoolSearch = str_replace("'s","",$schoolSearch);
+		
+		if ( ( strpos($name, 'Secondary School') !== false ) || (strpos($name, 'High School') !== false )){
+			$searchType = 2;
+		} else {
+			$searchType = 1;
+		}
+			
+		$sql = "select rank from h_school_rank 
+		where name ='". $schoolSearch."' 
+		and city='".$city."' 
+		and type='".$searchType."';";
+		$resultsql = $db->createCommand($sql)->query();
+		$rank = $resultsql->readColumn(0);
+		$result = ($rank)? $rank : '无';
+		echo json_encode($result);
+}
 	
 }
