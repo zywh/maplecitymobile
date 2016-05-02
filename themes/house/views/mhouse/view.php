@@ -86,21 +86,7 @@ var swiper = new Swiper(".swiper-container", {
 	</ul>
 </div><!-- /navbar -->
 </div>
-<!--
-<div class="fyxqupright ui-corner-all custom-corners">
-	<div class="fyxqupright_title">MLS：<?php echo $house->ml_num; ?></div>
-	<div class="fyxqupright_btn" style="float:right; padding-top:5px; padding-right:0.5em">
-	<?php 
-				if($house->tour_url!=""){
-					echo "<a data-ajax='false'" ;
-					echo "href='",$house->tour_url,"' target='_blank'>视频 </a>";
-				} 
-	?>
-		<a data-ajax="false" href="<?php echo $school_url; ?>"> 地图和学校</a>
-	</div>
 
-</div>
-!-->
 <!--End-->
 
 <!--START-->
@@ -216,10 +202,14 @@ var swiper = new Swiper(".swiper-container", {
 <div class="fyxqdown_left_cont ui-bar">
 
 	<ul class="xqlb_list" data-role="listview" >
-			<li data-role="list-divider">详情列表 <span class="fyxqdown_left_title">
+			<li data-role="list-divider">详情列表 <!--<span class="fyxqdown_left_title">
                     <span class="dlh_btn">英尺 &gt; 米</span>
-                </span></li>
-
+                </span>!-->
+    <select id="yc2m" data-role="flipswitch">
+      <option value="feet">英尺</option>
+      <option value="meter">米</option>
+    </select>
+</li>
 			<li><span class="xqlb_label">MLS编号：</span><?php echo $house->ml_num; ?></li>
 			<li><span class="xqlb_label">交叉路口：</span><?php echo $house->cross_st; ?></li>
 			<li><span class="xqlb_label">物业类别：</span><?php echo $house->propertyType->name; ?></li>
@@ -480,8 +470,8 @@ $(function(){
 		var a1 = $(".s1").html();
 		var a2 = $(".s2").html();
 		var a3 = $(".s3").html();
-	$(".dlh_btn").click(function(){
-	
+//	$(".dlh_btn").click(function(){
+$( document ).on( 'change', '#yc2m', function( e ){	
 		function decimal(num,v){
 		var vv = Math.pow(10,v);
 		return Math.round(num*vv)/vv;
@@ -495,7 +485,7 @@ $(function(){
 			$(".c1").html("平方英尺")
 			//$(".c2").html("平方英尺")
 			//$(".c3").html("英尺")
-		   $(this).text("英尺 > 米");
+		 //  $(this).text("英尺 > 米");
            $(this).removeClass("dlh_active");
 	   } 
 	   else{
@@ -509,9 +499,12 @@ $(function(){
 			//$(".c2").html("平方米")
 			//$(".c3").html("米")
 		   $(this).addClass("dlh_active");
-		   $(this).text("米 > 英制");
+		//   $(this).text("米 > 英制");
       }
 	})
 })
+$( document ).on( 'change', '#flip', function( e ) {
+    alert( 'This alert should only appear throug direct interaction with the flipswitch NOT when the buttons are clicked' );
+});
 </script>
           

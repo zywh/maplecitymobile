@@ -66,14 +66,15 @@ cursor: pointer; padding:5px 10px; display:inline-block }
 .actionLink:hover{ background: #00A3CF;}
 /*------------*/
 .form_table td { border-bottom: #eee 1px solid; height: 30px; line-height: 25px; padding-left: 5px; }
-.form_table td.tb_title { font-weight: bold }
-.search .txt { width: 100px }
+.form_table td.tb_title { font-weight: bold; }
+.search .txt { width: 200px; }
 .button { -webkit-border-radius: 3px; border-radius: 3px; border: 1px solid #3079ED; background: #4D90FE; color: #FFF; font: bold 12px arial, sans-serif; padding: 0.15em 1em; text-transform: uppercase; height: 27px; line-height: 19px; margin: 0; overflow: visible; width: auto; *width: 1;
 cursor: pointer }
-.btnBlue{ border: border: 1px solid #3079ED; background: #DFEFFF; color: #FFF; }
-.button .btnDefault{ border: border: 1px solid #3079ED; background: #4D90FE; color: #FFF; }
+.btnBlue{ border: 1px solid #3079ED; background: #DFEFFF; color: #FFF; }
+.button .btnDefault{ border: 1px solid #3079ED; background: #4D90FE; color: #FFF; }
 .operate, .submit { height: 45px }
 #fileListWarp li{float:left; padding:3px 5px;}
+#LayoutFiles li{float:left; padding:3px 5px;}
 /* 错误提示*/
 .erro_div { padding: 5px; background: #FFFF80; border: 1px solid #C4C43C; }
 .erro_div .error_message p { font-size: 14px; font-weight: bold; }
