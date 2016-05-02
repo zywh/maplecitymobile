@@ -6,16 +6,16 @@ var maplemap = {
 		var color = "#ff4103";
 		if (countn < 10){
 		// markercontent = "<i class='common_bg icon_map_mark16' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
-		markercontent = "<i class='common_bg icon_map_mark16' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
+		markercontent = "<i class='common_bg icon_map_mark1' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
 		}
 		if ((countn >= 10) && (countn<100)){
-			 markercontent = "<i class='common_bg icon_map_mark18'><span>" + countn + "</span></i>";
+			 markercontent = "<i class='common_bg icon_map_mark2'><span>" + countn + "</span></i>";
 		}
 		if ((countn >= 100) && (countn<1000)){
-			 markercontent = "<i class='common_bg icon_map_mark22'><span>" + countn + "</span></i>";
+			 markercontent = "<i class='common_bg icon_map_mark3'><span>" + countn + "</span></i>";
 		}
 		if (countn >= 1000) {
-			 markercontent = "<i class='common_bg icon_map_mark24'><span>" + countn + "</span></i>";
+			 markercontent = "<i class='common_bg icon_map_mark4'><span>" + countn + "</span></i>";
 		}
 		
 		return markercontent;

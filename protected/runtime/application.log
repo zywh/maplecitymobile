@@ -960,3 +960,135 @@ Stack trace:
 REQUEST_URI=/index.php?r=mhouse/getCityList&term=to%E2%80%86r
 HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=mhouse/view&id=C3461512
 ---
+2016/05/02 07:16:23 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in field list is ambiguous. The SQL statement executed was: SELECT t.municipality as municipality, count(id) as id, `t`.`id` AS `t0_c0`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((((s_r = "Sale") AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon)) GROUP BY t.municipality ORDER BY t.latitude,t.longitude LIMIT 20. Bound with :maxLat=43.924365712740958, :minLat=43.380856574226577, :maxLon=-79.163457437500028, :minLon=-79.602910562500028.
+2016/05/02 07:16:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in field list is ambiguous' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/MapController.php(262): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetMapHouse()
+#8 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#9 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#10 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#12 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getMapHouse')
+#13 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#14 /var/www/mhtml/index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=map/getMapHouse
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/index&lat=43.653226&lng=-79.383184&zoom=10&maptype=city
+---
+2016/05/02 07:17:24 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in field list is ambiguous. The SQL statement executed was: SELECT t.municipality as municipality, count(id) as id, `t`.`id` AS `t0_c0`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((((s_r = "Sale") AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon)) GROUP BY t.municipality ORDER BY t.latitude,t.longitude LIMIT 20. Bound with :maxLat=43.811591925191891, :minLat=43.539939999884261, :maxLon=-79.278813882812528, :minLon=-79.498540445312528.
+2016/05/02 07:17:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in field list is ambiguous' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/MapController.php(262): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetMapHouse()
+#8 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#9 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#10 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#12 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getMapHouse')
+#13 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#14 /var/www/mhtml/index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=map/getMapHouse
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/index&lat=43.653226&lng=-79.383184&zoom=10&maptype=city
+---
+2016/05/02 07:18:25 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in field list is ambiguous. The SQL statement executed was: SELECT t.municipality as municipality, count(id) as id, `t`.`id` AS `t0_c0`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((((s_r = "Sale") AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon)) GROUP BY t.municipality ORDER BY t.latitude,t.longitude LIMIT 20. Bound with :maxLat=43.870929183099882, :minLat=43.434730754589111, :maxLon=-79.163457437500028, :minLon=-79.602910562500028.
+2016/05/02 07:18:25 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in field list is ambiguous' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/MapController.php(262): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetMapHouse()
+#8 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#9 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#10 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#12 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getMapHouse')
+#13 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#14 /var/www/mhtml/index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=map/getMapHouse
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/index&lat=43.653226&lng=-79.383184&zoom=10&maptype=city
+---
+2016/05/02 07:19:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in field list is ambiguous. The SQL statement executed was: SELECT t.municipality as municipality, count(id) as id, `t`.`id` AS `t0_c0`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((((s_r = "Sale") AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon)) GROUP BY t.municipality ORDER BY t.latitude,t.longitude LIMIT 20. Bound with :maxLat=43.748938465769463, :minLat=43.530791057858195, :maxLon=-79.274048552955605, :minLon=-79.493775115455605.
+2016/05/02 07:19:08 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in field list is ambiguous' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/MapController.php(262): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetMapHouse()
+#8 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#9 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#10 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#12 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getMapHouse')
+#13 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#14 /var/www/mhtml/index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=map/getMapHouse
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/index&lat=43.653226&lng=-79.383184&zoom=10&maptype=city
+---
+2016/05/02 07:19:12 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in field list is ambiguous. The SQL statement executed was: SELECT t.municipality as municipality, count(id) as id, `t`.`id` AS `t0_c0`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((((s_r = "Sale") AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon)) GROUP BY t.municipality ORDER BY t.latitude,t.longitude LIMIT 20. Bound with :maxLat=43.838113878561479, :minLat=43.401676306624104, :maxLon=-79.181574299051817, :minLon=-79.621027424051817.
+2016/05/02 07:19:12 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in field list is ambiguous' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/MapController.php(262): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetMapHouse()
+#8 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#9 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#10 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#12 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getMapHouse')
+#13 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#14 /var/www/mhtml/index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=map/getMapHouse
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/index&lat=43.653226&lng=-79.383184&zoom=10&maptype=city
+---
+2016/05/02 07:19:55 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in field list is ambiguous. The SQL statement executed was: SELECT t.municipality as municipality, count(id) as id, `t`.`id` AS `t0_c0`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((((s_r = "Sale") AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon)) GROUP BY t.municipality ORDER BY t.latitude,t.longitude LIMIT 20. Bound with :maxLat=43.870929183099882, :minLat=43.434730754589111, :maxLon=-79.163457437500028, :minLon=-79.602910562500028.
+2016/05/02 07:19:55 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'id' in field list is ambiguous' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/MapController.php(262): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetMapHouse()
+#8 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#9 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#10 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#12 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getMapHouse')
+#13 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#14 /var/www/mhtml/index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=map/getMapHouse
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/index&lat=43.653226&lng=-79.383184&zoom=10&maptype=city
+---

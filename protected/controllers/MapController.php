@@ -45,7 +45,8 @@ class MapController extends XFrontBase {
 
             //根据条件查询地图
             $criteria = new CDbCriteria();
-            $criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,depth,front_ft,br,addr,house_image,longitude,latitude,area,bath_tot';
+			//$gridcriteria = new CDbCriteria();
+            
 
 			if ($_POST['sr'] == "Lease" )  {
 				$criteria->addCondition('s_r = "Lease"');
@@ -196,7 +197,7 @@ class MapController extends XFrontBase {
 			
 			}
 			
-			$gridcount = '';
+			$gridcount = 100;
 			//Generate Data for Grid Counter Marker Start
 			if (( $count < $maxmarkers) && ($count >= $maxhouse) ){
 				
@@ -206,7 +207,7 @@ class MapController extends XFrontBase {
 				
 				$gridcriteria = $criteria;
 				$gridcriteria->select = 'longitude,latitude';
-				$location = House::model()->findAll($criteria);
+				$location = House::model()->findAll($gridcriteria);
 				$result['Message'] = '成功';
 				//$tilex = (($maxLat - $minLat ) / $gridx) * 100000;
 				//$tiley = (($maxLon - $minLon ) / $gridy) * 100000;
@@ -246,9 +247,9 @@ class MapController extends XFrontBase {
 				$gridcount = count($filteredResult);
 				error_log($gridcount);
 				
-				if ($gridcount > $minGrid) {
+				
 				$result['Data']['Type'] = "grid";
-				}
+				
 				
 			}
 			
@@ -256,7 +257,10 @@ class MapController extends XFrontBase {
 			
 			//Generate Data for  House Marker Start
 			if (($count < $maxhouse ) || ( $gridcount <= $minGrid)){
+			//if ($count < $maxhouse ) {
+				error_log("Select House:".$count." GridCount:".$gridcount);	
 				$result['Data']['Type'] = "house";
+				$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,depth,front_ft,br,addr,house_image,longitude,latitude,area,bath_tot';
 				$criteria->with = array('mname','propertyType','city');
 				$criteria->order = "t.latitude,t.longitude";
 				$house = House::model()->findAll($criteria);
@@ -284,7 +288,7 @@ class MapController extends XFrontBase {
                     $mapHouseList['ProvinceCname'] = $val->city->name;
                     //$mapHouseList['Area2Name'] = !empty($area2Name) ? $area2Name->name : '';
                     //Get image from county
-					//error_log("Lat:".$val->latitude."Lng:".$val->longitude);
+					//error_log("Lat:".$val->latitude."Lng:".$val->longitude."MLS".$val->ml_num);
 					
 					$county = $val->county;
 					$county = preg_replace('/\s+/', '', $county);
