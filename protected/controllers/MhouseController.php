@@ -468,5 +468,28 @@ class MhouseController extends XFrontBase
 		//echo json_encode($xml);
 
 	}
-	
+
+	public function actionGetSchoolRank(){
+		$db = Yii::app()->db;
+		//$result = array();
+		$place_id = trim($_GET['place_id']);
+		$lat = round(trim($_GET['lat']),6);
+		$lng = round(trim($_GET['lng']),6);
+			
+		$sql = "select paiming from h_school 
+		where lat ='". $lat."' 
+		and lng='".$lng."';"; 
+		
+		$resultsql = $db->createCommand($sql)->query();
+		error_log($sql);
+		
+		$rank = $resultsql->readColumn(0);
+		$result["place_id"] = $place_id;
+		$result["rank"] = ($rank)? $rank : '无';
+		
+		$results[] = $result;
+		
+		echo json_encode($results);
+}	
+
 }

@@ -652,26 +652,4 @@ if(!empty($prop_featx_out3)){
 	//Function END  
     }
 
-	public function actionGetSchoolRank(){
-		$db = Yii::app()->db;
-		//$result = array();
-		$place_id = trim($_GET['place_id']);
-		$lat = trim($_GET['lat']);
-		$lng = trim($_GET['lng']);
-			
-		$sql = "select paiming from h_school 
-		where lat ='". $lat."' 
-		and lng='".$lng."';"; 
-		
-		$resultsql = $db->createCommand($sql)->query();
-		
-		$rank = $resultsql->readColumn(0);
-		$result["place_id"] = $place_id;
-		$result["rank"] = ($rank)? $rank : '无';
-		
-		$results[] = $result;
-		
-		echo json_encode($results);
-}
-	
 }

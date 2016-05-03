@@ -131,7 +131,7 @@ function getRank($name,$city,$type){
 			+ "<a class='ui-btn ui-icon-location ui-btn-icon-left' data-ajax='false' href='index.php?r=map/index&lat=" + place.geometry.location.lat()  + "&lng=" + place.geometry.location.lng() + "&zoom=15&maptype=school'>" 
 			+ place.vicinity + "</a>"
 			+ "</div>"
-			+ "<span id='#" + place.place_id + "' class='ui-li-count'>" + rating + "</span> "
+			+ "<span id='" + place.place_id + "' class='ui-li-count'>" + rating + "</span> "
 			+ "</li>"
 			$("#school_list").append(html);	
 
@@ -139,7 +139,10 @@ function getRank($name,$city,$type){
 			{ place_id: place.place_id , lat: place.geometry.location.lat(), lng: place.geometry.location.lng()},  
 				//response
 	function( data, status, xhr ) {
-		$("#"+data.place_id).innerText = $("#"+data.place_id).textContent = data.rank;
+		console.log(data[0]);
+		$("#"+data[0].place_id).innerText = $("#"+data[0].place_id).textContent = data[0].rank;
+		console.log(data[0].place_id + data[0].rank);
+		console.log($("#"+data[0].place_id).innerHTML);
 		}
 	);
 
