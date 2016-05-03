@@ -24,6 +24,7 @@ html { overflow-x:hidden; }
 
 
 .project{width:1080px;margin:40px auto;}
+.project_images {width:1034px;margin:40px auto;}
 .intro_con{overflow:hidden;width:1080px; padding-left:20px; padding-top:10px;}
 .intro_fl{width:780px; height:497px; background:#FFFFFF;}
 .intro_fl img{margin-top:12px;margin-left:12px;}

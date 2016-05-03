@@ -131,10 +131,19 @@ function getRank($name,$city,$type){
 			+ "<a class='ui-btn ui-icon-location ui-btn-icon-left' data-ajax='false' href='index.php?r=map/index&lat=" + place.geometry.location.lat()  + "&lng=" + place.geometry.location.lng() + "&zoom=15&maptype=school'>" 
 			+ place.vicinity + "</a>"
 			+ "</div>"
-			+ "<span class='ui-li-count'>" + rating + "</span> "
+			+ "<span id='#" + place.place_id + "' class='ui-li-count'>" + rating + "</span> "
 			+ "</li>"
 			$("#school_list").append(html);	
-		 }	 
+
+			$.getJSON("/index.php?r=mhouse/getSchoolRank", 	
+			{ place_id: place.place_id , lat: place.geometry.location.lat(), lng: place.geometry.location.lng()},  
+				//response
+	function( data, status, xhr ) {
+		$("#"+data.place_id).innerText = $("#"+data.place_id).textContent = data.rank;
+		}
+	);
+
+			}	 
 	}
 	function createMarker(place) {
 	  var placeLoc = place.geometry.location;
