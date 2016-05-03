@@ -139,10 +139,9 @@ function getRank($name,$city,$type){
 			{ place_id: place.place_id , lat: place.geometry.location.lat(), lng: place.geometry.location.lng()},  
 				//response
 	function( data, status, xhr ) {
-		console.log(data[0]);
-		$("#"+data[0].place_id).innerText = $("#"+data[0].place_id).textContent = data[0].rank;
-		console.log(data[0].place_id + data[0].rank);
-		console.log($("#"+data[0].place_id).innerHTML);
+		//console.log(data);
+		$("#"+data.place_id).text(data.rank);
+		//console.log(data.place_id + data.rank);
 		}
 	);
 

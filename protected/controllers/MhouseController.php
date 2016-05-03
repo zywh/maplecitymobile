@@ -481,15 +481,15 @@ class MhouseController extends XFrontBase
 		and lng='".$lng."';"; 
 		
 		$resultsql = $db->createCommand($sql)->query();
-		error_log($sql);
+		//error_log($sql);
 		
 		$rank = $resultsql->readColumn(0);
 		$result["place_id"] = $place_id;
 		$result["rank"] = ($rank)? $rank : '无';
 		
-		$results[] = $result;
+		//$results[] = $result;
 		
-		echo json_encode($results);
+		echo json_encode($result);
 }	
 
 }
