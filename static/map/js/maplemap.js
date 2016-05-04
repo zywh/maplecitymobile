@@ -219,6 +219,7 @@ var maplemap = {
 		console.log("Change Map");
 		
 		maplemap.clearAll(map);
+		listAllHtml ='';
 		
 		var gridSize = 60;	//60px
 		//get element size to calcute number of grid
@@ -265,7 +266,7 @@ var maplemap = {
 					if (!data.IsError) {
 						var houseCount =  data.Data.Total;
 						$("#house_count").text(houseCount);
-						var markerType = data.Data.Type;
+						markerType = data.Data.Type;
 						//Start City Markers
 						if ((markerType == 'city') || (markerType == 'grid')) {
 							for (var p in data.Data.AreaHouseCount) {
@@ -286,6 +287,7 @@ var maplemap = {
 							
 							var count = 1;
 							var panelhtml = '';
+							
 							var totalhouse = data.Data.MapHouseList.length;
 							$(data.Data.MapHouseList).each(function(index) {
 								
@@ -315,6 +317,9 @@ var maplemap = {
 									+ "</a>"
 									
 									+ "</li>";
+								listAllHtml = listAllHtml + li;	
+								
+								
 									
 								if (( nextLng != this.GeocodeLng) || (nextLat != this.GeocodeLat)){
 									

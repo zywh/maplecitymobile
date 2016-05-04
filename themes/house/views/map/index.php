@@ -86,8 +86,27 @@
 <div id="house_list" class="house-list">
    <p>找到房源:<span id="house_count"></span></p> 
 </div>
+<!-- List End -->
 
+<!-- Map Footer Start -->	
+<div data-role="footer" data-position="fixed" data-fullscreen="true" style="text-align:center;" id="map_footer">
+	 
 
+	<a href="/" data-ajax="false" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext
+	">Home</a>
+	<a id="footer-location" class="ui-btn ui-corner-all ui-icon-location ui-btn-icon-left ui-btn-icon-notext
+	">location</a>
+	<a id="footer-list"  class="ui-btn ui-corner-all ui-icon-fa-navicon ui-btn-icon-left ui-btn-icon-notext
+	">List</a>
+	<a id="footer-school" class="ui-btn ui-corner-all ui-icon-fa-graduation-cap ui-btn-icon-left ui-btn-icon-notext
+	">More</a>
+	
+
+		
+	
+	
+</div>
+<!-- Map Footer -->		
 
 
 <script>
@@ -119,14 +138,15 @@ function getFieldValues() {
 	console.log("lat" + lat + "|" +lng);
 	var maptype = '<?php echo $_GET["maptype"]; ?>'; //city or house or school
     var mapZoom = '<?php echo $_GET["zoom"]; ?>';
-
+	var listAllHtml = '';
 	
 	
 	$( document ).on( "pagecreate", "#page_main", function() {
 		//Hide Footer
-		//$("#main_footer").hide();
+		$("#main_footer").hide();
+		$("#map_footer").show();
 		
-
+		
 		max_height();
 		lat = (lat) ? lat: "43.6532";
 		lng= (lng) ? lng: "-79.3832";
@@ -170,6 +190,7 @@ function getFieldValues() {
 				
 				maplemap.initMap("google_map",lat,lng,mapZoom);
 	   		}
+		
 		} 
 		
 		if ( maptype == 'city' ) {
@@ -189,6 +210,38 @@ function getFieldValues() {
 		}
 	});
 
-
+	$("#footer-location").click(function () {
+		console.log("location is clicked");
+	
+		if ( navigator.geolocation ) {
+	        function success(pos) {
+				lat = pos.coords.latitude;
+				lng = pos.coords.longitude;
+				
+			
+				maplemap.setMapView(lat,lng,13);
+				
+			}
+	        function fail(error) {
+												
+	        }
+	
+			navigator.geolocation.getCurrentPosition(success, fail, {enableHighAccuracy:true});
+    	} 
+	
+		
+	});
+	
+	$("#footer-list").click(function () {
+		console.log("list is clicked");
+		$("#panelhtml").html(listAllHtml);
+		console.log("ClickListAllHtml:" + listAllHtml);
+		$("#houseviewpanel").panel( "open" );
+	
+	});
+	$("#footer-school").click(function () {
+		
+	
+	});
 	
 </script>
