@@ -110,6 +110,19 @@
 
 
 <script>
+
+function schoolMarker(results, status) {
+	if (status === google.maps.places.PlacesServiceStatus.OK) {
+		var service = new google.maps.places.PlacesService(map);
+		for (var i = 0; i < results.length; i++) {
+			var name = results[i].name;
+			if ( name.match(/(Middle School|Public School|High School|Secondary School|Elementary School)/)) {
+			   maplemap.createMarker(results[i]);
+			}
+		}
+	}
+}
+
 function max_height() {
   
     var viewport_height = $(window).height();
@@ -233,14 +246,27 @@ function getFieldValues() {
 	});
 	
 	$("#footer-list").click(function () {
-		console.log("list is clicked");
-		$("#panelhtml").html(listAllHtml);
-		console.log("ClickListAllHtml:" + listAllHtml);
-		$("#houseviewpanel").panel( "open" );
+		
+		if ( markerType == 'house'  ) {
+			$("#panelhtml").html(listAllHtml);
+			$("#houseviewpanel").panel( "open" );
+	
+		} else {
+			$("#popuphtml").html("找到房源太多，请在地图上点击缩小范围后在点击房源列表");
+			$("#houseviewpopup").popup( "open" );
+		}
 	
 	});
 	$("#footer-school").click(function () {
+		local_type = "school";
+		var center = map.getCenter();
+		var service = new google.maps.places.PlacesService(map);
 		
+		service.nearbySearch({
+			location: center,
+			radius: 3000,
+			type: ['school']
+		}, schoolMarker);
 	
 	});
 	

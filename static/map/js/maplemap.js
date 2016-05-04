@@ -152,7 +152,9 @@ var maplemap = {
 
 		if (local_type == "school") {
 			html = "<i class='homelist icon_scool3'></i>";
-			iconurl = iconbase + "m1.jpg";
+			iconurl = iconbase + "university.png";
+			console.log("Iconimage:" + iconurl);
+			//iconurl = iconbase + "m1.jpg";
 		} else if (local_type == "restaurant") {
 			html = "<i class='homelist icon_dining3'></i>";
 			iconurl = iconbase + "m2.jpg";
@@ -179,15 +181,13 @@ var maplemap = {
 			position: place.geometry.location,
 			icon: iconurl
 		});
-		google.maps.event.addListener(marker, 'mouseover', function() {
-			infowindow.setContent(place.name);
-			infowindow.open(map, this);
-			currentMark = this;
-		});
-		google.maps.event.addListener(marker, 'mouseout', function() {
-			currentMark.setMap(null);
+		markerArray.push(marker);
+		google.maps.event.addListener(marker, 'click', function() {
 			//infowindow.setContent(place.name);
 			//infowindow.open(map, this);
+			//currentMark = this;
+			$("#popuphtml").html("<div class='school_popup'><h3>学校名称：</h3><p>" + place.name + "</p></div>");
+			$("#houseviewpopup").popup( "open" );
 		});
 
 	},
