@@ -6,50 +6,6 @@
 
 </style>
 
-<!-- banner开始 -->
-<div class="ink_phoBok" >
-
-	<div class="swiper-container" >
-		<div class="swiper-wrapper">
-				
-				 <?php foreach($subject_list as $project){ ?>
-					<div class="swiper-slide" >
-					<a data-ajax="false" href="<?php echo Yii::app()->createUrl('projects/more',array('id'=>$project->id)); ?>"><img style="width: 100%;height: 250px;"	src="<?php 
-					echo Yii::app()->request->baseUrl;?>/<?php echo $project->room_type_image; ?>"></a>
-					
-				
-					</div>
-				<?php }?> 
-		</div>
-		<div class="swiper-pagination"></div>
-		<div class="swiper-button-next swiper-button-white"></div>
-		<div class="swiper-button-prev swiper-button-white"></div>
-
-	
-	</div>
-<script>
-	var swiper = new Swiper(".swiper-container", {
-		pagination: ".swiper-pagination",
-		paginationClickable: true,
-		nextButton: '.swiper-button-next',
-		prevButton: '.swiper-button-prev',
-		autoplay: 3000,
-		speed: 2000,
-coverflow: {
-  rotate: 50,
-  stretch: 0,
-  depth: 100,
-  modifier: 1,
-  slideShadows : true
-},
-		autoplayDisableOnInteraction: true
-	});
-</script>
-</div>
-
-<!-- banner结束 -->
-
-
 <!-- /navbar -->
 <div class="home-navi-bar" data-role="navbar" >
     <ul>
@@ -63,8 +19,58 @@ coverflow: {
 </div>
 <!-- /navbar -->
 
+<!-- banner开始 -->
+<div class="ink_phoBok" >
+
+	<div class="swiper-container" >
+		<div class="swiper-wrapper">
+				
+				 <?php foreach($subject_list as $project){ ?>
+					<div class="swiper-slide" >
+					<a data-ajax="false" href="<?php echo Yii::app()->createUrl('projects/more',array('id'=>$project->id)); ?>"><img style="width: 100%;height: 250px;"	src="<?php 
+					echo Yii::app()->request->baseUrl;?>/<?php echo $project->room_type_image; ?>"></a>
+					
+					</div>
+				<?php }?> 
+		</div>
+		<div class="swiper-pagination"></div>
+		<div class="swiper-button-next swiper-button-white"></div>
+		<div class="swiper-button-prev swiper-button-white"></div>
+
+	
+	</div>
+<script>
+	var swiper = new Swiper(".swiper-container", {
+		pagination: '.swiper-pagination',
+		nextButton: '.swiper-button-next',
+		prevButton: '.swiper-button-prev',
+		//preloadImages: false,
+		//lazyLoading: true,
+		paginationClickable: true,
+		loop: true,
+		autoplay: 5000,
+		speed: 2000,
+		autoplayDisableOnInteraction: true
+
+	});
+</script>
+</div>
+
+<!-- banner结束 -->
+
+
+
+
+<div class="lm_four">
+     <div class="lm_four_banner"><a href="index.php?r=about2/about2&id=33"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/index/tl_3.jpg" /></a></div>
+ 
+</div>
+
+
 <!-- MLS START -->
-<div class="nycont_mls">
+
+<!-- MLS END -->
+<div >
 
 	<div class="ui-grid-c">
 		<div class="ui-block-a">
@@ -80,13 +86,6 @@ coverflow: {
 		<a data-ajax="false"  href="index.php?r=about2/about2&id=36"><IMg class="mlsimg" src="/themes/house/images/index/btn4.jpg" ></a>
 	</div>
 	
-</div>
-
-<!-- MLS END -->
-
-<div class="lm_four">
-     <div class="lm_four_banner"><a href="index.php?r=about2/about2&id=33"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/index/tl_3.jpg" /></a></div>
- 
 </div>
 
 <!-- 加国资讯结束 -->
@@ -110,3 +109,5 @@ coverflow: {
 </div>
 
 <!-- 合作伙伴结束 -->
+
+
