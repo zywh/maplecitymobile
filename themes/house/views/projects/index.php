@@ -7,10 +7,6 @@
     <div class="enjoydown">
         <div class="enjoydownlabel">
             <div class="enjoydownlabel_left">项目推荐<span> Recommended Projects</span></div>
-            <div class="enjoydownlabel_right">
-                <span>共有<?php echo $count; ?>项目</span>
-  
-            </div>
         </div>
 		
         <div class="enjoydowncont">
@@ -19,7 +15,7 @@
                 <?php foreach($subject_list as $project){ ?>
                 <div class="enjoydown_list">
                     <div class="enjoydown_list_pic">
-                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/<?php echo $project->room_type_image; ?>" width="485" height="355"/>
+                        <img src="<?php echo Yii::app()->request->baseUrl; ?>/<?php echo $project->room_type_image; ?>" >
                     </div>
                     <div class="enjoydown_list_info" style="display:block;">
                         <span class="enjoy_dz">项目名称：<?php echo $project->name; ?></span>
@@ -52,7 +48,7 @@
                         'prevPageLabel'  => '<<',
                         'nextPageLabel'  => '>>',
                         'pages'          => $pages,
-                        'maxButtonCount' => 6,
+                        'maxButtonCount' => 4,
                         'cssFile'        => 'themes/house/css/pager.css'
                     ));
                     ?>
