@@ -13,12 +13,11 @@
 		<div class="swiper-wrapper">
 				
 				 <?php foreach($subject_list as $project){ ?>
-					
 					<div class="swiper-slide" >
-					<div>
 					<a data-ajax="false" href="<?php echo Yii::app()->createUrl('projects/more',array('id'=>$project->id)); ?>"><img style="width: 100%;height: 250px;"	src="<?php 
 					echo Yii::app()->request->baseUrl;?>/<?php echo $project->room_type_image; ?>"></a>
-					</div>
+					
+				
 					</div>
 				<?php }?> 
 		</div>
