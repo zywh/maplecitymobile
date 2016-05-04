@@ -35,6 +35,13 @@
 		prevButton: '.swiper-button-prev',
 		autoplay: 3000,
 		speed: 2000,
+coverflow: {
+  rotate: 50,
+  stretch: 0,
+  depth: 100,
+  modifier: 1,
+  slideShadows : true
+},
 		autoplayDisableOnInteraction: true
 	});
 </script>
