@@ -11,26 +11,31 @@
 
 	<div class="swiper-container" >
 		<div class="swiper-wrapper">
-				<?php 
-				foreach($banner as $k => $obj){ 
+				
+				 <?php foreach($subject_list as $project){ ?>
 					
-					?><div class="swiper-slide" >
-					
-					<img style=" 	width: 100%;height: auto;"		src="<?php 
-					echo Yii::app()->request->baseUrl;?>/<?php echo $obj->image; ?>">
-					
-				</div>
+					<div class="swiper-slide" >
+					<div>
+					<a data-ajax="false" href="<?php echo Yii::app()->createUrl('projects/more',array('id'=>$project->id)); ?>"><img style="width: 100%;height: 250px;"	src="<?php 
+					echo Yii::app()->request->baseUrl;?>/<?php echo $project->room_type_image; ?>"></a>
+					</div>
+					</div>
 				<?php }?> 
 		</div>
 		<div class="swiper-pagination"></div>
+		<div class="swiper-button-next swiper-button-white"></div>
+		<div class="swiper-button-prev swiper-button-white"></div>
+
 	
 	</div>
 <script>
 	var swiper = new Swiper(".swiper-container", {
 		pagination: ".swiper-pagination",
 		paginationClickable: true,
+		nextButton: '.swiper-button-next',
+		prevButton: '.swiper-button-prev',
 		autoplay: 3000,
-		speed: 1000,
+		speed: 2000,
 		autoplayDisableOnInteraction: true
 	});
 </script>

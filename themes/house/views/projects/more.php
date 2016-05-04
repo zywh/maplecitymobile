@@ -10,7 +10,7 @@
 
 
 .swiper-slide img { width: 100%; height: 270px;  }
-.project_title { color:#ff4103;}
+.project_title { color:#ff4103;text-align:center;}
 	
 .swiper-pagination-bullet { opacity: 1; background: #fff; }
 .swiper-pagination-bullet-active { opacity: 1; background: #ff4103; }

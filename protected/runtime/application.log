@@ -1227,3 +1227,41 @@ Stack trace:
 REQUEST_URI=/index.php?r=mhouse/getSchoolRank&place_id=ChIJtbqUpuDTKogR5oMPhSv2Uj0&lat=44.0068992&lng=-79.46522709999999
 HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=mhouse/school&lat=43.997432&lng=-79.483685
 ---
+2016/05/04 11:26:37 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DECS LIMIT 6' at line 1. The SQL statement executed was: SELECT * FROM `h_subject` `t` WHERE homepage=1 ORDER BY date DECS LIMIT 6.
+2016/05/04 11:26:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DECS LIMIT 6' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7812): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/mhtml/protected/controllers/SiteController.php(39): CActiveRecord->findAll(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(4058): SiteController->actionIndex()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=projects/more&id=12
+---
+2016/05/04 11:27:25 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DECS LIMIT 6' at line 1. The SQL statement executed was: SELECT * FROM `h_subject` `t` WHERE homepage=1 ORDER BY date DECS LIMIT 6.
+2016/05/04 11:27:25 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DECS LIMIT 6' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7812): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/mhtml/protected/controllers/SiteController.php(39): CActiveRecord->findAll(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(4058): SiteController->actionIndex()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=projects/more&id=12
+---

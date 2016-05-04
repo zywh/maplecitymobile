@@ -27,39 +27,27 @@ class SiteController extends XFrontBase
 				$criteria->order = 'id ';
         $criteria->limit = 4;
         $banner = Banner::model()->findAll($criteria);
- 
+         
+		$criteria = new CDbCriteria();
+        $criteria->order = 'id DESC';
+        $criteria->order = 'date DESC';
+        $criteria->addCondition('homepage=1');
+        $count = Subject::model()->count($criteria);
+        $pager = new CPagination($count);
+        $pager->pageSize = 6;
+        $pager->applyLimit($criteria);
+      	$subject_list = Subject::model()->findAll($criteria);
 
 
         $data = array(
-            'banner'                      => $banner
- 
+            'banner'                      => $banner,
+			'subject_list' => $subject_list 
 						
         );
         $this->render('index', $data);
     }
 
-    public function actionGlobalSearch(){
-        $msl = Yii::app()->request->getPost('msl');
-        if(empty($msl) || trim($msl) == '请输入房源MSL号'){
-            echo CJSON::encode(array('success' => false, 'msg' => '请输入房源MSL号'));
-        }else{
-            $house = House::model()->find('ml_num=:ml_num', array(':ml_num' => $msl));
-            if(!empty($house)){
-                $url = Yii::app()->createUrl('house/view', array('id' => $house->id));
-                echo CJSON::encode(array('success' => true, 'msg' => $url));
-            }else{
-                echo CJSON::encode(array('success' => false, 'msg' => '抱歉！没有找到相应的房源'));
-            }
-        }
-    }
-
-    public function actionViewVideo(){
-        Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/post.css');
-        Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/js/flowplayer-3.2.11.min.js');
-        $id = Yii::app()->request->getQuery('id');
-        $video = Video::model()->findByPk($id);
-        $this->render('video_view', array('video' => $video));
-    }
+ 
 
     /**
      * 会员登录
