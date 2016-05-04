@@ -43,9 +43,10 @@
 <div class="home-navi-bar" data-role="navbar" >
     <ul>
 	<li><a id='about_us' href="index.php?r=about/about1&id=27" data-ajax="false" >关于我们</a></li>
+	<li><a id='projects' href="index.php?r=projects" data-ajax="false">项目推荐</a></li>
 	<li><a id='mapsearch' href="index.php?r=map" data-ajax="false">地图搜索</a></li>
 	<li><a id='housesearch' href="index.php?r=mhouse" data-ajax="false">房源搜索</a></li>
-	<li><a id='about_hire' href="index.php?r=about/partner" data-ajax="false">合作伙伴</a></li>
+	
 
     </ul>
 </div>
