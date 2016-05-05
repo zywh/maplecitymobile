@@ -1,10 +1,11 @@
-<link type="text/css" rel="stylesheet" href="http://www.idangero.us/swiper/dist/css/swiper.min.css" media="all" />
-<script src="http://www.idangero.us/swiper/dist/js/swiper.min.js"></script>
+<link rel="stylesheet" href="static/js/Swiper/css/swiper.min.css" >
+<script src="static/js/Swiper/js/swiper.min.js"></script>
 <style>
 .swiper-pagination-bullet { opacity: 1; background: #fff; }
 .swiper-pagination-bullet-active { opacity: 1; background: #ff4103; }
 
 </style>
+
 
 <!-- /navbar -->
 <div class="home-navi-bar" data-role="navbar" >
@@ -19,26 +20,25 @@
 </div>
 <!-- /navbar -->
 
-<!-- banner开始 -->
-<div class="ink_phoBok" >
-
-	<div class="swiper-container" >
-		<div class="swiper-wrapper">
+<!-- Swiper开始 -->
+<div class="swiper-container" >
+	<div class="swiper-wrapper">
+			
+			 <?php foreach($subject_list as $project){ ?>
+				<div class="swiper-slide" >
+				<a data-ajax="false" href="<?php echo Yii::app()->createUrl('projects/more',array('id'=>$project->id)); ?>"><img style="width: 100%;height: 250px;"	src="<?php 
+				echo Yii::app()->request->baseUrl;?>/<?php echo $project->room_type_image; ?>"></a>
 				
-				 <?php foreach($subject_list as $project){ ?>
-					<div class="swiper-slide" >
-					<a data-ajax="false" href="<?php echo Yii::app()->createUrl('projects/more',array('id'=>$project->id)); ?>"><img style="width: 100%;height: 250px;"	src="<?php 
-					echo Yii::app()->request->baseUrl;?>/<?php echo $project->room_type_image; ?>"></a>
-					
-					</div>
-				<?php }?> 
-		</div>
-		<div class="swiper-pagination"></div>
-		<div class="swiper-button-next swiper-button-white"></div>
-		<div class="swiper-button-prev swiper-button-white"></div>
-
-	
+				</div>
+			<?php }?> 
 	</div>
+	<div class="swiper-pagination"></div>
+	<div class="swiper-button-next swiper-button-white"></div>
+	<div class="swiper-button-prev swiper-button-white"></div>
+
+
+
+
 <script>
 	var swiper = new Swiper(".swiper-container", {
 		pagination: '.swiper-pagination',
@@ -48,29 +48,20 @@
 		//lazyLoading: true,
 		paginationClickable: true,
 		loop: true,
-		autoplay: 5000,
-		speed: 2000,
-		autoplayDisableOnInteraction: true
+		autoplay: 3000,
+		speed: 1000
+		//autoplayDisableOnInteraction: true
 
 	});
 </script>
 </div>
-
-<!-- banner结束 -->
-
-
-
-
-<div class="lm_four">
-     <div class="lm_four_banner"><a href="index.php?r=about2/about2&id=33"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/index/tl_3.jpg" /></a></div>
- 
-</div>
+<!-- Swiper结束 -->
 
 
 <!-- MLS START -->
 
-<!-- MLS END -->
-<div >
+
+<div>
 
 	<div class="ui-grid-c">
 		<div class="ui-block-a">
@@ -84,10 +75,11 @@
 		</div>
 		<div class="ui-block-d">
 		<a data-ajax="false"  href="index.php?r=about2/about2&id=36"><IMg class="mlsimg" src="/themes/house/images/index/btn4.jpg" ></a>
+		</div>
 	</div>
-	
 </div>
 
+<!-- MLS END -->
 <!-- 加国资讯结束 -->
 
 
@@ -109,5 +101,8 @@
 </div>
 
 <!-- 合作伙伴结束 -->
+
+
+
 
 

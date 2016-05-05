@@ -1,7 +1,5 @@
-
-<link type="text/css" rel="stylesheet" href="http://www.idangero.us/swiper/dist/css/swiper.min.css" media="all" />
-<script src="http://www.idangero.us/swiper/dist/js/swiper.min.js"></script>
-
+<link rel="stylesheet" href="static/js/Swiper/css/swiper.min.css" >
+<script src="static/js/Swiper/js/swiper.min.js"></script>
 
 
 <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?libraries=places&language=zh-cn"></script>
