@@ -71,7 +71,7 @@ $(document).on("pageshow","#page_main",function(){
 <!-- MLS START -->
 
 
-<div>
+<div class="homepage-mls">
 
 	<div class="ui-grid-c">
 		<div class="ui-block-a">
