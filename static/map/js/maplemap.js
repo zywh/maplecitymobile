@@ -143,39 +143,47 @@ var maplemap = {
 
 		
 	},
-
+	localSearch: function(searchName) {
+		var mapCenter = map.getCenter();
+		console.log("SearchType:" + local_type);
+		request = {
+			location: mapCenter,
+			radius: '3000',
+			types: [local_type]
+		};
+		service = new google.maps.places.PlacesService(map);
+		service.search(request, function(results, status) {
+			
+			maplemap.clearAll();
+			if (status == google.maps.places.PlacesServiceStatus.OK) {
+				for (var i = 0; i < results.length; i++) {
+					maplemap.createMarker(results[i]);
+				}
+			}
+		});
+	},
+	
 	createMarker: function(place) {
 		var placeLoc = place.geometry.location;
 		var html;
-		var iconbase = "/static/map/images/";
-		var iconurl;
 		var markercontent;
 		
 		
 
 		if (local_type == "school") {
-			//html = "<i class='homelist icon_scool3'></i>";
-			//iconurl = iconbase + "university.png";
 			markercontent = "<span class='ui-btn-icon-notext ui-icon-fa-graduation-cap'></span>";
-		
-			
 		} else if (local_type == "restaurant") {
-			html = "<i class='homelist icon_dining3'></i>";
-			iconurl = iconbase + "m2.jpg";
+			markercontent = "<span class='ui-btn-icon-notext ui-icon-fa-cutlery'></span>";
 		} else if (local_type == "bus_station") {
-			html = "<i class='homelist icon_traffic3'></i>";
-			iconurl = iconbase + "m3.jpg";
+			markercontent = "<span class='ui-btn-icon-notext ui-icon-fa-cab'></span>";
 		} else if (local_type == "grocery_or_supermarket") {
-			html = "<i class='homelist icon_shopping3'></i>";
-			iconurl = iconbase + "m4.jpg";
+			markercontent = "<span class='ui-btn-icon-notext ui-icon-fa-shopping-cart'></span>";
 		} else if (local_type == "hospital") {
-			html = "<i class='homelist icon_hospital3'></i>";
-			iconurl = iconbase + "m5.jpg";
+			markercontent = "<span class='ui-btn-icon-notext ui-icon-fa-h-square'></span>";
 		} else if (local_type == "bank") {
-			html = "<i class='homelist icon_bank3'></i>";
-			iconurl = iconbase + "m6.jpg";
+			markercontent = "<span class='ui-btn-icon-notext ui-icon-fa-money'></span>";
 		} else {
-			html = "<i class='common_bg icon_map_mark'></i>";
+			markercontent = "<span class='ui-btn-icon-notext ui-icon-fa-cab'></span>";
 		}
 
 		//var infowindow = new google.maps.InfoWindow();
@@ -199,10 +207,10 @@ var maplemap = {
 			//infowindow.setContent(place.name);
 			//infowindow.open(map, this);
 			//currentMark = this;
-			$("#popuphtml").html("<div class='school_popup'><h3>学校名称：</h3><p>" + place.name + "</p></div>");
+			$("#popuphtml").html("<div class='school_popup'><h3>名称：</h3><p>" + place.name + "</p></div>");
 			$("#houseviewpopup").popup( "open" );
 		});
-
+		
 	},
 
 	clearAll: function(map) {

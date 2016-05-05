@@ -98,8 +98,19 @@
 	">location</a>
 	<a id="footer-list"  class="ui-btn ui-corner-all ui-icon-fa-navicon ui-btn-icon-left ui-btn-icon-notext
 	">List</a>
-	<a id="footer-school" class="ui-btn ui-corner-all ui-icon-fa-graduation-cap ui-btn-icon-left ui-btn-icon-notext
+	<a data-value="school" class="Search_local ui-btn ui-corner-all ui-icon-fa-graduation-cap ui-btn-icon-left ui-btn-icon-notext
 	">More</a>
+	<a data-value="bus_station" class="Search_local ui-btn ui-corner-all ui-icon-fa-cab ui-btn-icon-left ui-btn-icon-notext
+	">More</a>
+	<a data-value="bank" class="Search_local ui-btn ui-corner-all ui-icon-fa-money ui-btn-icon-left ui-btn-icon-notext
+	">More</a>
+	<a data-value="restaurant" class="Search_local ui-btn ui-corner-all ui-icon-fa-cutlery ui-btn-icon-left ui-btn-icon-notext
+	">More</a>
+	<a data-value="grocery_or_supermarket" class="Search_local ui-btn ui-corner-all ui-icon-fa-shopping-cart ui-btn-icon-left ui-btn-icon-notext
+	">More</a>
+	<a data-value="hospital" class="Search_local ui-btn ui-corner-all ui-icon-fa-h-square ui-btn-icon-left ui-btn-icon-notext
+	">More</a>
+	
 	
 
 		
@@ -151,7 +162,8 @@ function getFieldValues() {
 	console.log("lat" + lat + "|" +lng);
 	var maptype = '<?php echo $_GET["maptype"]; ?>'; //city or house or school
     var mapZoom = '<?php echo $_GET["zoom"]; ?>';
-	var listAllHtml = '';
+	var listAllHtml = ''; //hold house list
+	
 	
 	
 	$( document ).on( "pagecreate", "#page_main", function() {
@@ -224,16 +236,11 @@ function getFieldValues() {
 	});
 
 	$("#footer-location").click(function () {
-		console.log("location is clicked");
-	
 		if ( navigator.geolocation ) {
 	        function success(pos) {
 				lat = pos.coords.latitude;
 				lng = pos.coords.longitude;
-				
-			
 				maplemap.setMapView(lat,lng,13);
-				
 			}
 	        function fail(error) {
 												
@@ -242,7 +249,6 @@ function getFieldValues() {
 			navigator.geolocation.getCurrentPosition(success, fail, {enableHighAccuracy:true});
     	} 
 	
-		
 	});
 	
 	$("#footer-list").click(function () {
@@ -257,6 +263,13 @@ function getFieldValues() {
 		}
 	
 	});
+	
+	$(".Search_local").click(function() {
+		local_type = $(this).attr("data-value");
+		maplemap.localSearch(local_type);
+	});
+	
+	/*
 	$("#footer-school").click(function () {
 		local_type = "school";
 		var center = map.getCenter();
@@ -268,6 +281,6 @@ function getFieldValues() {
 			type: ['school']
 		}, schoolMarker);
 	
-	});
+	});*/
 	
 </script>
