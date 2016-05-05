@@ -33,9 +33,11 @@
 			foreach((array)$imageList as $key=>$row):
 						if($row):?>
 							<div class="swiper-slide" >
+							<a data-ajax="false" href="<?php 
+							echo $this->_baseUrl;?>/<?php echo $row['file']; ?>">
 							 <img src="<?php 
 							 $s = str_replace("uploads","tn_uploads",$row['file']);
-							 echo $this->_baseUrl;?>/<?php echo $s; ?>" >
+							 echo $this->_baseUrl;?>/<?php echo $s; ?>" ></a>
 							
 							 </div>
 
@@ -77,9 +79,11 @@
 			foreach((array)$layoutList as $key=>$row):
 				if($row):?>
 					<div class="swiper-slide" >
+					<a data-ajax="false" href="<?php 
+							echo $this->_baseUrl;?>/<?php echo $row['file']; ?>">
 						<img src="<?php 
 						$s = str_replace("uploads","tn_uploads",$row['file']);
-						echo $this->_baseUrl?>/<?php echo $s;?>" >
+						echo $this->_baseUrl?>/<?php echo $s;?>" ></a>
 						
 					 </div>
 
