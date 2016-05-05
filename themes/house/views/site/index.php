@@ -46,6 +46,11 @@ $(document).on("pageshow","#page_main",function(){
 		pagination: '.swiper-pagination',
 		nextButton: '.swiper-button-next',
 		prevButton: '.swiper-button-prev',
+		
+		effect: 'fade',
+		fade: {
+		  crossFade: true
+		},
 		//preloadImages: false,
 		//lazyLoading: true,
 		paginationClickable: true,

@@ -149,12 +149,16 @@ var maplemap = {
 		var html;
 		var iconbase = "/static/map/images/";
 		var iconurl;
+		var markercontent;
+		
+		
 
 		if (local_type == "school") {
-			html = "<i class='homelist icon_scool3'></i>";
-			iconurl = iconbase + "university.png";
-			console.log("Iconimage:" + iconurl);
-			//iconurl = iconbase + "m1.jpg";
+			//html = "<i class='homelist icon_scool3'></i>";
+			//iconurl = iconbase + "university.png";
+			markercontent = "<span class='ui-btn-icon-notext ui-icon-fa-graduation-cap'></span>";
+		
+			
 		} else if (local_type == "restaurant") {
 			html = "<i class='homelist icon_dining3'></i>";
 			iconurl = iconbase + "m2.jpg";
@@ -174,12 +178,21 @@ var maplemap = {
 			html = "<i class='common_bg icon_map_mark'></i>";
 		}
 
-		var infowindow = new google.maps.InfoWindow();
-		var currentMark;
+		//var infowindow = new google.maps.InfoWindow();
+		//var currentMark;
+		/*
 		var marker = new google.maps.Marker({
 			map: map,
 			position: place.geometry.location,
 			icon: iconurl
+		});*/
+		
+		var marker = new RichMarker({
+			position: place.geometry.location,
+			map: map,
+			draggable: false,
+			content: markercontent,
+			flat: true
 		});
 		markerArray.push(marker);
 		google.maps.event.addListener(marker, 'click', function() {

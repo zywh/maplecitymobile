@@ -20,7 +20,7 @@
 
  
  
-	<div class="project_title"><?php echo $subject['name'];?>
+	<div class="project_title"><h3><?php echo $subject['name'];?></h3>
 	</div>
 	
  

@@ -59,6 +59,7 @@ var swiper = new Swiper(".swiper-container", {
   speed: 1000,
   autoplayDisableOnInteraction: true
 });
+swiper.startAutoplay();
 </script>
 </div>
 <?php
