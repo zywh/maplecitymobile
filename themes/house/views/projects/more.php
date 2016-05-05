@@ -20,7 +20,9 @@
 
  
  
- <div class="project_title"><h3> <?php echo $subject['name'];?><h3></div>
+	<div class="project_title"><?php echo $subject['name'];?>
+	</div>
+	
  
 	<!-- Swiper Start -->
 	<div class="project_images" >
@@ -46,21 +48,7 @@
 					<div class="swiper-button-prev swiper-button-white"></div>
 
 			</div>
-	<script>
-		var s1 = new Swiper('.s1', {
-			pagination: '.swiper-pagination',
-			 nextButton: '.swiper-button-next',
-			prevButton: '.swiper-button-prev',
-			//preloadImages: false,
-			//lazyLoading: true,
-			paginationClickable: true,
-			loop: true,
-			autoplay: 5000,
-			speed: 2000,
-			autoplayDisableOnInteraction: true
 
-		});
-	</script>
 	</div>
 	<!-- Swiper End -->
 
@@ -105,19 +93,7 @@
 
 
 		</div>
-		<script>
-			var s2 = new Swiper('.s2', {
-			pagination: '.swiper-pagination',
-			paginationClickable: true,
-			nextButton: '.swiper-button-next',
-			prevButton: '.swiper-button-prev',
-			loop: true,
-			autoplay: 5000,
-			speed: 2000,
-			//scrollbar:
-			autoplayDisableOnInteraction: true
-			});
-		</script>
+
 
 	</div>
 
@@ -128,7 +104,44 @@
 	</div>	
 	
 	
-</div>
+	</div>
 	
 
 </div>
+
+<script>
+$(document).on("pageshow","#page_main",function(){
+	var s1 = new Swiper('.s1', {
+		pagination: '.swiper-pagination',
+		 nextButton: '.swiper-button-next',
+		prevButton: '.swiper-button-prev',
+		//preloadImages: false,
+		//lazyLoading: true,
+		paginationClickable: true,
+		loop: true,
+		autoplay: 5000,
+		speed: 2000,
+		autoplayDisableOnInteraction: false
+
+	});
+	
+	
+	var s2 = new Swiper('.s2', {
+		pagination: '.swiper-pagination',
+		paginationClickable: true,
+		nextButton: '.swiper-button-next',
+		prevButton: '.swiper-button-prev',
+		loop: true,
+		autoplay: 5000,
+		speed: 2000,
+		//scrollbar:
+		autoplayDisableOnInteraction: false
+	});
+	
+
+	
+});	
+</script>
+
+	
+

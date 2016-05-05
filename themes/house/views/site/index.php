@@ -40,6 +40,8 @@
 
 
 <script>
+
+$(document).on("pageshow","#page_main",function(){
 	var swiper = new Swiper(".swiper-container", {
 		pagination: '.swiper-pagination',
 		nextButton: '.swiper-button-next',
@@ -48,11 +50,14 @@
 		//lazyLoading: true,
 		paginationClickable: true,
 		loop: true,
-		autoplay: 3000,
-		speed: 1000
-		//autoplayDisableOnInteraction: true
+		autoplay: 4000,
+		speed: 2000,
+		autoplayDisableOnInteraction: false
 
 	});
+	
+});
+
 </script>
 </div>
 <!-- Swiper结束 -->
