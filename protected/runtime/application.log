@@ -1287,3 +1287,44 @@ Stack trace:
 REQUEST_URI=/index.php?r=mhouse/getCityList&term=to%E2%80%86r
 HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/index&lat=56.726380&lng=-111.380341&zoom=10&maptype=city
 ---
+2016/05/07 21:10:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1030 Got error 28 from storage engine. The SQL statement executed was: SHOW FULL COLUMNS FROM `h_catalog`.
+2016/05/07 21:10:06 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "Catalog" 对应的 table "{{catalog}}".' in /var/www/mhtml/framework/yiilite.php:8289
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(7392): CActiveRecordMetaData->__construct(Object(Catalog))
+#1 /var/www/mhtml/framework/yiilite.php(7463): CActiveRecord->getMetaData()
+#2 /var/www/mhtml/framework/yiilite.php(7811): CActiveRecord->getTableSchema()
+#3 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#4 /var/www/mhtml/protected/components/XFrontBase.php(35): CActiveRecord->findAll()
+#5 /var/www/mhtml/framework/yiilite.php(1745): XFrontBase->init()
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/
+---
+2016/05/07 21:10:53 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 126 Incorrect key file for table '/tmp/#sql_7d7d_0.MYI'; try to repair it. The SQL statement executed was: SHOW FULL COLUMNS FROM `h_catalog`.
+2016/05/07 21:10:53 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "Catalog" 对应的 table "{{catalog}}".' in /var/www/mhtml/framework/yiilite.php:8289
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(7392): CActiveRecordMetaData->__construct(Object(Catalog))
+#1 /var/www/mhtml/framework/yiilite.php(7463): CActiveRecord->getMetaData()
+#2 /var/www/mhtml/framework/yiilite.php(7811): CActiveRecord->getTableSchema()
+#3 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#4 /var/www/mhtml/protected/components/XFrontBase.php(35): CActiveRecord->findAll()
+#5 /var/www/mhtml/framework/yiilite.php(1745): XFrontBase->init()
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/
+---
+2016/05/07 21:11:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1030 Got error 28 from storage engine. The SQL statement executed was: SHOW FULL COLUMNS FROM `h_catalog`.
+2016/05/07 21:11:50 [error] [exception.CDbException] exception 'CDbException' with message '数据库中无法找到 active record class "Catalog" 对应的 table "{{catalog}}".' in /var/www/mhtml/framework/yiilite.php:8289
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(7392): CActiveRecordMetaData->__construct(Object(Catalog))
+#1 /var/www/mhtml/framework/yiilite.php(7463): CActiveRecord->getMetaData()
+#2 /var/www/mhtml/framework/yiilite.php(7811): CActiveRecord->getTableSchema()
+#3 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#4 /var/www/mhtml/protected/components/XFrontBase.php(35): CActiveRecord->findAll()
+#5 /var/www/mhtml/framework/yiilite.php(1745): XFrontBase->init()
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
+#7 /var
