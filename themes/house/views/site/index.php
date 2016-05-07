@@ -7,20 +7,9 @@
 </style>
 
 
-<!-- /navbar -->
-<div class="home-navi-bar" data-role="navbar" >
-Â Â Â Â <ul>
-	<li><a id='about_us' href="index.php?r=about/about1&id=27" data-ajax="false" >å…³äºæˆ‘ä»¬</a></li>
-	<li><a id='projects' href="index.php?r=projects" data-ajax="false">é¡¹ç›®æ¨è</a></li>
-	<li><a id='mapsearch' href="index.php?r=map" data-ajax="false">åœ°å›¾æœç´¢</a></li>
-	<li><a id='housesearch' href="index.php?r=mhouse" data-ajax="false">æˆ¿æºæœç´¢</a></li>
-	
 
-Â Â Â Â </ul>
-</div>
-<!-- /navbar -->
 
-<!-- Swiperå¼€å§‹ -->
+<!-- Swiper¿ªÊ¼ -->
 <div class="swiper-container" >
 	<div class="swiper-wrapper">
 			
@@ -65,9 +54,20 @@ $(document).on("pageshow","#page_main",function(){
 
 </script>
 </div>
-<!-- Swiperç»“æŸ -->
+<!-- Swiper½áÊø -->
 
+<!-- /navbar -->
+<div class="home-navi-bar" data-role="navbar" >
+    <ul>
+	<li><a id='about_us' href="index.php?r=about/about1&id=27" data-ajax="false" >About Us</a></li>
+	<li><a id='projects' href="index.php?r=projects" data-ajax="false">ÏîÄ¿ÍÆ¼ö</a></li>
+	<li><a id='mapsearch' href="index.php?r=map" data-ajax="false">µØÍ¼ËÑË÷</a></li>
+	<li><a id='housesearch' href="index.php?r=mhouse" data-ajax="false">·¿Ô´ËÑË÷</a></li>
+	
 
+    </ul>
+</div>
+<!-- /navbar -->
 <!-- MLS START -->
 
 
@@ -90,10 +90,10 @@ $(document).on("pageshow","#page_main",function(){
 </div>
 
 <!-- MLS END -->
-<!-- åŠ å›½èµ„è®¯ç»“æŸ -->
+<!-- ¼Ó¹ú×ÊÑ¶½áÊø -->
 
 
-<!-- åˆä½œä¼™ä¼´å¼€å§‹ -->
+<!-- ºÏ×÷»ï°é¿ªÊ¼ -->
 <div class="lm_eight">
     <div class="lm_eight_up"></div>
     <div class="lm_eight_down">
@@ -110,8 +110,7 @@ $(document).on("pageshow","#page_main",function(){
     </div>
 </div>
 
-<!-- åˆä½œä¼™ä¼´ç»“æŸ -->
-
+<!-- ºÏ×÷»ï°é½áÊø -->
 
 
 
