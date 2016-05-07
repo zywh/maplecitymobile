@@ -1227,7 +1227,6 @@ html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% i
 span.xqlb_label{float: left; width: 100px;display:block;}
 .view-navi-bar.ui-navbar { margin-top:-10px;}
 .about-navi-bar.ui-navbar { margin-top:-23px;}
-.home-navi-bar.ui-navbar { margin-top: -20px; margin-bottom:-20px} 
 div.view-navi-bar > div.ui-block-a { width: 35%;}
 div.view-navi-bar > div.ui-block-b { width: 65%;}
 
@@ -1266,3 +1265,8 @@ ul.xqlb_list li.ui-li-static { padding: 0em; white-space: normal;}
 
 /*site index.php CSS*/
 .homepage-mls { margin-top:30px;}
+.lm_eight {
+    /* margin-top: 40px; */
+    position: fixed;
+    bottom: 48px;
+}

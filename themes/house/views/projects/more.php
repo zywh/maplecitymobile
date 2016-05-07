@@ -7,12 +7,12 @@
 <style>
 
 
-.swiper-slide img { width: 100%; height: 270px;  }
+.swiper-slide img { width: 100%; height: 230px;  }
 .project_title { color:#ff4103;text-align:center;}
 	
 .swiper-pagination-bullet { opacity: 1; background: #fff; }
 .swiper-pagination-bullet-active { opacity: 1; background: #ff4103; }
-
+.projectmore-col{margin-top:0;}
 
 </style>
 
@@ -55,7 +55,7 @@
 	<!-- Swiper End -->
 
 
-	<div data-role="collapsibleset" data-corners="false" data-theme="a" data-content-theme="a">
+	<div class="projectmore-col" data-role="collapsibleset" data-corners="false" data-theme="a" data-content-theme="a">
 	<div data-role="collapsible">
 		<h3>项目介绍</h3>
 		<p><?php echo $subject['summary'];?></p>
