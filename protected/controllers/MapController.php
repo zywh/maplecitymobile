@@ -32,7 +32,7 @@ class MapController extends XFrontBase {
 		$maxmarkers = 2000;  //City count if count(house) is over
 		$maxhouse = 40; //Grid count if count(house) is over
 		$maxcitymarkers = 20;
-		$minGrid = 10; //Display house if gridcount is lower than mindGrid
+		$minGrid = 5; //Display house if gridcount is lower than mindGrid
         $result = array();
 		$result['Data']['AreaHouseCount'] = array();
 		$result['Data']['MapHouseList'] = array();
@@ -200,7 +200,7 @@ class MapController extends XFrontBase {
 			$gridcount = 100;
 			//Generate Data for Grid Counter Marker Start
 			if (( $count < $maxmarkers) && ($count >= $maxhouse) ){
-				
+				error_log("Count:".$count."Get Grid");
 				$result['Data']['Type'] = "grid";
 				$gridx =  ( $_POST['gridx'])? ( $_POST['gridx']): 5;
 				$gridy =  ( $_POST['gridy'])? ( $_POST['gridy']): 5;
@@ -245,7 +245,7 @@ class MapController extends XFrontBase {
 				}
 				$filteredResult = array_filter($result['Data']['AreaHouseCount'],"moreThanOne");
 				$gridcount = count($filteredResult);
-				error_log($gridcount);
+				error_log("#Grid:".$gridcount);
 				
 				
 				$result['Data']['Type'] = "grid";
