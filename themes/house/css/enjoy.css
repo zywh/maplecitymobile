@@ -32,14 +32,14 @@ a.pxfs2{ background:#ff4e00 url(../images/enjoy/enjoy_jt1_1.jpg) 55px center no-
 
 .enjoydown_one{ text-align:right; padding:5px 0 10px 0; font-size:14px;}
 .enjoydown_two{ margin-top:0px; margin-right:-10px; zoom:1;}
-img { width:100%;height:355px;}
-.enjoydown_list{ height: 358px;
+img { width:100%;height:240px;}
+.enjoydown_list{ 
     position: relative;
     float: left;
     margin-right: 10px;
     margin-top: 4px;
 }
-.enjoydown_list_info{ height:70px; position:absolute; top:275px; padding-top:10px; width:100%;color:#FFFFFF; background:#000000; opacity:0.8; filter:Alpha(opacity=80);;}
+.enjoydown_list_info{ height:62px; position:absolute; bottom:0px; padding-top:5px; width:100%;color:#FFFFFF; background:#000000; opacity:0.8; filter:Alpha(opacity=80);;}
 .enjoydown_list_info span{ display:block;  white-space: nowrap;    overflow: hidden;    text-overflow: ellipsis;padding-left:5px;}
 .enjoydown_list_info span i{ font-style:normal; font-size:14px; color:#ff4e00;}
 .enjoy_dz_left {   float: left;}
