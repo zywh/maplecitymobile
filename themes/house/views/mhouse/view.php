@@ -98,7 +98,7 @@ swiper.startAutoplay();
                     <div class="fyxq_ptssright">
 					<?php 
 					if ( $house->s_r == "Sale") {
-					$str= $house->lp_dol/10000 . "万加币";
+					$str= number_format($house->lp_dol/10000,0) . "万加币";
 						echo $str;
 					} 
 					else {

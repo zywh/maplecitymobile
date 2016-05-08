@@ -1327,4 +1327,20 @@ Stack trace:
 #4 /var/www/mhtml/protected/components/XFrontBase.php(35): CActiveRecord->findAll()
 #5 /var/www/mhtml/framework/yiilite.php(1745): XFrontBase->init()
 #6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
-#7 /var
+#7 /var2016/05/09 02:39:37 [error] [php] floatval() expects exactly 1 parameter, 2 given (/var/www/mhtml/themes/house/views/mhouse/view.php:101)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3398): MhouseController->renderInternal()
+#1 /var/www/mhtml/framework/yiilite.php(3822): MhouseController->renderFile()
+#2 /var/www/mhtml/framework/yiilite.php(3790): MhouseController->renderPartial()
+#3 /var/www/mhtml/protected/controllers/MhouseController.php(279): MhouseController->render()
+#4 unknown(0): MhouseController->actionView()
+#5 /var/www/mhtml/framework/yiilite.php(4039): ReflectionMethod->invokeArgs()
+#6 /var/www/mhtml/framework/yiilite.php(4056): CInlineAction->runWithParamsInternal()
+#7 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#8 /var/www/mhtml/framework/yiilite.php(3555): MhouseController->runAction()
+#9 /var/www/mhtml/framework/yiilite.php(3545): MhouseController->runActionWithFilters()
+#10 /var/www/mhtml/framework/yiilite.php(1746): MhouseController->run()
+#11 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#12 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#13 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=mhouse/view&id=N3478088
