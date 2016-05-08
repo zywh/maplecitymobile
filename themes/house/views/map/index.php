@@ -178,7 +178,7 @@ function getFieldValues() {
 		
 		maptype = (maptype) ? maptype: "default";
 		sr = (sr) ? sr: "Sale";
-		mapZoom= (mapZoom) ? mapZoom: 14;
+		mapZoom= (mapZoom) ? mapZoom: 16;
 		mapZoom = Number(mapZoom);
 		
 		

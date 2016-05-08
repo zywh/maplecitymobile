@@ -98,21 +98,21 @@ swiper.startAutoplay();
                     <div class="fyxq_ptssright">
 					<?php 
 					if ( $house->s_r == "Sale") {
-					$str= $house->lp_dol/10000 . "&nbsp&nbsp万加币";
+					$str= $house->lp_dol/10000 . "万加币";
 						echo $str;
 					} 
 					else {
-						$str = $house->lp_dol . "&nbsp&nbsp加元/月";
+						$str = $house->lp_dol . "加元/月";
 					echo $str;  
 					}
 					?>
 					<?php if (!empty($exchangeRate)) { ?>&nbsp;<span>(约<i>
-					<?php echo number_format($house->lp_dol * floatval($exchangeRate)/10000, 2); ?></i>万人民币）</span><?php } ?></div>
+					<?php echo number_format($house->lp_dol * floatval($exchangeRate)/10000, 0); ?></i>万人民币）</span><?php } ?></div>
                     <div class="cl"></div>
                 </div>
                 <div class="fyxq_ptss">
                     <div class="fyxq_ptssleft">地址：</div>
-                    <div class="fyxq_ptssright"><?php echo $house->addr.",&nbsp".$house->municipality.", &nbsp".$house->county."&nbsp"; ?></div>
+                    <div class="fyxq_ptssright"><?php echo $house->addr.",&nbsp".$house->municipality; ?></div>
                     <div class="cl"></div>
                 </div>
                 <div class="fyxq_ptss">
@@ -136,27 +136,27 @@ swiper.startAutoplay();
                                <?php 
 							   if(strpos($house->a_c, 'Air') !== false || strpos($house->a_c, 'air') !== false){?>
                                 <!--有 -->            
-                                <span><b></b><font color="#FF3300">中央空调</font></span>
+                                <span><b></b><font color="#FF3300">空调</font></span>
                                 <?php }else{?>
                                 <!--无 -->
-                               <span><s></s>中央空调</span>
+                               <span><s></s>空调</span>
                                <?php }?>
                     
                     
                                <?php if($house->central_vac=="Y"){?>
                                 <!--有 -->            
-                                <span><b></b><font color="#FF3300">中央吸尘</font></span>
+                                <span><b></b><font color="#FF3300">吸尘</font></span>
                                 <?php }else{?>
                                 <!--无 -->
-                               <span><s></s>中央吸尘</span>
+                               <span><s></s>吸尘</span>
                                <?php }?>
 
                                <?php if($house->furnished==1){?>
                                 <!--有 -->            
-                                <span><b></b><font color="#FF3300">配套家具</font></span>
+                                <span><b></b><font color="#FF3300">家具</font></span>
                                 <?php }else{?>
                                 <!--无 -->
-                               <span><s></s>配套家具</span>
+                               <span><s></s>家具</span>
                                <?php }?>
 
                                <?php if($house->elevator=="Y"){?>
@@ -177,9 +177,9 @@ swiper.startAutoplay();
 
                                <?php 
 							   if(strpos($house->pool, 'pool') !== false){
-									?><!--有 --> <span><b></b><font color="#FF3300">游泳池</font></span><?php 
+									?><!--有 --> <span><b></b><font color="#FF3300">泳池</font></span><?php 
 								}else{
-									?><!--无 --><span><s></s>游泳池</span> <?php 
+									?><!--无 --><span><s></s>泳池</span> <?php 
 								}?>  
                                
                                <?php if($house->fpl_num == "Y"){?>
@@ -194,7 +194,7 @@ swiper.startAutoplay();
                 </div>
                 
                 <div class="fyxq_rx">服务热线：
-                  <img src="new/images/plat.jpg" width="23" height="15" /><span>400-870-1029</span>
+                  <img src="new/images/plat.jpg" width="23" height="15" /><a href="tel:400-870-1029"><span>400-870-1029</span></a>
                 </div>
                  <div class="cl"></div>
                 </div>
@@ -204,14 +204,16 @@ swiper.startAutoplay();
 <div class="fyxqdown_left_cont ui-bar">
 
 	<ul class="xqlb_list" data-role="listview" >
-			<li data-role="list-divider">详情列表 <!--<span class="fyxqdown_left_title">
-                    <span class="dlh_btn">英尺 &gt; 米</span>
-                </span>!-->
-    <select id="yc2m" data-role="flipswitch">
-      <option value="feet">英尺</option>
-      <option value="meter">米</option>
-    </select>
-</li>
+		<li id="housedivider" data-role="list-divider">
+			<span>详情列表</span>
+			<span class="dlh_btn">
+              
+				<select id="yc2m" data-role="flipswitch" data-mini="true">
+				  <option value="feet">英尺</option>
+				  <option value="meter">米</option>
+				</select>
+			</span>
+		</li>
 			<li><span class="xqlb_label">MLS编号：</span><?php echo $house->ml_num; ?></li>
 			<li><span class="xqlb_label">交叉路口：</span><?php echo $house->cross_st; ?></li>
 			<li><span class="xqlb_label">物业类别：</span><?php echo $house->propertyType->name; ?></li>
@@ -260,19 +262,19 @@ swiper.startAutoplay();
 			?></li>
 			<li><span class="xqlb_label">周边和配套：</span><?php echo $house->prop_feat1_out; ?><?php if($house->prop_feat2_out!=""){echo " , ";}?><?php echo $house->prop_feat2_out; ?><?php if($house->prop_feat3_out!=""){echo " , ";}?><?php echo $house->prop_feat3_out; ?><?php if($house->prop_feat4_out!=""){echo " , ";}?><?php echo $house->prop_feat4_out; ?><?php if($house->prop_feat5_out!=""){echo " , ";}?><?php echo $house->prop_feat5_out; ?><?php if($house->prop_feat6_out!=""){echo " , ";}?><?php echo $house->prop_feat6_out; ?></li>
 
-			<li id='houselayout' data-role="list-divider">房屋布局</li>
+			<li id="housedivider" data-role="list-divider">房屋布局</li>
 		<li>
 
 		<div id="fwbj" class="fwbjtable table-stroke">            
 		<!-- <table data-role="table" id="fwbj" class="ui-responsive" data-mode="columntoggle"> -->
-		<table class="ui-responsive">
+		<table  class="ui-responsive">
 		<thead><tr>
-		<th width="12%" style="border-bottom: 1px solid #CCCCCC;">楼层</th>
-		<th width="12%" style="border-bottom: 1px solid #CCCCCC;">房间</th>
-		<th width="10%" style="border-bottom: 1px solid #CCCCCC;">长(M)</th>
-		<th width="12%" style="border-bottom: 1px solid #CCCCCC;">宽(M)</th>
-		<th width="17%" style="border-bottom: 1px solid #CCCCCC;">面积(M2)</th>
-		<th width="37%" style="border-bottom: 1px solid #CCCCCC;">说明</th>
+		<th width="12%" data-priority="1" style="border-bottom: 1px solid #CCCCCC;">楼层</th>
+		<th width="12%" data-priority="2" style="border-bottom: 1px solid #CCCCCC;">房间</th>
+		<th width="20%" data-priority="3" style="border-bottom: 1px solid #CCCCCC;">长(M)</th>
+		<th width="20%" data-priority="4" style="border-bottom: 1px solid #CCCCCC;">宽(M)</th>
+		<th width="17%" data-priority="5" style="border-bottom: 1px solid #CCCCCC;">面积(M2)</th>
+		<th width="21%" data-priority="6" style="border-bottom: 1px solid #CCCCCC;">说明</th>
 		</tr></thead>
 		<tbody>
 		<?php if($house->level1!="" || $house->rm1_out!=""){?>
@@ -401,7 +403,7 @@ swiper.startAutoplay();
 		</tbody></table>
 		</div>
 	</li>
-			<li data-role="list-divider">房屋描述</li>
+			<li id="housedivider" data-role="list-divider">房屋描述</li>
                 <div class="fwms_cont">
                      <?php echo $house->ad_text; ?><BR/><B>Extras:</B><BR/><?php echo $house->extras; ?>
                                   </div>
