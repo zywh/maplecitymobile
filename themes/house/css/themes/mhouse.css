@@ -1114,7 +1114,7 @@ html head + body .ui-btn.ui-btn-b:visited {
         -webkit-border-radius: 13px;
         -moz-border-radius: 13px;
 	background-color: #ff4103;
-	opacity: 0.8;
+	*opacity: 0.8;
 }
 
 .icon_map_mark1 span{
@@ -1126,7 +1126,6 @@ html head + body .ui-btn.ui-btn-b:visited {
         -webkit-border-radius: 9px;
         -moz-border-radius: 9px;
         background-color: #ff4103;
-        opacity: 0.8;
 }
 .icon_map_mark2 span{
         line-height: 19px;margin-left: 0px;
@@ -1137,7 +1136,6 @@ html head + body .ui-btn.ui-btn-b:visited {
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         background-color: #ff4103;
-        opacity: 0.8;
 }
 
 
@@ -1150,7 +1148,6 @@ html head + body .ui-btn.ui-btn-b:visited {
         -webkit-border-radius: 12px;
         -moz-border-radius: 12px;
         background-color: #ff4103;
-        opacity: 0.8;
 }
 
 

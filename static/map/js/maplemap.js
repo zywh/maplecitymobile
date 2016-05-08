@@ -1,10 +1,31 @@
 
 var maplemap = {
-
+	
+	getPrice2Scale: function(price){
+		
+		var wanPrice = Math.floor(price/10);
+		var hue = 0;
+		var hueStart = 0;
+		var hueEnd = 70;
+		var hueStep =  100/(hueEnd - hueStart);
+		var maxPrice = 40; // In 100,000
+		var minPrice = 0;
+		var PriceStep = 100/(maxPrice - minPrice);
+		
+		if (wanPrice >= maxPrice) {
+			hue = 0;
+		}else {
+			hue = hueEnd - ((wanPrice - minPrice) * PriceStep) * hueStep;
+		}
+		console.log("Price:" + price +" Hue:" + hue + "HueStep:" + hueStep + "PriceStep:" + PriceStep);
+		
+		return Math.floor(hue);
+	},
 	setMarkerCss: function(countn,price) {
 		var markercontent = '';
-		var color = "#ff4103";
-		//color = "hsl(" + colorscale +  ", 100%, 50%)";
+		//var color = "#ff4103";
+		//var color = ;
+		color = "hsl(" + maplemap.getPrice2Scale(price) +  ", 100%, 50%)";
 		if (countn < 10){
 		// markercontent = "<i class='common_bg icon_map_mark16' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
 			markercontent = "<i class='common_bg icon_map_mark1' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
@@ -53,7 +74,6 @@ var maplemap = {
 	}, 
 
 	setContent: function(map,lat, lng, count, htmlinfo,price) {
-		console.log(price);
 		var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
 		var content = maplemap.setMarkerCss(count,price);
 	   var marker = new RichMarker({
@@ -116,7 +136,7 @@ var maplemap = {
 	setContentCount: function(map,lat, lng, totalCount, city) {
 		//var content = "<i class='icon_map_mark'><span>" + totalCount + "</span></i>";
 		var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-		var content = maplemap.setMarkerCss(totalCount,18); //default color
+		var content = maplemap.setMarkerCss(totalCount,400); //default color
 	   var marker = new RichMarker({
 			position: point,
 			map: map,
@@ -146,7 +166,7 @@ var maplemap = {
 	},
 	localSearch: function(searchName) {
 		var mapCenter = map.getCenter();
-		console.log("SearchType:" + local_type);
+		//console.log("SearchType:" + local_type);
 		request = {
 			location: mapCenter,
 			radius: '3000',
@@ -374,9 +394,10 @@ var maplemap = {
 									
 									+ "</li>";
 										var htmlp = panelhtml + li;
-										var colorscale = 0;
-										maplemap.setContent(map,tlat, tlng, count, htmlp,totalprice/count);
+										var price = (totalprice + markerprice)/count;
+										maplemap.setContent(map,tlat, tlng, count, htmlp,price);
 										count = 1;
+										totalprice = 0;
 										panelhtml = '';
 									}
 									
