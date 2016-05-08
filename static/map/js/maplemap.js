@@ -1,21 +1,22 @@
 
 var maplemap = {
 
-	setMarkerCss: function(countn) {
+	setMarkerCss: function(countn,price) {
 		var markercontent = '';
 		var color = "#ff4103";
+		//color = "hsl(" + colorscale +  ", 100%, 50%)";
 		if (countn < 10){
 		// markercontent = "<i class='common_bg icon_map_mark16' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
-		markercontent = "<i class='common_bg icon_map_mark1' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
+			markercontent = "<i class='common_bg icon_map_mark1' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
 		}
 		if ((countn >= 10) && (countn<100)){
-			 markercontent = "<i class='common_bg icon_map_mark2'><span>" + countn + "</span></i>";
+			markercontent = "<i class='common_bg icon_map_mark2' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
 		}
 		if ((countn >= 100) && (countn<1000)){
-			 markercontent = "<i class='common_bg icon_map_mark3'><span>" + countn + "</span></i>";
+			markercontent = "<i class='common_bg icon_map_mark3' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
 		}
 		if (countn >= 1000) {
-			 markercontent = "<i class='common_bg icon_map_mark4'><span>" + countn + "</span></i>";
+			markercontent = "<i class='common_bg icon_map_mark4' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
 		}
 		
 		return markercontent;
@@ -51,10 +52,10 @@ var maplemap = {
 		map.setZoom(parseInt(zoom));
 	}, 
 
-	setContent: function(map,lat, lng, count, htmlinfo) {
-		
+	setContent: function(map,lat, lng, count, htmlinfo,price) {
+		console.log(price);
 		var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-		var content = maplemap.setMarkerCss(count);
+		var content = maplemap.setMarkerCss(count,price);
 	   var marker = new RichMarker({
 			position: point,
 			map: map,
@@ -115,7 +116,7 @@ var maplemap = {
 	setContentCount: function(map,lat, lng, totalCount, city) {
 		//var content = "<i class='icon_map_mark'><span>" + totalCount + "</span></i>";
 		var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-		var content = maplemap.setMarkerCss(totalCount);
+		var content = maplemap.setMarkerCss(totalCount,18); //default color
 	   var marker = new RichMarker({
 			position: point,
 			map: map,
@@ -308,6 +309,7 @@ var maplemap = {
 							
 							var count = 1;
 							var panelhtml = '';
+							var totalprice = 0;
 							
 							var totalhouse = data.Data.MapHouseList.length;
 							$(data.Data.MapHouseList).each(function(index) {
@@ -321,7 +323,7 @@ var maplemap = {
 								var imgurl = "/" + this.CoverImg;
 								var imgurltn = "/" + this.CoverImgtn;
 								var hprice = (this.SaleLease == 'Lease') ? Math.round(this.Price) * 10000 + '加元/月' : Math.round(this.Price) + '万加元';
-								var markerprice = Math.round(this.Price) + '万';
+								var markerprice = Math.round(this.Price);
 
 								var tlat = parseFloat(this.GeocodeLat);
 								var tlng = parseFloat(this.GeocodeLng);
@@ -353,8 +355,9 @@ var maplemap = {
 									+ "<div>城市：" + this.MunicipalityName + " " + this.ProvinceCname + " " + this.Zip + "</div>"
 									+ "<div >类型：" + this.HouseType + " " + this.Beds + "卧" + this.Baths + "卫" + this.Kitchen + "厨</div></div>";
 									 
-									//maplemap.setContent(map,tlat, tlng, markerprice, html);
-									maplemap.setContent(map,tlat, tlng, 1, html);
+									
+									
+									maplemap.setContent(map,tlat, tlng, 1, html,markerprice);
 									} else 
 									{
 									//generate panel list view
@@ -371,7 +374,8 @@ var maplemap = {
 									
 									+ "</li>";
 										var htmlp = panelhtml + li;
-										maplemap.setContent(map,tlat, tlng, count, htmlp);
+										var colorscale = 0;
+										maplemap.setContent(map,tlat, tlng, count, htmlp,totalprice/count);
 										count = 1;
 										panelhtml = '';
 									}
@@ -379,7 +383,7 @@ var maplemap = {
 									
 								} else { 
 									++count;
-							
+									totalprice = totalprice + markerprice;
 									panelhtml = panelhtml + li;
 																		
 								}
