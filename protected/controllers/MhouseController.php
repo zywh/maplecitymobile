@@ -123,7 +123,9 @@ class MhouseController extends XFrontBase
 			$criteria->addCondition("t.municipality ='".$_POST['city']."'");
 		
 		}
-
+		#$criteria->order = 'id DESC';
+        $criteria->order = 'pix_updt DESC,city_id ASC,lp_dol DESC';
+        
 
 		$criteria->with = array('mname','propertyType','city');
 		$count = House::model()->count($criteria);
