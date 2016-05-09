@@ -169,7 +169,8 @@ class MapController extends XFrontBase {
 				error_log("Generate City View Count");
 				$result['Data']['Type'] = "city";
 				$groupcriteria = $criteria;
-				$groupcriteria->select = 't.municipality as municipality,count(id) as id,avg(lp_dol)/10000 as lp_dol';
+				$groupcriteria->select = 't.municipality as municipality,count(id) as id,sum(lp_dol)/10000 as lp_dol';
+				//$groupcriteria->select = 't.municipality as municipality,count(id) as id,"100" as lp_dol';
 				$groupcriteria->with = array('mname');
 				$groupcriteria->group = "t.municipality";
 				$groupcriteria->order = "id DESC";
@@ -189,7 +190,7 @@ class MapController extends XFrontBase {
 					if ( $lat > 20 ) {
 						$result['Data']['AreaHouseCount'][$city]['NameCn'] = !empty($citycn)? ($citycn):"其他";
 						$result['Data']['AreaHouseCount'][$city]['HouseCount'] = $val->id;
-						$result['Data']['AreaHouseCount'][$city]['AvgPrice'] = $val->lp_dol;
+						$result['Data']['AreaHouseCount'][$city]['TotalPrice'] = $val->lp_dol;
 						$result['Data']['AreaHouseCount'][$city]['GeocodeLat'] = $lat;
 						$result['Data']['AreaHouseCount'][$city]['GeocodeLng'] = $lng;
 					}
@@ -201,13 +202,13 @@ class MapController extends XFrontBase {
 			$gridcount = 100;
 			//Generate Data for Grid Counter Marker Start
 			if (( $count < $maxmarkers) && ($count >= $maxhouse) ){
-				error_log("Count:".$count."Get Grid");
+				//error_log("Count:".$count."Get Grid");
 				$result['Data']['Type'] = "grid";
 				$gridx =  ( $_POST['gridx'])? ( $_POST['gridx']): 5;
 				$gridy =  ( $_POST['gridy'])? ( $_POST['gridy']): 5;
 				
 				$gridcriteria = $criteria;
-				$gridcriteria->select = 'longitude,latitude';
+				$gridcriteria->select = 'longitude,latitude,lp_dol';
 				$location = House::model()->findAll($gridcriteria);
 				$result['Message'] = '成功';
 				//$tilex = (($maxLat - $minLat ) / $gridx) * 100000;
@@ -231,10 +232,12 @@ class MapController extends XFrontBase {
 					//$gridlng = ceil((($val->longitude - $minLon) * 100000 / $tiley));
 					$gridlat = ceil((($val->latitude - $minLat ) / $tiley));
 					$gridlng = ceil((($val->longitude - $minLon) / $tilex));
+					$price = $val-> lp_dol/10000;
 					
 					
 					$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['NameCn'] = "G".$gridlng.$gridlat;
 					$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['HouseCount']++; 
+					$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['TotalPrice'] += $price; 
 					//error_log("G".$gridlng.$gridlat."Count:".$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['HouseCount']);
 				}
 				

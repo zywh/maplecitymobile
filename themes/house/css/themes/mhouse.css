@@ -1107,7 +1107,7 @@ html head + body .ui-btn.ui-btn-b:visited {
 
 .icon_map_mark4 span{
 	line-height: 24px;margin-left: 0px;
-    color: #fff;
+    color: #0000ff;
 }
 .icon_map_mark4 {width:26px;height: 26px; display:inline-block;cursor:pointer;text-align: center;font-style: normal;font-size:10px;
         border-radius: 13px;
@@ -1119,7 +1119,7 @@ html head + body .ui-btn.ui-btn-b:visited {
 
 .icon_map_mark1 span{
         line-height: 17px;margin-left: 0px;
-    color: #fff;
+    color:  #0000ff;
 }
 .icon_map_mark1 {width:18px;height: 18px; display:inline-block;cursor:pointer;text-align: center;font-style: normal;font-size:10px;
         border-radius: 9px;
@@ -1129,7 +1129,7 @@ html head + body .ui-btn.ui-btn-b:visited {
 }
 .icon_map_mark2 span{
         line-height: 19px;margin-left: 0px;
-    color: #fff;
+    color:  #0000ff;
 }
 .icon_map_mark2 {width:20px;height: 20px; display:inline-block;cursor:pointer;text-align: center;font-style: normal;font-size:10px;
         border-radius: 10px;
@@ -1141,7 +1141,7 @@ html head + body .ui-btn.ui-btn-b:visited {
 
 .icon_map_mark3 span{
         line-height: 23px;margin-left: 0px;
-    color: #fff;
+    color:  #0000ff;
 }
 .icon_map_mark3 {width:24px;height: 24px; display:inline-block;cursor:pointer;text-align: center;font-style: normal;font-size:10px;
         border-radius: 12px;

@@ -3,12 +3,14 @@ var maplemap = {
 	
 	getPrice2Scale: function(price){
 		
-		var wanPrice = Math.log2(price);
+		//var wanPrice = Math.log2(price);
+		var wanPrice = Math.ceil(price/10);
 		var hue = 0;
 		var hueStart = 0;
-		var hueEnd = 100;
+		var hueEnd = 70;
 		
-		var maxPrice = Math.log2(800); // In 10,000
+		//var maxPrice = Math.log2(500); // In 10,000
+		var maxPrice = 50; // In 10,000
 		var minPrice = 0;
 		var PriceStep = (hueEnd - hueStart)/(maxPrice - minPrice);
 		
@@ -17,15 +19,14 @@ var maplemap = {
 		}else {
 			hue = hueEnd - PriceStep*wanPrice;
 		}
-		console.log("Price:" + price +" Hue:" + hue + "PriceStep:" + PriceStep);
+		//console.log("Price:" + price +" Hue:" + hue + "PriceStep:" + PriceStep);
 		
 		return Math.floor(hue);
 	},
 	setMarkerCss: function(countn,price) {
 		var markercontent = '';
-		//var color = "#ff4103";
-		//var color = ;
-		color = "hsl(" + maplemap.getPrice2Scale(price) +  ", 100%, 45%)";
+		
+		color = "hsl(" + maplemap.getPrice2Scale(price) +  ", 100%, 50%)";
 		if (countn < 10){
 		// markercontent = "<i class='common_bg icon_map_mark16' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
 			markercontent = "<i class='common_bg icon_map_mark1' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
@@ -133,10 +134,10 @@ var maplemap = {
 		});
 	},
 
-	setContentCount: function(map,lat, lng, totalCount, city) {
+	setContentCount: function(map,lat, lng, totalCount, city,price) {
 		//var content = "<i class='icon_map_mark'><span>" + totalCount + "</span></i>";
 		var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-		var content = maplemap.setMarkerCss(totalCount,400); //default color
+		var content = maplemap.setMarkerCss(totalCount,price); //default color
 	   var marker = new RichMarker({
 			position: point,
 			map: map,
@@ -315,8 +316,10 @@ var maplemap = {
 							   
 								var areaHouse = data.Data.AreaHouseCount[p];
 								if (areaHouse.HouseCount > 0){
-								//	console.log( "Name:" + areaHouse.NameCn + "Lat:" + areaHouse.GeocodeLat + "Count:"+ areaHouse.HouseCount );
-								maplemap.setContentCount(map,areaHouse.GeocodeLat, areaHouse.GeocodeLng, areaHouse.HouseCount.toString(), areaHouse.NameCn);
+								
+								var price = areaHouse.TotalPrice / areaHouse.HouseCount;
+								console.log( "Name:" + areaHouse.NameCn + "Lat:" + areaHouse.GeocodeLat + "Count:"+ areaHouse.HouseCount + "AvgPrice:" + price );
+								maplemap.setContentCount(map,areaHouse.GeocodeLat, areaHouse.GeocodeLng, areaHouse.HouseCount.toString(), areaHouse.NameCn, price );
 								
 								}
 							}
