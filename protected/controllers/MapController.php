@@ -169,7 +169,7 @@ class MapController extends XFrontBase {
 				error_log("Generate City View Count");
 				$result['Data']['Type'] = "city";
 				$groupcriteria = $criteria;
-				$groupcriteria->select = 't.municipality as municipality,count(id) as id';
+				$groupcriteria->select = 't.municipality as municipality,count(id) as id,avg(lp_dol)/10000 as lp_dol';
 				$groupcriteria->with = array('mname');
 				$groupcriteria->group = "t.municipality";
 				$groupcriteria->order = "id DESC";
@@ -189,6 +189,7 @@ class MapController extends XFrontBase {
 					if ( $lat > 20 ) {
 						$result['Data']['AreaHouseCount'][$city]['NameCn'] = !empty($citycn)? ($citycn):"其他";
 						$result['Data']['AreaHouseCount'][$city]['HouseCount'] = $val->id;
+						$result['Data']['AreaHouseCount'][$city]['AvgPrice'] = $val->lp_dol;
 						$result['Data']['AreaHouseCount'][$city]['GeocodeLat'] = $lat;
 						$result['Data']['AreaHouseCount'][$city]['GeocodeLng'] = $lng;
 					}

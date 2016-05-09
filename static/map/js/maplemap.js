@@ -3,21 +3,21 @@ var maplemap = {
 	
 	getPrice2Scale: function(price){
 		
-		var wanPrice = Math.floor(price/10);
+		var wanPrice = Math.log2(price);
 		var hue = 0;
 		var hueStart = 0;
-		var hueEnd = 70;
-		var hueStep =  100/(hueEnd - hueStart);
-		var maxPrice = 40; // In 100,000
+		var hueEnd = 100;
+		
+		var maxPrice = Math.log2(800); // In 10,000
 		var minPrice = 0;
-		var PriceStep = 100/(maxPrice - minPrice);
+		var PriceStep = (hueEnd - hueStart)/(maxPrice - minPrice);
 		
 		if (wanPrice >= maxPrice) {
 			hue = 0;
 		}else {
-			hue = hueEnd - ((wanPrice - minPrice) * PriceStep) * hueStep;
+			hue = hueEnd - PriceStep*wanPrice;
 		}
-		console.log("Price:" + price +" Hue:" + hue + "HueStep:" + hueStep + "PriceStep:" + PriceStep);
+		console.log("Price:" + price +" Hue:" + hue + "PriceStep:" + PriceStep);
 		
 		return Math.floor(hue);
 	},
@@ -25,7 +25,7 @@ var maplemap = {
 		var markercontent = '';
 		//var color = "#ff4103";
 		//var color = ;
-		color = "hsl(" + maplemap.getPrice2Scale(price) +  ", 100%, 50%)";
+		color = "hsl(" + maplemap.getPrice2Scale(price) +  ", 100%, 45%)";
 		if (countn < 10){
 		// markercontent = "<i class='common_bg icon_map_mark16' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
 			markercontent = "<i class='common_bg icon_map_mark1' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
