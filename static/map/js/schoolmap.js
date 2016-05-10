@@ -77,7 +77,28 @@ var schoolmap = {
 	 
 	},
 
+	setContentCount: function(map,lat, lng, totalCount, city,rating) {
+		
+		var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
+		var content = schoolmap.setMarkerCss(rating); //default color
+	    var marker = new RichMarker({
+			position: point,
+			map: map,
+			draggable: false,
+			content: content,
+			flat: true
+		});
+
 	
+		markerArray.push(marker);
+		google.maps.event.addListener(marker, 'click', function() {
+			map.setCenter(this.position);
+			var currentzoom = map.getZoom();
+			map.setZoom(currentzoom + 2);
+		});
+
+		
+	},
 	clearAll: function(map) {
 		if (markerArray) {
 			for (var i in markerArray) {
@@ -133,11 +154,25 @@ var schoolmap = {
 				success: function(data) {
 					
 					if (!data.IsError) {
-				
-			
-						$(data.SchoolList).each(function(index) {
+						var markerType = data.type;
+						console.log("School List Type:" + markerType);
+						if ( markerType == 'grid'){
 							
+							for (var p in data.gridList) {
+							   
+								var school = data.gridList[p];
+								var schoolcount = school.SchoolCount;
+								if (schoolcount > 0){
+									var avgrating = school.TotalRating / schoolcount;
+									console.log( "Name:" + school.GeocodeLat + "Lat:" + school.GeocodeLng + "Count:"+ school.SchoolCount + "TotalRating:" + school.TotalRating + "AvgRating:" + avgrating);
+									schoolmap.setContentCount(map,school.GeocodeLat, school.GeocodeLng, school.SchoolCount, school.GridName, avgrating);
+								};
+							};
+						}
+						
+						if ( markerType == 'school'){
 							
+							$(data.SchoolList).each(function(index) {
 							//console.log("Current:" + this.GeocodeLng + "Next:" + nextLng + "Total:" + totalhouse + "index:" + index + "Count:" + count);
 							var school = this.School;
 							var rank = this.Paiming;
@@ -145,7 +180,6 @@ var schoolmap = {
 							var tlat = parseFloat(this.Lat);
 							var tlng = parseFloat(this.Lng);
 
-						
 							//Generate single house popup view
 							var html = "<div class='map_info_content'>"
 							+ "<div><a href='index.php?r=map&lat=" + tlat + "&lng=" + tlng + "&maptype=school&zoom=15'" +" data-ajax='false'>名称：" + school + "</a></div>"
@@ -153,17 +187,13 @@ var schoolmap = {
 							+ "<div>地址：" + this.Address + "</div>" 
 							+ "<div>城市：" + this.City + " " + this.Province + " " + this.Zip + "</div>"
 							+ "<div>排名：" + rank + " 评分：" + rating + "</div></div>";
-							 
-							
 							
 							schoolmap.setContent(map,tlat, tlng, html,rating);
 						
-								
 							
+							});
 
-						});
-
-					
+						}
 						
 						//End of School Marker
 					}

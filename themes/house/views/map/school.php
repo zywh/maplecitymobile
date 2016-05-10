@@ -25,6 +25,7 @@
 			<option >性质</option>
 			<option value="Public" >公立</option>
 			<option value="Catholic">天主教</option>
+			<option value="Private">私立</option>
 			<option value="">不限</option>
 		</select>
 	</div>

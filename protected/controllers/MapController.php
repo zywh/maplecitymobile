@@ -63,13 +63,12 @@ class MapController extends XFrontBase {
 			
 			//Pingfen
 			if(!empty($_POST['pingfen']) && intval($_POST['pingfen']) > 0) {
-				$criteria->addCondition("pingfen >'".$_POST['pingfen']."'");
+				$criteria->addCondition("pingfen >='".$_POST['pingfen']."'");
 			} 
 			
 			//Rank
 			if(!empty($_POST['rank'])&& intval($_POST['rank']) > 0) {
 				//$criteria->order = "paiming ASC";
-				$criteria->addCondition("paiming >0");
 				$criteria->addCondition("paiming <='".$_POST['rank']."'");
 						
 			} 		
@@ -94,20 +93,51 @@ class MapController extends XFrontBase {
 
             }
 
-			//End of Condition
 			//Filter Invalid Lat
 			$criteria->addCondition("lat > 20");
+			
+			//End of Condition
 			
 			$count = School::model()->count($criteria);
 			
 						
-			//Generate Data for school rating grid
+			//Display grid list if # of maxmarker is large
 			if ( $count >= $maxmarkers) {
 				$result['type'] = "grid";
+				$criteria->addCondition("pingfen >0");
+				error_log("Count:".$count."Grid Mode");
+				$criteria->limit = 2000;
+				$school = School::model()->findAll($criteria);
 				$result['Message'] = '成功';
- 
+				$gridx =  ( $_POST['gridx'])? ( $_POST['gridx']): 5;
+				$gridy =  ( $_POST['gridy'])? ( $_POST['gridy']): 5;
+
+				$tiley = (($maxLat - $minLat ) / $gridy) ;
+				$tilex = (($maxLon - $minLon ) / $gridx) ;
+				//Generate grid center Lat/Lng
+				for ( $x=1; $x <= $gridx ; $x++){
+					for ( $y=1; $y <= $gridy ; $y++){
+						$gridCenterlat = $minLat + ($tiley/2) + ($y -1)*$tiley ;
+						$gridCenterlng = $minLon + ($tilex/2) + ($x -1)*$tilex ;
+						$result['gridList']["G".$x.$y]['GeocodeLat'] = $gridCenterlat;
+						$result['gridList']["G".$x.$y]['GeocodeLng'] = $gridCenterlng;
+									
+					}
+				}
+				//Get count of school in each tile
+				foreach ($school as $val) {
+				
+					$gridlat = ceil((($val->lat - $minLat ) / $tiley));
+					$gridlng = ceil((($val->lng - $minLon) / $tilex));
+					$rating = $val-> pingfen;
+					$result['gridList']["G".$gridlng.$gridlat]['GridName'] = "G".$gridlng.$gridlat;
+					$result['gridList']["G".$gridlng.$gridlat]['SchoolCount']++; 
+					$result['gridList']["G".$gridlng.$gridlat]['TotalRating'] += $rating; 
+					
+				}
        		}
 			
+			//Display school list if maxmarker is less
 			if ( $count < $maxmarkers) {
 				$result['type'] = "school";
 				$school = School::model()->findAll($criteria);
