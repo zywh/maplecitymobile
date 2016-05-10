@@ -3,16 +3,23 @@ var schoolmap = {
 	
 	getRating2Scale: function(rating){
 		
-		
+		var color = {};
 		var hueEnd = 130;
 		var ratingStep = hueEnd/10; //Rating is 0-10
 		var hue = Math.ceil(ratingStep*rating);
-		if (rating == "无") {hue=246};
-		return hue;
+		color.bg = "hsl(" + hue +  ", 100%, 50%)";
+		color.font="#fff";
+		if (rating == "无") {
+			color.bg="#757575";
+			color.font="#fff";
+		};
+				
+		return color;
 	},
-	setMarkerCss: function(countn,rating) {
-		color = "hsl(" + schoolmap.getRating2Scale(rating) +  ", 100%, 50%)";
-		var markercontent = "<i class='common_bg icon_map_mark3' style='background-color:" + color + ";'><span>" + countn + "</span></i>";
+	setMarkerCss: function(rating) {
+		var bg = schoolmap.getRating2Scale(rating).bg;
+		var font = schoolmap.getRating2Scale(rating).font;
+		var markercontent = "<i class='common_bg icon_map_mark3' style='background-color:" + bg + ";'><span style='color:" + font + ";'>" + rating + "</span></i>";
 		return markercontent;
 		
 	},
@@ -25,7 +32,7 @@ var schoolmap = {
 			zoom: zoomLevel, //keep zoom and minZoom different to trigger initial map search
 			zoomControl: true,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			minZoom: 10,
+			minZoom: 8,
 			overviewMapControl: true,
 			overviewMapControlOptions: {
 				opened: true
@@ -46,9 +53,9 @@ var schoolmap = {
 		map.setZoom(parseInt(zoom));
 	}, 
 
-	setContent: function(map,lat, lng, count, htmlinfo,rating) {
+	setContent: function(map,lat, lng, htmlinfo,rating) {
 		var point = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
-		var content = schoolmap.setMarkerCss(count,rating);
+		var content = schoolmap.setMarkerCss(rating);
 		var marker = new RichMarker({
 			position: point,
 			map: map,
@@ -85,7 +92,8 @@ var schoolmap = {
 	},
 	
 	changeMap: function(map,mapId) {
-		console.log("Change Map");
+		var zlevel = map.getZoom();
+		console.log("Change Map Zoomlevel:" + zlevel);
 		
 		schoolmap.clearAll(map);
 		
@@ -141,7 +149,7 @@ var schoolmap = {
 							 
 							
 							
-							schoolmap.setContent(map,tlat, tlng, 1, html,rating);
+							schoolmap.setContent(map,tlat, tlng, html,rating);
 						
 								
 							
