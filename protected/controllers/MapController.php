@@ -44,9 +44,30 @@ class MapController extends XFrontBase {
 		{
             $result['IsError'] = false;
 
-            //根据条件查询地图
+            //type
             $criteria = new CDbCriteria();
-	
+			if(!empty($_POST['type']) && intval($_POST['type']) >= 0) {
+				$criteria->addCondition("type ='".$_POST['type']."'");
+			
+			
+			} 
+			
+			//XingZhi
+			if(!empty($_POST['xingzhi']) && intval($_POST['xingzhi']) > 0) {
+				$criteria->addCondition("xingzhi like '".$_POST['xingzhi']."%'");
+			}
+			
+			//Pingfen
+			if(!empty($_POST['pingfen']) && intval($_POST['pingfen']) > 0) {
+				$criteria->addCondition("pingfen >'".$_POST['pingfen']."'");
+			} 
+			
+			//Rank
+			if(!empty($_POST['rank'])&& intval($_POST['rank']) > 0) {
+				$groupcriteria->order = "rank ASC";
+				$criteria->limit = $_POST['rank'];
+			} 		
+			
 			//lat and long selection
             if (!empty($_POST['bounds'])) {
                 $latlon = explode(',', $_POST['bounds']);

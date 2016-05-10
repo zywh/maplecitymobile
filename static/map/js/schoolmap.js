@@ -8,7 +8,7 @@ var schoolmap = {
 		var ratingStep = hueEnd/10; //Rating is 0-10
 		var hue = Math.ceil(ratingStep*rating);
 		color.bg = "hsl(" + hue +  ", 100%, 50%)";
-		color.font="#fff";
+		color.font="#000";
 		if (rating == "无") {
 			color.bg="#757575";
 			color.font="#fff";
@@ -112,9 +112,10 @@ var schoolmap = {
 				dataType: 'json',
 				data: {
 					bounds: _bounds,
-					city: options['sel_city'], 
-					schoolnumber: options['sel_schoolnumber']
-					
+					pingfen: options['sel_pingfen'], 
+					type: options['sel_type'], 
+					xingzhi: options['sel_xingzhi'],
+					rank: options['sel_rank'] 					
 				},
 				beforeSend: function() {
 					//$(".loadhouse").show();
@@ -140,12 +141,11 @@ var schoolmap = {
 						
 							//Generate single house popup view
 							var html = "<div class='map_info_content'>"
-							+ "<a href='index.php?r=map&lat='" + tlat + "&lng=" + tlng + "&type=school'" +" data-ajax='false'>"
-							+ "<div>名称：" + school + "</div>"
+							+ "<div><a href='index.php?r=map&lat=" + tlat + "&lng=" + tlng + "&maptype=school&zoom=15'" +" data-ajax='false'>名称：" + school + "</a></div>"
 							+ "<div>年级：" + this.Grade + "</div>" 
 							+ "<div>地址：" + this.Address + "</div>" 
 							+ "<div>城市：" + this.City + " " + this.Province + " " + this.Zip + "</div>"
-							+ "<div>排名：" + rank + " 评分：" + rating + "</div><a></div>";
+							+ "<div>排名：" + rank + " 评分：" + rating + "</div></div>";
 							 
 							
 							

@@ -64,7 +64,7 @@
 				<li data-icon="fa-thumbs-o-up"><a href="index.php?r=projects" data-ajax="false" id="menu_sale">项目推荐</a></li>
 				<li data-icon="search"><a href="index.php?r=mhouse/index&sr=Sale" data-ajax="false" id="menu_sale">房源查询</a></li>
 				<li data-icon="fa-map"><a href="index.php?r=map/index" data-ajax="false" id="menu_new">地图搜索</a></li>
-				<li data-icon="fa-graduation-cap"><a href="http://maplecity.com.cn/index.php?r=column/index" data-ajax="false"  id="menu_school">学区房</a></li>
+				<li data-icon="fa-graduation-cap"><a href="index.php?r=map/school" data-ajax="false"  id="menu_school">学区房</a></li>
 				<li data-icon="fa-bar-chart"><a href="index.php?r=stats/current" data-ajax="false" id="menu_homestats">房源统计</a></li>
 				<li data-icon="fa-line-chart"><a href="index.php?r=stats" data-ajax="false" id="menu_homehist">历史统计</a></li>
 				<li data-icon="info"><a href="index.php?r=about/about1&id=27" data-ajax="false" id="menu_about">关于我们</a></li>
@@ -148,7 +148,7 @@ $(".main-header input").autocomplete({
 		">Search</a>
 		<a href="index.php?r=map/index" data-ajax="false"  class="ui-btn ui-corner-all ui-icon-fa-map ui-btn-icon-left ui-btn-icon-notext
 		">Map</a>
-		<a href="index.php?r=map/index" data-ajax="false"  class="ui-btn ui-corner-all ui-icon-fa-graduation-cap ui-btn-icon-left ui-btn-icon-notext
+		<a href="index.php?r=map/school" data-ajax="false"  class="ui-btn ui-corner-all ui-icon-fa-graduation-cap ui-btn-icon-left ui-btn-icon-notext
 		">School</a>
 		<a href="index.php?r=stats/index" data-ajax="false"  class="ui-btn ui-corner-all ui-icon-fa-line-chart ui-btn-icon-left ui-btn-icon-notext
 		">Stats</a>

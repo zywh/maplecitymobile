@@ -1471,3 +1471,75 @@ Stack trace:
 REQUEST_URI=/index.php?r=map/getSchoolList
 HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
 ---
+2016/05/11 02:01:11 [error] [php] Creating default object from empty value (/var/www/mhtml/protected/controllers/MapController.php:67)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): MapController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): MapController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): MapController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=map/getSchoolList
+2016/05/11 02:01:13 [error] [php] Creating default object from empty value (/var/www/mhtml/protected/controllers/MapController.php:67)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): MapController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): MapController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): MapController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=map/getSchoolList
+2016/05/11 02:01:16 [error] [php] Creating default object from empty value (/var/www/mhtml/protected/controllers/MapController.php:67)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): MapController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): MapController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): MapController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=map/getSchoolList
+2016/05/11 02:01:29 [error] [php] Creating default object from empty value (/var/www/mhtml/protected/controllers/MapController.php:67)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): MapController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): MapController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): MapController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=map/getSchoolList
+2016/05/11 02:02:02 [error] [php] Creating default object from empty value (/var/www/mhtml/protected/controllers/MapController.php:67)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): MapController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): MapController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): MapController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=map/getSchoolList
+2016/05/11 02:02:06 [error] [php] Creating default object from empty value (/var/www/mhtml/protected/controllers/MapController.php:67)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): MapController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): MapController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): MapController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=map/getSchoolList
+2016/05/11 02:03:54 [error] [php] Creating default object from empty value (/var/www/mhtml/protected/controllers/MapController.php:67)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): MapController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): MapController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): MapController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=map/getSchoolList
+2016/05/11 02:09:08 [error] [php] Creating default object from empty value (/var/www/mhtml/protected/controllers/MapController.php:67)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): MapController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): MapController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): MapController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=map/getSchoolList

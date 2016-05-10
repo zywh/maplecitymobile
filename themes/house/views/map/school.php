@@ -7,57 +7,46 @@
 
 <!-- 房源搜索列表开始 -->
 <p id='debug'></p>
-<div id="house-search"  class="search-area " >
+<div id="school-search"  class="search-area" >
 
 <div class="ui-grid-c " >
+
+
 	<div class="ui-block-a">
 		<select name="type" id="sel_type" data-corners="false"  data-iconpos="none" data-native-menu="false"  style=>
-			<option >房型</option>
-			<option value="1" >独栋</option>
-			<option value="2">联排</option>
-			<option value="3">公寓</option>
-			<option value="4">双拼</option>
-			<option value="5">度假</option>
-			<option value="6">农场</option>
-			<option value="7">空地</option>
-			<option value="8">其他</option>
+			<option >类型</option>
+			<option value="0" >小学</option>
+			<option value="1">中学</option>
+			<option value="">不限</option>
 		</select>
 	</div>
 	<div class="ui-block-b">	
-		<select name="price" id="sel_price" data-corners="false" data-iconpos="none" data-native-menu="false" >
-			<option >价格</option>
-			<option value="0-30" > &lt 30</option>
-			<option value="30-50" >30-50</option>
-			<option value="50-100" >50-100</option>
-			<option value="100-150" >100-150</option>
-			<option value="150-300" >150-300</option>
-			<option value="300-400" >300-450</option>
-			<option value="450-500" >450-600</option>
-			<option value="600-0" > &gt 600</option>
+		<select name="xingzhi" id="sel_xingzhi"  data-corners="false" data-iconpos="none"  data-native-menu="false"  >
+			<option >性质</option>
+			<option value="Public" >公立</option>
+			<option value="Catholic">天主教</option>
+			<option value="">不限</option>
 		</select>
 	</div>
-	<div class="ui-block-c">		
-		<select name="bedroom" id="sel_bedroom"   data-corners="false"  data-iconpos="none" data-native-menu="false"  >
-			<option >卧室</option>
-			<option value="1"> &gt1 </option>
-			<option value="2"> &gt2 </option>
-			<option value="3"> &gt3 </option>
-			<option value="4"> &gt4 </option>
-			<option value="5"> &gt5 </option>
+	
+	<div class="ui-block-c">	
+		<select name="rank" id="sel_rank" data-corners="false" data-iconpos="none" data-native-menu="false" >
+			<option >排名</option>
+			<option value="10" > 前10</option>
+			<option value="50" > 前50</option>
+			<option value="100" > 前100</option>
+			<option value="" > 不限</option>
 		</select>
 	</div>
-	<div class="ui-block-d">	
-		<select name="housearea" id="sel_housearea"  data-corners="false" data-iconpos="none"  data-native-menu="false"  >
-			<option >尺寸</option>
-			<option value="0-700" >700平方尺以下</option>
-			<option value="700-1100">700-1100平方尺</option>
-			<option value="1100-1500">1100-1500平方尺</option>
-			<option value="1500-2000">1500-2000平方尺</option>
-			<option value="2000-2500">2000-2500平方尺</option>
-			<option value="2500-3000">2500-3000平方尺</option>
-			<option value="3000-3500">3000-3500平方尺</option>
-			<option value="3500-4000">3500-4000平方尺</option>
-			<option value="4000-0">4000以上</option>
+	<div class="ui-block-d">		
+		<select name="pingfen" id="sel_pingfen"   data-corners="false"  data-iconpos="none" data-native-menu="false"  >
+			<option >评分</option>
+			<option value="5"> &gt 5 </option>
+			<option value="6"> &gt 6 </option>
+			<option value="7"> &gt 7 </option>
+			<option value="8"> &gt 8 </option>
+			<option value="9"> &gt 9 </option>
+			<option value="" > 不限</option>			
 		</select>
 	</div>
 </div>		
@@ -113,14 +102,14 @@ function getFieldValues() {
 	
 	$( document ).on( "pagecreate", "#page_main", function() {
 		//Hide Footer
-		//$("#main_footer").hide();
+		$("#main_footer").hide();
 		//$("#map_footer").show();
 		
 		
 		max_height();
 		lat = (lat) ? lat: "43.6532";
 		lng= (lng) ? lng: "-79.3832";
-		mapZoom= (mapZoom) ? mapZoom: 14;
+		mapZoom= (mapZoom) ? mapZoom: 13;
 		mapZoom = Number(mapZoom);
 		
 		
