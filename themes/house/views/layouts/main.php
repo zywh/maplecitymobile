@@ -113,8 +113,8 @@ function default_ac(){
 		
 				var citys = city.split("|");
 				//console.log("CityLat" + citys[0] + citys[1] + citys[2]);
-				if ( $("#mapsearchpage").length ) {
-					console.log("This is mapsearch page. SetmapCenter");
+				if (( $("#mapsearchpage").length ) || ($("#school-search").length ) ) {
+					//console.log("This is mapsearch page. SetmapCenter");
 					map.setCenter(new google.maps.LatLng(parseFloat(citys[1]), parseFloat(citys[2])));
 					
 				}else{
