@@ -6,7 +6,8 @@
 
 
 <!-- 房源搜索列表开始 -->
-<p id='debug'></p>
+
+<p id='mapsearchpage'></p>  <!--Filler and identifier for autocomplete widget -->
 <div id="house-search"  class="search-area " >
 
 <div class="ui-grid-c " >

@@ -19,7 +19,7 @@ var schoolmap = {
 	setMarkerCss: function(rating) {
 		var bg = schoolmap.getRating2Scale(rating).bg;
 		var font = schoolmap.getRating2Scale(rating).font;
-		var markercontent = "<i class='common_bg icon_map_mark3' style='background-color:" + bg + ";'><span style='color:" + font + ";'>" + rating + "</span></i>";
+		var markercontent = "<i class='common_bg icon_map_mark2' style='background-color:" + bg + ";'><span style='color:" + font + ";'>" + rating + "</span></i>";
 		return markercontent;
 		
 	},
@@ -32,7 +32,7 @@ var schoolmap = {
 			zoom: zoomLevel, //keep zoom and minZoom different to trigger initial map search
 			zoomControl: true,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			minZoom: 8,
+			minZoom: 9,
 			overviewMapControl: true,
 			overviewMapControlOptions: {
 				opened: true
@@ -163,8 +163,8 @@ var schoolmap = {
 								var school = data.gridList[p];
 								var schoolcount = school.SchoolCount;
 								if (schoolcount > 0){
-									var avgrating = school.TotalRating / schoolcount;
-									console.log( "Name:" + school.GeocodeLat + "Lat:" + school.GeocodeLng + "Count:"+ school.SchoolCount + "TotalRating:" + school.TotalRating + "AvgRating:" + avgrating);
+									var avgrating = Math.round(school.TotalRating *10 / schoolcount)/10;
+									//console.log( "Name:" + school.GeocodeLat + "Lat:" + school.GeocodeLng + "Count:"+ school.SchoolCount + "TotalRating:" + school.TotalRating + "AvgRating:" + avgrating);
 									schoolmap.setContentCount(map,school.GeocodeLat, school.GeocodeLng, school.SchoolCount, school.GridName, avgrating);
 								};
 							};

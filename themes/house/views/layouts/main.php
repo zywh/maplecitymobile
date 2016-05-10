@@ -77,52 +77,73 @@
 			<a href="index.php?r=map/index" data-ajax="false"   class="ui-btn ui-corner-all ui-shadow ui-icon-location ui-btn-icon-left ui-btn-icon-notext">Search</a>
 		</div>
 <script>
+
+function default_ac(){
+
+	
+	var cache = {};
+	$(".main-header input").autocomplete({
+	 
+		source: function(request, response) {
+		var term = request.term; //cache result if term is typed in past
+		if ( term in cache ) {
+			response( cache[ term ] );
+			return;
+		}
+
+		$.getJSON(
+		"/index.php?r=mhouse/getCityList", 
+		{ term: term  },  
+		//response
+		function( data, status, xhr ) {
+			cache[ term ] = data;
+			response( data );
+			}
+		);
+			
+		},
+		minLength: 1,
+		autoFocus: true,
+		select: function( event, ui ) {
+
+			var city = ui.item.id;
+			//var matches = city.match(/\d+/g);
+			var matches = city.match(/\|/g);
+			if ( matches != null) {
+		
+				var citys = city.split("|");
+				//console.log("CityLat" + citys[0] + citys[1] + citys[2]);
+				if ( $("#mapsearchpage").length ) {
+					console.log("This is mapsearch page. SetmapCenter");
+					map.setCenter(new google.maps.LatLng(parseFloat(citys[1]), parseFloat(citys[2])));
+					
+				}else{
+					var url = 'index.php?r=map/index&lat=' + citys[1] + "&lng=" + citys[2] + "&zoom=10&maptype=city"; 
+					location.href = url;
+				}
+				
+			} else {
+				
+				var url = 'index.php?r=mhouse/view&id=' + city;
+				location.href = url;
+					
+			}
+		}
+	});
+
+
+}
 	 
 $(document).on( "pageinit", "#page_main", function() {
-var cache = {};
-
-$(".main-header input").autocomplete({
-  //source: "/index.php?r=mhouse/getCityList",
-	source: function(request, response) {
-	var term = request.term; //cache result if term is typed in past
-	if ( term in cache ) {
-		response( cache[ term ] );
-		return;
-	}
-
-	$.getJSON(
-	"/index.php?r=mhouse/getCityList", 
-	{ term: term  },  
-	//response
-	function( data, status, xhr ) {
-		cache[ term ] = data;
-		response( data );
-		}
-	);
-		
-	},
-	minLength: 1,
-	autoFocus: true,
-	select: function( event, ui ) {
-
-		var city = ui.item.id;
-		//var matches = city.match(/\d+/g);
-		var matches = city.match(/\|/g);
-		if ( matches != null) {
 	
-			var citys = city.split("|");
-			console.log("CityLat" + citys[0] + citys[1] + citys[2]);
-			var url = 'index.php?r=map/index&lat=' + citys[1] + "&lng=" + citys[2] + "&zoom=10&maptype=city"; 
-			location.href = url;
-			
-		} else {
-			
-			var url = 'index.php?r=mhouse/view&id=' + city;
-			location.href = url;
-				
-		}
+
+	if ( $("#school-search").length ) {
+		console.log("This is schoolmap page");
 	}
-});
+
+	default_ac();
+
+
 });
 
  
