@@ -1,7 +1,7 @@
 <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyA8e2Aha2ksuqOCP06qBBm2eP_WQGets0E&libraries=places&language=zh-cn"></script>
 
 <script type="text/javascript" src="/static/map/js/richmarker-compiled.js"></script>
-<script type="text/javascript" src="/static/map/js/maplemap.js"></script>
+<script type="text/javascript" src="/static/map/js/schoolmap.js"></script>
 
 
 
@@ -64,12 +64,8 @@
 
 </div>
 <!-- 房源搜索列表结束 -->
-<div data-role="panel" id="houseviewpanel" data-display="overlay"> 
-	<ul data-role="listview" data-inset="true" id="panelhtml">
-	
-	</ul>
-</div> 
-<div data-role="popup" id="houseviewpopup">
+
+<div data-role="popup" id="schoolviewpopup">
 	<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>	
 	<div id="popuphtml"></div>
 </div>
@@ -82,57 +78,10 @@
 
 
 
-<!-- List Start -->
-<div id="house_list" class="house-list">
-   <p>找到房源:<span id="house_count"></span></p> 
-</div>
-<!-- List End -->
-
-<!-- Map Footer Start -->	
-<div data-role="footer" data-position="fixed" data-fullscreen="true" style="text-align:center;" id="map_footer">
-	 
-
-	<a href="/" data-ajax="false" class="ui-btn ui-corner-all ui-icon-home ui-btn-icon-left ui-btn-icon-notext
-	">Home</a>
-	<a id="footer-location" class="ui-btn ui-corner-all ui-icon-location ui-btn-icon-left ui-btn-icon-notext
-	">location</a>
-	<a id="footer-list"  class="ui-btn ui-corner-all ui-icon-fa-navicon ui-btn-icon-left ui-btn-icon-notext
-	">List</a>
-	<a data-value="school" class="Search_local ui-btn ui-corner-all ui-icon-fa-graduation-cap ui-btn-icon-left ui-btn-icon-notext
-	">More</a>
-	<a data-value="bus_station" class="Search_local ui-btn ui-corner-all ui-icon-fa-cab ui-btn-icon-left ui-btn-icon-notext
-	">More</a>
-	<a data-value="bank" class="Search_local ui-btn ui-corner-all ui-icon-fa-money ui-btn-icon-left ui-btn-icon-notext
-	">More</a>
-	<a data-value="restaurant" class="Search_local ui-btn ui-corner-all ui-icon-fa-cutlery ui-btn-icon-left ui-btn-icon-notext
-	">More</a>
-	<a data-value="grocery_or_supermarket" class="Search_local ui-btn ui-corner-all ui-icon-fa-shopping-cart ui-btn-icon-left ui-btn-icon-notext
-	">More</a>
-	<a data-value="hospital" class="Search_local ui-btn ui-corner-all ui-icon-fa-h-square ui-btn-icon-left ui-btn-icon-notext
-	">More</a>
-	
-	
-
-		
-	
-	
-</div>
-<!-- Map Footer -->		
 
 
 <script>
 
-function schoolMarker(results, status) {
-	if (status === google.maps.places.PlacesServiceStatus.OK) {
-		var service = new google.maps.places.PlacesService(map);
-		for (var i = 0; i < results.length; i++) {
-			var name = results[i].name;
-			if ( name.match(/(Middle School|Public School|High School|Secondary School|Elementary School)/)) {
-			   maplemap.createMarker(results[i]);
-			}
-		}
-	}
-}
 
 function max_height() {
   
@@ -156,29 +105,22 @@ function getFieldValues() {
 }
  
 	var options = {};  
-	var sr = '<?php echo $_GET['sr'];?>';	
 	var lat = '<?php echo $_GET["lat"]; ?>';
 	var lng = '<?php echo $_GET["lng"]; ?>';
 	console.log("lat" + lat + "|" +lng);
-	var maptype = '<?php echo $_GET["maptype"]; ?>'; //city or house or school
-    var mapZoom = '<?php echo $_GET["zoom"]; ?>';
-	var listAllHtml = ''; //hold house list
-	
-	
+	var mapZoom = '<?php echo $_GET["zoom"]; ?>';
+		
 	
 	$( document ).on( "pagecreate", "#page_main", function() {
 		//Hide Footer
-		$("#main_footer").hide();
-		$("#map_footer").show();
+		//$("#main_footer").hide();
+		//$("#map_footer").show();
 		
 		
 		max_height();
 		lat = (lat) ? lat: "43.6532";
 		lng= (lng) ? lng: "-79.3832";
-		
-		maptype = (maptype) ? maptype: "default";
-		sr = (sr) ? sr: "Sale";
-		mapZoom= (mapZoom) ? mapZoom: 16;
+		mapZoom= (mapZoom) ? mapZoom: 14;
 		mapZoom = Number(mapZoom);
 		
 		
@@ -187,100 +129,43 @@ function getFieldValues() {
 		$(".search-area  select").change(function () {
 			getFieldValues(); //Get updated Select
 		
-			maplemap.changeMap(map);
+			schoolmap.changeMap(map);
 			//console.log(options['Price']);
 		});
-		if ( maptype == 'default' ) {
+		
 			//$("#debug").text(navigator.geolocation);
-			if ( navigator.geolocation ) {
-		        function success(pos) {
-					lat = pos.coords.latitude;
-					lng = pos.coords.longitude;
-					
-				
-					maplemap.initMap("google_map",lat,lng,mapZoom);
-					
-				}
-		        function fail(error) {
-					
-	        		//mapZoom=10; //Default zoom level for city
-				
-					maplemap.initMap("google_map",lat,lng,mapZoom);
-					//setMapView(lat,lng,mapZoom);
-									
-		        }
-		
-				navigator.geolocation.getCurrentPosition(success, fail, {enableHighAccuracy:true});
-	    	} else {
-				
-				maplemap.initMap("google_map",lat,lng,mapZoom);
-	   		}
-		
-		} 
-		
-		if ( maptype == 'city' ) {
-			maplemap.initMap("google_map",lat,lng,mapZoom);
-			maplemap.addCenterMarker(map,lat,lng,'city');
-		}
-		
-		if ( maptype == 'school' ) {
-			maplemap.initMap("google_map",lat,lng,mapZoom);
-			maplemap.addCenterMarker(map,lat,lng,'school');
-			
-		}
-		
-		if ( maptype == 'house' ) {
-			maplemap.initMap("google_map",lat,lng,mapZoom);
-			maplemap.addCenterMarker(map,lat,lng,'house');
-		}
-	});
-
-	$("#footer-location").click(function () {
 		if ( navigator.geolocation ) {
 	        function success(pos) {
 				lat = pos.coords.latitude;
 				lng = pos.coords.longitude;
-				maplemap.setMapView(lat,lng,13);
+				
+			
+				schoolmap.initMap("google_map",lat,lng,mapZoom);
+				
 			}
 	        function fail(error) {
-												
+				
+        		
+			
+				schoolmap.initMap("google_map",lat,lng,mapZoom);
+				//setMapView(lat,lng,mapZoom);
+								
 	        }
 	
 			navigator.geolocation.getCurrentPosition(success, fail, {enableHighAccuracy:true});
-    	} 
+    	} else {
+			
+			schoolmap.initMap("google_map",lat,lng,mapZoom);
+   		}
 	
-	});
-	
-	$("#footer-list").click(function () {
+		 
 		
-		if ( markerType == 'house'  ) {
-			$("#panelhtml").html(listAllHtml);
-			$("#houseviewpanel").panel( "open" );
-	
-		} else {
-			$("#popuphtml").html("找到房源太多，请在地图上点击缩小范围后在点击房源列表");
-			$("#houseviewpopup").popup( "open" );
-		}
-	
+
+
 	});
-	
-	$(".Search_local").click(function() {
-		local_type = $(this).attr("data-value");
-		maplemap.localSearch(local_type);
-	});
-	
-	/*
-	$("#footer-school").click(function () {
-		local_type = "school";
-		var center = map.getCenter();
-		var service = new google.maps.places.PlacesService(map);
-		
-		service.nearbySearch({
-			location: center,
-			radius: 3000,
-			type: ['school']
-		}, schoolMarker);
-	
-	});*/
+
+
+
+
 	
 </script>

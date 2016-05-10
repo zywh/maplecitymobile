@@ -1414,3 +1414,60 @@ Stack trace:
 #7 {main}
 REQUEST_URI=/index.php?r=gii/model/index
 ---
+2016/05/10 23:57:37 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 't.latitude' in 'where clause'. The SQL statement executed was: SELECT * FROM `h_school` `t` WHERE (((t.latitude <= :maxLat) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.41092017239405, :minLat=43.371501418144369, :maxLon=-79.716729429333498, :minLon=-79.795436170666505.
+2016/05/10 23:57:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 't.latitude' in 'where clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7812): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/mhtml/protected/controllers/MapController.php(72): CActiveRecord->findAll(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetSchoolList()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolList')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getSchoolLi...')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=map/getSchoolList
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---
+2016/05/10 23:57:55 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 't.latitude' in 'where clause'. The SQL statement executed was: SELECT * FROM `h_school` `t` WHERE (((t.latitude <= :maxLat) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.410920172394022, :minLat=43.371501418144355, :maxLon=-79.743079450695802, :minLon=-79.795436170666505.
+2016/05/10 23:57:55 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 't.latitude' in 'where clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7812): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/mhtml/protected/controllers/MapController.php(72): CActiveRecord->findAll(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetSchoolList()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolList')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getSchoolLi...')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=map/getSchoolList
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---
+2016/05/10 23:59:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 't.latitude' in 'where clause'. The SQL statement executed was: SELECT * FROM `h_school` `t` WHERE (((t.latitude <= :maxLat) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.410879285694911, :minLat=43.371460504843995, :maxLon=-79.729884240014655, :minLon=-79.782240959985359.
+2016/05/10 23:59:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 't.latitude' in 'where clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7812): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/mhtml/protected/controllers/MapController.php(72): CActiveRecord->findAll(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetSchoolList()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolList')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getSchoolLi...')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=map/getSchoolList
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---

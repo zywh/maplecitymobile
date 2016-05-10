@@ -16,13 +16,86 @@ class MapController extends XFrontBase {
         $housetype = PropertyType::model()->findAll();
         $this->render('index', array('houseType' => $housetype));
     }
+	
+	public function actionSchool() {
+        
+        $this->render('school');
+    }
 
     public function actionIndexsb() {
         $housetype = PropertyType::model()->findAll();
         $this->render('indexsb', array('houseType' => $housetype));
     }
 
+	
+    public function actionGetSchoolList() {
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		
 
+        $result = array();
+		$result['SchoolList'] = array();
+			
+        if (empty($_POST)) {
+            $result['IsError'] = true;
+            $result['Message'] = '数据接收失败';
+        } 
+		else 
+		{
+            $result['IsError'] = false;
+
+            //根据条件查询地图
+            $criteria = new CDbCriteria();
+	
+			//lat and long selection
+            if (!empty($_POST['bounds'])) {
+                $latlon = explode(',', $_POST['bounds']);
+                $minLat = floatval($latlon[0]);
+                $maxLat = floatval($latlon[2]);
+                $minLon = floatval($latlon[1]);
+                $maxLon = floatval($latlon[3]);
+                $criteria->addCondition("lat <= :maxLat");
+                $criteria->params += array(':maxLat' => $maxLat);
+                $criteria->addCondition("lat >= :minLat");
+                $criteria->params += array(':minLat' => $minLat);
+                $criteria->addCondition("lng <= :maxLon");
+                $criteria->params += array(':maxLon' => $maxLon);
+                $criteria->addCondition("lng >= :minLon");
+                $criteria->params += array(':minLon' => $minLon);
+		
+
+
+            }
+
+			//End of Condition
+			//Filter Invalid Lat
+			$criteria->addCondition("lat > 20");
+			$school = School::model()->findAll($criteria);
+			$result['Message'] = '成功';
+
+			foreach ($school as $val) {
+				$schoolList = array();
+				$schoolList['School'] = $val->school;
+				$schoolList['Paiming'] = !empty( $val->paiming)?  $val->paiming :'无';
+				$schoolList['Pingfen'] = !empty( $val->pingfen)?  $val->pingfen :'无';
+				$schoolList['Grade'] = $val->grade;
+				$schoolList['City'] = $val->city;
+				$schoolList['Zip'] = $val->zip;
+				$schoolList['Province'] = $val->province;
+				$schoolList['Address'] = $val->address;
+				$schoolList['Lat'] = $val->lat;
+				$schoolList['Lng'] = $val->lng;
+				$result['SchoolList'][] = $schoolList;
+
+
+			}
+ 
+       		
+		}
+		
+		echo json_encode($result);
+    }
+	
 
     public function actionGetMapHouse() {
 		ini_set("log_errors", 1);
@@ -333,6 +406,7 @@ class MapController extends XFrontBase {
 		
 		echo json_encode($result);
     }
+	
 	public function actionGetCityLocation(){
 		$db = Yii::app()->db;
 		$city = $_POST['city'];
@@ -354,6 +428,7 @@ class MapController extends XFrontBase {
     
 	//Function END  
     }
+	
 	public function actionGetProvinceLocation(){
 		$db = Yii::app()->db;
 		$pid = $_POST['province'];
