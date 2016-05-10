@@ -96,7 +96,12 @@ var schoolmap = {
 		console.log("Change Map Zoomlevel:" + zlevel);
 		
 		schoolmap.clearAll(map);
-		
+		var gridSize = 60;	//60px
+		//get element size to calcute number of grid
+		var mapHeight = $("#" + mapId).height();
+		var mapWidth = $("#" + mapId).width();
+		var gridx = Math.ceil(mapWidth/gridSize);
+		var gridy = Math.ceil(mapHeight/gridSize);
 				
 		var _sw = map.getBounds().getSouthWest();
 		var _ne = map.getBounds().getNorthEast();
@@ -113,6 +118,8 @@ var schoolmap = {
 				data: {
 					bounds: _bounds,
 					pingfen: options['sel_pingfen'], 
+					gridx : gridx,
+					gridy : gridy,
 					type: options['sel_type'], 
 					xingzhi: options['sel_xingzhi'],
 					rank: options['sel_rank'] 					

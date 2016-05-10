@@ -1543,3 +1543,145 @@ Stack trace:
 #4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
 #5 /var/www/mhtml/index.php(19): CWebApplication->run()
 REQUEST_URI=/index.php?r=map/getSchoolList
+2016/05/11 02:13:04 [error] [php] Creating default object from empty value (/var/www/mhtml/protected/controllers/MapController.php:68)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): MapController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): MapController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): MapController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=map/getSchoolList
+2016/05/11 02:13:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'rank' in 'order clause'. The SQL statement executed was: SELECT * FROM `h_school` `t` WHERE ((((((type ='类型') AND (xingzhi like 'Public%')) AND (lat <= :maxLat)) AND (lat >= :minLat)) AND (lng <= :maxLon)) AND (lng >= :minLon)) AND (lat > 20) ORDER BY rank ASC LIMIT 50. Bound with :maxLat=43.428208769899292, :minLat=43.349368123495211, :maxLon=-79.668084944311545, :minLon=-79.825670088354514.
+2016/05/11 02:13:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'rank' in 'order clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7812): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/mhtml/protected/controllers/MapController.php(95): CActiveRecord->findAll(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetSchoolList()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolList')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getSchoolLi...')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=map/getSchoolList
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---
+2016/05/11 02:13:53 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'rank' in 'order clause'. The SQL statement executed was: SELECT * FROM `h_school` `t` WHERE (((((type ='类型') AND (lat <= :maxLat)) AND (lat >= :minLat)) AND (lng <= :maxLon)) AND (lng >= :minLon)) AND (lat > 20) ORDER BY rank ASC LIMIT 50. Bound with :maxLat=43.428208769899292, :minLat=43.349368123495211, :maxLon=-79.668084944311545, :minLon=-79.825670088354514.
+2016/05/11 02:13:53 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'rank' in 'order clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7812): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/mhtml/protected/controllers/MapController.php(95): CActiveRecord->findAll(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetSchoolList()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolList')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getSchoolLi...')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=map/getSchoolList
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---
+2016/05/11 02:13:54 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'rank' in 'order clause'. The SQL statement executed was: SELECT * FROM `h_school` `t` WHERE (((((type ='类型') AND (lat <= :maxLat)) AND (lat >= :minLat)) AND (lng <= :maxLon)) AND (lng >= :minLon)) AND (lat > 20) ORDER BY rank ASC LIMIT 50. Bound with :maxLat=43.444288640862489, :minLat=43.286546666734523, :maxLon=-79.56182655197756, :minLon=-79.876996840063498.
+2016/05/11 02:13:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'rank' in 'order clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7812): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/mhtml/protected/controllers/MapController.php(95): CActiveRecord->findAll(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetSchoolList()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolList')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getSchoolLi...')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=map/getSchoolList
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---
+2016/05/11 02:14:03 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'rank' in 'order clause'. The SQL statement executed was: SELECT * FROM `h_school` `t` WHERE (((((type ='类型') AND (lat <= :maxLat)) AND (lat >= :minLat)) AND (lng <= :maxLon)) AND (lng >= :minLon)) AND (lat > 20) ORDER BY rank ASC LIMIT 50. Bound with :maxLat=43.469957714281392, :minLat=43.154197329295471, :maxLon=-79.397374952856467, :minLon=-80.027715529028342.
+2016/05/11 02:14:03 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'rank' in 'order clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7812): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/mhtml/protected/controllers/MapController.php(95): CActiveRecord->findAll(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetSchoolList()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolList')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getSchoolLi...')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=map/getSchoolList
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---
+2016/05/11 02:14:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'rank' in 'order clause'. The SQL statement executed was: SELECT * FROM `h_school` `t` WHERE (((((type ='类型') AND (lat <= :maxLat)) AND (lat >= :minLat)) AND (lng <= :maxLon)) AND (lng >= :minLon)) AND (lat > 20) ORDER BY rank ASC LIMIT 50. Bound with :maxLat=43.594907308482249, :minLat=43.279798554348595, :maxLon=-79.500371779028342, :minLon=-80.130712355200217.
+2016/05/11 02:14:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'rank' in 'order clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7812): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/mhtml/protected/controllers/MapController.php(95): CActiveRecord->findAll(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetSchoolList()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolList')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getSchoolLi...')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=map/getSchoolList
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---
+2016/05/11 02:14:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'rank' in 'order clause'. The SQL statement executed was: SELECT * FROM `h_school` `t` WHERE (((((type ='类型') AND (lat <= :maxLat)) AND (lat >= :minLat)) AND (lng <= :maxLon)) AND (lng >= :minLon)) AND (lat > 20) ORDER BY rank ASC LIMIT 50. Bound with :maxLat=43.717116649290311, :minLat=43.086535901266075, :maxLon=-79.187261427465842, :minLon=-80.447942579809592.
+2016/05/11 02:14:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'rank' in 'order clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7812): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/mhtml/protected/controllers/MapController.php(95): CActiveRecord->findAll(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetSchoolList()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolList')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getSchoolLi...')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=map/getSchoolList
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---
+2016/05/11 02:14:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'rank' in 'order clause'. The SQL statement executed was: SELECT * FROM `h_school` `t` WHERE (((((type ='类型') AND (lat <= :maxLat)) AND (lat >= :minLat)) AND (lng <= :maxLon)) AND (lng >= :minLon)) AND (lat > 20) ORDER BY rank ASC LIMIT 50. Bound with :maxLat=43.921235286419801, :minLat=42.657791507412192, :maxLon=-78.507482374731467, :minLon=-81.028844679418967.
+2016/05/11 02:14:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'rank' in 'order clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7812): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#3 /var/www/mhtml/protected/controllers/MapController.php(95): CActiveRecord->findAll(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetSchoolList()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolList')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getSchoolLi...')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=map/getSchoolList
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---

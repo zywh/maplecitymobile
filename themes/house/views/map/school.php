@@ -15,8 +15,8 @@
 	<div class="ui-block-a">
 		<select name="type" id="sel_type" data-corners="false"  data-iconpos="none" data-native-menu="false"  style=>
 			<option >类型</option>
-			<option value="0" >小学</option>
-			<option value="1">中学</option>
+			<option value="e" >小学</option>
+			<option value="s">中学</option>
 			<option value="">不限</option>
 		</select>
 	</div>

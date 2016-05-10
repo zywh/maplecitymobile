@@ -32,7 +32,7 @@ class MapController extends XFrontBase {
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
 		
-
+		$maxmarkers = 200;  
         $result = array();
 		$result['SchoolList'] = array();
 			
@@ -46,14 +46,18 @@ class MapController extends XFrontBase {
 
             //type
             $criteria = new CDbCriteria();
-			if(!empty($_POST['type']) && intval($_POST['type']) >= 0) {
-				$criteria->addCondition("type ='".$_POST['type']."'");
 			
-			
+			if($_POST['type'] == 's' ) {
+				$criteria->addCondition('type =1');
 			} 
 			
+			if($_POST['type'] == 'e' ) {
+				$criteria->addCondition('type =0');
+			} 
+			
+			$chinese = preg_match("/\p{Han}+/u", $_POST['xingzhi']);
 			//XingZhi
-			if(!empty($_POST['xingzhi']) && intval($_POST['xingzhi']) > 0) {
+			if(!empty($_POST['xingzhi']) && !($chinese)) {
 				$criteria->addCondition("xingzhi like '".$_POST['xingzhi']."%'");
 			}
 			
@@ -64,8 +68,10 @@ class MapController extends XFrontBase {
 			
 			//Rank
 			if(!empty($_POST['rank'])&& intval($_POST['rank']) > 0) {
-				$groupcriteria->order = "rank ASC";
-				$criteria->limit = $_POST['rank'];
+				//$criteria->order = "paiming ASC";
+				$criteria->addCondition("paiming >0");
+				$criteria->addCondition("paiming <='".$_POST['rank']."'");
+						
 			} 		
 			
 			//lat and long selection
@@ -91,27 +97,39 @@ class MapController extends XFrontBase {
 			//End of Condition
 			//Filter Invalid Lat
 			$criteria->addCondition("lat > 20");
-			$school = School::model()->findAll($criteria);
-			$result['Message'] = '成功';
-
-			foreach ($school as $val) {
-				$schoolList = array();
-				$schoolList['School'] = $val->school;
-				$schoolList['Paiming'] = !empty( $val->paiming)?  $val->paiming :'无';
-				$schoolList['Pingfen'] = !empty( $val->pingfen)?  $val->pingfen :'无';
-				$schoolList['Grade'] = $val->grade;
-				$schoolList['City'] = $val->city;
-				$schoolList['Zip'] = $val->zip;
-				$schoolList['Province'] = $val->province;
-				$schoolList['Address'] = $val->address;
-				$schoolList['Lat'] = $val->lat;
-				$schoolList['Lng'] = $val->lng;
-				$result['SchoolList'][] = $schoolList;
-
-
-			}
+			
+			$count = School::model()->count($criteria);
+			
+						
+			//Generate Data for school rating grid
+			if ( $count >= $maxmarkers) {
+				$result['type'] = "grid";
+				$result['Message'] = '成功';
  
-       		
+       		}
+			
+			if ( $count < $maxmarkers) {
+				$result['type'] = "school";
+				$school = School::model()->findAll($criteria);
+				$result['Message'] = '成功';
+				foreach ($school as $val) {
+					$schoolList = array();
+					$schoolList['School'] = $val->school;
+					$schoolList['Paiming'] = !empty( $val->paiming)?  $val->paiming :'无';
+					$schoolList['Pingfen'] = !empty( $val->pingfen)?  $val->pingfen :'无';
+					$schoolList['Grade'] = $val->grade;
+					$schoolList['City'] = $val->city;
+					$schoolList['Zip'] = $val->zip;
+					$schoolList['Province'] = $val->province;
+					$schoolList['Address'] = $val->address;
+					$schoolList['Lat'] = $val->lat;
+					$schoolList['Lng'] = $val->lng;
+					$result['SchoolList'][] = $schoolList;
+
+
+				}
+ 
+       		}
 		}
 		
 		echo json_encode($result);
