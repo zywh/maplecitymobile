@@ -181,8 +181,12 @@ var schoolmap = {
 							var rating = this.Pingfen;
 							var tlat = parseFloat(this.Lat);
 							var tlng = parseFloat(this.Lng);
-							var point = new google.maps.LatLng(tlat, tlng);
-							heatmapData.push(point);
+							var wlocation = {};
+							wlocation["location"] = new google.maps.LatLng(tlat, tlng);
+							var weight = ( this.Pingfen > 1) ? this.Pingfen: 0;
+							wlocation.wight = 1/weight*100;
+							//var point = new google.maps.LatLng(tlat, tlng);
+							heatmapData.push(wlocation);
 							
 
 							//Generate single house popup view
@@ -202,7 +206,7 @@ var schoolmap = {
 							heatmap = new google.maps.visualization.HeatmapLayer({
 								data: heatmapData,
 								map: map
-							});
+							});	
 						}
 						
 						//End of School Marker

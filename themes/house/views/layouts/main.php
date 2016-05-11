@@ -172,20 +172,22 @@ function school_ac(){
 				//console.log("CityLat" + citys[0] + citys[1] + citys[2]);
 				if (( $("#mapsearchpage").length ) || ($("#school-search").length ) ) {
 					//console.log("This is mapsearch page. SetmapCenter");
-					map.setCenter(new google.maps.LatLng(parseFloat(citys[1]), parseFloat(citys[2])));
+					var point = new google.maps.LatLng(parseFloat(citys[1] - 0.00001), parseFloat(citys[2]));
+					map.setCenter(point);
+					
+				    var marker = new google.maps.Marker({
+						position: point,
+						map: map,
+						//animation: 'BOUNCE',
+						zIndex: 1
+					});
+					
+					marker.setAnimation(google.maps.Animation.DROP);
 					$('input').blur();
 					
-				}else{
-					var url = 'index.php?r=map/index&lat=' + citys[1] + "&lng=" + citys[2] + "&zoom=10&maptype=city"; 
-					location.href = url;
 				}
 				
-			} else {
-				
-				var url = 'index.php?r=mhouse/view&id=' + city;
-				location.href = url;
-					
-			}
+			} 
 		}
 	});
 
