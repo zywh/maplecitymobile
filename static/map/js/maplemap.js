@@ -318,7 +318,7 @@ var maplemap = {
 								if (areaHouse.HouseCount > 0){
 								
 								var price = areaHouse.TotalPrice / areaHouse.HouseCount;
-								console.log( "Name:" + areaHouse.NameCn + "Lat:" + areaHouse.GeocodeLat + "Count:"+ areaHouse.HouseCount + "AvgPrice:" + price );
+								//console.log( "Name:" + areaHouse.NameCn + "Lat:" + areaHouse.GeocodeLat + "Count:"+ areaHouse.HouseCount + "AvgPrice:" + price );
 								maplemap.setContentCount(map,areaHouse.GeocodeLat, areaHouse.GeocodeLng, areaHouse.HouseCount.toString(), areaHouse.NameCn, price );
 								
 								}

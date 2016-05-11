@@ -107,6 +107,8 @@ function getFieldValues() {
 		//$("#map_footer").show();
 		
 		
+		
+		
 		max_height();
 		lat = (lat) ? lat: "43.6532";
 		lng= (lng) ? lng: "-79.3832";
