@@ -1280,3 +1280,17 @@ ul.xqlb_list li.ui-li-static { padding: 8px 0; white-space: normal;}
 }
 #house_list > li { margin: 5px; }
 .house_preview { background-color: #fff; }
+.school_info_popup .title {
+	
+    overflow: hidden;
+    font-weight: 500;
+    font-size: 14px;
+}
+.school_info_popup {
+	color: #333;
+    padding: 5px;
+    background-color: #f9f9f9;
+    font-weight: 300;
+    font-size: 13px;
+    overflow: hidden;
+}

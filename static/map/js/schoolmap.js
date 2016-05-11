@@ -182,8 +182,8 @@ var schoolmap = {
 							var tlng = parseFloat(this.Lng);
 
 							//Generate single house popup view
-							var html = "<div class='map_info_content'>"
-							+ "<div><a href='index.php?r=map&lat=" + tlat + "&lng=" + tlng + "&maptype=school&zoom=15'" +" data-ajax='false'>名称：" + school + "</a></div>"
+							var html = "<div class='school_info_popup'>"
+							+ "<div class='title'><a href='index.php?r=map&lat=" + tlat + "&lng=" + tlng + "&maptype=school&zoom=15'" +" data-ajax='false'>名称：" + school + "</a></div>"
 							+ "<div>年级：" + this.Grade + "</div>" 
 							+ "<div>地址：" + this.Address + "</div>" 
 							+ "<div>城市：" + this.City + " " + this.Province + " " + this.Zip + "</div>"
