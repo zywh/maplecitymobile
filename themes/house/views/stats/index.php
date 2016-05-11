@@ -122,7 +122,7 @@ $(document).on("pagebeforecreate","#page_main",function(){
 			});
 		});
 		
-			
+		
 		priceOptions = {
 			credits: { enabled: false },
 			chart: { zoomType: 'x'},
@@ -153,7 +153,8 @@ $(document).on("pagebeforecreate","#page_main",function(){
 			
 
 		};
-		$('#chart_graph').highcharts('StockChart', priceOptions);
+		hchart = $('#chart_graph').highcharts('StockChart', priceOptions);
+		
 		moiOptions = {
 			credits: { enabled: false },
 			chart: { zoomType: 'x'},
@@ -178,7 +179,7 @@ $(document).on("pagebeforecreate","#page_main",function(){
 			]
 			
 		}
-
+		
 		snlrOptions = {
 			credits: { enabled: false },
 			chart: { zoomType: 'x'},
@@ -332,6 +333,7 @@ $(document).on("pagebeforecreate","#page_main",function(){
 		}
 		
 		
+		
 	}
 });
 
@@ -345,26 +347,34 @@ $(document).on("pageshow","#page_main",function(){
 		getFieldValues(); //Get updated Select
 		console.log("Select:" + options['chartname']);
 		
+		
+		
 		switch(options['chartname']) {
 			case "price":
 				
-				$('#chart_graph').highcharts('StockChart', priceOptions);
+				hchart = $('#chart_graph').highcharts('StockChart', priceOptions);
+				hchart.redraw();
+				
 				break;
 			case "moi":
 				
-				$('#chart_graph').highcharts('StockChart', moiOptions);
+				hchart =  $('#chart_graph').highcharts('StockChart', moiOptions);
+				hchart.redraw();
 				break;
+				
 			case "sales":
 				
-				$('#chart_graph').highcharts('StockChart', salesOptions);
+				hchart =  $('#chart_graph').highcharts('StockChart', salesOptions);
+				hchart.redraw();
 				break;
 			case "snlr":
 				
-				$('#chart_graph').highcharts('StockChart', snlrOptions);
+				hchart =  $('#chart_graph').highcharts('StockChart', snlrOptions);
+				hchart.redraw();
 				break;				
 			case "dom":
 				
-				$('#chart_graph').highcharts('StockChart', domOptions);
+				var hchart =  $('#chart_graph').highcharts('StockChart', domOptions);
 				break;
 			case "newlist":
 			
@@ -376,6 +386,7 @@ $(document).on("pageshow","#page_main",function(){
 			case "splp":
 				$('#chart_graph').highcharts('StockChart', splpOptions);
 				break;
+			
 			default:
 				$('#chart_graph').highcharts('StockChart', priceOptions);
 				
