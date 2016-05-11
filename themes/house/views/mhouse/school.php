@@ -1,7 +1,7 @@
 <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyA8e2Aha2ksuqOCP06qBBm2eP_WQGets0E&libraries=geometry,places&language=zh-cn"></script>
 
 <script type="text/javascript" src="/static/map/js/richmarker-compiled.js"></script>
-<!-- <script type="text/javascript" src="/static/map/js/maplemap.js"></script> -->
+<!--<script type="text/javascript" src="/static/map/js/maplemap.js"></script>-->
 <script type="text/javascript" src="/static/map/js/schoolmap.js"></script>
 <style>
 
@@ -65,17 +65,20 @@ a {text-decoration: none; }
 			position: point
 		});
 
-		setSchoolList(map);
+		setSchoolList();
 	}
 	
-	function setSchoolList(map) {
+	function setSchoolList() {
 
+		debugger;
 		var _sw = map.getBounds().getSouthWest();
 		var _ne = map.getBounds().getNorthEast();
 		var marker;
+		//console.log(_sw);
+		//console.log（_ne); 
 		_bounds = _sw.lat() + "," + _sw.lng() + "," + _ne.lat() + "," + _ne.lng();
 	   
-		
+/*		
 		$.ajax({
 			url: 'index.php?r=map/getSchoolList',
 			type: 'POST',
@@ -143,7 +146,7 @@ a {text-decoration: none; }
 			//End Success
 			}
 		});
-
+*/
 	}		
 
 
