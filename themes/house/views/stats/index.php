@@ -5,7 +5,7 @@
 	<select name="chartname"  id="chartname" data-corners="false" data-native-menu="false" data-iconpos="left" data-mini="true">
 		<option >选择图表</option>
 		<option value="price">价格走势图</option>
-		<option value="sale">月销售房源走势图</option>
+		<option value="sales">月销售房源走势图</option>
 		<option value="newlist">新房源走势图</option>
 		<option value="snlr">SNLR走势图</option>
 		<option value="active">在售房源走势图</option>
@@ -17,11 +17,7 @@
  </div> 
 
 <div class="chartbox" id="citychart" >  
-
 	<div id="chart_graph"> </div>
-	<div id="chart_graph1"> </div>
-	<div id="chart_graph2"> </div>
-
 </div>
 
 	
@@ -63,7 +59,7 @@ $(document).on("pagebeforecreate","#page_main",function(){
 	success: function(result) {		
 		
 		
-		var seriesOptions = [];
+		seriesOptions = [];
 		
 		//Chinese Name for Series
 		cnnames = {	'all_avgprice':'所有房源：平均房价', 
@@ -124,35 +120,8 @@ $(document).on("pagebeforecreate","#page_main",function(){
 			});
 		});
 		
+
 		options = {
-			credits: { enabled: false },
-			chart: { zoomType: 'x'},
-			rangeSelector : {selected : 5},
-			legend: {enabled: true },
-			navigator : { enabled : false},
-			title : {
-				useHTML: true,
-				//text : '<div class="chart_title">大多地区房产-历史成交图表</div>'
-			},
-			subtitle : {
-				useHTML: true,
-				//text : '<div class="chart_subtitle">成交金额/成交量</div>'
-				
-			},
-						
-			 yAxis: {
-				opposite: false,
-				title: {text: '平均价格'}
-			},
-			
-			
-			
-			series: [ ]
-			
-
-		};	
-
-		priceOptions = {
 			credits: { enabled: false },
 			chart: { zoomType: 'x'},
 			rangeSelector : {selected : 5},
@@ -182,188 +151,8 @@ $(document).on("pagebeforecreate","#page_main",function(){
 			
 
 		};
-		$('#chart_graph').highcharts('StockChart', priceOptions);
-		//chart = $('#chart_graph').highcharts('StockChart', options);
-		
-		moiOptions = {
-			credits: { enabled: false },
-			chart: { zoomType: 'x'},
-			rangeSelector : {selected : 5},
-			legend: {enabled: true },
-			navigator : { enabled : false},
-			title : {
-				useHTML: true,
-				//text : '<div class="chart_title">大多地区库存月份图表</div>'
-			},
-			subtitle : {
-				useHTML: true,
-				//text : '<div class="chart_subtitle">大多地区房产-库存月份图表</div>'
-			},
-			yAxis: {
-				opposite: false,
-				title: {text: '平均库存月份'}
-			},
-			series: [ seriesOptions.all_moi,
-			 seriesOptions.detach_moi,
-			 seriesOptions.condo_moi
-			]
-			
-		}
-		
-		snlrOptions = {
-			credits: { enabled: false },
-			chart: { zoomType: 'x'},
-			rangeSelector : {selected : 5},
-			legend: {enabled: true },
-			navigator : { enabled : false},
-			title : {
-				useHTML: true,
-				//text : '<div class="chart_title">大多地区库存月份图表</div>'
-			},
-			subtitle : {
-				useHTML: true,
-				//text : '<div class="chart_subtitle">大多地区房产-库存月份图表</div>'
-			},
-			yAxis: {
-				opposite: false,
-				title: {text: '售出/新盘比%'}
-			},
-			series: [ seriesOptions.all_snlr,
-			 seriesOptions.detach_snlr,
-			 seriesOptions.condo_snlr
-			]
-			
-		}
+		$('#chart_graph').highcharts('StockChart', options);
 
-		salesOptions = {
-			credits: { enabled: false },
-			chart: { zoomType: 'x'},
-			rangeSelector : {selected : 5},
-			legend: {enabled: true },
-			navigator : { enabled : false},
-			title : {
-				useHTML: true,
-				//text : '<div class="chart_title">大多地区库存月份图表</div>'
-			},
-			subtitle : {
-				useHTML: true,
-				//text : '<div class="chart_subtitle">大多地区房产-库存月份图表</div>'
-			},
-			yAxis: {
-				opposite: false,
-				title: {text: '月销售房源（套）'}
-			},
-			series: [ seriesOptions.all_sales,
-			 seriesOptions.detach_sales,
-			 seriesOptions.condo_sales
-			]
-			
-		}
-
-		newlistOptions = {
-			credits: { enabled: false },
-			chart: { zoomType: 'x'},
-			rangeSelector : {selected : 5},
-			legend: {enabled: true },
-			navigator : { enabled : false},
-			title : {
-				useHTML: true,
-				//text : '<div class="chart_title">大多地区库存月份图表</div>'
-			},
-			subtitle : {
-				useHTML: true,
-				//text : '<div class="chart_subtitle">大多地区房产-库存月份图表</div>'
-			},
-			yAxis: {
-				opposite: false,
-				title: {text: '月销售房源（套）'}
-			},
-			series: [ seriesOptions.all_newlist,
-			 seriesOptions.detach_newlist,
-			 seriesOptions.condo_newlist
-			]
-			
-		}
-
-		activeOptions = {
-			credits: { enabled: false },
-			chart: { zoomType: 'x'},
-			rangeSelector : {selected : 5},
-			legend: {enabled: true },
-			navigator : { enabled : false},
-			title : {
-				useHTML: true,
-				//text : '<div class="chart_title">大多地区库存月份图表</div>'
-			},
-			subtitle : {
-				useHTML: true,
-				//text : '<div class="chart_subtitle">大多地区房产-库存月份图表</div>'
-			},
-			yAxis: {
-				opposite: false,
-				title: {text: '在售房源（套）'}
-			},
-			series: [ seriesOptions.all_active,
-			 seriesOptions.detach_active,
-			 seriesOptions.condo_active
-			]
-			
-		}
-		
-		domOptions = {
-			credits: { enabled: false },
-			chart: { zoomType: 'x'},
-			rangeSelector : {selected : 5},
-			legend: {enabled: true },
-			navigator : { enabled : false},
-
-			title : {
-				useHTML: true,
-				//text : '<div class="chart_title">大多地区房产-平均销售日期图表</div>'
-			},
-			subtitle : {
-				useHTML: true,
-				//text : '<div class="chart_subtitle">上市到售出的平均时间</div>'
-			},
-			yAxis: {
-				opposite: false,
-				title: {text: '平均销售日期'}
-			},
-			series: [ seriesOptions.all_avgdom,
-			 seriesOptions.detach_avgdom,
-			 seriesOptions.condo_avgdom
-			]
-			
-		}
-
-		splpOptions = {
-			credits: { enabled: false },
-			chart: { zoomType: 'x'},
-			rangeSelector : {selected : 5},
-			legend: {enabled: true },
-			navigator : { enabled : false},
-			
-			title : {
-				useHTML: true,
-				//text : '<div class="chart_title">大多地区房产-成交价/挂盘价比图表</div>'
-			},
-			subtitle : {
-				useHTML: true,
-				//text : '<div class="chart_subtitle">成交价/挂盘价百分比</div>'
-			},
-			yAxis: {
-				opposite: false,
-				title: {text: '成交价/挂盘价%'}
-			},
-			series: [ seriesOptions.all_avgsplp,
-			 seriesOptions.detach_avgsplp,
-			 seriesOptions.condo_avgsplp
-			]
-			
-		}
-		
-		
-		
 	}
 });
 
@@ -383,47 +172,83 @@ $(document).on("pageshow","#page_main",function(){
 		switch(options['chartname']) {
 			case "price":
 				
-				
-				 chart.series[0].update(seriesOptions.all_newlist);
-				 //$('#chart_graph').highcharts('StockChart', priceOptions);
-				
-				
+				 chart.series[0].update(seriesOptions.all_avgprice);
+				 chart.series[1].update(seriesOptions.detach_avgprice);
+				 chart.series[2].update(seriesOptions.condo_avgprice);
+				 chart.yAxis[0].axisTitle.attr({
+					text: '平均价格'
+				 });
+				 chart.yAxis[0].hide();
 				break;
-			case "moi":
 				
-				//$('#chart_graph').highcharts().destroy();
-				$('#chart_graph').highcharts('StockChart', moiOptions);
+			case "moi":
+				 chart.series[0].update(seriesOptions.all_moi);
+				 chart.series[1].update(seriesOptions.detach_moi);
+				 chart.series[2].update(seriesOptions.condo_moi);
+				 chart.yAxis[0].axisTitle.attr({
+					text: '平均库存月份'
+				 });
+			
 				
 				break;
 				
 			case "sales":
-				
-				$('#chart_graph').highcharts().destroy();
-				hchart =  $('#chart_graph').highcharts('StockChart', salesOptions);
-				
+				 chart.series[0].update(seriesOptions.all_sales);
+				 chart.series[1].update(seriesOptions.detach_sales);
+				 chart.series[2].update(seriesOptions.condo_sales);
+				 chart.yAxis[0].axisTitle.attr({
+					text: '月销售房源（套）'
+				 });
+			
 				break;
 			case "snlr":
-				
-				hchart =  $('#chart_graph').highcharts('StockChart', snlrOptions);
-				hchart.redraw();
+				 chart.series[0].update(seriesOptions.all_snlr);
+				 chart.series[1].update(seriesOptions.detach_snlr);
+				 chart.series[2].update(seriesOptions.condo_snlr);
+				 chart.yAxis[0].axisTitle.attr({
+					text: '售出/新盘比%'
+				 });
+			
 				break;				
 			case "dom":
-				
-				var hchart =  $('#chart_graph').highcharts('StockChart', domOptions);
+				 chart.series[0].update(seriesOptions.all_avgdom);
+				 chart.series[1].update(seriesOptions.detach_avgdom);
+				 chart.series[2].update(seriesOptions.condo_avgdom);
+				 chart.yAxis[0].axisTitle.attr({
+					text: '平均销售日期'
+				 });
+			
 				break;
 			case "newlist":
+				 chart.series[0].update(seriesOptions.all_newlist);
+				 chart.series[1].update(seriesOptions.detach_newlist);
+				 chart.series[2].update(seriesOptions.condo_newlist);
+				 chart.yAxis[0].axisTitle.attr({
+					text: '月销售房源（套）'
+				 });
 			
-				$('#chart_graph').highcharts('StockChart', newlistOptions);
 				break;
 			case "active":
-				$('#chart_graph').highcharts('StockChart', activeOptions);
+				 chart.series[0].update(seriesOptions.all_active);
+				 chart.series[1].update(seriesOptions.detach_active);
+				 chart.series[2].update(seriesOptions.condo_active);
+				 chart.yAxis[0].axisTitle.attr({
+					text: '在售房源（套）'
+				 });
+			
 				break;				
 			case "splp":
-				$('#chart_graph').highcharts('StockChart', splpOptions);
+				 chart.series[0].update(seriesOptions.all_avgsplp);
+				 chart.series[1].update(seriesOptions.detach_avgsplp);
+				 chart.series[2].update(seriesOptions.condo_avgsplp);
+				 chart.yAxis[0].axisTitle.attr({
+					text: '成交价/挂盘价%'
+				 });
+			
 				break;
 			
 			default:
-				$('#chart_graph').highcharts('StockChart', priceOptions);
+				$('#chart_graph').highcharts('StockChart', options);
 				
 																					
 		}
