@@ -140,6 +140,7 @@ class MapController extends XFrontBase {
 			//Display school list if maxmarker is less
 			if ( $count < $maxmarkers) {
 				$result['type'] = "school";
+				$criteria->order = "paiming";
 				$school = School::model()->findAll($criteria);
 				$result['Message'] = '成功';
 				foreach ($school as $val) {

@@ -64,6 +64,7 @@ var schoolmap = {
 			flat: true
 		});
 		markerArray.push(marker);
+		//marker.setZindex(rating*10);
 		google.maps.event.addListener(marker, 'click', function(e) {
 			
 		
