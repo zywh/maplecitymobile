@@ -519,5 +519,88 @@ class MapController extends XFrontBase {
 	//Function END  
     }
 	
+	public function actionGetSchoolAutoComplete(){
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		$db = Yii::app()->db;
+		$term = trim($_GET['term']);
+		$city_id='0';
+		$limit = 10;
+		$chinese = preg_match("/\p{Han}+/u", $term);
+		
+		
+		
+		if ($chinese) { //if province = 0 and chinese search
+		
+			$sql = "
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  m.municipality_cname like '".$term."%' 
+			AND  m.count > 1 order by count desc limit " .$limit;
+						
+		
+		} else { //if province = 0  and english search
+		
+			$sql = "
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like '".$term."%' 
+			AND  m.count > 1 order by count desc limit ". $limit;
+			
+		}
+				
+		
+	
+	
+			
+		
+		$resultsql = $db->createCommand($sql)->query();
+		$citycount = count($resultsql);
+		
+		foreach($resultsql as $row){
+			$idArray = array($row["citye"],$row["lat"],$row["lng"]);
+			
+			$result['id'] = implode("|",$idArray); 
+			if ( $chinese ) {
+				
+				$result['value'] = $row["cityc"].", ".$row["provincec"]; 
+				$results[] = $result;
+				
+			} else {
+				$result['value'] = $row["citye"].", ". $row["provincee"]; 
+				$results[] = $result;
+			}
+	
+	
+		}
+			
+		//Address Search and Return ML_NUM
+		if ($citycount < $limit){
+			//start address selection
+			$limit = $limit - $citycount;
+			$sql = "
+			SELECT school,lat,lng,city,province FROM h_school 
+			WHERE  school like '%".$term."%' order by paiming ASC
+			limit " .$limit;
+			$resultsql = $db->createCommand($sql)->query();
+			
+			foreach($resultsql as $row){
+				$idArray = array($row["school"],$row["lat"],$row["lng"]);
+			
+				$result['id'] = implode("|",$idArray); 
+				$result['value'] = $row["school"].", ".$row["city"].", ".$row["province"]; 
+				$results[] = $result;
+			}
+		}
+		
+		
+
+		 echo json_encode($results);
+    
+	//Function END  
+    }
+	
 //END
 }

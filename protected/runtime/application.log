@@ -1707,3 +1707,25 @@ Stack trace:
 REQUEST_URI=/index.php?r=mhouse/getCityList&term=o%E2%80%86r
 HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/index&lat=43.653226&lng=-79.383184&zoom=10&maptype=city
 ---
+2016/05/11 08:21:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "getSchoolAutoComplete" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('getSchoolAutoCo...')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolAutoCo...')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('mhouse/getSchoo...')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=mhouse/getSchoolAutoComplete&term=T
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---
+2016/05/11 08:24:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "getSchoolAutoComplete" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('getSchoolAutoCo...')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolAutoCo...')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('mhouse/getSchoo...')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=mhouse/getSchoolAutoComplete&term=T
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---

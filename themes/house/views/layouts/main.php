@@ -148,9 +148,8 @@ function school_ac(){
 			response( cache[ term ] );
 			return;
 		}
-
 		$.getJSON(
-		"/index.php?r=mhouse/getSchoolAutoComplete", 
+		"/index.php?r=map/getSchoolautocomplete", 
 		{ term: term  },  
 		//response
 		function( data, status, xhr ) {
