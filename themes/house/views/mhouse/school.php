@@ -112,6 +112,11 @@ a {text-decoration: none; }
 					if ( markerType == 'school'){
 						
 						$("#school_list").empty();
+						data.SchoolList.sort(function(a, b) {
+	var _a = (a.Paiming == "无")? 9999 : parseInt(a.Paiming);
+	var _b = (b.Paiming == "无")? 9999 : parseInt(b.Paiming);
+	return _a - _b;
+});
 						$(data.SchoolList).each(function(index) {
 						//console.log("Current:" + this.GeocodeLng + "Next:" + nextLng + "Total:" + totalhouse + "index:" + index + "Count:" + count);
 						var school = this.School;
