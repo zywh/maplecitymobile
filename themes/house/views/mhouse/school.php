@@ -28,22 +28,19 @@ a {text-decoration: none; }
 
 </style>
 
-
 <div data-role="popup" id="schoolviewpopup">
 	<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>	
 	<div id="popuphtml"></div>
 </div>
-<!-- map开始 -->
-<div data-role="content" style="width:100%; height:100%; padding:0;" id="map_area">
-	<div id="google_map" style="width:100%;height:100%"></div>                 
-</div>
-<!-- map结束 -->
+
+<div id="googlemap""></div>                 
 
 <div data-role="header">
   <a href="#" class="ui-btn ui-btn-icon-left">学校</a>
   <h1></h1>
   <a href="#" class="ui-btn  ui-btn-icon-left">排名</a>
 </div>
+
 <div class="school-listview">
 <ul data-role="listview" data-icon="false" id="school_list" data-mini="true" >
 
@@ -54,17 +51,13 @@ a {text-decoration: none; }
 <!-- GoogleMaps info --> 
  
  <script type="text/javascript"> 
- 
-
-
-	
 	function initMap(lat,lng) {
 		markerArray = []; //make it global
 		var point = {lat: Number(lat), lng: Number(lng)};
 
 		map = new google.maps.Map(document.getElementById('googlemap'), {
 		center: point,
-		zoom: 13
+		zoom: 15
 		});
 		
 		var iconurl = iconbase + "bighouse.png";
@@ -81,7 +74,7 @@ a {text-decoration: none; }
 	
 	function setSchoolList(map) {
 
-		debugger;
+		//debugger;
 		var _sw = map.getBounds().getSouthWest();
 		var _ne = map.getBounds().getNorthEast();
 		var marker;
@@ -118,6 +111,7 @@ a {text-decoration: none; }
 					
 					if ( markerType == 'school'){
 						
+						$("#school_list").empty();
 						$(data.SchoolList).each(function(index) {
 						//console.log("Current:" + this.GeocodeLng + "Next:" + nextLng + "Total:" + totalhouse + "index:" + index + "Count:" + count);
 						var school = this.School;
@@ -140,7 +134,7 @@ a {text-decoration: none; }
 			+ "<a data-ajax='false' class='ui-btn ui-icon-fa-graduation-cap ui-btn-icon-left' href='" + this.URL + "'>" 
 			+  this.School + "</a>"
 			+ "<a href='tel:" + this.Tel + "'class='ui-btn ui-icon-phone ui-btn-icon-left' > " + this.Tel + "</a>"
-			+ "<a class='ui-btn ui-icon-location ui-btn-icon-left' data-ajax='false' href='index.php?r=map/index&lat=" + this.lat  + "&lng=" + this.lng + "&zoom=15&maptype=school'>" 
+			+ "<a class='ui-btn ui-icon-location ui-btn-icon-left' data-ajax='false' href='index.php?r=map&lat=" + this.Lat  + "&lng=" + this.Lng + "&zoom=15&maptype=school'>" 
 			+ this.Address + " " + this.Province + " " + this.Zip + "</a>"
 			+ "</div>"
 			+ "<span id='" + this.Schoolnumber + "' class='ui-li-count'>" + this.Paiming + "</span> "

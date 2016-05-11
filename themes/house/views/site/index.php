@@ -96,6 +96,54 @@ $(document).on("pageshow","#page_main",function(){
 </div>
 
 <!-- MLS END -->
+
+<!-- 加国资讯开始-->
+        
+<script type="text/javascript" language="JavaScript" charset="utf-8"> 
+<!--
+// Set the max number of items to display (1-5):
+	bmArtNumber = 5;
+
+// Set to true to open links in a new window:
+	bmArtNewWindow = false;
+
+// Set to false to hide article descriptions (show headlines only):
+	bmArtFull = true;
+
+// Set the background color:
+	bmArtBackgroundColor = '#ffffff';
+
+// Set the padding (in pixels) to determine
+// the amount of space to create around the link list:
+	bmArtPadding = '5px';
+
+// Set the font style for the words "华枫网--CHINASMILE::服务加拿大华人的综合性网站: TOP HEADLINES":
+	bmArtHeadTag = '<span style="display:none;font-family:arial,helvetica,verdana,sans-serif; font-size:12px; color:#000000; font-weight:bold;">';
+	
+// Set the font style for the main text:
+	bmArtFontTag = '<span style="font-family:arial,helvetica,verdana,sans-serif; font-size:16px; color:#000000; font-weight:normal;">';
+	
+// Set the font style for the 华枫网--ChinaSmile::服务加拿大华人的综合性网站 text at the bottom
+	bmArtSmallTag = '<span style="display:none; font-family:arial,helvetica,verdana,sans-serif; font-size:10px; color:#000000; font-weight:normal;">';
+	
+// Make no changes below this line
+// ===============================
+	bmArtLoaded= false;
+//-->
+</script>
+<script src="http://www.chinasmile.net/csnews/affiliate/Art.js" language="JavaScript" type="text/javascript" charset="utf-8"></script><script type="text/javascript" language="JavaScript" charset="utf-8">
+<!-- 
+	if (bmArtLoaded) {
+		bmArtDeliver();
+	}
+	
+//-->
+</script> 
+<noscript>
+<div><a href="http://www.chinasmile.net/">Click here for top headlines from 华枫网--ChinaSmile::服务加拿大华人的综合性网站.</a></div>
+</noscript>
+<!-- End code for 华枫网--ChinaSmile::服务加拿大华人的综合性网站 content affiliates. -->
+
 <!-- 加国资讯结束 -->
 
 
