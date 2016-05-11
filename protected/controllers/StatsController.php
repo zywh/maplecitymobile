@@ -20,6 +20,11 @@ class StatsController extends XFrontBase
 	
 	$this->render('current');
     }
+	public function actionHist(){
+	Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/stats.css');
+	
+	$this->render('hist');
+    }	
 
     public function actionGetData(){
 

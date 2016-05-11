@@ -1,4 +1,5 @@
 <script src="/static/js/Highstock-4.2.1/js/highstock.js"></script>
+<script src="/static/js/echarts/echarts.js"></script>
 
 
 <div class="ui-field-contain" class="chart-select" >
@@ -17,8 +18,9 @@
  </div> 
 
 <div class="chartbox" id="citychart" >  
+	<div id="main" ></div>
 
-	<div id="chart_graph"> </div>
+	<div id="chart_graph" style="width: 100%;height:400px;"> </div>
 
 </div>
 
@@ -35,25 +37,9 @@ function getFieldValues() {
 	
 options = {};
 	
-var highchartsOptions = Highcharts.setOptions({
-    lang: {
-        loading: '加载中...',
-        months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月','8月', '9月', '10月', '11月', '12月'],
-        shortMonths: ['1月', '2月', '3月', '4月', '5月', '6月', '7月','8月', '9月', '10月', '11月', '12月'],
-        weekdays: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
-        exportButtonTitle: '导出',
-        printButtonTitle: '打印',
-        rangeSelectorFrom: '从',
-        rangeSelectorTo: '到',
-        rangeSelectorZoom: "缩放",
-        downloadPNG: '下载PNG格式',
-        downloadJPEG: '下载JPEG格式',
-        downloadPDF: '下载PDF格式',
-        downloadSVG: '下载SVG格式'
-    }
-});
 
 $(document).on("pagebeforecreate","#page_main",function(){	
+
 
  $.ajax({
 	url: '<?php echo Yii::app()->createUrl('stats/getMlsData'); ?>',
@@ -105,46 +91,29 @@ $(document).on("pagebeforecreate","#page_main",function(){
 					chartdata.push(array);
 				});
 				seriesOptions[seriesname] = {
+					type: 'line',
 					name: cnnames[seriesname],
-					data: chartdata,
-					tooltip: {
-						valueDecimals: 0,
-						dateTimeLabelFormats: {
-							minute:"%A, %b %e, %Y",
-							hour:"%Y/%b",
-							day:"%Y/%b",
-							
-						}
+					data: chartdata
+					
 					}
 					
 				};
 			
 			});
-		});
+	});
 		
 			
 		priceOptions = {
-			credits: { enabled: false },
-			chart: { zoomType: 'x'},
-			rangeSelector : {selected : 5},
-			legend: {enabled: true },
-			navigator : { enabled : false},
+		
 			title : {
-				useHTML: true,
-				//text : '<div class="chart_title">大多地区房产-历史成交图表</div>'
+				text : '大多地区房产-历史成交图表'
 			},
-			subtitle : {
-				useHTML: true,
-				//text : '<div class="chart_subtitle">成交金额/成交量</div>'
-				
-			},
+
 						
-			 yAxis: {
-				opposite: false,
-				title: {text: '平均价格'}
+			yAxis: {
+				name: '平均价格'
 			},
-			
-			
+
 			
 			series: [ seriesOptions.all_avgprice,
 			 seriesOptions.detach_avgprice,
@@ -153,7 +122,7 @@ $(document).on("pagebeforecreate","#page_main",function(){
 			
 
 		};
-		$('#chart_graph').highcharts('StockChart', priceOptions);
+		//$('#chart_graph').highcharts('StockChart', priceOptions);
 		moiOptions = {
 			credits: { enabled: false },
 			chart: { zoomType: 'x'},
@@ -340,6 +309,26 @@ $(document).on("pagebeforecreate","#page_main",function(){
 	
 $(document).on("pageshow","#page_main",function(){	
 	
+	var myChart = echarts.init(document.getElementById('chart_graph'));
+	
+	var option = {
+		title: {
+			text: 'ECharts 入门示例'
+		},
+		tooltip: {},
+		legend: {
+			data:['销量']
+		},
+		xAxis: {
+			data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+		},
+		yAxis: {},
+		series: [{
+			name: '销量',
+			type: 'bar',
+			data: [5, 20, 36, 10, 10, 20]
+		}]
+	};
 	
 	$("select").change(function () {
 		getFieldValues(); //Get updated Select
@@ -347,37 +336,37 @@ $(document).on("pageshow","#page_main",function(){
 		
 		switch(options['chartname']) {
 			case "price":
-				
-				$('#chart_graph').highcharts('StockChart', priceOptions);
+				 myChart.setOption(priceOptions);
+				//$('#chart_graph').highcharts('StockChart', priceOptions);
 				break;
 			case "moi":
 				
-				$('#chart_graph').highcharts('StockChart', moiOptions);
+				//$('#chart_graph').highcharts('StockChart', moiOptions);
 				break;
 			case "sales":
 				
-				$('#chart_graph').highcharts('StockChart', salesOptions);
+				//$('#chart_graph').highcharts('StockChart', salesOptions);
 				break;
 			case "snlr":
 				
-				$('#chart_graph').highcharts('StockChart', snlrOptions);
+				//$('#chart_graph').highcharts('StockChart', snlrOptions);
 				break;				
 			case "dom":
 				
-				$('#chart_graph').highcharts('StockChart', domOptions);
+				//$('#chart_graph').highcharts('StockChart', domOptions);
 				break;
 			case "newlist":
 			
-				$('#chart_graph').highcharts('StockChart', newlistOptions);
+				//$('#chart_graph').highcharts('StockChart', newlistOptions);
 				break;
 			case "active":
-				$('#chart_graph').highcharts('StockChart', activeOptions);
+				//$('#chart_graph').highcharts('StockChart', activeOptions);
 				break;				
 			case "splp":
-				$('#chart_graph').highcharts('StockChart', splpOptions);
+				//$('#chart_graph').highcharts('StockChart', splpOptions);
 				break;
 			default:
-				$('#chart_graph').highcharts('StockChart', priceOptions);
+				//$('#chart_graph').highcharts('StockChart', priceOptions);
 				
 																					
 		}
