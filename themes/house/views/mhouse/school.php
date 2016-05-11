@@ -1,7 +1,8 @@
 <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyA8e2Aha2ksuqOCP06qBBm2eP_WQGets0E&libraries=geometry,places&language=zh-cn"></script>
 
 <script type="text/javascript" src="/static/map/js/richmarker-compiled.js"></script>
-<script type="text/javascript" src="/static/map/js/maplemap.js"></script>
+<!-- <script type="text/javascript" src="/static/map/js/maplemap.js"></script> -->
+<script type="text/javascript" src="/static/map/js/schoolmap.js"></script>
 <style>
 
 
@@ -27,35 +28,7 @@ a {text-decoration: none; }
 
 </style>
 
-<?php
 
-$db = Yii::app()->db;
-function getRank($name,$city,$type){
-	
-	$schoolSearch = str_replace("Secondary School","",$name);
-	$schoolSearch = str_replace("High School","",$schoolSearch);
-	$schoolSearch = str_replace("Secondary School","",$schoolSearch);
-	$schoolSearch = str_replace("Public School","",$schoolSearch);
-	$schoolSearch = str_replace("Middle School","",$schoolSearch);
-	$schoolSearch = str_replace("Elementary School","",$schoolSearch);
-	$schoolSearch = str_replace("'s","",$schoolSearch);
-	
-	if ( ( strpos($name, 'Secondary School') !== false ) || (strpos($name, 'High School') !== false )){
-		$searchType = 2;
-	} else {
-		$searchType = 1;
-	}
-		
-	$sql = "select rank from h_school_rank 
-	where name ='". $schoolSearch."' 
-	and city='".$city."' 
-	and type='".$searchType."';";
-	$resultsql = $db->createCommand($sql)->query();
-	$rank = $resultsql->readColumn(0);
-	$result = ($rank)? $rank : '无';
-	echo $result;
-}
-?>
 <div id='googlemap'></div>
 
 <div data-role="header">
@@ -92,14 +65,88 @@ function getRank($name,$city,$type){
 			position: point
 		});
 
-		infowindow = new google.maps.InfoWindow();
-		var service = new google.maps.places.PlacesService(map);
-		service.nearbySearch({
-			location: point,
-			radius: 3000,
-			type: ['school']
-		}, callback);
+		setSchoolList(map);
 	}
+	
+	function setSchoolList(map) {
+
+		var _sw = map.getBounds().getSouthWest();
+		var _ne = map.getBounds().getNorthEast();
+		var marker;
+		_bounds = _sw.lat() + "," + _sw.lng() + "," + _ne.lat() + "," + _ne.lng();
+	   
+		
+		$.ajax({
+			url: 'index.php?r=map/getSchoolList',
+			type: 'POST',
+			dataType: 'json',
+			data: {
+				bounds: _bounds
+			},
+
+			success: function(data) {
+				
+				if (!data.IsError) {
+					var markerType = data.type;
+					console.log("School List Type:" + markerType);
+					if ( markerType == 'grid'){
+						
+						for (var p in data.gridList) {
+						   
+							var school = data.gridList[p];
+							var schoolcount = school.SchoolCount;
+							if (schoolcount > 0){
+								var avgrating = Math.round(school.TotalRating *10 / schoolcount)/10;
+								//console.log( "Name:" + school.GeocodeLat + "Lat:" + school.GeocodeLng + "Count:"+ school.SchoolCount + "TotalRating:" + school.TotalRating + "AvgRating:" + avgrating);
+								schoolmap.setContentCount(map,school.GeocodeLat, school.GeocodeLng, school.SchoolCount, school.GridName, avgrating);
+							};
+						};
+					}
+					
+					if ( markerType == 'school'){
+						
+						$(data.SchoolList).each(function(index) {
+						//console.log("Current:" + this.GeocodeLng + "Next:" + nextLng + "Total:" + totalhouse + "index:" + index + "Count:" + count);
+						var school = this.School;
+						var rank = this.Paiming;
+						var rating = this.Pingfen;
+						var tlat = parseFloat(this.Lat);
+						var tlng = parseFloat(this.Lng);
+
+						//Generate single house popup view
+						var html = "<div class='school_info_popup'>"
+						+ "<div class='title'><a href='index.php?r=map&lat=" + tlat + "&lng=" + tlng + "&maptype=school&zoom=15'" +" data-ajax='false'>名称：" + school + "</a></div>"
+						+ "<div>年级：" + this.Grade + "</div>" 
+						+ "<div>地址：" + this.Address + "</div>" 
+						+ "<div>城市：" + this.City + " " + this.Province + " " + this.Zip + "</div>"
+						+ "<div>排名：" + rank + " 评分：" + rating + "</div></div>";
+						
+						schoolmap.setContent(map,tlat, tlng, html,rating);
+						
+						var html = "<li><div class='school-area'>" 
+			+ "<a data-ajax='false' class='ui-btn ui-icon-fa-graduation-cap ui-btn-icon-left' href='" + this.URL + "'>" 
+			+  this.school + "</a>"
+			+ "<a href='tel:" + this.tel + "'class='ui-btn ui-icon-phone ui-btn-icon-left' > " + this.tel + "</a>"
+			+ "<a class='ui-btn ui-icon-location ui-btn-icon-left' data-ajax='false' href='index.php?r=map/index&lat=" + this.lat  + "&lng=" + this.lng + "&zoom=15&maptype=school'>" 
+			+ this.address + "</a>"
+			+ "</div>"
+			+ "<span id='" + this.schoolnumber + "' class='ui-li-count'>" + this.paiming + "</span> "
+			+ "</li>"
+			$("#school_list").append(html);	
+						});
+
+					}
+					
+					//End of School Marker
+				}
+
+			//End Success
+			}
+		});
+
+	}		
+
+
 	function callback(results, status) {
 	  if (status === google.maps.places.PlacesServiceStatus.OK) {
 		var service = new google.maps.places.PlacesService(map);
