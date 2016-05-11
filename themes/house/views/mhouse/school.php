@@ -29,7 +29,15 @@ a {text-decoration: none; }
 </style>
 
 
-<div id='googlemap'></div>
+<div data-role="popup" id="schoolviewpopup">
+	<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>	
+	<div id="popuphtml"></div>
+</div>
+<!-- map开始 -->
+<div data-role="content" style="width:100%; height:100%; padding:0;" id="map_area">
+	<div id="google_map" style="width:100%;height:100%"></div>                 
+</div>
+<!-- map结束 -->
 
 <div data-role="header">
   <a href="#" class="ui-btn ui-btn-icon-left">学校</a>
@@ -51,6 +59,7 @@ a {text-decoration: none; }
 
 	
 	function initMap(lat,lng) {
+		markerArray = []; //make it global
 		var point = {lat: Number(lat), lng: Number(lng)};
 
 		map = new google.maps.Map(document.getElementById('googlemap'), {
@@ -64,11 +73,13 @@ a {text-decoration: none; }
 			icon: iconurl,
 			position: point
 		});
-
-		setSchoolList();
+		google.maps.event.addListener(map, 'idle', function() {
+			setSchoolList(map);
+		});
+		
 	}
 	
-	function setSchoolList() {
+	function setSchoolList(map) {
 
 		debugger;
 		var _sw = map.getBounds().getSouthWest();
@@ -78,7 +89,6 @@ a {text-decoration: none; }
 		//console.log（_ne); 
 		_bounds = _sw.lat() + "," + _sw.lng() + "," + _ne.lat() + "," + _ne.lng();
 	   
-/*		
 		$.ajax({
 			url: 'index.php?r=map/getSchoolList',
 			type: 'POST',
@@ -128,12 +138,12 @@ a {text-decoration: none; }
 						
 						var html = "<li><div class='school-area'>" 
 			+ "<a data-ajax='false' class='ui-btn ui-icon-fa-graduation-cap ui-btn-icon-left' href='" + this.URL + "'>" 
-			+  this.school + "</a>"
-			+ "<a href='tel:" + this.tel + "'class='ui-btn ui-icon-phone ui-btn-icon-left' > " + this.tel + "</a>"
+			+  this.School + "</a>"
+			+ "<a href='tel:" + this.Tel + "'class='ui-btn ui-icon-phone ui-btn-icon-left' > " + this.Tel + "</a>"
 			+ "<a class='ui-btn ui-icon-location ui-btn-icon-left' data-ajax='false' href='index.php?r=map/index&lat=" + this.lat  + "&lng=" + this.lng + "&zoom=15&maptype=school'>" 
-			+ this.address + "</a>"
+			+ this.Address + " " + this.Province + " " + this.Zip + "</a>"
 			+ "</div>"
-			+ "<span id='" + this.schoolnumber + "' class='ui-li-count'>" + this.paiming + "</span> "
+			+ "<span id='" + this.Schoolnumber + "' class='ui-li-count'>" + this.Paiming + "</span> "
 			+ "</li>"
 			$("#school_list").append(html);	
 						});
@@ -146,8 +156,7 @@ a {text-decoration: none; }
 			//End Success
 			}
 		});
-*/
-	}		
+		}		
 
 
 	function callback(results, status) {

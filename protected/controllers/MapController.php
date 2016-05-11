@@ -21,6 +21,11 @@ class MapController extends XFrontBase {
         
         $this->render('school');
     }
+	
+	public function actionSchoolheat() {
+        
+        $this->render('schoolheat');
+    }
 
     public function actionIndexsb() {
         $housetype = PropertyType::model()->findAll();
@@ -152,6 +157,7 @@ class MapController extends XFrontBase {
 					$schoolList['City'] = $val->city;
 					$schoolList['Zip'] = $val->zip;
 					$schoolList['Province'] = $val->province;
+					$schoolList['Tel'] = $val->tel;
 					$schoolList['Address'] = $val->address;
 					$schoolList['Lat'] = $val->lat;
 					$schoolList['Lng'] = $val->lng;

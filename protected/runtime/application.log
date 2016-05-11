@@ -1729,3 +1729,33 @@ Stack trace:
 REQUEST_URI=/index.php?r=mhouse/getSchoolAutoComplete&term=T
 HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
 ---
+2016/05/12 00:04:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "schoolheat" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('schoolheat')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('schoolheat')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/schoolheat')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=map/schoolheat
+---
+2016/05/12 00:05:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "schoolheat" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('schoolheat')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('schoolheat')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/schoolheat')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=map/schoolheat
+---
+2016/05/12 00:05:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "schoolheat" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('schoolheat')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('schoolheat')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/schoolheat')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=map/schoolheat
+---
