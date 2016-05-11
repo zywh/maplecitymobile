@@ -19,6 +19,8 @@
 <div class="chartbox" id="citychart" >  
 
 	<div id="chart_graph"> </div>
+	<div id="chart_graph1"> </div>
+	<div id="chart_graph2"> </div>
 
 </div>
 
@@ -122,7 +124,34 @@ $(document).on("pagebeforecreate","#page_main",function(){
 			});
 		});
 		
-		
+		options = {
+			credits: { enabled: false },
+			chart: { zoomType: 'x'},
+			rangeSelector : {selected : 5},
+			legend: {enabled: true },
+			navigator : { enabled : false},
+			title : {
+				useHTML: true,
+				//text : '<div class="chart_title">大多地区房产-历史成交图表</div>'
+			},
+			subtitle : {
+				useHTML: true,
+				//text : '<div class="chart_subtitle">成交金额/成交量</div>'
+				
+			},
+						
+			 yAxis: {
+				opposite: false,
+				title: {text: '平均价格'}
+			},
+			
+			
+			
+			series: [ ]
+			
+
+		};	
+
 		priceOptions = {
 			credits: { enabled: false },
 			chart: { zoomType: 'x'},
@@ -153,7 +182,8 @@ $(document).on("pagebeforecreate","#page_main",function(){
 			
 
 		};
-		hchart = $('#chart_graph').highcharts('StockChart', priceOptions);
+		$('#chart_graph').highcharts('StockChart', priceOptions);
+		//chart = $('#chart_graph').highcharts('StockChart', options);
 		
 		moiOptions = {
 			credits: { enabled: false },
@@ -344,6 +374,7 @@ $(document).on("pageshow","#page_main",function(){
 	
 	
 	$("select").change(function () {
+		var chart = $('#chart_graph').highcharts();
 		getFieldValues(); //Get updated Select
 		console.log("Select:" + options['chartname']);
 		
@@ -352,20 +383,24 @@ $(document).on("pageshow","#page_main",function(){
 		switch(options['chartname']) {
 			case "price":
 				
-				hchart = $('#chart_graph').highcharts('StockChart', priceOptions);
-				hchart.redraw();
+				
+				 chart.series[0].update(seriesOptions.all_newlist);
+				 //$('#chart_graph').highcharts('StockChart', priceOptions);
+				
 				
 				break;
 			case "moi":
 				
-				hchart =  $('#chart_graph').highcharts('StockChart', moiOptions);
-				hchart.redraw();
+				//$('#chart_graph').highcharts().destroy();
+				$('#chart_graph').highcharts('StockChart', moiOptions);
+				
 				break;
 				
 			case "sales":
 				
+				$('#chart_graph').highcharts().destroy();
 				hchart =  $('#chart_graph').highcharts('StockChart', salesOptions);
-				hchart.redraw();
+				
 				break;
 			case "snlr":
 				
