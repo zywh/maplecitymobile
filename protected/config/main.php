@@ -52,7 +52,7 @@ return array(
         ),
 	'googleAnalytics' => array(
 			'class' =>'ext.TPGoogleAnalytics.components.TPGoogleAnalytics',
-			'account' => 'UA-71771242-1',
+			'account' => 'UA-77662608-1',
 			'autoRender' => true,
 	),
 	'db'=>array(
