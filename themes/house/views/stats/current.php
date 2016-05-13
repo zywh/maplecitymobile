@@ -22,7 +22,8 @@
   
 <div class="chartbox" id="citychart" >  
 	<p style="text-align:center"> <font color="#ff4e00"><?php echo date("Y-m-d", time() - 60 * 60 * 24); ?> </font> 实时统计  </p>
-	<p id="chart_graph"> </p>
+	<div id="chart_graph"> </div>
+	
 	<p class="datatabletop"> </p>
 	<table id="tablecity" class="display" width="100%"></table>
 </div>
@@ -45,6 +46,7 @@ function getFieldValues() {
 
 
 options = {};
+var data_houselist= [];
 
 $(document).on("pagebeforecreate","#page_main",function(){			
 $.ajax({
@@ -53,26 +55,51 @@ $.ajax({
 		success: function(result) {		
 
 
-			var price_count= [];
-			var price_label= [];
+			
+			
 			
 			$.each(result.price, function (key, value) {
 				
-					price_count.push(Number(value[1]));
-					price_label.push(value[0]);
+				var data = [value[0],Number(value[1])];
+				console.log(data);
+				data_houselist.push(data);
+				
 				
 			});
-			data_price = [{
-				y: price_count,
-				x: price_label,
-				type: 'bar'
-			}];
-			layout_price = {
-			  //title: ' 房源价格分布图',
-			  xaxis: {title: '价格（万）'},
-			  yaxis: {title: '房源数量（套）'},
-			};
 			
+			
+				
+			 $('#chart_graph').highcharts({
+				credits: { enabled: false },
+				chart: {
+					type: 'column'
+				},
+				title: {
+					text: '房源价格分布图'
+				},
+       
+				xAxis: {
+					type: 'category',
+					labels: {
+						rotation: -90,
+						style: {
+							fontSize: '13px',
+							fontFamily: 'Verdana, sans-serif'
+						}
+					}
+				},
+      
+				legend: {
+					enabled: false
+				},
+
+				series: [{
+					name: '房价分布图',
+					data: data_houselist,
+				}]
+			});
+			
+	
 			
 			//Chart2 Start: Property Type Stats
 			
@@ -94,7 +121,8 @@ $.ajax({
 
 			};
 			
-			
+
+			//$('#chart_graph').highcharts(options);
 			
 			//Chart3 Start:House number by city Bar chart			
 			var city_count= [];
@@ -274,13 +302,14 @@ $.ajax({
 	});
 	
 $(document).on("pageshow","#page_main",function(){	
-	
+
 	$("select").change(function () {
 		getFieldValues(); //Get updated Select
 		
 		switch(options['chartname']) {
 			case "price":
-				Plotly.newPlot('chart_graph', data_price, layout_price);
+				//Plotly.newPlot('chart_graph', data_price, layout_price);
+				
 				break;
 			case "type":
 				Plotly.newPlot('chart_graph', data_type, layout_type);
