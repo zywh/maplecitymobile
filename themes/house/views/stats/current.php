@@ -57,11 +57,12 @@ $.ajax({
 
 			
 			
-			
+			var start = '0';
 			$.each(result.price, function (key, value) {
 				
-				var data = [value[0],Number(value[1])];
-				console.log(data);
+				var range = start + "-" + value[0] + '万';
+				var data = [range,Number(value[1])];
+				start = value[0];
 				data_houselist.push(data);
 				
 				
@@ -77,7 +78,7 @@ $.ajax({
 				title: {
 					text: '房源价格分布图'
 				},
-       
+				yAxis: { title: {text: null}},
 				xAxis: {
 					type: 'category',
 					labels: {
