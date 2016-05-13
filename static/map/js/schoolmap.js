@@ -13,6 +13,9 @@ var schoolmap = {
 			color.bg="#757575";
 			color.font="#fff";
 		};
+		if (hue < 15) {
+			color.font="#fff";
+		};
 				
 		return color;
 	},
