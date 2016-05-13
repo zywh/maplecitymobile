@@ -113,10 +113,10 @@ a {text-decoration: none; }
 						
 						$("#school_list").empty();
 						data.SchoolList.sort(function(a, b) {
-	var _a = (a.Paiming == "无")? 9999 : parseInt(a.Paiming);
-	var _b = (b.Paiming == "无")? 9999 : parseInt(b.Paiming);
-	return _a - _b;
-});
+							var _a = (a.Paiming == "无")? 9999 : parseInt(a.Paiming);
+							var _b = (b.Paiming == "无")? 9999 : parseInt(b.Paiming);
+							return _a - _b;
+						});
 						$(data.SchoolList).each(function(index) {
 						//console.log("Current:" + this.GeocodeLng + "Next:" + nextLng + "Total:" + totalhouse + "index:" + index + "Count:" + count);
 						var school = this.School;
@@ -156,71 +156,6 @@ a {text-decoration: none; }
 			}
 		});
 		}		
-
-
-	function callback(results, status) {
-	  if (status === google.maps.places.PlacesServiceStatus.OK) {
-		var service = new google.maps.places.PlacesService(map);
-		for (var i = 0; i < results.length; i++) {
-			var name = results[i].name;
-			console.log(name);
-		  //if ( results[i].name.indexOf("School") > -1){
-			if ( name.match(/(Middle School|Public School|High School|Secondary School|Elementary School)/)) {
-			  createMarker(results[i]);
-			  //console.log(results[i].name + " " + results[i].place_id + " " +results[i].html_attributions);
-			  //console.log(results[i].vicinity );
-			  
-			  service.getDetails({
-					placeId: results[i].place_id
-				},detailcallback) ;
-		  }
-		}
-	  }
-	}
-	function detailcallback(place,status){
-		 if (status === google.maps.places.PlacesServiceStatus.OK) {
-
-			//console.log(JSON.stringify(place));
-			var rating = (place.rating)? place.rating :'NA' ;
-			var html = "<li><div class='school-area'>" 
-			+ "<a data-ajax='false' class='ui-btn ui-icon-fa-graduation-cap ui-btn-icon-left' href='" + place.website + "'>" 
-			+  place.name + "</a>"
-			+ "<a href='tel:" + place.formatted_phone_number + "'class='ui-btn ui-icon-phone ui-btn-icon-left' > " + place.formatted_phone_number + "</a>"
-			+ "<a class='ui-btn ui-icon-location ui-btn-icon-left' data-ajax='false' href='index.php?r=map/index&lat=" + place.geometry.location.lat()  + "&lng=" + place.geometry.location.lng() + "&zoom=15&maptype=school'>" 
-			+ place.vicinity + "</a>"
-			+ "</div>"
-			+ "<span id='" + place.place_id + "' class='ui-li-count'>" + rating + "</span> "
-			+ "</li>"
-			$("#school_list").append(html);	
-
-			$.getJSON("/index.php?r=mhouse/getSchoolRank", 	
-			{ place_id: place.place_id , lat: place.geometry.location.lat(), lng: place.geometry.location.lng()},  
-				//response
-	function( data, status, xhr ) {
-		//console.log(data);
-		$("#"+data.place_id).text(data.rank);
-		//console.log(data.place_id + data.rank);
-		}
-	);
-
-			}	 
-	}
-	function createMarker(place) {
-	  var placeLoc = place.geometry.location;
-	  var iconurl = iconbase + "university.png";
-	  var marker = new google.maps.Marker({
-		map: map,
-		icon: iconurl,
-		position: placeLoc
-	  });
-
-	  google.maps.event.addListener(marker, 'click', function() {
-		infowindow.setContent(place.name);
-		infowindow.open(map, this);
-	  });
-	}	
-
-
 	
 	$( document ).on( "pagecreate", "#page_main", function() {	
 		var map;
