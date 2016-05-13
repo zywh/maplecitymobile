@@ -22,6 +22,90 @@ class MapController extends XFrontBase {
         $this->render('school');
     }
 
+	public function actionSchoolHeat() {
+        
+        $this->render('schoolheat');
+    }
+	public function actionHouseHeat() {
+        
+        $this->render('househeat');
+    }	
+
+	
+    public function actionGetHouseheatmap() {
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		
+		
+		$maxmarkers = 4000;  //City count if count(house) is over
+		$maxhouse = 4000; //Grid count if count(house) is over
+
+        $result = array();
+		$result['Data']['MapHouseList'] = array();
+		
+        if (empty($_POST)) {
+            $result['IsError'] = true;
+            $result['Message'] = '数据接收失败';
+        } else {
+            $result['IsError'] = false;
+
+            //根据条件查询地图
+            $criteria = new CDbCriteria();
+			$criteria->addCondition('s_r = "Sale"');
+			//lat and long selection
+            if (!empty($_POST['bounds'])) {
+                $latlon = explode(',', $_POST['bounds']);
+                $minLat = floatval($latlon[0]);
+                $maxLat = floatval($latlon[2]);
+                $minLon = floatval($latlon[1]);
+                $maxLon = floatval($latlon[3]);
+                $criteria->addCondition("t.latitude <= :maxLat");
+                $criteria->params += array(':maxLat' => $maxLat);
+                $criteria->addCondition("t.latitude >= :minLat");
+                $criteria->params += array(':minLat' => $minLat);
+                $criteria->addCondition("t.longitude <= :maxLon");
+                $criteria->params += array(':maxLon' => $maxLon);
+                $criteria->addCondition("t.longitude >= :minLon");
+                $criteria->params += array(':minLon' => $minLon);
+		
+           }
+
+			//End of Condition
+
+			
+			$count = House::model()->count($criteria);
+			$result['Total'] = $count;
+									
+	
+			//Generate Data for  House Marker Start
+			if ($count < $maxhouse ){
+			//if ($count < $maxhouse ) {
+				$result['Type'] = "house";
+				$criteria->select = 'lp_dol,longitude,latitude';
+				$house = House::model()->findAll($criteria);
+				$result['Message'] = '成功';
+
+                foreach ($house as $val) {
+                    $mapHouseList = array();
+                    $mapHouseList['Lat'] = $val->latitude;
+                    $mapHouseList['Lng'] = $val->longitude;
+                    $mapHouseList['Price'] = $val->lp_dol/100000;
+                    $result['Data']['MapHouseList'][] = $mapHouseList;
+
+
+                }
+ 
+            
+			}
+			
+
+		
+		}
+		
+		echo json_encode($result);
+    }
+	
+	
     public function actionIndexsb() {
         $housetype = PropertyType::model()->findAll();
         $this->render('indexsb', array('houseType' => $housetype));

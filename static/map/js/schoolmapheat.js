@@ -184,7 +184,7 @@ var schoolmap = {
 							var wlocation = {};
 							wlocation["location"] = new google.maps.LatLng(tlat, tlng);
 							var weight = ( this.Pingfen > 1) ? this.Pingfen: 0;
-							wlocation.wight = 1/weight*100;
+							wlocation.wight = (1/weight)*10;
 							//var point = new google.maps.LatLng(tlat, tlng);
 							heatmapData.push(wlocation);
 							
@@ -205,6 +205,8 @@ var schoolmap = {
 						
 							heatmap = new google.maps.visualization.HeatmapLayer({
 								data: heatmapData,
+								radius: 30,
+								//opacity: 0.8,
 								map: map
 							});	
 						}
