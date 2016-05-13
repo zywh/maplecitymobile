@@ -12,6 +12,7 @@ var househeat = {
 			zoomControl: true,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			minZoom: 10,
+			maxZoom: 18,
 			overviewMapControl: true,
 			overviewMapControlOptions: {
 				opened: true
@@ -44,8 +45,10 @@ var househeat = {
 	changeMap: function(map,mapId) {
 		var zlevel = map.getZoom();
 		console.log("Change Map Zoomlevel:" + zlevel);
-		
-		househeat.clearAll(map);
+		var heatmap = new google.maps.visualization.HeatmapLayer({
+							map: map
+						});	
+		heatmap.getData().j = [];
 
 				
 		var _sw = map.getBounds().getSouthWest();
@@ -87,14 +90,15 @@ var househeat = {
 						var weight = ( this.Price > 1) ? this.Price: 0;
 						wlocation.wight = this.Price;
 						heatmapData.push(wlocation);
-						console.log(tlat + tlng + this.Price);
+						//console.log(tlat + tlng + this.Price);
 						
 												
 						});
 						heatmap = new google.maps.visualization.HeatmapLayer({
 							data: heatmapData,
-							radius: 30,
-							//opacity: 0.8,
+							radius: 20,
+							opacity: 0.3,
+							maxIntensity: 5,
 							map: map
 						});	
 					

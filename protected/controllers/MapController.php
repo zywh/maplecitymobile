@@ -78,10 +78,12 @@ class MapController extends XFrontBase {
 									
 	
 			//Generate Data for  House Marker Start
-			if ($count < $maxhouse ){
+
 			//if ($count < $maxhouse ) {
 				$result['Type'] = "house";
-				$criteria->select = 'lp_dol,longitude,latitude';
+				//$criteria->select = 'log2(avg(lp_dol)) as lp_dol,round(longitude,3) as longitude,round(latitude,3) as latitude';
+				$criteria->select = 'avg(lp_dol)/300000 as lp_dol,round(longitude,3) as longitude,round(latitude,3) as latitude';
+				$criteria->group = '2,3';
 				$house = House::model()->findAll($criteria);
 				$result['Message'] = '成功';
 
@@ -89,14 +91,14 @@ class MapController extends XFrontBase {
                     $mapHouseList = array();
                     $mapHouseList['Lat'] = $val->latitude;
                     $mapHouseList['Lng'] = $val->longitude;
-                    $mapHouseList['Price'] = $val->lp_dol/100000;
-                    $result['Data']['MapHouseList'][] = $mapHouseList;
+                    $mapHouseList['Price'] = $val->lp_dol;
+                    $result['MapHouseList'][] = $mapHouseList;
 
 
                 }
  
             
-			}
+			
 			
 
 		
