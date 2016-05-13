@@ -50,11 +50,7 @@ return array(
         'cache'=>array(
            'class'=>'CFileCache',
         ),
-	'googleAnalytics' => array(
-			'class' =>'ext.TPGoogleAnalytics.components.TPGoogleAnalytics',
-			'account' => 'UA-77662608-1',
-			'autoRender' => true,
-	),
+
 	'db'=>array(
 			'connectionString' => 'mysql:host=127.0.0.1;dbname=hdm106787551_db',
 			'emulatePrepare' => true,

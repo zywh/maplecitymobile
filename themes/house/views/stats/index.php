@@ -127,10 +127,12 @@ $(document).on("pagebeforecreate","#page_main",function(){
 			rangeSelector : {selected : 5},
 			legend: {enabled: true },
 			navigator : { enabled : false},
+			
 			title : {
-				useHTML: true,
-				//text : '<div class="chart_title">大多地区房产-历史成交图表</div>'
+				
+				text : '平均价格（万）'
 			},
+			/*
 			subtitle : {
 				useHTML: true,
 				//text : '<div class="chart_subtitle">成交金额/成交量</div>'
@@ -140,7 +142,7 @@ $(document).on("pagebeforecreate","#page_main",function(){
 			 yAxis: {
 				opposite: false,
 				title: {text: '平均价格'}
-			},
+			},*/
 			
 			
 			
@@ -175,19 +177,17 @@ $(document).on("pageshow","#page_main",function(){
 				 chart.series[0].update(seriesOptions.all_avgprice);
 				 chart.series[1].update(seriesOptions.detach_avgprice);
 				 chart.series[2].update(seriesOptions.condo_avgprice);
-				 chart.yAxis[0].axisTitle.attr({
-					text: '平均价格'
-				 });
-				 chart.yAxis[0].hide();
+				 chart.setTitle({text: "平均价格(万）"});
+				 //chart.yAxis[0].axisTitle.attr({text: '平均价格' });
+				 //chart.yAxis[0].hide();
 				break;
 				
 			case "moi":
 				 chart.series[0].update(seriesOptions.all_moi);
 				 chart.series[1].update(seriesOptions.detach_moi);
 				 chart.series[2].update(seriesOptions.condo_moi);
-				 chart.yAxis[0].axisTitle.attr({
-					text: '平均库存月份'
-				 });
+				  chart.setTitle({text: "平均库存月份"});
+				
 			
 				
 				break;
@@ -196,54 +196,48 @@ $(document).on("pageshow","#page_main",function(){
 				 chart.series[0].update(seriesOptions.all_sales);
 				 chart.series[1].update(seriesOptions.detach_sales);
 				 chart.series[2].update(seriesOptions.condo_sales);
-				 chart.yAxis[0].axisTitle.attr({
-					text: '月销售房源（套）'
-				 });
+				   chart.setTitle({text: "月销售房源（套）"});
+				// chart.yAxis[0].axisTitle.attr({text: '月销售房源（套）' });
 			
 				break;
 			case "snlr":
 				 chart.series[0].update(seriesOptions.all_snlr);
 				 chart.series[1].update(seriesOptions.detach_snlr);
 				 chart.series[2].update(seriesOptions.condo_snlr);
-				 chart.yAxis[0].axisTitle.attr({
-					text: '售出/新盘比%'
-				 });
+				   chart.setTitle({text: "售出/新盘比%"});
+				// chart.yAxis[0].axisTitle.attr({text: '售出/新盘比%' });
 			
 				break;				
 			case "dom":
 				 chart.series[0].update(seriesOptions.all_avgdom);
 				 chart.series[1].update(seriesOptions.detach_avgdom);
 				 chart.series[2].update(seriesOptions.condo_avgdom);
-				 chart.yAxis[0].axisTitle.attr({
-					text: '平均销售日期'
-				 });
+				   chart.setTitle({text: "平均销售日期"});
+				
 			
 				break;
 			case "newlist":
 				 chart.series[0].update(seriesOptions.all_newlist);
 				 chart.series[1].update(seriesOptions.detach_newlist);
 				 chart.series[2].update(seriesOptions.condo_newlist);
-				 chart.yAxis[0].axisTitle.attr({
-					text: '月销售房源（套）'
-				 });
+				   chart.setTitle({text: "月销售房源（套）"});
+				
 			
 				break;
 			case "active":
 				 chart.series[0].update(seriesOptions.all_active);
 				 chart.series[1].update(seriesOptions.detach_active);
 				 chart.series[2].update(seriesOptions.condo_active);
-				 chart.yAxis[0].axisTitle.attr({
-					text: '在售房源（套）'
-				 });
+				   chart.setTitle({text: "在售房源（套）"});
+				 
 			
 				break;				
 			case "splp":
 				 chart.series[0].update(seriesOptions.all_avgsplp);
 				 chart.series[1].update(seriesOptions.detach_avgsplp);
 				 chart.series[2].update(seriesOptions.condo_avgsplp);
-				 chart.yAxis[0].axisTitle.attr({
-					text: '成交价/挂盘价%'
-				 });
+				   chart.setTitle({text: "成交价/挂盘价%"});
+				 
 			
 				break;
 			
