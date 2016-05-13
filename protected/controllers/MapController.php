@@ -243,6 +243,7 @@ class MapController extends XFrontBase {
 					$schoolList['Lat'] = $val->lat;
 					$schoolList['Lng'] = $val->lng;
 					$schoolList['URL'] = $val->url;
+					$schoolList['Schoolnumber'] = $val->schoolnumber;
 					$result['SchoolList'][] = $schoolList;
 
 

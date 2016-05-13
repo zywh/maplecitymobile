@@ -1,7 +1,6 @@
 <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyA8e2Aha2ksuqOCP06qBBm2eP_WQGets0E&libraries=geometry,places&language=zh-cn"></script>
 
 <script type="text/javascript" src="/static/map/js/richmarker-compiled.js"></script>
-<!--<script type="text/javascript" src="/static/map/js/maplemap.js"></script>-->
 <script type="text/javascript" src="/static/map/js/schoolmap.js"></script>
 <style>
 
@@ -14,6 +13,18 @@
 	font-size: 90%;
 	border: none;
 	text-align: left;
+}
+
+.numberCircle {
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    padding: 8px;
+    background: #fff;
+    border: 2px solid green;
+    color: green;
+    text-align: center;
+    font: 10px;
 }
 
 .school-listview .ui-listview > li {
@@ -137,7 +148,7 @@ a {text-decoration: none; }
 						
 						var html = "<li><div class='school-area'>" 
 			+ "<a data-ajax='false' class='ui-btn ui-icon-fa-graduation-cap ui-btn-icon-left' href='" + this.URL + "'>" 
-			+  this.School + "</a>"
+			+ this.School + schoolmap.setMarkerCss(rating) + "</a>"
 			+ "<a href='tel:" + this.Tel + "'class='ui-btn ui-icon-phone ui-btn-icon-left' > " + this.Tel + "</a>"
 			+ "<a class='ui-btn ui-icon-location ui-btn-icon-left' data-ajax='false' href='index.php?r=map&lat=" + this.Lat  + "&lng=" + this.Lng + "&zoom=15&maptype=school'>" 
 			+ this.Address + " " + this.Province + " " + this.Zip + "</a>"
