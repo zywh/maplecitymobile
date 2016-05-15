@@ -82,7 +82,7 @@ class MapController extends XFrontBase {
 			//if ($count < $maxhouse ) {
 				$result['Type'] = "house";
 				//$criteria->select = 'log2(avg(lp_dol)) as lp_dol,round(longitude,3) as longitude,round(latitude,3) as latitude';
-				$criteria->select = 'avg(lp_dol)/300000 as lp_dol,round(longitude,3) as longitude,round(latitude,3) as latitude';
+				$criteria->select = 'avg(lp_dol)/500000 as lp_dol,round(longitude,2) as longitude,round(latitude,2) as latitude';
 				$criteria->group = '2,3';
 				$house = House::model()->findAll($criteria);
 				$result['Message'] = '成功';

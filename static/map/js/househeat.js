@@ -5,21 +5,27 @@ var househeat = {
 	
 	initMap: function(mapId,lat,lng,zoomLevel) {
 		markerArray = []; //make it global
+		heatmapData = [];
+		
+			
 		var initCenter = new google.maps.LatLng(parseFloat(lat), parseFloat(lng));
 		var mapOptions = {
 			center: initCenter,
-			zoom: zoomLevel, //keep zoom and minZoom different to trigger initial map search
-			zoomControl: true,
+			zoom: 11, //keep zoom and minZoom different to trigger initial map search
+			//zoomControl: true,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			minZoom: 10,
-			maxZoom: 18,
+			//minZoom: 10,
+			maxZoom: 13,
+			zoomControl: false,
 			overviewMapControl: true,
 			overviewMapControlOptions: {
 				opened: true
 			}
 		};
 		map = new google.maps.Map(document.getElementById(mapId), mapOptions); //make it global
-		
+		heatmap = new google.maps.visualization.HeatmapLayer({
+							map: map
+		});
 		
 		//google.maps.event.addListener(map, "bounds_changed", function() {
 		google.maps.event.addListener(map, "idle", function() {
@@ -30,26 +36,22 @@ var househeat = {
 
 
 	clearAll: function(map) {
-		if (markerArray) {
-			for (var i in markerArray) {
-				markerArray[i].setMap(null);
-			}
-			markerArray.length = 0;
-		}
 		
-		htmlArray = [];
-		htmlArrayPosition = 0;
-
+		if (heatmapData) {
+			
+			heatmap.setMap(null);
+			heatmap.getData().j = [];
+			console.log("clear heatmap");
+		}
+		heatmapData = [];		
 	},
 	
 	changeMap: function(map,mapId) {
 		var zlevel = map.getZoom();
 		console.log("Change Map Zoomlevel:" + zlevel);
-		var heatmap = new google.maps.visualization.HeatmapLayer({
-							map: map
-						});	
-		heatmap.getData().j = [];
-
+		
+		
+		househeat.clearAll();
 				
 		var _sw = map.getBounds().getSouthWest();
 		var _ne = map.getBounds().getNorthEast();
@@ -76,7 +78,7 @@ var househeat = {
 				success: function(data) {
 					
 					if (!data.IsError) {
-						var heatmapData = [];
+						
 						var markerType = data.Type;
 						console.log("HouseHeatmap:" + data.Total);
 
@@ -87,10 +89,10 @@ var househeat = {
 						var tlng = parseFloat(this.Lng);
 						var wlocation = {};
 						wlocation["location"] = new google.maps.LatLng(tlat, tlng);
-						var weight = ( this.Price > 1) ? this.Price: 0;
-						wlocation.wight = this.Price;
+						//var weight = ( Number(this.Price) > 8) ? this.Price: 10;
+						wlocation.wight = Number(this.Price);
 						heatmapData.push(wlocation);
-						//console.log(tlat + tlng + this.Price);
+						console.log(tlat +" LNG:" + tlng + "Price:" + this.Price);
 						
 												
 						});
@@ -98,7 +100,7 @@ var househeat = {
 							data: heatmapData,
 							radius: 20,
 							opacity: 0.3,
-							maxIntensity: 5,
+							maxIntensity: 2,
 							map: map
 						});	
 					
