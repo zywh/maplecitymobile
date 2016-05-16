@@ -15,20 +15,9 @@
 	text-align: left;
 }
 
-.numberCircle {
-    border-radius: 50%;
-    width: 14px;
-    height: 14px;
-    padding: 8px;
-    background: #fff;
-    border: 2px solid green;
-    color: green;
-    text-align: center;
-    font: 10px;
-}
-
 .school-listview .ui-listview > li {
-	margin-bottom: 13px;
+	padding:5px;
+	border-bottom:1px solid grey;
 }
 
 #googlemap {
@@ -145,10 +134,10 @@ a {text-decoration: none; }
 						+ "<div>排名：" + rank + " 评分：" + rating + "</div></div>";
 						
 						schoolmap.setContent(map,tlat, tlng, html,rating);
-						
+			// "<a data-ajax='false' class='ui-btn ui-icon-fa-graduation-cap ui-btn-icon-left' href='"			
 						var html = "<li><div class='school-area'>" 
-			+ "<a data-ajax='false' class='ui-btn ui-icon-fa-graduation-cap ui-btn-icon-left' href='" + this.URL + "'>" 
-			+ this.School + schoolmap.setMarkerCss(rating) + "</a>"
+			+ "<a data-ajax='false' class='ui-btn' href='" + this.URL + "'>" 
+			+ schoolmap.setMarkerCss(rating) + this.School + "</a>"
 			+ "<a href='tel:" + this.Tel + "'class='ui-btn ui-icon-phone ui-btn-icon-left' > " + this.Tel + "</a>"
 			+ "<a class='ui-btn ui-icon-location ui-btn-icon-left' data-ajax='false' href='index.php?r=map&lat=" + this.Lat  + "&lng=" + this.Lng + "&zoom=15&maptype=school'>" 
 			+ this.Address + " " + this.Province + " " + this.Zip + "</a>"
