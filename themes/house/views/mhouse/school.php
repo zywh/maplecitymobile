@@ -5,6 +5,11 @@
 <style>
 
 
+.school-listview .ui-btn.ui-btn-a {
+	padding: 6px 0px 6px 12px;
+	width: 262px;
+}
+
 .school-listview .ui-btn {
     margin: -3px 0;
 	padding: 6px 0px 6px 34px;
@@ -17,7 +22,7 @@
 
 .school-listview .ui-listview > li {
 	padding:5px;
-	border-bottom:1px solid grey;
+	border-bottom:1px solid #d3d3d3;
 }
 
 #googlemap {
@@ -134,10 +139,13 @@ a {text-decoration: none; }
 						+ "<div>排名：" + rank + " 评分：" + rating + "</div></div>";
 						
 						schoolmap.setContent(map,tlat, tlng, html,rating);
+			
+						// only display the first 10 schools
+						if (index >= 10) return;
 			// "<a data-ajax='false' class='ui-btn ui-icon-fa-graduation-cap ui-btn-icon-left' href='"			
 						var html = "<li><div class='school-area'>" 
-			+ "<a data-ajax='false' class='ui-btn' href='" + this.URL + "'>" 
-			+ schoolmap.setMarkerCss(rating) + this.School + "</a>"
+			+ "<a data-ajax='false' class='ui-btn ui-btn-a' href='" + this.URL + "'>" 
+			+ schoolmap.setMarkerCss(rating) + ' ' + this.School + "</a>"
 			+ "<a href='tel:" + this.Tel + "'class='ui-btn ui-icon-phone ui-btn-icon-left' > " + this.Tel + "</a>"
 			+ "<a class='ui-btn ui-icon-location ui-btn-icon-left' data-ajax='false' href='index.php?r=map&lat=" + this.Lat  + "&lng=" + this.Lng + "&zoom=15&maptype=school'>" 
 			+ this.Address + " " + this.Province + " " + this.Zip + "</a>"
