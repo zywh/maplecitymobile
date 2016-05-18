@@ -21,6 +21,27 @@ class ProjectsController extends XFrontBase
         );
         $this->render('more', $data);
     }
+   public function actionGetProjects(){
+	
+		$result = [];
+		//$id = Yii::app()->request->getQuery('id', 10);
+		$criteria = new CDbCriteria();
+		if (!empty($_POST['id'])) {
+		$criteria->addCondition('id="'.$_POST['id'].'"');
+		}
+		$criteria->addCondition('recommend=1');
+		$subject = Subject::model()->findAll($criteria);
+		foreach($subject as $row){
+
+			//$result['id'] = $row["id"]; 
+			$result['name'] = $row["name"]; 
+			$result['summary'] = $row["summary"]; 
+			
+		}
+		
+		header("Access-Control-Allow-Origin: *");
+		echo json_encode($result);
+    }	
 
     public function actionIndex(){
         Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/enjoy.css');
