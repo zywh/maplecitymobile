@@ -1,0 +1,101 @@
+.nytb_dz{ padding:16px 0;color:#666666; margin:0 auto; width:980px; }
+.nytb_dz a{ color:#666666; text-decoration:none;}
+.nytb_dz span{ color:#ff4e00;}
+
+/*豪宅列表*/
+.enjoy{  margin:0 auto;}
+.enjoyup{ border:1px solid #a3a3a3; padding:10px; height:400px; background:url(../images/enjoy/enjoy_2.jpg) 20px 20px no-repeat;}
+.enjoyup_tab{ width:530px; float:right; margin-right:20px;}
+.enjoyup_tabup{ border-bottom:1px solid #ff5310; padding-bottom:12px; margin-top:90px; text-align: right;}
+
+.enjoyup_tabup a{ font-size:14px; padding:0 18px;  text-decoration: none; color: #000000;}
+.enjoyup_tabup .spanon{ color:#ff5310;}
+.enjoy_tabcont{ line-height:1.5em; padding:15px 0; text-align:left; text-align:justify;}
+.enjoy_tabcont:first-letter { float:left;font-size:20px;vertical-align:top;}
+.enjoyup_tabdown{ background:url(../images/layout/logo.jpg) right 160px no-repeat; padding-bottom:0px; height:260px; }
+
+.enjoydown {
+    padding-top: 22px;
+    margin: 0px 5px;
+}
+.enjoydownlabel{ height:31px; border-bottom:1px solid #ff5310; padding-bottom:8px;}
+.enjoydownlabel_two{ height:31px; border-bottom:1px solid #333; padding-bottom:0; }
+.enjoydownlabel_left{ float:left; background:url(../images/enjoy/enjoy_4.jpg) left center no-repeat; height:30px; line-height:30px; font-size:20px; color:#333; padding-left:30px;}
+.enjoydownlabel_left span{ color:#666; font-size:17px; background:url(../images/enjoy/enjoy_5.jpg) no-repeat; padding-left:2px; margin-left:3px;}
+.enjoydownlabel_right{ float:right;}
+.enjoydownlabel_right span{ display:block; float:left; width:100px; height:30px; font-size:12px; line-height:30px; text-align:center;}
+
+
+.enjoydownlabel_right a{color:#333; float:left; text-decoration:none; font-size:15px;display:block; height:30px; line-height:30px; width:70px; text-align:center;border:1px solid #ff4e00; margin-right:-1px; zoom:1;}
+a.pxfs1{ background:#ff4e00 url(../images/enjoy/enjoy_jt1.jpg) 55px center no-repeat; color:#FFFFFF; }
+a.pxfs2{ background:#ff4e00 url(../images/enjoy/enjoy_jt1_1.jpg) 55px center no-repeat; color:#FFFFFF; }
+
+.enjoydown_one{ text-align:right; padding:5px 0 10px 0; font-size:14px;}
+.enjoydown_two{ margin-top:0px; margin-right:-10px; zoom:1;}
+img { width:100%;height:240px;}
+.enjoydown_list{ 
+    position: relative;
+    float: left;
+    margin-right: 10px;
+    margin-top: 4px;
+}
+.enjoydown_list_info{ height:62px; position:absolute; bottom:0px; padding-top:5px; width:100%;color:#FFFFFF; background:#000000; opacity:0.8; filter:Alpha(opacity=80);;}
+.enjoydown_list_info span{ display:block;  white-space: nowrap;    overflow: hidden;    text-overflow: ellipsis;padding-left:5px;}
+.enjoydown_list_info span i{ font-style:normal; font-size:14px; color:#ff4e00;}
+.enjoy_dz_left {   float: left;}
+.enjoy_dz_left p {
+    margin: 0;
+    text-align: right;
+    width: 92px;
+}
+.enjoy_dz_right p {
+    margin-left: 5px;
+    text-align: left;
+	white-space: nowrap;    overflow: hidden;    text-overflow: ellipsis;
+   
+}
+
+
+.enjoydown_list_xx{background:#000000; opacity:0.8; filter:Alpha(opacity=80);position:absolute; width:485px; height:355px; top:0; left:0; text-align:center;}
+.enjoydown_list_xx a{ color:#FFFFFF; text-decoration:none; display:block;}
+.enjoydown_list_xx a span{ display:block; line-height:1.5em; width:255px; margin:0 auto; margin-top:17px;}
+.enjoydown_list_xx a .titlespan{ color:#ff4e00; margin-top:60px; font-size:14px;}
+.enjoydown_list_xx a span i{font-style:normal; font-size:14px; color:#ff4e00;}
+
+
+/*豪宅鉴赏*/
+.enjoy_hzjs_up{ margin-top:60px;}
+.enjoydown_hzjs_tab{ float:right; padding-top:5px;}
+.enjoydown_hzjs_tab span{font-size: 14px;padding: 0 10px;cursor: pointer;}
+.enjoydown_hzjs_tab .spanon {color: #ff5310;}
+.enjoy_more a{ text-align:center; background:url(../images/enjoy/enjoy_more.jpg) no-repeat; width:102px; height:34px; line-height:34px; display:block; color:#FFFFFF; margin:0 auto; text-decoration:none; margin-top:30px;}
+.enjoydown_hzjs_list{ margin-right:-10px; zoom:1; display: none;}
+
+/*热点推荐*/
+.enjoy_rdtjlabel{ border-bottom:1px solid #ff5310;}
+.enjoydown_hzjs_tab a{ text-decoration:none; color:#333;}
+.enjoydown_hzjs_tab .spanon a{color:#ff5310;}
+.enjoydown_hzjs_tab a:hover{color:#ff5310;}
+.enjoy_rdtj{background:url(../images/enjoy/enjoy_6.jpg) left center no-repeat;}
+
+.enjoy_xxym { display: none; }
+.enjoy_xxym_label{ text-align:center; font-size:18px; font-weight:bold; margin-top:35px;}
+.enjoy_xxym_name{ color:#ff5310; font-size:14px; text-align:center; margin-top:10px;}
+.enjoy_xxym_info{ margin-top:10px; text-align:center; width:600px; margin:0 auto; padding-top:20px; line-height:1.8em;}
+.enjoy_xxym_pic{ position:relative; height:298px; margin:30px 0;}
+.enjoy_xxym_pic_up{ position:absolute; top:190px; right:40px; z-index:100;}
+.enjoy_xxym_pic_up a{ margin:0 10px; border:5px solid #FFFFFF; display:block; float:left;}
+.enjoy_xxym_pic_up a:hover{ border-color:#ff5310;}
+a.enjoy_xxym_pic_on{ border-color:#ff5310;}
+.enjoy_js_list_down{ position:absolute; width:285px; left:0; top:0; height:298px;background:#000000; opacity:0.8; filter:Alpha(opacity=80); z-index:100; padding-left:35px; color:#FFFFFF; }
+.enjoy_js_list_title{ margin-top:40px; font-size:17px; font-weight:bold;}
+.enjoy_js_list_info{ display:block; margin:10px 0; line-height:2em;}
+.enjoy_js_list_info i{ color:#ff5310; font-style:normal; float:left; display:block; padding-right:4px;}
+.enjoy_js_list_info span{ display:block; float:left; width:260px;}
+.enjoy_js_list{ display:none; height:100px;}
+.enjoy_hzjs_down{ margin-top:60px;}
+/*page*/
+.page{ text-align:center; margin-top:35px; height:50px; padding-top:10px; padding-bottom:10px; }
+a.pagelist{ border:1px solid #ccc; padding:5px 10px; background-color:#eee; margin:4px; color:#333333; text-decoration:none;}
+a.page_cur{ background-color:#ff4e00; color:#FFFFFF;}
+.page a:hover{background-color:#ff4e00; color:#FFFFFF;}

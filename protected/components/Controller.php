@@ -52,13 +52,14 @@ class Controller extends CController
 
 
 	//Google Analytics
+	/*
 	protected function beforeRender($view)
 	{
     		$return = parent::beforeRender($view);
     		Yii::app()->googleAnalytics->render();
     		return $return;
 	}
-
+	*/
     /**
 	 * 设置cookie
 	 */

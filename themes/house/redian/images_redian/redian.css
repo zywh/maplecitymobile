@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+*{padding:0; margin:0; font-family:"微软雅黑" }
+
+a:hover{color:#14afff;}
+li{list-style-type:none;}
+
+a{cursor:pointer; text-decoration:none;color:#e4e4e4; font-size:14px;}
+html { overflow-x:hidden; }
+.wrap{ background:#f5f5f5;}
+.botton_nav{ width:1330px; height:37px; border-bottom:2px solid #e6e0e0; overflow:hidden;}
+.nav_wrap{width:972px; height:37px; margin:0 auto;}
+.nav_fl{ float:left;width:860px; height:37px; overflow:hidden; line-height:27px; margin-top:5px;}
+.nav_fl li{ list-style-type:none; float:left;width:100px; height:27px;line-height:27px; text-align:center; }
+.nav_fl li a{color:#484848; font-size:16px;}
+.nav_fl li span{margin-left:15px; margin-right:15px;}
+
+
+.nav_fr{ float:left;width:112px; height:27px; margin-top:5px; }
+.nav_fr a{color:#e7010e; font-size:16px;}
+
+
+.liucheng{width:1038px; height:65px; margin:20px auto;}
+
+
+.project{width:1080px;margin:40px auto;}
+.project_images {width:1034px;margin:40px auto;}
+.intro_con{overflow:hidden;width:1080px; padding-left:20px; padding-top:10px;}
+.intro_fl{width:780px; height:497px; background:#FFFFFF;}
+.intro_fl img{margin-top:12px;margin-left:12px;}
+
+
+.intro_info{overflow:hidden;width:1030px; margin:20px auto;}
+.info_fl{width:584px; height:410px;float:left; }
+.info_01{width:584px; height:250px; overflow:hidden;}
+.img_01{  float:left;width:55px; height:200px;}
+.txt_01{ margin-left:5px;  float:left;width:510px; height:250px;  padding-top:10px;}
+.txt_01 h3{color:#ff4103; font-size:22px; font-weight:normal;}
+.txt_01 p{margin-top:10px; line-height:25px; }
+.txt_01 span{margin-top:20px; display:block;}
+.info_02{width:584px; height:140px; overflow:hidden;}
+.img_02{  float:left;width:55px; height:140px;}
+.txt_02{ margin-left:5px;  float:left;width:510px; height:140px; padding-top:10px;}
+.txt_02 h3{color:#ff4103; font-size:22px; font-weight:normal;}
+.txt_02 p{margin-top:10px; line-height:25px; }
+.info_fr{width:430px; height:410px;float:left;}
+
+
+.adv_show{width:1040px; height:335px;overflow:hidden; margin:10px auto;}
+.show_fl{width:540px; height:335px;float:left; text-align:center; border:1px solid #e2e2e2; background:#FFFFFF;}
+.show_fl img{ margin-top:13px;}
+.show_fr{width:480px; height:335px;float:left; overflow:hidden; margin-left:10px;}
+.show_fr li{width:229px; height:157px; border:1px solid #e2e2e2; background:#FFFFFF; text-align:center; list-style-type:none; float:left; }
+.show_fr img{ margin-top:10px;}
+
+
+.list_top{width:1040px; overflow:hidden; margin:10px auto;}
+.list_01{width:520px; height:132px;overflow:hidden; float:left; }
+.adv_img{float:left;width:48px; height:92px;}
+.adv_txt{width:455px; height:92px;padding-top:10px;  margin-left:10px; float:left; }
+.adv_txt h3{color:#ff4103; font-size:18px; font-weight:normal;}
+.adv_txt p{margin-top:10px; line-height:25px; }
+.list_bot{width:1040px;  margin:10px auto;}
+.list_07{width:1040px; height:132px;overflow:hidden; margin-top:10px;}
+.img_07{float:left;width:55px; height:132px;}
+.txt_07{margin-left:5px;  float:left;width:980px; height:132px;  padding-top:10px;}
+.txt_07 h3{color:#ff4103; font-size:18px; font-weight:normal;}
+.txt_07 p{margin-top:10px; line-height:25px; }
+
+.adv_pic{overflow:hidden;width:1030px; padding-left:20px; }
+.pic_fl{width:780px; height:497px; background:#FFFFFF;}
+.pic_fl img{margin-top:12px;margin-left:12px;}
+
+
+.surrounding{width:1080px;margin:40px auto;}
+.apartment{width:1080px;margin:40px auto;}
+.developer{width:1080px;margin:40px auto;}
+.maps{width:1080px;margin:40px auto;}
+.liyou{width:1080px;margin:40px auto;}
+.liyou_con{width:1036px;margin:20px auto;}
+
+#img_scroll{width:1000px;height:480px; overflow:hidden;padding:8px; background-image:url(/themes/house/images/haozaibg.jpg); background-repeat:no-repeat;  margin:0 auto}
+#img_small{width:255px;float:right;position:relative;height:150px;}
+#img_small a{display:block;margin-bottom:5px;width: 230px;height: 150px;overflow: hidden;}
+#img_small img{width: 230px;height:140px;}
+#img_small .curr{width:226px;height:135px;position:absolute;left:0;top:0; border:3px solid #FF3300}
+#img_big{width:710px;height:480px;float:left;position:relative;}
+#img_big a{display:none;position:absolute;left:0px;top:0;}

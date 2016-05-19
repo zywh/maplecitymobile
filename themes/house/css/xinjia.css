@@ -1,0 +1,317 @@
+@charset "utf-8";
+/* CSS Document */
+img{ border:0; max-width: 100%;  height: auto;  width: auto\9; /* ie8 */}
+
+
+/*枫之都介绍*/
+.nybanner_about{ background:url(../images/c1.jpg) center center no-repeat; background-size: cover;   height: 140px;}
+.fyxq{ margin-top:30px;}
+.zcwz_label{ border-bottom:4px solid #cfcfcf; margin: 5px; }
+.zcwz_label_left{ background:url(../images/c2.jpg) left bottom no-repeat; height:31px; margin-bottom:-4px; font-size:22px;  padding-left:33px; color:#ff3700; float:left; border-bottom:4px solid #ff3700; padding-right:6px;}
+.zcwz_label_right{ float:left; color:#a9a9a9; padding-left:10px; padding-top:7px; font-size:18px;}
+.fyxqdown {    margin: 5px;}
+
+.about_js img{ }
+
+.about_js{ color:#504D4D;}
+.about_js p{ line-height:1.8em; display:block;}
+.img_p{ text-align:center; display:block;  }
+.about_bt1{ font-size:17px; color:#ff3700; text-align:center; display:block; font-weight:bold;}
+.about_bt2{ font-size:16px; color:#ff5a00;  display:block;}
+
+/*合作伙伴*/
+
+.hzhb_ny{margin:0 auto; } 
+
+.hzhb_ny_label{ border-bottom:1px solid #999; line-height:30px;}
+.hzhb_ny_label_left{ float:left;font-size:16px;color:#a9a9a9;}
+.hzhb_ny_label_right{ float:right;  color:#a9a9a9;}
+.hzhb_ny_label_left span{ padding-right:20px; font-size:22px;color:#ff3700;}
+.hzhb_ny_cont{ padding-top:20px;}
+
+.hzhb_ny_down{ margin-top:40px;}
+
+.hzhb_ny_cont a{ display:block; float:left; margin:10px 5px;}
+
+
+/*我的优势*/
+.wdys_ny{ background:url(../images/c14.jpg) right top no-repeat; background-size: cover; }
+.wdys_label{ height:30px;}
+.wdys_one{ 
+	
+    /* margin-bottom: 20px; */
+    background-color: #ffffff;
+    opacity: 0.8;
+    filter: alpha(opacity=40);
+    margin: 0;
+}
+.wdys_two{ margin-bottom:20px;}
+.wdys_label span{ color:#FFF;  background:url(../images/c15.jpg) no-repeat; width:55px; height:25px; text-align:center; display:block; float:left;}
+.wdys_label h2{ float:left; display:block; margin:0; padding-left:10px; font-weight:normal;}
+.wdys_cont{ padding-left:8px; line-height:1.4em; padding-top:5px; }
+
+
+/*联系我们*/
+.lxwm_ny{ background:url(../images/c18.jpg) right 20px no-repeat; padding-bottom:20px;}
+.lxwm_ny_up{ width:400px; line-height:2em; margin-bottom:30px; margin-left:40px; margin-top:30px;}
+.lxwm_ny_up_label{height:32px; line-height:32px; color:#ff4612; font-size:20px;}
+.lxwm_ny_up_label img{ float:left; margin-right:10px;}
+.lxwm_ny_cont{ color:#666; margin-top:5px; }
+
+/*人才招募*/
+
+.join_ny img{ }
+.join_list{}
+.join_list_label{ background:url(../images/c20.jpg) no-repeat;  height:37px; line-height:37px; margin:0 auto; padding-left:0px; font-size:16px;}
+.join_list_cont{ 
+	padding-left: 8px;
+    padding-top: 0px;
+    /* padding-right: 3px; */
+   
+    
+}
+.join_zd{  color:#fe6000;}
+
+.join_list_lx{ color:#f60000;  margin:0 auto;  margin-top:30px;}
+
+
+
+
+
+/*四个快捷键*/
+
+/*关于MLS*/
+
+.nycont_bj{ background-color:#f8f8f8;}/*背景白色*/
+
+.nybanner_mls{ background:url(../images/about/c27.jpg) center center no-repeat;background-size: cover; height: 147px;  margin:0 auto;}
+.ewm_mls{ width:1100px; margin:0 auto; background-color:#FFF; padding-bottom:60px; margin-bottom:-60px; }
+
+.nycontnrbox{ *width:1100px; margin:0 auto; background-color:#FFF; padding-bottom:40px;}
+.nycontnr{ *width:1000px; margin:0 auto; }
+.ny_cont_mls_title{ text-align:center; font-size:26px; color:#ff3c00; padding-top:40px;}
+
+.ny_cont_mls_info{ text-align:center; color:#666; margin-top:10px; }
+
+.ny_cont_zy{ color:#ff3c00; }
+
+.ny_mls_one{ text-align:center;}
+
+.ny_mls_three{ border-bottom:3px solid #666; margin:5px;}
+.ny_mls_three span{  color:#ff3c00; }
+.ny_mls_four {    margin: 5px; margin-top:50px;}
+.ny_mls_four p{ margin:20px 0; line-height:1.8em;}
+
+p.ny_mls_p{ color:#ff3c00; }
+
+.nycontnrbox {
+    margin: 10px 5px 5px 5px;
+    line-height: 26px;
+}
+
+/*关于房产经纪*/
+
+.nybanner_fcjj{ background:url(../images/about/c32.jpg) center center no-repeat;background-size: cover; height: 100px; margin:0 auto;}
+.ny_fcjj_one span{  display:block; margin:20px 0;}
+
+.ny_fcjj_two_label{
+background: url(../images/about/c35.jpg) no-repeat;
+    background-size: cover;
+    /* width: 902px; */
+    height: 50px;
+    line-height: 48px;
+    margin: 0px auto;
+    font-size: 80%;
+    text-align: center;
+    color: #FFF;
+    margin-bottom: 24px;
+    /* margin-top: 50px; */
+} 
+.ny_fcjj_two_listone{ background:url(../images/about/c36.jpg) no-repeat;background-size: cover;
+    height: 136px;
+    padding-left: 0px;
+    /* width: 879px; */
+    padding: 8px 10px 0 54px;
+    color: #FFF;
+    font-size: 78%;
+    line-height: 13px;
+    padding-bottom: 10px;
+} 
+
+.ny_fcjj_two_listtwo{ background:url(../images/about/c37.jpg) no-repeat; background-size: cover;
+    height: 79px;
+    padding-left: 0px;
+    /* width: 879px; */
+    padding: 8px 10px 0 54px;
+    color: #FFF;
+    font-size: 78%;
+    line-height: 13px;
+    padding-bottom: 10px;
+}
+
+
+.ny_fcjj_two_listthree{ background:url(../images/about/c38.jpg) no-repeat; background-size: cover;
+    height: 136px;
+    padding-left: 0px;
+    /* width: 879px; */
+    padding: 8px 10px 0 54px;
+    color: #FFF;
+    font-size: 78%;
+    line-height: 13px;
+    padding-bottom: 10px;}
+
+
+/*关于购房合同*/
+
+.nybanner_gfht{ background:url(../images/about/c39.jpg) center center no-repeat;background-size: cover;
+    height: 115px; margin:0 auto;}
+
+.ny_gfht_one{ font-size:14px; line-height:2em; color:#333;}
+
+.ny_gfht_two{ background:url(../images/about/c40.jpg) no-repeat; background-size: cover;
+    height: 515px;}
+.ny_gfht_two div{ color:#444;}
+.ny_gfht_x1{ font-size: 70%;
+    padding-top: 64px;
+    width: 159px;}
+
+.ny_gfht_x2{     font-size: 70%;
+    padding-top: 0px;
+    width: 156px;
+    padding-left: 163px;}
+
+.ny_gfht_x3{ font-size:70%;padding-top:16px; width:156px; }
+.ny_gfht_x4{ font-size:70%;padding-top: 21px;
+    width: 156px;
+    padding-left: 161px;}
+.ny_gfht_x5{ font-size:70%;padding-top:13px; width:156px; }
+
+
+/*关于购房流程*/
+.nybanner_gflc{ background:url(../images/about/c41.jpg) center center no-repeat;background-size: cover; height: 127px; margin:0 auto;}
+.ny_cont_gflc{  }
+
+.ny_cont_gflc div{  margin-top: 16px ;   }
+
+.gflc_1{ }
+
+.gflc_3{ }
+
+.gflc_5{ }
+
+.gflc_7{ }
+
+.gflc_9{ }
+
+.gflc_11{}
+div.gflc_12{   }
+
+
+/*四个快捷键*/
+
+.nybanner_sgkjj{ background:url(../images/c45.jpg) center center no-repeat; height:463px;}
+.nycont_sgkjj{ margin-top:50px; margin-right:-50px;  margin-bottom:50px;}
+.nycont_sgkjj a{ margin-right:70px;}
+.sgkjj1{ background:url(../images/btn1.jpg) no-repeat; height:147px; width:186px; display:block; float:left;}
+.sgkjj2{ background:url(../images/btn2.jpg) no-repeat; height:147px; width:186px; display:block; float:left; }
+.sgkjj3{ background:url(../images/btn3.jpg) no-repeat; height:147px; width:186px; display:block; float:left;}
+.sgkjj4{ background:url(../images/btn4.jpg) no-repeat; height:147px; width:186px; display:block; float:left;}
+
+.sgkjj1:hover{ background:url(../images/btn1_1.jpg) no-repeat;}
+.sgkjj2:hover{ background:url(../images/btn2_1.jpg) no-repeat;}
+.sgkjj3:hover{ background:url(../images/btn3_1.jpg) no-repeat;}
+.sgkjj4:hover{ background:url(../images/btn4_1.jpg) no-repeat;}
+
+
+
+/*热点推荐*/
+.lm_one{ margin:0 auto; width:980px;}
+.lm_oneleft{ float:left; width:273px;}
+.lm_oneright{ float:left; width:707px;}
+.lm_onedown{ padding-top:40px;}
+.lm_label{ font-size:16px;}
+.video{ width:249px;}
+.videocont{ padding:7px 0;}
+.lmlist a{ color:#000; }
+.lmlist span{ float:right;}
+span.highlight{ color: #F55814; }
+
+.zczl{ background:url("../images/ljzc.jpg?s332") no-repeat; width:249px; height:326px; margin-top:25px;}
+.zczlone{ text-align:center; color:#ffffff; }
+.zczltwo{ padding:20px 0 0 18px;}
+.zczltwo span{ display:block; padding:3px 0;padding-top:0px;}
+.zczltwo span a:hover{ text-decoration:underline}
+.zczlthree{ padding-left:18px; padding-top:10px;}
+
+.zczlthree_one input{ width:205px; padding-left:5px; line-height:29px; height:29px;background:none; border:0;}
+.zczlfour{ padding-left:77px; padding-top:2px;}
+.zczlfour input{ width:100px; height:33px; line-height:33px; color:#333; border:0;  background:url(../images/layout/moren.png) no-repeat; cursor:pointer;}
+.zczlfour input:hover{ color:#FFF; background:url(../images/layout/onhover.png) no-repeat;}
+
+.lm_jd{ width:338px; float:left; padding-left:15px; padding-bottom:25px;}
+.lm_jdup .lm_label{ float:left;}
+.lm_jdup a{ float:right; text-decoration:none; color:#666666; padding-top:3px;}
+.lm_jddown{  overflow:hidden; height:266px;left:0px;top:0px; position:relative; margin:7px 0;}
+
+.lm_jd_tc{ position:relative;}
+.lm_jd_tcbox{ position:absolute; top:-27px; top:-33px; left:0; filter:alpha(opacity=80); width:290px;  /*支持 IE 浏览器*/
+-moz-opacity:0.80; /*支持 FireFox 浏览器*/
+opacity:0.80;  /*支持 Chrome, Opera, Safari 等浏览器*/ background-color:#000000;  height:70px; overflow:hidden; width:338px; font-size:13px; padding-top:6px; }
+.lm_jd_wzup span{ display:block; color:#FFFFFF; padding: 0 25px; line-height:1.5em; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.lm_jd_tcbox a{ float:right; margin-right:20px; color:#F55814; text-decoration:none; }
+.lm_jd_tcbox_on{top:-70px;}
+a.more:hover {
+text-decoration: underline;
+}
+a.more {
+float: right;
+color: #F55814;
+text-decoration: none;
+}
+
+
+
+
+/*8-28弹出内容*/
+.tcbox{  position:fixed;left:0; top:0px; z-index:100; display:none;}
+.tclabel{ background:url(../images/tclabel.png) no-repeat; width:495px; height:35px;}
+.tcboxnr{ position:fixed; top:200px; left:300px; z-index:1000; display:none;}
+.tccont{ background-color:#FFF; width:435px; padding:12px 30px; height:350px;}
+
+.tccont_one{ border-bottom:7px solid #e8e8e8; font-size:24px; height:35px; line-height:35px; padding-bottom:12px;}
+.tccont img{ display:block; float:left; margin-top:4px;}
+.tccont_one span{ padding-left:8px; float:left; display:block;}
+
+.tccont_two a{ float:none; background:url(../images/tc_dian.png) left center no-repeat; padding-left:15px; margin-left:10px; width:auto; text-align:left; border-bottom:1px solid #d3d3d3; padding-top:2px; padding-bottom:4px; font-size:14px;}
+
+.tclabel span{ width:25px; height:25px; float:right; margin-right:10px; text-indent:-4000px; cursor:pointer;}
+.tccont_two a:hover{ color:#F60;}
+.tccontimg{ margin-right:-15px;}
+.tccontimg a{ display:block; width:auto; margin-right:13px;}
+.tccontimg a:hover{color:#F60;}
+.tccontimg a img{ display:block; margin-bottom:5px; border:1px solid #CCC;}
+.tccontimg span{ display:block;}
+
+
+.ajjsq_title{ font-size:14px; padding-top:10px; text-align:center; color:#FFFFFF;}
+.ajjsq_cont{ padding-top:13px;}
+.ajjsq_left_three input{ width:75px; background:none; border:1px solid #CCCCCC;}
+.ajjsq_left_one{ float:left; width:100px; text-align:right; line-height:25px; text-justify : distribute-all-lines;
+}
+.ajjsq_left_two{ float:left; height:20px; width:20px; padding-top:2px;}
+.ajjsq_left_three{ float:left;}
+.ajjsq_left_four{ float:left;height:20px; width:20px; padding-top:2px; padding-left:5px;}
+.ajjsq_left_five{ float:left;}
+.ajjsq_list{ margin-top:3px;}
+.ajjsq_select{ width:112px; height:20px; line-height:20px; border:1px solid #CCCCCC; margin-bottom:5px; background:none; margin-top:2px; color:#999;}
+.ajjsq_left_five{ margin-top:4px;}
+
+
+.xjmy2{ color:#999;width:auto;}
+
+.nycont_sgkjj .ui-mobile a img,
+.nycont_sgkjj .ui-mobile fieldset {
+	border-width: 0;
+	/* height: 60px; */
+	/* margin: auto; */
+}

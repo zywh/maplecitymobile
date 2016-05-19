@@ -1,0 +1,246 @@
+/*房源搜索*/
+a{ text-decoration: none; }
+/*.fyss{width:980px; margin:0 auto;}
+*/.fyss_tablist a{ float:left; width:129px; text-decoration:none; color:#333; font-size:14px; height:36px; line-height:36px; text-align:center; background-color:#FFFFFF; /*border:1px solid #ff4e00;*/ margin-right:-1px;}
+.fyss_tablist_cur a{ color:#FFFFFF; /*background-color:#ff4e00;*/}
+.fyss_tjlist{ border-bottom:1px solid #CCCCCC; padding:3px 0; font-size:14px;}
+.fyss_tjlistleft{ float:left; font-size:14px; font-weight:bold; color:#000000; width:80px; text-align:justify; height:28px; line-height:28px;}
+.fyss_tjlistcenter{ float:left;}
+.fyss_tjlistcenter a{ color:#333333; text-align:center; padding-right:20px; text-decoration:none; line-height:28px;}
+.fyss_tjlistright{ float:left; width:850px;}
+.fyss_tjlistright a{color:#333333; text-align:center; display:inline; white-space:nowrap;  margin-right:18px; text-decoration:none;  float:left; margin-top:4px;} 
+.fyss_tjlistone a{color:#333333; text-align:center;  /*padding:0 2px;*/ margin-right:10px; text-decoration:none; display:block; float:left;}
+.fyss_tjlistright a:hover{ color:#ff4e00; }
+a.fyss_tj_cur{background-color:#ff4e00; color:#FFF; padding:0 6px; margin-right:10px;}
+a.fyss_tj_cur:hover{color:#fff; }
+.syss_dw{ float:left; padding-right:7px; line-height:28px;}
+.fyss_tjjg{ float:left; padding-top:3px;}
+.fyss_tjjgone,.fyss_tjjgthree{ float:left;}
+.fyss_tjjgtwo,.fyss_tjjgfour{ float:left; padding:0 5px;}
+.fyss_tjjgthree{color:#ff4e00; padding:0 10px;}
+.fyss_tjjgfour a{ border:1px solid #999999; height:20px;color:#ff4e00; line-height:20px; padding-bottom:0; display:block; text-align:center; width:50px;}
+.fyss_tjjgfour a:hover{ background-color:#ff4e00; color:#FFFFFF;  border:1px solid #ff4e00; }
+.fyss_tjjgone input{ width:60px; text-align:center;}
+.fyss_tjlistmore{ padding-left:20px; float:left; font-size:12px; padding-top:3px;}
+.syss_xltj{ float:left; position:relative; width:90px; height:20px; line-height:20px; padding-left:5px; border:1px solid #CCCCCC; background:url(../images/xlico.jpg) right center no-repeat; margin-right:20px; margin-bottom:3px;}
+.syss_xltjdown{ position:absolute; padding:5px 0; border:1px solid #CCCCCC; background-color:#fff; left:-1px; display:none;}
+.syss_xltjdown a{ display:block; height:25px; line-height:25px; width:85px; padding-left:10px; color:#333333; text-decoration:none; }
+.syss_xltjdown a:hover{ background-color:#ff4e00; color:#FFFFFF;}
+.fyss_tjqr{ float:left; font-size:12px; padding:5px 0 4px 20px;}
+a.fyss_qrtj_list{ color:#333333; text-decoration:none;  float:left; border:1px solid #CCCCCC; background:url(../images/delete.jpg) right center no-repeat; padding-right:20px; padding-left:5px; margin-right:10px;}
+a.fyss_qrtj_list:hover{ border:1px solid #ff4e00;}
+.fyss_tjsc{ float:right; width:60px; font-size:12px; padding-top:4px;}
+.fyss_tjsc a{ height:20px; line-height:20px;background-color:#ff4e00; text-align:center; display:block; color:#FFFFFF; text-decoration:none;}
+
+/*.syss_picone{width:980px; margin:0 auto;color:#666666;  padding-top:25px;}*/
+
+/*房源列表*/
+/*.syss_jg{margin:0 auto; width:980px; padding-top:30px;}*/
+/*.syss_jg_left{ float:left; width:662px;}
+*//*.syss_px{ font-size:14px; border-bottom:1px solid #ff4e00;}
+*/
+/*.syss_px a{color:#333; float:left; text-decoration:none; font-size:15px;display:block; height:30px; line-height:30px; width:70px; text-align:center;border:1px solid #ff4e00; border-bottom: none; margin-right:-1px; zoom:1;}*/
+a.pxfs1{ /*background:#ff4e00 url(../images/enjoy/enjoy_jt1.jpg) 55px center no-repeat;*/ color:#FFFFFF; }
+a.pxfs2{ background:#ff4e00 url(../images/enjoy/enjoy_jt1_1.jpg) 55px center no-repeat; color:#FFFFFF; }
+
+.syss_pxone{ float:left; height:30px; line-height:30px;  text-align:center; background:#fff url(../images/house/jt2.jpg) right center no-repeat ; color:#ff4e00; border:1px solid #ff4e00; margin-right:-1px; padding:0 25px; border-bottom:0;}
+.syss_px_cur{background:#ff4e00 url(../images/house/jt1.jpg) right center no-repeat ; color:#FFFFFF;}
+/*.syss_pxtwo{ float:left; line-height:30px; padding-left:40px;color:#ff4e00;}*/
+/*.syss_pxthree{ float:right; color:#ff4e00; padding-top:5px;}
+*//*.syss_fclist{ margin-top:35px;}*/
+/*.syss_fclist_left{ float:left;}*/
+/*.syss_fclist_right{ float:left; padding-left:25px; position:relative; padding-top:30px; padding-bottom: 10px; border:1px solid #CCCCCC; height:265px; border-left:0; width:375px;}*/
+/*.syss_fcthree_pic{ float:left; margin-right:18px;}
+*//*.syss_fcfive{ padding-top:15px;}*/
+.syss_fcfiveone{ float:left;  background-color:#fef1ec; padding-left:10px; padding:6px; }
+.syss_fc_fj{ background:url(../images/house/sspic6.jpg) left center no-repeat; display:block; text-decoration:none; height:25px; padding-left:26px; line-height:25px; color:#333333; float:left;}
+.syss_fc_cs{ background:url(../images/house/sspic7.jpg) left center no-repeat; display:block; text-decoration:none; height:25px; line-height:25px; padding-left:26px; color:#333333; float:left; margin-left:5px;}
+
+.syss_fcfivetwo{ float:left; padding-top:8px; width:150px; margin-left:50px; display:inline;}
+.syss_fc_sc{ float:left; background:url(../images/house/sspic8.jpg) left center no-repeat; padding-left:25px; text-decoration:none; color:#333333;}
+.collected{ background-image: url("../images/house/sspic9.jpg"); }
+.syss_fc_db{ float:left; background:url(../images/house/sspic10.jpg) left center no-repeat; padding-left:25px; text-decoration:none; color:#333333; margin-left:20px;}
+.compared{ background-image: url("../images/house/sspic11.jpg"); }
+.syss_fcfivethree{ float:left; }
+.syss_fcfivethree a{ padding:2px 10px; width:60px; text-align:center; text-decoration:none; color:#fff; background-color:#ff4e00; height:30px; line-height:30px; display:block;}
+.syss_fcone{ font-size:14px; color:#ff4e00;}
+.syss_fctwo{ color:#000000; }
+.syss_fctwo{ font-size: 15px; color: #008bc8; }
+/*.syss_fcthree{ padding-top:15px; }*/
+.syss_fcfour{ padding-top:10px; }
+.syss_fcfour_one{ }
+.syss_fcfour span{ font-size:16px; color:#ff4e00;}
+.syss_zt{ width:40px; height:59px; position:absolute; right:25px; line-height:53px; font-size:14px; text-align:center; color:#FFFFFF; top:-1px;background:url(../images/house/sspic5.jpg) no-repeat;}
+
+/*page*/
+.page{ text-align:center; margin-top:35px; height:50px; padding-top:10px; padding-bottom:10px; }
+.pagelist{ border:1px solid #ccc; padding:5px 10px; background-color:#eee; margin:4px;}
+.page_cur{ background-color:#ff4e00; color:#FFFFFF;}
+
+/*syss_fc_right*/
+
+/*.syss_jg_right{ float:left; width:250px; padding-left:65px;}*/
+.zczl{ background:url(../images/ljzc.jpg) no-repeat; width:249px; height:326px; }
+
+
+.zczltwo span{ display:block; _height:16px; padding:1px 0; _padding:0;}
+
+.zczlthree_one{margin-bottom:9px; *margin_bottom:7px;_margin_bottom:6px;}
+.zczlfour{ padding-left:77px; padding-top:2px; _padding:0;}
+.zczlfour input{ width:100px; height:33px; line-height:33px; color:#333; border:0;  background:url(../images/moren.png) no-repeat; cursor:pointer;}
+.zczlfour input:hover{ color:#FFF; background:url(../images/onhover.png) no-repeat;}
+.sylj{ background:url(../images/ssxtb.jpg) no-repeat; height:300px; margin-top:15px;}
+/*.syljcont{ margin-top:40px; padding-left:10px;}
+*/.syljcont a{ display:block; float:left;  width:78px;  margin-top:10px; text-align:center; color:#000; text-decoration:none;}
+/*.syljcont span{ display:block; padding-top:5px;}*/
+
+.grtztitile{ text-align:center; padding-top:11px; padding-left:5px; color:#FFFFFF;}
+.grtzcont{ padding-top:53px; padding-left:20px;}
+.grtzonedown{ background-color:#FFFFFF; position:absolute; display:none; width:210px; left:-1px; top:0px; z-index:800; padding:5px 0;}
+.grtzonedown a{ display:block; padding-left:20px; color:#333333; height:25px; line-height:25px; text-decoration:none;}
+.grtzonedown a:hover{ background-color:#eee;}
+.grtzoneup{ position:relative; z-index:100;}
+.grtzone{ margin-bottom:8px;  *margin-bottom:6px; }
+.grtzone input{ height:30px; padding-left:8px; line-height:34px; z-index:10; width:200px;background:none; border:0; position:relative;}
+.grtztj{ padding-top:15px; margin-left:25px;}
+.grtztj a{ display:block; width:158px; height:33px; line-height:33px; text-align:center; color:#333;background:url(../images/layout/moren1.png) no-repeat; cursor:pointer;}
+.grtztj a:hover{ background:url(../images/layout/onhover1.png) no-repeat; color:#FFF; cursor:pointer;}
+/*房源详情页面*/
+/*.fyxq{ margin:0 auto; width:980px;}
+.fyxq_tab a{ width:60px; height:30px; line-height:30px; display:block; float:left; color:#333333; text-decoration:none; border:1px solid #ff4e00; margin-right:-1px; text-align:center; font-size:14px;}
+/*a.fyxq_tab_cur,.fyxq_tab a:hover{ color:#FFFFFF; background-color:#ff4e00;}
+*/.fyxqupleft{ float:left; width:573px;}
+.diflashup{ width:573px; overflow:hidden; height:327px;}
+.diflashdown{ width:542px; overflow:hidden; height:83px; padding-top:3px; margin-left:18px; position:relative; }
+.diflashdown span{ display:block; background:url(../images/house/a_bg1.jpg) no-repeat; width:127px; padding:7px 0 0 2px; margin:0 3px; height:82px; float:left;}
+.diflashdown span:hover{  background:url(../images/house/a_bg2.jpg) no-repeat;}
+.diflashdown .span_cur{background:url(../images/house/a_bg2.jpg) no-repeat;}
+.collection{float: right; margin-top: 6px;}
+
+.diflashdown_gd{height:87px; position:absolute;	width:4000px;}
+.dlflash_btn{ position:relative; width:573px;}
+.prev-btn{ height:80px; width:16px; background-color:#F7F7F7; border:1px solid #ddd; position:absolute; left:0; top:-80px; cursor:pointer; font-size:20px; color:#999999; line-height:74px;}
+.prev-btn:hover,.next-btn:hover{background-color:#eee; border:1px solid #CCCCCC;}
+.next-btn{  height:80px; width:16px; background-color:#F7F7F7; border:1px solid #ddd; position:absolute; right:0; top:-80px; cursor:pointer; font-size:20px; color:#999999; line-height:74px;}
+
+.fyxq_tab_cont_sp{ background-color:#999999; width:573px; height:413px; display:none;}
+
+.fyxqupright{ float:right; width:372px;}
+.fyxqupright_cont{ border:1px solid #ff4e00; padding:15px;}
+.fyxq_ptss{ padding:5px 0;}
+
+.fyxq_ptssright i{ color:#ff4e00; padding:0px 5px; font-style:normal;}
+.fyxq_ptssright span{ font-size:12px;}
+
+.fyxq_ptpd .fyxq_ptss_you{ color:#ff4e00; background:url(../images/house/you.jpg) left center  no-repeat; }
+.fyxq_up_right_pic{ margin-top:30px;}
+
+.fyxqdown{padding-top:30px;}
+.fyxqdown_right{ float:right; width:250px;}
+.fyxqdown_left_cont{ padding-top:20px;}
+.xqlb_list{ border-bottom:1px solid #CCCCCC; height:30px; line-height:30px; font-size:14px;}
+.xqlb_list_left{ float:left; width:370px;}
+.xqlb_list_right{ float:left;}
+
+.fwbj_box{ margin-top:30px; font-size:14px;}
+.fwbj_contlist_one,.fwbj_contlist_two,.fwbj_contlist_three,.fwbj_contlist_four,.fwbj_contlist_five{ float:left; width:75px;}
+.fwbj_contlist_three,.fwbj_contlist_four,.fwbj_contlist_five{ width:120px;}
+.fwbj_contlist_six{ float:left;}
+.fwbj_cont{ margin-top:20px;}
+.fwbj_contlist{ border-bottom:1px solid #CCCCCC; height:30px; line-height:30px;}
+.fwms_cont{ line-height:2em; padding-top:20px; text-align:justify; padding-bottom:20px;}
+
+.ajjsq{ background:url(../images/ajjsq.jpg) no-repeat; width:248px; height:400px; margin-top:10px;}
+.ajjsq_title{ font-size:14px; padding-top:10px; text-align:center; color:#FFFFFF;}
+.ajjsq_cont{ padding-top:33px;}
+.ajjsq_left_three input{ width:75px; background:none; border:1px solid #CCCCCC;}
+.ajjsq_left_one{ float:left; width:100px; text-align:right;}
+.ajjsq_left_two{ float:left; height:20px; width:20px; padding-top:2px;}
+.ajjsq_left_three{ float:left;}
+.ajjsq_left_four{ float:left;height:20px; width:20px; padding-top:2px; padding-left:5px;}
+.ajjsq_left_five{ float:left;}
+.ajjsq_list{ margin:8px 0;}
+.ajjsq_select{ width:78px; height:20px; line-height:20px; border:1px solid #CCCCCC; margin-bottom:10px; background:none;}
+
+.fjfy_box_cont{padding-top:40px; }
+.lm_jdt_left{ float:left; margin-top:80px; margin-right:25px; cursor:pointer;}
+.lm_jdt_center{ float:left; overflow:hidden;}
+.lm_jdt_centerbox{ width:800px; position:relative;}
+.lm_jdt_right{ float:left; margin-top:80px; margin-left:25px; cursor:pointer;}
+.lm_jdtlist{ width:156px; float:left; text-align:center;  display:inline; margin:0 1px;}
+.lm_jdtlist a{ display:block;}
+.lm_jdt_title{ padding-top:20px; font-size:14px;}
+.lm_jdt_info{ padding-top:10px; width:110px; margin:0 auto;}
+.moretwo{ margin-top:5px; display:block; color:#000000;text-decoration:none;}
+a.moretwo:hover{color: #F55814; }
+
+.scroll_img {height:317px;position:relative;}
+.scroll_img_body {height:317px;width:10000em; float: left;}
+.scroll_img_body img {width: 192px;}
+.fjfy_list{ float:left; margin:0 3px;}
+.fjfy_list a{ text-decoration:none;color:#333333;}
+.fjfy_list span{ display:block; text-align:center; }
+.fjfy_list_spanone{ padding-top:10px; color:#000000; font-size:14px; width: 192px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;}
+.fjfy_list_spantwo{ font-size:16px; color:#ff4e00;}
+.lm_three_jdt{ padding-left:8px;}
+
+.dtck_box{ margin-top:20px;}
+.map_cp{ height:39px; background-color:#ff4e00; overflow: hidden; }
+.map_cpone{ float:left; font-size:14px; color:#FFFFFF; border-right:1px solid #fff; height:31px; line-height:31px; margin:4px 30px 4px 40px; padding-right:25px;}
+.map_cplist{ float:left; height:29px; line-height:29px; margin:5px 30px;}
+.map_cplist a{ display:block; color:#FFFFFF; text-decoration:none;white-space:nowrap;}
+.map_cplist a:hover{ text-decoration:underline;}
+.map_cplist_left{ float:left;}
+.map_cplist_right{ float:left; padding-left:10px; font-size:14px;}
+.maptwo{ float:right;*position:fixed;*right:0;}
+.mapthree{ *position:fixed;*right:91px;}
+.dtck_box_two{ height:430px; overflow:hidden;}
+
+/*对比*/
+.duibi{ position:fixed; right:-185px; top:200px; z-index:9999;}
+.duibi_left{ background:url(../images/house/duibi_left.png) no-repeat; width:28px; height:109px; cursor:pointer; float:left;}
+.duibi_left_two{ background:url(../images/house/duibi_right.png) no-repeat; width:28px; height:109px; cursor:pointer;}
+.duibi_right{ float:left; width:176px;border: 1px solid #F1F1F1; padding:3px; padding-left:5px; background-color:#FFFFFF;}
+.duibi_list{ position:relative; padding:2px; border: 1px solid #F1F1F1; float:left; margin:4px 6px;}
+.duibi_list span{ position:absolute; top:5px; display:block; right:5px; display:none;cursor:pointer; background:url(../images/house/iconbg_close.jpg) no-repeat; width:11px; height:11px; z-index:10; text-indent:-9999px;}
+.duibi_right_down{ padding-top:2px; padding-bottom:5px; }
+.duibi_right_down a{ background-color:#F1F1F1; height:25px; line-height:25px; text-align:center; display:block; width:70px; margin:0 auto; color:#6F6F6F; border:1px solid #D8D8D8; text-decoration:none;}
+.duibi_right_up{min-height:67px;}
+.duibi_list .duibiimg{ width:70px; height:50px;}
+
+.cl{ clear:both;}
+.duibi_on{ background-color:#666; }
+
+/*2-28*/
+.dl_jm_left{ margin-top:15px;}
+.dl_jm_left_info{ float:left;}
+.dl_jm_left_info_right{ float:left; margin-left:20px; margin-top:10px;}
+.dl_jm_left_info_one{ font-size:15px; background:url(../images/house/dhico.jpg) right center no-repeat; height:26px; line-height:26px; width:155px;}
+.dl_jm_left_info_two{ font-size:24px; color:#ff4e00; margin-top:5px; font-weight:bold;}
+.dl_jm_left_info_three{ margin:10px 0 0 0px;}
+.dl_jm_left_info_three a{ display:block; background:url(../images/ljzx.jpg) left center no-repeat; width:99px; line-height:36px; text-align:center; color:#000000; font-size:14px; text-align:center; text-decoration:none;}
+.dl_jm_left_info_three a:hover{
+color: #FFF;
+background: url(../images/onhover.png) no-repeat;	
+	}
+
+/*3-10*/
+.syss_fctwo{color: #000;
+width:285px;
+overflow:hidden;;/* 内容超出宽度时隐藏超出部分的内容 */
+text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+white-space:nowrap;/* 不换行 */;}
+.syss_fctwo a{
+color: #000;
+font-size:12px;}
+
+a.moretwo:hover{color:#ff4e00;}
+
+.dlh_btn,.dlh_btn_2{ color:#ff4e00; border:0; float:right; padding:0; display:block; height:28px; line-height:28px; font-size:16px; cursor:pointer;}
+.syss_fcone a{ font-size: 14px;color: #ff4e00;}
+.syss_fctwo a { font-size:15px;}
+
+.more_dd{position:absolute; right:8px; top:-7px; cursor:pointer; background:url(../images/more_up1.png) right center no-repeat; width:40px; height:30px; line-height:30px;}
+.more_dd:hover{background:url(../images/more_up1_1.png) right center no-repeat; color:#ff4e00;}
+.more_dd_active{background:url(../images/more_up2.png) right center no-repeat;}
+.more_dd_active:hover{background:url(../images/more_up2_1.png) right center no-repeat; color:#ff4e00;}

@@ -12,6 +12,7 @@
 
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
+	'preload'=>array('log'),
 	'name'=>'风之都',
     'language'=>'zh_cn',
 //	'theme'=>'default',
@@ -37,14 +38,19 @@ return array(
 		)
 	),
 	'components'=>array(
+      		'log'=>array(
+            'class'=>'CLogRouter',
+            'routes'=>array(
+                array(
+                    'class'=>'CFileLogRoute',
+                    'levels'=>'error, warning',
+                ),
+            ),
+        ),
         'cache'=>array(
            'class'=>'CFileCache',
         ),
-	'googleAnalytics' => array(
-			'class' =>'ext.TPGoogleAnalytics.components.TPGoogleAnalytics',
-			'account' => 'UA-71771242-1',
-			'autoRender' => true,
-	),
+
 	'db'=>array(
 			'connectionString' => 'mysql:host=127.0.0.1;dbname=hdm106787551_db',
 			'emulatePrepare' => true,

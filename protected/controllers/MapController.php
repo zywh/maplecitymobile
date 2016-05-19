@@ -16,20 +16,33 @@ class MapController extends XFrontBase {
         $housetype = PropertyType::model()->findAll();
         $this->render('index', array('houseType' => $housetype));
     }
-
-    public function actionIndexsb() {
-        $housetype = PropertyType::model()->findAll();
-        $this->render('indexsb', array('houseType' => $housetype));
+	
+	public function actionSchool() {
+        
+        $this->render('school');
     }
 
+	public function actionSchoolHeat() {
+        
+        $this->render('schoolheat');
+    }
+	public function actionHouseHeat() {
+        
+        $this->render('househeat');
+    }	
 
-
-    public function actionGetMapHouse() {
+	
+    public function actionGetHouseheatmap() {
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
 		
+		
+		$maxmarkers = 4000;  //City count if count(house) is over
+		$maxhouse = 4000; //Grid count if count(house) is over
 
         $result = array();
+		$result['Data']['MapHouseList'] = array();
+		
         if (empty($_POST)) {
             $result['IsError'] = true;
             $result['Message'] = '数据接收失败';
@@ -38,54 +51,254 @@ class MapController extends XFrontBase {
 
             //根据条件查询地图
             $criteria = new CDbCriteria();
-            $criteria->select = 'id,ml_num,zip,county,municipality,lp_dol,num_kit,construction_year,depth,front_ft,br,addr,house_image,longitude,latitude,area,bath_tot';
+			$criteria->addCondition('s_r = "Sale"');
+			//lat and long selection
+            if (!empty($_POST['bounds'])) {
+                $latlon = explode(',', $_POST['bounds']);
+                $minLat = floatval($latlon[0]);
+                $maxLat = floatval($latlon[2]);
+                $minLon = floatval($latlon[1]);
+                $maxLon = floatval($latlon[3]);
+                $criteria->addCondition("t.latitude <= :maxLat");
+                $criteria->params += array(':maxLat' => $maxLat);
+                $criteria->addCondition("t.latitude >= :minLat");
+                $criteria->params += array(':minLat' => $minLat);
+                $criteria->addCondition("t.longitude <= :maxLon");
+                $criteria->params += array(':maxLon' => $maxLon);
+                $criteria->addCondition("t.longitude >= :minLon");
+                $criteria->params += array(':minLon' => $minLon);
+		
+           }
 
-			//Search By Lease or Sale
-            if ($_POST['type'] == "rent" )  {
-				$criteria->addCondition('s_r = "Lease"');
-				$ss = " AND s_r = 'Lease' ";
-            }
-			else{
-				$criteria->addCondition('s_r = "Sale"');
-				$ss = " AND s_r = 'Sale' ";
-            }
-            /* 排序
-             * <span data-value="1">价格：从高到低</span>
-              <span data-value="2">价格：从低到高</span>
-              <span data-value="3">日期：从后到前</span>
-              <span data-value="4">日期：从前到后</span>
-             */
+			//End of Condition
 
-            if ($_POST['orderby'] == 1) {
-                $criteria->order = 't.lp_dol desc';
-            } else if ($_POST['orderby'] == 2) {
-                $criteria->order = 't.lp_dol asc';
-            } else if ($_POST['orderby'] == 3) {
-                $criteria->order = 't.construction_year asc';
-            } else if ($_POST['orderby'] == 4) {
-                $criteria->order = 't.construction_year desc';
-            } else {
-                $criteria->order = 't.id desc';
-            }
+			
+			$count = House::model()->count($criteria);
+			$result['Total'] = $count;
+									
+	
+			//Generate Data for  House Marker Start
 
-            //city_id - province
-           //if (!empty($_POST['province']) && trim($_POST['country']) != 'undefined') {
-			//
-           //    $criteria->addCondition("t.city_id = :city_id");
-           //    $criteria->params += array(':city_id' => intval($_POST['province']));
-           //}
+			//if ($count < $maxhouse ) {
+				$result['Type'] = "house";
+				//$criteria->select = 'log2(avg(lp_dol)) as lp_dol,round(longitude,3) as longitude,round(latitude,3) as latitude';
+				$criteria->select = 'avg(lp_dol)/500000 as lp_dol,round(longitude,2) as longitude,round(latitude,2) as latitude';
+				$criteria->group = '2,3';
+				$house = House::model()->findAll($criteria);
+				$result['Message'] = '成功';
+
+                foreach ($house as $val) {
+                    $mapHouseList = array();
+                    $mapHouseList['Lat'] = $val->latitude;
+                    $mapHouseList['Lng'] = $val->longitude;
+                    $mapHouseList['Price'] = $val->lp_dol;
+                    $result['MapHouseList'][] = $mapHouseList;
+
+
+                }
+ 
             
-            //district_id
-           // if (!empty($_POST['district']) && trim($_POST['district']) != 'undefined') {
-           //     $criteria->addCondition("t.district_id = :district_id");
-           //     $criteria->params += array(':district_id' => intval($_POST['district']));
-           // }
+			
+			
+
+		
+		}
+		
+		echo json_encode($result);
+    }
+	
+	
+    public function actionIndexsb() {
+        $housetype = PropertyType::model()->findAll();
+        $this->render('indexsb', array('houseType' => $housetype));
+    }
+
+	
+    public function actionGetSchoolList() {
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		
+		$maxmarkers = 200;  
+        $result = array();
+		$result['SchoolList'] = array();
+			
+        if (empty($_POST)) {
+            $result['IsError'] = true;
+            $result['Message'] = '数据接收失败';
+        } 
+		else 
+		{
+            $result['IsError'] = false;
+
+            //type
+            $criteria = new CDbCriteria();
+			
+			if($_POST['type'] == 's' ) {
+				$criteria->addCondition('type =1');
+			} 
+			
+			if($_POST['type'] == 'e' ) {
+				$criteria->addCondition('type =0');
+			} 
+			
+			$chinese = preg_match("/\p{Han}+/u", $_POST['xingzhi']);
+			//XingZhi
+			if(!empty($_POST['xingzhi']) && !($chinese)) {
+				$criteria->addCondition("xingzhi like '".$_POST['xingzhi']."%'");
+			}
+			
+			//Pingfen
+			if(!empty($_POST['pingfen']) && intval($_POST['pingfen']) > 0) {
+				$criteria->addCondition("pingfen >='".$_POST['pingfen']."'");
+			} 
+			
+			//Rank
+			if(!empty($_POST['rank'])&& intval($_POST['rank']) > 0) {
+				//$criteria->order = "paiming ASC";
+				$criteria->addCondition("paiming <='".$_POST['rank']."'");
+						
+			} 		
+			
+			//lat and long selection
+            if (!empty($_POST['bounds'])) {
+                $latlon = explode(',', $_POST['bounds']);
+                $minLat = floatval($latlon[0]);
+                $maxLat = floatval($latlon[2]);
+                $minLon = floatval($latlon[1]);
+                $maxLon = floatval($latlon[3]);
+                $criteria->addCondition("lat <= :maxLat");
+                $criteria->params += array(':maxLat' => $maxLat);
+                $criteria->addCondition("lat >= :minLat");
+                $criteria->params += array(':minLat' => $minLat);
+                $criteria->addCondition("lng <= :maxLon");
+                $criteria->params += array(':maxLon' => $maxLon);
+                $criteria->addCondition("lng >= :minLon");
+                $criteria->params += array(':minLon' => $minLon);
+		
+
+
+            }
+
+			//Filter Invalid Lat
+			$criteria->addCondition("lat > 20");
+			
+			//End of Condition
+			
+			$count = School::model()->count($criteria);
+			
+						
+			//Display grid list if # of maxmarker is large
+			if ( $count >= $maxmarkers) {
+				$result['type'] = "grid";
+				$criteria->addCondition("pingfen >0");
+				error_log("Count:".$count."Grid Mode");
+				$criteria->limit = 2000;
+				$school = School::model()->findAll($criteria);
+				$result['Message'] = '成功';
+				$gridx =  ( $_POST['gridx'])? ( $_POST['gridx']): 5;
+				$gridy =  ( $_POST['gridy'])? ( $_POST['gridy']): 5;
+
+				$tiley = (($maxLat - $minLat ) / $gridy) ;
+				$tilex = (($maxLon - $minLon ) / $gridx) ;
+				//Generate grid center Lat/Lng
+				for ( $x=1; $x <= $gridx ; $x++){
+					for ( $y=1; $y <= $gridy ; $y++){
+						$gridCenterlat = $minLat + ($tiley/2) + ($y -1)*$tiley ;
+						$gridCenterlng = $minLon + ($tilex/2) + ($x -1)*$tilex ;
+						$result['gridList']["G".$x.$y]['GeocodeLat'] = $gridCenterlat;
+						$result['gridList']["G".$x.$y]['GeocodeLng'] = $gridCenterlng;
+									
+					}
+				}
+				//Get count of school in each tile
+				foreach ($school as $val) {
+				
+					$gridlat = ceil((($val->lat - $minLat ) / $tiley));
+					$gridlng = ceil((($val->lng - $minLon) / $tilex));
+					$rating = $val-> pingfen;
+					$result['gridList']["G".$gridlng.$gridlat]['GridName'] = "G".$gridlng.$gridlat;
+					$result['gridList']["G".$gridlng.$gridlat]['SchoolCount']++; 
+					$result['gridList']["G".$gridlng.$gridlat]['TotalRating'] += $rating; 
+					
+				}
+       		}
+			
+			//Display school list if maxmarker is less
+			if ( $count < $maxmarkers) {
+				$result['type'] = "school";
+				$criteria->order = "paiming";
+				$school = School::model()->findAll($criteria);
+				$result['Message'] = '成功';
+				foreach ($school as $val) {
+					$schoolList = array();
+					$schoolList['School'] = $val->school;
+					$schoolList['Paiming'] = !empty( $val->paiming)?  $val->paiming :'无';
+					$schoolList['Pingfen'] = !empty( $val->pingfen)?  $val->pingfen :'无';
+					$schoolList['Grade'] = $val->grade;
+					$schoolList['City'] = $val->city;
+					$schoolList['Zip'] = $val->zip;
+					$schoolList['Province'] = $val->province;
+					$schoolList['Tel'] = $val->tel;
+					$schoolList['Address'] = $val->address;
+					$schoolList['Lat'] = $val->lat;
+					$schoolList['Lng'] = $val->lng;
+					$schoolList['URL'] = $val->url;
+					$schoolList['Schoolnumber'] = $val->schoolnumber;
+					$result['SchoolList'][] = $schoolList;
+
+
+				}
+ 
+       		}
+		}
+		
+		echo json_encode($result);
+    }
+	
+
+    public function actionGetMapHouse() {
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		
+		
+		$maxmarkers = 2000;  //City count if count(house) is over
+		$maxhouse = 40; //Grid count if count(house) is over
+		$maxcitymarkers = 20;
+		$minGrid = 5; //Display house if gridcount is lower than mindGrid
+        $result = array();
+		$result['Data']['AreaHouseCount'] = array();
+		$result['Data']['MapHouseList'] = array();
+		
+        if (empty($_POST)) {
+            $result['IsError'] = true;
+            $result['Message'] = '数据接收失败';
+        } else {
+            $result['IsError'] = false;
+
+            //根据条件查询地图
+            $criteria = new CDbCriteria();
+			//$gridcriteria = new CDbCriteria();
+            
+
+			if ($_POST['sr'] == "Lease" )  {
+				$criteria->addCondition('s_r = "Lease"');
+			
+			//} elseif ($_POST['sr'] == "Sale"){
+			} else{
+					
+				$criteria->addCondition('s_r = "Sale"');
+			} 
+			/*
+			else {
+				error_log("S_R is default");
+			}*/
+ 
 
             //卫生间数量 1-5
             if (!empty($_POST['housebaths']) && intval($_POST['housebaths']) > 0) {
                 $criteria->addCondition("t.bath_tot = :bath_tot");
                 $criteria->params += array(':bath_tot' => intval($_POST['housebaths']));
-				$ss = $ss." AND bath_tot = ".$_POST['housebaths'];
+				
             }
 
             //土地面积
@@ -102,47 +315,49 @@ class MapController extends XFrontBase {
                     $criteria->params += array(':minGround' => $minGround);
                 }
             }
+			//House Area
+			if (!empty($_POST['housearea'])) {
+				$housearea = explode('-', $_POST['housearea']);
+				$minArea = intval($housearea[0]) ;
+				$maxArea = intval($housearea[1]) ;
+				//error_log ("MinPrice:".$minPrice);
+				if ($maxArea != 0 || $minArea != 0) {
+					if ($maxArea > $minArea) {
+						$criteria->addCondition('house_area <'.$maxArea);
+					}
+					$criteria->addCondition('house_area >='.$minArea);
+				}
+			}			
+			//价格区间
+			if (!empty($_POST['houseprice'])) {
+				$price = explode('-', $_POST['houseprice']);
+				$minPrice = intval($price[0]) *10000;
+				$maxPrice = intval($price[1]) *10000;
+				error_log ("MinPrice:".$minPrice);
+				if ($maxPrice != 0 || $minPrice != 0) {
+					if ($maxPrice > $minPrice) {
+						$criteria->addCondition('lp_dol <'.$maxPrice);
+					}
+				
+					$criteria->addCondition('lp_dol >='.$minPrice);
+				}
+			}
 
-            //价格区间
-            if (!empty($_POST['houseprice'])) {
-                $price = explode(',', $_POST['houseprice']);
-                $minPrice = intval($price[0]) *10000;
-                $maxPrice = intval($price[1]) *10000;
-                if ($maxPrice != 0 || $minPrice != 0) {
-                    if ($maxPrice > $minPrice) {
-                        $criteria->addCondition("t.lp_dol <= :maxPrice");
-                        $criteria->params += array(':maxPrice' => $maxPrice);
-						$ss = $ss." AND lp_dol <= ".$maxPrice;
-                    }
-                    $criteria->addCondition("t.lp_dol >= :minPrice");
-                    $criteria->params += array(':minPrice' => $minPrice);
-					$ss = $ss." AND lp_dol >= ".$minPrice;
-                }
-            }
+	 
+			//Bedroom
+			if (!empty($_POST['houseroom']) && intval($_POST['houseroom']) > 0) {
+				$houseroom = intval($_POST['houseroom']);
+				$criteria->addCondition("t.br > :br");
+				$criteria->params += array(':br' => $houseroom);
+			}
 
-            //房型
-            if (!empty($_POST['houseroom']) && intval($_POST['houseroom']) > 0) {
-                $houseroom = intval($_POST['houseroom']);
-                if ($houseroom == '6') {
-                    $criteria->addCondition("t.br >= :br");
-                } else if ($houseroom > 0) {
-                    $criteria->addCondition("t.br = :br");
-                }
-                $criteria->params += array(':br' => $houseroom);
-            }
+			//房屋类型
+			if (!empty($_POST['housetype']) && intval($_POST['housetype']) > 0) {
+				$criteria->addCondition("propertyType_id =".$_POST['housetype']);
+				
+			}
 
-            //房屋类型
-            if (!empty($_POST['housetype']) && intval($_POST['housetype']) != 0) {
- 				$criteria->addSearchCondition('propertyType_id',$_POST['housetype']);
-				$ss = $ss." AND propertyType_id = ".$_POST['housetype'];
-            }
-
-            //根据地区名字搜索
-           //if (!empty($_POST['city']) && trim($_POST['city']) != '州名/市名(中英)') {
-           //    $city = trim($_POST['city']);
-           //    $criteria->addCondition("t.addr like '%" . $city . "%' OR b.pinyin like '%" . $city . "%' OR b.englishName like '%" . $city . "%'");
-           //}
-           //
+  
             //建造年份
            if (!empty($_POST['houseyear'])) {
                 //$year = explode(',', $_POST['houseyear']);
@@ -173,67 +388,119 @@ class MapController extends XFrontBase {
 
             }
 
-			$criteria->with = array('mname','propertyType','city');
+			error_log("minLon:".$minLon."maxLon:".$maxLon."minLat:".$minLat."maxLat:".$maxLat);
 
 			//End of Condition
 
-			//Check number of house group by city
 			
-
-			$sql = "
-			SELECT count(*) c, h.municipality m , municipality_cname cn,	m.lat lat,m.lng lng
-			FROM h_house h,h_mname m
-			WHERE latitude <=".$maxLat."
-			AND latitude >=".$minLat."
-			AND longitude <=".$maxLon."
-			AND longitude >=".$minLon.$ss."
-			
-			AND h.municipality = m.municipality
-			GROUP BY m
-			ORDER BY c DESC	";
+			$count = House::model()->count($criteria);
+			$result['Data']['Total'] = $count;
 						
-			$db = Yii::app()->db;
-			$groupresult = $db->createCommand($sql)->query();
-			$citytotal = 0;
-			$citylimit = 20; //control how many city marker displayed
-			$result['Data']['AreaHouseCount'] = array();
-			$result['Data']['MapHouseList'] = array();
+			//Generate Data for City Count Marker Start
+			if ( $count >= $maxmarkers) {
+				error_log("Generate City View Count");
+				$result['Data']['Type'] = "city";
+				$groupcriteria = $criteria;
+				$groupcriteria->select = 't.municipality as municipality,count(id) as id,sum(lp_dol)/10000 as lp_dol';
+				//$groupcriteria->select = 't.municipality as municipality,count(id) as id,"100" as lp_dol';
+				$groupcriteria->with = array('mname');
+				$groupcriteria->group = "t.municipality";
+				$groupcriteria->order = "id DESC";
+				$groupcriteria->limit = $maxcitymarkers;
+				
+				$groupresult = House::model()->findAll($groupcriteria);
+				$result['Message'] = '成功';
+				//error_log(get_object_vars($groupcriteria));
+				foreach ($groupresult as $val) {
+					
+					$city = $val->municipality;
+					error_log("Generate City List".$city);
+					$lat = $val->mname->lat;
+					$lng = $val->mname->lng;
+					$citycn = $val->mname->municipality_cname;
+					
+					if ( $lat > 20 ) {
+						$result['Data']['AreaHouseCount'][$city]['NameCn'] = !empty($citycn)? ($citycn):"其他";
+						$result['Data']['AreaHouseCount'][$city]['HouseCount'] = $val->id;
+						$result['Data']['AreaHouseCount'][$city]['TotalPrice'] = $val->lp_dol;
+						$result['Data']['AreaHouseCount'][$city]['GeocodeLat'] = $lat;
+						$result['Data']['AreaHouseCount'][$city]['GeocodeLng'] = $lng;
+					}
+		
+				}
 			
-			if(count($groupresult) > 0){
-			$cityint = 0;		
-				foreach($groupresult as $citycount){
-					$result['Message'] = '成功';
-					$count = $citycount["c"];
-					$city = $citycount["m"];
-					$lat = $citycount["lat"];
-					$lng = $citycount["lng"];
-					++$cityint;
-					$citytotal+=$count;
-					
-					if ( $lat > 20 && $cityint < $citylimit){
-					
-						//error_log($city.":".$count.":".$cityint);
-						$result['Data']['AreaHouseCount'][$city]['Count'] ['NameCn'] = !empty($citycount["cn"])? ($citycount["cn"]):"其他";
-						$result['Data']['AreaHouseCount'][$city]['Count'] ['HouseCount'] = $count;
-						$result['Data']['AreaHouseCount'][$city]['Count'] ['GeocodeLat'] = $lat;
-						$result['Data']['AreaHouseCount'][$city]['Count'] ['GeocodeLng'] = $lng;
-						//$result['Data']['AreaHouseCount'][$val->municipality]['Count'] ['MaxZoom'] = 2;
-						//$result['Data']['AreaHouseCount'][$val->municipality]['List'][] = $mapHouseList;
+			}
+			
+			$gridcount = 100;
+			//Generate Data for Grid Counter Marker Start
+			if (( $count < $maxmarkers) && ($count >= $maxhouse) ){
+				//error_log("Count:".$count."Get Grid");
+				$result['Data']['Type'] = "grid";
+				$gridx =  ( $_POST['gridx'])? ( $_POST['gridx']): 5;
+				$gridy =  ( $_POST['gridy'])? ( $_POST['gridy']): 5;
+				
+				$gridcriteria = $criteria;
+				$gridcriteria->select = 'longitude,latitude,lp_dol';
+				$location = House::model()->findAll($gridcriteria);
+				$result['Message'] = '成功';
+				//$tilex = (($maxLat - $minLat ) / $gridx) * 100000;
+				//$tiley = (($maxLon - $minLon ) / $gridy) * 100000;
+				$tiley = (($maxLat - $minLat ) / $gridy) ;
+				$tilex = (($maxLon - $minLon ) / $gridx) ;
+				//Generate grid center Lat/Lng
+				for ( $x=1; $x <= $gridx ; $x++){
+					for ( $y=1; $y <= $gridy ; $y++){
+						$gridCenterlat = $minLat + ($tiley/2) + ($y -1)*$tiley ;
+						$gridCenterlng = $minLon + ($tilex/2) + ($x -1)*$tilex ;
+						$result['Data']['AreaHouseCount']["G".$x.$y]['GeocodeLat'] = $gridCenterlat;
+						$result['Data']['AreaHouseCount']["G".$x.$y]['GeocodeLng'] = $gridCenterlng;
+						
 						
 					}
-					$result['Data']['Total'] = $citytotal;
 				}
-				//error_log("Total:".$citytotal);
-			}
-			//End of check
-            
-			$maxmarkers = 2000;
-			if ($citytotal < $maxmarkers ){
+				//Get count of house in each tile
+				foreach ($location as $val) {
+					//$gridlat = ceil((($val->latitude - $minLat ) * 100000 / $tilex));
+					//$gridlng = ceil((($val->longitude - $minLon) * 100000 / $tiley));
+					$gridlat = ceil((($val->latitude - $minLat ) / $tiley));
+					$gridlng = ceil((($val->longitude - $minLon) / $tilex));
+					$price = $val-> lp_dol/10000;
+					
+					
+					$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['NameCn'] = "G".$gridlng.$gridlat;
+					$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['HouseCount']++; 
+					$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['TotalPrice'] += $price; 
+					//error_log("G".$gridlng.$gridlat."Count:".$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['HouseCount']);
+				}
 				
+				
+				
+				function moreThanOne($var)
+				{
+				return($var['HouseCount'] > 0);
+				}
+				$filteredResult = array_filter($result['Data']['AreaHouseCount'],"moreThanOne");
+				$gridcount = count($filteredResult);
+				error_log("#Grid:".$gridcount);
+				
+				
+				$result['Data']['Type'] = "grid";
+				
+				
+			}
+			
+			
+			
+			//Generate Data for  House Marker Start
+			if (($count < $maxhouse ) || ( $gridcount <= $minGrid)){
+			//if ($count < $maxhouse ) {
+				error_log("Select House:".$count." GridCount:".$gridcount);	
+				$result['Data']['Type'] = "house";
+				$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,depth,front_ft,br,addr,house_image,longitude,latitude,area,bath_tot';
+				$criteria->with = array('mname','propertyType','city');
+				$criteria->order = "t.latitude,t.longitude";
 				$house = House::model()->findAll($criteria);
-				$totalcount = count($house);
-				$result['Data']['Total'] = $totalcount;
-			    $result['Message'] = '成功';
+				$result['Message'] = '成功';
 
                 foreach ($house as $val) {
                     $mapHouseList = array();
@@ -242,26 +509,28 @@ class MapController extends XFrontBase {
                     $mapHouseList['Kitchen'] = $val->num_kit;
                     $mapHouseList['GeocodeLat'] = $val->latitude;
                     $mapHouseList['GeocodeLng'] = $val->longitude;
-                    $mapHouseList['Address'] = $val->addr; 
-                    $mapHouseList['sqft'] = $val->sqft;
+                    $mapHouseList['Address'] = !empty($val->addr)?$val->addr : "不详";
+			$mapHouseList['SaleLease'] = $val->s_r; 
+                    //$mapHouseList['sqft'] = $val->sqft;
                     $mapHouseList['Price'] = $val->lp_dol/10000;
-                    $mapHouseList['Id'] = $val->id;
+                    //$mapHouseList['Id'] = $val->id;
                     $mapHouseList['HouseType'] = !empty($val->propertyType->name) ? $val->propertyType->name : '其他';
 					$mapHouseList['MunicipalityName'] = !empty($val->mname->municipality_cname)? ($val->mname->municipality_cname):"其他";
                     $mapHouseList['CountryName'] = $val->municipality;
                     $mapHouseList['Zip'] = $val->zip;
+                    $mapHouseList['MLS'] = $val->ml_num;
                     $mapHouseList['Country'] = $val->city_id;
                     $mapHouseList['ProvinceEname'] = $val->county;
                     $mapHouseList['ProvinceCname'] = $val->city->name;
-                    $mapHouseList['Money'] = 'CAD';
-                    //$area2Name = District::model()->findByPk($val->district_id);
-                    $mapHouseList['Area2Name'] = !empty($area2Name) ? $area2Name->name : '';
+                    //$mapHouseList['Area2Name'] = !empty($area2Name) ? $area2Name->name : '';
                     //Get image from county
+					//error_log("Lat:".$val->latitude."Lng:".$val->longitude."MLS".$val->ml_num);
 					
 					$county = $val->county;
 					$county = preg_replace('/\s+/', '', $county);
 					$county = str_replace("&","",$county);
-					$dir="mlspic/crea/".$county."/Photo".$val->ml_num."/";
+					$dir="mlspic/crea/creamid/".$county."/Photo".$val->ml_num."/";
+					$dirtn="mlspic/crea/creatn/".$county."/Photo".$val->ml_num."/";
 					$num_files = 0;
 
 					if(is_dir($dir)){
@@ -270,15 +539,18 @@ class MapController extends XFrontBase {
 					}
 					//error_log($county.":".$dir);
 
-					if ( $num_files > 1)    {
+					if ( $num_files > 0)    {
 						$mapHouseList['CoverImg'] = $dir.$picfiles[2];
+						$mapHouseList['CoverImgtn'] = $dirtn.$picfiles[2];
+						
 					}else {
-						$mapHouseList['CoverImg'] = 'uploads/201501/29cd77e5f187df554a1ff9facdc190e2.jpg';
+						$mapHouseList['CoverImg'] = 'static/images/zanwu.jpg';
+						$mapHouseList['CoverImgtn'] = 'static/images/zanwu.jpg';
 					}
 
 
-					//$mapHouseList['CoverImg'] = !empty($val->house_image) ? $val->house_image : 'uploads/201501/29cd77e5f187df554a1ff9facdc190e2.jpg';
-                    $mapHouseList['BuildYear'] = $val->yr_built;
+					
+                    //$mapHouseList['BuildYear'] = $val->yr_built;
                     $result['Data']['MapHouseList'][] = $mapHouseList;
 
 
@@ -286,13 +558,14 @@ class MapController extends XFrontBase {
  
             
 			}
-
+			
 
 		
 		}
-		//error_log(json_encode($result))	;
+		
 		echo json_encode($result);
     }
+	
 	public function actionGetCityLocation(){
 		$db = Yii::app()->db;
 		$city = $_POST['city'];
@@ -314,6 +587,7 @@ class MapController extends XFrontBase {
     
 	//Function END  
     }
+	
 	public function actionGetProvinceLocation(){
 		$db = Yii::app()->db;
 		$pid = $_POST['province'];
@@ -331,6 +605,89 @@ class MapController extends XFrontBase {
 		}
 		
 		 echo json_encode($result);
+    
+	//Function END  
+    }
+	
+	public function actionGetSchoolAutoComplete(){
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		$db = Yii::app()->db;
+		$term = trim($_GET['term']);
+		$city_id='0';
+		$limit = 10;
+		$chinese = preg_match("/\p{Han}+/u", $term);
+		
+		
+		
+		if ($chinese) { //if province = 0 and chinese search
+		
+			$sql = "
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  m.municipality_cname like '".$term."%' 
+			AND  m.count > 1 order by count desc limit " .$limit;
+						
+		
+		} else { //if province = 0  and english search
+		
+			$sql = "
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like '".$term."%' 
+			AND  m.count > 1 order by count desc limit ". $limit;
+			
+		}
+				
+		
+	
+	
+			
+		
+		$resultsql = $db->createCommand($sql)->query();
+		$citycount = count($resultsql);
+		
+		foreach($resultsql as $row){
+			$idArray = array($row["citye"],$row["lat"],$row["lng"]);
+			
+			$result['id'] = implode("|",$idArray); 
+			if ( $chinese ) {
+				
+				$result['value'] = $row["cityc"].", ".$row["provincec"]; 
+				$results[] = $result;
+				
+			} else {
+				$result['value'] = $row["citye"].", ". $row["provincee"]; 
+				$results[] = $result;
+			}
+	
+	
+		}
+			
+		//Address Search and Return ML_NUM
+		if ($citycount < $limit){
+			//start address selection
+			$limit = $limit - $citycount;
+			$sql = "
+			SELECT school,lat,lng,city,province FROM h_school 
+			WHERE  school like '%".$term."%' order by paiming ASC
+			limit " .$limit;
+			$resultsql = $db->createCommand($sql)->query();
+			
+			foreach($resultsql as $row){
+				$idArray = array($row["school"],$row["lat"],$row["lng"]);
+			
+				$result['id'] = implode("|",$idArray); 
+				$result['value'] = $row["school"].", ".$row["city"].", ".$row["province"]; 
+				$results[] = $result;
+			}
+		}
+		
+		
+
+		 echo json_encode($results);
     
 	//Function END  
     }

@@ -9,6 +9,7 @@
  * @license       http://www.bagecms.com/license
  * @version       v3.1.0
  */
+ 
 class MhouseController extends XFrontBase
 {
   
@@ -16,21 +17,31 @@ class MhouseController extends XFrontBase
  		 $this->render('index');
     }
 
+	public function actionSchool() {
+		ini_set("log_errors", 1);
+        ini_set("error_log", "/tmp/php-error.log");
+
+        
+ 		$this->render('school');
+		 
+    }	
+	
     /**
      * 房源详情
      */
 	
     public function actionSearchHouse() {
+		
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
-		
 		$result = array();
-		error_log($_POST['sr'].$_POST['housetype'].$_POST['pageindex']."br:".$_POST['houseroom']);
-		error_log("Price:".$_POST['houseprice']."Housearea:".$_POST['housearea']);
+		//error_log($_POST['sr'].$_POST['housetype'].$_POST['pageindex']."br:".$_POST['houseroom']);
+		error_log("Price:".$_POST['houseprice']."City:".$_POST['city']);
+		
 
 		//根据条件查询地图
 		$criteria = new CDbCriteria();
-		$criteria->select = 'ml_num,zip,county,municipality,lp_dol,num_kit,construction_year,depth,front_ft,br,addr,house_image,longitude,latitude,area,bath_tot';
+		$criteria->select = 'ml_num,zip,county,s_r,municipality,lp_dol,num_kit,construction_year,depth,front_ft,br,addr,house_image,longitude,latitude,area,bath_tot';
 
 
 		//Search By Lease or Sale
@@ -60,20 +71,22 @@ class MhouseController extends XFrontBase
 			$ss = $ss." AND bath_tot = ".$_POST['housebaths'];
 		}
 
-		//土地面积
-		if (!empty($_POST['houseground'])) {
-			$ground = explode(',', $_POST['houseground']);
-			$minGround = intval($ground[0]);
-			$maxGround = intval($ground[1]);
-			if ($minGround != 0 || $maxGround != 0) {
-				if ($maxGround > $minGround) {
-					$criteria->addCondition("t.depth*t.front_ft <= :maxGround");
-					$criteria->params += array(':maxGround' => $maxGround);
+		
+		//House Area
+		if (!empty($_POST['housearea'])) {
+			$housearea = explode('-', $_POST['housearea']);
+			$minArea = intval($housearea[0]) ;
+			$maxArea = intval($housearea[1]) ;
+			//error_log ("MinPrice:".$minPrice);
+			if ($maxArea != 0 || $minArea != 0) {
+			    if ($maxArea > $minArea) {
+					$criteria->addCondition('house_area <'.$maxArea);
 				}
-				$criteria->addCondition("t.depth*t.front_ft >= :minGround");
-				$criteria->params += array(':minGround' => $minGround);
+			
+				$criteria->addCondition('house_area >='.$minArea);
 			}
 		}
+
 
 		//价格区间
 		if (!empty($_POST['houseprice'])) {
@@ -102,10 +115,17 @@ class MhouseController extends XFrontBase
 		//房屋类型
 		if (!empty($_POST['housetype']) && intval($_POST['housetype']) > 0) {
 			$criteria->addCondition("propertyType_id =".$_POST['housetype']);
-			$ss = $ss." AND propertyType_id = ".$_POST['housetype'];
+			
 		}
 
-
+		//房屋类型
+		if (!empty($_POST['city']) ) {
+			$criteria->addCondition("t.municipality ='".$_POST['city']."'");
+		
+		}
+		#$criteria->order = 'id DESC';
+        $criteria->order = 'pix_updt DESC,city_id ASC,lp_dol DESC';
+        
 
 		$criteria->with = array('mname','propertyType','city');
 		$count = House::model()->count($criteria);
@@ -135,6 +155,8 @@ class MhouseController extends XFrontBase
 			$mapHouseList['Kitchen'] = $val->num_kit;
 			$mapHouseList['GeocodeLat'] = $val->latitude;
 			$mapHouseList['GeocodeLng'] = $val->longitude;
+			$mapHouseList['CityLat'] = $val->mname->lat;
+			$mapHouseList['CityLng'] = $val->mname->lng;
 			$mapHouseList['Address'] = $val->addr; 
 			$mapHouseList['sqft'] = $val->sqft;
 			$mapHouseList['Price'] = $val->lp_dol/10000;
@@ -143,19 +165,19 @@ class MhouseController extends XFrontBase
 			$mapHouseList['MunicipalityName'] = !empty($val->mname->municipality_cname)? ($val->mname->municipality_cname):"其他";
 			$mapHouseList['CountryName'] = $val->municipality;
 			$mapHouseList['Zip'] = $val->zip;
+			$mapHouseList['Sr'] = $val->s_r;
 			$mapHouseList['Country'] = $val->city_id;
 			$mapHouseList['MlsNumber'] = $val->ml_num;
 			$mapHouseList['ProvinceEname'] = $val->county;
 			$mapHouseList['ProvinceCname'] = $val->city->name;
-			$mapHouseList['Money'] = 'CAD';
-			//$area2Name = District::model()->findByPk($val->district_id);
+			
 			
 			//Get image from county
 			
 			$county = $val->county;
 			$county = preg_replace('/\s+/', '', $county);
 			$county = str_replace("&","",$county);
-			$dir="mlspic/crea/creatn/".$county."/Photo".$val->ml_num."/";
+			$dir="mlspic/crea/creamid/".$county."/Photo".$val->ml_num."/";
 			
 			$num_files = 0;
 
@@ -189,7 +211,8 @@ class MhouseController extends XFrontBase
         $cookies = Yii::app()->request->getCookies();
  
 		$criteria = new CDbCriteria();
-		$criteria->addCondition('t.id="'.$id.'"');
+		//$criteria->addCondition('t.id="'.$id.'"');
+		$criteria->addCondition('t.ml_num="'.$id.'"');
 		$criteria->with = array('mname','propertyType');
 		
         //$house = House::model()->find('id=:id',array(':id'=>$id));
@@ -259,81 +282,124 @@ class MhouseController extends XFrontBase
     }
 
 	public function actionGetCityList(){
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
 		$db = Yii::app()->db;
 		//$result = array();
 		$term = trim($_GET['term']);
-		$city_id = trim($_GET['cd1']);
+		$city_id='0';
+		$limit = 10;
 		$chinese = preg_match("/\p{Han}+/u", $term);
+		//error_log("Search:".$term);
 		//
 		
-		//Generate Count by municipality
-		if ( $city_id == '0' ) {
-			
-			if ($chinese) { //if province = 0 and chinese search
-			
-				$sql = "
-				SELECT m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
-				FROM h_mname m, h_city c 
-				WHERE  m.province = c.englishname 
-				AND  m.municipality_cname like '".$term."%' 
-				AND  m.count > 10 order by count desc limit 10;
-				";			
-			
-			} else { //if province = 0  and english search
-			
-				$sql = "
-				SELECT m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
-				FROM h_mname m, h_city c 
-				WHERE  m.province = c.englishname 
-				AND  municipality like '".$term."%' 
-				AND  m.count > 10 order by count desc limit 10;
-				";
-			}
-			
-		} else{  //if province is NOT 0
-			
-			if ($chinese) { //if province = 0 and chinese search			
-			
-				$sql = "
-				SELECT m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
-				FROM h_mname m, h_city c 
-				WHERE m.province = c.englishname 
-				AND  c.id=".$city_id." 
-				AND m.municipality_cname like '".$term."%'  
-				AND  m.count > 10 order by count desc limit 10;
-				";		
-			} else {
-				
-				$sql = "
-				SELECT m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
-				FROM h_mname m, h_city c 
-				WHERE m.province = c.englishname 
-				AND  c.id=".$city_id." 
-				AND m.municipality like '".$term."%' 
-				AND  m.count > 10 order by count desc limit 10;
-				";		
-			}
-			
-		
-		
-		}
-			
-		$resultsql = $db->createCommand($sql)->query();
-		
-		foreach($resultsql as $row){
+		if ( is_numeric($term) || preg_match("/^[a-zA-Z]\d+/",$term) ) {
+			//MLS search
+			$sql = "
+			SELECT ml_num FROM h_house 
+			WHERE  ml_num like '".$term."%' 
+			ORDER by city_id
+			limit " .$limit;
+			$resultsql = $db->createCommand($sql)->query();
+			foreach($resultsql as $row){
 
-			$result['id'] = $row["citye"]; 
-			if ( $chinese ) {
-			  	
-				$result['value'] = $row["cityc"].", ".$row["provincec"]; 
+				$result['id'] = $row["ml_num"]; 
+				$result['value'] = $row["ml_num"]; 
 				$results[] = $result;
 				
-			} else {
-				$result['value'] = $row["citye"].", ". $row["provincee"]; 
-				$results[] = $result;
 			}
-	
-	
+			
+		} else{
+		//Generate Count by municipality
+			if ( $city_id == '0' ) {
+				
+				if ($chinese) { //if province = 0 and chinese search
+				
+					$sql = "
+					SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+					FROM h_mname m, h_city c 
+					WHERE  m.province = c.englishname 
+					AND  m.municipality_cname like '".$term."%' 
+					AND  m.count > 1 order by count desc limit " .$limit;
+								
+				
+				} else { //if province = 0  and english search
+				
+					$sql = "
+					SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+					FROM h_mname m, h_city c 
+					WHERE  m.province = c.englishname 
+					AND  municipality like '".$term."%' 
+					AND  m.count > 1 order by count desc limit ". $limit;
+					
+				}
+				
+			} else{  //if province is NOT 0
+				
+				if ($chinese) { //if province = 0 and chinese search			
+				
+					$sql = "
+					SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+					FROM h_mname m, h_city c 
+					WHERE m.province = c.englishname 
+					AND  c.id=".$city_id." 
+					AND m.municipality_cname like '".$term."%'  
+					AND  m.count > 1 order by count desc limit ". $limit;
+					
+				} else {
+					
+					$sql = "
+					SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+					FROM h_mname m, h_city c 
+					WHERE m.province = c.englishname 
+					AND  c.id=".$city_id." 
+					AND m.municipality like '".$term."%' 
+					AND  m.count > 1 order by count desc ". $limit;
+					
+				}
+				
+				
+							
+			}
+				
+			
+			$resultsql = $db->createCommand($sql)->query();
+			$citycount = count($resultsql);
+			
+			foreach($resultsql as $row){
+				$idArray = array($row["citye"],$row["lat"],$row["lng"]);
+				
+			$result['id'] = implode("|",$idArray); 
+				if ( $chinese ) {
+					
+					$result['value'] = $row["cityc"].", ".$row["provincec"]; 
+					$results[] = $result;
+					
+				} else {
+					$result['value'] = $row["citye"].", ". $row["provincee"]; 
+					$results[] = $result;
+				}
+		
+		
+			}
+			
+			//Address Search and Return ML_NUM
+			if ($citycount < $limit){
+				//start address selection
+				$limit = $limit - $citycount;
+				$sql = "
+				SELECT ml_num,addr,municipality,county,latitude,longitude FROM h_house  
+				WHERE  addr like '%".$term."%' order by city_id
+				limit " .$limit;
+				$resultsql = $db->createCommand($sql)->query();
+				
+				foreach($resultsql as $row){
+
+					$result['id'] = $row["ml_num"]; 
+					$result['value'] = $row["addr"].", ".$row["municipality"].", ".$row["county"]; 
+					$results[] = $result;
+				}
+			}
 		}
 		
 
@@ -342,4 +408,90 @@ class MhouseController extends XFrontBase
 	//Function END  
     }
 	
+	
+	public function actionGetSchoolList(){
+		ini_set("log_errors", 1);
+        ini_set("error_log", "/tmp/php-error.log");
+	
+		$schoolList = array();
+		$lat = $_POST['lat'];
+		$lng = $_POST['lng'];
+		$url = 'https://www.app.edu.gov.on.ca/eng/sift/searchElementaryXLS.asp';
+		// header
+		$userAgent = array(
+		'Mozilla/5.0 (Windows NT 6.1; rv:22.0) Gecko/20100101 Firefox/22.0', // FF 22
+		'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36', // Chrome 27
+		'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)', // IE 9
+		'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E)', // IE 8
+		'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E)', // IE 7
+		'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/4.1.0.4000 Chrome/26.0.1410.43 Safari/537.1', // Maxthon 4
+		'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E)', // 2345 2
+		'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; QQBrowser/7.3.11251.400)', // QQ 7
+		'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E; SE 2.X MetaSr 1.0)', // Sougo 4
+		'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0) LBBROWSER', //  liebao 4
+		);
+
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_0);
+		curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:22.0) Gecko/20100101 Firefox/22.0");
+		curl_setopt($ch, CURLOPT_REFERER, "https://www.app.edu.gov.on.ca/eng/sift/PCsearchSec.asp");
+		curl_setopt($ch, CURLOPT_USERAGENT, $userAgent[rand(0, count($userAgent) - 1)]);
+		// 伪造IP头
+		$ip = rand(27, 64) . "." . rand(100, 200) . "." . rand(2, 200) . "." . rand(2, 200);
+		$headerIp = array("X-FORWARDED-FOR:{$ip}", "CLIENT-IP:{$ip}","Host:www.app.edu.gov.on.ca");
+		//$lat = '43.5596118';
+		//$lng = '-79.72719280000001';
+		//$lng = '-79.40317140000002';
+		//$lat = '43.6363265';
+		error_log("School Lat:".$lat."Lng:".$lng);
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headerIp);
+		$fields = array(
+			'chosenLevel' => urlencode("Secondary"),
+			'compareLat' => urlencode($lat),
+			'compareLong' => urlencode($lng),
+			'refineDistance' => urlencode("NN"),
+		);
+
+
+		$fields_string='';
+		foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
+		rtrim($fields_string, '&');
+		curl_setopt($ch,CURLOPT_POST, count($fields));
+		curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+		// 读取数据
+		$res = curl_exec($ch);
+		curl_close($ch);
+		//$xml = simplexml_load_string($res) or die("Error: Cannot create object");
+		header('Content-type: application/xml');
+		echo $res;
+
+		//echo json_encode($xml);
+
+	}
+
+	public function actionGetSchoolRank(){
+		$db = Yii::app()->db;
+		//$result = array();
+		$place_id = trim($_GET['place_id']);
+		$lat = round(trim($_GET['lat']),6);
+		$lng = round(trim($_GET['lng']),6);
+			
+		$sql = "select paiming from h_school 
+		where lat ='". $lat."' 
+		and lng='".$lng."';"; 
+		
+		$resultsql = $db->createCommand($sql)->query();
+		//error_log($sql);
+		
+		$rank = $resultsql->readColumn(0);
+		$result["place_id"] = $place_id;
+		$result["rank"] = ($rank)? $rank : '无';
+		
+		//$results[] = $result;
+		
+		echo json_encode($result);
+}	
+
 }
