@@ -23,7 +23,7 @@ class ProjectsController extends XFrontBase
     }
    public function actionGetProjects(){
 	
-		$result = [];
+		$results = [];
 		//$id = Yii::app()->request->getQuery('id', 10);
 		$criteria = new CDbCriteria();
 		if (!empty($_POST['id'])) {
@@ -36,11 +36,10 @@ class ProjectsController extends XFrontBase
 			//$result['id'] = $row["id"]; 
 			$result['name'] = $row["name"]; 
 			$result['summary'] = $row["summary"]; 
-			
+			$results[] = $result;
 		}
 		
-		header("Access-Control-Allow-Origin: *");
-		echo json_encode($result);
+		echo json_encode($results);
     }	
 
     public function actionIndex(){
