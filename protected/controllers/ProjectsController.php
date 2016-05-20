@@ -23,7 +23,7 @@ class ProjectsController extends XFrontBase
     }
    public function actionGetProjects(){
 	
-		$results = [];
+		$results = array();
 		//$id = Yii::app()->request->getQuery('id', 10);
 		$criteria = new CDbCriteria();
 		if (!empty($_POST['id'])) {
@@ -38,7 +38,7 @@ class ProjectsController extends XFrontBase
 			$result['summary'] = $row["summary"]; 
 			$results[] = $result;
 		}
-		
+		header('Content-Type: application/json');
 		echo json_encode($results);
     }	
 
