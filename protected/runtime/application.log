@@ -2002,3 +2002,13 @@ Stack trace:
 #4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
 #5 /var/www/mhtml/index.php(19): CWebApplication->run()
 REQUEST_URI=/index.php?r=projects/getProjects
+2016/05/21 03:18:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "getProjects?id=3" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('getProjects?id=...')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getProjects?id=...')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('projects/getPro...')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=projects/getProjects?id=3
+---
