@@ -24,12 +24,18 @@ class ProjectsController extends XFrontBase
    public function actionGetProjects(){
 	
 		$results = array();
-		//$id = Yii::app()->request->getQuery('id', 10);
+		$postParms = array();
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		$_POST = (array) json_decode(file_get_contents('php://input'), true);
+		//error_log("Parms:".$_POST['parms']['id']);
+		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+		
 		$criteria = new CDbCriteria();
-		if (!empty($_POST['id'])) {
-		$criteria->addCondition('id="'.$_POST['id'].'"');
+		if (!empty($postParms['id'])){
+			$criteria->addCondition('id="'.$_POST['parms']['id'].'"');
 		}
-		$criteria->addCondition('recommend=1');
+		//$criteria->addCondition('recommend=1');
 		$subject = Subject::model()->findAll($criteria);
 		foreach($subject as $row){
 
