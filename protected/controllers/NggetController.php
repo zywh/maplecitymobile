@@ -47,7 +47,8 @@ class NgGetController extends XFrontBase
 				$result['id'] = $row["id"]; 
 				$result['name'] = $row["name"]; 
 				$result['city_id'] = $row["city_id"]; 
-				$result['room_type_image'] = $imghost.$row["room_type_image"]; 
+				
+				$result['room_type_image'] = str_replace("uploads","tn_uploads",$imghost.$row["room_type_image"]);
 				$results[] = $result;
 			}
 			echo json_encode($results);
