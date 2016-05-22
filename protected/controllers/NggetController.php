@@ -18,19 +18,25 @@ class NgGetController extends XFrontBase
 		if (!empty($postParms['id'])){
 			//return single record for detail page
 			$criteria->addCondition('id="'.$_POST['parms']['id'].'"');
-			$subject = Subject::model()->findAll($criteria);
+			//$subject = Subject::model()->find($criteria);
+			$row = Subject::model()->find($criteria);
 			
-			foreach($subject as $row){
+			//foreach($subject as $row){
 
 			$result['id'] = $row["id"]; 
 			$result['name'] = $row["name"]; 
 			$result['summary'] = $row["summary"]; 
-			$result['city_id'] = $row["city_id"]; 
-			$result['room_type_image'] = $imghost.$row["room_type_image"]; 
+			$result['image_list'] = unserialize($row["image_list"]); 
+			$result['layout_list'] = unserialize($row["layout_list"]); 
+			$result['amenities'] = $row["amenities"]; 
+			$result['point'] = $row["point"]; 
+			$result['developer_intro'] = $row["developer_intro"];
+			$result['cityname'] = $row["cityname"]; 			
+			$result['replaceurl'] = $imghost."tn_uploads";
 			
-			
-			$results[] = $result;
-			}
+			//$results[] = $result;
+			echo json_encode($result);
+			//}
 		} else {
 			//Return all recommended project
 			
@@ -44,7 +50,7 @@ class NgGetController extends XFrontBase
 				$result['room_type_image'] = $imghost.$row["room_type_image"]; 
 				$results[] = $result;
 			}
-			
+			echo json_encode($results);
 		}
 		
 			
@@ -52,7 +58,7 @@ class NgGetController extends XFrontBase
 		
 		
 
-		echo json_encode($results);
+		
     }	
 
  
