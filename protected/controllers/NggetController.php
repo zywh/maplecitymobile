@@ -3,9 +3,9 @@
 class NgGetController extends XFrontBase
 {
 	
-	public $imghost = "http://m.maplecity.com.cn/";
+	//public $imghost = "http://m.maplecity.com.cn/";
    public function actionGetProjects(){
-		//$imghost = "http://m.maplecity.com.cn/";
+		$imghost = "http://m.maplecity.com.cn/";
 		$results = array();
 		$postParms = array();
 		ini_set("log_errors", 1);
