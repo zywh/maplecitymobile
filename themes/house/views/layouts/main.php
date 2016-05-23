@@ -266,7 +266,7 @@ $(document).on( "pageinit", "#page_main", function() {
 		<a href="index.php?r=stats/index" data-ajax="false"  class="ui-btn ui-corner-all ui-icon-fa-line-chart ui-btn-icon-left ui-btn-icon-notext
 		">Stats</a>
 	
-		<a href="tel:400-870-1029"  class="ui-btn ui-corner-all ui-icon-phone ui-btn-icon-left ui-btn-icon-notext
+		<a href="tel:400-9900-393"  class="ui-btn ui-corner-all ui-icon-phone ui-btn-icon-left ui-btn-icon-notext
 		">Phone</a>
 		<a href="mailto:info@maplecity.com.cn"  class="ui-btn ui-corner-all ui-icon-mail ui-btn-icon-left ui-btn-icon-notext
 		">Email</a>
