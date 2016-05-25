@@ -373,8 +373,8 @@ class NgGetController extends XFrontBase
 	*/
 	public function actionGetCityList(){
 		
-		$city_id='0';
-		$limit = 10;
+		
+		$limit = 8;
 		$db = Yii::app()->db;
 		$postParms = array();
 		ini_set("log_errors", 1);
@@ -383,7 +383,7 @@ class NgGetController extends XFrontBase
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$term = trim($postParms['term']);
 		
-		$term = "t";
+		//$term = "11";
 		error_log("Autocomplete Parms Term:".$term);
 		$chinese = preg_match("/\p{Han}+/u", $term);
 		
@@ -400,9 +400,7 @@ class NgGetController extends XFrontBase
 				//Type MLS ARRAY
 				$result['id'] = $row["ml_num"]; 
 				$result['value'] = $row["ml_num"]; 
-				$result['type'] = 'MLS';
-				$results[] = $result;
-				
+				$results['MLS'][] = $result;
 			}
 			
 		} else{
@@ -445,11 +443,11 @@ class NgGetController extends XFrontBase
 				if ( $chinese ) {
 					
 					$result['value'] = $row["cityc"].", ".$row["provincec"]; 
-					$results[] = $result;
+					$results['CITY'][] = $result;
 					
 				} else {
 					$result['value'] = $row["citye"].", ". $row["provincee"]; 
-					$results[] = $result;
+					$results['CITY'][] = $result;
 				}
 		
 		
@@ -471,14 +469,15 @@ class NgGetController extends XFrontBase
 					$result['value'] = $row["addr"];
 					$result['city'] = $row["municipality"];
 					$result['province'] = $row["county"];
-					$result['type'] = "ADDRESS"; 					
-					$results[] = $result;
+					$results['ADDRESS'][] = $result;
 				}
 			}
+			
+			
 		}
-		
-
 		echo json_encode($results);
+
+		
     
 	//Function END  
     }
