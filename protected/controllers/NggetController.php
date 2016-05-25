@@ -438,7 +438,7 @@ class NgGetController extends XFrontBase
 				$result['id'] = $row["citye"]; 
 				$result['type'] = "CITY"; 
 				$result['lat'] = $row["lat"]; 
-				$result['lat'] = $row["lng"]; 
+				$result['lng'] = $row["lng"]; 
 				
 				if ( $chinese ) {
 					
