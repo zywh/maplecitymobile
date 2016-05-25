@@ -1,23 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<?php
 
-// respond to preflights
-if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-  // return only the headers and not the content
-  // only allow CORS if we're doing a GET - i.e. no saving for now.
-  //if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'])) {
-    header('Access-Control-Allow-Origin: *');
-    header('Access-Control-Allow-Headers: X-Requested-With');
-  //}
-  exit;
-}
-
-header("Access-Control-Allow-Origin: *");
-//header("Access-Control-Allow-Methods: GET, POST, OPTIONS");  
-//header("Access-Control-Allow-Headers: content-type");
-//header('Access-Control-Allow-Headers: Authorization, Content-Type' );    
-?>
 <html xmlns="http://www.w3.org/1999/xhtml">
  
 
