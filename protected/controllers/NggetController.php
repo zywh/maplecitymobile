@@ -3,7 +3,7 @@
 class NgGetController extends XFrontBase
 {
 	
-	//public $imghost = "http://m.maplecity.com.cn/";
+	//REST to return either single project detail or list of projects if no parm ID is provided
    public function actionGetProjects(){
 		$imghost = "http://m.maplecity.com.cn/";
 		$results = array();
@@ -35,6 +35,7 @@ class NgGetController extends XFrontBase
 			$result['replaceurl'] = $imghost."tn_uploads";
 			
 			//$results[] = $result;
+			//Return single Array object
 			echo json_encode($result);
 			//}
 		} else {
@@ -50,6 +51,7 @@ class NgGetController extends XFrontBase
 				$result['room_type_image'] = str_replace("uploads","tn_uploads",$imghost.$row["room_type_image"]);
 				$results[] = $result;
 			}
+			//return object array with multiple elements. 
 			echo json_encode($results);
 		}
 		
@@ -61,7 +63,7 @@ class NgGetController extends XFrontBase
 		
     }	
 
- 
+	//REST to return either list of GRID and HOUSEes for map search page
     public function actionGetMapHouse() {
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
@@ -361,5 +363,125 @@ class NgGetController extends XFrontBase
 		
 		echo json_encode($result);
     }
+	
+	
+	/*
+	REST for autocomplete page. 
+	return either city -> map will re-center based on selection
+	or MLS# -> map will redirect it to house detail page and pass MLS# as parm
+	or House Address -> map will redirect it to house detail page and pass MLS# as parm
+	*/
+	public function actionGetCityList(){
+		
+		$city_id='0';
+		$limit = 10;
+		$db = Yii::app()->db;
+		$postParms = array();
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		$_POST = (array) json_decode(file_get_contents('php://input'), true);
+		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+		$term = trim($postParms['term']);
+		
+		$term = "t";
+		error_log("Autocomplete Parms Term:".$term);
+		$chinese = preg_match("/\p{Han}+/u", $term);
+		
+		
+		if ( is_numeric($term) || preg_match("/^[a-zA-Z]\d+/",$term) ) {
+			//MLS search
+			$sql = "
+			SELECT ml_num FROM h_house 
+			WHERE  ml_num like '".$term."%' 
+			ORDER by city_id
+			limit " .$limit;
+			$resultsql = $db->createCommand($sql)->query();
+			foreach($resultsql as $row){
+				//Type MLS ARRAY
+				$result['id'] = $row["ml_num"]; 
+				$result['value'] = $row["ml_num"]; 
+				$result['type'] = 'MLS';
+				$results[] = $result;
+				
+			}
+			
+		} else{
+		//Generate Count by municipality
+			
+			
+			if ($chinese) { //if province = 0 and chinese search
+			
+				$sql = "
+				SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+				FROM h_mname m, h_city c 
+				WHERE  m.province = c.englishname 
+				AND  m.municipality_cname like '".$term."%' 
+				AND  m.count > 1 order by count desc limit " .$limit;
+							
+			
+			} else { //if province = 0  and english search
+			
+				$sql = "
+				SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+				FROM h_mname m, h_city c 
+				WHERE  m.province = c.englishname 
+				AND  municipality like '".$term."%' 
+				AND  m.count > 1 order by count desc limit ". $limit;
+				
+			}
+						
+			$resultsql = $db->createCommand($sql)->query();
+			$citycount = count($resultsql);
+			
+			foreach($resultsql as $row){
+				$idArray = array($row["citye"],$row["lat"],$row["lng"]);
+				
+				//Type CITY ARRAY
+				$result['id'] = $row["citye"]; 
+				$result['type'] = "CITY"; 
+				$result['lat'] = $row["lat"]; 
+				$result['lat'] = $row["lng"]; 
+				
+				if ( $chinese ) {
+					
+					$result['value'] = $row["cityc"].", ".$row["provincec"]; 
+					$results[] = $result;
+					
+				} else {
+					$result['value'] = $row["citye"].", ". $row["provincee"]; 
+					$results[] = $result;
+				}
+		
+		
+			}
+			
+			//Address Search and Return ML_NUM
+			if ($citycount < $limit){
+				//start address selection
+				$limit = $limit - $citycount;
+				$sql = "
+				SELECT ml_num,addr,municipality,county,latitude,longitude FROM h_house  
+				WHERE  addr like '%".$term."%' order by city_id
+				limit " .$limit;
+				$resultsql = $db->createCommand($sql)->query();
+				
+				foreach($resultsql as $row){
+					//Type ADDRESS ARRAY
+					$result['id'] = $row["ml_num"]; 
+					$result['value'] = $row["addr"];
+					$result['city'] = $row["municipality"];
+					$result['province'] = $row["county"];
+					$result['type'] = "ADDRESS"; 					
+					$results[] = $result;
+				}
+			}
+		}
+		
+
+		echo json_encode($results);
+    
+	//Function END  
+    }
+	
 	
 }
