@@ -298,6 +298,7 @@ class NgGetController extends XFrontBase
 			//if ($count < $maxhouse ) {
 				error_log("Select House:".$count." GridCount:".$gridcount);	
 				$result['Data']['Type'] = "house";
+				$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
 				$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,depth,front_ft,br,addr,house_image,longitude,latitude,area,bath_tot';
 				$criteria->with = array('mname','propertyType','city');
 				$criteria->order = "t.latitude,t.longitude";
