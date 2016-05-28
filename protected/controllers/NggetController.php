@@ -315,7 +315,7 @@ class NgGetController extends XFrontBase
                     $mapHouseList['Address'] = !empty($val->addr)?$val->addr : "不详";
 					$mapHouseList['SaleLease'] = $val->s_r; 
                     //$mapHouseList['sqft'] = $val->sqft;
-                    $mapHouseList['Price'] = $val->lp_dol/10000;
+                    $mapHouseList['Price'] = ceil($val->lp_dol/10000);
                     //$mapHouseList['Id'] = $val->id;
                     $mapHouseList['HouseType'] = !empty($val->propertyType->name) ? $val->propertyType->name : '其他';
 					$mapHouseList['MunicipalityName'] = !empty($val->mname->municipality_cname)? ($val->mname->municipality_cname):"其他";
