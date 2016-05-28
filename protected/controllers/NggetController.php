@@ -392,7 +392,7 @@ class NgGetController extends XFrontBase
 		if ( is_numeric($term) || preg_match("/^[a-zA-Z]\d+/",$term) ) {
 			//MLS search
 			$sql = "
-			SELECT ml_num FROM h_house 
+			SELECT ml_num,municipality FROM h_house 
 			WHERE  ml_num like '".$term."%' 
 			ORDER by city_id
 			limit " .$limit;
@@ -401,6 +401,7 @@ class NgGetController extends XFrontBase
 				//Type MLS ARRAY
 				$result['id'] = $row["ml_num"]; 
 				$result['value'] = $row["ml_num"]; 
+				$result['city'] = $row["municipality"];
 				$results['MLS'][] = $result;
 			}
 			
