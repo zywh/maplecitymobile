@@ -2224,3 +2224,35 @@ Stack trace:
 #10 {main}
 REQUEST_URI=/index.php?r=ngget/getCityList
 ---
+2016/05/29 19:49:09 [error] [exception.CException] exception 'CException' with message '属性 "Post.catname" 未被定义.' in /var/www/mhtml/framework/yiilite.php:638
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(7258): CComponent->__set('catname', 'MAPLECITY PFOFI...')
+#1 /var/www/mhtml/framework/yiilite.php(7192): CActiveRecord->__set('catname', 'MAPLECITY PFOFI...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(509): CModel->offsetSet('catname', 'MAPLECITY PFOFI...')
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetAbout()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getAbout')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getAbout')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getAbout
+---
+2016/05/29 19:49:31 [error] [exception.CException] exception 'CException' with message '属性 "Post.catname" 未被定义.' in /var/www/mhtml/framework/yiilite.php:638
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(7258): CComponent->__set('catname', 'MAPLECITY PFOFI...')
+#1 /var/www/mhtml/framework/yiilite.php(7192): CActiveRecord->__set('catname', 'MAPLECITY PFOFI...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(509): CModel->offsetSet('catname', 'MAPLECITY PFOFI...')
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetAbout()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getAbout')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getAbout')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getAbout
+---
