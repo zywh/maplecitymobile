@@ -2256,3 +2256,39 @@ Stack trace:
 #11 {main}
 REQUEST_URI=/index.php?r=ngget/getAbout
 ---
+2016/05/30 07:56:18 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((s_r = "Sale") AND (propertyType_id =Array)) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/05/30 07:56:18 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'where clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(198): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/05/30 07:57:23 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'where clause'. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((s_r = "Sale") AND (propertyType_id =Array)) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656630992366765, :minLat=43.649768811605732, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/05/30 07:57:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'where clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(198): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/?ionicplatform=android
+---

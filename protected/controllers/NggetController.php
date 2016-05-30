@@ -130,18 +130,21 @@ class NgGetController extends XFrontBase
 					$criteria->addCondition('house_area >='.$minArea);
 				}
 			}			
-			//价格区间
+			//价格区间 -  Multiple Selection . Array is returned
 			if (!empty($postParms['houseprice'])) {
-				$price = explode('-', $postParms['houseprice']);
-				$minPrice = intval($price[0]) *10000;
-				$maxPrice = intval($price[1]) *10000;
-				error_log ("MinPrice:".$minPrice);
-				if ($maxPrice != 0 || $minPrice != 0) {
-					if ($maxPrice > $minPrice) {
-						$criteria->addCondition('lp_dol <'.$maxPrice);
+				foreach (($postParms['houseprice']) as &$value) {
+					//$price = explode('-', $postParms['houseprice']);
+					$price = explode('-', $value);
+					$minPrice = intval($price[0]) *10000;
+					$maxPrice = intval($price[1]) *10000;
+					error_log ("MinPrice:".$minPrice);
+					if ($maxPrice != 0 || $minPrice != 0) {
+						if ($maxPrice > $minPrice) {
+							$criteria->addCondition('lp_dol <'.$maxPrice);
+						}
+					
+						$criteria->addCondition('lp_dol >='.$minPrice);
 					}
-				
-					$criteria->addCondition('lp_dol >='.$minPrice);
 				}
 			}
 
@@ -154,9 +157,12 @@ class NgGetController extends XFrontBase
 			}
 
 			//房屋类型
-			if (!empty($postParms['housetype']) && intval($postParms['housetype']) > 0) {
-				$criteria->addCondition("propertyType_id =".$postParms['housetype']);
-				
+			//if (!empty($postParms['housetype']) && intval($postParms['housetype']) > 0) {
+			if (!empty($postParms['housetype'])) {
+				foreach (($postParms['housetype']) as &$value) {	
+				//$criteria->addCondition("propertyType_id =".$postParms['housetype']);
+				$criteria->addCondition("propertyType_id =".$value);
+				}
 			}
 
   
