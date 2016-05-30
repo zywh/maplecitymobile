@@ -2292,3 +2292,75 @@ Stack trace:
 REQUEST_URI=/index.php?r=ngget/getMapHouse
 HTTP_REFERER=http://localhost:8100/?ionicplatform=android
 ---
+2016/05/30 10:05:30 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:135)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+2016/05/30 10:05:32 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:135)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+2016/05/30 10:05:33 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:135)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+2016/05/30 10:05:36 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:135)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+2016/05/30 10:05:37 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:135)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+2016/05/30 10:09:11 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:135)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+2016/05/30 10:09:22 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:135)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+2016/05/30 10:09:30 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:135)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getMapHouse
