@@ -145,19 +145,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_angular_1 = require('ionic-angular');
+var maple_rest_data_1 = require('../../providers/maple-rest-data/maple-rest-data');
+//import {MAPLECONF} from '../../providers/maple-rest-data/maple-config';
 var AboutPage = (function () {
-    function AboutPage() {
+    function AboutPage(mapleRestData) {
+        this.mapleRestData = mapleRestData;
+        this.section = "about";
+        this.isAndroid = false;
     }
+    Object.defineProperty(AboutPage, "parameters", {
+        // private postAbout: Post;
+        get: function () {
+            return [[maple_rest_data_1.MapleRestData]];
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AboutPage.prototype.ngOnInit = function () {
+        this.getResult('index.php?r=ngget/getAbout');
+    };
+    AboutPage.prototype.getResult = function (url) {
+        var _this = this;
+        this.mapleRestData.load(url, { id: 27 }).subscribe(function (data) { _this.postAbout = data; });
+        this.mapleRestData.load(url, { id: 28 }).subscribe(function (data) { return _this.postAdvantage = data; });
+        this.mapleRestData.load(url, { id: 30 }).subscribe(function (data) { return _this.postContact = data; });
+        this.mapleRestData.load(url, { id: 31 }).subscribe(function (data) { return _this.postHire = data; });
+    };
     AboutPage = __decorate([
         ionic_angular_1.Page({
-            templateUrl: 'build/pages/about/about.html'
+            templateUrl: 'build/pages/about/about.html',
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [maple_rest_data_1.MapleRestData])
     ], AboutPage);
     return AboutPage;
 }());
 exports.AboutPage = AboutPage;
-},{"ionic-angular":357}],3:[function(require,module,exports){
+},{"../../providers/maple-rest-data/maple-rest-data":16,"ionic-angular":357}],3:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -383,6 +406,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var ionic_angular_1 = require('ionic-angular');
+//import {AngularRange} from 'angular-ranger';
+//import {RichMarker} from 'rich-marker';
+var core_1 = require('angular2/core');
 var house_detail_1 = require('../house-detail/house-detail');
 var maple_rest_data_1 = require('../../providers/maple-rest-data/maple-rest-data');
 /*
@@ -392,20 +418,25 @@ var maple_rest_data_1 = require('../../providers/maple-rest-data/maple-rest-data
   Ionic pages and navigation.
 */
 var MapSearchPage = (function () {
-    function MapSearchPage(nav, mapleRestData, menu) {
+    function MapSearchPage(nav, mapleRestData, menu, _zone) {
         this.nav = nav;
         this.mapleRestData = mapleRestData;
         this.menu = menu;
+        this._zone = _zone;
         this.markerArray = [];
         this.htmlArray = [];
         this.htmlArrayPosition = 0;
         this.listAllHtml = ''; //hold houses on current map
         this.isListShow = false;
+        this.selectBeds = 0;
+        this.selectBaths = 0;
+        this.selectSR = true;
         this.swiperOptions = {
             loop: true,
             //pager: true,
             speed: 4000,
-            autoplay: 300
+            spaceBetween: 20,
+            slidesPerView: 'auto',
         };
         this.searchQuery = '';
         this.resetItems();
@@ -416,6 +447,7 @@ var MapSearchPage = (function () {
     MapSearchPage.prototype.updateOption = function () {
         this.changeMap();
         this.currentDiv = '';
+        console.log("Change Options:" + this.selectType);
         console.log("Change Options:" + this.selectPrice);
     };
     // openModal(characterNum) {
@@ -469,7 +501,7 @@ var MapSearchPage = (function () {
         else {
             console.log("house grid/city,show alert window");
             var actionSheet = ionic_angular_1.ActionSheet.create({
-                title: '当前房源' + this.totalCount + '套，选择查询参数或放大地图搜索',
+                title: '当前房源' + this.totalCount + '套，选择查询参数或放大地图',
                 buttons: [
                     {
                         text: '查询参数',
@@ -523,15 +555,15 @@ var MapSearchPage = (function () {
             zoom: zoom
         });
         google.maps.event.addListener(this.map, 'idle', function () {
-            _this.currentDiv = '';
-            _this.isListShow = true;
-            console.log("Print isListShow:" + _this.isListShow);
             _this.changeMap();
         });
-        // google.maps.event.addListener(this.map, 'dragstart', () => {
-        //   //this.currentDiv = '';
-        //   console.log("CLICKED EVENT Detected: CURRENT DIV-" + this.currentDiv);
-        // });
+        google.maps.event.addListener(this.map, 'click', function () {
+            //close all open POP UP options/list etc
+            _this._zone.run(function () {
+                _this.currentDiv = '';
+                //this.nav.pop();
+            });
+        });
         //});
     };
     //select autocomplete action
@@ -544,14 +576,14 @@ var MapSearchPage = (function () {
     MapSearchPage.prototype.resetSelections = function () {
         this.selectPrice = '';
         this.selectType = '';
-        this.selectBeds = '';
-        this.selectBaths = '';
+        this.selectBeds = 0;
+        this.selectBaths = 0;
+        this.selectSR = true;
         this.selectHousesize = '';
         this.selectLandsize = '';
         this.currentHouseList = '';
     };
     MapSearchPage.prototype.itemTapped = function (event, item, type) {
-        console.log("Item tapped:" + type);
         if (type == 1) {
             var lat = item.lat;
             var lng = item.lng;
@@ -720,8 +752,12 @@ var MapSearchPage = (function () {
     MapSearchPage.prototype.changeMap = function () {
         var _this = this;
         console.log("Change Map: Button Show?" + this.isListShow);
-        this.currentDiv = '';
-        this.clearAll();
+        this.currentDiv = ''; //reset all popup
+        this.clearAll(); //clear marker
+        var loading = ionic_angular_1.Loading.create({
+            content: '加载房源...'
+        });
+        this.nav.present(loading);
         var gridSize = 60; //60px
         //get element size to calcute number of grid
         var mapHeight = window.innerHeight;
@@ -735,24 +771,30 @@ var MapSearchPage = (function () {
         var HouseArray = [];
         var marker;
         var _bounds = _sw.lat() + "," + _sw.lng() + "," + _ne.lat() + "," + _ne.lng();
+        console.log(this.selectLandsize);
         var mapParms = {
             bounds: _bounds,
             gridx: gridx,
             gridy: gridy,
-            // sr : 	options['sel_sr'], 
+            sr: (this.selectSR == true) ? 'Sale' : 'Lease',
             housetype: this.selectType,
             houseprice: this.selectPrice,
             houseroom: this.selectBeds,
-            housearea: this.selectHousesize
+            housearea: this.selectHousesize,
+            houseground: this.selectLandsize
         };
         //console.log("Map House Search Parms:" + mapParms);
         this.mapleRestData.load('index.php?r=ngget/getMapHouse', mapParms).subscribe(function (data) {
+            loading.dismiss();
             _this.totalCount = data.Data.Total;
             _this.markerType = data.Data.Type;
             console.log("Change Map Refresh Data:" + _this.markerType);
             //Start City Markers
             if ((_this.markerType == 'city') || (_this.markerType == 'grid')) {
-                _this.isListShow = false;
+                // this._zone.run(() => {
+                //   this.isListShow = false;
+                //   this.currentDiv = '';
+                // });
                 for (var p in data.Data.AreaHouseCount) {
                     var areaHouse = data.Data.AreaHouseCount[p];
                     if (areaHouse.HouseCount > 0) {
@@ -763,7 +805,10 @@ var MapSearchPage = (function () {
                 }
             } //End of City Markers
             if (_this.markerType == 'house') {
-                _this.isListShow = true;
+                _this._zone.run(function () {
+                    _this.isListShow = true;
+                    _this.currentDiv = 'listButton';
+                });
                 var count = 1;
                 var houses = [];
                 var totalprice = 0;
@@ -820,7 +865,7 @@ var MapSearchPage = (function () {
         ionic_angular_1.Page({
             templateUrl: 'build/pages/map-search/map-search.html',
         }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController, maple_rest_data_1.MapleRestData, ionic_angular_1.MenuController])
+        __metadata('design:paramtypes', [ionic_angular_1.NavController, maple_rest_data_1.MapleRestData, ionic_angular_1.MenuController, core_1.NgZone])
     ], MapSearchPage);
     return MapSearchPage;
 }());
@@ -848,13 +893,13 @@ var ModalHouseList = (function () {
     };
     ModalHouseList = __decorate([
         ionic_angular_1.Page({
-            template: "\n   <button full (click)=\"close()\">\n    <ion-icon name=\"close\"></ion-icon> \u5173\u95ED\u7A97\u53E3</button>\n  <ion-content no-padding class=\"houselist_modal\">\n  \n     \n        <ion-card class=\"house_card\" *ngFor=\"#house of houselist\" (click)=\"openHouseDetail(house.MLS)\">\n          <img [src]=\"imgHost + house.CoverImg\" />\n          <div class=\"house_desc\" text-left text-nowrap>\n          \n            <ion-item>    \n             <ion-badge item-left>MLS:{{house.MLS}}</ion-badge>\n             <ion-badge item-right><i class=\"fa fa-usd\" aria-hidden=\"true\"></i>{{house.Price}}\u4E07</ion-badge>\n            </ion-item>\n          \n             <div padding class=\"card-subtitle\" text-left>\n              <div><i padding-right secondary class=\"fa fa-building\" aria-hidden=\"true\"></i><span padding-right>{{house.HouseType}}</span>{{house.Beds}}\u5367{{house.Baths}}\u536B{{house.Kitchen}}\u53A8</div>\n              <div><i padding-right secondary class=\"fa fa-location-arrow\" aria-hidden=\"true\"></i><span padding-right>{{house.Address}}</span>{{house.MunicipalityName}}</div>\n              </div>\n          </div>\n        </ion-card>\n      \n    "
+            template: "\n   <button full (click)=\"close()\">\n    <ion-icon name=\"close\"></ion-icon> \u5173\u95ED\u7A97\u53E3</button>\n  <ion-content no-padding class=\"houselist_modal\">\n  \n     \n        <ion-card class=\"house_card\" *ngFor=\"#house of houselist\" (click)=\"openHouseDetail(house.MLS)\">\n          <img [src]=\"imgHost + house.CoverImg\" />\n          <div class=\"house_desc\" text-left text-nowrap>\n          \n            <ion-item>    \n             <ion-badge item-left>MLS:{{house.MLS}}</ion-badge>\n             <ion-badge item-right><i class=\"fa fa-usd\" aria-hidden=\"true\"></i>{{house.Price}}\u4E07</ion-badge>\n            </ion-item>\n          \n             <div class=\"card-subtitle\" text-left>\n              <div><i padding-right secondary class=\"fa fa-building\" aria-hidden=\"true\"></i><span padding-right>{{house.HouseType}}</span>{{house.Beds}}\u5367{{house.Baths}}\u536B{{house.Kitchen}}\u53A8</div>\n              <div><i padding-right secondary class=\"fa fa-location-arrow\" aria-hidden=\"true\"></i><span padding-right>{{house.Address}}</span>{{house.MunicipalityName}}</div>\n              </div>\n          </div>\n        </ion-card>\n      \n    "
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.Platform, ionic_angular_1.NavParams, ionic_angular_1.NavController, ionic_angular_1.ViewController])
     ], ModalHouseList);
     return ModalHouseList;
 }());
-},{"../../providers/maple-rest-data/maple-rest-data":16,"../house-detail/house-detail":5,"ionic-angular":357}],8:[function(require,module,exports){
+},{"../../providers/maple-rest-data/maple-rest-data":16,"../house-detail/house-detail":5,"angular2/core":20,"ionic-angular":357}],8:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -895,6 +940,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var ionic_angular_1 = require('ionic-angular');
 var maple_rest_data_1 = require('../../providers/maple-rest-data/maple-rest-data');
+//import {MAPLECONF} from '../../providers/maple-rest-data/maple-config';
 var ProjectDetailPage = (function () {
     function ProjectDetailPage(nav, navParams, mapleRestData, platform) {
         this.navParams = navParams;
@@ -1087,37 +1133,36 @@ var SignupPage = (function () {
 }());
 exports.SignupPage = SignupPage;
 },{"../../providers/user-data":17,"../tabs/tabs":14,"ionic-angular":357}],13:[function(require,module,exports){
-"use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var ionic_angular_1 = require('ionic-angular');
-/*
-  Generated class for the StatsPage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
-var StatsPage = (function () {
-    function StatsPage(nav) {
-        this.nav = nav;
-    }
-    StatsPage = __decorate([
-        ionic_angular_1.Page({
-            templateUrl: 'build/pages/stats/stats.html',
-        }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController])
-    ], StatsPage);
-    return StatsPage;
-}());
-exports.StatsPage = StatsPage;
-},{"ionic-angular":357}],14:[function(require,module,exports){
+// import {Page, NavController} from 'ionic-angular';
+// // import { CHART_DIRECTIVES } from 'angular2-highcharts';
+// // import { Highcharts } from 'angular2-highcharts';
+// //import {SimpleChartExample} from 'hc-components.ts';
+// import { SimpleChartExample } from './simpleChartExample';
+// import { ChartEventsExample } from './chartEventsExample';
+// import { StockChartExample } from './stockChartExample';
+// import { DynamicChartExample } from './dynamicChartExample';
+// /*
+//   Generated class for the StatsPage page.
+//   See http://ionicframework.com/docs/v2/components/#navigation for more info on
+//   Ionic pages and navigation.
+// */
+// @Page({
+//   //templateUrl: 'build/pages/stats/stats.html',
+//   //selector: 'chart',
+//   directives: [SimpleChartExample, ChartEventsExample, StockChartExample, DynamicChartExample],
+//     template: `
+//         <h2>angular2-highcharts examples</h2>
+//         <simple-chart-example></simple-chart-example>
+//         <chart-events-example></chart-events-example>
+//         <stock-chart-example></stock-chart-example>
+//         <dynamic-chart-example></dynamic-chart-example>
+//     `
+// })
+// export class StatsPage {
+//     constructor() {
+//     }
+// }
+},{}],14:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;

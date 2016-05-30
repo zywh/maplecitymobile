@@ -6,23 +6,23 @@
 -->
 <ion-navbar *navbar class="map-search">
   
-  <ion-row>
-    <ion-col width-10>
+  <ion-row center >
+    <ion-col width-10 no-padding>
       <button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-col>
-    <ion-col width-67>
+    <ion-col width-67 no-padding>
         <ion-searchbar hideCancelButton [(ngModel)]="searchQuery" (focus)="currentDiv='searchlist'" (input)="getItems($event)" placeholder="城市/地址/MLS#"></ion-searchbar>
     </ion-col>
-    <ion-col width-10>
-      <button clear (click)="currentDiv= (currentDiv == 'mapoption')? '':'mapoption'">
+    <ion-col width-10 no-padding>
+      <button class="bar-button-default" (click)="currentDiv= (currentDiv == 'mapoption')? '':'mapoption'">
         <ion-icon name="options"></ion-icon>
       </button>
     </ion-col>
-    <ion-col width-10>
-      <button clear (click)="setLocation(center,16)">
-        <ion-icon name="locate"></ion-icon>
+    <ion-col width-10 no-padding>
+      <button class="bar-button-default" (click)="setLocation(center,16)">
+        <ion-icon ios="ios-locate-outline" md="md-locate"></ion-icon>
       </button>
     </ion-col>
   </ion-row>  
@@ -31,30 +31,34 @@
 </ion-navbar>
 
 <ion-content class="map-search">
-  <div class="search_list" *ngIf="currentDiv == 'searchlist'">
-    <ion-item padding *ngFor="#item of cityItems" (click)="itemTapped($event, item,1)">
-      <ion-icon primary padding-right name="search"></ion-icon> {{ item.value }}
+  <div class="search_list" *ngIf="currentDiv == 'searchlist'" >
+    <ion-item padding *ngFor="#item of cityItems" (click)="itemTapped($event, item,1)" >
+     <button light clear> <ion-icon primary padding-right name="search"></ion-icon>{{ item.value }}</button>
        <ion-badge item-right>城市</ion-badge>
     </ion-item>
     <ion-item padding *ngFor="#item of mlsItems" (click)="itemTapped($event, item,2)">
-      <ion-icon primary padding-right name="search"></ion-icon>{{ item.value }},{{item.city}}
+       <button light clear><ion-icon primary padding-right name="search"></ion-icon>{{ item.value }},{{item.city}}</button>
        <ion-badge item-right>MLS</ion-badge>
     </ion-item>
     <ion-item padding *ngFor="#item of addressItems" (click)="itemTapped($event, item,3)">
-      <ion-icon primary padding-right name="search"></ion-icon>{{ item.value }},{{item.city}}
+       <button light clear><ion-icon primary padding-right name="search"></ion-icon>{{ item.value }},{{item.city}}</button>
        <ion-badge item-right>地址</ion-badge>
     </ion-item>
-  </div>
+      </div>
   <div class="map_options" *ngIf="currentDiv == 'mapoption'">
     <ion-list>
       <ion-item>
+      <ion-label>{{(selectSR == true)? '出售':'出租'}}</ion-label>
+      <ion-toggle [(ngModel)]="selectSR"></ion-toggle>
+      </ion-item>
+      <ion-item>
         <ion-label>物业类型</ion-label>
-        <ion-select [(ngModel)]="selectType" okText="确认" cancelText="取消">
-        	<ion-option value="1" >独栋</ion-option>
-          <ion-option value="2">联排</ion-option>
-          <ion-option value="3">公寓</ion-option>
-          <ion-option value="4">双拼</ion-option>
-          <ion-option value="5">度假</ion-option>
+        <ion-select multiple [(ngModel)]="selectType" okText="确认" cancelText="取消">
+        	<ion-option value="1" >独栋别墅</ion-option>
+          <ion-option value="2">联排别墅</ion-option>
+          <ion-option value="3">豪华公寓</ion-option>
+          <ion-option value="4">半独立</ion-option>
+          <ion-option value="5">度假屋</ion-option>
           <ion-option value="6">农场</ion-option>
           <ion-option value="7">空地</ion-option>
           <ion-option value="8">其他</ion-option>
@@ -63,43 +67,21 @@
 
       <ion-item>
         <ion-label>价格(万加币)</ion-label>
-        <ion-select [(ngModel)]="selectPrice" okText="确认" cancelText="取消">
-            <ion-option value="0-30" > 少于30</ion-option>
+        <ion-select multiple [(ngModel)]="selectPrice" okText="确认" cancelText="取消">
+            <ion-option value="0-30" > 低于30万</ion-option>
             <ion-option value="30-50" >30-50万</ion-option>
             <ion-option value="50-100" >50-100万</ion-option>
             <ion-option value="100-150" >100-150万</ion-option>
             <ion-option value="150-300" >150-300万</ion-option>
             <ion-option value="300-400" >300-450万</ion-option>
             <ion-option value="450-500" >450-600万</ion-option>
-            <ion-option value="600-0" > 多于600万</ion-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>卧室</ion-label>
-        <ion-select [(ngModel)]="selectBeds" okText="确认" cancelText="取消">
-          <ion-option value="1">1</ion-option>
-          <ion-option value="2">2</ion-option>
-          <ion-option value="3">3</ion-option>
-          <ion-option value="4">4</ion-option>
-          <ion-option value="5">5</ion-option>
-          <ion-option value="6">6</ion-option>
-        </ion-select>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>洗手间</ion-label>
-        <ion-select [(ngModel)]="selectBaths" okText="确认" cancelText="取消">
-          <ion-option value="1">1</ion-option>
-          <ion-option value="2">2</ion-option>
-          <ion-option value="3">3</ion-option>
-          <ion-option value="4">4</ion-option>
+            <ion-option value="600-0" > 高于600万</ion-option>
         </ion-select>
       </ion-item>
 
       <ion-item>
         <ion-label>房屋面积</ion-label>
-        <ion-select [(ngModel)]="selectHousesize" okText="确认" cancelText="取消">
+        <ion-select multiple [(ngModel)]="selectHousesize" okText="确认" cancelText="取消">
           <ion-option value="0-700" >700平方尺以下</ion-option>
           <ion-option value="700-1100">700-1100平方尺</ion-option>
           <ion-option value="1100-1500">1100-1500平方尺</ion-option>
@@ -111,9 +93,40 @@
           <ion-option value="4000-0">4000平方尺以上</ion-option>
         </ion-select>
       </ion-item>
+      <ion-item>
+        <ion-label>土地面积</ion-label>
+        <ion-select multiple [(ngModel)]="selectLandsize" okText="确认" cancelText="取消">
+          <ion-option value="0-2000" >2000平方尺以下</ion-option>
+          <ion-option value="200-4000">2000-4000平方尺</ion-option>
+          <ion-option value="4000-6000">4000-6000平方尺</ion-option>
+          <ion-option value="6000-12000">6000-12000平方尺</ion-option>
+          <ion-option value="12000-20000">12000-20000平方尺</ion-option>
+          <ion-option value="20000-43560">20000-1英亩</ion-option>
+          <ion-option value="43560-0">1英亩以上</ion-option>
+          
+        </ion-select>
+      </ion-item>
+   </ion-list>
+  <div padding-left padding-right padding-bottom class="slider-box">
+    <div class="slider-label">
+       卧室 ({{ (selectBeds > 0)? "至少" + selectBeds +"间" : "不限" }})
+    </div>   
+    <div class="slider"> 
+      <input [(ngModel)]="selectBeds" class="mapleslider" type ="range" min ="1" max="6" value="1" step ="1"/>
+    </div>        
+  </div>  
+  <div padding-left padding-right padding-bottom  class="slider-box">
+    <div class="slider-label">
+       洗手间 ({{ (selectBaths > 0)? "至少" + selectBaths +"间" : "不限" }})
+    </div>   
+    <div class="slider"> 
+      <input [(ngModel)]="selectBaths" class="mapleslider" type ="range" min ="1" max="5" value="1" step ="1"/>
+    </div>        
+  </div>  
+  
+  
 
  
-    </ion-list>
     <ion-row>
       <ion-col>
         <div text-center>
@@ -144,9 +157,9 @@
              <ion-badge item-right><i class="fa fa-usd" aria-hidden="true"></i>{{house.Price}}万</ion-badge>
             </ion-item>
           
-             <div padding class="card-subtitle" text-left>
+             <div class="card-subtitle" text-left>
               <div><i padding-right secondary class="fa fa-building" aria-hidden="true"></i><span padding-right>{{house.HouseType}}</span>{{house.Beds}}卧{{house.Baths}}卫{{house.Kitchen}}厨</div>
-              <div><i padding-right secondary class="fa fa-location-arrow" aria-hidden="true"></i><span padding-right>{{house.Address}}</span>{{house.MunicipalityName}}</div>
+              <div> <ion-icon padding-right secondary name="navigate"></ion-icon><span padding-right>{{house.Address}}</span>{{house.MunicipalityName}}</div>
               </div>
           </div>
         </ion-card>
@@ -159,9 +172,9 @@
 
   <div id="map"></div>
 
-  <div *ngIf="true">
-    <button fab  primary outline fab-bottom fab-center (click)="openHouseList()">
-      <ion-icon name="list-box" is-active="true"></ion-icon>
+  <div *ngIf="currentDiv == 'listButton'">
+    <button fab  secondary fab-bottom fab-center (click)="openHouseList()">
+      <ion-icon name="list" is-active="true"></ion-icon>
     </button>
   </div>
 
