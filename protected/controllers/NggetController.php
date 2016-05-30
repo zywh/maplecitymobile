@@ -98,7 +98,7 @@ class NgGetController extends XFrontBase
 
             //卫生间数量 1-5
             if (!empty($postParms['housebaths']) && intval($postParms['housebaths']) > 0) {
-                $criteria->addCondition("t.bath_tot = :bath_tot");
+                $criteria->addCondition("t.bath_tot >= :bath_tot");
                 $criteria->params += array(':bath_tot' => intval($postParms['housebaths']));
 				
             }
@@ -152,17 +152,18 @@ class NgGetController extends XFrontBase
 			//Bedroom
 			if (!empty($postParms['houseroom']) && intval($postParms['houseroom']) > 0) {
 				$houseroom = intval($postParms['houseroom']);
-				$criteria->addCondition("t.br > :br");
+				$criteria->addCondition("t.br >= :br");
 				$criteria->params += array(':br' => $houseroom);
 			}
 
 			//房屋类型
 			//if (!empty($postParms['housetype']) && intval($postParms['housetype']) > 0) {
 			if (!empty($postParms['housetype'])) {
-				foreach (($postParms['housetype']) as &$value) {	
+				$typeInString = implode(",", $postParms['housetype']);
+				
 				//$criteria->addCondition("propertyType_id =".$postParms['housetype']);
-				$criteria->addCondition("propertyType_id =".$value);
-				}
+				$criteria->addCondition("propertyType_id in (".$typeInString.")");
+				
 			}
 
   
