@@ -1,5 +1,7 @@
 {
     "picHost": "http://www.maplecity.com.cn/mlspic/crea/",
     "email": "info@maplecity.com.cn",
-    "phone": "400-990-0393"
+    "phone": "400-990-0393",
+	"projectRest": "index.php?r=ngget/getProjects",
+	"mapHouseRest": "index.php?r=ngget/getProjects"
 }
