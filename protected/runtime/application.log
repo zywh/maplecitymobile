@@ -2634,3 +2634,327 @@ Stack trace:
 REQUEST_URI=/index.php?r=ngget/getMapHouse
 HTTP_REFERER=http://localhost:8100/
 ---
+2016/06/04 04:12:34 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:12:34 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 04:15:09 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:15:09 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 04:16:38 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:16:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 04:19:04 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:19:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 04:19:25 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:19:25 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 04:23:13 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:23:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 04:29:04 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:29:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 04:31:38 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:31:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 04:34:07 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:34:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 04:34:58 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:34:58 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 04:40:02 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:40:02 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 04:41:41 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:41:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 04:45:57 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:45:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 04:49:24 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:49:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 04:52:41 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:52:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 04:59:19 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 04:59:19 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 05:02:33 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.656724138747535, :minLat=43.649675654436443, :maxLon=-79.379766772460925, :minLon=-79.38663322753905.
+2016/06/04 05:02:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/06/04 05:08:07 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1. The SQL statement executed was: SELECT COUNT(*) FROM `h_house` `t` WHERE (((((((s_r = "Sale") AND (( AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=4000))) AND (( AND house_area >=4000) OR ( AND lp_dol >=6000000))) AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon). Bound with :maxLat=43.657399445686956, :minLat=43.649000260638005, :maxLon=-79.368726800155628, :minLon=-79.397673199844348.
+2016/06/04 05:08:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND land_area >=43560))) AND (( AND land_area >=43560) OR ( AND house_area >=400' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9272): CDbCommand->queryInternal('fetchColumn', 0, Array)
+#1 /var/www/mhtml/framework/yiilite.php(7944): CDbCommand->queryScalar()
+#2 /var/www/mhtml/protected/controllers/NggetController.php(238): CActiveRecord->count(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetMapHouse()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getMapHou...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
