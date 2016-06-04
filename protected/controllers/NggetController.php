@@ -105,80 +105,44 @@ class NgGetController extends XFrontBase
 
             //土地面积 Multiple Selection Array
             if (!empty($postParms['houseground'])) {
-  				foreach (($postParms['houseground']) as &$value) {
-					$landarea = explode('-', $value);
-					$minArea = intval($landarea[0]) ;
-					$maxArea = intval($landarea[1]) ;
-					if ($maxArea != 0 || $minArea != 0) {
-						if ($maxArea > $minArea) {
-							
-							$s1 = 'land_area <'.$maxArea;
-						}
-						
-						$s2 = 'land_area >='.$minArea;
-						$s = "(".$s1." AND ".$s2.")";
-					}
-					if ( !empty($landareaCond)){
-						$landareaCond = $landareaCond." OR ".$s;
-					}else {
-						$landareaCond = $s;
-					}
+  				
+				
+				$minArea = intval($postParms['houseground']['lower']) ;
+				$maxArea = intval($postParms['houseground']['upper']) ;
+				if ($minArea >0) {
+					$criteria->addCondition('land_area >='.$minArea);
+				}
+				if ( $maxArea < 43560){
+					$criteria->addCondition('land_area <='.$maxArea);
 				}
 				
-				$criteria->addCondition($landareaCond);
             }
 			
 			//House Area - Multiple Selection Array
 			if (!empty($postParms['housearea'])) {
-				foreach (($postParms['housearea']) as &$value) {
-					$housearea = explode('-', $value);
-					$minArea = intval($housearea[0]) ;
-					$maxArea = intval($housearea[1]) ;
-					if ($maxArea != 0 || $minArea != 0) {
-						if ($maxArea > $minArea) {
-							//$criteria->addCondition('house_area <'.$maxArea);
-							$s1 = 'house_area <'.$maxArea;
-						}
-						//$criteria->addCondition('house_area >='.$minArea);
-						$s2 = 'house_area >='.$minArea;
-						$s = "(".$s1." AND ".$s2.")";
-					}
-					if ( !empty($houseareaCond)){
-						$houseareaCond = $houseareaCond." OR ".$s;
-					}else {
-						$houseareaCond = $s;
-					}
+					
+				$minArea = intval($postParms['housearea']['lower']) ;
+				$maxArea = intval($postParms['housearea']['upper']) ;
+				if ($minArea >0) {
+					$criteria->addCondition('house_area >='.$minArea);
 				}
-				
-				$criteria->addCondition($houseareaCond);
+				if ( $maxArea < 4000){
+					$criteria->addCondition('house_area <='.$maxArea);
+				}
 			}
 			
 			//价格区间 -  Multiple Selection . Array is returned
 			if (!empty($postParms['houseprice'])) {
-				$priceCond = '';
-				foreach (($postParms['houseprice']) as &$value) {
-					//$price = explode('-', $postParms['houseprice']);
-					$price = explode('-', $value);
-					$minPrice = intval($price[0]) *10000;
-					$maxPrice = intval($price[1]) *10000;
-					error_log ("MinPrice:".$minPrice);
-					if ($maxPrice != 0 || $minPrice != 0) {
-						if ($maxPrice > $minPrice) {
-							//$criteria->addCondition('lp_dol <'.$maxPrice);
-							$s1 = 'lp_dol <'.$maxPrice;
-						}
-						$s2 = 'lp_dol >='.$minPrice;
-						//$criteria->addCondition('lp_dol >='.$minPrice);
-						$s = "(".$s1." AND ".$s2.")";
-					}
-					if ( !empty($priceCond)){
-					$priceCond = $priceCond." OR ".$s;
-					}else {
-						$priceCond = $s;
-					}
-				}
 				
-				$criteria->addCondition($priceCond);
+		
+				$minPrice = intval($postParms['houseprice']['lower'])*10000 ;
+				$maxPrice = intval($postParms['houseprice']['upper'])*10000 ;
+				if ($minPrice >0) {
+					$criteria->addCondition('lp_dol >='.$minPrice);
+				}
+				if ( $maxPrice < 600){
+					$criteria->addCondition('lp_dol <='.$maxPrice);
+				}
 			}
 
 	 
