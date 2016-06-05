@@ -571,70 +571,29 @@ class NgGetController extends XFrontBase
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$catalog_id = $postParms['id'];
-		$catalog_id = 6;
+		$catalog_id = 12;
         $criteria = new CDbCriteria();
         $criteria->order = 'id DESC';
         if(!empty($catalog_id)){
             $criteria->addCondition('catalog_id='.$catalog_id);
         }
-       
-        $count = Post::model()->count($criteria);
-        $pager = new CPagination($count);
-        $pager->pageSize = 30;
-        $pager->applyLimit($criteria);
-        $more_news = Post::model()->findAll($criteria);
+      
 
  
         //房产热点新闻
-        $house_hotspots = Post::model()->findAll(array(
+        $posts = Post::model()->findAll(array(
             'select'    => 't.id as id, title',
             'condition' => 'catalog_id = :catalog_id',
-            'params'     => array(':catalog_id' => 12),
+            'params'     => array(':catalog_id' => $catalog_id),
 			'with' => array('catalog'),
             'order'     => 't.id DESC',
             'limit'     => 5
         ));
 		
-		
-		
-	//房产资讯
-        $house_zixun = Post::model()->findAll(array(
-            'select'    => 't.id as id, title',
-            'condition' => 'catalog_id = :catalog_id',
-            'params'     => array(':catalog_id' => 10),
-			'with' => array('catalog'),
-            'order'     => 't.id DESC',
-            'limit'     => 5
-        ));
+	
 
-
-        //最新学区房
-        $school_distrcit_house = House::model()->findAll(array(
-            //'select'    => 't.id, lp_dol,addr',
-            //'condition' => 'investType_id = :investType_id',
-			'select' => 't.id,ml_num,zip,s_r,county,t.municipality,lp_dol,num_kit,addr,longitude,latitude,area,bath_tot',
-			//'with' => array('mname','propertyType','city'),
-            'order'     => 'id DESC',
-            'limit'     => 3
-        ));
-
-		$result['hotspots'] =  array_map(create_function('$m','return $m->getAttributes(array(\'id\',\'title\'));'),$house_hotspots);
-		$result['zixun'] =  array_map(create_function('$m','return $m->getAttributes(array(\'id\',\'title\'));'),$house_zixun);
+		$result['posts'] =  array_map(create_function('$m','return $m->getAttributes(array(\'id\',\'title\'));'),$posts);
 		
-		
-        // $data = array(
-            // 'catalog_id'                  => $catalog_id,
-            // 'special_news'                => $special_news[0],
-            // 'more_news'                   => $more_news,
-            // 'exhibition'                  => $exhibition,
-            // 'school_distrcit_house_news'  => $school_distrcit_house_news,
-            // 'house_hotspots'              => $house_hotspots,
-			// 'house_zixun'              => $house_zixun,
-            // 'house_property_special_news' => $house_property_special_news[0],
-            // 'house_property'              => $house_property,
-            // 'school_distrcit_house'       => $school_distrcit_house,
-            // 'pages'                       => $pager
-        // );
 		echo json_encode($result);
         
 

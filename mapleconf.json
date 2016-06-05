@@ -9,7 +9,8 @@
 	"schoolRest": "index.php?r=ngget/getSchools",
 	"houseRest": "index.php?r=ngget/getHouse",
 	"aboutRest": "index.php?r=ngget/getAbout",
-	"postRest": "index.php?r=ngget/getPost"
+	"postRest": "index.php?r=ngget/getPost",
+	"postListRest": "index.php?r=ngget/getPostList"
 
 
 }
