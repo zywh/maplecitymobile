@@ -303,7 +303,7 @@ class NgGetController extends XFrontBase
 				error_log("Select House:".$count." GridCount:".$gridcount);	
 				$result['Data']['Type'] = "house";
 				$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
-				$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,depth,front_ft,br,addr,house_image,longitude,latitude,area,bath_tot';
+				$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot';
 				$criteria->with = array('mname','propertyType','city');
 				$criteria->order = "t.latitude,t.longitude";
 				$house = House::model()->findAll($criteria);
@@ -517,5 +517,159 @@ class NgGetController extends XFrontBase
 		$result['imgHost'] = "http://m.maplecity.com.cn/";
 		echo json_encode($result);
 	}
+	
+
+	/* News Info*/
+    public function actionGetPost(){
+		$results = array();
+		$postParms = array();
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		$_POST = (array) json_decode(file_get_contents('php://input'), true);
+		//error_log("Parms:".$_POST['parms']['id']);
+		$id = $_POST['parms']['id'];
+		$id = 10;
+		$criteria = new CDbCriteria();
+        
+        $post = Post::model()->findByPk($id);
+  
+        $post->view_count += 1;
+        $post->save();
+        $catalog_id = $post->catalog_id;
+        $prev_post = Post::model()->findAll(array(
+            'select'    => 'id, title',
+            'condition' => 'id > :id AND catalog_id = :catalog_id',
+            'params'    => array(':id' => $id, ':catalog_id' => $catalog_id),
+            'order'     => 'id ASC',
+            'limit'     => 1
+        ));
+        $next_post = Post::model()->findAll(array(
+            'select'    => 'id, title',
+            'condition' => 'id < :id AND catalog_id = :catalog_id',
+            'params'    => array(':id' => $id, ':catalog_id' => $catalog_id),
+            'order'     => 'id DESC',
+            'limit'     => 1
+        ));
+		$result['current']['title'] = $post['title'];
+		$result['current']['content'] = $post['content'];
+		$result['current']['image'] = $post['image'];
 		
+		$result['pre'] = array_map(create_function('$m','return $m->getAttributes(array(\'id\',\'title\'));'),$prev_post);
+		//$result['pre'] = $prev_post[0];
+		$result['next'] = array_map(create_function('$m','return $m->getAttributes(array(\'id\',\'title\'));'),$next_post);
+		
+        echo json_encode($result);
+    }
+	
+		
+    public function actionGetPostList(){
+        //Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/post.css');
+        //$catalog_id = Yii::app()->request->getQuery('catalog_id', 11);
+		$postParms = array();
+		$_POST = (array) json_decode(file_get_contents('php://input'), true);
+		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+		$catalog_id = $postParms['id'];
+		$catalog_id = 6;
+        $criteria = new CDbCriteria();
+        $criteria->order = 'id DESC';
+        if(!empty($catalog_id)){
+            $criteria->addCondition('catalog_id='.$catalog_id);
+        }
+       
+        $count = Post::model()->count($criteria);
+        $pager = new CPagination($count);
+        $pager->pageSize = 30;
+        $pager->applyLimit($criteria);
+        $more_news = Post::model()->findAll($criteria);
+
+        //房展会
+        $exhibition = Post::model()->findAll(array(
+            'select'    => 'id, title, image',
+            'condition' => 'catalog_id=:catalog_id AND image<>""',
+            'params'    => array(':catalog_id' => 10),
+            'order'     => 'id DESC',
+            'limit'     => 5
+        )); //房展会
+
+        //学区房新闻
+        $school_distrcit_house_news = Post::model()->findAll(array(
+            'select'    => 't.id as id, title',
+            'condition' => 'catalog_id = :catalog_id',
+            'params'    => array(':catalog_id' => 11),
+			'with' => array('catalog'),
+            'order'     => 't.id DESC',
+            'limit'     => 5
+        ));
+
+        //房产热点新闻
+        $house_hotspots = Post::model()->findAll(array(
+            'select'    => 't.id as id, title',
+            'condition' => 'catalog_id = :catalog_id',
+            'params'     => array(':catalog_id' => 12),
+			'with' => array('catalog'),
+            'order'     => 't.id DESC',
+            'limit'     => 5
+        ));
+		
+		
+		
+	//房产资讯
+        $house_zixun = Post::model()->findAll(array(
+            'select'    => 't.id as id, title',
+            'condition' => 'catalog_id = :catalog_id',
+            'params'     => array(':catalog_id' => 10),
+			'with' => array('catalog'),
+            'order'     => 't.id DESC',
+            'limit'     => 5
+        ));
+
+        $house_property_special_news = Post::model()->findAll(array(
+            'select'    => 'id, title',
+            'condition' => 'catalog_id = :catalog_id',
+            'params'     => array(':catalog_id' => 13),
+            'order'     => 'id DESC',
+            'limit'     => 1
+        ));
+        $house_property_special_id = $house_property_special_news[0]->id;
+        //房产置业宝典
+        $house_property = Post::model()->findAll(array(
+            'select'    => 'id, title, create_time,last_update_time',
+            'condition' => 'catalog_id = :catalog_id AND id != :id',
+            'params'     => array(':catalog_id' => 13, ':id' => $house_property_special_id),
+            'order'     => 'id DESC',
+            'limit'     => 5
+        ));
+
+        //最新学区房
+        $school_distrcit_house = House::model()->findAll(array(
+            //'select'    => 't.id, lp_dol,addr',
+            //'condition' => 'investType_id = :investType_id',
+			'select' => 't.id,ml_num,zip,s_r,county,t.municipality,lp_dol,num_kit,addr,longitude,latitude,area,bath_tot',
+			//'with' => array('mname','propertyType','city'),
+            'order'     => 'id DESC',
+            'limit'     => 3
+        ));
+
+		$result['hotspots'] =  array_map(create_function('$m','return $m->getAttributes(array(\'id\',\'title\'));'),$house_hotspots);
+		$result['zixun'] =  array_map(create_function('$m','return $m->getAttributes(array(\'id\',\'title\'));'),$house_zixun);
+		
+		
+        // $data = array(
+            // 'catalog_id'                  => $catalog_id,
+            // 'special_news'                => $special_news[0],
+            // 'more_news'                   => $more_news,
+            // 'exhibition'                  => $exhibition,
+            // 'school_distrcit_house_news'  => $school_distrcit_house_news,
+            // 'house_hotspots'              => $house_hotspots,
+			// 'house_zixun'              => $house_zixun,
+            // 'house_property_special_news' => $house_property_special_news[0],
+            // 'house_property'              => $house_property,
+            // 'school_distrcit_house'       => $school_distrcit_house,
+            // 'pages'                       => $pager
+        // );
+		echo json_encode($result);
+        
+
+    }
+	
 }
