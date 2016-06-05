@@ -528,7 +528,7 @@ class NgGetController extends XFrontBase
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		//error_log("Parms:".$_POST['parms']['id']);
-		$id = (!empty($postParms['id']))? $postParms['id']: 10;
+		$id = (!empty($postParms['id']))? $postParms['id']: 32;
 		//$id = (!empty($id))? id: 10;
 		$criteria = new CDbCriteria();
         
@@ -537,14 +537,14 @@ class NgGetController extends XFrontBase
         $post->view_count += 1;
         $post->save();
         $catalog_id = $post->catalog_id;
-        $prev_post = Post::model()->findAll(array(
+        $next_post = Post::model()->findAll(array(
             'select'    => 'id, title',
             'condition' => 'id > :id AND catalog_id = :catalog_id',
             'params'    => array(':id' => $id, ':catalog_id' => $catalog_id),
             'order'     => 'id ASC',
             'limit'     => 1
         ));
-        $next_post = Post::model()->findAll(array(
+        $prev_post = Post::model()->findAll(array(
             'select'    => 'id, title',
             'condition' => 'id < :id AND catalog_id = :catalog_id',
             'params'    => array(':id' => $id, ':catalog_id' => $catalog_id),
@@ -555,10 +555,10 @@ class NgGetController extends XFrontBase
 		$result['current']['content'] = $post['content'];
 		$result['current']['image'] = $post['image'];
 		
-		$result['pre'] = array_map(create_function('$m','return $m->getAttributes(array(\'id\',\'title\'));'),$prev_post);
-		//$result['pre'] = $prev_post[0];
-		$result['next'] = array_map(create_function('$m','return $m->getAttributes(array(\'id\',\'title\'));'),$next_post);
-		
+		//$result['pre'] = array_map(create_function('$m','return $m->getAttributes(array(\'id\',\'title\'));'),$prev_post);
+		$result['pre']['id'] = $prev_post[0]['id'];
+		//$result['next'] = array_map(create_function('$m','return $m->getAttributes(array(\'id\',\'title\'));'),$next_post);
+		$result['next']['id'] = $next_post[0]['id'];
         echo json_encode($result);
     }
 	
