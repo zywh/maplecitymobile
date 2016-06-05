@@ -3445,3 +3445,41 @@ Stack trace:
 #15 {main}
 REQUEST_URI=/index.php?r=ngget/getPostList
 ---
+2016/06/05 09:12:54 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "Post" 正尝试选择一个无效的栏位 "catalog->catalog_name". 注意, 该栏位必须存在于 table 中或者是一个具别名的 expression.' in /var/www/mhtml/framework/db/ar/CActiveFinder.php:960
+Stack trace:
+#0 /var/www/mhtml/framework/db/ar/CActiveFinder.php(1261): CJoinElement->getColumnSelect('t.id as id, tit...')
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(433): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#4 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/protected/controllers/NggetController.php(606): CActiveRecord->findAll(Array)
+#6 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetPostList()
+#7 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#8 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#9 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getPostList')
+#11 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getPostLi...')
+#12 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#13 /var/www/mhtml/index.php(19): CApplication->run()
+#14 {main}
+REQUEST_URI=/index.php?r=ngget/getPostList
+---
+2016/06/05 09:13:35 [error] [exception.CDbException] exception 'CDbException' with message 'Active record "Post" 正尝试选择一个无效的栏位 "t1_c2". 注意, 该栏位必须存在于 table 中或者是一个具别名的 expression.' in /var/www/mhtml/framework/db/ar/CActiveFinder.php:960
+Stack trace:
+#0 /var/www/mhtml/framework/db/ar/CActiveFinder.php(1261): CJoinElement->getColumnSelect('t.id as id, tit...')
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(433): CJoinQuery->__construct(Object(CJoinElement), Object(CDbCriteria))
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#3 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#4 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/protected/controllers/NggetController.php(606): CActiveRecord->findAll(Array)
+#6 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetPostList()
+#7 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#8 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#9 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getPostList')
+#11 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getPostLi...')
+#12 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#13 /var/www/mhtml/index.php(19): CApplication->run()
+#14 {main}
+REQUEST_URI=/index.php?r=ngget/getPostList
+---

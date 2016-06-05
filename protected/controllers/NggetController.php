@@ -526,9 +526,10 @@ class NgGetController extends XFrontBase
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
+		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		//error_log("Parms:".$_POST['parms']['id']);
-		$id = $_POST['parms']['id'];
-		$id = 10;
+		$id = (!empty($postParms['id']))? $postParms['id']: 10;
+		//$id = (!empty($id))? id: 10;
 		$criteria = new CDbCriteria();
         
         $post = Post::model()->findByPk($id);
@@ -566,6 +567,7 @@ class NgGetController extends XFrontBase
         //Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/post.css');
         //$catalog_id = Yii::app()->request->getQuery('catalog_id', 11);
 		$postParms = array();
+		$db = Yii::app()->db;
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$catalog_id = $postParms['id'];
@@ -582,25 +584,7 @@ class NgGetController extends XFrontBase
         $pager->applyLimit($criteria);
         $more_news = Post::model()->findAll($criteria);
 
-        //房展会
-        $exhibition = Post::model()->findAll(array(
-            'select'    => 'id, title, image',
-            'condition' => 'catalog_id=:catalog_id AND image<>""',
-            'params'    => array(':catalog_id' => 10),
-            'order'     => 'id DESC',
-            'limit'     => 5
-        )); //房展会
-
-        //学区房新闻
-        $school_distrcit_house_news = Post::model()->findAll(array(
-            'select'    => 't.id as id, title',
-            'condition' => 'catalog_id = :catalog_id',
-            'params'    => array(':catalog_id' => 11),
-			'with' => array('catalog'),
-            'order'     => 't.id DESC',
-            'limit'     => 5
-        ));
-
+ 
         //房产热点新闻
         $house_hotspots = Post::model()->findAll(array(
             'select'    => 't.id as id, title',
@@ -623,22 +607,6 @@ class NgGetController extends XFrontBase
             'limit'     => 5
         ));
 
-        $house_property_special_news = Post::model()->findAll(array(
-            'select'    => 'id, title',
-            'condition' => 'catalog_id = :catalog_id',
-            'params'     => array(':catalog_id' => 13),
-            'order'     => 'id DESC',
-            'limit'     => 1
-        ));
-        $house_property_special_id = $house_property_special_news[0]->id;
-        //房产置业宝典
-        $house_property = Post::model()->findAll(array(
-            'select'    => 'id, title, create_time,last_update_time',
-            'condition' => 'catalog_id = :catalog_id AND id != :id',
-            'params'     => array(':catalog_id' => 13, ':id' => $house_property_special_id),
-            'order'     => 'id DESC',
-            'limit'     => 5
-        ));
 
         //最新学区房
         $school_distrcit_house = House::model()->findAll(array(
