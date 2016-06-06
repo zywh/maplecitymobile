@@ -6,6 +6,7 @@
 	"projectRest": "index.php?r=ngget/getProjects",
 	"mapHouseRest": "index.php?r=ngget/getProjects",
 	"statsRest": "index.php?r=ngget/getStats",
+	"getMlsDataRest": "index.php?r=ngget/getMlsData",
 	"schoolRest": "index.php?r=ngget/getSchools",
 	"houseRest": "index.php?r=ngget/getHouse",
 	"aboutRest": "index.php?r=ngget/getAbout",
