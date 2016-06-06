@@ -489,7 +489,7 @@ class NgGetController extends XFrontBase
     }
 	
 	/*
-	REST for About Page content
+	REST for About Page content POST Model
 	*/
 	public function actionGetAbout(){
 		$postParms = array();
@@ -519,7 +519,7 @@ class NgGetController extends XFrontBase
 	}
 	
 
-	/* News Info*/
+	/* News Info POST Model*/
     public function actionGetPost(){
 		$results = array();
 		$postParms = array();
@@ -562,7 +562,7 @@ class NgGetController extends XFrontBase
         echo json_encode($result);
     }
 	
-		
+	/* News Info List POST Model*/	
     public function actionGetPostList(){
         //Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/css/post.css');
         //$catalog_id = Yii::app()->request->getQuery('catalog_id', 11);
@@ -599,4 +599,86 @@ class NgGetController extends XFrontBase
 
     }
 	
+
+    public function actionGetMlsData(){
+
+        $result = array();
+        $criteria = new CDbCriteria();
+        $criteria->select = 'unix_timestamp(date)*1000 as date,
+				sales,dollar/1000000 as dallor,avg_price,
+				new_list,snlr*100 as snlr,active_list,
+				moi,avg_dom,avg_splp*100 as avg_splp,type';
+	
+
+        $data = MlsHist::model()->findAll($criteria);
+        foreach ($data as $val) {
+
+
+                $result['mlsdata'][$val->type]['avgprice'][] = array($val->date,$val->avg_price); //good
+                $result['mlsdata'][$val->type]['avgdom'][] = array($val->date,$val->avg_dom); //good
+                $result['mlsdata'][$val->type]['avgsplp'][] = array($val->date,$val->avg_splp); //good
+				$result['mlsdata'][$val->type]['sales'][] = array($val->date,$val->sales); //good
+                $result['mlsdata'][$val->type]['newlist'][] = array($val->date,$val->new_list); //good
+                $result['mlsdata'][$val->type]['moi'][] = array($val->date,$val->moi); //good
+				$result['mlsdata'][$val->type]['active'][] = array($val->date,$val->active_list); //good
+				$result['mlsdata'][$val->type]['snlr'][] = array($val->date,$val->snlr); //bad
+        }
+
+
+        echo json_encode($result);
+
+     
+
+    }
+
+	public function actionGetHouseStats(){
+		$db = Yii::app()->db;
+		$result = array();
+		//
+		
+		$sql = " select * from h_stats_chart order by i1 desc;";
+		$resultsql = $db->createCommand($sql)->query();
+		
+		foreach($resultsql as $row){
+			if ( $row["chartname"] == 'city')	{
+				//City
+				//$result["city"][] = array($row["n1"],$row["n3"],$row["n2"],$row["n4"],$row["i1"],$row["i2"]); 
+				$result["city"][] = array($row["n1"],$row["i1"],$row["i2"]); 
+			}
+		   if ( $row["chartname"] == 'province')       {
+					//City
+					$result["province"][] = array($row["n2"],$row["n4"],$row["i1"],$row["i2"]);
+			}
+
+		  
+			if ( $row["chartname"] == 'price')	{
+				//房价分布图
+				$result["price"][] = array($row["n1"],$row["i1"]); //n1 is bin and i1 is count
+			}
+			
+			if ( $row["chartname"] == 'house')	{
+				//房屋面积分布图
+				$result["housearea"][] = array($row["i1"],$row["n1"]); //n1 is bin and i1 is count
+			}
+			
+			if ( $row["chartname"] == 'land')	{
+				//土地面积分布图
+				$result["landarea"][] = array($row["i1"],$row["n1"]); //n1 is bin and i1 is count
+			}
+			if ( $row["chartname"] == 'type')	{
+				//土地面积分布图
+				$result["property_type"][] = array($row["i1"],$row["n1"]); //n1 is bin and i1 is count
+			}
+						
+		}
+		
+
+       	//End of count
+		
+       echo json_encode($result);
+
+      
+    }
+
+		
 }

@@ -3483,3 +3483,11 @@ Stack trace:
 #14 {main}
 REQUEST_URI=/index.php?r=ngget/getPostList
 ---
+2016/06/06 10:25:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "ngget?getmlsdata"。' in /var/www/mhtml/framework/yiilite.php:1750
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget?getmlsdat...')
+#1 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#2 /var/www/mhtml/index.php(19): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=ngget?getmlsdata
+---
