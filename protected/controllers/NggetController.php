@@ -30,6 +30,7 @@ class NgGetController extends XFrontBase
 			$result['layout_list'] = unserialize($row["layout_list"]); 
 			$result['amenities'] = $row["amenities"]; 
 			$result['point'] = $row["point"]; 
+			$result['room_type_image'] = $row["room_type_image"]; 
 			$result['developer_intro'] = $row["developer_intro"];
 			$result['cityname'] = $row["cityname"]; 			
 			$result['replaceurl'] = $imghost."tn_uploads";
