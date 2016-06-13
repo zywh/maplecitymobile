@@ -706,11 +706,11 @@ class NgGetController extends XFrontBase
             $criteria = new CDbCriteria();
 			
 			
-			if($postParms['type'] == 'true' ) { //secondary school
+			if($postParms['type'] == TRUE ) { //secondary school
 				$criteria->addCondition('type =1');
 			} 
 			
-			if($postParms['type'] == 'false' ) {  //elementary school
+			if($postParms['type'] ==  FALSE ) {  //elementary school
 				$criteria->addCondition('type =0');
 			} 
 			
