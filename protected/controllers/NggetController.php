@@ -768,8 +768,8 @@ class NgGetController extends XFrontBase
 				$criteria->limit = 2000;
 				$school = School::model()->findAll($criteria);
 				$result['Message'] = '成功';
-				$gridx =  ( $_POST['gridx'])? ( $_POST['gridx']): 5;
-				$gridy =  ( $_POST['gridy'])? ( $_POST['gridy']): 5;
+				$gridx =  ( $postParms['gridx'])? ( $postParms['gridx']): 5;
+				$gridy =  ( $postParms['gridy'])? ( $postParms['gridy']): 5;
 
 				$tiley = (($maxLat - $minLat ) / $gridy) ;
 				$tilex = (($maxLon - $minLon ) / $gridx) ;
@@ -826,6 +826,105 @@ class NgGetController extends XFrontBase
 		}
 		
 		echo json_encode($result);
+    }
+	
+	/*School Map Auto Complete*/
+	
+	public function actionGetSchoolAutoComplete(){
+		
+			
+		$limit = 8;
+		$city_id='0';
+		$db = Yii::app()->db;
+		$postParms = array();
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		$_POST = (array) json_decode(file_get_contents('php://input'), true);
+		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+		$term = trim($postParms['term']);
+		
+		$chinese = preg_match("/\p{Han}+/u", $term);
+		
+		
+		
+		if ($chinese) { //if province = 0 and chinese search
+		
+			$sql = "
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  m.municipality_cname like '".$term."%' 
+			AND  m.count > 1 order by count desc limit " .$limit;
+						
+		
+		} else { //if province = 0  and english search
+		
+			$sql = "
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like '".$term."%' 
+			AND  m.count > 1 order by count desc limit ". $limit;
+			
+		}
+				
+		
+	
+	
+			
+		
+		$resultsql = $db->createCommand($sql)->query();
+		$citycount = count($resultsql);
+		
+		foreach($resultsql as $row){
+			$idArray = array($row["citye"],$row["lat"],$row["lng"]);
+				
+			//Type CITY ARRAY
+			$result['id'] = $row["citye"]; 
+			$result['type'] = "CITY"; 
+			$result['lat'] = $row["lat"]; 
+			$result['lng'] = $row["lng"]; 
+			
+			if ( $chinese ) {
+				
+				$result['value'] = $row["cityc"].", ".$row["provincec"]; 
+				$results['CITY'][] = $result;
+				
+			} else {
+				$result['value'] = $row["citye"].", ". $row["provincee"]; 
+				$results['CITY'][] = $result;
+			}
+		
+	
+		}
+			
+		//Address Search and Return ML_NUM
+		if ($citycount < $limit){
+			//start address selection
+			$limit = $limit - $citycount;
+			$sql = "
+			SELECT school,lat,lng,city,province,paiming FROM h_school 
+			WHERE  school like '%".$term."%' order by paiming ASC
+			limit " .$limit;
+			$resultsql = $db->createCommand($sql)->query();
+			
+			foreach($resultsql as $row){
+				
+				//Type ADDRESS ARRAY
+				$result['paiming'] = $row["paiming"]; 
+				$result['school'] = $row["school"];
+				$result['lat'] = $row["lat"];
+				$result['lng'] = $row["lng"];
+				$results['SCHOOL'][] = $result;
+								
+			}
+		}
+		
+		
+
+		 echo json_encode($results);
+    
+	//Function END  
     }
 		
 }
