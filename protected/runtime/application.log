@@ -3491,3 +3491,13 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/index.php?r=ngget?getmlsdata
 ---
+2016/06/13 10:11:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "getschool" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('getschool')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getschool')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getschool')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=ngget/getschool
+---

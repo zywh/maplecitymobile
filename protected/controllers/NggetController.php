@@ -842,6 +842,7 @@ class NgGetController extends XFrontBase
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$term = trim($postParms['term']);
+		$term = 'john';
 		
 		$chinese = preg_match("/\p{Han}+/u", $term);
 		
@@ -877,8 +878,7 @@ class NgGetController extends XFrontBase
 		$citycount = count($resultsql);
 		
 		foreach($resultsql as $row){
-			$idArray = array($row["citye"],$row["lat"],$row["lng"]);
-				
+			
 			//Type CITY ARRAY
 			$result['id'] = $row["citye"]; 
 			$result['type'] = "CITY"; 
@@ -901,17 +901,18 @@ class NgGetController extends XFrontBase
 		//Address Search and Return ML_NUM
 		if ($citycount < $limit){
 			//start address selection
+			$result= [];
 			$limit = $limit - $citycount;
 			$sql = "
-			SELECT school,lat,lng,city,province,paiming FROM h_school 
-			WHERE  school like '%".$term."%' order by paiming ASC
+			SELECT school,lat,lng,city,province,if(paiming >0,paiming,'无') as  p FROM h_school 
+			WHERE  school like '%".$term."%' order by p ASC
 			limit " .$limit;
 			$resultsql = $db->createCommand($sql)->query();
 			
 			foreach($resultsql as $row){
 				
 				//Type ADDRESS ARRAY
-				$result['paiming'] = $row["paiming"]; 
+				$result['paiming'] = $row["p"]; 
 				$result['school'] = $row["school"];
 				$result['lat'] = $row["lat"];
 				$result['lng'] = $row["lng"];
