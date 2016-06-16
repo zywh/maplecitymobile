@@ -194,7 +194,7 @@ swiper.startAutoplay();
                 </div>
                 
                 <div class="fyxq_rx">服务热线：
-                  <img src="new/images/plat.jpg" width="23" height="15" /><a href="tel:400-9900-393"><span>400-870-1029</span></a>
+                  <img src="new/images/plat.jpg" width="23" height="15" /><a href="tel:400-9900-393"><span>400-990-0393</span></a>
                 </div>
                  <div class="cl"></div>
                 </div>
