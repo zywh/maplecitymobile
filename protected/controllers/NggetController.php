@@ -141,7 +141,7 @@ class NgGetController extends XFrontBase
 				if ($minPrice >0) {
 					$criteria->addCondition('lp_dol >='.$minPrice);
 				}
-				if ( $maxPrice < 600){
+				if ( $maxPrice < 6000000){
 					$criteria->addCondition('lp_dol <='.$maxPrice);
 				}
 			}

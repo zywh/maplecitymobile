@@ -353,7 +353,7 @@ var maplemap = {
 
 								var li =  "<li class='panel_house_view' data-icon='false'>" 
 								
-									+ "<a data-ajax='false' href='index.php?r=mhouse/view&id=" + this.MLS + "'>" 
+									+ "<a data-ajax='false' target='_blank' href='index.php?r=mhouse/view&id=" + this.MLS + "'>" 
 									+ "<img src=' " + imgurltn + "'>" 
 									+ " <div class='panel_house_text'>"
 									+ "<div>" + this.Address + "</div>" 
@@ -372,7 +372,7 @@ var maplemap = {
 									if ( count == 1) {
 									//Generate single house popup view
 									var html = "<div class='map_info_content'><a href='index.php?r=mhouse/view&id=" + this.MLS + "' data-ajax='false'> <img src='" + imgurl + "'></a></div>"
-									+ "<div class='map_info_text'><div><a href='index.php?r=mhouse/view&id=" + this.MLS + "' data-ajax='false'>MLS: " + this.MLS + "</a><div>"
+									+ "<div class='map_info_text'><div><a target='_blank' href='index.php?r=mhouse/view&id=" + this.MLS + "' data-ajax='false'>MLS: " + this.MLS + "</a><div>"
 									+ "<div >价格：" + hprice + "</div>"
 									+ "<div>地址：" + this.Address + "</div>" 
 									+ "<div>城市：" + this.MunicipalityName + " " + this.ProvinceCname + " " + this.Zip + "</div>"
@@ -386,7 +386,7 @@ var maplemap = {
 									//generate panel list view
 									//var li =  "<li class='panel_house_view' data-icon='false'>" 
 								
-									+ "<a data-ajax='false' href='index.php?r=mhouse/view&id=" + this.MLS + "'>" 
+									+ "<a data-ajax='false' target='_blank' href='index.php?r=mhouse/view&id=" + this.MLS + "'>" 
 									+ "<img src=' " + imgurltn + "'>" 
 									+ " <div class='panel_house_text'>"
 									+ "<div>" + this.Address + "</div>" 
