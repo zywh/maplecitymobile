@@ -119,6 +119,12 @@ class NgGetController extends XFrontBase
 				
             }
 			
+			//挂牌时间
+
+			if($postParms['housedate'] > 0 ){
+				$criteria->addCondition('DATE_SUB(CURDATE(), INTERVAL '.$postParms['housedate'].' DAY) <= date(pix_updt)');
+			}
+		
 			//House Area - Multiple Selection Array
 			if (!empty($postParms['housearea'])) {
 					
