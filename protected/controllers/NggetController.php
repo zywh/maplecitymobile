@@ -933,5 +933,105 @@ class NgGetController extends XFrontBase
     
 	//Function END  
     }
+
+	//REST to return the house detail by its MLS#
+    public function actionGetHouseDetail() {
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		$_POST = (array) json_decode(file_get_contents('php://input'), true);
+		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+		$id = $postParms['id'];
+		error_log("postParms=".$postParms);
+		error_log("id=".$id);
+        
+		$criteria = new CDbCriteria();
+		$criteria->addCondition('t.id="'.$id.'"');
+		$criteria->with = array('mname','propertyType');
 		
+        //$house = House::model()->find('id=:id',array(':id'=>$id));
+		$house = House::model()->find($criteria);
+ 		//error_log($house->pool);
+
+        $layouts = Layout::model()->findAll('house_id=:house_id',array(':house_id'=>$id));
+        $matches = Match::model()->findAll();
+		
+		//Generate cookie for viewed house
+	    if(!empty($cookies['fzd_house'])){
+            $house_ids = explode(',', $cookies['fzd_house']->value);
+            array_push($house_ids, $house->ml_num);
+            $house_ids = array_unique($house_ids);
+			$arr = array_slice($house_ids, -10); //chop to last 10 items
+            $cookie_str = implode(',', $arr);
+			
+            $cookie = new CHttpCookie('fzd_house',$cookie_str);
+            $cookie->expire = time() + 60 * 60 * 24 * 30;  //有限期30天
+            Yii::app()->request->cookies['fzd_house'] = $cookie;
+        }else{
+            $cookie = new CHttpCookie('fzd_house',$house->ml_num);
+            $cookie->expire = time() + 60 * 60 * 24 * 30;  //有限期30天
+            Yii::app()->request->cookies['fzd_house'] = $cookie;
+        }
+
+        $collection_list = array();
+        if($this->_account['userId']){
+            $collect_model = Collect::model()->find('user_id=:user_id', array(':user_id'=>$this->_account['userId']));
+            if(!empty($collect_model)){
+                $collection_list = explode(',', $collect_model->collection);
+            }
+        }
+
+//附件房源
+        $criteria=new CDbCriteria;
+        $criteria->select='id,addr,lp_dol,house_image';
+        $criteria->condition='zip=:zip AND id<>:id';
+        $criteria->params=array(':zip'=>$house->zip, ':id'=>$id);
+        $criteria->order='id DESC';
+        $nearby_houses=House::model()->findAll($criteria);
+
+//浏览记录
+        $cookies = Yii::app()->request->getCookies();
+        $house_ids = explode(',', $cookies['addr']->value);
+        $criteria=new CDbCriteria;
+        $criteria->select='id,addr,lp_dol,house_image';
+        $criteria->addInCondition('id', $house_ids);
+        $view_history=House::model()->findAll($criteria);
+
+        $exchangeRate = 0;
+        $exchangeRateList = ExchangeRate::model()->findAll();
+        if(!empty($exchangeRateList)){
+            $exchangeRate = $exchangeRateList[0]->rate;
+        }
+
+ //照片
+        $county = $house->county;
+        $county = preg_replace('/\s+/', '', $county);
+        $county = str_replace("&","",$county);
+
+        $dir="mlspic/crea/creamid/".$county."/Photo".$val->ml_num."/";
+        $num_files = 0;
+
+        if(is_dir($dir)){
+            $picfiles =  scandir($dir);
+            $num_files = count(scandir($dir))-2;
+        }
+
+        if ( $num_files > 0)    {
+            for ($x = 2; $x <= $num_files + 1; $x++) {
+                $photos[] = $dir.$picfiles[$x];
+            }    
+        }
+
+        $data = array(
+            'house'           => $house,
+            'layouts'         => $layouts,
+            'matches'         => $matches,
+            'collection_list' => $collection_list,
+            'nearby_houses'   => $nearby_houses,
+            'view_history'    => $view_history,
+            'exchangeRate'    => $exchangeRate,
+            'photos'          => $photos
+        );
+
+		echo json_encode($data);
+    }	
 }
