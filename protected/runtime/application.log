@@ -3511,3 +3511,35 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/index.php?r=mhouse/getHouseDetail
 ---
+2016/06/21 08:37:20 [error] [exception.CException] exception 'CException' with message 'House and its behaviors do not have a method or closure named "asArray".' in /var/www/mhtml/framework/yiilite.php:704
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(7298): CComponent->__call('asArray', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(954): CActiveRecord->__call('asArray', Array)
+#2 /var/www/mhtml/protected/controllers/NggetController.php(954): House->asArray()
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetHouseDetail()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getHouseD...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getHouseDetail
+---
+2016/06/21 08:37:30 [error] [exception.CException] exception 'CException' with message 'House and its behaviors do not have a method or closure named "asArray".' in /var/www/mhtml/framework/yiilite.php:704
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(7298): CComponent->__call('asArray', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(954): CActiveRecord->__call('asArray', Array)
+#2 /var/www/mhtml/protected/controllers/NggetController.php(954): House->asArray()
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetHouseDetail()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getHouseD...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/getHouseDetail
+---

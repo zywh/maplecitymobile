@@ -951,7 +951,9 @@ class NgGetController extends XFrontBase
 		
         //$house = House::model()->find('id=:id',array(':id'=>$id));
 		$house = House::model()->find($criteria);
- 		//error_log($house->pool);
+ 		//$house = House::model()->find($criteria)->asArray()->all();
+ 		error_log(Yii::getVersion());
+		//error_log(print_r($house));
 
         $exchangeRate = 0;
         $exchangeRateList = ExchangeRate::model()->findAll();
