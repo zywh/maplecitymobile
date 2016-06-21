@@ -946,14 +946,11 @@ class NgGetController extends XFrontBase
 		$criteria = new CDbCriteria();
 		//$criteria->addCondition('t.id="'.$id.'"');
 		$criteria->addCondition('t.ml_num="'.$id.'"');
-		//$criteria->addCondition('t.ml_num="C3510139"');
 		$criteria->with = array('mname','propertyType');
 		
         //$house = House::model()->find('id=:id',array(':id'=>$id));
 		$house = House::model()->find($criteria);
  		//$house = House::model()->find($criteria)->asArray()->all();
- 		error_log(Yii::getVersion());
-		//error_log(print_r($house));
 
         $exchangeRate = 0;
         $exchangeRateList = ExchangeRate::model()->findAll();
@@ -966,7 +963,7 @@ class NgGetController extends XFrontBase
         $county = preg_replace('/\s+/', '', $county);
         $county = str_replace("&","",$county);
 
-        $dir="mlspic/crea/creamid/".$county."/Photo".$house->ml_num."/";
+        $dir="mlspic/crea/creatn/".$county."/Photo".$house->ml_num."/";
         $num_files = 0;
 
         if(is_dir($dir)){
@@ -975,13 +972,16 @@ class NgGetController extends XFrontBase
         }
 
         if ( $num_files > 0)    {
+			error_log("num_files=".$num_files);
             for ($x = 2; $x <= $num_files + 1; $x++) {
                 $photos[] = $dir.$picfiles[$x];
             }    
         }
 
         $data = array(
-            'house'           => $house,
+            'house'           => $house->getAttributes(),
+			'house_mname'     => $house->mname->getAttributes(),
+			'house_propertyType' => $house->propertyType->getAttributes(),
             'exchangeRate'    => $exchangeRate,
             'photos'          => $photos
         );
