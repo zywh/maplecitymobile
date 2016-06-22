@@ -675,7 +675,10 @@ class NgGetController extends XFrontBase
 			}
 			if ( $row["chartname"] == 'type')	{
 				//土地面积分布图
-				$result["property_type"][] = array($row["i1"],$row["n1"]); //n1 is bin and i1 is count
+				//$result["property_type"][] = array($row["i1"],$row["n1"]); //n1 is bin and i1 is count
+				$ptype["name"] = $row["n1"];
+				$ptype["y"] = $row["i1"];
+				$result["property_type"][] = $ptype; //n1 is bin and i1 is count
 			}
 						
 		}
