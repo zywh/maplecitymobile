@@ -606,8 +606,6 @@ class NgGetController extends XFrontBase
 
     }
 	
-	
-	
 	/*MLS Data Stat for stats page*/
     public function actionGetMlsData(){
 
@@ -677,10 +675,7 @@ class NgGetController extends XFrontBase
 			}
 			if ( $row["chartname"] == 'type')	{
 				//土地面积分布图
-				//$result["property_type"][] = array($row["i1"],$row["n1"]); //n1 is bin and i1 is count
-				$ptype->name = $row["i1"];
-				$ptype->y = $row["n1"];
-				$result["property_type"][] = $ptype; //n1 is bin and i1 is count
+				$result["property_type"][] = array($row["i1"],$row["n1"]); //n1 is bin and i1 is count
 			}
 						
 		}
@@ -977,7 +972,6 @@ class NgGetController extends XFrontBase
         }
 
         if ( $num_files > 0)    {
-			error_log("num_files=".$num_files);
             for ($x = 2; $x <= $num_files + 1; $x++) {
                 $photos[] = $dir.$picfiles[$x];
             }    
@@ -993,9 +987,4 @@ class NgGetController extends XFrontBase
 
 		echo json_encode($data);
     }	
-
-	
-
-	
-	
 }
