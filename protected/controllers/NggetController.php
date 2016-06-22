@@ -651,34 +651,46 @@ class NgGetController extends XFrontBase
 			if ( $row["chartname"] == 'city')	{
 				//City
 				//$result["city"][] = array($row["n1"],$row["n3"],$row["n2"],$row["n4"],$row["i1"],$row["i2"]); 
-				$result["city"][] = array($row["n1"],$row["i1"],$row["i2"]); 
+				$s["name"] = $row["n1"];
+				$s["y"] =(int)$row["i1"];
+				$result["city"][] = $s;
+				
 			}
 		   if ( $row["chartname"] == 'province')       {
-					//City
-					$result["province"][] = array($row["n2"],$row["n4"],$row["i1"],$row["i2"]);
+					
+				$s["name"] = $row["n2"];
+				$s["y"] =(int)$row["i1"];	
+				$result["province"][] = $s;
 			}
 
 		  
 			if ( $row["chartname"] == 'price')	{
 				//房价分布图
-				$result["price"][] = array($row["n1"],$row["i1"]); //n1 is bin and i1 is count
+				$s["name"] = $row["n1"];
+				$s["y"] =(int)$row["i1"];
+				$result["price"][] = $s; //n1 is bin and i1 is count
 			}
 			
 			if ( $row["chartname"] == 'house')	{
 				//房屋面积分布图
-				$result["housearea"][] = array($row["i1"],$row["n1"]); //n1 is bin and i1 is count
+				$s["name"] = $row["n1"];
+				$s["y"] =(int)$row["i1"];
+				$result["housearea"][] = $s; //n1 is bin and i1 is count
 			}
 			
 			if ( $row["chartname"] == 'land')	{
 				//土地面积分布图
-				$result["landarea"][] = array($row["i1"],$row["n1"]); //n1 is bin and i1 is count
+				//$result["landarea"][] = array($row["i1"],$row["n1"]); //n1 is bin and i1 is count
+				$s["name"] = $row["n1"];
+				$s["y"] =(int)$row["i1"];
+				$result["landarea"][] = $s;
 			}
 			if ( $row["chartname"] == 'type')	{
-				//土地面积分布图
+				//类型分布图
 				//$result["property_type"][] = array($row["i1"],$row["n1"]); //n1 is bin and i1 is count
-				$ptype["name"] = $row["n1"];
-				$ptype["y"] = $row["i1"];
-				$result["property_type"][] = $ptype; //n1 is bin and i1 is count
+				$s["name"] = $row["n1"];
+				$s["y"] =(int)$row["i1"];
+				$result["property_type"][] = $s; //n1 is bin and i1 is count
 			}
 						
 		}
