@@ -606,6 +606,8 @@ class NgGetController extends XFrontBase
 
     }
 	
+	
+	
 	/*MLS Data Stat for stats page*/
     public function actionGetMlsData(){
 
@@ -988,4 +990,9 @@ class NgGetController extends XFrontBase
 
 		echo json_encode($data);
     }	
+
+	
+
+	
+	
 }
