@@ -941,7 +941,6 @@ class NgGetController extends XFrontBase
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$id = $postParms['id'];
-		error_log("id=".$id);
         
 		$criteria = new CDbCriteria();
 		//$criteria->addCondition('t.id="'.$id.'"');
@@ -963,7 +962,8 @@ class NgGetController extends XFrontBase
         $county = preg_replace('/\s+/', '', $county);
         $county = str_replace("&","",$county);
 
-        $dir="mlspic/crea/creatn/".$county."/Photo".$house->ml_num."/";
+		$rdir="creatn/".$county."/Photo".$house->ml_num."/";
+        $dir="mlspic/crea/".$rdir;
         $num_files = 0;
 
         if(is_dir($dir)){
@@ -973,16 +973,16 @@ class NgGetController extends XFrontBase
 
         if ( $num_files > 0)    {
             for ($x = 2; $x <= $num_files + 1; $x++) {
-                $photos[] = $dir.$picfiles[$x];
+                $photos[] = $rdir.$picfiles[$x];
             }    
         }
 
         $data = array(
-            'house'           => $house->getAttributes(),
+			'house'           => $house->getAttributes(),
 			'house_mname'     => $house->mname->getAttributes(),
 			'house_propertyType' => $house->propertyType->getAttributes(),
-            'exchangeRate'    => $exchangeRate,
-            'photos'          => $photos
+			'exchangeRate'    => $exchangeRate,
+			'photos'          => $photos
         );
 
 		echo json_encode($data);
