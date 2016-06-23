@@ -977,7 +977,8 @@ class NgGetController extends XFrontBase
         $county = preg_replace('/\s+/', '', $county);
         $county = str_replace("&","",$county);
 
-		$rdir="creatn/".$county."/Photo".$house->ml_num."/";
+		//$rdir="creamid/".$county."/Photo".$house->ml_num."/";
+        $rdir="Photo".$house->ml_num."/";
         $dir="mlspic/crea/".$rdir;
         $num_files = 0;
 
