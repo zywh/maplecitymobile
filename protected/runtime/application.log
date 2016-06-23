@@ -3591,3 +3591,19 @@ Stack trace:
 #11 {main}
 REQUEST_URI=/index.php?r=ngget/getHouseDetail
 ---
+2016/06/23 09:12:58 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'index,sales,location from h_stats_hpinew' at line 1. The SQL statement executed was:  select unix_timestamp(date)*1000 as date,index,sales,location from h_stats_hpinew.
+2016/06/23 09:12:58 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'index,sales,location from h_stats_hpinew' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(714): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetHpiStats()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHpiStats')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getHpiSta...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getHpiStats
+---

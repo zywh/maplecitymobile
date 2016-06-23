@@ -703,6 +703,33 @@ class NgGetController extends XFrontBase
       
     }
 
+	
+	/*Current House Stats data for stats page*/
+	public function actionGetHpiStats(){
+		$db = Yii::app()->db;
+		$result = array();
+		//
+		
+		$sql = " select unix_timestamp(date)*1000 as date,hpi,sales,location from h_stats_hpinew";
+		$resultsql = $db->createCommand($sql)->query();
+		
+		foreach($resultsql as $row){
+			$location = $row["location"];
+			$s["date"] = $row["date"];
+			$s["hpi"] = $row["hpi"];
+			$s["sales"] = $row["sales"];
+			$result[$location][] = $s;
+						
+		}
+		
+
+       	//End of count
+		
+       echo json_encode($result);
+
+      
+    }
+
 	/*School List for School Map Page*/	
     public function actionGetSchoolMap() {
 		ini_set("log_errors", 1);
