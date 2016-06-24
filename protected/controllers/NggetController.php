@@ -983,6 +983,7 @@ class NgGetController extends XFrontBase
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$id = $postParms['id'];
+		//error_log("id=".$id);
         
 		$criteria = new CDbCriteria();
 		//$criteria->addCondition('t.id="'.$id.'"');
@@ -992,6 +993,7 @@ class NgGetController extends XFrontBase
         //$house = House::model()->find('id=:id',array(':id'=>$id));
 		$house = House::model()->find($criteria);
  		//$house = House::model()->find($criteria)->asArray()->all();
+		//error_log(print_r($house));
 
         $exchangeRate = 0;
         $exchangeRateList = ExchangeRate::model()->findAll();
