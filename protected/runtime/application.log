@@ -3607,3 +3607,43 @@ Stack trace:
 #10 {main}
 REQUEST_URI=/index.php?r=ngget/getHpiStats
 ---
+2016/06/25 12:42:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "getHouse" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('getHouse')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouse')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getHouse')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=ngget/getHouse
+---
+2016/06/25 12:46:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "getStats" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('getStats')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getStats')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getStats')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=ngget/getStats
+---
+2016/06/25 12:47:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "getHouse" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('getHouse')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouse')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getHouse')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=ngget/getHouse
+---
+2016/06/25 12:48:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "getHouse" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('getHouse')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouse')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getHouse')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=ngget/getHouse
+---
