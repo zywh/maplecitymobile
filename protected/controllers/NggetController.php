@@ -403,7 +403,7 @@ class NgGetController extends XFrontBase
 		if ( is_numeric($term) || preg_match("/^[a-zA-Z]\d+/",$term) ) {
 			//MLS search
 			$sql = "
-			SELECT ml_num,municipality FROM h_house 
+			SELECT ml_num,municipality,round(lp_dol/10000) as price,latitude,longitude FROM h_house 
 			WHERE  ml_num like '".$term."%' 
 			ORDER by city_id
 			limit " .$limit;
@@ -413,6 +413,9 @@ class NgGetController extends XFrontBase
 				$result['id'] = $row["ml_num"]; 
 				$result['value'] = $row["ml_num"]; 
 				$result['city'] = $row["municipality"];
+				$result['lat'] = $row["latitude"]; 
+				$result['lng'] = $row["longitude"]; 
+				$result['price'] = $row['price'];	
 				$results['MLS'][] = $result;
 			}
 			
@@ -471,7 +474,7 @@ class NgGetController extends XFrontBase
 				//start address selection
 				$limit = $limit - $citycount;
 				$sql = "
-				SELECT ml_num,addr,municipality,county,latitude,longitude FROM h_house  
+				SELECT ml_num,addr,round(lp_dol/10000) as price,municipality,county,latitude,longitude FROM h_house  
 				WHERE  addr like '%".$term."%' order by city_id
 				limit " .$limit;
 				$resultsql = $db->createCommand($sql)->query();
@@ -481,6 +484,9 @@ class NgGetController extends XFrontBase
 					$result['id'] = $row["ml_num"]; 
 					$result['value'] = $row["addr"];
 					$result['city'] = $row["municipality"];
+					$result['lat'] = $row["latitude"]; 
+					$result['lng'] = $row["longitude"]; 
+					$result['price'] = $row['price'];	
 					$result['province'] = $row["county"];
 					$results['ADDRESS'][] = $result;
 				}
