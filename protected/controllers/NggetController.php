@@ -763,10 +763,10 @@ class NgGetController extends XFrontBase
 			if($postParms['type'] == TRUE ) { //secondary school
 				$criteria->addCondition('type =1');
 			} 
-			
+			/* 
 			if($postParms['type'] ==  FALSE ) {  //elementary school
 				$criteria->addCondition('type =0');
-			} 
+			}  */
 			
 			$chinese = preg_match("/\p{Han}+/u", $postParms['xingzhi']);
 			//XingZhi
