@@ -3668,3 +3668,12 @@ Stack trace:
 #10 {main}
 REQUEST_URI=/index.php?r=ngget/getCityList
 ---
+2016/06/29 04:28:52 [error] [php] Division by zero (/var/www/mhtml/protected/controllers/NggetController.php:278)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getMapHouse
