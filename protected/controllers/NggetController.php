@@ -494,6 +494,26 @@ class NgGetController extends XFrontBase
 				$criteria->addCondition("t.municipality ='".$_POST['city']."'");
 			
 			}
+			
+			//lat and long selection
+            if (!empty($postParms['bounds'])) {
+                $latlon = explode(',', $postParms['bounds']);
+                $minLat = floatval($latlon[0]);
+                $maxLat = floatval($latlon[2]);
+                $minLon = floatval($latlon[1]);
+                $maxLon = floatval($latlon[3]);
+                $criteria->addCondition("t.latitude <= :maxLat");
+                $criteria->params += array(':maxLat' => $maxLat);
+                $criteria->addCondition("t.latitude >= :minLat");
+                $criteria->params += array(':minLat' => $minLat);
+                $criteria->addCondition("t.longitude <= :maxLon");
+                $criteria->params += array(':maxLon' => $maxLon);
+                $criteria->addCondition("t.longitude >= :minLon");
+                $criteria->params += array(':minLon' => $minLon);
+		
+
+
+            }			
 			#$criteria->order = 'id DESC';
 			$criteria->order = 'pix_updt DESC,city_id ASC,lp_dol DESC';
         
