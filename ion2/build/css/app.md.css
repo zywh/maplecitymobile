@@ -11698,13 +11698,6 @@ body {
 .searchbar-input {
   padding: 6px 40px; }
 
-ion-page.modal {
-  padding: 30px;
-  background: rgba(0, 0, 0, 0.5); }
-
-.disabledfeature {
-  color: #8f8f8f; }
-
 .map-option-modal .range-s {
   margin-top: -12px; }
 
@@ -11992,7 +11985,10 @@ ion-card.fyxq_cont {
     width: auto;
     display: inline-block; }
   ion-card.fyxq_cont .fyxq_ptss {
+    clear: both;
     padding: 1px 0; }
+    ion-card.fyxq_cont .fyxq_ptss::after {
+      clear: both; }
     ion-card.fyxq_cont .fyxq_ptss .fyxq_ptssleft {
       float: left;
       font-size: 18px;
@@ -12003,32 +11999,34 @@ ion-card.fyxq_cont {
       overflow: hidden;
       white-space: nowrap;
       padding-top: 1px; }
-    ion-card.fyxq_cont .fyxq_ptss .fyxq_ptssright.fyxq_ptpd span {
-      display: block;
-      margin-left: 5px;
-      margin-right: 10px;
-      /* margin-bottom:10px; */
-      margin-top: 3px;
-      white-space: nowrap;
-      color: #999999;
-      float: left;
-      height: 20px; }
-    ion-card.fyxq_cont .fyxq_ptss .fyxq_ptssright.fyxq_ptpd span b {
-      background: url(../../img/maple/xz.jpg) 0 center no-repeat;
-      width: 22px;
-      height: 14px;
-      display: inline-block; }
-    ion-card.fyxq_cont .fyxq_ptss .fyxq_ptssright.fyxq_ptpd span s {
-      background: url(../../img/maple/wxz.jpg) 0 0 no-repeat;
-      vertical-align: middle;
-      width: 22px;
-      height: 14px;
-      display: inline-block; }
+      ion-card.fyxq_cont .fyxq_ptss .fyxq_ptssright.fyxq_ptpd span {
+        margin-left: 5px;
+        margin-right: 10px;
+        /* margin-bottom:10px; */
+        margin-top: 3px;
+        white-space: nowrap;
+        color: #999999;
+        float: left;
+        height: 20px; }
+      ion-card.fyxq_cont .fyxq_ptss .fyxq_ptssright.fyxq_ptpd span b {
+        display: inline-block;
+        background: url(../../img/maple/xz.jpg) 0 center no-repeat;
+        width: 22px;
+        height: 14px; }
+      ion-card.fyxq_cont .fyxq_ptss .fyxq_ptssright.fyxq_ptpd span s {
+        display: inline-block;
+        background: url(../../img/maple/wxz.jpg) 0 0 no-repeat;
+        vertical-align: middle;
+        width: 22px;
+        height: 14px; }
   ion-card.fyxq_cont .fyxq_rx {
+    clear: both;
     font-weight: bold;
     float: left;
     line-height: 30px;
     padding-top: 5px; }
+    ion-card.fyxq_cont .fyxq_rx::after {
+      clear: both; }
     ion-card.fyxq_cont .fyxq_rx span {
       padding-left: 8px;
       font-weight: bold;
@@ -12044,6 +12042,14 @@ ion-card.fyxqlb_cont {
     color: #FF5722; }
     ion-card.fyxqlb_cont ion-item-divider#housedivider ion-label.switchF2M {
       text-align: right; }
+    ion-card.fyxqlb_cont ion-item-divider#housedivider .switchF2M {
+      float: right; }
+      ion-card.fyxqlb_cont ion-item-divider#housedivider .switchF2M::after {
+        clear: both; }
+      ion-card.fyxqlb_cont ion-item-divider#housedivider .switchF2M ion-label {
+        display: inline-block; }
+      ion-card.fyxqlb_cont ion-item-divider#housedivider .switchF2M ion-toggle {
+        display: inline-block; }
   ion-card.fyxqlb_cont .xqlb_list ion-item {
     padding: 0px;
     white-space: normal;
@@ -12053,10 +12059,16 @@ ion-card.fyxqlb_cont {
       padding-right: 6px; }
     ion-card.fyxqlb_cont .xqlb_list ion-item ion-toggle {
       padding: 0px; }
-    ion-card.fyxqlb_cont .xqlb_list ion-item span.xqlb_label {
-      width: 40px; }
   ion-card.fyxqlb_cont .xqlb_list ion-label {
     margin: 0px; }
+  ion-card.fyxqlb_cont .xqlb_list ion-label[fixed] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 90px;
+    -ms-flex: 0 0 90px;
+    flex: 0 0 90px;
+    width: 90px;
+    min-width: 60px;
+    max-width: 90px; }
   ion-card.fyxqlb_cont .fwbj_table {
     overflow: auto;
     -webkit-overflow-scrolling: touch; }
@@ -12070,6 +12082,14 @@ ion-card.fyxqlb_cont {
   #houseList_control .button-fab {
     font-size: 10px; }
 
+.houselist-search {
+  z-index: 11; }
+  .houselist-search ion-thumbnail img {
+    max-width: 9.6rem;
+    max-height: 7.6rem;
+    min-width: 9.6rem;
+    min-height: 7.6rem; }
+
 .account-page img {
   max-width: 140px;
   border-radius: 50%; }
@@ -12081,186 +12101,3 @@ ion-card.fyxqlb_cont {
 
 .login-page .logo img {
   max-width: 150px; }
-
-.map-page ion-content {
-  background: #e5e3df; }
-
-.map-page #mapnew {
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  -webkit-transition: opacity 150ms ease-in;
-  transition: opacity 150ms ease-in; }
-
-.map-page #mapnew.show-map {
-  opacity: 1; }
-
-.schedule ion-item-sliding[track=ionic] ion-label {
-  border-left: 2px solid #FF5722;
-  padding-left: 10px; }
-
-.schedule ion-item-sliding[track=angular] ion-label {
-  border-left: 2px solid #AC282B;
-  padding-left: 10px; }
-
-.schedule ion-item-sliding[track=communication] ion-label {
-  border-left: 2px solid #8E8D93;
-  padding-left: 10px; }
-
-.schedule ion-item-sliding[track=tooling] ion-label {
-  border-left: 2px solid #FE4C52;
-  padding-left: 10px; }
-
-.schedule ion-item-sliding[track=services] ion-label {
-  border-left: 2px solid #FD8B2D;
-  padding-left: 10px; }
-
-.schedule ion-item-sliding[track=design] ion-label {
-  border-left: 2px solid #FED035;
-  padding-left: 10px; }
-
-.schedule ion-item-sliding[track=workshop] ion-label {
-  border-left: 2px solid #69BB7B;
-  padding-left: 10px; }
-
-.schedule ion-item-sliding[track=food] ion-label {
-  border-left: 2px solid #3BC7C4;
-  padding-left: 10px; }
-
-.schedule ion-item-sliding[track=documentation] ion-label {
-  border-left: 2px solid #B16BE3;
-  padding-left: 10px; }
-
-.schedule ion-item-sliding[track=navigation] ion-label {
-  border-left: 2px solid #6600CC;
-  padding-left: 10px; }
-
-.ios .hide-border .toolbar-background {
-  border-bottom-color: transparent; }
-
-.reset-filters {
-  color: #f53d3d; }
-
-ion-item[track=ionic] .dot {
-  height: 10px;
-  display: inline-block;
-  width: 10px;
-  background-color: #FF5722;
-  border-radius: 5px;
-  margin-right: 10px; }
-
-ion-item[track=angular] .dot {
-  height: 10px;
-  display: inline-block;
-  width: 10px;
-  background-color: #AC282B;
-  border-radius: 5px;
-  margin-right: 10px; }
-
-ion-item[track=communication] .dot {
-  height: 10px;
-  display: inline-block;
-  width: 10px;
-  background-color: #8E8D93;
-  border-radius: 5px;
-  margin-right: 10px; }
-
-ion-item[track=tooling] .dot {
-  height: 10px;
-  display: inline-block;
-  width: 10px;
-  background-color: #FE4C52;
-  border-radius: 5px;
-  margin-right: 10px; }
-
-ion-item[track=services] .dot {
-  height: 10px;
-  display: inline-block;
-  width: 10px;
-  background-color: #FD8B2D;
-  border-radius: 5px;
-  margin-right: 10px; }
-
-ion-item[track=design] .dot {
-  height: 10px;
-  display: inline-block;
-  width: 10px;
-  background-color: #FED035;
-  border-radius: 5px;
-  margin-right: 10px; }
-
-ion-item[track=workshop] .dot {
-  height: 10px;
-  display: inline-block;
-  width: 10px;
-  background-color: #69BB7B;
-  border-radius: 5px;
-  margin-right: 10px; }
-
-ion-item[track=food] .dot {
-  height: 10px;
-  display: inline-block;
-  width: 10px;
-  background-color: #3BC7C4;
-  border-radius: 5px;
-  margin-right: 10px; }
-
-ion-item[track=documentation] .dot {
-  height: 10px;
-  display: inline-block;
-  width: 10px;
-  background-color: #B16BE3;
-  border-radius: 5px;
-  margin-right: 10px; }
-
-ion-item[track=navigation] .dot {
-  height: 10px;
-  display: inline-block;
-  width: 10px;
-  background-color: #6600CC;
-  border-radius: 5px;
-  margin-right: 10px; }
-
-.speaker-detail img {
-  max-width: 140px;
-  border-radius: 50%; }
-
-.speaker-detail p {
-  color: #60646B; }
-
-.speaker-list ion-card.speaker ion-card-header .item {
-  padding: 12px; }
-
-.speaker-list ion-card.speaker ion-card-content .list {
-  margin: 0; }
-
-.speaker-list ion-card.speaker ion-card-header,
-.speaker-list ion-card.speaker ion-card-content,
-.speaker-list ion-card.speaker ion-card-content .list ion-item-content {
-  padding: 0; }
-
-.tutorial-page .toolbar-background {
-  background: #fff;
-  border-color: transparent; }
-
-.tutorial-page .slide-zoom {
-  height: 100%; }
-
-.tutorial-page .slide-title {
-  margin-top: 2.8rem; }
-
-.tutorial-page .slide-image {
-  max-height: 50%;
-  max-width: 60%;
-  margin: 36px 0; }
-
-.tutorial-page b {
-  font-weight: 500; }
-
-.tutorial-page p {
-  padding: 0 40px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #60646B; }
-  .tutorial-page p b {
-    color: #000000; }
