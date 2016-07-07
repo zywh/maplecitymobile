@@ -931,14 +931,14 @@ class NgGetController extends XFrontBase
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$city = $postParms['city'];
-		$city='Mississauga';
+		//$city='Mississauga';
 		//
 		
-		$sql = "select Topic,Characteristic,Total from h_stats_city where CSD_Name='".$city."';";
+		$sql = "select replace(topic,' ','_') as t,Characteristic,Total from h_stats_city where CSD_Name='".$city."';";
 		$resultsql = $db->createCommand($sql)->query();
 		
 		foreach($resultsql as $row){
-			$topic = $row['Topic'];
+			$topic = $row['t'];
 			$s["name"] =$row["Characteristic"];
 			$s["y"] =(int)$row["Total"];
 			$result[$topic][] = $s; //n1 is bin and i1 is count
