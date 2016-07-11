@@ -934,12 +934,12 @@ class NgGetController extends XFrontBase
 		//$city='Mississauga';
 		//
 		
-		$sql = "select replace(topic,' ','_') as t,Characteristic,Total from h_stats_city where CSD_Name='".$city."';";
+		$sql = "select replace(topic_chinese,' ','_') as t,Characteristic_chinese as c,Total from h_stats_city where CSD_Name='".$city."';";
 		$resultsql = $db->createCommand($sql)->query();
 		
 		foreach($resultsql as $row){
 			$topic = $row['t'];
-			$s["name"] =$row["Characteristic"];
+			$s["name"] =$row['c'];
 			$s["y"] =(int)$row["Total"];
 			$result[$topic][] = $s; //n1 is bin and i1 is count
 					
