@@ -1,9 +1,8 @@
-<ion-navbar *navbar>
-  <button menuToggle>
-    <ion-icon name="menu"></ion-icon>
-  </button>
-  <ion-title>Post Cat</ion-title>
+<ion-header>
+<ion-navbar >
+  <ion-title>Post</ion-title>
 </ion-navbar>
+</ion-header>
  
   
 <ion-content padding class='post_page'>
@@ -22,6 +21,7 @@
  
 </ion-content>
 
+<ion-footer>
  <div *ngIf="preButton">
     <button fab fab-bottom   fab-left (click)="go2PrePost()" style="z-index:100;opacity:0.8;">
       <ion-icon name="arrow-dropleft" is-active="true"></ion-icon>
@@ -32,5 +32,6 @@
       <ion-icon name="arrow-dropright" is-active="true"></ion-icon>
     </button>
   </div> 
+</ion-footer>
 
  
