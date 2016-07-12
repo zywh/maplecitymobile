@@ -9,6 +9,8 @@
 	"getMlsDataRest": "index.php?r=ngget/getMlsData",
 	"getCitylistDataRest": "index.php?r=ngget/getCityList",
 	"getCityDataRest": "index.php?r=ngget/getCityStats",
+	"getSchoolAcDataRest": "index.php?r=ngget/getSchoolAutoComplete",
+	"getSchoolmapDataRest": "index.php?r=ngget/getSchoolmap",
 	"getHouseStatsRest": "index.php?r=ngget/getHouseStats",
 	"schoolRest": "index.php?r=ngget/getSchools",
 	"houseRest": "index.php?r=ngget/getHouse",
