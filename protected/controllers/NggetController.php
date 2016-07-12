@@ -204,7 +204,18 @@ class NgGetController extends XFrontBase
 			error_log("minLon:".$minLon."maxLon:".$maxLon."minLat:".$minLat."maxLat:".$maxLat);
 
 			//End of Condition
-
+			
+			//Add condition for homepage nearby and recommendation
+			if (!empty($postParms['type'])) {
+				 $criteria->limit = 10;
+				 //Recommendation
+				 if ($postParms['type']  == 2) {
+					$criteria->addCondition("propertyType_id = 1"); 
+					$criteria->addCondition("br >= 3");
+					$criteria->addCondition('lp_dol >= 800000');
+					$criteria->addCondition('lp_dol <= 1800000');
+				 }
+			 }
 			
 			$count = House::model()->count($criteria);
 			$result['Data']['Total'] = $count;
@@ -799,7 +810,7 @@ class NgGetController extends XFrontBase
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$catalog_id = $postParms['id'];
-		$catalog_id = 12;
+		//$catalog_id = 12;
         $criteria = new CDbCriteria();
         $criteria->order = 'id DESC';
         if(!empty($catalog_id)){
