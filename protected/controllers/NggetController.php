@@ -204,18 +204,7 @@ class NgGetController extends XFrontBase
 			error_log("minLon:".$minLon."maxLon:".$maxLon."minLat:".$minLat."maxLat:".$maxLat);
 
 			//End of Condition
-			
-			//Add condition for homepage nearby and recommendation
-			if (!empty($postParms['type'])) {
-				 $criteria->limit = 10;
-				 //Recommendation
-				 if ($postParms['type']  == 2) {
-					$criteria->addCondition("propertyType_id = 1"); 
-					$criteria->addCondition("br >= 3");
-					$criteria->addCondition('lp_dol >= 800000');
-					$criteria->addCondition('lp_dol <= 1800000');
-				 }
-			 }
+
 			
 			$count = House::model()->count($criteria);
 			$result['Data']['Total'] = $count;
@@ -810,7 +799,7 @@ class NgGetController extends XFrontBase
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$catalog_id = $postParms['id'];
-		//$catalog_id = 12;
+		$catalog_id = 12;
         $criteria = new CDbCriteria();
         $criteria->order = 'id DESC';
         if(!empty($catalog_id)){
@@ -935,7 +924,11 @@ class NgGetController extends XFrontBase
       
     }
 
-		/*Current House Stats data for stats page*/
+	private int function statsLevel(char charateristic) {
+		return strlen(charateristic) - strlen(ltrim(characteristic, ' '));
+	}
+
+	/*Current House Stats data for stats page*/
 	public function actionGetCityStats(){
 		$db = Yii::app()->db;
 		$result = array();
@@ -945,17 +938,92 @@ class NgGetController extends XFrontBase
 		//$city='Mississauga';
 		//
 		
-		$sql = "select replace(topic_chinese,' ','_') as t,Characteristic_chinese as c,Total from h_stats_city where CSD_Name='".$city."';";
+		$sql = "select replace(topic_chinese,' ','_') as t,Characteristic_chinese as c,Total from h_stats_city where CSD_Name='".$city.";";
 		$resultsql = $db->createCommand($sql)->query();
 		
+		// add columns level and parent to a series
+		// $topics[$topic] - a array of all topics with all of its series
+		$parent = array(level=>0; name=>"toplevel" ]);
+		array_push($parents, $parent["name"]);
 		foreach($resultsql as $row){
 			$topic = $row['t'];
+			$level = statsLevel($row['c']);
+			$s["level"] = $level;
+			
+			switch($level) {
+			case $parent["level"] + 1:
+				array_push($parents, $parent["name"]);
+				break;
+			case $parent["level"] - 1:
+				array_pop($parents, $parent["name"]);
+				break;
+			case $parent["level"]:
+				break;
+			}
+			$s["parent"] = end($parents);
+
+			$s["name"] = trim($row['c']);
+			$s["y"] = $row["Total"];
+			$parent = $s;
+			$topics[$topic][] = $s;
+		}	
+
+		foreach($topics as $topic_name => $a_topic){
+			$count_drilldown = 0;
+			foreach ($a_topic as $a_series) {
+				// if its parent has children, add the drilldown
+				if its has children, add the drilldown
+					$drilldown = $a_series["name"];
+				else
+					$drilldown = "";
+				
+				$data[a_series["parent"]] = array(name => $a_series["name"], y => $a_series["y"], drilldown => $drilldown);
+			}
+
+			$result[$topic]["series"][] = array(id => "toplevel", name => $topic; data => $data["toplevel"]);
+			
+			$result[$topic]["series"][] = array(id => "toplevel", name => $topic; data => $data);
+			$result[$topic]["drilldown"][] = array(series => $drilldown_series);
+			
+		}
+		
+		
+		
+			$s
+			$topic = $row['t'];
+			if ($s["name"][0] != ' ')
+			$level = statsLevel($s["name"]);
 			$s["name"] =$row['c'];
+			$s["id"] = "层".$level;
 			$s["y"] =(int)$row["Total"];
-			$result[$topic][] = $s; //n1 is bin and i1 is count
+			
+			if ($level = 0) {
+				op
+			} else {
+				$result[$topic]["series"]["drill_down"] = $s; //n1 is bin and i1 is count
+				
+			}
 					
 		}
 		
+		foreach($resultsql as $row){
+			$topic = $row['t'];
+			if ($s["name"][0] != ' ')
+			$level = statsLevel($s["name"]);
+			$s["name"] =$row['c'];
+			$s["id"] = "层".$level;
+			$s["y"] =(int)$row["Total"];
+			
+			if ($level = 0) {
+				
+			} else {
+				$result[$topic]["series"]["drill_down"] = $s; //n1 is bin and i1 is count
+				
+			}
+					
+		}
+		
+		$result[$topic]["series"]["data"] = $s; //n1 is bin and i1 is count
 
        	//End of count
 		
