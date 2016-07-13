@@ -939,8 +939,8 @@ class NgGetController extends XFrontBase
     }
 
 	public function statsLevel($charateristic) {
-		var_dump(strlen($characteristic),strlen(ltrim($characteristic, ' ')));
-		return strlen($charateristic) - strlen(ltrim($characteristic, ' '));
+		var_dump(strlen($characteristic),strlen(ltrim($characteristic)));
+		return strlen($charateristic) - strlen(ltrim($characteristic));
 	}
 
 	/*Current House Stats data for stats page*/
