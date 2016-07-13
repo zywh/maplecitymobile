@@ -938,9 +938,8 @@ class NgGetController extends XFrontBase
       
     }
 
-	public function statsLevel($charateristic) {
-		var_dump(strlen($characteristic),strlen(ltrim($characteristic)));
-		return strlen($charateristic) - strlen(ltrim($characteristic));
+	public function statsLevel($characteristic) {
+		return strlen($characteristic) - strlen(ltrim($characteristic));
 	}
 
 	/*Current House Stats data for stats page*/
@@ -969,19 +968,17 @@ class NgGetController extends XFrontBase
 			$topic = $row['t'];
 			$level = $this->statsLevel($row['c']);
 			$s["level"] = $level;
-			error_log($topic);
 			error_log("level=".$level);
-			error_log($row['c']);
-			switch($level) {
-			case $parent["level"] + 1:
-				array_push($parents, $parent["name"]);
-				array_push($parents_list, $parent["name"]);
-				break;
-			case $parent["level"] - 1:
-				array_pop($parents, $parent["name"]);
-				break;
-			case $parent["level"]:
-				break;
+			switch(TRUE) {
+				case ($level > $parent["level"]):
+					array_push($parents, $parent["name"]);
+					array_push($parents_list, $parent["name"]);
+					break;
+				case ($level < $parent["level"]):
+					array_pop($parents, $parent["name"]);
+					break;
+				default:
+					break;
 			}
 			$s["parent"] = end($parents);
 
@@ -992,11 +989,8 @@ class NgGetController extends XFrontBase
 		}
 		// $parents_list - all level names
 		//$parents_ulist = array_unique($parents_list);
-		error_log("abc");
 		error_log(print_r($topics,1));
 		error_log(print_r($parents_list,1));
-		
-		
 /*		
 		foreach($topics as $topic_name => $a_topic){
 			foreach ($a_topic as $a_series) {
@@ -1017,9 +1011,10 @@ class NgGetController extends XFrontBase
 				else
 					$results[$topic_name]["drilldown"]["series"][] = array("id" => $level_name, "name" => $level_name, "data" => $a_data); 
 			}
+			$results[$topic_name]["rawseries"][] = $a_topic;
 		}
        	//End of topic
-*/		
+  */
        echo json_encode($results);
     }
 
