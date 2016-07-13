@@ -960,34 +960,36 @@ class NgGetController extends XFrontBase
 		$parents_list = [];
 		$topics = [];
 		$data = [];
-		$parent = ["level" => 0, "name" => "toplevel", "topic" => "1st"];
+		$parent_stack = ["level" => 0, "name" => "toplevel", "topic" => "1st"];
 		
 		foreach($resultsql as $row){
 			$topic = $row['t'];
 			// new topic
 			if ($topic != $parent["topic"]) {
-				$parent = ["level" => 0, "name" => "toplevel", "topic" => $topic];
+				$parent_stack = ["level" => 0, "name" => "toplevel", "topic" => $topic];
+				$parents_list[$parent["topic"]][] = array_unique(parents);
 				$parents = [];
 			}
 
 			$level = $this->statsLevel($row['c']);
 			$s["level"] = $level;
-error_log(print_r($parent,1));
 			error_log("topic=".$topic."parent.level".$parent["level"]."level=".$level);
 			
 			switch(TRUE) {	
 				case ($level > $parent["level"]):
-					array_push($parents, $parent["name"]);
-					array_push($parents_list[$topic], $parent["name"]);
+				error_log("push");
+					array_push($parents_stack, $parent["name"]);
+					$parents[] = $parent["name"];
 					break;
 				case ($level < $parent["level"]):
-					array_pop($parents);
+				error_log("pop");
+					array_pop($parents_stack);
 					break;
 				case ($level == $parent["level"]):
 				default:
 					break;
 			}
-			$s["parent"] = end($parents);
+			$s["parent"] = end($parents_stack);
 			
 			$s["topic"] = $topic;
 			$s["name"] = trim($row['c']);
@@ -999,30 +1001,29 @@ error_log(print_r($parent,1));
 		//$parents_ulist = array_unique($parents_list);
 		error_log(print_r($topics,1));
 		error_log(print_r($parents_list,1));
-/*		
+
 		foreach($topics as $topic_name => $a_topic){
 			foreach ($a_topic as $a_series) {
 				// if the parent has children, add the drilldown
 				$level_name = $a_series["parent"];
-				if (in_array($a_series["name"], $parents_list)) {
-					$data[$level_name][] = array(
-						"name" => $a_series["name"], "y" => $a_series["y"], "drilldown" => $a_series["name"]);
-				} else {
-					$data[$level_name][] = array(
-						"name" => $a_series["name"], "y" => $a_series["y"]);
-				}
+				if (in_array($a_series["name"], $parents_list[$topic_name]))
+					$data[$level_name][] = ["name" => $a_series["name"], "y" => $a_series["y"], "drilldown" => $a_series["name"]];
+				else 
+					$data[$level_name][] = ["name" => $a_series["name"], "y" => $a_series["y"]];
+				
 			}
 			
 			foreach ($data as $level_name => $a_data) {
 				if ($level_name = "toplevel")
-					$results[$topic_name]["series"][] = array("id" => $level_name, "name" => $topic_name, "data" => $a_data);
+					$results[$topic_name]["series"][] = ["id" => $level_name, "name" => $topic_name, "data" => $a_data];
 				else
-					$results[$topic_name]["drilldown"]["series"][] = array("id" => $level_name, "name" => $level_name, "data" => $a_data); 
+					$results[$topic_name]["drilldown"]["series"][] = ["id" => $level_name, "name" => $level_name, "data" => $a_data]; 
 			}
 			$results[$topic_name]["rawseries"][] = $a_topic;
+			$results[$topic_name]["levels"][] = $parents_list[$topic_name];
 		}
        	//End of topic
-  */
+
        echo json_encode($results);
     }
 

@@ -4184,3 +4184,53 @@ Stack trace:
 #5 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
 #6 /var/www/mhtml/index.php(19): CWebApplication->run()
 REQUEST_URI=/index.php?r=ngget/getCityStats
+2016/07/14 00:10:47 [error] [php] array_push() expects parameter 1 to be array, null given (/var/www/mhtml/protected/controllers/NggetController.php:982)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#1 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#2 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#3 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#4 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#5 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#6 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getCityStats
+2016/07/14 00:12:02 [error] [php] array_push() expects parameter 1 to be array, null given (/var/www/mhtml/protected/controllers/NggetController.php:983)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#1 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#2 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#3 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#4 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#5 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#6 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getCityStats
+2016/07/14 00:24:40 [error] [php] in_array() expects parameter 2 to be array, null given (/var/www/mhtml/protected/controllers/NggetController.php:1008)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#1 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#2 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#3 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#4 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#5 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#6 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getCityStats
+2016/07/14 00:33:52 [error] [php] array_unique() expects parameter 1 to be array, string given (/var/www/mhtml/protected/controllers/NggetController.php:970)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#1 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#2 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#3 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#4 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#5 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#6 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getCityStats
+2016/07/14 00:34:34 [error] [php] array_unique() expects parameter 1 to be array, string given (/var/www/mhtml/protected/controllers/NggetController.php:970)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#1 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#2 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#3 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#4 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#5 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#6 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getCityStats
