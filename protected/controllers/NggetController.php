@@ -960,13 +960,13 @@ class NgGetController extends XFrontBase
 		$parents_list = [];
 		$topics = [];
 		$data = [];
-		$parent_stack = ["level" => 0, "name" => "toplevel", "topic" => "1st"];
+		$parents_stack = ["level" => 0, "name" => "toplevel", "topic" => "1st"];
 		
 		foreach($resultsql as $row){
 			$topic = $row['t'];
 			// new topic
 			if ($topic != $parent["topic"]) {
-				$parent_stack = ["level" => 0, "name" => "toplevel", "topic" => $topic];
+				$parents_stack = ["level" => 0, "name" => "toplevel", "topic" => $topic];
 				$parents_list[$parent["topic"]][] = array_unique(parents);
 				$parents = [];
 			}
