@@ -938,12 +938,13 @@ class NgGetController extends XFrontBase
       
     }
 
-	private function int statsLevel(string charateristic) {
-		return strlen(charateristic) - strlen(ltrim(characteristic, ' '));
+	public function statsLevel($charateristic) {
+		var_dump(strlen($characteristic),strlen(ltrim($characteristic, ' ')));
+		return strlen($charateristic) - strlen(ltrim($characteristic, ' '));
 	}
 
 	/*Current House Stats data for stats page*/
-	public function actionGetCityStats2(){
+	public function actionGetCityStats(){
 		$db = Yii::app()->db;
 		$results = array();
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
@@ -951,21 +952,26 @@ class NgGetController extends XFrontBase
 		$city = $postParms['city'];
 		//$city='Mississauga';
 		//
-		error_log("abc");
-		$sql = "select replace(topic_chinese,' ','_') as t,Characteristic_chinese as c,Total from h_stats_city where CSD_Name='".$city.";";
+		$sql = "select replace(topic_chinese,' ','_') as t,Characteristic_chinese as c,Total from h_stats_city where CSD_Name='".$city."';";
 		$resultsql = $db->createCommand($sql)->query();
 		
 		// add columns level and parent to a series
 		// $topics[$topic] - a array of all topics with all of its series
-		$parent = array(level => 0, name => "toplevel");
-		error_log($parent);
+		$parents = array();
+		$parents_list = array();
+		$topics = array();
+		$data = array();
+		$parent = array("level" => 0, "name" => "toplevel");
 		array_push($parents, $parent["name"]);
 		array_push($parents_list, $parent["name"]);
+		
 		foreach($resultsql as $row){
 			$topic = $row['t'];
-			$level = statsLevel($row['c']);
+			$level = $this->statsLevel($row['c']);
 			$s["level"] = $level;
-			
+			error_log($topic);
+			error_log("level=".$level);
+			error_log($row['c']);
 			switch($level) {
 			case $parent["level"] + 1:
 				array_push($parents, $parent["name"]);
@@ -984,40 +990,41 @@ class NgGetController extends XFrontBase
 			$parent = $s;
 			$topics[$topic][] = $s;
 		}
-		// $parents_list - all unique level names
-		array_unique($parents_list);
-		error_log(print_r($topics));
-		error_log(print_r($parents_list));
+		// $parents_list - all level names
+		//$parents_ulist = array_unique($parents_list);
+		error_log("abc");
+		error_log(print_r($topics,1));
+		error_log(print_r($parents_list,1));
 		
 		
-		
+/*		
 		foreach($topics as $topic_name => $a_topic){
 			foreach ($a_topic as $a_series) {
 				// if the parent has children, add the drilldown
 				$level_name = $a_series["parent"];
 				if (in_array($a_series["name"], $parents_list)) {
 					$data[$level_name][] = array(
-						name => $a_series["name"], y => $a_series["y"], drilldown => $a_series["name"]);
+						"name" => $a_series["name"], "y" => $a_series["y"], "drilldown" => $a_series["name"]);
 				} else {
 					$data[$level_name][] = array(
-						name => $a_series["name"], y => $a_series["y"]);
+						"name" => $a_series["name"], "y" => $a_series["y"]);
 				}
 			}
 			
 			foreach ($data as $level_name => $a_data) {
 				if ($level_name = "toplevel")
-					$results[$topic_name]["series"][] = array(id => $level_name, name => $topic_name, data => $a_data);
+					$results[$topic_name]["series"][] = array("id" => $level_name, "name" => $topic_name, "data" => $a_data);
 				else
-					$results[$topic_name]["drilldown"]["series"][] = array(id => $level_name, name => $level_name, data => $a_data); 
+					$results[$topic_name]["drilldown"]["series"][] = array("id" => $level_name, "name" => $level_name, "data" => $a_data); 
 			}
 		}
        	//End of topic
-		
+*/		
        echo json_encode($results);
     }
 
 	/*Current House Stats data for stats page*/
-	public function actionGetCityStats(){
+	public function actionGetCityStats2(){
 		$db = Yii::app()->db;
 		$result = array();
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
