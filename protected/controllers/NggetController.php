@@ -945,7 +945,7 @@ class NgGetController extends XFrontBase
 	/*Current House Stats data for stats page*/
 	public function actionGetCityStats(){
 		$db = Yii::app()->db;
-		$results = array();
+		$results = [];
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$city = $postParms['city'];
@@ -956,32 +956,40 @@ class NgGetController extends XFrontBase
 		
 		// add columns level and parent to a series
 		// $topics[$topic] - a array of all topics with all of its series
-		$parents = array();
-		$parents_list = array();
-		$topics = array();
-		$data = array();
-		$parent = array("level" => 0, "name" => "toplevel");
-		array_push($parents, $parent["name"]);
-		array_push($parents_list, $parent["name"]);
+		$parents = [];
+		$parents_list = [];
+		$topics = [];
+		$data = [];
+		$parent = ["level" => 0, "name" => "toplevel", "topic" => "1st"];
 		
 		foreach($resultsql as $row){
 			$topic = $row['t'];
+			// new topic
+			if ($topic != $parent["topic"]) {
+				$parent = ["level" => 0, "name" => "toplevel", "topic" => $topic];
+				$parents = [];
+			}
+
 			$level = $this->statsLevel($row['c']);
 			$s["level"] = $level;
-			error_log("level=".$level);
-			switch(TRUE) {
+error_log(print_r($parent,1));
+			error_log("topic=".$topic."parent.level".$parent["level"]."level=".$level);
+			
+			switch(TRUE) {	
 				case ($level > $parent["level"]):
 					array_push($parents, $parent["name"]);
-					array_push($parents_list, $parent["name"]);
+					array_push($parents_list[$topic], $parent["name"]);
 					break;
 				case ($level < $parent["level"]):
-					array_pop($parents, $parent["name"]);
+					array_pop($parents);
 					break;
+				case ($level == $parent["level"]):
 				default:
 					break;
 			}
 			$s["parent"] = end($parents);
-
+			
+			$s["topic"] = $topic;
 			$s["name"] = trim($row['c']);
 			$s["y"] = $row["Total"];
 			$parent = $s;
