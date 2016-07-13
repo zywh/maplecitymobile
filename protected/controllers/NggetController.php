@@ -208,17 +208,20 @@ class NgGetController extends XFrontBase
 			//Add condition for homepage nearby and recommendation
 			if (!empty($postParms['type'])) {
 				 $criteria->limit = 10;
+				error_log("type".$postParms['type']);
 				 //Recommendation
-				 if ($postParms['type']  == 2) {
+				 if ($postParms['type']  == 'recommend') {
+					error_log("type2 is selected");
 					$criteria->addCondition("propertyType_id = 1"); 
 					$criteria->addCondition("br >= 3");
 					$criteria->addCondition('lp_dol >= 800000');
 					$criteria->addCondition('lp_dol <= 1800000');
 				 }
 			 }
-			
+			if (empty($postParms['type'])) {	
 			$count = House::model()->count($criteria);
 			$result['Data']['Total'] = $count;
+			}
 						
 			//Generate Data for City Count Marker Start
 			if ( $count >= $maxmarkers) {
@@ -935,8 +938,75 @@ class NgGetController extends XFrontBase
       
     }
 
-		/*Current House Stats data for stats page*/
+	/*Current House Stats data for stats page*/
 	public function actionGetCityStats(){
+		$db = Yii::app()->db;
+		$results = array();
+		$_POST = (array) json_decode(file_get_contents('php://input'), true);
+		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+		$city = $postParms['city'];
+		//$city='Mississauga';
+		//
+		
+		$sql = "select replace(topic_chinese,' ','_') as t,Characteristic_chinese as c,Total from h_stats_city where CSD_Name='".$city.";";
+		$resultsql = $db->createCommand($sql)->query();
+		
+		// add columns level and parent to a series
+		// $topics[$topic] - a array of all topics with all of its series
+		$parent = array(level => 0, name => "toplevel");
+		array_push($parents, $parent["name"]);
+		array_push($parents_list, $parent["name"]);
+		foreach($resultsql as $row){
+			$topic = $row['t'];
+			$level = statsLevel($row['c']);
+			$s["level"] = $level;
+			
+			switch($level) {
+			case $parent["level"] + 1:
+				array_push($parents, $parent["name"]);
+				array_push($parents_list, $parent["name"]);
+				break;
+			case $parent["level"] - 1:
+				array_pop($parents, $parent["name"]);
+				break;
+			case $parent["level"]:
+				break;
+			}
+			$s["parent"] = end($parents);
+
+			$s["name"] = trim($row['c']);
+			$s["y"] = $row["Total"];
+			$parent = $s;
+			$topics[$topic][] = $s;
+		}
+		// $parents_list - all unique level names
+		array_unique($parents_list);
+		
+		foreach($topics as $topic_name => $a_topic){
+			foreach ($a_topic as $a_series) {
+				// if the parent has children, add the drilldown
+				if (in_array($a_series["name"], parents_list))
+					$data[a_series["parent"]][] = array(
+						name => $a_series["name"], y => $a_series["y"], drilldown => $a_series["name"]);
+				else
+					$data[a_series["parent"]][] = array(
+						name => $a_series["name"], y => $a_series["y"]);
+			}
+			
+			foreach ($data as $level_name => $a_data) {
+				if ($level_name = "toplevel")
+					$results[$topic]["series"][] = array(id => $level_name, name => $topic; data => $a_data);
+				else
+					$results[$topic]["drilldown"]["series"][] = array(id => $level_name, name => $level_name, data => $a_data); 
+			}
+		}
+       	//End of topic
+		
+       echo json_encode($results);
+    }
+
+	/*Current House Stats data for stats page*/
+	public function actionGetCityStats2(){
 		$db = Yii::app()->db;
 		$result = array();
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
