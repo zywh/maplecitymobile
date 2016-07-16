@@ -740,7 +740,7 @@ $(function(){
                     </div>
                     <div class="xqlb_list">
                         <div class="xqlb_list_left">卧 房 数 量：<?php echo (int)$house->br+(int)$house->br_plus; ?></div>
-                      <div class="xqlb_list_right">物业管理费：无</div>
+                      <div class="xqlb_list_right">物业管理费：<?php echo '$ '.$house->prepay; ?></div>
                         <div class="cl"></div>
                     </div>
                     <div class="xqlb_list">
