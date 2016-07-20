@@ -956,13 +956,13 @@ class NgGetController extends XFrontBase
 		
 		// add columns level and parent to a series
 		// $topics[$topic] - a array of all topics with all of its series
+		$parent = [];
 		$parents = [];
 		$parents_list = [];
 		$topics = [];
 		$data = [];
 		$parents_stack = ["level" => 0, "name" => "toplevel", "topic" => "1st"];
 		
-		error_log(print_r($parents_stack,1));
 		foreach($resultsql as $row){
 			$topic = $row['t'];
 			// new topic
@@ -978,12 +978,10 @@ class NgGetController extends XFrontBase
 			
 			switch(TRUE) {	
 				case ($level > $parent["level"]):
-				error_log("push");
 					array_push($parents_stack, $parent["name"]);
 					$parents[] = $parent["name"];
 					break;
 				case ($level < $parent["level"]):
-				error_log("pop");
 					array_pop($parents_stack);
 					break;
 				case ($level == $parent["level"]):
