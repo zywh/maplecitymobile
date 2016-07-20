@@ -216,9 +216,6 @@ class NgGetController extends XFrontBase
 					$criteria->addCondition("br >= 3");
 					$criteria->addCondition('lp_dol >= 800000');
 					$criteria->addCondition('lp_dol <= 1800000');
-					$criteria->order = "t.house_area,t.lp_dol";
-				 }elseif ($postParms['type']  == 'nearby'){
-					$criteria->order = "t.prepay"; 
 				 }
 			 }
 			if (empty($postParms['type'])) {	
@@ -327,23 +324,9 @@ class NgGetController extends XFrontBase
 				error_log("Select House:".$count." GridCount:".$gridcount);	
 				$result['Data']['Type'] = "house";
 				$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
+				$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot';
 				$criteria->with = array('mname','propertyType','city');
-				
-				//if  nearby house
-				if (!empty($postParms['centerLat'])) {
-					$latitude =$postParms['centerLat'];
-					$longitude = $postParms['centerLng'];
-					$criteria->select = "
-					id,ml_num,zip,s_r,county,municipality,
-					lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,
-					(((acos(sin((".$latitude."*pi()/180)) * sin((`Latitude`*pi()/180))+cos((".$latitude."*pi()/180)) * cos((`Latitude`*pi()/180)) * cos(((".$longitude."- `Longitude`)*pi()/180))))*180/pi())*60*1.1515) as prepay
-					";
-					
-				}else {
-					$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot';
-					$criteria->order = "t.latitude,t.longitude";
-				}
-				
+				$criteria->order = "t.latitude,t.longitude";
 				$house = House::model()->findAll($criteria);
 				$result['Message'] = '成功';
 
@@ -979,6 +962,7 @@ class NgGetController extends XFrontBase
 		$data = [];
 		$parents_stack = ["level" => 0, "name" => "toplevel", "topic" => "1st"];
 		
+		error_log(print_r($parents_stack,1));
 		foreach($resultsql as $row){
 			$topic = $row['t'];
 			// new topic
