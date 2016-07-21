@@ -956,18 +956,18 @@ class NgGetController extends XFrontBase
 		
 		// add columns level and parent to a series
 		// $topics[$topic] - a array of all topics with all of its series
-		$parent = [];
+		$parent = ["topic" => "1st"];
 		$parents = [];
 		$parents_list = [];
+		$parents_stack = ["toplevel"];
 		$topics = [];
-		$parents_stack = ["level" => 0, "name" => "toplevel", "topic" => "1st"];
 		
 		foreach($resultsql as $row){
 			$topic = $row['t'];
 			// new topic
 			if ($topic != $parent["topic"]) {
-				$parents_stack = ["level" => 0, "name" => "toplevel", "topic" => $topic];
-				if ($parent["topic"] != "") $parents_list[$parent["topic"]][] = $parents;
+				$parents_stack = ["toplevel"];
+				if ($parent["topic"] != "1st") $parents_list[$parent["topic"]] = $parents;
 				$parents = [];
 			}
 
@@ -1012,13 +1012,13 @@ class NgGetController extends XFrontBase
 			}
 			
 			foreach ($data as $level_name => $a_data) {
-				if ($level_name = "toplevel")
+				if ($level_name == "toplevel")
 					$results[$topic_name]["series"][] = ["id" => $level_name, "name" => $topic_name, "data" => $a_data];
 				else
 					$results[$topic_name]["drilldown"]["series"][] = ["id" => $level_name, "name" => $level_name, "data" => $a_data]; 
 			}
-			$results[$topic_name]["rawseries"][] = $a_topic;
-			$results[$topic_name]["levels"][] = $parents_list[$topic_name];
+			$results[$topic_name]["rawseries"] = $a_topic;
+			$results[$topic_name]["levels"] = $parents_list[$topic_name];
 		}
        	//End of topic
 
