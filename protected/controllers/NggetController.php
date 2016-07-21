@@ -991,7 +991,7 @@ class NgGetController extends XFrontBase
 			
 			$s["topic"] = $topic;
 			$s["name"] = trim($row['c']);
-			$s["y"] = $row["Total"];
+			$s["y"] = (int)$row["Total"];
 			$parent = $s;
 			$topics[$topic][] = $s;
 		}
@@ -1013,7 +1013,7 @@ class NgGetController extends XFrontBase
 			
 			foreach ($data as $level_name => $a_data) {
 				if ($level_name == "toplevel")
-					$results[$topic_name]["series"][] = ["id" => $level_name, "name" => $topic_name, "data" => $a_data];
+					$results[$topic_name]["series"][] = ["name" => $topic_name, "data" => $a_data];
 				else
 					$results[$topic_name]["drilldown"]["series"][] = ["id" => $level_name, "name" => $level_name, "data" => $a_data]; 
 			}
