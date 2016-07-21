@@ -960,7 +960,6 @@ class NgGetController extends XFrontBase
 		$parents = [];
 		$parents_list = [];
 		$topics = [];
-		$data = [];
 		$parents_stack = ["level" => 0, "name" => "toplevel", "topic" => "1st"];
 		
 		foreach($resultsql as $row){
@@ -968,7 +967,7 @@ class NgGetController extends XFrontBase
 			// new topic
 			if ($topic != $parent["topic"]) {
 				$parents_stack = ["level" => 0, "name" => "toplevel", "topic" => $topic];
-				$parents_list[$parent["topic"]][] = array_unique(parents);
+				if ($parent["topic"] != "") $parents_list[$parent["topic"]][] = $parents;
 				$parents = [];
 			}
 
@@ -997,11 +996,11 @@ class NgGetController extends XFrontBase
 			$topics[$topic][] = $s;
 		}
 		// $parents_list - all level names
-		//$parents_ulist = array_unique($parents_list);
-		error_log(print_r($topics,1));
-		error_log(print_r($parents_list,1));
+		//error_log(print_r($topics,1));
+		//error_log(print_r($parents_list,1));
 
 		foreach($topics as $topic_name => $a_topic){
+			$data = [];
 			foreach ($a_topic as $a_series) {
 				// if the parent has children, add the drilldown
 				$level_name = $a_series["parent"];
