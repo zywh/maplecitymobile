@@ -1007,7 +1007,8 @@ class NgGetController extends XFrontBase
 				if (in_array($a_series["name"], $parents_list[$topic_name]))
 					$data[$level_name][] = ["name" => $a_series["name"], "y" => $a_series["y"], "drilldown" => $a_series["name"]];
 				else 
-					$data[$level_name][] = ["name" => $a_series["name"], "y" => $a_series["y"]];
+					//$data[$level_name][] = ["name" => $a_series["name"], "y" => $a_series["y"]];
+					$data[$level_name][] = [$a_series["name"], $a_series["y"]];
 				
 			}
 			
