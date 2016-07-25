@@ -1016,7 +1016,8 @@ class NgGetController extends XFrontBase
 				if ($level_name == "toplevel")
 					$results[$topic_name]["series"][] = ["name" => $topic_name, "data" => $a_data];
 				else
-					$results[$topic_name]["drilldown"]["series"][] = ["id" => $level_name, "name" => $level_name, "data" => $a_data]; 
+					//$results[$topic_name]["drilldown"]["series"][] = ["id" => $level_name, "name" => $level_name, "data" => $a_data]; 
+					$results[$topic_name]["drilldown"]["series"][] = ["id" => $level_name, "name" => "上级“, "data" => $a_data]; 
 			}
 			$results[$topic_name]["rawseries"] = $a_topic;
 			$results[$topic_name]["levels"] = $parents_list[$topic_name];
