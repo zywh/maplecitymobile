@@ -973,7 +973,7 @@ class NgGetController extends XFrontBase
 
 			$level = $this->statsLevel($row['c']);
 			$s["level"] = $level;
-			error_log("topic=".$topic."parent.level".$parent["level"]."level=".$level);
+			//error_log("topic=".$topic."parent.level".$parent["level"]."level=".$level);
 			
 			switch(TRUE) {	
 				case ($level > $parent["level"]):
@@ -1027,36 +1027,6 @@ class NgGetController extends XFrontBase
        echo json_encode($results);
     }
 
-	/*Current House Stats data for stats page*/
-	public function actionGetCityStats2(){
-		$db = Yii::app()->db;
-		$result = array();
-		$_POST = (array) json_decode(file_get_contents('php://input'), true);
-		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
-		$city = $postParms['city'];
-		//$city='Mississauga';
-		//
-		
-		$sql = "select replace(topic_chinese,' ','_') as t,Characteristic_chinese as c,Total from h_stats_city where CSD_Name='".$city."';";
-		$resultsql = $db->createCommand($sql)->query();
-		
-		foreach($resultsql as $row){
-			$topic = $row['t'];
-			$s["name"] =$row['c'];
-			$s["y"] =(int)$row["Total"];
-			$result[$topic][] = $s; //n1 is bin and i1 is count
-					
-		}
-		
-
-       	//End of count
-		
-       echo json_encode($result);
-
-      
-    }
-
-	
 	/*Current House Stats data for stats page*/
 	public function actionGetHpiStats(){
 		$db = Yii::app()->db;
@@ -1385,4 +1355,44 @@ class NgGetController extends XFrontBase
 
 		echo json_encode($data);
     }	
+
+	/*Get user data */
+	public function actionGetUserData(){
+		$data = [];
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		$_POST = (array) json_decode(file_get_contents('php://input'), true);
+		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+		
+		switch($postParms['type']) {
+		case "Favorite":
+			$data=['C3566442','C3555058']; // mock-up
+			break;
+		case "Search":
+			;
+			break;
+		default:
+			break;
+			
+		}
+
+		echo json_encode($data);
+    }
+
+	/*Add user data */
+	public function actionAddUserData(){
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		$_POST = (array) json_decode(file_get_contents('php://input'), true);
+		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+    }
+
+	/*Delete user data */
+	public function actionDeleteUserData(){
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		$_POST = (array) json_decode(file_get_contents('php://input'), true);
+		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+    }
 }
+
