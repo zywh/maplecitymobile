@@ -1369,11 +1369,9 @@ class NgGetController extends XFrontBase
 			$data=['C3566442','C3555058']; // mock-up
 			break;
 		case "Search":
-			;
 			break;
 		default:
-			break;
-			
+			break;			
 		}
 
 		echo json_encode($data);
@@ -1385,6 +1383,16 @@ class NgGetController extends XFrontBase
 		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+
+		switch($postParms['type']) {
+		case "Favorite":
+			break;
+		case "Search":
+			break;
+		default:
+			break;			
+		}
+
     }
 
 	/*Delete user data */
@@ -1393,6 +1401,15 @@ class NgGetController extends XFrontBase
 		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+
+		switch($postParms['type']) {
+		case "Favorite":
+			break;
+		case "Search":
+			break;
+		default:
+			break;			
+		}
     }
 }
 
