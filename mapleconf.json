@@ -18,7 +18,10 @@
 	"aboutRest": "index.php?r=ngget/getAbout",
 	"postRest": "index.php?r=ngget/getPost",
 	"postListRest": "index.php?r=ngget/getPostList",
-	"hpiStatsRest": "index.php?r=ngget/getHpiStats"
+	"hpiStatsRest": "index.php?r=ngget/getHpiStats",
+	"getUserDataRest": "index.php?r=ngget/getUserData",
+	"addUserDataRest": "index.php?r=ngget/addUserData",
+	"deleteUserDataRest": "index.php?r=ngget/deleteUserData"
 
 
 }
