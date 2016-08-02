@@ -4484,3 +4484,39 @@ Stack trace:
 #5 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
 #6 /var/www/mhtml/index.php(19): CWebApplication->run()
 REQUEST_URI=/index.php?r=ngget/getCityStats
+2016/08/02 23:52:10 [error] [exception.CDbException] SQLSTATE[28000] [1045] Access denied for user 'hdm106787551'@'localhost' (using password: YES)
+2016/08/02 23:52:10 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in /var/www/mhtml/framework/yiilite.php:8433
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(8399): CDbConnection->open()
+#1 /var/www/mhtml/framework/yiilite.php(8388): CDbConnection->setActive(true)
+#2 /var/www/mhtml/framework/yiilite.php(1060): CDbConnection->init()
+#3 /var/www/mhtml/framework/yiilite.php(1312): CModule->getComponent('db')
+#4 /var/www/mhtml/framework/yiilite.php(7450): CApplication->getDb()
+#5 /var/www/mhtml/framework/yiilite.php(7467): CActiveRecord->getDbConnection()
+#6 /var/www/mhtml/framework/yiilite.php(7880): CActiveRecord->getCommandBuilder()
+#7 /var/www/mhtml/protected/components/XFrontBase.php(35): CActiveRecord->findAll()
+#8 /var/www/mhtml/framework/yiilite.php(1745): XFrontBase->init()
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/?from=singlemessage&isappinstalled=0
+---
+2016/08/02 23:52:11 [error] [exception.CDbException] SQLSTATE[28000] [1045] Access denied for user 'hdm106787551'@'localhost' (using password: YES)
+2016/08/02 23:52:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection.' in /var/www/mhtml/framework/yiilite.php:8433
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(8399): CDbConnection->open()
+#1 /var/www/mhtml/framework/yiilite.php(8388): CDbConnection->setActive(true)
+#2 /var/www/mhtml/framework/yiilite.php(1060): CDbConnection->init()
+#3 /var/www/mhtml/framework/yiilite.php(1312): CModule->getComponent('db')
+#4 /var/www/mhtml/framework/yiilite.php(7450): CApplication->getDb()
+#5 /var/www/mhtml/framework/yiilite.php(7467): CActiveRecord->getDbConnection()
+#6 /var/www/mhtml/framework/yiilite.php(7880): CActiveRecord->getCommandBuilder()
+#7 /var/www/mhtml/protected/components/XFrontBase.php(35): CActiveRecord->findAll()
+#8 /var/www/mhtml/framework/yiilite.php(1745): XFrontBase->init()
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/?from=singlemessage&isappinstalled=0
+---
