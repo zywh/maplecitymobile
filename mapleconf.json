@@ -5,6 +5,7 @@
     "phone": "400-990-0393",
 	"projectRest": "index.php?r=ngget/getProjects",
 	"mapHouseRest": "index.php?r=ngget/getMapHouse",
+	"getHouseList": "index.php?r=ngget/getHouseList",
 	"statsRest": "index.php?r=ngget/getStats",
 	"getMlsDataRest": "index.php?r=ngget/getMlsData",
 	"getCitylistDataRest": "index.php?r=ngget/getCityList",
