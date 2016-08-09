@@ -5935,3 +5935,58 @@ Stack trace:
 #15 {main}
 REQUEST_URI=/index.php?r=ngget/getMapHouse
 ---
+2016/08/09 20:35:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "index" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=ngget
+---
+2016/08/09 20:36:39 [error] [exception.CException] exception 'CException' with message 'CDbCommand and its behaviors do not have a method or closure named "queryOne".' in /var/www/mhtml/framework/yiilite.php:704
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1378): CComponent->__call('queryOne', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1378): CDbCommand->queryOne()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserdata')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserda...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserdata
+---
+2016/08/09 20:37:27 [error] [exception.CException] exception 'CException' with message 'CDbCommand and its behaviors do not have a method or closure named "queryOne".' in /var/www/mhtml/framework/yiilite.php:704
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1378): CComponent->__call('queryOne', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1378): CDbCommand->queryOne()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+---
+2016/08/09 20:38:02 [error] [exception.CException] exception 'CException' with message 'CDbCommand and its behaviors do not have a method or closure named "queryOne".' in /var/www/mhtml/framework/yiilite.php:704
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1378): CComponent->__call('queryOne', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1378): CDbCommand->queryOne()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+---

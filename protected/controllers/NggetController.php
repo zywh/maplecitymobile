@@ -1365,18 +1365,18 @@ class NgGetController extends XFrontBase
 		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+		$postParms['type'] = 'HouseFav';
 		if ( !empty($postParms['type'])){
 
 		$username = $postParms['username'];
+		$username ="zhengying@yahoo.com";
+		
 			
 		switch($postParms['type']) {
 		case "HouseFav":
 			$sql ='select houseFav from h_user_data where username="'.$username.'"';
-		 $resultsql = $db->createCommand($sql)->query();
-
-                foreach($resultsql as $row){
-			$data=['C3566442','C3555058']; // mock-up
-			}
+		 $resultsql = $db->createCommand($sql)->queryRow();
+			$data=$resultsql; // mock-up
 			break;
 		case "RouteFav":
 			$data=['C3566442','C3555058']; // mock-up
