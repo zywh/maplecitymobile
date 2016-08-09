@@ -76,15 +76,16 @@ class NgGetController extends XFrontBase
 		$maxhouse = 40; //Grid count if count(house) is over
 		$maxcitymarkers = 20;
 		$minGrid = 5; //Display house if gridcount is lower than mindGrid
-        $result = array();
-		$result['Data']['AreaHouseCount'] = array();
-		$result['Data']['MapHouseList'] = array();
+        // $result = array();
+		// $result['Data']['AreaHouseCount'] = array();
+		// $result['Data']['MapHouseList'] = array();
+		$count= 0;
 		
         if (empty($postParms)) {
             $result['IsError'] = true;
             $result['Message'] = '数据接收失败';
         } else {
-            $result['IsError'] = false;
+            //$result['IsError'] = false;
 
             //根据条件查询地图
             $criteria = new CDbCriteria();
@@ -199,9 +200,16 @@ class NgGetController extends XFrontBase
 		
 
 
-            }
+            } 
+			 
+			//$criteria = $this->houseOption($postParms);
+			
+			
+			
+			
+			
 
-			error_log("minLon:".$minLon."maxLon:".$maxLon."minLat:".$minLat."maxLat:".$maxLat);
+			//error_log("minLon:".$minLon."maxLon:".$maxLon."minLat:".$minLat."maxLat:".$maxLat);
 
 			//End of Condition
 			
@@ -219,8 +227,8 @@ class NgGetController extends XFrontBase
 				 }
 			 }
 			if (empty($postParms['type'])) {	
-			$count = House::model()->count($criteria);
-			$result['Data']['Total'] = $count;
+				$count = House::model()->count($criteria);
+				$result['Data']['Total'] = $count;
 			}
 						
 			//Generate Data for City Count Marker Start
@@ -320,67 +328,14 @@ class NgGetController extends XFrontBase
 			
 			//Generate Data for  House Marker Start
 			if (($count < $maxhouse ) || ( $gridcount <= $minGrid)){
-			//if ($count < $maxhouse ) {
-				error_log("Select House:".$count." GridCount:".$gridcount);	
+			
 				$result['Data']['Type'] = "house";
 				$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
 				$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot';
 				$criteria->with = array('mname','propertyType','city');
 				$criteria->order = "t.latitude,t.longitude";
 				$house = House::model()->findAll($criteria);
-				$result['Message'] = '成功';
-
-                foreach ($house as $val) {
-                    $mapHouseList = array();
-                    $mapHouseList['Beds'] = $val->br;
-                    $mapHouseList['Baths'] = $val->bath_tot;
-                    $mapHouseList['Kitchen'] = $val->num_kit;
-                    $mapHouseList['GeocodeLat'] = $val->latitude;
-                    $mapHouseList['GeocodeLng'] = $val->longitude;
-                    $mapHouseList['Address'] = !empty($val->addr)?$val->addr : "不详";
-					$mapHouseList['SaleLease'] = $val->s_r; 
-                    //$mapHouseList['sqft'] = $val->sqft;
-                    //$mapHouseList['Price'] = ceil($val->lp_dol/10000);
-					$mapHouseList['Price'] = $val->lp_dol;
-                    //$mapHouseList['Id'] = $val->id;
-                    $mapHouseList['HouseType'] = !empty($val->propertyType->name) ? $val->propertyType->name : '其他';
-					$mapHouseList['MunicipalityName'] = !empty($val->mname->municipality_cname)? ($val->mname->municipality_cname):"其他";
-                    $mapHouseList['CountryName'] = $val->municipality;
-                    $mapHouseList['Zip'] = $val->zip;
-                    $mapHouseList['MLS'] = $val->ml_num;
-                    $mapHouseList['Country'] = $val->city_id;
-                    $mapHouseList['ProvinceEname'] = $val->county;
-                    $mapHouseList['ProvinceCname'] = $val->city->name;
-   					$county = $val->county;
-					$county = preg_replace('/\s+/', '', $county);
-					$county = str_replace("&","",$county);
-					$dir="mlspic/crea/creamid/".$county."/Photo".$val->ml_num."/";
-					$dirtn="mlspic/crea/creatn/".$county."/Photo".$val->ml_num."/";
-					$num_files = 0;
-
-					if(is_dir($dir)){
-                        $picfiles =  scandir($dir);
-                        $num_files = count(scandir($dir))-2;
-					}
-					//error_log($county.":".$dir);
-
-					if ( $num_files > 0)    {
-						$mapHouseList['CoverImg'] = $dir.$picfiles[2];
-						$mapHouseList['CoverImgtn'] = $dirtn.$picfiles[2];
-						
-					}else {
-						$mapHouseList['CoverImg'] = 'static/images/zanwu.jpg';
-						$mapHouseList['CoverImgtn'] = 'static/images/zanwu.jpg';
-					}
-
-
-					
-                    //$mapHouseList['BuildYear'] = $val->yr_built;
-                    $result['Data']['MapHouseList'][] = $mapHouseList;
-
-
-                }
- 
+				$result = $this->house2Array($house,$count,'house');
             
 			}
 			
@@ -419,7 +374,7 @@ class NgGetController extends XFrontBase
 			$house = House::model()->findAll($criteria);
 			
 
-			$result = $this->house2Array($house,$count);
+			$result = $this->house2Array($house,$count,'house');
        		
 		} 
 		
@@ -1250,8 +1205,7 @@ class NgGetController extends XFrontBase
 	function favlist($username){
 		$db = Yii::app()->db;
 		$criteria = new CDbCriteria();
-		
-		
+				
 		$sql ='select houseFav from h_user_data where username="'.$username.'"';
 		$resultsql = $db->createCommand($sql)->queryRow();
 		$list = explode(',',$resultsql['houseFav']);
@@ -1260,14 +1214,15 @@ class NgGetController extends XFrontBase
 		$criteria->addInCondition('ml_num', $list);
 		$criteria->with = array('mname','propertyType','city');
 		$house = House::model()->findAll($criteria);
-		return $this->house2Array($house);
+		return $this->house2Array($house,0,'house');
 					
 		
 	}
 	
-	function house2Array($house,$count){
+	function house2Array($house,$count,$type){
 		$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
 		$result['Data']['Total'] = $count;
+		$result['Data']['Type'] = $type;
 		
 		foreach ($house as $val) {
 			$mapHouseList = array();
@@ -1442,7 +1397,7 @@ class NgGetController extends XFrontBase
 
             }			
 			
-			$criteria->order = 'pix_updt DESC,city_id ASC,lp_dol DESC';
+			//$criteria->order = 'pix_updt DESC,city_id ASC,lp_dol DESC';
 			return $criteria;
         
 	}
