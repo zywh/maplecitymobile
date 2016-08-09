@@ -1032,18 +1032,18 @@ class NgGetController extends XFrontBase
 		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
-		$postParms['type'] = 'HouseFav';
+		//$postParms['type'] = 'HouseFav';
 		if ( !empty($postParms['type'])){
 
 		$username = $postParms['username'];
-		$username ="zhengying@yahoo.com";
+		//$username ="zhengying@yahoo.com";
 	
 		switch($postParms['type']) {
 		case "HouseFav":
-			$data = $this->favlist($username);
+			$data = $this->favlist($username,'houseFav');
 			break;
 		case "RouteFav":
-			$data=['C3566442','C3555058']; // mock-up
+			$data = $this->favlist($username,'routeFav');
 			break;
 		case "HouseSearch":
 			break;
@@ -1093,11 +1093,12 @@ class NgGetController extends XFrontBase
 		}
     }
 	
-	function favlist($username){
+	function favlist($username,$type){
 		$db = Yii::app()->db;
 		$criteria = new CDbCriteria();
+		
 				
-		$sql ='select houseFav from h_user_data where username="'.$username.'"';
+		$sql ='select '.$type.' from h_user_data where username="'.$username.'"';
 		$resultsql = $db->createCommand($sql)->queryRow();
 		$list = explode(',',$resultsql['houseFav']);
 		//get list of house
@@ -1110,7 +1111,7 @@ class NgGetController extends XFrontBase
 		
 	}
 	
-	function house2Array($house,$count,$type){
+	function house2Array($house,$count,$type){  //this is used for map and fav list 
 		$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
 		$result['Data']['Total'] = $count;
 		$result['Data']['Type'] = $type;
