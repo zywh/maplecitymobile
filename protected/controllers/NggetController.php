@@ -1390,6 +1390,7 @@ class NgGetController extends XFrontBase
 		}
 
 		echo json_encode($data);
+		
     }
 
 	/*Add user data */

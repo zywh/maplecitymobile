@@ -5990,3 +5990,33 @@ Stack trace:
 #10 {main}
 REQUEST_URI=/index.php?r=ngget/getUserData
 ---
+2016/08/09 23:59:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "getgetuserdata" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('getgetuserdata')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getgetuserdata')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getgetuse...')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=ngget/getgetuserdata
+---
+2016/08/09 23:59:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "getgetUserData" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('getgetUserData')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getgetUserData')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getgetUse...')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=ngget/getgetUserData
+---
+2016/08/09 23:59:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message '系统无法找到请求的 "getgetUserData" 动作.' in /var/www/mhtml/framework/yiilite.php:3668
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3550): CController->missingAction('getgetUserData')
+#1 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getgetUserData')
+#2 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getgetUse...')
+#3 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#4 /var/www/mhtml/index.php(19): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=ngget/getgetUserData
+---
