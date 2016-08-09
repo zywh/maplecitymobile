@@ -1359,6 +1359,7 @@ class NgGetController extends XFrontBase
 
 	/*Get user data */
 	public function actionGetUserData(){
+		$db = Yii::app()->db;
 		$data = [];
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
@@ -1370,7 +1371,12 @@ class NgGetController extends XFrontBase
 			
 		switch($postParms['type']) {
 		case "HouseFav":
+			$sql ='select houseFav from h_user_data where username="'.$username.'"';
+		 $resultsql = $db->createCommand($sql)->query();
+
+                foreach($resultsql as $row){
 			$data=['C3566442','C3555058']; // mock-up
+			}
 			break;
 		case "RouteFav":
 			$data=['C3566442','C3555058']; // mock-up
