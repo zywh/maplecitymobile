@@ -1364,15 +1364,23 @@ class NgGetController extends XFrontBase
 		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
-		
+		if ( !empty($postParms['type'])){
+
+		$username = $postParms['username'];
+			
 		switch($postParms['type']) {
-		case "Favorite":
+		case "HouseFav":
 			$data=['C3566442','C3555058']; // mock-up
 			break;
-		case "Search":
+		case "RouteFav":
+			$data=['C3566442','C3555058']; // mock-up
 			break;
+		case "HouseSearch":
+			break;
+
 		default:
 			break;			
+		}
 		}
 
 		echo json_encode($data);
