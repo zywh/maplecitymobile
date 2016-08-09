@@ -398,147 +398,15 @@ class NgGetController extends XFrontBase
 		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
-	    $result = array();
-		$result['Data']['AreaHouseCount'] = array();
-		$result['Data']['MapHouseList'] = array();
+	    
 		
         if (empty($postParms)) {
             $result['IsError'] = true;
             $result['Message'] = '数据接收失败';
         } else {
-            $result['IsError'] = false;
-
-            //根据条件查询地图
-            $criteria = new CDbCriteria();
-			
-			if ($postParms['sr'] == "Lease" )  {
-				$criteria->addCondition('s_r = "Lease"');
-			} else{
-					
-				$criteria->addCondition('s_r = "Sale"');
-			} 
-	
-
-            //卫生间数量 1-5
-            if (!empty($postParms['housebaths']) && intval($postParms['housebaths']) > 0) {
-                $criteria->addCondition("t.bath_tot >= :bath_tot");
-                $criteria->params += array(':bath_tot' => intval($postParms['housebaths']));
-				
-            }
-
-            //土地面积 Multiple Selection Array
-            if (!empty($postParms['houseground'])) {
-  				
-				
-				$minArea = intval($postParms['houseground']['lower']) ;
-				$maxArea = intval($postParms['houseground']['upper']) ;
-				if ($minArea >0) {
-					$criteria->addCondition('land_area >='.$minArea);
-				}
-				if ( $maxArea < 43560){
-					$criteria->addCondition('land_area <='.$maxArea);
-				}
-				
-            }
-			
-			//挂牌时间
-
-			if($postParms['housedate'] > 0 ){
-				$criteria->addCondition('DATE_SUB(CURDATE(), INTERVAL '.$postParms['housedate'].' DAY) <= date(pix_updt)');
-			}
-		
-			//House Area - Multiple Selection Array
-			if (!empty($postParms['housearea'])) {
-					
-				$minArea = intval($postParms['housearea']['lower']) ;
-				$maxArea = intval($postParms['housearea']['upper']) ;
-				if ($minArea >0) {
-					$criteria->addCondition('house_area >='.$minArea);
-				}
-				if ( $maxArea < 4000){
-					$criteria->addCondition('house_area <='.$maxArea);
-				}
-			}
-			
-			//价格区间 -  Multiple Selection . Array is returned
-			if (!empty($postParms['houseprice'])) {
-				
-		
-				$minPrice = intval($postParms['houseprice']['lower'])*10000 ;
-				$maxPrice = intval($postParms['houseprice']['upper'])*10000 ;
-				if ($minPrice >0) {
-					$criteria->addCondition('lp_dol >='.$minPrice);
-				}
-				if ( $maxPrice < 6000000){
-					$criteria->addCondition('lp_dol <='.$maxPrice);
-				}
-			}
-
-	 
-			//Bedroom
-			if (!empty($postParms['houseroom']) && intval($postParms['houseroom']) > 0) {
-				$houseroom = intval($postParms['houseroom']);
-				$criteria->addCondition("t.br >= :br");
-				$criteria->params += array(':br' => $houseroom);
-			}
-
-			//房屋类型
-			//if (!empty($postParms['housetype']) && intval($postParms['housetype']) > 0) {
-			if (!empty($postParms['housetype'])) {
-				$typeInString = implode(",", $postParms['housetype']);
-				
-				//$criteria->addCondition("propertyType_id =".$postParms['housetype']);
-				$criteria->addCondition("propertyType_id in (".$typeInString.")");
-				
-			}
-
-  
-            //建造年份
-           if (!empty($postParms['houseyear'])) {
-                //$year = explode(',', $postParms['houseyear']);
-				$year=$postParms['houseyear'];
-                //$minYear = intval($year[0]);
-               // $maxYear = intval($year[1]);
-				$criteria->addCondition("t.yr_built = :year");
-				$criteria->params += array(':year' => $year);
-    
-            }
-		
-			//房屋类型
-			if (!empty($postParms['city']) ) {
-				$criteria->addCondition("t.municipality ='".$_POST['city']."'");
-			
-			}
-			
-			//lat and long selection
-            if (!empty($postParms['bounds'])) {
-                $latlon = explode(',', $postParms['bounds']);
-                $minLat = floatval($latlon[0]);
-                $maxLat = floatval($latlon[2]);
-                $minLon = floatval($latlon[1]);
-                $maxLon = floatval($latlon[3]);
-                $criteria->addCondition("t.latitude <= :maxLat");
-                $criteria->params += array(':maxLat' => $maxLat);
-                $criteria->addCondition("t.latitude >= :minLat");
-                $criteria->params += array(':minLat' => $minLat);
-                $criteria->addCondition("t.longitude <= :maxLon");
-                $criteria->params += array(':maxLon' => $maxLon);
-                $criteria->addCondition("t.longitude >= :minLon");
-                $criteria->params += array(':minLon' => $minLon);
-		
-
-
-            }			
-			
-			$criteria->order = 'pix_updt DESC,city_id ASC,lp_dol DESC';
-        
-			//End of Condition
-
-			$count = House::model()->count($criteria);
-			$result['Data']['Total'] = $count;
-			$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
-			$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot';
-			$criteria->with = array('mname','propertyType','city');
+           
+      
+			$criteria = $this->houseOption($postParms);
 			$count = House::model()->count($criteria);
 			$pager = new CPagination($count);
 			$pager->pageSize = 8;
@@ -546,62 +414,15 @@ class NgGetController extends XFrontBase
 				$pager->currentPage = $postParms['pageindex'];
 			}
 			$pager->applyLimit($criteria);
+			$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot';
+			$criteria->with = array('mname','propertyType','city');
 			$house = House::model()->findAll($criteria);
 			
-		//End of Criteria
-		
-			$result['Message'] = '成功';
 
-			foreach ($house as $val) {
-				$mapHouseList = array();
-				$mapHouseList['Beds'] = $val->br;
-				$mapHouseList['Baths'] = $val->bath_tot;
-				$mapHouseList['Kitchen'] = $val->num_kit;
-				$mapHouseList['GeocodeLat'] = $val->latitude;
-				$mapHouseList['GeocodeLng'] = $val->longitude;
-				$mapHouseList['Address'] = !empty($val->addr)?$val->addr : "不详";
-				$mapHouseList['SaleLease'] = $val->s_r; 
-				//$mapHouseList['sqft'] = $val->sqft;
-				$mapHouseList['Price'] = $val->lp_dol;
-				//$mapHouseList['Id'] = $val->id;
-				$mapHouseList['HouseType'] = !empty($val->propertyType->name) ? $val->propertyType->name : '其他';
-				$mapHouseList['MunicipalityName'] = !empty($val->mname->municipality_cname)? ($val->mname->municipality_cname):"其他";
-				$mapHouseList['CountryName'] = $val->municipality;
-				$mapHouseList['Zip'] = $val->zip;
-				$mapHouseList['MLS'] = $val->ml_num;
-				$mapHouseList['Country'] = $val->city_id;
-				$mapHouseList['ProvinceEname'] = $val->county;
-				$mapHouseList['ProvinceCname'] = $val->city->name;
-				$county = $val->county;
-				$county = preg_replace('/\s+/', '', $county);
-				$county = str_replace("&","",$county);
-				$dir="mlspic/crea/creamid/".$county."/Photo".$val->ml_num."/";
-				$dirtn="mlspic/crea/creatn/".$county."/Photo".$val->ml_num."/";
-				$num_files = 0;
-
-				if(is_dir($dir)){
-					$picfiles =  scandir($dir);
-					$num_files = count(scandir($dir))-2;
-				}
-				//error_log($county.":".$dir);
-
-				if ( $num_files > 0)    {
-					$mapHouseList['CoverImg'] = $dir.$picfiles[2];
-					$mapHouseList['CoverImgtn'] = $dirtn.$picfiles[2];
-					
-				}else {
-					$mapHouseList['CoverImg'] = 'static/images/zanwu.jpg';
-					$mapHouseList['CoverImgtn'] = 'static/images/zanwu.jpg';
-				}
-
-
-				$result['Data']['HouseList'][] = $mapHouseList;
-
-
-			}
- 
+			$result = $this->house2Array($house,$count);
        		
-		}
+		} 
+		
 		
 		echo json_encode($result);
     }
@@ -1359,8 +1180,8 @@ class NgGetController extends XFrontBase
 
 	/*Get user data */
 	public function actionGetUserData(){
-		$db = Yii::app()->db;
-		//$data = [];
+		
+		$data = [];
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
@@ -1370,13 +1191,10 @@ class NgGetController extends XFrontBase
 
 		$username = $postParms['username'];
 		$username ="zhengying@yahoo.com";
-		
-			
+	
 		switch($postParms['type']) {
 		case "HouseFav":
-			$sql ='select houseFav from h_user_data where username="'.$username.'"';
-			$resultsql = $db->createCommand($sql)->queryRow();
-			$data=$resultsql; // mock-up
+			$data = $this->favlist($username);
 			break;
 		case "RouteFav":
 			$data=['C3566442','C3555058']; // mock-up
@@ -1402,6 +1220,7 @@ class NgGetController extends XFrontBase
 
 		switch($postParms['type']) {
 		case "Favorite":
+			
 			break;
 		case "Search":
 			break;
@@ -1427,5 +1246,205 @@ class NgGetController extends XFrontBase
 			break;			
 		}
     }
+	
+	function favlist($username){
+		$db = Yii::app()->db;
+		$criteria = new CDbCriteria();
+		
+		
+		$sql ='select houseFav from h_user_data where username="'.$username.'"';
+		$resultsql = $db->createCommand($sql)->queryRow();
+		$list = explode(',',$resultsql['houseFav']);
+		//get list of house
+		$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot';
+		$criteria->addInCondition('ml_num', $list);
+		$criteria->with = array('mname','propertyType','city');
+		$house = House::model()->findAll($criteria);
+		return $this->house2Array($house);
+					
+		
+	}
+	
+	function house2Array($house,$count){
+		$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
+		$result['Data']['Total'] = $count;
+		
+		foreach ($house as $val) {
+			$mapHouseList = array();
+			$mapHouseList['Beds'] = $val->br;
+			$mapHouseList['Baths'] = $val->bath_tot;
+			$mapHouseList['Kitchen'] = $val->num_kit;
+			$mapHouseList['GeocodeLat'] = $val->latitude;
+			$mapHouseList['GeocodeLng'] = $val->longitude;
+			$mapHouseList['Address'] = !empty($val->addr)?$val->addr : "不详";
+			$mapHouseList['SaleLease'] = $val->s_r; 
+			//$mapHouseList['sqft'] = $val->sqft;
+			$mapHouseList['Price'] = $val->lp_dol;
+			//$mapHouseList['Id'] = $val->id;
+			$mapHouseList['HouseType'] = !empty($val->propertyType->name) ? $val->propertyType->name : '其他';
+			$mapHouseList['MunicipalityName'] = !empty($val->mname->municipality_cname)? ($val->mname->municipality_cname):"其他";
+			$mapHouseList['CountryName'] = $val->municipality;
+			$mapHouseList['Zip'] = $val->zip;
+			$mapHouseList['MLS'] = $val->ml_num;
+			$mapHouseList['Country'] = $val->city_id;
+			$mapHouseList['ProvinceEname'] = $val->county;
+			$mapHouseList['ProvinceCname'] = $val->city->name;
+			$county = $val->county;
+			$county = preg_replace('/\s+/', '', $county);
+			$county = str_replace("&","",$county);
+			$dir="mlspic/crea/creamid/".$county."/Photo".$val->ml_num."/";
+			$dirtn="mlspic/crea/creatn/".$county."/Photo".$val->ml_num."/";
+			$num_files = 0;
+
+			if(is_dir($dir)){
+				$picfiles =  scandir($dir);
+				$num_files = count(scandir($dir))-2;
+			}
+			//error_log($county.":".$dir);
+
+			if ( $num_files > 0)    {
+				$mapHouseList['CoverImg'] = $dir.$picfiles[2];
+				$mapHouseList['CoverImgtn'] = $dirtn.$picfiles[2];
+				
+			}else {
+				$mapHouseList['CoverImg'] = 'static/images/zanwu.jpg';
+				$mapHouseList['CoverImgtn'] = 'static/images/zanwu.jpg';
+			}
+
+
+			$result['Data']['HouseList'][] = $mapHouseList;
+
+
+		}
+		return $result;
+	}
+	
+	function houseOption($postParms){
+		  //根据条件查询地图
+            $criteria = new CDbCriteria();
+			
+			if ($postParms['sr'] == "Lease" )  {
+				$criteria->addCondition('s_r = "Lease"');
+			} else{
+					
+				$criteria->addCondition('s_r = "Sale"');
+			} 
+	
+
+            //卫生间数量 1-5
+            if (!empty($postParms['housebaths']) && intval($postParms['housebaths']) > 0) {
+                $criteria->addCondition("t.bath_tot >= :bath_tot");
+                $criteria->params += array(':bath_tot' => intval($postParms['housebaths']));
+				
+            }
+
+            //土地面积 Multiple Selection Array
+            if (!empty($postParms['houseground'])) {
+  				
+				
+				$minArea = intval($postParms['houseground']['lower']) ;
+				$maxArea = intval($postParms['houseground']['upper']) ;
+				if ($minArea >0) {
+					$criteria->addCondition('land_area >='.$minArea);
+				}
+				if ( $maxArea < 43560){
+					$criteria->addCondition('land_area <='.$maxArea);
+				}
+				
+            }
+			
+			//挂牌时间
+
+			if($postParms['housedate'] > 0 ){
+				$criteria->addCondition('DATE_SUB(CURDATE(), INTERVAL '.$postParms['housedate'].' DAY) <= date(pix_updt)');
+			}
+		
+			//House Area - Multiple Selection Array
+			if (!empty($postParms['housearea'])) {
+					
+				$minArea = intval($postParms['housearea']['lower']) ;
+				$maxArea = intval($postParms['housearea']['upper']) ;
+				if ($minArea >0) {
+					$criteria->addCondition('house_area >='.$minArea);
+				}
+				if ( $maxArea < 4000){
+					$criteria->addCondition('house_area <='.$maxArea);
+				}
+			}
+			
+			//价格区间 -  Multiple Selection . Array is returned
+			if (!empty($postParms['houseprice'])) {
+				
+		
+				$minPrice = intval($postParms['houseprice']['lower'])*10000 ;
+				$maxPrice = intval($postParms['houseprice']['upper'])*10000 ;
+				if ($minPrice >0) {
+					$criteria->addCondition('lp_dol >='.$minPrice);
+				}
+				if ( $maxPrice < 6000000){
+					$criteria->addCondition('lp_dol <='.$maxPrice);
+				}
+			}
+
+	 
+			//Bedroom
+			if (!empty($postParms['houseroom']) && intval($postParms['houseroom']) > 0) {
+				$houseroom = intval($postParms['houseroom']);
+				$criteria->addCondition("t.br >= :br");
+				$criteria->params += array(':br' => $houseroom);
+			}
+
+			//房屋类型
+			//if (!empty($postParms['housetype']) && intval($postParms['housetype']) > 0) {
+			if (!empty($postParms['housetype'])) {
+				$typeInString = implode(",", $postParms['housetype']);
+				
+				//$criteria->addCondition("propertyType_id =".$postParms['housetype']);
+				$criteria->addCondition("propertyType_id in (".$typeInString.")");
+				
+			}
+
+  
+            //建造年份
+           if (!empty($postParms['houseyear'])) {
+                //$year = explode(',', $postParms['houseyear']);
+				$year=$postParms['houseyear'];
+                //$minYear = intval($year[0]);
+               // $maxYear = intval($year[1]);
+				$criteria->addCondition("t.yr_built = :year");
+				$criteria->params += array(':year' => $year);
+    
+            }
+		
+			//房屋类型
+			if (!empty($postParms['city']) ) {
+				$criteria->addCondition("t.municipality ='".$_POST['city']."'");
+			
+			}
+			
+			//lat and long selection
+            if (!empty($postParms['bounds'])) {
+                $latlon = explode(',', $postParms['bounds']);
+                $minLat = floatval($latlon[0]);
+                $maxLat = floatval($latlon[2]);
+                $minLon = floatval($latlon[1]);
+                $maxLon = floatval($latlon[3]);
+                $criteria->addCondition("t.latitude <= :maxLat");
+                $criteria->params += array(':maxLat' => $maxLat);
+                $criteria->addCondition("t.latitude >= :minLat");
+                $criteria->params += array(':minLat' => $minLat);
+                $criteria->addCondition("t.longitude <= :maxLon");
+                $criteria->params += array(':maxLon' => $maxLon);
+                $criteria->addCondition("t.longitude >= :minLon");
+                $criteria->params += array(':minLon' => $minLon);
+		
+
+
+            }			
+			
+			$criteria->order = 'pix_updt DESC,city_id ASC,lp_dol DESC';
+			return $criteria;
+        
+	}
 }
 
