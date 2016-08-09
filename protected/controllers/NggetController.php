@@ -77,8 +77,8 @@ class NgGetController extends XFrontBase
 		$maxcitymarkers = 20;
 		$minGrid = 5; //Display house if gridcount is lower than mindGrid
         // $result = array();
-		// $result['Data']['AreaHouseCount'] = array();
-		// $result['Data']['MapHouseList'] = array();
+		$result['Data']['AreaHouseCount'] = array();
+		$result['Data']['MapHouseList'] = array();
 		$count= 0;
 		
         if (empty($postParms)) {
@@ -89,123 +89,14 @@ class NgGetController extends XFrontBase
 
             //根据条件查询地图
             $criteria = new CDbCriteria();
-			
-			if ($postParms['sr'] == "Lease" )  {
-				$criteria->addCondition('s_r = "Lease"');
-			} else{
-					
-				$criteria->addCondition('s_r = "Sale"');
-			} 
+			$criteria = $this->houseOption($postParms);
 	
-
-            //卫生间数量 1-5
-            if (!empty($postParms['housebaths']) && intval($postParms['housebaths']) > 0) {
-                $criteria->addCondition("t.bath_tot >= :bath_tot");
-                $criteria->params += array(':bath_tot' => intval($postParms['housebaths']));
-				
-            }
-
-            //土地面积 Multiple Selection Array
-            if (!empty($postParms['houseground'])) {
-  				
-				
-				$minArea = intval($postParms['houseground']['lower']) ;
-				$maxArea = intval($postParms['houseground']['upper']) ;
-				if ($minArea >0) {
-					$criteria->addCondition('land_area >='.$minArea);
-				}
-				if ( $maxArea < 43560){
-					$criteria->addCondition('land_area <='.$maxArea);
-				}
-				
-            }
-			
-			//挂牌时间
-
-			if($postParms['housedate'] > 0 ){
-				$criteria->addCondition('DATE_SUB(CURDATE(), INTERVAL '.$postParms['housedate'].' DAY) <= date(pix_updt)');
-			}
-		
-			//House Area - Multiple Selection Array
-			if (!empty($postParms['housearea'])) {
-					
-				$minArea = intval($postParms['housearea']['lower']) ;
-				$maxArea = intval($postParms['housearea']['upper']) ;
-				if ($minArea >0) {
-					$criteria->addCondition('house_area >='.$minArea);
-				}
-				if ( $maxArea < 4000){
-					$criteria->addCondition('house_area <='.$maxArea);
-				}
-			}
-			
-			//价格区间 -  Multiple Selection . Array is returned
-			if (!empty($postParms['houseprice'])) {
-				
-		
-				$minPrice = intval($postParms['houseprice']['lower'])*10000 ;
-				$maxPrice = intval($postParms['houseprice']['upper'])*10000 ;
-				if ($minPrice >0) {
-					$criteria->addCondition('lp_dol >='.$minPrice);
-				}
-				if ( $maxPrice < 6000000){
-					$criteria->addCondition('lp_dol <='.$maxPrice);
-				}
-			}
-
-	 
-			//Bedroom
-			if (!empty($postParms['houseroom']) && intval($postParms['houseroom']) > 0) {
-				$houseroom = intval($postParms['houseroom']);
-				$criteria->addCondition("t.br >= :br");
-				$criteria->params += array(':br' => $houseroom);
-			}
-
-			//房屋类型
-			//if (!empty($postParms['housetype']) && intval($postParms['housetype']) > 0) {
-			if (!empty($postParms['housetype'])) {
-				$typeInString = implode(",", $postParms['housetype']);
-				
-				//$criteria->addCondition("propertyType_id =".$postParms['housetype']);
-				$criteria->addCondition("propertyType_id in (".$typeInString.")");
-				
-			}
-
-  
-            //建造年份
-           if (!empty($postParms['houseyear'])) {
-                //$year = explode(',', $postParms['houseyear']);
-				$year=$postParms['houseyear'];
-                //$minYear = intval($year[0]);
-               // $maxYear = intval($year[1]);
-				$criteria->addCondition("t.yr_built = :year");
-				$criteria->params += array(':year' => $year);
-    
-            }
-			//lat and long selection
-            if (!empty($postParms['bounds'])) {
-                $latlon = explode(',', $postParms['bounds']);
-                $minLat = floatval($latlon[0]);
-                $maxLat = floatval($latlon[2]);
-                $minLon = floatval($latlon[1]);
-                $maxLon = floatval($latlon[3]);
-                $criteria->addCondition("t.latitude <= :maxLat");
-                $criteria->params += array(':maxLat' => $maxLat);
-                $criteria->addCondition("t.latitude >= :minLat");
-                $criteria->params += array(':minLat' => $minLat);
-                $criteria->addCondition("t.longitude <= :maxLon");
-                $criteria->params += array(':maxLon' => $maxLon);
-                $criteria->addCondition("t.longitude >= :minLon");
-                $criteria->params += array(':minLon' => $minLon);
-		
-
-
-            } 
 			 
-			//$criteria = $this->houseOption($postParms);
-			
-			
-			
+			$latlon = explode(',', $postParms['bounds']);
+			$minLat = floatval($latlon[0]);
+			$maxLat = floatval($latlon[2]);
+			$minLon = floatval($latlon[1]);
+			$maxLon = floatval($latlon[3]);
 			
 			
 
@@ -1376,9 +1267,9 @@ class NgGetController extends XFrontBase
 				$criteria->addCondition("t.municipality ='".$_POST['city']."'");
 			
 			}
-			
-			//lat and long selection
-            if (!empty($postParms['bounds'])) {
+	
+
+			if (!empty($postParms['bounds'])) {
                 $latlon = explode(',', $postParms['bounds']);
                 $minLat = floatval($latlon[0]);
                 $maxLat = floatval($latlon[2]);
@@ -1395,7 +1286,8 @@ class NgGetController extends XFrontBase
 		
 
 
-            }			
+            } 
+					
 			
 			//$criteria->order = 'pix_updt DESC,city_id ASC,lp_dol DESC';
 			return $criteria;
