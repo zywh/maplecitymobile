@@ -1107,11 +1107,19 @@ class NgGetController extends XFrontBase
 	
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+		$postParms['mls'] = 'W133';
 		if ( !empty($postParms['mls'])){
 			$type =	$postParms['type'];
 			$action =	$postParms['action'];
 			$username = $postParms['username'];
 			$mls = $postParms['mls'];
+			//debug
+			$type = 'houseFav';
+			$action =   "d";
+			$username = 'zhengying@yahoo.com';
+			//$mls = 'W133';
+
+			
 			$sql ='select houseFav,routeFav from h_user_data where username="'.$username.'"';
 			$resultsql = $db->createCommand($sql)->queryRow();
 			if (!empty($resultsql)){
@@ -1129,7 +1137,8 @@ class NgGetController extends XFrontBase
 	
 	function favupdate($username,$type,$current,$mls,$action){
 		
-		$c = explode(',',$current); //string to array
+		$c = (!empty($current))? explode(',',$current): [];
+
 		if ($action == 'c'){array_push($c,$mls);} 
 		
 		if ($action == 'd'){ 
@@ -1155,8 +1164,7 @@ class NgGetController extends XFrontBase
 	function favlist($username,$type){
 		$db = Yii::app()->db;
 		$criteria = new CDbCriteria();
-		
-				
+		//get list of fav			
 		$sql ='select '.$type.' from h_user_data where username="'.$username.'"';
 		$resultsql = $db->createCommand($sql)->queryRow();
 		$list = explode(',',$resultsql['houseFav']);
