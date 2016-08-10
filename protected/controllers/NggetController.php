@@ -1107,7 +1107,7 @@ class NgGetController extends XFrontBase
 	
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
-		$postParms['mls'] = 'W3534467';
+		//$postParms['mls'] = 'W3534467';
 		//$postParms['mls'] = 'W111';
 		if ( !empty($postParms['mls'])){
 			$type =	$postParms['type'];
@@ -1115,9 +1115,9 @@ class NgGetController extends XFrontBase
 			$username = $postParms['username'];
 			$mls = $postParms['mls'];
 			//debug
-			$type = 'routeFav';
-			$action =   "c";
-			$username = 'zhengying@yahoo.com';
+			//$type = 'routeFav';
+			//$action =   "c";
+			//$username = 'zhengying@yahoo.com';
 			//$mls = 'W133';
 
 			
