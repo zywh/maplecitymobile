@@ -1057,12 +1057,12 @@ class NgGetController extends XFrontBase
 		
     }
     public function actioncheckFavData(){
-		$data = 0;
+		//$data = 0;
                 ini_set("log_errors", 1);
                 ini_set("error_log", "/tmp/php-error.log");
                 $_POST = (array) json_decode(file_get_contents('php://input'), true);
                 $postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
-                $postParms['type'] = '0';
+                $postParms['type'] = "houseFav";
                 $postParms['mls'] = '30533489';
                 $username ="zhengying@yahoo.com";
                 if ( !empty($postParms['type'])){
@@ -1070,14 +1070,15 @@ class NgGetController extends XFrontBase
                 //$username = $postParms['username'];
 
                 switch($postParms['type']) {
-                case "HouseFav":
+                case "houseFav":
                         $data = $this->checkfav($username,$postParms['mls'],'houseFav');
                         break;
-                case "RouteFav":
+                case "routeFav":
                         $data = $this->checkfav($username,$postParms['mls'],'routeFav');
                         break;
 
                 default:
+			$data="ddddd";
                         break;
                 }
                 }
@@ -1143,8 +1144,6 @@ class NgGetController extends XFrontBase
 
      function checkfav($username,$mls,$type){
                 $db = Yii::app()->db;
-
-
                 $sql ='select '.$type.' from h_user_data where username="'.$username.'" and '.$type.' like "%'.$mls.'%"';
                 $resultsql = $db->createCommand($sql)->queryRow();
 		if (!empty($resultsql)){
