@@ -1081,7 +1081,7 @@ class NgGetController extends XFrontBase
 
 
 	/*Add user data */
-	public function actionAddUserData(){
+	/* public function actionAddUserData(){
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
@@ -1097,10 +1097,10 @@ class NgGetController extends XFrontBase
 			break;			
 		}
 
-    }
+    } */
 
 	/*Delete user data */
-	public function actionDeleteUserData(){
+	public function actionUpdateUserData(){
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
 		$db = Yii::app()->db;
@@ -1109,24 +1109,48 @@ class NgGetController extends XFrontBase
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		if ( !empty($postParms['mls'])){
 			$type =	$postParms['type'];
+			$action =	$postParms['action'];
 			$username = $postParms['username'];
 			$mls = $postParms['mls'];
 			$sql ='select houseFav,routeFav from h_user_data where username="'.$username.'"';
 			$resultsql = $db->createCommand($sql)->queryRow();
-			$houseFav = explode(',',$resultsql['houseFav']);
-			$routeFav = explode(',',$resultsql['routeFav']);
-			switch($postParms['type']) {
-			case "houseFav":
-				
-				break;
-			case "routeFav":
-			
-				break;
-			default:
-				break;			
+			if (!empty($resultsql)){
+				$r = $this->favupdate($username,$type,$resultsql[$type],$mls,$action);
+			} else {
+				$resultsql[$type] = '';
+				$r = $this->favupdate($username,$type,$resultsql[$type],$mls,$action);
 			}
+			
+			
 		}
+		echo json_encode($r);
     }
+	
+	
+	function favupdate($username,$type,$current,$mls,$action){
+		
+		$c = explode(',',$current); //string to array
+		if ($action == 'c'){array_push($c,$mls);} 
+		
+		if ($action == 'd'){ 
+			$pos = array_search($mls, $c);
+			unset($c[$pos]); //remove MLS
+		}
+		$data = implode(",",$c); //convert to comma separated string
+		$r = $this->updateUserTable($username,$type,$data);
+		return $r;
+		
+		
+	}
+	 function updateUserTable($username,$type,$data){
+		 $db = Yii::app()->db;
+		 //update if exist and insert if row doesn't exist
+		$sql = 'INSERT IGNORE INTO h_user_data('.$type.',username) values("'.$data.'","'.$username.'") on duplicate KEY UPDATE '.$type.'="'.$data.'"';
+		$r = $db->createCommand($sql)->execute();
+		return $r;
+		
+
+	 }
 	
 	function favlist($username,$type){
 		$db = Yii::app()->db;
@@ -1145,14 +1169,7 @@ class NgGetController extends XFrontBase
 					
 		
 	}
-	 function updateUserTable($username,$col,$data){
-		 //update if exist and insert if row doesn't exist
-		$sql = 'INSERT IGNORE INTO h_user_data('.$col.',username) values("'
-		.$data.'","'.$username.
-		'") on duplicate KEY UPDATE '.$col.'="'.$data.'"';
-		
-
-	 }
+	
 
      function checkfav($username,$mls){
                 $db = Yii::app()->db;
