@@ -1033,10 +1033,10 @@ class NgGetController extends XFrontBase
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		//$postParms['type'] = 'HouseFav';
+		//$username ="zhengying@yahoo.com";
 		if ( !empty($postParms['type'])){
 
 		$username = $postParms['username'];
-		//$username ="zhengying@yahoo.com";
 	
 		switch($postParms['type']) {
 		case "HouseFav":
@@ -1056,6 +1056,36 @@ class NgGetController extends XFrontBase
 		echo json_encode($data);
 		
     }
+    public function actioncheckFavData(){
+		$data = 0;
+                ini_set("log_errors", 1);
+                ini_set("error_log", "/tmp/php-error.log");
+                $_POST = (array) json_decode(file_get_contents('php://input'), true);
+                $postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+                $postParms['type'] = '0';
+                $postParms['mls'] = '30533489';
+                $username ="zhengying@yahoo.com";
+                if ( !empty($postParms['type'])){
+
+                //$username = $postParms['username'];
+
+                switch($postParms['type']) {
+                case "HouseFav":
+                        $data = $this->checkfav($username,$postParms['mls'],'houseFav');
+                        break;
+                case "RouteFav":
+                        $data = $this->checkfav($username,$postParms['mls'],'routeFav');
+                        break;
+
+                default:
+                        break;
+                }
+                }
+
+                echo json_encode($data);
+
+    }   
+
 
 	/*Add user data */
 	public function actionAddUserData(){
@@ -1110,6 +1140,21 @@ class NgGetController extends XFrontBase
 					
 		
 	}
+
+     function checkfav($username,$mls,$type){
+                $db = Yii::app()->db;
+
+
+                $sql ='select '.$type.' from h_user_data where username="'.$username.'" and '.$type.' like "%'.$mls.'%"';
+                $resultsql = $db->createCommand($sql)->queryRow();
+		if (!empty($resultsql)){
+			return 1;
+		
+		}else { return 0;}
+
+
+        }
+
 	
 	function house2Array($house,$count,$type){  //this is used for map and fav list 
 		$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
