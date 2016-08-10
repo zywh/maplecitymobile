@@ -974,6 +974,7 @@ class NgGetController extends XFrontBase
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$id = $postParms['id'];
+		$username = $postParms['username'];
 		//error_log("id=".$id);
         
 		$criteria = new CDbCriteria();
@@ -1012,13 +1013,15 @@ class NgGetController extends XFrontBase
                 $photos[] = $rdir.$picfiles[$x];
             }    
         }
+		$isFav = $this->checkfav($username,$id);
 
         $data = array(
 			'house'           => $house->getAttributes(),
 			'house_mname'     => $house->mname->getAttributes(),
 			'house_propertyType' => $house->propertyType->getAttributes(),
 			'exchangeRate'    => $exchangeRate,
-			'photos'          => $photos
+			'photos'          => $photos,
+			'isFav'			=> $isFav
         );
 
 		echo json_encode($data);
@@ -1100,16 +1103,28 @@ class NgGetController extends XFrontBase
 	public function actionDeleteUserData(){
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
+		$db = Yii::app()->db;
+	
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
-
-		switch($postParms['type']) {
-		case "houseFav":
-			break;
-		case "routeFav":
-			break;
-		default:
-			break;			
+		if ( !empty($postParms['mls'])){
+			$type =	$postParms['type'];
+			$username = $postParms['username'];
+			$mls = $postParms['mls'];
+			$sql ='select houseFav,routeFav from h_user_data where username="'.$username.'"';
+			$resultsql = $db->createCommand($sql)->queryRow();
+			$houseFav = explode(',',$resultsql['houseFav']);
+			$routeFav = explode(',',$resultsql['routeFav']);
+			switch($postParms['type']) {
+			case "houseFav":
+				
+				break;
+			case "routeFav":
+			
+				break;
+			default:
+				break;			
+			}
 		}
     }
 	
@@ -1130,6 +1145,14 @@ class NgGetController extends XFrontBase
 					
 		
 	}
+	 function updateUserTable($username,$col,$data){
+		 //update if exist and insert if row doesn't exist
+		$sql = 'INSERT IGNORE INTO h_user_data('.$col.',username) values("'
+		.$data.'","'.$username.
+		'") on duplicate KEY UPDATE '.$col.'="'.$data.'"';
+		
+
+	 }
 
      function checkfav($username,$mls){
                 $db = Yii::app()->db;
