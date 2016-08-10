@@ -1042,13 +1042,13 @@ class NgGetController extends XFrontBase
 		$username = $postParms['username'];
 	
 		switch($postParms['type']) {
-		case "HouseFav":
+		case "houseFav":
 			$data = $this->favlist($username,'houseFav');
 			break;
-		case "RouteFav":
+		case "routeFav":
 			$data = $this->favlist($username,'routeFav');
 			break;
-		case "HouseSearch":
+		case "houseSearch":
 			break;
 
 		default:
@@ -1109,10 +1109,11 @@ class NgGetController extends XFrontBase
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		//$postParms['mls'] = 'W3534467';
 		//$postParms['mls'] = 'W111';
+		$username = $postParms['username'];
+		$action =	$postParms['action'];
+		$type =	$postParms['type'];
 		if ( !empty($postParms['mls'])){
-			$type =	$postParms['type'];
-			$action =	$postParms['action'];
-			$username = $postParms['username'];
+									
 			$mls = $postParms['mls'];
 			//debug
 			//$type = 'routeFav';
@@ -1131,6 +1132,11 @@ class NgGetController extends XFrontBase
 			}
 			
 			
+		} else { //no mls ,action = r. fav reorder
+			if ( $action == 'r') {
+				$data = $postParms['list'];
+				$mls = '';
+				$r = $this->favupdate($username,$type,$data,$mls,$action);}
 		}
 		echo json_encode($r);
     }
@@ -1145,7 +1151,7 @@ class NgGetController extends XFrontBase
 
 		if (($action == 'c') && !is_numeric($pos) ){array_push($c,$mls);}
 		if ( ($action == 'd') && is_numeric($pos)){ unset($c[$pos]); }//remove MLS
-				
+		
 		 
 		$data = implode(",",$c); //convert to comma separated string
 		$r = $this->updateUserTable($username,$type,$data);
