@@ -1107,14 +1107,15 @@ class NgGetController extends XFrontBase
 	
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
-		$postParms['mls'] = 'W133';
+		$postParms['mls'] = 'W3534467';
+		$postParms['mls'] = 'W111';
 		if ( !empty($postParms['mls'])){
 			$type =	$postParms['type'];
 			$action =	$postParms['action'];
 			$username = $postParms['username'];
 			$mls = $postParms['mls'];
 			//debug
-			$type = 'houseFav';
+			$type = 'routeFav';
 			$action =   "d";
 			$username = 'zhengying@yahoo.com';
 			//$mls = 'W133';
@@ -1136,15 +1137,16 @@ class NgGetController extends XFrontBase
 	
 	
 	function favupdate($username,$type,$current,$mls,$action){
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
 		
 		$c = (!empty($current))? explode(',',$current): [];
+		$pos = array_search($mls, $c);
 
-		if ($action == 'c'){array_push($c,$mls);} 
-		
-		if ($action == 'd'){ 
-			$pos = array_search($mls, $c);
-			unset($c[$pos]); //remove MLS
-		}
+		if (($action == 'c') && !is_numeric($pos) ){array_push($c,$mls);}
+		if ( ($action == 'd') && is_numeric($pos)){ unset($c[$pos]); }//remove MLS
+				
+		 
 		$data = implode(",",$c); //convert to comma separated string
 		$r = $this->updateUserTable($username,$type,$data);
 		return $r;
