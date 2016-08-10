@@ -1062,25 +1062,14 @@ class NgGetController extends XFrontBase
                 ini_set("error_log", "/tmp/php-error.log");
                 $_POST = (array) json_decode(file_get_contents('php://input'), true);
                 $postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
-                $postParms['type'] = "houseFav";
-                $postParms['mls'] = '30533489';
-                $username ="zhengying@yahoo.com";
-                if ( !empty($postParms['type'])){
+                //$postParms['mls'] = '30533489';
+                //$username ="zhengying@yahoo.com";
+                if ( !empty($postParms['mls'])){
 
-                //$username = $postParms['username'];
+                $username = $postParms['username'];
 
-                switch($postParms['type']) {
-                case "houseFav":
-                        $data = $this->checkfav($username,$postParms['mls'],'houseFav');
-                        break;
-                case "routeFav":
-                        $data = $this->checkfav($username,$postParms['mls'],'routeFav');
-                        break;
+                        $data = $this->checkfav($username,$postParms['mls']);
 
-                default:
-			$data="ddddd";
-                        break;
-                }
                 }
 
                 echo json_encode($data);
@@ -1115,9 +1104,9 @@ class NgGetController extends XFrontBase
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 
 		switch($postParms['type']) {
-		case "Favorite":
+		case "houseFav":
 			break;
-		case "Search":
+		case "routeFav":
 			break;
 		default:
 			break;			
@@ -1142,14 +1131,15 @@ class NgGetController extends XFrontBase
 		
 	}
 
-     function checkfav($username,$mls,$type){
+     function checkfav($username,$mls){
                 $db = Yii::app()->db;
-                $sql ='select '.$type.' from h_user_data where username="'.$username.'" and '.$type.' like "%'.$mls.'%"';
+                $sql ='select houseFav from h_user_data where username="'.$username.'" and houseFav like "%'.$mls.'%"';
                 $resultsql = $db->createCommand($sql)->queryRow();
-		if (!empty($resultsql)){
-			return 1;
-		
-		}else { return 0;}
+		if (!empty($resultsql)){ $result['houseFav']=1; }else {  $result['houseFav']=0;}
+                $sql ='select routeFav from h_user_data where username="'.$username.'" and routeFav like "%'.$mls.'%"';
+                $resultsql = $db->createCommand($sql)->queryRow();
+		if (!empty($resultsql)){ $result['routeFav']=1; }else {  $result['routeFav']=0;}
+		return $result;
 
 
         }
