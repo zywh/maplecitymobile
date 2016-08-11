@@ -1136,7 +1136,8 @@ class NgGetController extends XFrontBase
 			
 		} else { //no mls ,action = r. fav reorder
 				
-				$r = $this->favupdate($username,$type,'',$mls,$action);
+				//$r = $this->favupdate($username,$type,'',$mls,$action);
+				$r = $this->updateUserTable($username,$type,$mls);
 		}
 		echo json_encode($r);
     }
@@ -1145,9 +1146,7 @@ class NgGetController extends XFrontBase
 	function favupdate($username,$type,$current,$mls,$action){
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
-		if ($action == 'r') {
-			$data = $mls;
-		} else {
+		
 		$c = (!empty($current))? explode(',',$current): [];
 		$pos = array_search($mls, $c);
 
@@ -1156,15 +1155,14 @@ class NgGetController extends XFrontBase
 		
 		//default for action r. no change to $current 
 		$data = implode(",",$c); //convert to comma separated string
-		
-		}
+
 		$r = $this->updateUserTable($username,$type,$data);
 		return $r;
 		
 		
 	}
 	 function updateUserTable($username,$type,$data){
-		 $db = Yii::app()->db;
+		$db = Yii::app()->db;
 		 //update if exist and insert if row doesn't exist
 		$sql = 'INSERT IGNORE INTO h_user_data('.$type.',username) values("'.$data.'","'.$username.'") on duplicate KEY UPDATE '.$type.'="'.$data.'"';
 		$r = $db->createCommand($sql)->execute();
@@ -1192,12 +1190,12 @@ class NgGetController extends XFrontBase
 	
 
      function checkfav($username,$mls){
-                $db = Yii::app()->db;
-                $sql ='select houseFav from h_user_data where username="'.$username.'" and houseFav like "%'.$mls.'%"';
-                $resultsql = $db->createCommand($sql)->queryRow();
+		$db = Yii::app()->db;
+		$sql ='select houseFav from h_user_data where username="'.$username.'" and houseFav like "%'.$mls.'%"';
+		$resultsql = $db->createCommand($sql)->queryRow();
 		if (!empty($resultsql)){ $result['houseFav']=1; }else {  $result['houseFav']=0;}
-                $sql ='select routeFav from h_user_data where username="'.$username.'" and routeFav like "%'.$mls.'%"';
-                $resultsql = $db->createCommand($sql)->queryRow();
+			$sql ='select routeFav from h_user_data where username="'.$username.'" and routeFav like "%'.$mls.'%"';
+			$resultsql = $db->createCommand($sql)->queryRow();
 		if (!empty($resultsql)){ $result['routeFav']=1; }else {  $result['routeFav']=0;}
 		return $result;
 
