@@ -7158,3 +7158,20 @@ Stack trace:
 #4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
 #5 /var/www/mhtml/index.php(19): CWebApplication->run()
 REQUEST_URI=/index.php?r=ngget/getMapHouse
+2016/08/11 08:18:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values("","") on duplicate KEY UPDATE =""' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values("","") on duplicate KEY UPDATE ="".
+2016/08/11 08:18:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values("","") on duplicate KEY UPDATE =""' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1166): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1157): NgGetController->updateUserTable(NULL, NULL, '')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1131): NgGetController->favupdate(NULL, NULL, '', NULL, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateUserData()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateUserData')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateUse...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateUserData
+---

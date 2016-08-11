@@ -1035,24 +1035,24 @@ class NgGetController extends XFrontBase
 		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
-		//$postParms['type'] = 'HouseFav';
+		//$postParms['type'] = 'houseFav';
 		//$username ="zhengying@yahoo.com";
 		if ( !empty($postParms['type'])){
 
 		$username = $postParms['username'];
 	
 		switch($postParms['type']) {
-		case "houseFav":
-			$data = $this->favlist($username,'houseFav');
-			break;
-		case "routeFav":
-			$data = $this->favlist($username,'routeFav');
-			break;
-		case "houseSearch":
-			break;
+			case "houseFav":
+				$data = $this->favlist($username,'houseFav');
+				break;
+			case "routeFav":
+				$data = $this->favlist($username,'routeFav');
+				break;
+			case "houseSearch":
+				break;
 
-		default:
-			break;			
+			default:
+				break;			
 		}
 		}
 
@@ -1109,12 +1109,14 @@ class NgGetController extends XFrontBase
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		//$postParms['mls'] = 'W3534467';
 		//$postParms['mls'] = 'W111';
+		//$postParms['action'] = 'r';
 		$username = $postParms['username'];
 		$action =	$postParms['action'];
 		$type =	$postParms['type'];
-		if ( !empty($postParms['mls'])){
+		$mls = $postParms['mls'];
+		if ( $action != 'r'){  // action = r is for favlist reorder. comma list is pass for update
 									
-			$mls = $postParms['mls'];
+			
 			//debug
 			//$type = 'routeFav';
 			//$action =   "c";
@@ -1133,10 +1135,8 @@ class NgGetController extends XFrontBase
 			
 			
 		} else { //no mls ,action = r. fav reorder
-			if ( $action == 'r') {
-				$data = $postParms['list'];
-				$mls = '';
-				$r = $this->favupdate($username,$type,$data,$mls,$action);}
+				
+				$r = $this->favupdate($username,$type,'',$mls,$action);
 		}
 		echo json_encode($r);
     }
@@ -1145,15 +1145,19 @@ class NgGetController extends XFrontBase
 	function favupdate($username,$type,$current,$mls,$action){
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
-		
+		if ($action == 'r') {
+			$data = $mls;
+		} else {
 		$c = (!empty($current))? explode(',',$current): [];
 		$pos = array_search($mls, $c);
 
 		if (($action == 'c') && !is_numeric($pos) ){array_push($c,$mls);}
 		if ( ($action == 'd') && is_numeric($pos)){ unset($c[$pos]); }//remove MLS
 		
-		 
+		//default for action r. no change to $current 
 		$data = implode(",",$c); //convert to comma separated string
+		
+		}
 		$r = $this->updateUserTable($username,$type,$data);
 		return $r;
 		
