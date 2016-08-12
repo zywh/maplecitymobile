@@ -1171,7 +1171,8 @@ class NgGetController extends XFrontBase
 		$db = Yii::app()->db;
 		$sql ='select '.$type.' from h_user_data where username="'.$username.'"';
 		$resultsql = $db->createCommand($sql)->queryRow();
-		return $resultsql;
+		$r['Data'] = $resultsql[$type];
+		return $r;
 	}
 	
 	function favupdate($username,$type,$current,$mls,$action){
