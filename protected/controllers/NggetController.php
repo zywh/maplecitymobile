@@ -1039,19 +1039,29 @@ class NgGetController extends XFrontBase
 		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
-		$postParms['type'] = 'houseSearch';
+		$username = $postParms['username'];
+		$type = $postParms['type'];
+		//$postParms['type'] = 'houseSearch';
 		//$username ="zhengying@yahoo.com";
-		$username = "zhengy@rogers.com";
-		if ( !empty($postParms['type'])){
+		//$username = "zhengy@rogers.com";
+		if ( !empty($type)){
 
-		//$username = $postParms['username'];
+			if ( $type == 'houseSearch'){
+				$data = $this->getoption($username,'houseSearch');
+			} else {  // houseFav,routeFav,recentView
+				$data = $this->favlist($username,$type);
+			}
+		}
 	
-		switch($postParms['type']) {
+		/* switch($postParms['type']) {
 			case "houseFav":
 				$data = $this->favlist($username,'houseFav');
 				break;
 			case "routeFav":
 				$data = $this->favlist($username,'routeFav');
+				break;
+			case "recentView":
+				$data = $this->favlist($username,'recentView');
 				break;
 			case "houseSearch":
 				//$data = 'test';
@@ -1061,7 +1071,7 @@ class NgGetController extends XFrontBase
 			default:
 				break;			
 		}
-		}
+		} */
 
 		echo json_encode($data);
 		
@@ -1226,9 +1236,20 @@ class NgGetController extends XFrontBase
 		$sql ='select houseFav from h_user_data where username="'.$username.'" and houseFav like "%'.$mls.'%"';
 		$resultsql = $db->createCommand($sql)->queryRow();
 		if (!empty($resultsql)){ $result['houseFav']=1; }else {  $result['houseFav']=0;}
-			$sql ='select routeFav from h_user_data where username="'.$username.'" and routeFav like "%'.$mls.'%"';
-			$resultsql = $db->createCommand($sql)->queryRow();
-		if (!empty($resultsql)){ $result['routeFav']=1; }else {  $result['routeFav']=0;}
+		$sql ='select routeFav from h_user_data where username="'.$username.'" and routeFav like "%'.$mls.'%"';
+		$resultsql = $db->createCommand($sql)->queryRow();
+		if (!empty($resultsql)){ $result['routeFav']=1; }else {  $result['routeFav']=0;};
+		
+		
+		//Insert into recentView
+		$sql ='select recentView from h_user_data where username="'.$username.'"';
+		$resultsql = $db->createCommand($sql)->queryRow();
+		$c = (!empty($resultsql['recentView']))? explode(',',$resultsql['recentView']): [];
+		$pos = array_search($mls, $c);
+		if (!is_numeric($pos) ){array_push($c,$mls);}
+		$data = implode(",",$c); //convert to comma separated string
+		$r = $this->updateUserTable($username,'recentView',$data); 
+		
 		return $result;
 
 
