@@ -1002,6 +1002,7 @@ class NgGetController extends XFrontBase
         $rdir=$county."/Photo".$house->ml_num."/";
         $dir="mlspic/crea/".$rdir;
         $num_files = 0;
+		
 
         if(is_dir($dir)){
             $picfiles =  scandir($dir);
@@ -1013,7 +1014,10 @@ class NgGetController extends XFrontBase
                 $photos[] = $rdir.$picfiles[$x];
             }    
         }
-		$isFav = $this->checkfav($username,$id);
+		if ($username != 'NO'){
+			$isFav = $this->checkfav($username,$id);
+		} else { $isFav = 0;}
+		
 
         $data = array(
 			'house'           => $house->getAttributes(),
@@ -1177,7 +1181,7 @@ class NgGetController extends XFrontBase
 		//get list of fav			
 		$sql ='select '.$type.' from h_user_data where username="'.$username.'"';
 		$resultsql = $db->createCommand($sql)->queryRow();
-		$list = explode(',',$resultsql['houseFav']);
+		$list = explode(',',$resultsql[$type]);
 		//get list of house
 		$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot';
 		$criteria->addInCondition('ml_num', $list);
