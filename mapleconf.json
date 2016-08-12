@@ -23,6 +23,7 @@
 	"getUserDataRest": "index.php?r=ngget/getUserData",
 	"updateUserDataRest": "index.php?r=ngget/updateUserData",
 	"checkFavDataRest": "index.php?r=ngget/checkFavData",
+	"saveOptionsDataRest": "index.php?r=ngget/saveOptions",
 	"addUserDataRest": "index.php?r=ngget/addUserData",
 	"deleteUserDataRest": "index.php?r=ngget/deleteUserData"
 

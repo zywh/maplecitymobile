@@ -1039,11 +1039,12 @@ class NgGetController extends XFrontBase
 		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
-		//$postParms['type'] = 'houseFav';
+		$postParms['type'] = 'houseSearch';
 		//$username ="zhengying@yahoo.com";
+		$username = "zhengy@rogers.com";
 		if ( !empty($postParms['type'])){
 
-		$username = $postParms['username'];
+		//$username = $postParms['username'];
 	
 		switch($postParms['type']) {
 			case "houseFav":
@@ -1053,6 +1054,8 @@ class NgGetController extends XFrontBase
 				$data = $this->favlist($username,'routeFav');
 				break;
 			case "houseSearch":
+				//$data = 'test';
+				$data = $this->getoption($username,'houseSearch');
 				break;
 
 			default:
@@ -1146,6 +1149,30 @@ class NgGetController extends XFrontBase
 		echo json_encode($r);
     }
 	
+	public function actionSaveOptions(){
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		$db = Yii::app()->db;
+		$_POST = (array) json_decode(file_get_contents('php://input'), true);
+		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+		//$postParms['mls'] = 'W3534467';
+		//$postParms['mls'] = 'W111';
+		//$postParms['action'] = 'r';
+		$username = $postParms['username'];
+		$type =	$postParms['type'];
+		$data = $postParms['data'];
+		$r = $this->updateUserTable($username,$type,$data);
+		
+		echo json_encode($r);
+    }
+	
+	
+	function getoption($username,$type){
+		$db = Yii::app()->db;
+		$sql ='select '.$type.' from h_user_data where username="'.$username.'"';
+		$resultsql = $db->createCommand($sql)->queryRow();
+		return $resultsql;
+	}
 	
 	function favupdate($username,$type,$current,$mls,$action){
 		ini_set("log_errors", 1);
@@ -1168,7 +1195,7 @@ class NgGetController extends XFrontBase
 	 function updateUserTable($username,$type,$data){
 		$db = Yii::app()->db;
 		 //update if exist and insert if row doesn't exist
-		$sql = 'INSERT IGNORE INTO h_user_data('.$type.',username) values("'.$data.'","'.$username.'") on duplicate KEY UPDATE '.$type.'="'.$data.'"';
+		$sql = 'INSERT IGNORE INTO h_user_data('.$type.',username) values(\''.$data.'\',"'.$username.'") on duplicate KEY UPDATE '.$type.'=\''.$data.'\'';
 		$r = $db->createCommand($sql)->execute();
 		return $r;
 		

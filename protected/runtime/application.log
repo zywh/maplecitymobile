@@ -7175,3 +7175,292 @@ Stack trace:
 #11 {main}
 REQUEST_URI=/index.php?r=ngget/updateUserData
 ---
+2016/08/12 11:44:24 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values("{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}","zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:44:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:44:25 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values("{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}","zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:44:25 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:44:25 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values("{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}","zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:44:25 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:44:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values("{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}","zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:44:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:44:27 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values("{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}","zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:44:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:44:28 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values("{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}","zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:44:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:49:46 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values("{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}","zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:49:46 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:49:47 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values("{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}","zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:49:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:49:48 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values("{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}","zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:49:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:49:49 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values("{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}","zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:49:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:49:50 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values("{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}","zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:49:50 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:52:31 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values('{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}',"zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:52:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:52:32 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values('{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}',"zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:52:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:52:33 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values('{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}',"zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:52:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:52:33 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values('{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}',"zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:52:33 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:52:34 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values('{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}',"zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:52:34 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/12 11:52:35 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(houseSearch,username) values('{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}',"zhengy@rogers.com") on duplicate KEY UPDATE houseSearch="{"selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"upper":4000},"selectLandsize":{"lower":0,"upper":43560},"selectPrice":{"lower":0,"upper":600},"selectType":"","selectListType":true,"selectDate":0}".
+2016/08/12 11:52:35 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectSR":true,"selectBaths":0,"selectBeds":0,"selectHousesize":{"lower":0,"uppe' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1189): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1161): NgGetController->updateUserTable('zhengy@rogers.c...', 'houseSearch', '{"selectSR":tru...')
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionSaveOptions()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('saveOptions')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/saveOptio...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/saveOptions
+HTTP_REFERER=http://localhost:8100/
+---
