@@ -1053,29 +1053,32 @@ class NgGetController extends XFrontBase
 			}
 		}
 	
-		/* switch($postParms['type']) {
-			case "houseFav":
-				$data = $this->favlist($username,'houseFav');
-				break;
-			case "routeFav":
-				$data = $this->favlist($username,'routeFav');
-				break;
-			case "recentView":
-				$data = $this->favlist($username,'recentView');
-				break;
-			case "houseSearch":
-				//$data = 'test';
-				$data = $this->getoption($username,'houseSearch');
-				break;
-
-			default:
-				break;			
-		}
-		} */
+		
 
 		echo json_encode($data);
 		
     }
+	public function actionGetFavCount(){
+		$_POST = (array) json_decode(file_get_contents('php://input'), true);
+		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+		$username = $postParms['username'];
+		//$username = 'zhengyin@yahoo.com';
+		$db = Yii::app()->db;
+		$sql ='select houseFav,routeFav,recentView from h_user_data where username="'.$username.'"';
+		$resultsql = $db->createCommand($sql)->queryRow();
+		$data['houseFav'] = $this->countfav($resultsql['houseFav']);
+		$data['routeFav'] = $this->countfav($resultsql['routeFav']);
+		$data['recentView'] = $this->countfav($resultsql['recentView']);
+		echo json_encode($data);
+
+		
+
+	}
+	function countfav($s){
+			if (!empty($s)){
+				return substr_count($s, ',') + 1;
+			}else { return 0;}
+	}
     public function actioncheckFavData(){
 		//$data = 0;
                 ini_set("log_errors", 1);
@@ -1097,24 +1100,6 @@ class NgGetController extends XFrontBase
     }   
 
 
-	/*Add user data */
-	/* public function actionAddUserData(){
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
-		$_POST = (array) json_decode(file_get_contents('php://input'), true);
-		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
-
-		switch($postParms['type']) {
-		case "Favorite":
-			
-			break;
-		case "Search":
-			break;
-		default:
-			break;			
-		}
-
-    } */
 
 	/*Delete user data */
 	public function actionUpdateUserData(){
@@ -1141,7 +1126,7 @@ class NgGetController extends XFrontBase
 			//$mls = 'W133';
 
 			
-			$sql ='select houseFav,routeFav from h_user_data where username="'.$username.'"';
+			$sql ='select houseFav,routeFav,recentView from h_user_data where username="'.$username.'"';
 			$resultsql = $db->createCommand($sql)->queryRow();
 			if (!empty($resultsql)){
 				$r = $this->favupdate($username,$type,$resultsql[$type],$mls,$action);
