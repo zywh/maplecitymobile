@@ -1,6 +1,7 @@
 <?php
 
 Yii::import('application.vendor.*');
+require_once('autoload.php'); 
 
 class NgGetController extends XFrontBase
 {
@@ -1040,7 +1041,7 @@ class NgGetController extends XFrontBase
 		if ($tokens[0] == "Bearer") {
 			error_log($tokens[0]);
 			error_log($tokens[1]);
-			$decoded_access_token = \Auth0\SDK\Auth0JWT::decode($tokens[1], null, $MAPLEAPP_SPA_SECRET, null);
+			//$decoded_access_token = \Auth0\SDK\Auth0JWT::decode($tokens[1], null, $MAPLEAPP_SPA_SECRET, null);
 			return true;
 		}
 		else {
