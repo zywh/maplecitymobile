@@ -7611,3 +7611,81 @@ Stack trace:
 #10 {main}
 REQUEST_URI=/index.php?r=ngget/getCityList
 ---
+2016/08/24 00:43:36 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1050): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1090): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 00:43:37 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1050): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1090): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 00:43:37 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1050): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1090): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 00:43:38 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1050): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1090): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 00:43:39 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1050): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1090): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 00:43:40 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1050): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1090): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
