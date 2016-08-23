@@ -7785,3 +7785,542 @@ Stack trace:
 REQUEST_URI=/index.php?r=ngget/getMapHouse
 HTTP_REFERER=http://localhost:8100/
 ---
+2016/08/24 06:52:00 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:52:02 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:52:03 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:52:04 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:52:12 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getProjects
+2016/08/24 06:52:12 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getPostList
+2016/08/24 06:52:13 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getProjects
+2016/08/24 06:52:14 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getPostList
+2016/08/24 06:52:14 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:52:14 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getProjects
+2016/08/24 06:52:15 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getPostList
+2016/08/24 06:52:15 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:52:15 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getProjects
+2016/08/24 06:52:16 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getPostList
+2016/08/24 06:52:16 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:52:16 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getProjects
+2016/08/24 06:52:17 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getPostList
+2016/08/24 06:56:11 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 06:56:13 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 06:56:14 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 06:56:15 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 06:56:16 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:56:17 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:56:18 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:56:20 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:58:12 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 06:58:14 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 06:58:14 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:58:14 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 06:58:15 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:58:15 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 06:58:15 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:58:16 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 06:58:16 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:58:17 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 06:58:18 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:01:17 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:01:18 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:01:19 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:01:20 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:01:21 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:01:22 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:01:22 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:01:23 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:01:25 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:01:25 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:01:48 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:01:49 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:01:50 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:01:50 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:01:50 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:01:51 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:01:52 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:01:52 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:02:34 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:02:35 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:02:36 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:02:38 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:02:44 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:02:45 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:02:46 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:02:47 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:02:48 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:04:38 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:04:39 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:04:40 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:04:41 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:05:05 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:05:06 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:05:07 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:05:08 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:05:09 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:05:11 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:05:12 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:05:13 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:05:14 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:05:15 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount

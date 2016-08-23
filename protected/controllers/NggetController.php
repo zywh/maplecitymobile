@@ -2,7 +2,8 @@
 
 spl_autoload_unregister(array('YiiBase','autoload'));
 Yii::import('application.vendor.*');
-require_once('autoload.php'); 
+//require_once('autoload.php'); 
+require_once('vendor/autoload.php');
 //spl_autoload_register(array('vendor_autoloader','autoload'));
 spl_autoload_register(array('YiiBase','autoload'));
 
@@ -1038,13 +1039,20 @@ class NgGetController extends XFrontBase
     }	
 
 	public function isValidAccessToken(){
+		//error_reporting(-1); // reports all errors
+		//ini_set("display_errors", "1"); // shows all errors
+		//ini_set("log_errors", 1);
+		//ini_set("error_log", "/tmp/php-error.log");
 		$MAPLEAPP_SPA_SECRET = "Wg1qczn2IKXHEfzOCtqFbFCwKhu-kkqiAKlBRx_7VotguYFnKOWZMJEuDVQMXVnG";
 		$headers = getallheaders();
 		$tokens = explode(" ", $headers['Authorization']);
+		error_log($tokens);
 		if ($tokens[0] == "Bearer") {
 			error_log($tokens[0]);
 			error_log($tokens[1]);
-			//$decoded_access_token = \Auth0\SDK\Auth0JWT::decode($tokens[1], null, $MAPLEAPP_SPA_SECRET, null);
+			$decoded_access_token = \Auth0\SDK\Auth0JWT::decode($tokens[1], null, $MAPLEAPP_SPA_SECRET, null);
+			//$token = JWT::decode($tokens[1], $MAPLEAPP_SPA_SECRET, array('HS512'));
+			
 		error_log($decoded_access_token);
 
 			
