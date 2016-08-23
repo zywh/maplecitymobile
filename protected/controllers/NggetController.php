@@ -1036,7 +1036,10 @@ class NgGetController extends XFrontBase
 		$headers = getallheaders();
 		$tokens = explode(" ", $headers['Authorization']);
 		if ($tokens[0] == "Bearer") {
-			$decoded_access_token = \Auth0\SDK\Auth0JWT::decode($tokens[1], null, $MAPLEAPP_SPA_SECRET, null);
+			error_log($tokens[0]);
+			error_log($tokens[1]);
+			// $decoded_access_token = \Auth0\SDK\Auth0JWT::decode($tokens[1], null, $MAPLEAPP_SPA_SECRET, null);
+			// $decoded_access_token = decode($tokens[1], null, $MAPLEAPP_SPA_SECRET, null);
 			return true;
 		}
 		else {
@@ -1048,7 +1051,7 @@ class NgGetController extends XFrontBase
 	/*Get user data */
 	public function actionGetUserData(){
 		
-		if (!isValidAccessToken()) { echo "invalid access token"; return; }
+		if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
 		$data = [];
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
@@ -1074,7 +1077,7 @@ class NgGetController extends XFrontBase
 		
     }
 	public function actionGetFavCount(){
-		if (!isValidAccessToken()) { echo "invalid access token"; return; }
+		if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$username = $postParms['username'];
@@ -1099,7 +1102,7 @@ class NgGetController extends XFrontBase
 		//$data = 0;
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
-		if (!isValidAccessToken()) { echo "invalid access token"; return; }
+		if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		//$postParms['mls'] = '30533489';
@@ -1122,7 +1125,7 @@ class NgGetController extends XFrontBase
 	public function actionUpdateUserData(){
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
-		if (!isValidAccessToken()) { echo "invalid access token"; return; }
+		if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
 		$db = Yii::app()->db;
 	
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
@@ -1165,7 +1168,7 @@ class NgGetController extends XFrontBase
 	public function actionSaveOptions(){
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
-		if (!isValidAccessToken()) { echo "invalid access token"; return; }
+		if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
 		$db = Yii::app()->db;
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
