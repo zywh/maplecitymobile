@@ -1038,13 +1038,18 @@ class NgGetController extends XFrontBase
     }	
 
 	public function isValidAccessToken(){
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
 		$MAPLEAPP_SPA_SECRET = "Wg1qczn2IKXHEfzOCtqFbFCwKhu-kkqiAKlBRx_7VotguYFnKOWZMJEuDVQMXVnG";
 		$headers = getallheaders();
 		$tokens = explode(" ", $headers['Authorization']);
 		if ($tokens[0] == "Bearer") {
 			error_log($tokens[0]);
 			error_log($tokens[1]);
-			//$decoded_access_token = \Auth0\SDK\Auth0JWT::decode($tokens[1], null, $MAPLEAPP_SPA_SECRET, null);
+			$decoded_access_token = \Auth0\SDK\Auth0JWT::decode($tokens[1], null, $MAPLEAPP_SPA_SECRET, null);
+		error_log($decoded_access_token);
+
+			
 //var_dump($decoded_access_token);
 			return true;
 		}
@@ -1083,7 +1088,7 @@ class NgGetController extends XFrontBase
 		
     }
 	public function actionGetFavCount(){
-		if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
+		//if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$username = $postParms['username'];
