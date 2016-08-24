@@ -8324,3 +8324,1952 @@ Stack trace:
 #2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
 #3 /var/www/mhtml/index.php(19): CWebApplication->run()
 REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:11:16 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:11:17 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:11:18 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:11:19 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:11:20 [error] [php] require_once(vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:11:57 [error] [php] require_once(/vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:11:58 [error] [php] require_once(/vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:11:59 [error] [php] require_once(/vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:12:02 [error] [php] require_once(/vendor/autoload.php): failed to open stream: No such file or directory (/var/www/mhtml/protected/controllers/NggetController.php:6)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(1740): CWebApplication->createController()
+#1 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#2 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#3 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:12:49 [error] [php] error_log() expects parameter 1 to be string, array given (/var/www/mhtml/protected/controllers/NggetController.php:1049)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#1 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#2 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#3 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#4 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#5 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#6 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#7 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:12:50 [error] [php] error_log() expects parameter 1 to be string, array given (/var/www/mhtml/protected/controllers/NggetController.php:1049)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#1 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#2 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#3 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#4 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#5 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#6 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#7 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:12:51 [error] [php] error_log() expects parameter 1 to be string, array given (/var/www/mhtml/protected/controllers/NggetController.php:1049)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#1 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#2 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#3 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#4 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#5 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#6 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#7 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:12:52 [error] [php] error_log() expects parameter 1 to be string, array given (/var/www/mhtml/protected/controllers/NggetController.php:1049)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#1 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#2 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#3 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#4 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#5 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#6 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#7 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:17:55 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:17:56 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:17:57 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:17:59 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:18:00 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:18:17 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:18:18 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:18:32 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:18:33 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:18:34 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:18:35 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:20:21 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:20:22 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:20:23 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:20:24 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:20:24 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:20:25 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:20:25 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:20:26 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:20:27 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:20:28 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:22:30 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:22:31 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:22:32 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:22:33 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:22:34 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:23:37 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:23:39 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:23:39 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:23:40 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:23:40 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:23:41 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:23:41 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:23:42 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:23:43 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:24:13 [error] [php] include(JWT1.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:24:14 [error] [php] include(JWT1.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:24:15 [error] [php] include(JWT1.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:24:15 [error] [php] include(JWT1.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:24:16 [error] [php] include(JWT1.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:24:16 [error] [php] include(JWT1.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:24:17 [error] [php] include(JWT1.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:24:17 [error] [php] include(JWT1.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:24:18 [error] [php] include(JWT1.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:24:18 [error] [php] include(JWT1.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:24:48 [error] [php] include(JWT1.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:24:49 [error] [php] include(JWT1.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:24:50 [error] [php] include(JWT1.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:24:51 [error] [php] include(JWT1.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:24:52 [error] [php] include(JWT1.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:25:04 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:25:05 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:25:05 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:25:06 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:25:06 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:25:07 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:25:07 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:25:08 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:25:08 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:25:09 [error] [php] include(JWT.php): failed to open stream: No such file or directory (/var/www/mhtml/framework/yiilite.php:244)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): spl_autoload_call()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#4 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#5 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#6 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:25:39 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:25:40 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:25:40 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:25:41 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:25:41 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:25:43 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:25:43 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:25:43 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:25:43 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:25:44 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:26:39 [error] [php] explode() expects parameter 2 to be string, array given (/var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:36)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#3 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#4 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#5 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:26:40 [error] [php] explode() expects parameter 2 to be string, array given (/var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:36)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#3 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#4 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#5 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:26:41 [error] [php] explode() expects parameter 2 to be string, array given (/var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:36)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#3 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#4 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#5 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:26:41 [error] [php] explode() expects parameter 2 to be string, array given (/var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:36)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#3 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#4 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#5 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:26:42 [error] [php] explode() expects parameter 2 to be string, array given (/var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:36)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#3 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#4 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#5 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:26:42 [error] [php] explode() expects parameter 2 to be string, array given (/var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:36)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#3 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#4 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#5 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:26:43 [error] [php] explode() expects parameter 2 to be string, array given (/var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:36)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#3 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#4 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#5 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:26:43 [error] [php] explode() expects parameter 2 to be string, array given (/var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:36)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1071): NgGetController->isValidAccessToken()
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#3 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#4 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#5 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/08/24 07:26:44 [error] [php] explode() expects parameter 2 to be string, array given (/var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:36)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#3 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#4 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#5 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:26:45 [error] [php] explode() expects parameter 2 to be string, array given (/var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:36)
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1098): NgGetController->isValidAccessToken()
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#3 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#4 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#5 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getFavCount
+2016/08/24 07:27:16 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1067): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:27:17 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1067): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:27:17 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1094): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:27:18 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1067): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:27:18 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1094): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:27:19 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1067): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:27:19 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1094): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:27:20 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1094): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:27:20 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1067): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:27:21 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1094): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:14 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1067): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:15 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1067): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:16 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1067): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:17 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1067): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:18 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1094): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:19 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1094): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:20 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1094): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:21 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1094): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:23 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1094): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:37 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1067): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:38 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1067): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:38 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1094): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:39 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1094): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:39 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1067): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:40 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1067): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:40 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1094): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:41 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1094): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:33:43 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1053): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', NULL, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1094): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:04 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1068): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:05 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1068): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:06 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1095): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:06 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1068): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:07 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1095): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:07 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1068): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:08 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1095): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:10 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1095): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:11 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1095): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:49 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1068): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:50 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1095): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:50 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1068): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:51 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1095): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:51 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1068): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:52 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1095): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:52 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1068): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:53 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1095): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:53 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1068): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/24 07:42:54 [error] [exception.Auth0\SDK\Exception\CoreException] exception 'Auth0\SDK\Exception\CoreException' with message 'This token is not intended for us.' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:73
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1054): Auth0\SDK\Auth0JWT::decode('eyJ0eXAiOiJKV1Q...', '9fNpEj70wvf86dv...', 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1095): NgGetController->isValidAccessToken()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetFavCount()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getFavCount')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getFavCou...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/getFavCount
+HTTP_REFERER=http://localhost:8100/
+---
