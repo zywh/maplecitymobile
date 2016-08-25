@@ -1183,60 +1183,88 @@ class NgGetController extends XFrontBase
     }
 
 	public function actionUpdateMyCenter(){
+		//update myCenter action=d (delete), c(insert)
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
-		//if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
+		if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
 		$db = Yii::app()->db;
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$username = $postParms['username'];
-		$center = $postParms['data'];
+		$center = $postParms['data']; 
+		$action = $postParms['action'];
 		$type =	'myCenter'; // myCenter
-		//debug
-		#$center = '{"lat": "43.653226", "lng": "-79.383184", "name": "Miss11, Ontario"}';
-		error_log($center);
-		//$username = 'zhengy@rogers.com';
-		//debug end;
-		
-		$centerA=json_decode($center,true);
-
-		//sql select
+		//get current myCenter
 		$sql ='select myCenter from h_user_data where username="'.$username.'"';
 		$resultsql = $db->createCommand($sql)->queryRow();
 		$myCenterR = $resultsql['myCenter'];
+		$centerA=json_decode($center,true);
+
+		//sql select
 		//$myCenterR = '[ {"lat": "43.653226", "lng": "-79.383184", "name": "Toronto, Ontario"},{"lat": "43.653226", "lng": "-79.383184", "name": "Miss, Ontario"} ]';
-		
+		if ( $action == 'd') {$r = $this->removeCenter($username,$centerA,$myCenterR);};
+		if ( $action == 'c') {$r = $this->addCenter($username,$centerA,$myCenterR);};
 
-		if ( !empty($myCenterR) ){
-
-			$funcName = function($value) {
-				return $value["name"];
-			};
-
-			$y = json_decode($myCenterR,true);
-			$name = array_map($funcName,$y);
-			if ( array_search($centerA['name'], $name) > 0){
-				$r=0; //find match no update
-			}else{
-				array_push($y,$centerA);
-				$r=2;//didn't find match. Push center
-				$myCenter = json_encode($y);
-				$this->updateUserTable($username,$type,$myCenter);
-			}
-				
-		}
-		else{
-			
-			$myCenter = json_encode(array($centerA));
-			$r = 1; //no new center.update
-			$this->updateUserTable($username,$type,$myCenter);
-		}
 
 		
 		echo json_encode($r);
     }
+	function removeCenter($username,$centerA,$myCenterR){
+	     if ( !empty($myCenterR) ){
+                        $funcName = function($value) { return $value["name"]; };
+                        $y = json_decode($myCenterR,true);
+                        $name = array_map($funcName,$y);
+                        if ( $pos= array_search($centerA['name'], $name) > 0){
+                                $r=1; //find match remove center
+                                $myCenter = json_encode($y);
+				unset($y[$pos]);
+                                $this->updateUserTable($username,'myCenter',$myCenter);
+
+                        }else{ $r=0; } //no found and no action
+
+                }
+                else{ $r = 0; } //empty and no action
+		return $r;
+
+
+	
+	}
+	 function addCenter($username,$centerA,$myCenterR){
+		  ini_set("log_errors", 1);
+                ini_set("error_log", "/tmp/php-error.log");
+
+	   if ( !empty($myCenterR) ){
+
+                        $funcName = function($value) { return $value["name"]; }; 
+                        $y = json_decode($myCenterR,true);
+                        $name = array_map($funcName,$y);
+                        if ( array_search($centerA['name'], $name) > 0){
+                                $r=0; //find match 
+
+                        }else{
+                                array_push($y,$centerA);
+                                $r=2;//didn't find match. Push center
+                                $myCenter = json_encode($y);
+                                $this->updateUserTable($username,'myCenter',$myCenter);
+				error_log($myCenter);
+                        }
+
+                }
+                else{
+
+                        $myCenter = json_encode(array($centerA));
+                        $r = 1; //no new center.update
+                        $this->updateUserTable($username,$type,$myCenter);
+                }
+		return $r;
+
+
+
+        }
+
 	
 	public function actionSaveOptions(){
+		//save select option for houseSearch and schoolSearch
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
 		if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
@@ -1256,6 +1284,7 @@ class NgGetController extends XFrontBase
 	
 	
 	function getoption($username,$type){
+		//get data for myCenter and houseSearch and schoolSearch which is JSON type
 		$db = Yii::app()->db;
 		$sql ='select '.$type.' from h_user_data where username="'.$username.'"';
 		$resultsql = $db->createCommand($sql)->queryRow();
@@ -1264,13 +1293,14 @@ class NgGetController extends XFrontBase
 	}
 	
 	function favupdate($username,$type,$current,$mls,$action){
+		//update houseFav or routeFav
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
 		
 		$c = (!empty($current))? explode(',',$current): [];
 		$pos = array_search($mls, $c);
 
-		if (($action == 'c') && !is_numeric($pos)){array_push($c,$mls);}
+		if (($action == 'c') && !is_numeric($pos)){array_push($c,$mls);} //insert
 		if (($action == 'd') && is_numeric($pos)){ unset($c[$pos]); }//remove MLS
 		
 		//default for action r. no change to $current 
@@ -1292,6 +1322,7 @@ class NgGetController extends XFrontBase
 	 }
 	
 	function favlist($username,$type){
+		//get house detail for fav list
 		$db = Yii::app()->db;
 		$criteria = new CDbCriteria();
 		//get list of fav			
@@ -1310,6 +1341,7 @@ class NgGetController extends XFrontBase
 	
 
      function checkfav($username,$mls){
+		//it's called from housedetail
 		$db = Yii::app()->db;
 		$sql ='select houseFav from h_user_data where username="'.$username.'" and houseFav like "%'.$mls.'%"';
 		$resultsql = $db->createCommand($sql)->queryRow();
