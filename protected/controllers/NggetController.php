@@ -1183,7 +1183,6 @@ class NgGetController extends XFrontBase
     }
 
 	public function actionUpdateMyCenter(){
-		//update myCenter action=d (delete), c(insert)
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
 		if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
@@ -1202,8 +1201,9 @@ class NgGetController extends XFrontBase
 
 		//sql select
 		//$myCenterR = '[ {"lat": "43.653226", "lng": "-79.383184", "name": "Toronto, Ontario"},{"lat": "43.653226", "lng": "-79.383184", "name": "Miss, Ontario"} ]';
-		if ( $action == 'd') {$r = $this->removeCenter($username,$centerA,$myCenterR);};
-		if ( $action == 'c') {$r = $this->addCenter($username,$centerA,$myCenterR);};
+		if ( $action == 'd') {$r = $this->removeCenter($username,$centerA,$myCenterR);} //delete center
+		if ( $action == 'c') {$r = $this->addCenter($username,$centerA,$myCenterR);} //add center
+		if ( $action == 'r') { $r =  $this->updateUserTable($username,'myCenter',$center); } //center list reorder.push string
 
 
 		
