@@ -10273,3 +10273,275 @@ Stack trace:
 REQUEST_URI=/index.php?r=ngget/getFavCount
 HTTP_REFERER=http://localhost:8100/
 ---
+2016/08/25 11:32:10 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:32:10 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1270): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1212): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/25 11:32:11 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:32:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1270): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1212): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/25 11:32:12 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:32:12 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1270): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1212): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/25 11:32:12 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:32:12 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1270): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1212): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/25 11:32:13 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:32:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1270): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1212): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/25 11:32:14 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:32:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1270): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1212): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/25 11:32:14 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:32:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1270): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1212): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/25 11:32:15 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:32:15 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1270): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1212): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/25 11:34:01 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:34:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1274): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1216): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/25 11:34:01 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:34:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1274): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1216): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/25 11:34:02 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:34:02 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1274): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1216): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/25 11:34:03 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:34:03 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1274): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1216): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/25 11:34:03 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:34:03 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1274): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1216): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/25 11:34:04 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:34:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1274): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1216): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/25 11:34:05 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:34:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1274): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1216): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/25 11:34:06 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.. The SQL statement executed was: INSERT IGNORE INTO h_user_data(myCenter,username) values('',"zhengy@rogers.com") on duplicate KEY UPDATE myCenter=''.
+2016/08/25 11:34:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "The document is empty." at position 0 in value (or column) ''.' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1274): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1216): NgGetController->updateUserTable('zhengy@rogers.c...', 'myCenter', NULL)
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---

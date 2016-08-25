@@ -1078,8 +1078,8 @@ class NgGetController extends XFrontBase
 		//$username = "zhengy@rogers.com";
 		if ( !empty($type)){
 
-			if ( $type == 'houseSearch'){ $data = $this->getoption($username,'houseSearch');}
-			if ( $type == 'schoolSearch'){ $data = $this->getoption($username,'schoolSearch');}
+			if (( $type == 'houseSearch')||($type == 'schoolSearch')||( $type == 'myCenter')){ 
+				$data = $this->getoption($username,$type);}
 			if (( $type == 'houseFav')||( $type == 'routeFav')||( $type == 'recentView')){ 
 				$data = $this->favlist($username,$type);}
 			
@@ -1178,6 +1178,46 @@ class NgGetController extends XFrontBase
 				
 				//$r = $this->favupdate($username,$type,'',$mls,$action);
 				$r = $this->updateUserTable($username,$type,$mls);
+		}
+		echo json_encode($r);
+    }
+
+	public function actionUpdateMyCenter(){
+		error_reporting(-1); // reports all errors
+		ini_set("display_errors", "1"); // shows all errors
+		ini_set("log_errors", 1);
+		ini_set("error_log", "/tmp/php-error.log");
+		
+		if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
+		$db = Yii::app()->db;
+	
+		$_POST = (array) json_decode(file_get_contents('php://input'), true);
+		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
+		//$postParms['mls'] = 'W3534467';
+		//$postParms['mls'] = 'W111';
+		//$postParms['action'] = 'r';
+		$username = $postParms['username'];
+		$action =	$postParms['action'];
+		$type =	$postParms['type'];
+		$data = $postParms['data'];
+		if ( $action != 'r'){  // action = r is for favlist reorder. comma list is pass for update
+									
+			
+			//debug
+			//$type = 'routeFav';
+			//$action =   "c";
+			//$username = 'zhengying@yahoo.com';
+			//$mls = 'W133';
+
+			
+		//	$sql ='select myCenter from h_user_data where username="'.$username.'"';
+			//$resultsql = $db->createCommand($sql)->queryRow();
+			
+			$r = $this->updateUserTable($username,$type,$data);
+		
+			
+			
+		
 		}
 		echo json_encode($r);
     }
