@@ -1210,14 +1210,17 @@ class NgGetController extends XFrontBase
 		echo json_encode($r);
     }
 	function removeCenter($username,$centerA,$myCenterR){
+		  ini_set("log_errors", 1);
+                ini_set("error_log", "/tmp/php-error.log");
 	     if ( !empty($myCenterR) ){
                         $funcName = function($value) { return $value["name"]; };
                         $y = json_decode($myCenterR,true);
                         $name = array_map($funcName,$y);
-                        if ( $pos= array_search($centerA['name'], $name) > 0){
+                        if ( is_numeric($pos= array_search($centerA['name'], $name)) ){
                                 $r=1; //find match remove center
-                                $myCenter = json_encode($y);
 				unset($y[$pos]);
+                                $myCenter = json_encode(array_values($y)); //array key is removed and reorder.otherwise json_encode return object string
+			 	error_log($myCenter);	
                                 $this->updateUserTable($username,'myCenter',$myCenter);
 
                         }else{ $r=0; } //no found and no action
@@ -1230,15 +1233,13 @@ class NgGetController extends XFrontBase
 	
 	}
 	 function addCenter($username,$centerA,$myCenterR){
-		  ini_set("log_errors", 1);
-                ini_set("error_log", "/tmp/php-error.log");
 
 	   if ( !empty($myCenterR) ){
 
                         $funcName = function($value) { return $value["name"]; }; 
                         $y = json_decode($myCenterR,true);
                         $name = array_map($funcName,$y);
-                        if ( array_search($centerA['name'], $name) > 0){
+                        if ( is_numeric(array_search($centerA['name'], $name)) ){
                                 $r=0; //find match 
 
                         }else{
