@@ -1183,42 +1183,56 @@ class NgGetController extends XFrontBase
     }
 
 	public function actionUpdateMyCenter(){
-		error_reporting(-1); // reports all errors
-		ini_set("display_errors", "1"); // shows all errors
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
-		
-		if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
+		//if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
 		$db = Yii::app()->db;
-	
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
-		//$postParms['mls'] = 'W3534467';
-		//$postParms['mls'] = 'W111';
-		//$postParms['action'] = 'r';
 		$username = $postParms['username'];
-		$action =	$postParms['action'];
-		$type =	$postParms['type'];
-		$data = $postParms['data'];
-		if ( $action != 'r'){  // action = r is for favlist reorder. comma list is pass for update
-									
-			
-			//debug
-			//$type = 'routeFav';
-			//$action =   "c";
-			//$username = 'zhengying@yahoo.com';
-			//$mls = 'W133';
+		$center = $postParms['data'];
+		$type =	'myCenter'; // myCenter
+		//debug
+		#$center = '{"lat": "43.653226", "lng": "-79.383184", "name": "Miss11, Ontario"}';
+		error_log($center);
+		//$username = 'zhengy@rogers.com';
+		//debug end;
+		
+		$centerA=json_decode($center,true);
 
-			
-		//	$sql ='select myCenter from h_user_data where username="'.$username.'"';
-			//$resultsql = $db->createCommand($sql)->queryRow();
-			
-			$r = $this->updateUserTable($username,$type,$data);
+		//sql select
+		$sql ='select myCenter from h_user_data where username="'.$username.'"';
+		$resultsql = $db->createCommand($sql)->queryRow();
+		$myCenterR = $resultsql['myCenter'];
+		//$myCenterR = '[ {"lat": "43.653226", "lng": "-79.383184", "name": "Toronto, Ontario"},{"lat": "43.653226", "lng": "-79.383184", "name": "Miss, Ontario"} ]';
 		
-			
-			
-		
+
+		if ( !empty($myCenterR) ){
+
+			$funcName = function($value) {
+				return $value["name"];
+			};
+
+			$y = json_decode($myCenterR,true);
+			$name = array_map($funcName,$y);
+			if ( array_search($centerA['name'], $name) > 0){
+				$r=0; //find match no update
+			}else{
+				array_push($y,$centerA);
+				$r=2;//didn't find match. Push center
+				$myCenter = json_encode($y);
+				$this->updateUserTable($username,$type,$myCenter);
+			}
+				
 		}
+		else{
+			
+			$myCenter = json_encode(array($centerA));
+			$r = 1; //no new center.update
+			$this->updateUserTable($username,$type,$myCenter);
+		}
+
+		
 		echo json_encode($r);
     }
 	
