@@ -1019,10 +1019,11 @@ class NgGetController extends XFrontBase
                 $photos[] = $rdir.$picfiles[$x];
             }    
         }
-		if ($username != 'NO'){
-			$isFav = $this->checkfav($username,$id);
-		} else { $isFav = 0;}
 		
+		$isFav = 0;
+		if ($username != 'NO'){
+			if ($this->isValidIdToken()) $isFav = $this->checkfav($username,$id);
+		}
 
         $data = array(
 			'house'           => $house->getAttributes(),
@@ -1036,7 +1037,7 @@ class NgGetController extends XFrontBase
 		echo json_encode($data);
     }	
 
-	public function isValidAccessToken(){
+	public function isValidIdToken(){
 		error_reporting(-1); // reports all errors
 		ini_set("display_errors", "1"); // shows all errors
 		ini_set("log_errors", 1);
@@ -1050,7 +1051,7 @@ class NgGetController extends XFrontBase
 			//error_log($tokens[0]);
 			//error_log($tokens[1]);
 			//second is client ID and 4th argument is an array 
-			$decoded_access_token = \Auth0\SDK\Auth0JWT::decode($tokens[1], $MAPLEAPP_SPA_AUD, $MAPLEAPP_SPA_SECRET, []); 
+			$decoded_id_token = \Auth0\SDK\Auth0JWT::decode($tokens[1], $MAPLEAPP_SPA_AUD, $MAPLEAPP_SPA_SECRET, []); 
 			return true;
 		}
 		else {
@@ -1062,7 +1063,7 @@ class NgGetController extends XFrontBase
 	/*Get user data */
 	public function actionGetUserData(){
 		
-		if (!$this->isValidAccessToken()) {  echo  json_encode("invalid access token"); return; }
+		if (!$this->isValidIdToken()) {  echo  json_encode("invalid id_token"); return; }
 		$data = [];
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
@@ -1089,8 +1090,8 @@ class NgGetController extends XFrontBase
 		
     }
 	public function actionGetFavCount(){
-		//if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
-		 if (!$this->isValidAccessToken()) {   return; }
+		//if (!$this->isValidIdToken()) { echo "invalid id_token"; return; }
+		 if (!$this->isValidIdToken()) {   return; }
 
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
@@ -1116,7 +1117,7 @@ class NgGetController extends XFrontBase
 		//$data = 0;
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
-		if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
+		if (!$this->isValidIdToken()) { echo "invalid id_token"; return; }
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		//$postParms['mls'] = '30533489';
@@ -1139,7 +1140,7 @@ class NgGetController extends XFrontBase
 	public function actionUpdateUserData(){
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
-		if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
+		if (!$this->isValidIdToken()) { echo "invalid id_token"; return; }
 		$db = Yii::app()->db;
 	
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
@@ -1182,7 +1183,7 @@ class NgGetController extends XFrontBase
 	public function actionUpdateMyCenter(){
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
-		if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
+		if (!$this->isValidIdToken()) { echo "invalid id_token"; return; }
 		$db = Yii::app()->db;
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
@@ -1265,7 +1266,7 @@ class NgGetController extends XFrontBase
 		//save select option for houseSearch and schoolSearch
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
-		if (!$this->isValidAccessToken()) { echo "invalid access token"; return; }
+		if (!$this->isValidIdToken()) { echo "invalid id_token"; return; }
 		$db = Yii::app()->db;
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
