@@ -1316,10 +1316,13 @@ class NgGetController extends XFrontBase
 		// mls list count
 		$c_count = count($c);
 		$return_code = 0;
-		// 99 - return code for execedding the list maximum
+		// 99 - return code for exceeding the list maximum
 		if ($c_count > $FAVLIST_MAX) {
 			// remove 1st mls off recentView to rotate
-			if ($type == "recentView") array_shift($c);
+			if ($type == "recentView") {
+				$c1 = array_slice($c, 1, $FAVLIST_MAX);
+				$c = $c1;
+			}	
 			else $return_code = 99;
 		}
 
@@ -1372,15 +1375,9 @@ class NgGetController extends XFrontBase
 		//Insert into recentView
 		$sql ='select recentView from h_user_data where username="'.$username.'"';
 		$resultsql = $db->createCommand($sql)->queryRow();
-		$c = (!empty($resultsql['recentView']))? explode(',',$resultsql['recentView']): [];
-		$pos = array_search($mls, $c);
-		if (!is_numeric($pos) ){array_push($c,$mls);}
-		$data = implode(",",$c); //convert to comma separated string
-		$r = $this->updateUserTable($username,'recentView',$data); 
+		$this->favupdate($username,'recentView',$resultsql['recentView'],$mls,'c');
 		
 		return $result;
-
-
         }
 
 	

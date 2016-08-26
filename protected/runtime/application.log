@@ -808,3 +808,273 @@ Stack trace:
 REQUEST_URI=/index.php?r=ngget/updateUserData
 HTTP_REFERER=http://localhost:8100/
 ---
+2016/08/26 10:37:11 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]',"hzhlyj@yahoo.com") on duplicate KEY UPDATE ='[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]'.
+2016/08/26 10:37:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1341): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1255): NgGetController->updateUserTable('hzhlyj@yahoo.co...', NULL, '[{"name":"home"...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1202): NgGetController->addCenter('hzhlyj@yahoo.co...', Array, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/26 10:37:11 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]',"hzhlyj@yahoo.com") on duplicate KEY UPDATE ='[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]'.
+2016/08/26 10:37:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1341): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1255): NgGetController->updateUserTable('hzhlyj@yahoo.co...', NULL, '[{"name":"home"...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1202): NgGetController->addCenter('hzhlyj@yahoo.co...', Array, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/26 10:37:12 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]',"hzhlyj@yahoo.com") on duplicate KEY UPDATE ='[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]'.
+2016/08/26 10:37:12 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1341): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1255): NgGetController->updateUserTable('hzhlyj@yahoo.co...', NULL, '[{"name":"home"...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1202): NgGetController->addCenter('hzhlyj@yahoo.co...', Array, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/26 10:37:13 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]',"hzhlyj@yahoo.com") on duplicate KEY UPDATE ='[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]'.
+2016/08/26 10:37:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1341): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1255): NgGetController->updateUserTable('hzhlyj@yahoo.co...', NULL, '[{"name":"home"...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1202): NgGetController->addCenter('hzhlyj@yahoo.co...', Array, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/26 10:37:14 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]',"hzhlyj@yahoo.com") on duplicate KEY UPDATE ='[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]'.
+2016/08/26 10:37:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1341): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1255): NgGetController->updateUserTable('hzhlyj@yahoo.co...', NULL, '[{"name":"home"...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1202): NgGetController->addCenter('hzhlyj@yahoo.co...', Array, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/26 10:37:14 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]',"hzhlyj@yahoo.com") on duplicate KEY UPDATE ='[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]'.
+2016/08/26 10:37:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1341): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1255): NgGetController->updateUserTable('hzhlyj@yahoo.co...', NULL, '[{"name":"home"...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1202): NgGetController->addCenter('hzhlyj@yahoo.co...', Array, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/26 10:37:15 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]',"hzhlyj@yahoo.com") on duplicate KEY UPDATE ='[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]'.
+2016/08/26 10:37:15 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1341): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1255): NgGetController->updateUserTable('hzhlyj@yahoo.co...', NULL, '[{"name":"home"...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1202): NgGetController->addCenter('hzhlyj@yahoo.co...', Array, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/26 10:37:16 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]',"hzhlyj@yahoo.com") on duplicate KEY UPDATE ='[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]'.
+2016/08/26 10:37:16 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1341): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1255): NgGetController->updateUserTable('hzhlyj@yahoo.co...', NULL, '[{"name":"home"...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1202): NgGetController->addCenter('hzhlyj@yahoo.co...', Array, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/26 10:37:36 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]',"hzhlyj@yahoo.com") on duplicate KEY UPDATE ='[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]'.
+2016/08/26 10:37:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1341): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1255): NgGetController->updateUserTable('hzhlyj@yahoo.co...', NULL, '[{"name":"home"...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1202): NgGetController->addCenter('hzhlyj@yahoo.co...', Array, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/26 10:37:36 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]',"hzhlyj@yahoo.com") on duplicate KEY UPDATE ='[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]'.
+2016/08/26 10:37:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1341): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1255): NgGetController->updateUserTable('hzhlyj@yahoo.co...', NULL, '[{"name":"home"...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1202): NgGetController->addCenter('hzhlyj@yahoo.co...', Array, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/26 10:37:37 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]',"hzhlyj@yahoo.com") on duplicate KEY UPDATE ='[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]'.
+2016/08/26 10:37:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1341): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1255): NgGetController->updateUserTable('hzhlyj@yahoo.co...', NULL, '[{"name":"home"...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1202): NgGetController->addCenter('hzhlyj@yahoo.co...', Array, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/26 10:37:38 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]',"hzhlyj@yahoo.com") on duplicate KEY UPDATE ='[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]'.
+2016/08/26 10:37:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1341): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1255): NgGetController->updateUserTable('hzhlyj@yahoo.co...', NULL, '[{"name":"home"...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1202): NgGetController->addCenter('hzhlyj@yahoo.co...', Array, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/26 10:37:39 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]',"hzhlyj@yahoo.com") on duplicate KEY UPDATE ='[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]'.
+2016/08/26 10:37:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1341): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1255): NgGetController->updateUserTable('hzhlyj@yahoo.co...', NULL, '[{"name":"home"...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1202): NgGetController->addCenter('hzhlyj@yahoo.co...', Array, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/26 10:37:40 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]',"hzhlyj@yahoo.com") on duplicate KEY UPDATE ='[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]'.
+2016/08/26 10:37:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1341): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1255): NgGetController->updateUserTable('hzhlyj@yahoo.co...', NULL, '[{"name":"home"...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1202): NgGetController->addCenter('hzhlyj@yahoo.co...', Array, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
+2016/08/26 10:37:40 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1. The SQL statement executed was: INSERT IGNORE INTO h_user_data(,username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]',"hzhlyj@yahoo.com") on duplicate KEY UPDATE ='[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]'.
+2016/08/26 10:37:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'username) values('[{"name":"home","lat":43.858015895884,"lng":-79.405406229333}]' at line 1' in /var/www/mhtml/framework/yiilite.php:9254
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NggetController.php(1341): CDbCommand->execute()
+#1 /var/www/mhtml/protected/controllers/NggetController.php(1255): NgGetController->updateUserTable('hzhlyj@yahoo.co...', NULL, '[{"name":"home"...')
+#2 /var/www/mhtml/protected/controllers/NggetController.php(1202): NgGetController->addCenter('hzhlyj@yahoo.co...', Array, NULL)
+#3 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#4 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#5 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#6 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 /var/www/mhtml/framework/yiilite.php(1746): CController->run('updateMyCenter')
+#8 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/updateMyC...')
+#9 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#10 /var/www/mhtml/index.php(19): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+HTTP_REFERER=http://localhost:8100/
+---
