@@ -1291,33 +1291,52 @@ class NgGetController extends XFrontBase
 	}
 	
 	function favupdate($username,$type,$current,$mls,$action){
-		//update houseFav or routeFav
+		$FAVLIST_MAX = 7;
+		//update houseFav/routeFav/recentView
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
 		
 		$c = (!empty($current))? explode(',',$current): [];
 		$pos = array_search($mls, $c);
 
-		if (($action == 'c') && !is_numeric($pos)){array_push($c,$mls);} //insert
-		if (($action == 'd') && is_numeric($pos)){ unset($c[$pos]); }//remove MLS
-		
-		//default for action r. no change to $current 
-		$data = implode(",",$c); //convert to comma separated string
+		switch(TRUE) {	
+			//insert a MLS
+			case ($action == 'c') && !is_numeric($pos):
+				array_push($c,$mls);
+				break;
+			 //remove a MLS
+			 case ($action == 'd') && is_numeric($pos):
+				unset($c[$pos]);
+				break;
+			//default for action r. no change to $current 
+			default:
+				break;
+		}
 
-		$r = $this->updateUserTable($username,$type,$data);
-		return $r;
-		
-		
+		// mls list count
+		$c_count = count($c);
+		$return_code = 0;
+		// 99 - return code for execedding the list maximum
+		if ($c_count > $FAVLIST_MAX) {
+			// remove 1st mls off recentView to rotate
+			if ($type == "recentView") array_shift($c);
+			else $return_code = 99;
+		}
+
+		if ($return_code == 0) {
+			$data = implode(",",$c); //convert to comma separated string
+			$return_code = $this->updateUserTable($username, $type, $data);
+		}
+		error_log($type." updateUserTable result ".$return_code);
+		return $return_code;
 	}
-	 function updateUserTable($username,$type,$data){
+
+	function updateUserTable($username,$type,$data){
 		$db = Yii::app()->db;
 		 //update if exist and insert if row doesn't exist
 		$sql = 'INSERT IGNORE INTO h_user_data('.$type.',username) values(\''.$data.'\',"'.$username.'") on duplicate KEY UPDATE '.$type.'=\''.$data.'\'';
-		$r = $db->createCommand($sql)->execute();
-		error_log("updateUserTable result".$r);
-		return $r;
-		
-
+		$return_code = $db->createCommand($sql)->execute();
+		return $return_code;
 	 }
 	
 	function favlist($username,$type){
