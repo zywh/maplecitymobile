@@ -3,8 +3,6 @@
 spl_autoload_unregister(array('YiiBase','autoload'));
 Yii::import('application.vendor.*');
 require_once('autoload.php'); 
-//require_once('/vendor/autoload.php');
-//spl_autoload_register(array('vendor_autoloader','autoload'));
 spl_autoload_register(array('YiiBase','autoload'));
 
 class NgGetController extends XFrontBase
@@ -1044,16 +1042,15 @@ class NgGetController extends XFrontBase
 		ini_set("log_errors", 1);
 		ini_set("error_log", "/tmp/php-error.log");
 		$MAPLEAPP_SPA_SECRET = "Wg1qczn2IKXHEfzOCtqFbFCwKhu-kkqiAKlBRx_7VotguYFnKOWZMJEuDVQMXVnG";
-		$AUD = ['9fNpEj70wvf86dv5DeXPijTnkLVX5QZi'];
+		$MAPLEAPP_SPA_AUD = ['9fNpEj70wvf86dv5DeXPijTnkLVX5QZi'];
 		$headers = getallheaders();
 		$tokens = explode(" ", $headers['Authorization']);
 		//error_log($tokens);
 		if ($tokens[0] == "Bearer") {
-			error_log($tokens[0]);
-			error_log($tokens[1]);
-			$decoded_access_token = \Auth0\SDK\Auth0JWT::decode($tokens[1], $AUD, $MAPLEAPP_SPA_SECRET, []); //4th argument need array. second is client ID
-		
-	
+			//error_log($tokens[0]);
+			//error_log($tokens[1]);
+			//second is client ID and 4th argument is an array 
+			$decoded_access_token = \Auth0\SDK\Auth0JWT::decode($tokens[1], $MAPLEAPP_SPA_AUD, $MAPLEAPP_SPA_SECRET, []); 
 			return true;
 		}
 		else {
@@ -1317,6 +1314,7 @@ class NgGetController extends XFrontBase
 		 //update if exist and insert if row doesn't exist
 		$sql = 'INSERT IGNORE INTO h_user_data('.$type.',username) values(\''.$data.'\',"'.$username.'") on duplicate KEY UPDATE '.$type.'=\''.$data.'\'';
 		$r = $db->createCommand($sql)->execute();
+		error_log("updateUserTable result".$r);
 		return $r;
 		
 
