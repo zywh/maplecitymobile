@@ -1230,35 +1230,34 @@ class NgGetController extends XFrontBase
 
 	
 	}
-	 function addCenter($username,$centerA,$myCenterR){
+	function addCenter($username,$centerA,$myCenterR){
+	   $CENTER_MAX = 3;
 
-	   if ( !empty($myCenterR) ){
+	   if ( !empty($myCenterR) ) {
 
-                        $funcName = function($value) { return $value["name"]; }; 
-                        $y = json_decode($myCenterR,true);
-                        $name = array_map($funcName,$y);
-                        if ( is_numeric(array_search($centerA['name'], $name)) ){
-                                $r=0; //find match 
-
-                        }else{
-                                array_push($y,$centerA);
-                                $r=2;//didn't find match. Push center
-                                $myCenter = json_encode($y);
-                                $this->updateUserTable($username,'myCenter',$myCenter);
-				error_log($myCenter);
-                        }
-
+               $funcName = function($value) { return $value["name"]; }; 
+               $y = json_decode($myCenterR,true);
+               $y_count = array_size($y);
+          
+               $name = array_map($funcName,$y);
+               if ( is_numeric(array_search($centerA['name'], $name)) ){
+                    $r=0; //find match 
+                } else if ( $y_count == $CENTER_MAX) {
+                    $r=3; // reach the maximum
+                } else {
+                    array_push($y,$centerA);
+                    $r=2; //didn't find match. Push center
+                    $myCenter = json_encode($y);
+                    $this->updateUserTable($username,'myCenter',$myCenter);
+		    error_log($myCenter);
                 }
-                else{
+            } else {
 
-                        $myCenter = json_encode(array($centerA));
-                        $r = 1; //no new center.update
-                        $this->updateUserTable($username,$type,$myCenter);
-                }
-		return $r;
-
-
-
+                $myCenter = json_encode(array($centerA));
+                $r = 1; //no new center.update
+                $this->updateUserTable($username,$type,$myCenter);
+            }
+	    return $r;
         }
 
 	
