@@ -1256,7 +1256,7 @@ class NgGetController extends XFrontBase
 
                 $myCenter = json_encode(array($centerA));
                 $r = 1; //no new center.update
-                $this->updateUserTable($username,$type,$myCenter);
+                $this->updateUserTable($username,'myCenter',$myCenter);
             }
 	    return $r;
         }
