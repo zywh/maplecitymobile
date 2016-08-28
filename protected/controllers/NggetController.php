@@ -1237,12 +1237,13 @@ class NgGetController extends XFrontBase
 
                $funcName = function($value) { return $value["name"]; }; 
                $y = json_decode($myCenterR,true);
-               $y_count = array_size($y);
+               //$y_count = array_size($y);
+			   $y_count = sizeof($y);
           
                $name = array_map($funcName,$y);
                if ( is_numeric(array_search($centerA['name'], $name)) ){
                     $r=0; //find match 
-                } else if ( $y_count == $CENTER_MAX) {
+                } else if ( $y_count >= $CENTER_MAX) {
                     $r=3; // reach the maximum
                 } else {
                     array_push($y,$centerA);
