@@ -1211,19 +1211,19 @@ class NgGetController extends XFrontBase
 		  ini_set("log_errors", 1);
                 ini_set("error_log", "/tmp/php-error.log");
 	     if ( !empty($myCenterR) ){
-                        $funcName = function($value) { return $value["name"]; };
-                        $y = json_decode($myCenterR,true);
-                        $name = array_map($funcName,$y);
-                        if ( is_numeric($pos= array_search($centerA['name'], $name)) ){
-                                $r=1; //find match remove center
-				unset($y[$pos]);
-                                $myCenter = json_encode(array_values($y)); //array key is removed and reorder.otherwise json_encode return object string
-			 	error_log($myCenter);	
-                                $this->updateUserTable($username,'myCenter',$myCenter);
+					$funcName = function($value) { return $value["name"]; };
+					$y = json_decode($myCenterR,true);
+					$name = array_map($funcName,$y);
+					if ( is_numeric($pos= array_search($centerA['name'], $name)) ){
+							$r=1; //find match remove center
+							unset($y[$pos]);
+							$myCenter = json_encode(array_values($y)); //array key is removed and reorder.otherwise json_encode return object string
+							error_log($myCenter);	
+							$this->updateUserTable($username,'myCenter',$myCenter);
 
-                        }else{ $r=0; } //no found and no action
+					}else{ $r=0; } //no found and no action
 
-                }
+		}
                 else{ $r = 0; } //empty and no action
 		return $r;
 
@@ -1250,7 +1250,7 @@ class NgGetController extends XFrontBase
                     $r=2; //didn't find match. Push center
                     $myCenter = json_encode($y);
                     $this->updateUserTable($username,'myCenter',$myCenter);
-		    error_log($myCenter);
+		    
                 }
             } else {
 
@@ -1299,6 +1299,9 @@ class NgGetController extends XFrontBase
 		
 		$c = (!empty($current))? explode(',',$current): [];
 		$pos = array_search($mls, $c);
+		// mls list count
+		$c_count = count($c);
+		$return_code = 0;
 
 		switch(TRUE) {	
 			//insert a MLS
@@ -1308,21 +1311,22 @@ class NgGetController extends XFrontBase
 			 //remove a MLS
 			 case ($action == 'd') && is_numeric($pos):
 				unset($c[$pos]);
+				$data = implode(",",$c); //convert to comma separated string
+				$return_code = $this->updateUserTable($username, $type, $data);
 				break;
 			//default for action r. no change to $current 
 			default:
 				break;
 		}
 
-		// mls list count
-		$c_count = count($c);
-		$return_code = 0;
+		
+		
 		// 99 - return code for exceeding the list maximum
 		if ($c_count > $FAVLIST_MAX) {
 			// remove 1st mls off recentView to rotate
 			if ($type == "recentView") {
-				$c1 = array_slice($c, 1, $FAVLIST_MAX);
-				$c = $c1;
+				$c = array_slice($c, 1, $FAVLIST_MAX);
+				//$c = $c1;
 			}	
 			else $return_code = 99;
 		}
