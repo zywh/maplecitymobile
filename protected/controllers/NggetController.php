@@ -8,16 +8,12 @@ spl_autoload_register(array('YiiBase','autoload'));
 class NgGetController extends XFrontBase
 {
 	
-   private $imgHost;
+   private $imgHost ="http://m.maplecity.com.cn/";
     function __construct() {
-		error_reporting(-1); // reports all errors
                 ini_set("display_errors", "1"); // shows all errors
                 ini_set("log_errors", 1);
                 ini_set("error_log", "/tmp/php-error.log");
-
-        	$this->imgHost =  "http://m.maplecity.com.cn/";
-		
-        	return $this;
+        	//return $this;
     }
 	//REST to return either single project detail or list of projects if no parm ID is provided
    public function actionGetProjects(){
@@ -193,8 +189,6 @@ class NgGetController extends XFrontBase
 					$gridlat = ceil((($val->latitude - $minLat ) / $tiley));
 					$gridlng = ceil((($val->longitude - $minLon) / $tilex));
 					$price = $val-> lp_dol/10000;
-					
-					
 					$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['NameCn'] = "G".$gridlng.$gridlat;
 					$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['HouseCount']++; 
 					$result['Data']['AreaHouseCount']["G".$gridlng.$gridlat]['TotalPrice'] += $price; 
