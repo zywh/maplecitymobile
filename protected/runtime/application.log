@@ -1918,3 +1918,69 @@ Stack trace:
 #6 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
 #7 /var/www/mhtml/index.php(19): CWebApplication->run()
 REQUEST_URI=/index.php?r=ngget/updateMyCenter
+2016/08/29 09:43:49 [error] [php] array_map(): Argument #2 should be an array (/var/www/mhtml/protected/controllers/NggetController.php:1243)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#1 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#2 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#3 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#4 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#5 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#6 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#7 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+2016/08/29 09:43:50 [error] [php] array_map(): Argument #2 should be an array (/var/www/mhtml/protected/controllers/NggetController.php:1243)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#1 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#2 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#3 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#4 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#5 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#6 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#7 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+2016/08/29 09:43:50 [error] [php] array_map(): Argument #2 should be an array (/var/www/mhtml/protected/controllers/NggetController.php:1243)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#1 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#2 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#3 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#4 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#5 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#6 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#7 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+2016/08/29 09:43:51 [error] [php] array_map(): Argument #2 should be an array (/var/www/mhtml/protected/controllers/NggetController.php:1243)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#1 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#2 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#3 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#4 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#5 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#6 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#7 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+2016/08/29 09:43:52 [error] [php] array_map(): Argument #2 should be an array (/var/www/mhtml/protected/controllers/NggetController.php:1243)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#1 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#2 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#3 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#4 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#5 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#6 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#7 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
+2016/08/29 09:43:53 [error] [php] array_map(): Argument #2 should be an array (/var/www/mhtml/protected/controllers/NggetController.php:1243)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionUpdateMyCenter()
+#1 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#2 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#3 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#4 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#5 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#6 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#7 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/updateMyCenter
