@@ -1237,8 +1237,7 @@ class NgGetController extends XFrontBase
 
                $funcName = function($value) { return $value["name"]; }; 
                $y = json_decode($myCenterR,true);
-               //$y_count = array_size($y);
-			   $y_count = sizeof($y);
+			   $y_count = count($y);
           
                $name = array_map($funcName,$y);
                if ( is_numeric(array_search($centerA['name'], $name)) ){
@@ -1318,8 +1317,6 @@ class NgGetController extends XFrontBase
 			default:
 				break;
 		}
-
-		
 		
 		// 99 - return code for exceeding the list maximum
 		if ($c_count > $FAVLIST_MAX) {
@@ -1354,15 +1351,25 @@ class NgGetController extends XFrontBase
 		//get list of fav			
 		$sql ='select '.$type.' from h_user_data where username="'.$username.'"';
 		$resultsql = $db->createCommand($sql)->queryRow();
-		$list = explode(',',$resultsql[$type]);
+		$favlist = explode(',',$resultsql[$type]);
 		//get list of house
 		$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot';
-		$criteria->addInCondition('ml_num', $list);
+		$criteria->addInCondition('ml_num', $favlist);
 		$criteria->with = array('mname','propertyType','city');
 		$house = House::model()->findAll($criteria);
-		return $this->house2Array($house,0,'house');
-					
 		
+		$MLSfunc = function($value) { return $value["ml_num"]; }; 
+		$houseMLS = array_map($MLSfunc,$house);
+		
+		// delisted mls list
+		$houseEmptyList = array_diff($favlist, $houseMLS);
+		$result = $this->house2Array($house,0,'house');
+		if (count($houseSoldList) > 0) {
+			$result1 = $this->emptyHouse2Array($houseSoldList);
+			$result2 = array_merge($result['Data']['Houselist'], $result1['Data']['EmptyHouseList']);
+			$result['Data']['Houselist'] = $result2;
+		}
+		return $result;
 	}
 	
 
@@ -1386,6 +1393,32 @@ class NgGetController extends XFrontBase
         }
 
 	
+	function emptyHouse2Array($emptyHouse){  //this is used for empty house fav 
+		foreach ($emptyHouse as $mls) {
+			$emptyHouseList = array();
+			$emptyHouseList['Beds'] = '';
+			$emptyHouseListList['Baths'] = '';
+			$emptyHouseList['Kitchen'] = '';
+			$emptyHouseList['GeocodeLat'] = '';
+			$emptyHouseList['GeocodeLng'] = '';
+			$emptyHouseList['Address'] = '';
+			$emptyHouseList['SaleLease'] = ''; 
+			$emptyHouseList['Price'] = '';
+			$emptyHouseList['HouseType'] = '';
+			$emptyHouseList['MunicipalityName'] = '';
+			$emptyHouseList['CountryName'] = '';
+			$emptyHouseList['Zip'] = '';
+			$emptyHouseList['MLS'] = $mls;
+			$emptyHouseList['Country'] = '';
+			$emptyHouseList['ProvinceEname'] = '';
+			$emptyHouseList['ProvinceCname'] = '';
+			$emptyHouseList['CoverImg'] = 'static/images/zanwu.jpg';
+			$emptyHouseList['CoverImgtn'] = 'static/images/zanwu.jpg';
+			$result['Data']['EmptyHouseList'][] = $emptyHouseList;
+		}
+		return $result;
+	}
+
 	function house2Array($house,$count,$type){  //this is used for map and fav list 
 		$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
 		$result['Data']['Total'] = $count;
