@@ -8,13 +8,22 @@ spl_autoload_register(array('YiiBase','autoload'));
 class NgGetController extends XFrontBase
 {
 	
+   private $imgHost;
+    function __construct() {
+		error_reporting(-1); // reports all errors
+                ini_set("display_errors", "1"); // shows all errors
+                ini_set("log_errors", 1);
+                ini_set("error_log", "/tmp/php-error.log");
+
+        	$this->imgHost =  "http://m.maplecity.com.cn/";
+		
+        	return $this;
+    }
 	//REST to return either single project detail or list of projects if no parm ID is provided
    public function actionGetProjects(){
-		$imghost = "http://m.maplecity.com.cn/";
+		$imghost = $this->imgHost;
 		$results = array();
 		$postParms = array();
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		//error_log("Parms:".$_POST['parms']['id']);
 		$criteria = new CDbCriteria();
@@ -71,8 +80,6 @@ class NgGetController extends XFrontBase
 
 	//REST to return either list of GRID and HOUSEes for map search page
     public function actionGetMapHouse() {
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		
@@ -81,7 +88,6 @@ class NgGetController extends XFrontBase
 		$maxhouse = 40; //Grid count if count(house) is over
 		$maxcitymarkers = 20;
 		$minGrid = 5; //Display house if gridcount is lower than mindGrid
-        // $result = array();
 		$result['Data']['AreaHouseCount'] = array();
 		$result['Data']['MapHouseList'] = array();
 		$count= 0;
@@ -90,13 +96,9 @@ class NgGetController extends XFrontBase
             $result['IsError'] = true;
             $result['Message'] = '数据接收失败';
         } else {
-            //$result['IsError'] = false;
 
-            //根据条件查询地图
             $criteria = new CDbCriteria();
 			$criteria = $this->houseOption($postParms);
-	
-			 
 			$latlon = explode(',', $postParms['bounds']);
 			$minLat = floatval($latlon[0]);
 			$maxLat = floatval($latlon[2]);
@@ -105,11 +107,6 @@ class NgGetController extends XFrontBase
 			
 			
 
-			//error_log("minLon:".$minLon."maxLon:".$maxLon."minLat:".$minLat."maxLat:".$maxLat);
-
-			//End of Condition
-			
-			//Add condition for homepage nearby and recommendation
 			if (!empty($postParms['type'])) {
 				 $criteria->limit = 10;
 				error_log("type".$postParms['type']);
@@ -206,12 +203,14 @@ class NgGetController extends XFrontBase
 				
 				
 				
-				function moreThanOne($var)
-				{
-				return($var['HouseCount'] > 0);
-				}
-				$filteredResult = array_filter($result['Data']['AreaHouseCount'],"moreThanOne");
+				//function moreThanOne($var)
+				//{
+				//return($var['HouseCount'] > 0);
+				//}
+				$moreThanOne = function($var) {  return($var['HouseCount'] > 0); }; 
+				$filteredResult = array_filter($result['Data']['AreaHouseCount'],$moreThanOne);
 				$gridcount = count($filteredResult);
+				//$gridcount = 10;
 				error_log("#Grid:".$gridcount);
 				
 				
@@ -226,7 +225,8 @@ class NgGetController extends XFrontBase
 			if (($count < $maxhouse ) || ( $gridcount <= $minGrid)){
 			
 				$result['Data']['Type'] = "house";
-				$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
+				//$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
+				$result['Data']['imgHost'] = $this->imgHost;
 				$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot';
 				$criteria->with = array('mname','propertyType','city');
 				$criteria->order = "t.latitude,t.longitude";
@@ -245,8 +245,6 @@ class NgGetController extends XFrontBase
 	
 	//REST to return either list of GRID and HOUSEes for map search page
     public function actionGetHouseList() {
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 	    
@@ -291,13 +289,10 @@ class NgGetController extends XFrontBase
 		$limit = 8;
 		$db = Yii::app()->db;
 		$postParms = array();
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$term = trim($postParms['term']);
 		
-		//$term = "11";
 		error_log("Autocomplete Parms Term:".$term);
 		$chinese = preg_match("/\p{Han}+/u", $term);
 		
@@ -429,7 +424,8 @@ class NgGetController extends XFrontBase
 		$result['title'] = $row['title'];
 		$result['content'] = $row['content'];
 		$result['catname'] = $cat_name_en;
-		$result['imgHost'] = "http://m.maplecity.com.cn/";
+		//$result['imgHost'] = "http://m.maplecity.com.cn/";
+		$result['imgHost'] = $this->imgHost;
 		echo json_encode($result);
 	}
 	
@@ -438,8 +434,6 @@ class NgGetController extends XFrontBase
     public function actionGetPost(){
 		$results = array();
 		$postParms = array();
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		//error_log("Parms:".$_POST['parms']['id']);
@@ -728,8 +722,6 @@ class NgGetController extends XFrontBase
 
 	/*School List for School Map Page*/	
     public function actionGetSchoolMap() {
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		
@@ -881,8 +873,6 @@ class NgGetController extends XFrontBase
 		$city_id='0';
 		$db = Yii::app()->db;
 		$postParms = array();
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$term = trim($postParms['term']);
@@ -974,8 +964,6 @@ class NgGetController extends XFrontBase
 
 	//REST to return the house detail by its MLS#
     public function actionGetHouseDetail() {
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$id = $postParms['id'];
@@ -1039,9 +1027,6 @@ class NgGetController extends XFrontBase
 
 	public function isValidIdToken(){
 		error_reporting(-1); // reports all errors
-		ini_set("display_errors", "1"); // shows all errors
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
 		$MAPLEAPP_SPA_SECRET = "Wg1qczn2IKXHEfzOCtqFbFCwKhu-kkqiAKlBRx_7VotguYFnKOWZMJEuDVQMXVnG";
 		$MAPLEAPP_SPA_AUD = ['9fNpEj70wvf86dv5DeXPijTnkLVX5QZi'];
 		$headers = getallheaders();
@@ -1065,8 +1050,6 @@ class NgGetController extends XFrontBase
 		
 		if (!$this->isValidIdToken()) {  echo  json_encode("invalid id_token"); return; }
 		$data = [];
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$username = $postParms['username'];
@@ -1115,8 +1098,6 @@ class NgGetController extends XFrontBase
 	}
     public function actioncheckFavData(){
 		//$data = 0;
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
 		if (!$this->isValidIdToken()) { echo "invalid id_token"; return; }
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
@@ -1138,8 +1119,6 @@ class NgGetController extends XFrontBase
 
 	/*Delete user data */
 	public function actionUpdateUserData(){
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
 		if (!$this->isValidIdToken()) { echo "invalid id_token"; return; }
 		$db = Yii::app()->db;
 	
@@ -1181,8 +1160,6 @@ class NgGetController extends XFrontBase
     }
 
 	public function actionUpdateMyCenter(){
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
 		if (!$this->isValidIdToken()) { echo "invalid id_token"; return; }
 		$db = Yii::app()->db;
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
@@ -1208,8 +1185,6 @@ class NgGetController extends XFrontBase
 		echo json_encode($r);
     }
 	function removeCenter($username,$centerA,$myCenterR){
-		  ini_set("log_errors", 1);
-                ini_set("error_log", "/tmp/php-error.log");
 	     if ( !empty($myCenterR) ){
 					$funcName = function($value) { return $value["name"]; };
 					$y = json_decode($myCenterR,true);
@@ -1262,8 +1237,6 @@ class NgGetController extends XFrontBase
 	
 	public function actionSaveOptions(){
 		//save select option for houseSearch and schoolSearch
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
 		if (!$this->isValidIdToken()) { echo "invalid id_token"; return; }
 		$db = Yii::app()->db;
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
@@ -1292,8 +1265,6 @@ class NgGetController extends XFrontBase
 	function favupdate($username,$type,$current,$mls,$action){
 		$FAVLIST_MAX = 7;
 		//update houseFav/routeFav/recentView
-		ini_set("log_errors", 1);
-		ini_set("error_log", "/tmp/php-error.log");
 		
 		$c = (!empty($current))? explode(',',$current): [];
 		$pos = array_search($mls, $c);
@@ -1417,7 +1388,8 @@ class NgGetController extends XFrontBase
 	}
 
 	function house2Array($house,$count,$type){  //this is used for map and fav list 
-		$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
+		//$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
+		$result['Data']['imgHost'] = $this->imgHost;
 		$result['Data']['Total'] = $count;
 		$result['Data']['Type'] = $type;
 		
