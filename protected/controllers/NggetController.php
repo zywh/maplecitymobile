@@ -1364,9 +1364,9 @@ class NgGetController extends XFrontBase
 		// delisted mls list
 		$houseEmptyList = array_diff($favlist, $houseMLS);
 		$result = $this->house2Array($house,0,'house');
-		if (count($houseSoldList) > 0) {
-			$result1 = $this->emptyHouse2Array($houseSoldList);
-			$result2 = array_merge($result['Data']['Houselist'], $result1['Data']['EmptyHouseList']);
+		if (count($houseEmptyList) > 0) {
+			$result1 = $this->emptyHouse2Array($houseEmptyList);
+			$result2 = array_merge($result['Data']['HouseList'], $result1['Data']['EmptyHouseList']);
 			$result['Data']['Houselist'] = $result2;
 		}
 		return $result;
