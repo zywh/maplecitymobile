@@ -1237,12 +1237,11 @@ class NgGetController extends XFrontBase
 
                $funcName = function($value) { return $value["name"]; }; 
                $y = json_decode($myCenterR,true);
-			   $y_count = count($y);
           
                $name = array_map($funcName,$y);
                if ( is_numeric(array_search($centerA['name'], $name)) ){
                     $r=0; //find match 
-                } else if ( $y_count >= $CENTER_MAX) {
+                } else if ( count($y) >= $CENTER_MAX) {
                     $r=3; // reach the maximum
                 } else {
                     array_push($y,$centerA);
@@ -1298,8 +1297,6 @@ class NgGetController extends XFrontBase
 		
 		$c = (!empty($current))? explode(',',$current): [];
 		$pos = array_search($mls, $c);
-		// mls list count
-		$c_count = count($c);
 		$return_code = 0;
 
 		switch(TRUE) {	
@@ -1307,8 +1304,8 @@ class NgGetController extends XFrontBase
 			case ($action == 'c') && !is_numeric($pos):
 				array_push($c,$mls);
 				break;
-			 //remove a MLS
-			 case ($action == 'd') && is_numeric($pos):
+			//remove a MLS
+			case ($action == 'd') && is_numeric($pos):
 				unset($c[$pos]);
 				$data = implode(",",$c); //convert to comma separated string
 				$return_code = $this->updateUserTable($username, $type, $data);
@@ -1319,7 +1316,7 @@ class NgGetController extends XFrontBase
 		}
 		
 		// 99 - return code for exceeding the list maximum
-		if ($c_count > $FAVLIST_MAX) {
+		if (count($c) > $FAVLIST_MAX) {
 			// remove 1st mls off recentView to rotate
 			if ($type == "recentView") {
 				$c = array_slice($c, 1, $FAVLIST_MAX);
@@ -1357,17 +1354,17 @@ class NgGetController extends XFrontBase
 		$criteria->addInCondition('ml_num', $favlist);
 		$criteria->with = array('mname','propertyType','city');
 		$house = House::model()->findAll($criteria);
-		
-		$MLSfunc = function($value) { return $value["ml_num"]; }; 
-		$houseMLS = array_map($MLSfunc,$house);
+		// listed mls list
+		$onlyMLS = function($value) { return $value["ml_num"]; }; 
+		$houseMLS = array_map($onlyMLS,$house);
 		
 		// delisted mls list
 		$houseEmptyList = array_diff($favlist, $houseMLS);
 		$result = $this->house2Array($house,0,'house');
 		if (count($houseEmptyList) > 0) {
 			$result1 = $this->emptyHouse2Array($houseEmptyList);
-			$result2 = array_merge($result['Data']['HouseList'], $result1['Data']['EmptyHouseList']);
-			$result['Data']['Houselist'] = $result2;
+			$result2 = array_merge($result1['Data']['EmptyHouseList'],$result['Data']['HouseList']);
+			$result['Data']['HouseList'] = $result2;
 		}
 		return $result;
 	}
