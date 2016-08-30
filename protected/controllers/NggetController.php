@@ -11,8 +11,8 @@ class NgGetController extends XFrontBase
     private $imgHost ="http://m.maplecity.com.cn/";
     private $MAPLEAPP_SPA_SECRET = "Wg1qczn2IKXHEfzOCtqFbFCwKhu-kkqiAKlBRx_7VotguYFnKOWZMJEuDVQMXVnG";
     private $MAPLEAPP_SPA_AUD = ['9fNpEj70wvf86dv5DeXPijTnkLVX5QZi'];
-    private $FAVLIST_MAX = 7;
-    private $CENTER_MAX = 3;
+    private $PROFILE_FAVLIST_MAX = 7;
+    private $PROFILE_CENTER_MAX = 3;
 
     function __construct() {
                 ini_set("display_errors", "1"); // shows all errors
@@ -1156,7 +1156,7 @@ class NgGetController extends XFrontBase
 		echo json_encode($r);
     }
 
-	public function actionUpdateMyCenter(){
+	public function actionUpdateCenter(){
 		if (!$this->isValidIdToken()) { echo "invalid id_token"; return; }
 		$db = Yii::app()->db;
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
@@ -1164,70 +1164,74 @@ class NgGetController extends XFrontBase
 		$username = $postParms['username'];
 		$center = $postParms['data']; 
 		$action = $postParms['action'];
-		$type =	'myCenter'; // myCenter
-		//get current myCenter
-		$sql ='select myCenter from h_user_data where username="'.$username.'"';
+		$type = $postParms['type'];
+		//get current myCenter/recentCenter
+		$sql ='select '.$type.' from h_user_data where username="'.$username.'"';
 		$resultsql = $db->createCommand($sql)->queryRow();
-		$myCenterR = $resultsql['myCenter'];
+		$centerR = $resultsql[$type];
 		$centerA=json_decode($center,true);
 
 		//sql select
-		//$myCenterR = '[ {"lat": "43.653226", "lng": "-79.383184", "name": "Toronto, Ontario"},{"lat": "43.653226", "lng": "-79.383184", "name": "Miss, Ontario"} ]';
-		if ( $action == 'd') {$r = $this->removeCenter($username,$centerA,$myCenterR);} //delete center
-		if ( $action == 'c') {$r = $this->addCenter($username,$centerA,$myCenterR);} //add center
-		if ( $action == 'r') { $r =  $this->updateUserTable($username,'myCenter',$center); } //center list reorder.push string
-
-
+		//$centerR = '[ {"lat": "43.653226", "lng": "-79.383184", "name": "Toronto, Ontario"},{"lat": "43.653226", "lng": "-79.383184", "name": "Miss, Ontario"} ]';
+		if ( $action == 'd') {$r = $this->removeCenter($username, $type, $centerA, $centerR);} //delete center
+		if ( $action == 'c') {$r = $this->addCenter($username, $type, $centerA, $centerR);} //add center
+		if ( $action == 'r') { $r =  $this->updateUserTable($username, $type, $center); } //center list reorder.push string
 		
 		echo json_encode($r);
     }
-	function removeCenter($username,$centerA,$myCenterR){
-	     if ( !empty($myCenterR) ){
-					$funcName = function($value) { return $value["name"]; };
-					$y = json_decode($myCenterR,true);
-					$name = array_map($funcName,$y);
-					if ( is_numeric($pos= array_search($centerA['name'], $name)) ){
-							$r=1; //find match remove center
-							unset($y[$pos]);
-							$myCenter = json_encode(array_values($y)); //array key is removed and reorder.otherwise json_encode return object string
-							error_log($myCenter);	
-							$this->updateUserTable($username,'myCenter',$myCenter);
 
-					}else{ $r=0; } //no found and no action
+	function removeCenter($username, $type, $centerA, $centerR){
+	     if ( !empty($centerR) ){
+			$funcName = function($value) { return $value["name"]; };
+			$y = json_decode($centerR,true);
+			$name = array_map($funcName,$y);
+			if ( is_numeric($pos= array_search($centerA['name'], $name)) ){
+					$r=1; //find match remove center
+					unset($y[$pos]);
+					$center = json_encode(array_values($y)); //array key is removed and reorder.otherwise json_encode return object string
+					error_log($center);	
+					$this->updateUserTable($username,$type,$center);
 
+			}else{ $r=0; } //no found and no action
 		}
-                else{ $r = 0; } //empty and no action
-		return $r;
-
-
-	
+        else{ $r = 0; } //empty and no action
+		return $r;	
 	}
-	function addCenter($username,$centerA,$myCenterR){
-	   if ( !empty($myCenterR) ) {
 
-               $funcName = function($value) { return $value["name"]; }; 
-               $y = json_decode($myCenterR,true);
-          
-               $name = array_map($funcName,$y);
-               if ( is_numeric(array_search($centerA['name'], $name)) ){
-                    $r=0; //find match 
-                } else if ( count($y) >= $this->CENTER_MAX) {
-                    $r=3; // reach the maximum
-                } else {
-                    array_push($y,$centerA);
-                    $r=2; //didn't find match. Push center
-                    $myCenter = json_encode($y);
-                    $this->updateUserTable($username,'myCenter',$myCenter);
-		    
-                }
-            } else {
+	function addCenter($username, $type, $centerA, $centerR){
+	   if ( !empty($centerR) ) {
 
-                $myCenter = json_encode(array($centerA));
-                $r = 1; //no new center.update
-                $this->updateUserTable($username,'myCenter',$myCenter);
-            }
-	    return $r;
+			$funcName = function($value) { return $value["name"]; }; 
+			$y = json_decode($centerR,true);		
+			$name = array_map($funcName,$y);
+			$return_code = 0; //find match	
+
+			if ( !is_numeric(array_search($centerA['name'], $name)) ) {
+				$return_code = 2;
+				array_push($y,$centerA);
+
+				if (count($y) > $this->PROFILE_CENTER_MAX) {
+					// remove 1st off recentCenter to rotate
+					if ($type == "recentCenter") {
+						$y = array_slice($y, 1, $this->PROFILE_CENTER_MAX);
+					}	
+					else $return_code = 3;	// 3 - return code for reach the maximum
+				}
+
+				//didn't find match. Push center
+				if ( $return_code == 2 ) {
+					$center = json_encode($y);
+					$this->updateUserTable($username, $type, $center);
+				}
+			} 			
+        } else {
+                $center = json_encode(array($centerA));
+                $return_code = 1; //no new center.update
+                $this->updateUserTable($username, $type, $center);
         }
+
+	    return $return_code;
+    }
 
 	
 	public function actionSaveOptions(){
@@ -1257,7 +1261,7 @@ class NgGetController extends XFrontBase
 		return $r;
 	}
 	
-	function favupdate($username,$type,$current,$mls,$action){
+	function favupdate($username, $type, $current, $mls, $action){
 		//update houseFav/routeFav/recentView
 		
 		$c = (!empty($current))? explode(',',$current): [];
@@ -1268,7 +1272,22 @@ class NgGetController extends XFrontBase
 			//insert a MLS
 			case ($action == 'c') && !is_numeric($pos):
 				array_push($c,$mls);
+				// 99 - return code for exceeding the list maximum
+				if (count($c) > $this->PROFILE_FAVLIST_MAX) {
+					// remove 1st mls off recentView to rotate
+					if ($type == "recentView") {
+						$c = array_slice($c, 1, $this->PROFILE_FAVLIST_MAX);
+						//$c = $c1;
+					}	
+					else $return_code = 99;
+				}
+
+				if ($return_code == 0) {
+					$data = implode(",",$c); //convert to comma separated string
+					$return_code = $this->updateUserTable($username, $type, $data);
+				}
 				break;
+
 			//remove a MLS
 			case ($action == 'd') && is_numeric($pos):
 				unset($c[$pos]);
@@ -1280,21 +1299,7 @@ class NgGetController extends XFrontBase
 				break;
 		}
 		
-		// 99 - return code for exceeding the list maximum
-		if (count($c) > $this->FAVLIST_MAX) {
-			// remove 1st mls off recentView to rotate
-			if ($type == "recentView") {
-				$c = array_slice($c, 1, $FAVLIST_MAX);
-				//$c = $c1;
-			}	
-			else $return_code = 99;
-		}
-
-		if ($return_code == 0) {
-			$data = implode(",",$c); //convert to comma separated string
-			$return_code = $this->updateUserTable($username, $type, $data);
-		}
-		error_log($type." updateUserTable result ".$return_code);
+		//error_log($type." updateUserTable result ".$return_code);
 		return $return_code;
 	}
 
@@ -1320,14 +1325,14 @@ class NgGetController extends XFrontBase
 		$criteria->with = array('mname','propertyType','city');
 		$house = House::model()->findAll($criteria);
 		// listed mls list
-		$onlyMLS = function($value) { return $value["ml_num"]; }; 
-		$houseMLS = array_map($onlyMLS,$house);
+		$funcName = function($value) { return $value["ml_num"]; }; 
+		$houseMLS = array_map($funcName,$house);
 		
 		// delisted mls list
-		$houseEmptyList = array_diff($favlist, $houseMLS);
+		$houseEmptyMLS = array_diff($favlist, $houseMLS);
 		$result = $this->house2Array($house,0,'house');
-		if (count($houseEmptyList) > 0) {
-			$result1 = $this->emptyHouse2Array($houseEmptyList);
+		if (count($houseEmptyMLS) > 0) {
+			$result1 = $this->emptyHouse2Array($houseEmptyMLS);
 			$result2 = array_merge($result1['Data']['EmptyHouseList'],$result['Data']['HouseList']);
 			$result['Data']['HouseList'] = $result2;
 		}
@@ -1343,8 +1348,7 @@ class NgGetController extends XFrontBase
 		if (!empty($resultsql)){ $result['houseFav']=1; }else {  $result['houseFav']=0;}
 		$sql ='select routeFav from h_user_data where username="'.$username.'" and routeFav like "%'.$mls.'%"';
 		$resultsql = $db->createCommand($sql)->queryRow();
-		if (!empty($resultsql)){ $result['routeFav']=1; }else {  $result['routeFav']=0;};
-		
+		if (!empty($resultsql)){ $result['routeFav']=1; }else {  $result['routeFav']=0;};		
 		
 		//Insert into recentView
 		$sql ='select recentView from h_user_data where username="'.$username.'"';
@@ -1491,8 +1495,7 @@ class NgGetController extends XFrontBase
 			}
 			
 			//价格区间 -  Multiple Selection . Array is returned
-			if (!empty($postParms['houseprice'])) {
-				
+			if (!empty($postParms['houseprice'])) {				
 		
 				$minPrice = intval($postParms['houseprice']['lower'])*10000 ;
 				$maxPrice = intval($postParms['houseprice']['upper'])*10000 ;
@@ -1555,15 +1558,10 @@ class NgGetController extends XFrontBase
                 $criteria->params += array(':maxLon' => $maxLon);
                 $criteria->addCondition("t.longitude >= :minLon");
                 $criteria->params += array(':minLon' => $minLon);
-		
-
-
             } 
-					
 			
 			//$criteria->order = 'pix_updt DESC,city_id ASC,lp_dol DESC';
 			return $criteria;
-        
 	}
 }
 
