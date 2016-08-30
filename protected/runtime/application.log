@@ -2185,3 +2185,57 @@ Stack trace:
 #4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
 #5 /var/www/mhtml/index.php(19): CWebApplication->run()
 REQUEST_URI=/index.php?r=ngget/getMapHouse
+2016/08/30 07:59:08 [error] [php] Division by zero (/var/www/mhtml/protected/controllers/NggetController.php:189)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+2016/08/30 07:59:09 [error] [php] Division by zero (/var/www/mhtml/protected/controllers/NggetController.php:189)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+2016/08/30 07:59:10 [error] [php] Division by zero (/var/www/mhtml/protected/controllers/NggetController.php:189)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+2016/08/30 07:59:11 [error] [php] Division by zero (/var/www/mhtml/protected/controllers/NggetController.php:189)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+2016/08/30 07:59:11 [error] [php] Division by zero (/var/www/mhtml/protected/controllers/NggetController.php:189)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getMapHouse
+2016/08/30 07:59:12 [error] [php] Division by zero (/var/www/mhtml/protected/controllers/NggetController.php:189)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#1 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#2 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#3 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#4 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#5 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getMapHouse
