@@ -8,7 +8,12 @@ spl_autoload_register(array('YiiBase','autoload'));
 class NgGetController extends XFrontBase
 {
 	
-   private $imgHost ="http://m.maplecity.com.cn/";
+    private $imgHost ="http://m.maplecity.com.cn/";
+    private $MAPLEAPP_SPA_SECRET = "Wg1qczn2IKXHEfzOCtqFbFCwKhu-kkqiAKlBRx_7VotguYFnKOWZMJEuDVQMXVnG";
+    private $MAPLEAPP_SPA_AUD = ['9fNpEj70wvf86dv5DeXPijTnkLVX5QZi'];
+    private $FAVLIST_MAX = 7;
+    private $CENTER_MAX = 3;
+
     function __construct() {
                 ini_set("display_errors", "1"); // shows all errors
                 ini_set("log_errors", 1);
@@ -1021,8 +1026,6 @@ class NgGetController extends XFrontBase
 
 	public function isValidIdToken(){
 		error_reporting(-1); // reports all errors
-		$MAPLEAPP_SPA_SECRET = "Wg1qczn2IKXHEfzOCtqFbFCwKhu-kkqiAKlBRx_7VotguYFnKOWZMJEuDVQMXVnG";
-		$MAPLEAPP_SPA_AUD = ['9fNpEj70wvf86dv5DeXPijTnkLVX5QZi'];
 		$headers = getallheaders();
 		$tokens = explode(" ", $headers['Authorization']);
 		//error_log($tokens);
@@ -1030,7 +1033,7 @@ class NgGetController extends XFrontBase
 			//error_log($tokens[0]);
 			//error_log($tokens[1]);
 			//second is client ID and 4th argument is an array 
-			$decoded_id_token = \Auth0\SDK\Auth0JWT::decode($tokens[1], $MAPLEAPP_SPA_AUD, $MAPLEAPP_SPA_SECRET, []); 
+			$decoded_id_token = \Auth0\SDK\Auth0JWT::decode($tokens[1], $this->MAPLEAPP_SPA_AUD, $this->MAPLEAPP_SPA_SECRET, []); 
 			return true;
 		}
 		else {
@@ -1200,8 +1203,6 @@ class NgGetController extends XFrontBase
 	
 	}
 	function addCenter($username,$centerA,$myCenterR){
-	   $CENTER_MAX = 3;
-
 	   if ( !empty($myCenterR) ) {
 
                $funcName = function($value) { return $value["name"]; }; 
@@ -1210,7 +1211,7 @@ class NgGetController extends XFrontBase
                $name = array_map($funcName,$y);
                if ( is_numeric(array_search($centerA['name'], $name)) ){
                     $r=0; //find match 
-                } else if ( count($y) >= $CENTER_MAX) {
+                } else if ( count($y) >= $this->CENTER_MAX) {
                     $r=3; // reach the maximum
                 } else {
                     array_push($y,$centerA);
@@ -1257,7 +1258,6 @@ class NgGetController extends XFrontBase
 	}
 	
 	function favupdate($username,$type,$current,$mls,$action){
-		$FAVLIST_MAX = 7;
 		//update houseFav/routeFav/recentView
 		
 		$c = (!empty($current))? explode(',',$current): [];
@@ -1281,7 +1281,7 @@ class NgGetController extends XFrontBase
 		}
 		
 		// 99 - return code for exceeding the list maximum
-		if (count($c) > $FAVLIST_MAX) {
+		if (count($c) > $this->FAVLIST_MAX) {
 			// remove 1st mls off recentView to rotate
 			if ($type == "recentView") {
 				$c = array_slice($c, 1, $FAVLIST_MAX);
