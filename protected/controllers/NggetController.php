@@ -1056,7 +1056,7 @@ class NgGetController extends XFrontBase
 		//$username = "zhengy@rogers.com";
 		if ( !empty($type)){
 
-			if (( $type == 'houseSearch')||($type == 'schoolSearch')||( $type == 'myCenter')){ 
+			if (( $type == 'houseSearch')||($type == 'schoolSearch')||( $type == 'myCenter')||($type == 'recentCenter')){ 
 				$data = $this->getoption($username,$type);}
 			if (( $type == 'houseFav')||( $type == 'routeFav')||( $type == 'recentView')){ 
 				$data = $this->favlist($username,$type);}
