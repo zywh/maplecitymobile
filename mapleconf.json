@@ -1,0 +1,33 @@
+{
+    "picHost": "http://www.maplecity.com.cn/mlspic/crea/",
+	"postpicHost": "http://www.maplecity.com.cn/",
+    "email": "info@maplecity.com.cn",
+    "phone": "400-990-0393",
+	"projectRest": "index.php?r=ngget/getProjects",
+	"mapHouseRest": "index.php?r=ngget/getMapHouse",
+	"getHouseList": "index.php?r=ngget/getHouseList",
+	"statsRest": "index.php?r=ngget/getStats",
+	"getMlsDataRest": "index.php?r=ngget/getMlsData",
+	"getCitylistDataRest": "index.php?r=ngget/getCityList",
+	"getCityDataRest": "index.php?r=ngget/getCityStats",
+	"getSchoolAcDataRest": "index.php?r=ngget/getSchoolAutoComplete",
+	"getSchoolmapDataRest": "index.php?r=ngget/getSchoolmap",
+	"getHouseStatsRest": "index.php?r=ngget/getHouseStats",
+	"schoolRest": "index.php?r=ngget/getSchools",
+	"houseRest": "index.php?r=ngget/getHouse",
+	"houseDetailRest": "index.php?r=ngget/getHouseDetail",
+	"aboutRest": "index.php?r=ngget/getAbout",
+	"postRest": "index.php?r=ngget/getPost",
+	"postListRest": "index.php?r=ngget/getPostList",
+	"hpiStatsRest": "index.php?r=ngget/getHpiStats",
+	"getUserDataRest": "index.php?r=ngget/getUserData",
+	"getFavCountDataRest": "index.php?r=ngget/getFavCount",
+	"updateUserDataRest": "index.php?r=ngget/updateUserData",
+	"updateMyCenterDataRest": "index.php?r=ngget/updateMyCenter",
+	"checkFavDataRest": "index.php?r=ngget/checkFavData",
+	"saveOptionsDataRest": "index.php?r=ngget/saveOptions",
+	"addUserDataRest": "index.php?r=ngget/addUserData",
+	"deleteUserDataRest": "index.php?r=ngget/deleteUserData"
+
+
+}

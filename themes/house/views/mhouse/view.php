@@ -194,7 +194,7 @@ swiper.startAutoplay();
                 </div>
                 
                 <div class="fyxq_rx">服务热线：
-                  <img src="new/images/plat.jpg" width="23" height="15" /><a href="tel:400-870-1029"><span>400-870-1029</span></a>
+                  <img src="new/images/plat.jpg" width="23" height="15" /><a href="tel:400-9900-393"><span>400-990-0393</span></a>
                 </div>
                  <div class="cl"></div>
                 </div>
@@ -225,7 +225,7 @@ swiper.startAutoplay();
 			<li><span class="xqlb_label">房屋数量：</span><?php echo (int)$house->rms+(int)$house->rooms_plus; ?></li>
 			<li><span class="xqlb_label">地税/年份：</span><?php echo '$ '.$house->taxes; ?>/<?php echo $house->yr." 年"; ?></li>
 			<li><span class="xqlb_label">卧房数量：</span><?php echo (int)$house->br+(int)$house->br_plus; ?></li>
-			<li><span class="xqlb_label">物业管理费：</span>无</li>
+			<li><span class="xqlb_label">物业管理费：</span><?php echo '$ '.$house->prepay;?></li>
 			<li><span class="xqlb_label">厨房数量：</span><?php echo (int)$house->num_kit+(int)$house->kit_plus; ?></li>
 			<li><span class="xqlb_label">建造年份：</span><?php echo $house->yr_built; ?>年</li>
 			<li><span class="xqlb_label">卫生间数量：</span><?php echo $house->bath_tot; ?></li>

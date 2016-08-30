@@ -130,7 +130,7 @@ class MhouseController extends XFrontBase
 		$criteria->with = array('mname','propertyType','city');
 		$count = House::model()->count($criteria);
 		$pager = new CPagination($count);
-		$pager->pageSize = 10;
+		$pager->pageSize = 8;
 		if (!empty($_POST['pageindex'])) {
 			$pager->currentPage = $_POST['pageindex'];
 		}

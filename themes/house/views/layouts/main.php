@@ -1,23 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<?php
 
-// respond to preflights
-if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
-  // return only the headers and not the content
-  // only allow CORS if we're doing a GET - i.e. no saving for now.
-  if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'])) {
-    header('Access-Control-Allow-Origin: *');
-    header('Access-Control-Allow-Headers: X-Requested-With');
-  }
-  exit;
-}
-
-//header("Access-Control-Allow-Origin: *");
-//header("Access-Control-Allow-Methods: GET, POST, OPTIONS");  
-//header("Access-Control-Allow-Headers: content-type");
-//header('Access-Control-Allow-Headers: Authorization, Content-Type' );    
-?>
 <html xmlns="http://www.w3.org/1999/xhtml">
  
 
@@ -266,7 +249,7 @@ $(document).on( "pageinit", "#page_main", function() {
 		<a href="index.php?r=stats/index" data-ajax="false"  class="ui-btn ui-corner-all ui-icon-fa-line-chart ui-btn-icon-left ui-btn-icon-notext
 		">Stats</a>
 	
-		<a href="tel:400-870-1029"  class="ui-btn ui-corner-all ui-icon-phone ui-btn-icon-left ui-btn-icon-notext
+		<a href="tel:400-9900-393"  class="ui-btn ui-corner-all ui-icon-phone ui-btn-icon-left ui-btn-icon-notext
 		">Phone</a>
 		<a href="mailto:info@maplecity.com.cn"  class="ui-btn ui-corner-all ui-icon-mail ui-btn-icon-left ui-btn-icon-notext
 		">Email</a>
