@@ -1166,16 +1166,16 @@ class NgGetController extends XFrontBase
 		$action = $postParms['action'];
 		$type = $postParms['type'];
 		//get current myCenter/recentCenter
-		$sql ='select '.$type.' from h_user_data where username="'.$username.'"';
+		$sql = 'select '.$type.' from h_user_data where username="'.$username.'"';
 		$resultsql = $db->createCommand($sql)->queryRow();
 		$centerR = $resultsql[$type];
-		$centerA=json_decode($center,true);
+		$centerA = json_decode($center,true);
 
 		//sql select
 		//$centerR = '[ {"lat": "43.653226", "lng": "-79.383184", "name": "Toronto, Ontario"},{"lat": "43.653226", "lng": "-79.383184", "name": "Miss, Ontario"} ]';
 		if ( $action == 'd') {$r = $this->removeCenter($username, $type, $centerA, $centerR);} //delete center
 		if ( $action == 'c') {$r = $this->addCenter($username, $type, $centerA, $centerR);} //add center
-		if ( $action == 'r') { $r =  $this->updateUserTable($username, $type, $center); } //center list reorder.push string
+		if ( $action == 'r') {$r = $this->updateUserTable($username, $type, $center); } //center list reorder.push string
 		
 		echo json_encode($r);
     }
