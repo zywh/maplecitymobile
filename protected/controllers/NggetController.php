@@ -226,7 +226,7 @@ class NgGetController extends XFrontBase
 				$result['Data']['Type'] = "house";
 				//$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
 				$result['Data']['imgHost'] = $this->imgHost;
-				$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot';
+				$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt';
 				$criteria->with = array('mname','propertyType','city');
 				$criteria->order = "t.latitude,t.longitude";
 				$house = House::model()->findAll($criteria);
@@ -262,7 +262,7 @@ class NgGetController extends XFrontBase
 				$pager->currentPage = $postParms['pageindex'];
 			}
 			$pager->applyLimit($criteria);
-			$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot';
+			$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt';
 			$criteria->with = array('mname','propertyType','city');
 			$house = House::model()->findAll($criteria);
 			
