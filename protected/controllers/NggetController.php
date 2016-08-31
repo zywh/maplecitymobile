@@ -1320,7 +1320,7 @@ class NgGetController extends XFrontBase
 		$resultsql = $db->createCommand($sql)->queryRow();
 		$favlist = explode(',',$resultsql[$type]);
 		//get list of house
-		$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot';
+		$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt';
 		$criteria->addInCondition('ml_num', $favlist);
 		$criteria->with = array('mname','propertyType','city');
 		$house = House::model()->findAll($criteria);
@@ -1362,8 +1362,9 @@ class NgGetController extends XFrontBase
 	function emptyHouse2Array($emptyHouse){  //this is used for empty house fav 
 		foreach ($emptyHouse as $mls) {
 			$emptyHouseList = array();
+			$emptyHouseList['ListDate'] = '';
 			$emptyHouseList['Beds'] = '';
-			$emptyHouseListList['Baths'] = '';
+			$emptyHouseList['Baths'] = '';
 			$emptyHouseList['Kitchen'] = '';
 			$emptyHouseList['GeocodeLat'] = '';
 			$emptyHouseList['GeocodeLng'] = '';
@@ -1393,6 +1394,7 @@ class NgGetController extends XFrontBase
 		
 		foreach ($house as $val) {
 			$mapHouseList = array();
+			$mapHouseList['ListDate'] = $val->pix_updt;
 			$mapHouseList['Beds'] = $val->br;
 			$mapHouseList['Baths'] = $val->bath_tot;
 			$mapHouseList['Kitchen'] = $val->num_kit;
