@@ -1306,6 +1306,10 @@ class NgGetController extends XFrontBase
 	
 	function favlist($username,$type){
 		//get house detail for fav list
+		  ini_set("display_errors", "1"); // shows all errors
+                ini_set("log_errors", 1);
+                ini_set("error_log", "/tmp/php-error.log");
+
 		$db = Yii::app()->db;
 		$criteria = new CDbCriteria();
 		//get list of fav			
@@ -1315,7 +1319,7 @@ class NgGetController extends XFrontBase
 		//get list of house
 		$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt';
 		$criteria->addInCondition('ml_num', $favlist);
-		error_log($favlist);
+		//error_log($favlist);
 		$criteria->with = array('mname','propertyType','city');
 		$house = House::model()->findAll($criteria);
 		
@@ -1324,6 +1328,7 @@ class NgGetController extends XFrontBase
 			// listed mls list
 			$funcName = function($value) { return $value["ml_num"]; }; 	
 			$houseMLS = array_map($funcName,$house);
+			
 			
 			// delisted mls list
 			$houseEmptyMLS = array_diff($favlist, $houseMLS);
