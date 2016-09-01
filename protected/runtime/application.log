@@ -3416,3 +3416,83 @@ Stack trace:
 #6 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
 #7 /var/www/mhtml/index.php(19): CWebApplication->run()
 REQUEST_URI=/index.php?r=ngget/getUserData
+2016/09/01 10:55:14 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:1330)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#1 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#2 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#3 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#4 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#5 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#6 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/09/01 10:55:15 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:1330)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#1 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#2 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#3 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#4 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#5 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#6 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/09/01 10:55:16 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:1330)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#1 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#2 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#3 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#4 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#5 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#6 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/09/01 10:55:16 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:1330)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#1 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#2 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#3 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#4 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#5 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#6 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/09/01 10:55:17 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:1330)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#1 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#2 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#3 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#4 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#5 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#6 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/09/01 10:55:18 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:1330)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#1 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#2 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#3 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#4 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#5 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#6 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/09/01 10:55:18 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:1330)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#1 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#2 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#3 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#4 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#5 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#6 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData
+2016/09/01 10:55:19 [error] [php] Invalid argument supplied for foreach() (/var/www/mhtml/protected/controllers/NggetController.php:1330)
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams()
+#1 /var/www/mhtml/framework/yiilite.php(3555): NgGetController->runAction()
+#2 /var/www/mhtml/framework/yiilite.php(3545): NgGetController->runActionWithFilters()
+#3 /var/www/mhtml/framework/yiilite.php(1746): NgGetController->run()
+#4 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController()
+#5 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#6 /var/www/mhtml/index.php(19): CWebApplication->run()
+REQUEST_URI=/index.php?r=ngget/getUserData

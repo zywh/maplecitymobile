@@ -70,13 +70,6 @@ class NgGetController extends XFrontBase
 			//return object array with multiple elements. 
 			echo json_encode($results);
 		}
-		
-			
-		
-		
-		
-
-		
     }	
 
 	//REST to return either list of GRID and HOUSEes for map search page
@@ -1324,17 +1317,21 @@ class NgGetController extends XFrontBase
 		$criteria->addInCondition('ml_num', $favlist);
 		$criteria->with = array('mname','propertyType','city');
 		$house = House::model()->findAll($criteria);
-		// listed mls list
-		$funcName = function($value) { return $value["ml_num"]; }; 
-		$houseMLS = array_map($funcName,$house);
 		
-		// delisted mls list
-		$houseEmptyMLS = array_diff($favlist, $houseMLS);
 		$result = $this->house2Array($house,0,'house');
-		if (count($houseEmptyMLS) > 0) {
-			$result1 = $this->emptyHouse2Array($houseEmptyMLS);
-			$result2 = array_merge($result1['Data']['EmptyHouseList'],$result['Data']['HouseList']);
-			$result['Data']['HouseList'] = $result2;
+		if (count($house) > 0) {
+			// listed mls list
+			$funcName = function($value) { return $value["ml_num"]; }; 	
+			$houseMLS = array_map($funcName,$house);
+			
+			// delisted mls list
+			$houseEmptyMLS = array_diff($favlist, $houseMLS);
+			if (count($houseEmptyMLS) > 0) {
+				$result1 = $this->emptyHouse2Array($houseEmptyMLS);
+				$result2 = $result1['Data']['EmptyHouseList'];
+				if (count($house) > 0) foreach($result['Data']['HouseList'] as $row) $result2[] = $row;
+				$result['Data']['HouseList'] = $result2;
+			}
 		}
 		return $result;
 	}
