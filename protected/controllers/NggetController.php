@@ -1315,6 +1315,7 @@ class NgGetController extends XFrontBase
 		//get list of house
 		$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt';
 		$criteria->addInCondition('ml_num', $favlist);
+		error_log($favlist);
 		$criteria->with = array('mname','propertyType','city');
 		$house = House::model()->findAll($criteria);
 		
