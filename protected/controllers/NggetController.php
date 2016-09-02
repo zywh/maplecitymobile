@@ -960,7 +960,8 @@ class NgGetController extends XFrontBase
 		$postParms = (!empty($_POST['parms']))?  $_POST['parms'] : array();
 		$id = $postParms['id'];
 		$username = $postParms['username'];
-		//error_log("id=".$id);
+		error_log("id=".$id);
+		//$id='W3589143';
         
 		$criteria = new CDbCriteria();
 		//$criteria->addCondition('t.id="'.$id.'"');
@@ -987,7 +988,7 @@ class NgGetController extends XFrontBase
         $rdir=$county."/Photo".$house->ml_num."/";
         $dir="mlspic/crea/".$rdir;
         $num_files = 0;
-		
+		$photos = array();
 
         if(is_dir($dir)){
             $picfiles =  scandir($dir);
