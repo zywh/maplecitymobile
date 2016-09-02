@@ -5123,3 +5123,164 @@ Stack trace:
 #6 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
 #7 /var/www/mhtml/index.php(19): CWebApplication->run()
 REQUEST_URI=/index.php?r=ngget/getUserData
+2016/09/02 10:13:26 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N3577563','N3586413','N3586138)' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`ml_num` AS `t0_c92`, `t`.`zip` AS `t0_c96`, `t`.`s_r` AS `t0_c177`, `t`.`county` AS `t0_c103`, `t`.`municipality` AS `t0_c93`, `t`.`lp_dol` AS `t0_c88`, `t`.`num_kit` AS `t0_c74`, `t`.`construction_year` AS `t0_c28`, `t`.`br` AS `t0_c61`, `t`.`addr` AS `t0_c183`, `t`.`longitude` AS `t0_c36`, `t`.`latitude` AS `t0_c37`, `t`.`area` AS `t0_c57`, `t`.`bath_tot` AS `t0_c182`, `t`.`pix_updt` AS `t0_c95`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (ml_num IN (:ycp0, :ycp1, :ycp2, :ycp3)) ORDER BY field(ml_num,N3571091','N3577563','N3586413','N3586138). Bound with :ycp0='N3571091', :ycp1='N3577563', :ycp2='N3586413', :ycp3='N3586138'.
+2016/09/02 10:13:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N3577563','N3586413','N3586138)' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/NggetController.php(1328): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/protected/controllers/NggetController.php(1056): NgGetController->favlist('hzhlyj@yahoo.co...', 'routeFav')
+#8 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#9 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#10 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#11 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#13 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#14 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#15 /var/www/mhtml/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/09/02 10:13:27 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N3577563','N3586413','N3586138)' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`ml_num` AS `t0_c92`, `t`.`zip` AS `t0_c96`, `t`.`s_r` AS `t0_c177`, `t`.`county` AS `t0_c103`, `t`.`municipality` AS `t0_c93`, `t`.`lp_dol` AS `t0_c88`, `t`.`num_kit` AS `t0_c74`, `t`.`construction_year` AS `t0_c28`, `t`.`br` AS `t0_c61`, `t`.`addr` AS `t0_c183`, `t`.`longitude` AS `t0_c36`, `t`.`latitude` AS `t0_c37`, `t`.`area` AS `t0_c57`, `t`.`bath_tot` AS `t0_c182`, `t`.`pix_updt` AS `t0_c95`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (ml_num IN (:ycp0, :ycp1, :ycp2, :ycp3)) ORDER BY field(ml_num,N3571091','N3577563','N3586413','N3586138). Bound with :ycp0='N3571091', :ycp1='N3577563', :ycp2='N3586413', :ycp3='N3586138'.
+2016/09/02 10:13:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N3577563','N3586413','N3586138)' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/NggetController.php(1328): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/protected/controllers/NggetController.php(1056): NgGetController->favlist('hzhlyj@yahoo.co...', 'routeFav')
+#8 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#9 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#10 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#11 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#13 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#14 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#15 /var/www/mhtml/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/09/02 10:13:28 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N3577563','N3586413','N3586138)' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`ml_num` AS `t0_c92`, `t`.`zip` AS `t0_c96`, `t`.`s_r` AS `t0_c177`, `t`.`county` AS `t0_c103`, `t`.`municipality` AS `t0_c93`, `t`.`lp_dol` AS `t0_c88`, `t`.`num_kit` AS `t0_c74`, `t`.`construction_year` AS `t0_c28`, `t`.`br` AS `t0_c61`, `t`.`addr` AS `t0_c183`, `t`.`longitude` AS `t0_c36`, `t`.`latitude` AS `t0_c37`, `t`.`area` AS `t0_c57`, `t`.`bath_tot` AS `t0_c182`, `t`.`pix_updt` AS `t0_c95`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (ml_num IN (:ycp0, :ycp1, :ycp2, :ycp3)) ORDER BY field(ml_num,N3571091','N3577563','N3586413','N3586138). Bound with :ycp0='N3571091', :ycp1='N3577563', :ycp2='N3586413', :ycp3='N3586138'.
+2016/09/02 10:13:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N3577563','N3586413','N3586138)' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/NggetController.php(1328): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/protected/controllers/NggetController.php(1056): NgGetController->favlist('hzhlyj@yahoo.co...', 'routeFav')
+#8 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#9 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#10 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#11 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#13 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#14 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#15 /var/www/mhtml/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/09/02 10:13:28 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N3577563','N3586413','N3586138)' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`ml_num` AS `t0_c92`, `t`.`zip` AS `t0_c96`, `t`.`s_r` AS `t0_c177`, `t`.`county` AS `t0_c103`, `t`.`municipality` AS `t0_c93`, `t`.`lp_dol` AS `t0_c88`, `t`.`num_kit` AS `t0_c74`, `t`.`construction_year` AS `t0_c28`, `t`.`br` AS `t0_c61`, `t`.`addr` AS `t0_c183`, `t`.`longitude` AS `t0_c36`, `t`.`latitude` AS `t0_c37`, `t`.`area` AS `t0_c57`, `t`.`bath_tot` AS `t0_c182`, `t`.`pix_updt` AS `t0_c95`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (ml_num IN (:ycp0, :ycp1, :ycp2, :ycp3)) ORDER BY field(ml_num,N3571091','N3577563','N3586413','N3586138). Bound with :ycp0='N3571091', :ycp1='N3577563', :ycp2='N3586413', :ycp3='N3586138'.
+2016/09/02 10:13:28 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N3577563','N3586413','N3586138)' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/NggetController.php(1328): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/protected/controllers/NggetController.php(1056): NgGetController->favlist('hzhlyj@yahoo.co...', 'routeFav')
+#8 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#9 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#10 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#11 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#13 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#14 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#15 /var/www/mhtml/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/09/02 10:13:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N3577563','N3586413','N3586138)' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`ml_num` AS `t0_c92`, `t`.`zip` AS `t0_c96`, `t`.`s_r` AS `t0_c177`, `t`.`county` AS `t0_c103`, `t`.`municipality` AS `t0_c93`, `t`.`lp_dol` AS `t0_c88`, `t`.`num_kit` AS `t0_c74`, `t`.`construction_year` AS `t0_c28`, `t`.`br` AS `t0_c61`, `t`.`addr` AS `t0_c183`, `t`.`longitude` AS `t0_c36`, `t`.`latitude` AS `t0_c37`, `t`.`area` AS `t0_c57`, `t`.`bath_tot` AS `t0_c182`, `t`.`pix_updt` AS `t0_c95`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (ml_num IN (:ycp0, :ycp1, :ycp2, :ycp3)) ORDER BY field(ml_num,N3571091','N3577563','N3586413','N3586138). Bound with :ycp0='N3571091', :ycp1='N3577563', :ycp2='N3586413', :ycp3='N3586138'.
+2016/09/02 10:13:29 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N3577563','N3586413','N3586138)' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/NggetController.php(1328): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/protected/controllers/NggetController.php(1056): NgGetController->favlist('hzhlyj@yahoo.co...', 'routeFav')
+#8 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#9 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#10 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#11 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#13 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#14 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#15 /var/www/mhtml/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/09/02 10:13:30 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N3577563','N3586413','N3586138)' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`ml_num` AS `t0_c92`, `t`.`zip` AS `t0_c96`, `t`.`s_r` AS `t0_c177`, `t`.`county` AS `t0_c103`, `t`.`municipality` AS `t0_c93`, `t`.`lp_dol` AS `t0_c88`, `t`.`num_kit` AS `t0_c74`, `t`.`construction_year` AS `t0_c28`, `t`.`br` AS `t0_c61`, `t`.`addr` AS `t0_c183`, `t`.`longitude` AS `t0_c36`, `t`.`latitude` AS `t0_c37`, `t`.`area` AS `t0_c57`, `t`.`bath_tot` AS `t0_c182`, `t`.`pix_updt` AS `t0_c95`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (ml_num IN (:ycp0, :ycp1, :ycp2, :ycp3)) ORDER BY field(ml_num,N3571091','N3577563','N3586413','N3586138). Bound with :ycp0='N3571091', :ycp1='N3577563', :ycp2='N3586413', :ycp3='N3586138'.
+2016/09/02 10:13:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N3577563','N3586413','N3586138)' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/NggetController.php(1328): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/protected/controllers/NggetController.php(1056): NgGetController->favlist('hzhlyj@yahoo.co...', 'routeFav')
+#8 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#9 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#10 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#11 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#13 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#14 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#15 /var/www/mhtml/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
+2016/09/02 10:13:30 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N3577563','N3586413','N3586138)' at line 1. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`ml_num` AS `t0_c92`, `t`.`zip` AS `t0_c96`, `t`.`s_r` AS `t0_c177`, `t`.`county` AS `t0_c103`, `t`.`municipality` AS `t0_c93`, `t`.`lp_dol` AS `t0_c88`, `t`.`num_kit` AS `t0_c74`, `t`.`construction_year` AS `t0_c28`, `t`.`br` AS `t0_c61`, `t`.`addr` AS `t0_c183`, `t`.`longitude` AS `t0_c36`, `t`.`latitude` AS `t0_c37`, `t`.`area` AS `t0_c57`, `t`.`bath_tot` AS `t0_c182`, `t`.`pix_updt` AS `t0_c95`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (ml_num IN (:ycp0, :ycp1, :ycp2, :ycp3)) ORDER BY field(ml_num,N3571091','N3577563','N3586413','N3586138). Bound with :ycp0='N3571091', :ycp1='N3577563', :ycp2='N3586413', :ycp3='N3586138'.
+2016/09/02 10:13:30 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N3577563','N3586413','N3586138)' at line 1' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/NggetController.php(1328): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/protected/controllers/NggetController.php(1056): NgGetController->favlist('hzhlyj@yahoo.co...', 'routeFav')
+#8 /var/www/mhtml/framework/yiilite.php(4058): NgGetController->actionGetUserData()
+#9 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#10 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#11 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getUserData')
+#13 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngget/getUserDa...')
+#14 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#15 /var/www/mhtml/index.php(19): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=ngget/getUserData
+HTTP_REFERER=http://localhost:8100/
+---
