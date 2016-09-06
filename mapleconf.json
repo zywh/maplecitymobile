@@ -1,8 +1,11 @@
 {
+	"verison":"0.1",
+	"feedbackEmail": "info@maplecity.com.cn",
     "picHost": "http://www.maplecity.com.cn/mlspic/crea/",
 	"postpicHost": "http://www.maplecity.com.cn/",
     "email": "info@maplecity.com.cn",
     "phone": "400-990-0393",
+	"feedbackEmail": "info@maplecity.com.cn",
 	"projectRest": "index.php?r=ngget/getProjects",
 	"mapHouseRest": "index.php?r=ngget/getMapHouse",
 	"getHouseList": "index.php?r=ngget/getHouseList",
