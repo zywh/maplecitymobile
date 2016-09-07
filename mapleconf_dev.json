@@ -21,6 +21,7 @@
 	"houseDetailRest": "index.php?r=ngdevget/getHouseDetail",
 	"aboutRest": "index.php?r=ngdevget/getAbout",
 	"postRest": "index.php?r=ngdevget/getPost",
+	"helpRest": "index.php?r=ngdevget/getHelp",
 	"postListRest": "index.php?r=ngdevget/getPostList",
 	"hpiStatsRest": "index.php?r=ngdevget/getHpiStats",
 	"getUserDataRest": "index.php?r=ngdevget/getUserData",

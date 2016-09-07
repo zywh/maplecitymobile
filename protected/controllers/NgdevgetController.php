@@ -11,8 +11,8 @@ class NgDevGetController extends XFrontBase
     private $imgHost ="http://m.maplecity.com.cn/";
     private $MAPLEAPP_SPA_SECRET = "Wg1qczn2IKXHEfzOCtqFbFCwKhu-kkqiAKlBRx_7VotguYFnKOWZMJEuDVQMXVnG";
     private $MAPLEAPP_SPA_AUD = ['9fNpEj70wvf86dv5DeXPijTnkLVX5QZi'];
-    private $PROFILE_FAVLIST_MAX = 7;
-    private $PROFILE_CENTER_MAX = 3;
+    private $PROFILE_FAVLIST_MAX = 20;
+    private $PROFILE_CENTER_MAX = 10;
 
     function __construct() {
                 ini_set("display_errors", "1"); // shows all errors
