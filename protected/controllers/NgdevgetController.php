@@ -712,6 +712,31 @@ class NgDevGetController extends XFrontBase
       
     }
 
+	/*Current House Stats data for stats page*/
+	public function actionGetHelp(){
+		$db = Yii::app()->db;
+		//$result = array();
+		
+		$sql = "select * from h_mobile_help";
+		$resultsql = $db->createCommand($sql)->query();
+		
+		foreach($resultsql as $row){
+			$id = $row["id"];
+			$s[["subject"] = $row["subject"];
+			$s["text"] = $row["text"];
+			$s["category"] = $row["category"];
+			$result[$id][] = $s;
+						
+		}
+		
+
+       	//End of count
+		
+       echo json_encode($result);
+	  
+
+      
+    }
 	/*School List for School Map Page*/	
     public function actionGetSchoolMap() {
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
