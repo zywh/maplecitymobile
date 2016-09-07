@@ -715,17 +715,17 @@ class NgDevGetController extends XFrontBase
 	/*Current House Stats data for stats page*/
 	public function actionGetHelp(){
 		$db = Yii::app()->db;
-		//$result = array();
+		$result = array();
 		
 		$sql = "select * from h_mobile_help";
 		$resultsql = $db->createCommand($sql)->query();
 		
 		foreach($resultsql as $row){
-			$id = $row["id"];
-			$s[["subject"] = $row["subject"];
+			$s["id"] = $row["id"];
+			$s["subject"] = $row["subject"];
 			$s["text"] = $row["text"];
 			$s["category"] = $row["category"];
-			$result[$id][] = $s;
+			$result[] = $s;
 						
 		}
 		
