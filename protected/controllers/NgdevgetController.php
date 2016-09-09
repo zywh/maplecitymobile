@@ -1591,8 +1591,27 @@ class NgDevGetController extends XFrontBase
                 $criteria->addCondition("t.longitude >= :minLon");
                 $criteria->params += array(':minLon' => $minLon);
             } 
+	 if (!empty($postParms['sortType'])) {
+		$s = $postParms['sortType'];	
+		switch ($s) {
+		case 'Price':
+        	$sortBy = 'lp_dol';
+		break;
+		case 'ListDate':
+        	$sortBy = 'pix_updt';
+		break;
+		case 'Beds':
+                $sortBy = 'br';
+                break;
+    		default:
+		$sortBy = 'lp_dol';
+		}
+		$sortOrder = ($postParms['sortOrder'] = 1)? 'DESC':'ASC';
+		$criteria->order = $sortBy." ".$sortOrder;
+	
+	}
+
 			
-			//$criteria->order = 'pix_updt DESC,city_id ASC,lp_dol DESC';
 			return $criteria;
 	}
 }

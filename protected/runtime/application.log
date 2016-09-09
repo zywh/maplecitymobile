@@ -5416,3 +5416,135 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/index.php?r=ngget/getHelp
 ---
+2016/09/09 21:58:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Price' in 'order clause'. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`ml_num` AS `t0_c92`, `t`.`zip` AS `t0_c96`, `t`.`s_r` AS `t0_c177`, `t`.`county` AS `t0_c103`, `t`.`municipality` AS `t0_c93`, `t`.`lp_dol` AS `t0_c88`, `t`.`num_kit` AS `t0_c74`, `t`.`construction_year` AS `t0_c28`, `t`.`br` AS `t0_c61`, `t`.`addr` AS `t0_c183`, `t`.`longitude` AS `t0_c36`, `t`.`latitude` AS `t0_c37`, `t`.`area` AS `t0_c57`, `t`.`bath_tot` AS `t0_c182`, `t`.`pix_updt` AS `t0_c95`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((((s_r = "Sale") AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon)) ORDER BY Price DESC LIMIT 8. Bound with :maxLat=43.649692611283434, :minLat=43.13176086911654, :maxLon=-79.536245737499996, :minLon=-79.975698862499996.
+2016/09/09 21:58:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Price' in 'order clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/NgdevgetController.php(260): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseList()
+#8 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#9 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#10 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseList')
+#12 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#13 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#14 /var/www/mhtml/index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseList
+HTTP_REFERER=http://localhost:8100/
+---
+2016/09/09 21:58:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Price' in 'order clause'. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`ml_num` AS `t0_c92`, `t`.`zip` AS `t0_c96`, `t`.`s_r` AS `t0_c177`, `t`.`county` AS `t0_c103`, `t`.`municipality` AS `t0_c93`, `t`.`lp_dol` AS `t0_c88`, `t`.`num_kit` AS `t0_c74`, `t`.`construction_year` AS `t0_c28`, `t`.`br` AS `t0_c61`, `t`.`addr` AS `t0_c183`, `t`.`longitude` AS `t0_c36`, `t`.`latitude` AS `t0_c37`, `t`.`area` AS `t0_c57`, `t`.`bath_tot` AS `t0_c182`, `t`.`pix_updt` AS `t0_c95`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((((s_r = "Sale") AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon)) ORDER BY Price DESC LIMIT 8. Bound with :maxLat=43.649692611283434, :minLat=43.13176086911654, :maxLon=-79.536245737499996, :minLon=-79.975698862499996.
+2016/09/09 21:58:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Price' in 'order clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/NgdevgetController.php(260): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseList()
+#8 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#9 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#10 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseList')
+#12 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#13 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#14 /var/www/mhtml/index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseList
+HTTP_REFERER=http://localhost:8100/
+---
+2016/09/09 21:58:02 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Price' in 'order clause'. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`ml_num` AS `t0_c92`, `t`.`zip` AS `t0_c96`, `t`.`s_r` AS `t0_c177`, `t`.`county` AS `t0_c103`, `t`.`municipality` AS `t0_c93`, `t`.`lp_dol` AS `t0_c88`, `t`.`num_kit` AS `t0_c74`, `t`.`construction_year` AS `t0_c28`, `t`.`br` AS `t0_c61`, `t`.`addr` AS `t0_c183`, `t`.`longitude` AS `t0_c36`, `t`.`latitude` AS `t0_c37`, `t`.`area` AS `t0_c57`, `t`.`bath_tot` AS `t0_c182`, `t`.`pix_updt` AS `t0_c95`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((((s_r = "Sale") AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon)) ORDER BY Price DESC LIMIT 8. Bound with :maxLat=43.649692611283434, :minLat=43.13176086911654, :maxLon=-79.536245737499996, :minLon=-79.975698862499996.
+2016/09/09 21:58:02 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Price' in 'order clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/NgdevgetController.php(260): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseList()
+#8 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#9 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#10 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseList')
+#12 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#13 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#14 /var/www/mhtml/index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseList
+HTTP_REFERER=http://localhost:8100/
+---
+2016/09/09 21:58:03 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Price' in 'order clause'. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`ml_num` AS `t0_c92`, `t`.`zip` AS `t0_c96`, `t`.`s_r` AS `t0_c177`, `t`.`county` AS `t0_c103`, `t`.`municipality` AS `t0_c93`, `t`.`lp_dol` AS `t0_c88`, `t`.`num_kit` AS `t0_c74`, `t`.`construction_year` AS `t0_c28`, `t`.`br` AS `t0_c61`, `t`.`addr` AS `t0_c183`, `t`.`longitude` AS `t0_c36`, `t`.`latitude` AS `t0_c37`, `t`.`area` AS `t0_c57`, `t`.`bath_tot` AS `t0_c182`, `t`.`pix_updt` AS `t0_c95`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((((s_r = "Sale") AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon)) ORDER BY Price DESC LIMIT 8. Bound with :maxLat=43.649692611283434, :minLat=43.13176086911654, :maxLon=-79.536245737499996, :minLon=-79.975698862499996.
+2016/09/09 21:58:03 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Price' in 'order clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/NgdevgetController.php(260): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseList()
+#8 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#9 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#10 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseList')
+#12 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#13 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#14 /var/www/mhtml/index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseList
+HTTP_REFERER=http://localhost:8100/
+---
+2016/09/09 21:58:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Price' in 'order clause'. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`ml_num` AS `t0_c92`, `t`.`zip` AS `t0_c96`, `t`.`s_r` AS `t0_c177`, `t`.`county` AS `t0_c103`, `t`.`municipality` AS `t0_c93`, `t`.`lp_dol` AS `t0_c88`, `t`.`num_kit` AS `t0_c74`, `t`.`construction_year` AS `t0_c28`, `t`.`br` AS `t0_c61`, `t`.`addr` AS `t0_c183`, `t`.`longitude` AS `t0_c36`, `t`.`latitude` AS `t0_c37`, `t`.`area` AS `t0_c57`, `t`.`bath_tot` AS `t0_c182`, `t`.`pix_updt` AS `t0_c95`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((((s_r = "Sale") AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon)) ORDER BY Price DESC LIMIT 8. Bound with :maxLat=43.649692611283434, :minLat=43.13176086911654, :maxLon=-79.536245737499996, :minLon=-79.975698862499996.
+2016/09/09 21:58:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Price' in 'order clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/NgdevgetController.php(260): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseList()
+#8 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#9 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#10 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseList')
+#12 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#13 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#14 /var/www/mhtml/index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseList
+HTTP_REFERER=http://localhost:8100/
+---
+2016/09/09 21:58:05 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Price' in 'order clause'. The SQL statement executed was: SELECT `t`.`id` AS `t0_c0`, `t`.`ml_num` AS `t0_c92`, `t`.`zip` AS `t0_c96`, `t`.`s_r` AS `t0_c177`, `t`.`county` AS `t0_c103`, `t`.`municipality` AS `t0_c93`, `t`.`lp_dol` AS `t0_c88`, `t`.`num_kit` AS `t0_c74`, `t`.`construction_year` AS `t0_c28`, `t`.`br` AS `t0_c61`, `t`.`addr` AS `t0_c183`, `t`.`longitude` AS `t0_c36`, `t`.`latitude` AS `t0_c37`, `t`.`area` AS `t0_c57`, `t`.`bath_tot` AS `t0_c182`, `t`.`pix_updt` AS `t0_c95`, `mname`.`municipality` AS `t1_c0`, `mname`.`municipality_cname` AS `t1_c1`, `mname`.`lat` AS `t1_c2`, `mname`.`lng` AS `t1_c3`, `mname`.`province` AS `t1_c4`, `mname`.`count` AS `t1_c5`, `propertyType`.`id` AS `t2_c0`, `propertyType`.`name` AS `t2_c1`, `city`.`id` AS `t3_c0`, `city`.`name` AS `t3_c1`, `city`.`pinyin` AS `t3_c2`, `city`.`englishName` AS `t3_c3`, `city`.`describe` AS `t3_c4`, `city`.`lat` AS `t3_c5`, `city`.`lnt` AS `t3_c6`, `city`.`province_id` AS `t3_c7`, `city`.`avail` AS `t3_c8` FROM `h_house` `t`  LEFT OUTER JOIN `h_mname` `mname` ON (`t`.`municipality`=`mname`.`municipality`)  LEFT OUTER JOIN `h_property_type` `propertyType` ON (`t`.`propertyType_id`=`propertyType`.`id`)  LEFT OUTER JOIN `h_city` `city` ON (`t`.`city_id`=`city`.`id`)  WHERE (((((s_r = "Sale") AND (t.latitude <= :maxLat)) AND (t.latitude >= :minLat)) AND (t.longitude <= :maxLon)) AND (t.longitude >= :minLon)) ORDER BY Price DESC LIMIT 8. Bound with :maxLat=43.649692611283434, :minLat=43.13176086911654, :maxLon=-79.536245737499996, :minLon=-79.975698862499996.
+2016/09/09 21:58:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Price' in 'order clause'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9264): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/mhtml/framework/db/ar/CActiveFinder.php(803): CDbCommand->queryAll()
+#2 /var/www/mhtml/framework/db/ar/CActiveFinder.php(437): CJoinElement->runQuery(Object(CJoinQuery))
+#3 /var/www/mhtml/framework/db/ar/CActiveFinder.php(68): CJoinElement->find(Object(CDbCriteria))
+#4 /var/www/mhtml/framework/yiilite.php(7817): CActiveFinder->query(Object(CDbCriteria), true)
+#5 /var/www/mhtml/framework/yiilite.php(7881): CActiveRecord->query(Object(CDbCriteria), true)
+#6 /var/www/mhtml/protected/controllers/NgdevgetController.php(260): CActiveRecord->findAll(Object(CDbCriteria))
+#7 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseList()
+#8 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#9 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#10 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseList')
+#12 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#13 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#14 /var/www/mhtml/index.php(19): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseList
+HTTP_REFERER=http://localhost:8100/
+---
