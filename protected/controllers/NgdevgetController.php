@@ -1606,7 +1606,7 @@ class NgDevGetController extends XFrontBase
     		default:
 		$sortBy = 'lp_dol';
 		}
-		$sortOrder = ($postParms['sortOrder'] = 1)? 'DESC':'ASC';
+		$sortOrder = ($postParms['sortOrder'] == 1)? 'DESC':'ASC';
 		$criteria->order = $sortBy." ".$sortOrder;
 	
 	}
