@@ -964,7 +964,7 @@ class NgDevGetController extends XFrontBase
 				
 				//Type ADDRESS ARRAY
 				$result['paiming'] = $row["p"]; 
-				$result['school'] = $row["school"];
+				$result['value'] = $row["school"];
 				$result['lat'] = $row["lat"];
 				$result['lng'] = $row["lng"];
 				$results['SCHOOL'][] = $result;
