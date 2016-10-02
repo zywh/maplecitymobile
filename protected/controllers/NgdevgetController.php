@@ -1046,8 +1046,9 @@ class NgDevGetController extends XFrontBase
 	public function isValidIdToken(){
 		error_reporting(-1); // reports all errors
 		$headers = getallheaders();
+		error_log(print_r($headers));
 		$tokens = explode(" ", $headers['Authorization']);
-		//error_log($tokens);
+		//error_log(print_r($tokens));
 		if ($tokens[0] == "Bearer") {
 			//error_log($tokens[0]);
 			//error_log($tokens[1]);
