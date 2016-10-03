@@ -72,6 +72,7 @@ class NgDevGetController extends XFrontBase
 		}
     }	
 
+
 	//REST to return either list of GRID and HOUSEes for map search page
     public function actionGetMapHouse() {
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
@@ -1004,7 +1005,7 @@ class NgDevGetController extends XFrontBase
             $exchangeRate = $exchangeRateList[0]->rate;
         }
 
- //照片
+
         $county = $house->county;
         $county = preg_replace('/\s+/', '', $county);
         $county = str_replace("&","",$county);
@@ -1027,9 +1028,14 @@ class NgDevGetController extends XFrontBase
         }
 		
 		$isFav = 0;
+		
 		if ($username != 'NO'){
-			if ($this->isValidIdToken()) $isFav = $this->checkfav($username,$id);
+			if ($this->isValidIdToken()) {
+				error_log("Token is valid:".$username);
+				$isFav = $this->checkfav($username,$id);
+			}
 		}
+		
 
         $data = array(
 			'house'           => $house->getAttributes(),
@@ -1041,13 +1047,17 @@ class NgDevGetController extends XFrontBase
         );
 
 		echo json_encode($data);
+		
     }	
 
 	public function isValidIdToken(){
 		error_reporting(-1); // reports all errors
 		$headers = getallheaders();
+
+		$auth = $headers['Authorization']? $headers['Authorization']: $headers['authorization'];
 		error_log(print_r($headers,true));
-		$tokens = explode(" ", $headers['Authorization']);
+		//$tokens = explode(" ", $headers['Authorization']);
+		$tokens = explode(" ", $auth);
 		error_log(print_r($tokens,true));
 		if ($tokens[0] == "Bearer") {
 			//error_log($tokens[0]);
