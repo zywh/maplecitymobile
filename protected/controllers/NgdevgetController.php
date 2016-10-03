@@ -1031,7 +1031,7 @@ class NgDevGetController extends XFrontBase
 		
 		if ($username != 'NO'){
 			if ($this->isValidIdToken()) {
-				error_log("Token is valid:".$username);
+				//error_log("Token is valid:".$username);
 				$isFav = $this->checkfav($username,$id);
 			}
 		}
@@ -1051,7 +1051,7 @@ class NgDevGetController extends XFrontBase
     }	
 
 	public function isValidIdToken(){
-		error_reporting(-1); // reports all errors
+		//error_reporting(-1); // reports all errors
 		$headers = getallheaders();
 
 		$auth = $headers['Authorization']? $headers['Authorization']: $headers['authorization'];
