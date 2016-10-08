@@ -11,8 +11,8 @@ class NgGetController extends XFrontBase
     private $imgHost ="http://m.maplecity.com.cn/";
     private $MAPLEAPP_SPA_SECRET = "Wg1qczn2IKXHEfzOCtqFbFCwKhu-kkqiAKlBRx_7VotguYFnKOWZMJEuDVQMXVnG";
     private $MAPLEAPP_SPA_AUD = ['9fNpEj70wvf86dv5DeXPijTnkLVX5QZi'];
-    private $PROFILE_FAVLIST_MAX = 7;
-    private $PROFILE_CENTER_MAX = 3;
+    private $PROFILE_FAVLIST_MAX = 20;
+    private $PROFILE_CENTER_MAX = 10;
 
     function __construct() {
                 ini_set("display_errors", "1"); // shows all errors
@@ -71,6 +71,7 @@ class NgGetController extends XFrontBase
 			echo json_encode($results);
 		}
     }	
+
 
 	//REST to return either list of GRID and HOUSEes for map search page
     public function actionGetMapHouse() {
@@ -712,6 +713,31 @@ class NgGetController extends XFrontBase
       
     }
 
+	/*Current House Stats data for stats page*/
+	public function actionGetHelp(){
+		$db = Yii::app()->db;
+		$result = array();
+		
+		$sql = "select * from h_mobile_help";
+		$resultsql = $db->createCommand($sql)->query();
+		
+		foreach($resultsql as $row){
+			$s["id"] = $row["id"];
+			$s["subject"] = $row["subject"];
+			$s["text"] = $row["text"];
+			$s["category"] = $row["category"];
+			$result[] = $s;
+						
+		}
+		
+
+       	//End of count
+		
+       echo json_encode($result);
+	  
+
+      
+    }
 	/*School List for School Map Page*/	
     public function actionGetSchoolMap() {
 		$_POST = (array) json_decode(file_get_contents('php://input'), true);
@@ -939,7 +965,7 @@ class NgGetController extends XFrontBase
 				
 				//Type ADDRESS ARRAY
 				$result['paiming'] = $row["p"]; 
-				$result['school'] = $row["school"];
+				$result['value'] = $row["school"];
 				$result['lat'] = $row["lat"];
 				$result['lng'] = $row["lng"];
 				$results['SCHOOL'][] = $result;
@@ -979,7 +1005,7 @@ class NgGetController extends XFrontBase
             $exchangeRate = $exchangeRateList[0]->rate;
         }
 
- //照片
+
         $county = $house->county;
         $county = preg_replace('/\s+/', '', $county);
         $county = str_replace("&","",$county);
@@ -1002,9 +1028,14 @@ class NgGetController extends XFrontBase
         }
 		
 		$isFav = 0;
+		
 		if ($username != 'NO'){
-			if ($this->isValidIdToken()) $isFav = $this->checkfav($username,$id);
+			if ($this->isValidIdToken()) {
+				//error_log("Token is valid:".$username);
+				$isFav = $this->checkfav($username,$id);
+			}
 		}
+		
 
         $data = array(
 			'house'           => $house->getAttributes(),
@@ -1016,13 +1047,18 @@ class NgGetController extends XFrontBase
         );
 
 		echo json_encode($data);
+		
     }	
 
 	public function isValidIdToken(){
-		error_reporting(-1); // reports all errors
+		//error_reporting(-1); // reports all errors
 		$headers = getallheaders();
-		$tokens = explode(" ", $headers['Authorization']);
-		//error_log($tokens);
+
+		$auth = $headers['Authorization']? $headers['Authorization']: $headers['authorization'];
+		error_log(print_r($headers,true));
+		//$tokens = explode(" ", $headers['Authorization']);
+		$tokens = explode(" ", $auth);
+		error_log(print_r($tokens,true));
 		if ($tokens[0] == "Bearer") {
 			//error_log($tokens[0]);
 			//error_log($tokens[1]);
@@ -1566,8 +1602,27 @@ class NgGetController extends XFrontBase
                 $criteria->addCondition("t.longitude >= :minLon");
                 $criteria->params += array(':minLon' => $minLon);
             } 
+	 if (!empty($postParms['sortType'])) {
+		$s = $postParms['sortType'];	
+		switch ($s) {
+		case 'Price':
+        	$sortBy = 'lp_dol';
+		break;
+		case 'ListDate':
+        	$sortBy = 'pix_updt';
+		break;
+		case 'Beds':
+                $sortBy = 'br';
+                break;
+    		default:
+		$sortBy = 'lp_dol';
+		}
+		$sortOrder = ($postParms['sortOrder'] == 1)? 'DESC':'ASC';
+		$criteria->order = $sortBy." ".$sortOrder;
+	
+	}
+
 			
-			//$criteria->order = 'pix_updt DESC,city_id ASC,lp_dol DESC';
 			return $criteria;
 	}
 }

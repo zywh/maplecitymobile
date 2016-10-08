@@ -1,5 +1,5 @@
 {
-	"verison":"1.0.0",
+	"verison":"0.1",
 	"feedbackEmail": "info@maplecity.com.cn",
     "picHost": "http://www.maplecity.com.cn/mlspic/crea/",
 	"postpicHost": "http://www.maplecity.com.cn/",
@@ -21,6 +21,7 @@
 	"houseDetailRest": "index.php?r=ngget/getHouseDetail",
 	"aboutRest": "index.php?r=ngget/getAbout",
 	"postRest": "index.php?r=ngget/getPost",
+	"helpRest": "index.php?r=ngget/getHelp",
 	"postListRest": "index.php?r=ngget/getPostList",
 	"hpiStatsRest": "index.php?r=ngget/getHpiStats",
 	"getUserDataRest": "index.php?r=ngget/getUserData",
