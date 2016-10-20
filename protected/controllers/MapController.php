@@ -51,6 +51,10 @@ class MapController extends XFrontBase {
 
             //根据条件查询地图
             $criteria = new CDbCriteria();
+			
+			//VOW limits
+			$criteria->addCondition('src != "VOW"');
+			
 			$criteria->addCondition('s_r = "Sale"');
 			//lat and long selection
             if (!empty($_POST['bounds'])) {
@@ -277,6 +281,8 @@ class MapController extends XFrontBase {
 
             //根据条件查询地图
             $criteria = new CDbCriteria();
+			//VOW limits
+			$criteria->addCondition('src != "VOW"');
 			//$gridcriteria = new CDbCriteria();
             
 

@@ -41,6 +41,11 @@ class MhouseController extends XFrontBase
 
 		//根据条件查询地图
 		$criteria = new CDbCriteria();
+		
+		//VOW limits
+		$criteria->addCondition('src != "VOW"');
+		
+		
 		$criteria->select = 'ml_num,zip,county,s_r,municipality,lp_dol,num_kit,construction_year,depth,front_ft,br,addr,house_image,longitude,latitude,area,bath_tot';
 
 
