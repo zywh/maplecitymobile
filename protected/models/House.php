@@ -192,6 +192,7 @@
  * @property string $rm12_dc2_out
  * @property string $rm3_dc3_out
  * @property string $acres
+ * @property string $src
  */
 class House extends CActiveRecord
 {
@@ -215,19 +216,20 @@ class House extends CActiveRecord
 			array('subject_id, accessDate, recommend, city_id, district_id, investType_id, propertyType_id, floor_num, bedroom_num, toilet_num, kitchen_num, park_num, construction_year, certificate, is_sell, gar_spaces, tax_year, br, br_plus, num_kit, kit_plus, lp_dol, rms, rooms_plus, yr, bath_tot', 'numerical', 'integerOnly'=>true),
 			array('depth, front_ft', 'numerical'),
 			array('name, location, house_image, video_url, cross_streets, heat, mls_province, mls_area, mls_area_code, mls_municipality, mls_municp_code, yr_built, sqft, area, area_code, bsmt1_out, bsmt2_out', 'length', 'max'=>255),
-			array('prepay, total_price, land_area, house_area, latitude, taxes', 'length', 'max'=>8),
+			array('prepay, total_price, house_area, latitude, taxes', 'length', 'max'=>8),
 			array('author, community', 'length', 'max'=>50),
-			array('house_style, house_size, door_direction, zipcode, lift, carport, embassy, mls_code, facilities, match, a_c, central_vac, basement, pool, fireplace_stove, community_c, cross_st, elevator, constr1_out, constr2_out, fpl_num, comp_pts, fuel, heating, level1, level10, level11, level12, level2, level3, level4, level5, level6, level7, level8, level9, ml_num, municipality, municipality_code, zip, prop_feat1_out, prop_feat2_out, prop_feat3_out, prop_feat4_out, prop_feat5_out, prop_feat6_out, county, ad_text, rm1_out, rm1_dc1_out, rm1_dc2_out, rm1_dc3_out, rm2_out, rm2_dc1_out, rm2_dc2_out, rm2_dc3_out, rm3_out, rm4_out, rm4_dc1_out, rm4_dc2_out, rm4_dc3_out, rm5_out, rm5_dc1_out, rm5_dc2_out, rm5_dc3_out, rm6_out, rm6_dc1_out, rm6_dc2_out, rm6_dc3_out, rm7_out, rm7_dc1_out, rm7_dc2_out, rm7_dc3_out, rm8_out, rm8_dc1_out, rm8_dc2_out, rm8_dc3_out, rm9_out, rm9_dc1_out, rm9_dc2_out, rm9_dc3_out, s_r, style, type_own1_out, tour_url, addr, community_code, rm12_dc2_out, rm3_dc3_out', 'length', 'max'=>100),
+			array('land_area, src', 'length', 'max'=>20),
+			array('house_style, house_size, door_direction, zipcode, lift, carport, embassy, mls_code, facilities, match, a_c, central_vac, basement, pool, fireplace_stove, community_c, cross_st, elevator, constr1_out, constr2_out, fpl_num, comp_pts, fuel, heating, level1, level10, level11, level12, level2, level3, level4, level5, level6, level7, level8, level9, ml_num, municipality, municipality_code, zip, prop_feat1_out, prop_feat2_out, prop_feat3_out, prop_feat4_out, prop_feat5_out, prop_feat6_out, county, rm1_out, rm1_dc1_out, rm1_dc2_out, rm1_dc3_out, rm2_out, rm2_dc1_out, rm2_dc2_out, rm2_dc3_out, rm3_out, rm4_out, rm4_dc1_out, rm4_dc2_out, rm4_dc3_out, rm5_out, rm5_dc1_out, rm5_dc2_out, rm5_dc3_out, rm6_out, rm6_dc1_out, rm6_dc2_out, rm6_dc3_out, rm7_out, rm7_dc1_out, rm7_dc2_out, rm7_dc3_out, rm8_out, rm8_dc1_out, rm8_dc2_out, rm8_dc3_out, rm9_out, rm9_dc1_out, rm9_dc2_out, rm9_dc3_out, s_r, style, type_own1_out, tour_url, addr, community_code, rm12_dc2_out, rm3_dc3_out', 'length', 'max'=>100),
 			array('longitude, furnished', 'length', 'max'=>10),
 			array('lotsz_code', 'length', 'max'=>11),
 			array('rm1_len, rm1_wth, rm10_wth, rm10_len, rm11_len, rm11_wth, rm12_len, rm12_wth, rm2_len, rm2_wth, rm3_len, rm3_wth, rm4_len, rm4_wth, rm5_len, rm5_wth, rm6_len, rm6_wth, rm7_len, rm7_wth, rm8_len, rm8_wth, rm9_len, rm9_wth', 'length', 'max'=>5),
 			array('rm10_out, rm10_dc1_out, rm10_dc2_out, rm10_dc3_out, rm11_out, rm11_dc1_out, rm11_dc2_out, rm11_dc3_out, rm12_out, rm12_dc1_out, rm12_dc3_out', 'length', 'max'=>500),
 			array('rm3_dc1_out, rm3_dc2_out', 'length', 'max'=>150),
 			array('acres', 'length', 'max'=>80),
-			array('introduction, image_list, extras, pix_updt', 'safe'),
+			array('introduction, image_list, extras, pix_updt, ad_text', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, prepay, total_price, subject_id, accessDate, location, introduction, house_image, image_list, video_url, author, recommend, city_id, district_id, community, investType_id, propertyType_id, land_area, house_area, floor_num, house_style, bedroom_num, toilet_num, kitchen_num, park_num, house_size, door_direction, construction_year, zipcode, certificate, lift, carport, embassy, mls_code, facilities, longitude, latitude, match, is_sell, a_c, central_vac, gar_spaces, basement, pool, fireplace_stove, taxes, tax_year, cross_streets, heat, mls_province, mls_area, mls_area_code, mls_municipality, mls_municp_code, yr_built, sqft, area, area_code, bsmt1_out, bsmt2_out, br, br_plus, community_c, cross_st, elevator, constr1_out, constr2_out, extras, fpl_num, comp_pts, furnished, fuel, heating, num_kit, kit_plus, level1, level10, level11, level12, level2, level3, level4, level5, level6, level7, level8, level9, lp_dol, depth, front_ft, lotsz_code, ml_num, municipality, municipality_code, pix_updt, zip, prop_feat1_out, prop_feat2_out, prop_feat3_out, prop_feat4_out, prop_feat5_out, prop_feat6_out, county, ad_text, rm1_out, rm1_dc1_out, rm1_dc2_out, rm1_dc3_out, rm1_len, rm1_wth, rm10_out, rm10_dc1_out, rm10_dc2_out, rm10_dc3_out, rm10_wth, rm11_out, rm11_dc1_out, rm11_dc2_out, rm11_dc3_out, rm10_len, rm11_len, rm11_wth, rm12_out, rm12_dc1_out, rm12_dc3_out, rm12_len, rm12_wth, rm2_out, rm2_dc1_out, rm2_dc2_out, rm2_dc3_out, rm2_len, rm2_wth, rm3_out, rm3_dc1_out, rm3_dc2_out, rm3_len, rm3_wth, rm4_out, rm4_dc1_out, rm4_dc2_out, rm4_dc3_out, rm4_len, rm4_wth, rm5_out, rm5_dc1_out, rm5_dc2_out, rm5_dc3_out, rm5_len, rm5_wth, rm6_out, rm6_dc1_out, rm6_dc2_out, rm6_dc3_out, rm6_len, rm6_wth, rm7_out, rm7_dc1_out, rm7_dc2_out, rm7_dc3_out, rm7_len, rm7_wth, rm8_out, rm8_dc1_out, rm8_dc2_out, rm8_dc3_out, rm8_len, rm8_wth, rm9_out, rm9_dc1_out, rm9_dc2_out, rm9_dc3_out, rm9_len, rm9_wth, rms, rooms_plus, s_r, style, yr, type_own1_out, tour_url, bath_tot, addr, community_code, rm12_dc2_out, rm3_dc3_out, acres', 'safe', 'on'=>'search'),
+			array('id, name, prepay, total_price, subject_id, accessDate, location, introduction, house_image, image_list, video_url, author, recommend, city_id, district_id, community, investType_id, propertyType_id, land_area, house_area, floor_num, house_style, bedroom_num, toilet_num, kitchen_num, park_num, house_size, door_direction, construction_year, zipcode, certificate, lift, carport, embassy, mls_code, facilities, longitude, latitude, match, is_sell, a_c, central_vac, gar_spaces, basement, pool, fireplace_stove, taxes, tax_year, cross_streets, heat, mls_province, mls_area, mls_area_code, mls_municipality, mls_municp_code, yr_built, sqft, area, area_code, bsmt1_out, bsmt2_out, br, br_plus, community_c, cross_st, elevator, constr1_out, constr2_out, extras, fpl_num, comp_pts, furnished, fuel, heating, num_kit, kit_plus, level1, level10, level11, level12, level2, level3, level4, level5, level6, level7, level8, level9, lp_dol, depth, front_ft, lotsz_code, ml_num, municipality, municipality_code, pix_updt, zip, prop_feat1_out, prop_feat2_out, prop_feat3_out, prop_feat4_out, prop_feat5_out, prop_feat6_out, county, ad_text, rm1_out, rm1_dc1_out, rm1_dc2_out, rm1_dc3_out, rm1_len, rm1_wth, rm10_out, rm10_dc1_out, rm10_dc2_out, rm10_dc3_out, rm10_wth, rm11_out, rm11_dc1_out, rm11_dc2_out, rm11_dc3_out, rm10_len, rm11_len, rm11_wth, rm12_out, rm12_dc1_out, rm12_dc3_out, rm12_len, rm12_wth, rm2_out, rm2_dc1_out, rm2_dc2_out, rm2_dc3_out, rm2_len, rm2_wth, rm3_out, rm3_dc1_out, rm3_dc2_out, rm3_len, rm3_wth, rm4_out, rm4_dc1_out, rm4_dc2_out, rm4_dc3_out, rm4_len, rm4_wth, rm5_out, rm5_dc1_out, rm5_dc2_out, rm5_dc3_out, rm5_len, rm5_wth, rm6_out, rm6_dc1_out, rm6_dc2_out, rm6_dc3_out, rm6_len, rm6_wth, rm7_out, rm7_dc1_out, rm7_dc2_out, rm7_dc3_out, rm7_len, rm7_wth, rm8_out, rm8_dc1_out, rm8_dc2_out, rm8_dc3_out, rm8_len, rm8_wth, rm9_out, rm9_dc1_out, rm9_dc2_out, rm9_dc3_out, rm9_len, rm9_wth, rms, rooms_plus, s_r, style, yr, type_own1_out, tour_url, bath_tot, addr, community_code, rm12_dc2_out, rm3_dc3_out, acres, src', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -238,7 +240,7 @@ class House extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
+      return array(
                         'mname'=>array(self::BELONGS_TO, 'Mname', 'municipality'),
                         'city'=>array(self::BELONGS_TO, 'City', 'city_id'),
                         'district'=>array(self::BELONGS_TO, 'District', 'district_id'),
@@ -246,7 +248,8 @@ class House extends CActiveRecord
                         'investType'=>array(self::BELONGS_TO, 'InvestType', 'investType_id'),
                         'propertyType'=>array(self::BELONGS_TO, 'PropertyType', 'propertyType_id'),
 
-		);
+                );
+
 	}
 
 	/**
@@ -443,6 +446,7 @@ class House extends CActiveRecord
 			'rm12_dc2_out' => 'Rm12 Dc2 Out',
 			'rm3_dc3_out' => 'Rm3 Dc3 Out',
 			'acres' => 'Acres',
+			'src' => 'Src',
 		);
 	}
 
@@ -652,6 +656,7 @@ class House extends CActiveRecord
 		$criteria->compare('rm12_dc2_out',$this->rm12_dc2_out,true);
 		$criteria->compare('rm3_dc3_out',$this->rm3_dc3_out,true);
 		$criteria->compare('acres',$this->acres,true);
+		$criteria->compare('src',$this->src,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
