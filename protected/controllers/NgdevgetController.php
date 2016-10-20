@@ -1108,11 +1108,13 @@ class NgDevGetController extends XFrontBase
 		$username = $postParms['username'];
 		//$username = 'zhengyin@yahoo.com';
 		$db = Yii::app()->db;
-		$sql ='select houseFav,routeFav,recentView from h_user_data where username="'.$username.'"';
+		$sql ='select houseFav,routeFav,recentView,JSON_LENGTH(myCenter) as myCenter, JSON_LENGTH(recentCenter) as recentCenter from h_user_data where username="'.$username.'"';
 		$resultsql = $db->createCommand($sql)->queryRow();
 		$data['houseFav'] = $this->countfav($resultsql['houseFav']);
 		$data['routeFav'] = $this->countfav($resultsql['routeFav']);
 		$data['recentView'] = $this->countfav($resultsql['recentView']);
+		$data['recentCenter'] = $resultsql['recentCenter'];
+		$data['myCenter'] = $resultsql['myCenter'];
 		echo json_encode($data);
 
 		
