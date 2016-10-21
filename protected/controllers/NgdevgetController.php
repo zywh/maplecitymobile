@@ -94,6 +94,11 @@ class NgDevGetController extends XFrontBase
 
             $criteria = new CDbCriteria();
 			$criteria = $this->houseOption($postParms);
+
+			//exclude VOW List if no JWT token
+			if (!$this->isValidIdToken()) {  
+				$criteria->addCondition('src != "VOW"');
+			};
 			$latlon = explode(',', $postParms['bounds']);
 			$minLat = floatval($latlon[0]);
 			$maxLat = floatval($latlon[2]);
@@ -249,6 +254,9 @@ class NgDevGetController extends XFrontBase
            
       
 			$criteria = $this->houseOption($postParms);
+			if (!$this->isValidIdToken()) {  
+				$criteria->addCondition('src != "VOW"');
+			};
 			$count = House::model()->count($criteria);
 			$pager = new CPagination($count);
 			$pager->pageSize = 8;
