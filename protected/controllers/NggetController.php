@@ -8,7 +8,8 @@ spl_autoload_register(array('YiiBase','autoload'));
 class NgGetController extends XFrontBase
 {
 	
-    private $imgHost ="http://m.maplecity.com.cn/";
+    //private $imgHost ="http://m.maplecity.com.cn/";
+	private $imgHost ="http://ca.maplecity.com.cn/";
     private $MAPLEAPP_SPA_SECRET = "Wg1qczn2IKXHEfzOCtqFbFCwKhu-kkqiAKlBRx_7VotguYFnKOWZMJEuDVQMXVnG";
     private $MAPLEAPP_SPA_AUD = ['9fNpEj70wvf86dv5DeXPijTnkLVX5QZi'];
     private $PROFILE_FAVLIST_MAX = 20;
@@ -94,6 +95,11 @@ class NgGetController extends XFrontBase
 
             $criteria = new CDbCriteria();
 			$criteria = $this->houseOption($postParms);
+
+			//exclude VOW List if no JWT token
+			if (!$this->isValidIdToken()) {  
+				$criteria->addCondition('src != "VOW"');
+			};
 			$latlon = explode(',', $postParms['bounds']);
 			$minLat = floatval($latlon[0]);
 			$maxLat = floatval($latlon[2]);
@@ -249,6 +255,9 @@ class NgGetController extends XFrontBase
            
       
 			$criteria = $this->houseOption($postParms);
+			if (!$this->isValidIdToken()) {  
+				$criteria->addCondition('src != "VOW"');
+			};
 			$count = House::model()->count($criteria);
 			$pager = new CPagination($count);
 			$pager->pageSize = 8;
@@ -1108,11 +1117,13 @@ class NgGetController extends XFrontBase
 		$username = $postParms['username'];
 		//$username = 'zhengyin@yahoo.com';
 		$db = Yii::app()->db;
-		$sql ='select houseFav,routeFav,recentView from h_user_data where username="'.$username.'"';
+		$sql ='select houseFav,routeFav,recentView,JSON_LENGTH(myCenter) as myCenter, JSON_LENGTH(recentCenter) as recentCenter from h_user_data where username="'.$username.'"';
 		$resultsql = $db->createCommand($sql)->queryRow();
 		$data['houseFav'] = $this->countfav($resultsql['houseFav']);
 		$data['routeFav'] = $this->countfav($resultsql['routeFav']);
 		$data['recentView'] = $this->countfav($resultsql['recentView']);
+		$data['recentCenter'] = $resultsql['recentCenter'];
+		$data['myCenter'] = $resultsql['myCenter'];
 		echo json_encode($data);
 
 		
