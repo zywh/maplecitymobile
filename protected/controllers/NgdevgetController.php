@@ -8,7 +8,8 @@ spl_autoload_register(array('YiiBase','autoload'));
 class NgDevGetController extends XFrontBase
 {
 	
-    private $imgHost ="http://m.maplecity.com.cn/";
+    //private $imgHost ="http://m.maplecity.com.cn/";
+	private $imgHost ="http://ca.maplecity.com.cn/";
     private $MAPLEAPP_SPA_SECRET = "Wg1qczn2IKXHEfzOCtqFbFCwKhu-kkqiAKlBRx_7VotguYFnKOWZMJEuDVQMXVnG";
     private $MAPLEAPP_SPA_AUD = ['9fNpEj70wvf86dv5DeXPijTnkLVX5QZi'];
     private $PROFILE_FAVLIST_MAX = 20;
