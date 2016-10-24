@@ -95,11 +95,12 @@ class NgDevGetController extends XFrontBase
 
             $criteria = new CDbCriteria();
 			$criteria = $this->houseOption($postParms);
-
+/*
 			//exclude VOW List if no JWT token
 			if (!$this->isValidIdToken()) {  
 				$criteria->addCondition('src != "VOW"');
 			};
+*/
 			$latlon = explode(',', $postParms['bounds']);
 			$minLat = floatval($latlon[0]);
 			$maxLat = floatval($latlon[2]);
@@ -255,9 +256,11 @@ class NgDevGetController extends XFrontBase
            
       
 			$criteria = $this->houseOption($postParms);
+/*
 			if (!$this->isValidIdToken()) {  
 				$criteria->addCondition('src != "VOW"');
 			};
+*/
 			$count = House::model()->count($criteria);
 			$pager = new CPagination($count);
 			$pager->pageSize = 8;
@@ -1447,20 +1450,20 @@ class NgDevGetController extends XFrontBase
 		foreach ($house as $val) {
 			$mapHouseList = array();
 			$mapHouseList['ListDate'] = $val->pix_updt;
-			$mapHouseList['Beds'] = $val->br;
-			$mapHouseList['Baths'] = $val->bath_tot;
-			$mapHouseList['Kitchen'] = $val->num_kit;
-			$mapHouseList['GeocodeLat'] = $val->latitude;
-			$mapHouseList['GeocodeLng'] = $val->longitude;
-			$mapHouseList['Address'] = !empty($val->addr)?$val->addr : "不详";
-			$mapHouseList['SaleLease'] = $val->s_r; 
+			$mapHouseList['Beds'] = $this->maskVOW($val->src,$val->br);
+			$mapHouseList['Baths'] = $this->maskVOW($val->src,$val->bath_tot);
+			$mapHouseList['Kitchen'] = $this->maskVOW($val->src,$val->num_kit);
+			$mapHouseList['GeocodeLat'] = $this->maskVOW($val->src,$val->latitude);
+			$mapHouseList['GeocodeLng'] = $this->maskVOW($val->src,$val->longitude);
+			$mapHouseList['Address'] = $this->maskVOW($val->src,!empty($val->addr)?$val->addr : "不详", "登录用户可见"）;
+			$mapHouseList['SaleLease'] = $this->maskVOW($val->src,$val->s_r); 
 			//$mapHouseList['sqft'] = $val->sqft;
-			$mapHouseList['Price'] = $val->lp_dol;
+			$mapHouseList['Price'] = $this->maskVOW($val->src,$val->lp_dol);
 			//$mapHouseList['Id'] = $val->id;
 			$mapHouseList['HouseType'] = !empty($val->propertyType->name) ? $val->propertyType->name : '其他';
 			$mapHouseList['MunicipalityName'] = !empty($val->mname->municipality_cname)? ($val->mname->municipality_cname):"其他";
 			$mapHouseList['CountryName'] = $val->municipality;
-			$mapHouseList['Zip'] = $val->zip;
+			$mapHouseList['Zip'] = $this->maskVOW($val->src,$val->zip);
 			$mapHouseList['MLS'] = $val->ml_num;
 			$mapHouseList['Country'] = $val->city_id;
 			$mapHouseList['ProvinceEname'] = $val->county;
@@ -1481,11 +1484,12 @@ class NgDevGetController extends XFrontBase
 			if ( $num_files > 0)    {
 				$mapHouseList['CoverImg'] = $dir.$picfiles[2];
 				$mapHouseList['CoverImgtn'] = $dirtn.$picfiles[2];
-				
 			}else {
 				$mapHouseList['CoverImg'] = 'static/images/zanwu.jpg';
 				$mapHouseList['CoverImgtn'] = 'static/images/zanwu.jpg';
 			}
+			$mapHouseList['CoverImg'] = $this->maskVOW($val->src,$mapHouseList['CoverImg'],'static/images/zanwu.jpg');
+			$mapHouseList['CoverImgtn'] = $this->maskVOW($val->src,$mapHouseList['CoverImgtn'],'static/images/zanwu.jpg');
 
 
 			$result['Data']['HouseList'][] = $mapHouseList;
@@ -1636,5 +1640,14 @@ class NgDevGetController extends XFrontBase
 			
 			return $criteria;
 	}
-}
+
+	function maskVOW($src, $unmasked, $masked = ''){  
+		if ($src = "VOW" && $this->isValidIdToken()) {  
+			return $unmasked;
+		} else {
+			return $marked;
+		}
+	}
+	
+	}
 
