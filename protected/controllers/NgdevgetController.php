@@ -1066,11 +1066,9 @@ class NgDevGetController extends XFrontBase
 		//error_reporting(-1); // reports all errors
 		$headers = getallheaders();
 
-		$auth = $headers['Authorization']? $headers['Authorization']: $headers['authorization'];
-		error_log(print_r($headers,true));
-		//$tokens = explode(" ", $headers['Authorization']);
-		$tokens = explode(" ", $auth);
-		error_log(print_r($tokens,true));
+		//error_log(print_r($headers,true));
+		$token = explode(" ", $headers['Authorization']? $headers['Authorization']: $headers['authorization']);
+		//error_log(print_r($tokens,true));
 		if ($tokens[0] == "Bearer") {
 			//error_log($tokens[0]);
 			//error_log($tokens[1]);
@@ -1643,10 +1641,12 @@ class NgDevGetController extends XFrontBase
 
 	function maskVOW($src, $unmasked, $masked = ''){
 		error_log($src);
-		if ($src = "VOW" && $this->isValidIdToken()) {  
+		if ($src != 'VOW') {
+			return $unmasked;
+		} else if ($this->isValidIdToken()) {  
 			return $unmasked;
 		} else {
-			return $marked;
+			return $masked;
 		}
 	}
 	
