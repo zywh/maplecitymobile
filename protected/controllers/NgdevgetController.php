@@ -227,7 +227,7 @@ class NgDevGetController extends XFrontBase
 				$result['Data']['Type'] = "house";
 				//$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
 				$result['Data']['imgHost'] = $this->imgHost;
-				$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt';
+				$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt,src';
 				$criteria->with = array('mname','propertyType','city');
 				$criteria->order = "t.latitude,t.longitude";
 				$house = House::model()->findAll($criteria);
@@ -268,7 +268,7 @@ class NgDevGetController extends XFrontBase
 				$pager->currentPage = $postParms['pageindex'];
 			}
 			$pager->applyLimit($criteria);
-			$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt';
+			$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt,src';
 			$criteria->with = array('mname','propertyType','city');
 			$house = House::model()->findAll($criteria);
 			
@@ -1368,7 +1368,7 @@ class NgDevGetController extends XFrontBase
 		$resultsql = $db->createCommand($sql)->queryRow();
 		$favlist = explode(',',$resultsql[$type]);
 		//get list of house
-		$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt';
+		$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt,src';
 		$criteria->addInCondition('ml_num', $favlist);
 		$criteria->with = array('mname','propertyType','city');
 		//$criteria->order = "field(ml_num, 'N3571091', 'N3577563', 'N3586413', 'N3586138')";
@@ -1455,7 +1455,7 @@ class NgDevGetController extends XFrontBase
 			$mapHouseList['Kitchen'] = $this->maskVOW($val->src,$val->num_kit);
 			$mapHouseList['GeocodeLat'] = $this->maskVOW($val->src,$val->latitude);
 			$mapHouseList['GeocodeLng'] = $this->maskVOW($val->src,$val->longitude);
-			$mapHouseList['Address'] = $this->maskVOW($val->src,!empty($val->addr)?$val->addr : "不详", "登录用户可见"）;
+			$mapHouseList['Address'] = $this->maskVOW($val->src,!empty($val->addr)?$val->addr : "不详", "登录用户可见");
 			$mapHouseList['SaleLease'] = $this->maskVOW($val->src,$val->s_r); 
 			//$mapHouseList['sqft'] = $val->sqft;
 			$mapHouseList['Price'] = $this->maskVOW($val->src,$val->lp_dol);
@@ -1641,7 +1641,8 @@ class NgDevGetController extends XFrontBase
 			return $criteria;
 	}
 
-	function maskVOW($src, $unmasked, $masked = ''){  
+	function maskVOW($src, $unmasked, $masked = ''){
+		error_log($src);
 		if ($src = "VOW" && $this->isValidIdToken()) {  
 			return $unmasked;
 		} else {
