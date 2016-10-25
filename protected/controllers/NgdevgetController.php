@@ -1017,36 +1017,51 @@ class NgDevGetController extends XFrontBase
             $exchangeRate = $exchangeRateList[0]->rate;
         }
 
-
         $county = $house->county;
         $county = preg_replace('/\s+/', '', $county);
         $county = str_replace("&","",$county);
-
 		//$dir="mlspic/crea/creamid/".$county."/Photo".$house->ml_num."/";
         $rdir=$county."/Photo".$house->ml_num."/";
         $dir="mlspic/crea/".$rdir;
-        $num_files = 0;
 		$photos = array();
 
         if(is_dir($dir)){
             $picfiles =  scandir($dir);
-            $num_files = count(scandir($dir))-2;
-        }
-
-        if ( $num_files > 0)    {
-            for ($x = 2; $x <= $num_files + 1; $x++) {
-                $photos[] = $rdir.$picfiles[$x];
-            }    
+            $num_files = count($picfiles)-2;
+			if ( $num_files > 0)    {
+				for ($x = 2; $x <= $num_files + 1; $x++) {
+					$photos[] = $rdir.$picfiles[$x];
+				}    
+			}
         }
 		
 		$isFav = 0;
-		
 		if ($username != 'NO') {
 			if ($this->isValidIdToken()) {
 				//error_log("Token is valid:".$username);
 				$isFav = $this->checkfav($username,$id);
 			} 
 		} 
+
+		if ($house->src == 'VOW') {
+			$VOW_member_only=true;
+			if ($username != 'NO') {
+				if ($this->isValidIdToken()) {
+					$VOW_member_only=false;
+				}
+			}	
+
+			if ($VOW_member_only) {
+				$house->addr='登录用户可见';
+				$unmasked_fields=array('ml_num','addr','pix_updt');
+				foreach( $house as $key => $value ){
+					if (!is_array($key) && !in_array($key, $unmasked_fields)) {
+						$house[$key] = '';
+					}
+				}
+				$photos=array("static/images/zanwu.jpg");
+			}
+		}
 
 		$data = array(
 			'house'           => $house->getAttributes(),
@@ -1057,32 +1072,9 @@ class NgDevGetController extends XFrontBase
 			'isFav'			=> $isFav
 		);
 
-		if ($house->src == 'VOW') {
-			$house->addr='登录用户可见';
-			if ($username != 'NO') {
-				if (!$this->isValidIdToken()) {
-					$data = array(
-						//'house' => $house->getAttributes(array('ml_num','addr','pix_updt')),
-						'house' => $house->getAttributes(),
-						'house_mname' => $house->mname->getAttributes(),
-						'house_propertyType' => $house->propertyType->getAttributes(),
-						'exchangeRate'    => $exchangeRate,
-						'photos'          => $photos,
-						'isFav'			=> $isFav
-					);
-				}
-			} else {
-				$data = array(
-					//'house' => $house->getAttributes(array('ml_num','addr','pix_updt')),
-					'house' => $house->getAttributes(),
-					'house_mname' => $house->mname->getAttributes(),
-					'house_propertyType' => $house->propertyType->getAttributes(),
-					'exchangeRate'    => $exchangeRate,
-					'photos'          => $photos,
-					'isFav'			=> $isFav
-				);
-			}	
-		}			
+
+		}
+
 
 		echo json_encode($data);
 		
