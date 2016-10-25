@@ -1058,15 +1058,28 @@ class NgDevGetController extends XFrontBase
 		);
 
 		if ($house->src == 'VOW') {
+			$house->addr='登录用户可见';
 			if ($username != 'NO') {
 				if (!$this->isValidIdToken()) {
 					$data = array(
-						//'house' => array('addr' => '登录用户可见')
+						//'house' => $house->getAttributes(array('ml_num','addr','pix_updt')),
+						'house' => $house->getAttributes(),
+						'house_mname' => $house->mname->getAttributes(),
+						'house_propertyType' => $house->propertyType->getAttributes(),
+						'exchangeRate'    => $exchangeRate,
+						'photos'          => $photos,
+						'isFav'			=> $isFav
 					);
 				}
 			} else {
 				$data = array(
-					//'house' => { 'addr':'登录用户可见' }
+					//'house' => $house->getAttributes(array('ml_num','addr','pix_updt')),
+					'house' => $house->getAttributes(),
+					'house_mname' => $house->mname->getAttributes(),
+					'house_propertyType' => $house->propertyType->getAttributes(),
+					'exchangeRate'    => $exchangeRate,
+					'photos'          => $photos,
+					'isFav'			=> $isFav
 				);
 			}	
 		}			
