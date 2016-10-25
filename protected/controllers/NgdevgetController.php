@@ -1072,10 +1072,6 @@ class NgDevGetController extends XFrontBase
 			'isFav'			=> $isFav
 		);
 
-
-		}
-
-
 		echo json_encode($data);
 		
     }	
