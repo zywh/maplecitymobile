@@ -1041,22 +1041,35 @@ class NgDevGetController extends XFrontBase
 		
 		$isFav = 0;
 		
-		if ($username != 'NO'){
+		if ($username != 'NO') {
 			if ($this->isValidIdToken()) {
 				//error_log("Token is valid:".$username);
 				$isFav = $this->checkfav($username,$id);
-			}
-		}
-		
+			} 
+		} 
 
-        $data = array(
+		$data = array(
 			'house'           => $house->getAttributes(),
 			'house_mname'     => $house->mname->getAttributes(),
 			'house_propertyType' => $house->propertyType->getAttributes(),
 			'exchangeRate'    => $exchangeRate,
 			'photos'          => $photos,
 			'isFav'			=> $isFav
-        );
+		);
+
+		if ($house->src == 'VOW') {
+			if ($username != 'NO') {
+				if (!$this->isValidIdToken()) {
+					$data = array(
+						//'house' => array('addr' => '登录用户可见')
+					);
+				}
+			} else {
+				$data = array(
+					//'house' => { 'addr':'登录用户可见' }
+				);
+			}	
+		}			
 
 		echo json_encode($data);
 		
