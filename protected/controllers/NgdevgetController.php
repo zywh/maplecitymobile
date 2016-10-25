@@ -305,7 +305,7 @@ class NgDevGetController extends XFrontBase
 		if ( is_numeric($term) || preg_match("/^[a-zA-Z]\d+/",$term) ) {
 			//MLS search
 			$sql = "
-			SELECT ml_num,municipality,if(s_r = 'Sale',concat(round(lp_dol/10000),'万'),concat(lp_dol,'/月')) as price,latitude,longitude FROM h_house 
+			SELECT ml_num,municipality,if(s_r = 'Sale',concat(round(lp_dol/10000),'万'),concat(lp_dol,'/月')) as price,latitude,longitude,src FROM h_house 
 			WHERE  ml_num like '".$term."%' 
 			ORDER by city_id
 			limit " .$limit;
@@ -315,9 +315,9 @@ class NgDevGetController extends XFrontBase
 				$result['id'] = $row["ml_num"]; 
 				$result['value'] = $row["ml_num"]; 
 				$result['city'] = $row["municipality"];
-				$result['lat'] = $row["latitude"]; 
-				$result['lng'] = $row["longitude"]; 
-				$result['price'] = $row['price'];	
+				$result['lat'] = $this->maskVOW($row['src'],$row["latitude"]); 
+				$result['lng'] = $this->maskVOW($row['src'],$row["longitude"]); 
+				$result['price'] = $this->maskVOW($row['src'],$row['price'],"登录成员可见");	
 				$results['MLS'][] = $result;
 			}
 			
@@ -376,7 +376,7 @@ class NgDevGetController extends XFrontBase
 				//start address selection
 				$limit = $limit - $citycount;
 				$sql = "
-				SELECT ml_num,addr,if(s_r = 'Sale',concat(round(lp_dol/10000),'万'),concat(lp_dol,'/月'))  as price,municipality,county,latitude,longitude FROM h_house  
+				SELECT ml_num,addr,if(s_r = 'Sale',concat(round(lp_dol/10000),'万'),concat(lp_dol,'/月'))  as price,municipality,county,latitude,longitude,src FROM h_house  
 				WHERE  addr like '%".$term."%' order by city_id
 				limit " .$limit;
 				$resultsql = $db->createCommand($sql)->query();
@@ -384,11 +384,11 @@ class NgDevGetController extends XFrontBase
 				foreach($resultsql as $row){
 					//Type ADDRESS ARRAY
 					$result['id'] = $row["ml_num"]; 
-					$result['value'] = $row["addr"];
+					$result['value'] = $this->maskVOW($row["src"],$row["addr"],"登录成员可见");
 					$result['city'] = $row["municipality"];
-					$result['lat'] = $row["latitude"]; 
-					$result['lng'] = $row["longitude"]; 
-					$result['price'] = $row['price'];	
+					$result['lat'] = $this->maskVOW($row["src"],$row["latitude"]); 
+					$result['lng'] = $this->maskVOW($row["src"],$row["longitude"]); 
+					$result['price'] = $this->maskVOW($row["src"],$row['price'],"登录成员可见");	
 					$result['province'] = $row["county"];
 					$results['ADDRESS'][] = $result;
 				}
