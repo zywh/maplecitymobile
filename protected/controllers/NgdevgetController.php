@@ -1083,6 +1083,9 @@ class NgDevGetController extends XFrontBase
     }	
 
 	public function isValidIdToken(){
+		static $validToken = false;
+		if ($validToken) { return $validToken; }
+
 		//error_reporting(-1); // reports all errors
 		$headers = getallheaders();
 
@@ -1094,12 +1097,14 @@ class NgDevGetController extends XFrontBase
 			//error_log($tokens[1]);
 			//second is client ID and 4th argument is an array 
 			$decoded_id_token = \Auth0\SDK\Auth0JWT::decode($tokens[1], $this->MAPLEAPP_SPA_AUD, $this->MAPLEAPP_SPA_SECRET, []); 
-			return true;
+			$validToken = true;
 		}
 		else {
 			error_log("error: no bearer in the authorization http header");
-			return false;
+			$validToken = false;
 		}
+		
+		return $validToken;
 	}		
 	
 	/*Get user data */
