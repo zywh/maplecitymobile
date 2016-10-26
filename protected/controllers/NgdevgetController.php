@@ -14,6 +14,8 @@ class NgDevGetController extends XFrontBase
     private $MAPLEAPP_SPA_AUD = ['9fNpEj70wvf86dv5DeXPijTnkLVX5QZi'];
     private $PROFILE_FAVLIST_MAX = 20;
     private $PROFILE_CENTER_MAX = 10;
+	private $STR_MEMBER_ONLY = '登录用户可见';
+	private $IMG_ZANWU = 'static/images/zanwu.jpg';
 
     function __construct() {
                 ini_set("display_errors", "1"); // shows all errors
@@ -317,7 +319,7 @@ class NgDevGetController extends XFrontBase
 				$result['city'] = $row["municipality"];
 				$result['lat'] = $this->maskVOW($row['src'],$row["latitude"]); 
 				$result['lng'] = $this->maskVOW($row['src'],$row["longitude"]); 
-				$result['price'] = $this->maskVOW($row['src'],$row['price'],"登录成员可见");	
+				$result['price'] = $this->maskVOW($row['src'],$row['price'],$this->STR_MEMBER_ONLY);	
 				$results['MLS'][] = $result;
 			}
 			
@@ -384,11 +386,11 @@ class NgDevGetController extends XFrontBase
 				foreach($resultsql as $row){
 					//Type ADDRESS ARRAY
 					$result['id'] = $row["ml_num"]; 
-					$result['value'] = $this->maskVOW($row["src"],$row["addr"],"登录成员可见");
+					$result['value'] = $this->maskVOW($row["src"],$row["addr"],$this->STR_MEMBER_ONLY);
 					$result['city'] = $row["municipality"];
 					$result['lat'] = $this->maskVOW($row["src"],$row["latitude"]); 
 					$result['lng'] = $this->maskVOW($row["src"],$row["longitude"]); 
-					$result['price'] = $this->maskVOW($row["src"],$row['price'],"登录成员可见");	
+					$result['price'] = $this->maskVOW($row["src"],$row['price'],$this->STR_MEMBER_ONLY);	
 					$result['province'] = $row["county"];
 					$results['ADDRESS'][] = $result;
 				}
@@ -1052,14 +1054,14 @@ class NgDevGetController extends XFrontBase
 			}	
 
 			if ($VOW_member_only) {
-				$house->addr='登录用户可见';
-				$unmasked_fields=array('ml_num','addr','pix_updt');
+				$house->addr = $this->STR_MEMBER_ONLY;
+				$unmasked_fields = array('ml_num','addr','pix_updt');
 				foreach( $house as $key => $value ){
 					if (!is_array($key) && !in_array($key, $unmasked_fields)) {
 						$house[$key] = '';
 					}
 				}
-				$photos=array("static/images/zanwu.jpg");
+				$photos=array($this->IMG_ZANWU);
 			}
 		}
 
@@ -1446,8 +1448,8 @@ class NgDevGetController extends XFrontBase
 			$emptyHouseList['Country'] = '';
 			$emptyHouseList['ProvinceEname'] = '';
 			$emptyHouseList['ProvinceCname'] = '';
-			$emptyHouseList['CoverImg'] = 'static/images/zanwu.jpg';
-			$emptyHouseList['CoverImgtn'] = 'static/images/zanwu.jpg';
+			$emptyHouseList['CoverImg'] = $this->IMG_ZANWU;
+			$emptyHouseList['CoverImgtn'] = $this->IMG_ZANWU;
 			$result['Data']['EmptyHouseList'][] = $emptyHouseList;
 		}
 		return $result;
@@ -1467,7 +1469,7 @@ class NgDevGetController extends XFrontBase
 			$mapHouseList['Kitchen'] = $this->maskVOW($val->src,$val->num_kit);
 			$mapHouseList['GeocodeLat'] = $this->maskVOW($val->src,$val->latitude);
 			$mapHouseList['GeocodeLng'] = $this->maskVOW($val->src,$val->longitude);
-			$mapHouseList['Address'] = $this->maskVOW($val->src,!empty($val->addr)?$val->addr : "不详", "登录用户可见");
+			$mapHouseList['Address'] = $this->maskVOW($val->src,!empty($val->addr)?$val->addr : "不详", $this->STR_MEMBER_ONLY);
 			$mapHouseList['SaleLease'] = $this->maskVOW($val->src,$val->s_r); 
 			//$mapHouseList['sqft'] = $val->sqft;
 			$mapHouseList['Price'] = $this->maskVOW($val->src,$val->lp_dol);
@@ -1497,11 +1499,11 @@ class NgDevGetController extends XFrontBase
 				$mapHouseList['CoverImg'] = $dir.$picfiles[2];
 				$mapHouseList['CoverImgtn'] = $dirtn.$picfiles[2];
 			}else {
-				$mapHouseList['CoverImg'] = 'static/images/zanwu.jpg';
-				$mapHouseList['CoverImgtn'] = 'static/images/zanwu.jpg';
+				$mapHouseList['CoverImg'] = $this->IMG_ZANWU;
+				$mapHouseList['CoverImgtn'] = $this->IMG_ZANWU;
 			}
-			$mapHouseList['CoverImg'] = $this->maskVOW($val->src,$mapHouseList['CoverImg'],'static/images/zanwu.jpg');
-			$mapHouseList['CoverImgtn'] = $this->maskVOW($val->src,$mapHouseList['CoverImgtn'],'static/images/zanwu.jpg');
+			$mapHouseList['CoverImg'] = $this->maskVOW($val->src,$mapHouseList['CoverImg'],$this->IMG_ZANWU);
+			$mapHouseList['CoverImgtn'] = $this->maskVOW($val->src,$mapHouseList['CoverImgtn'],$this->IMG_ZANWU);
 
 
 			$result['Data']['HouseList'][] = $mapHouseList;
