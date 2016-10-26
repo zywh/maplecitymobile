@@ -1027,7 +1027,7 @@ class NgDevGetController extends XFrontBase
         $dir="mlspic/crea/".$rdir;
 		$photos = array();
 
-        if(is_dir($dir)){
+        if (is_dir($dir)){
             $picfiles =  scandir($dir);
             $num_files = count($picfiles)-2;
 			if ( $num_files > 0)    {
@@ -1035,7 +1035,11 @@ class NgDevGetController extends XFrontBase
 					$photos[] = $rdir.$picfiles[$x];
 				}    
 			}
-        }
+        } 
+
+		if ( count($photos) == 0 ) {
+			$photos = array($this->IMG_ZANWU);
+		}
 		
 		$isFav = 0;
 		if ($username != 'NO') {
@@ -1083,7 +1087,7 @@ class NgDevGetController extends XFrontBase
 		$headers = getallheaders();
 
 		//error_log(print_r($headers,true));
-		$token = explode(" ", $headers['Authorization']? $headers['Authorization']: $headers['authorization']);
+		$tokens = explode(" ", $headers['Authorization']? $headers['Authorization']: $headers['authorization']);
 		//error_log(print_r($tokens,true));
 		if ($tokens[0] == "Bearer") {
 			//error_log($tokens[0]);
@@ -1656,7 +1660,6 @@ class NgDevGetController extends XFrontBase
 	}
 
 	function maskVOW($src, $unmasked, $masked = ''){
-		error_log($src);
 		if ($src != 'VOW') {
 			return $unmasked;
 		} else if ($this->isValidIdToken()) {  
