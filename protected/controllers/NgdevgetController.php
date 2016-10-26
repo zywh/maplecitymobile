@@ -10,6 +10,15 @@ class NgDevGetController extends XFrontBase
 	
     //private $imgHost ="http://m.maplecity.com.cn/";
 	private $imgHost ="http://ca.maplecity.com.cn/";
+	//CDN Image URL
+	private $TREB_FULLIMG_HOST = "http://1546690846.rsc.cdn77.org/treb/";
+	//Thumbnail
+	private $TREB_TN_HOST = "http://1546690846.rsc.cdn77.org/trebtn/";
+	private $TREB_MID_HOST = "http://1546690846.rsc.cdn77.org/trebmid/";
+	private $CREA_FULLIMG_HOST = "http://1546690846.rsc.cdn77.org/crea/";
+	private $CREA_TN_HOST = "http://1546690846.rsc.cdn77.org/creatn/";
+	private $CREA_MID_HOST = "http://1546690846.rsc.cdn77.org/creamid/";
+	
     private $MAPLEAPP_SPA_SECRET = "Wg1qczn2IKXHEfzOCtqFbFCwKhu-kkqiAKlBRx_7VotguYFnKOWZMJEuDVQMXVnG";
     private $MAPLEAPP_SPA_AUD = ['9fNpEj70wvf86dv5DeXPijTnkLVX5QZi'];
     private $PROFILE_FAVLIST_MAX = 20;
