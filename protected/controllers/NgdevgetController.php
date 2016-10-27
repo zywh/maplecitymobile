@@ -1046,10 +1046,10 @@ class NgDevGetController extends XFrontBase
 			if ( $num_files > 0)    {
 				for ($x = 2; $x <= $num_files + 1; $x++) {
 					if ( $house->src  != 'CREA'){
-						$cdn_photos[] = $this->TREB_IMG_HOST."Photo".$val->ml_num."/".$picfiles[$x];
+						$cdn_photos[] = $this->TREB_IMG_HOST."Photo".$house->ml_num."/".$picfiles[$x];
 						
 					} else {
-						$cdn_photos[] = $this->CREA_IMG_HOST.$county."/Photo".$val->ml_num."/".$picfiles[$x];
+						$cdn_photos[] = $this->CREA_IMG_HOST.$county."/Photo".$house->ml_num."/".$picfiles[$x];
 						
 					}
 					
