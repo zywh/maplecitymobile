@@ -11,11 +11,11 @@ class NgDevGetController extends XFrontBase
     //private $imgHost ="http://m.maplecity.com.cn/";
 	private $imgHost ="http://ca.maplecity.com.cn/";
 	//CDN Image URL
-	private $TREB_FULLIMG_HOST = "http://1546690846.rsc.cdn77.org/treb/";
+	private $TREB_IMG_HOST = "http://1546690846.rsc.cdn77.org/treb/";
 	//Thumbnail
 	private $TREB_TN_HOST = "http://1546690846.rsc.cdn77.org/trebtn/";
 	private $TREB_MID_HOST = "http://1546690846.rsc.cdn77.org/trebmid/";
-	private $CREA_FULLIMG_HOST = "http://ca.maplecity.com.cn/mlspic/crea/";
+	private $CREA_IMG_HOST = "http://ca.maplecity.com.cn/mlspic/crea/";
 	private $CREA_TN_HOST = "http://ca.maplecity.com.cn/mlspic/crea/creamtn/";
 	private $CREA_MID_HOST = "http://ca.maplecity.com.cn/mlspic/crea/creamid/";
 	
@@ -1032,15 +1032,28 @@ class NgDevGetController extends XFrontBase
         $county = preg_replace('/\s+/', '', $county);
         $county = str_replace("&","",$county);
 		//$dir="mlspic/crea/creamid/".$county."/Photo".$house->ml_num."/";
+	
+		
+		
         $rdir=$county."/Photo".$house->ml_num."/";
         $dir="mlspic/crea/".$rdir;
 		$photos = array();
+		$cdn_photos = array();
 
         if (is_dir($dir)){
             $picfiles =  scandir($dir);
             $num_files = count($picfiles)-2;
 			if ( $num_files > 0)    {
 				for ($x = 2; $x <= $num_files + 1; $x++) {
+					if ( $house->src  != 'CREA'){
+						$cdn_photos[] = $this->TREB_IMG_HOST."Photo".$val->ml_num."/".$picfiles[$x];
+						
+					} else {
+						$cdn_photos[] = $this->CREA_IMG_HOST.$county."/Photo".$val->ml_num."/".$picfiles[$x];
+						
+					}
+					
+					
 					$photos[] = $rdir.$picfiles[$x];
 				}    
 			}
@@ -1048,6 +1061,7 @@ class NgDevGetController extends XFrontBase
 
 		if ( count($photos) == 0 ) {
 			$photos = array($this->IMG_ZANWU);
+			$cdn_photos = array($this->IMG_ZANWU);
 		}
 		
 		$isFav = 0;
@@ -1084,6 +1098,7 @@ class NgDevGetController extends XFrontBase
 			'house_propertyType' => $house->propertyType->getAttributes(),
 			'exchangeRate'    => $exchangeRate,
 			'photos'          => $photos,
+			'cdn_photos'      => $cdn_photos,
 			'isFav'			=> $isFav
 		);
 

@@ -8356,3 +8356,363 @@ Stack trace:
 REQUEST_URI=/index.php?r=mhouse/getCityList&term=Barton+a%E2%80%86ve%E2%80%86n
 HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/index&lat=43.653226&lng=-79.383184&zoom=10&maptype=city
 ---
+2016/10/27 10:02:06 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:02:07 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:02:08 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:02:09 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:02:10 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:02:11 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:02:12 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:02:13 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:03:35 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:03:36 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:03:37 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:03:38 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:03:39 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:03:40 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:03:41 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:03:42 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:04:52 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:04:53 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:04:54 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:04:55 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:04:56 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:04:57 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:04:58 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
+2016/10/27 10:04:59 [error] [exception.CException] exception 'CException' with message '属性 "NgDevGetController.TREB_FULL_HOST" 未被定义.' in /var/www/mhtml/framework/yiilite.php:610
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1049): CComponent->__get('TREB_FULL_HOST')
+#1 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetHouseDetail()
+#2 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#3 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#4 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getHouseDetail')
+#6 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getHou...')
+#7 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#8 /var/www/mhtml/index.php(19): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
+HTTP_REFERER=http://localhost:8100/
+---
