@@ -15,9 +15,9 @@ class NgDevGetController extends XFrontBase
 	//Thumbnail
 	private $TREB_TN_HOST = "http://1546690846.rsc.cdn77.org/trebtn/";
 	private $TREB_MID_HOST = "http://1546690846.rsc.cdn77.org/trebmid/";
-	private $CREA_FULLIMG_HOST = "http://1546690846.rsc.cdn77.org/crea/";
-	private $CREA_TN_HOST = "http://1546690846.rsc.cdn77.org/creatn/";
-	private $CREA_MID_HOST = "http://1546690846.rsc.cdn77.org/creamid/";
+	private $CREA_FULLIMG_HOST = "http://ca.maplecity.com.cn/mlspic/crea/";
+	private $CREA_TN_HOST = "http://ca.maplecity.com.cn/mlspic/crea/creamtn/";
+	private $CREA_MID_HOST = "http://ca.maplecity.com.cn/mlspic/crea/creamid/";
 	
     private $MAPLEAPP_SPA_SECRET = "Wg1qczn2IKXHEfzOCtqFbFCwKhu-kkqiAKlBRx_7VotguYFnKOWZMJEuDVQMXVnG";
     private $MAPLEAPP_SPA_AUD = ['9fNpEj70wvf86dv5DeXPijTnkLVX5QZi'];
@@ -238,7 +238,7 @@ class NgDevGetController extends XFrontBase
 				$result['Data']['Type'] = "house";
 				//$result['Data']['imgHost'] = "http://m.maplecity.com.cn/";
 				$result['Data']['imgHost'] = $this->imgHost;
-				$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt,src';
+				$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt,src,pic_num';
 				$criteria->with = array('mname','propertyType','city');
 				$criteria->order = "t.latitude,t.longitude";
 				$house = House::model()->findAll($criteria);
@@ -279,7 +279,7 @@ class NgDevGetController extends XFrontBase
 				$pager->currentPage = $postParms['pageindex'];
 			}
 			$pager->applyLimit($criteria);
-			$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt,src';
+			$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt,src,pic_num';
 			$criteria->with = array('mname','propertyType','city');
 			$house = House::model()->findAll($criteria);
 			
@@ -1400,7 +1400,7 @@ class NgDevGetController extends XFrontBase
 		$resultsql = $db->createCommand($sql)->queryRow();
 		$favlist = explode(',',$resultsql[$type]);
 		//get list of house
-		$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt,src';
+		$criteria->select = 'id,ml_num,zip,s_r,county,municipality,lp_dol,num_kit,construction_year,br,addr,longitude,latitude,area,bath_tot,pix_updt,src,pic_num';
 		$criteria->addInCondition('ml_num', $favlist);
 		$criteria->with = array('mname','propertyType','city');
 		//$criteria->order = "field(ml_num, 'N3571091', 'N3577563', 'N3586413', 'N3586138')";
@@ -1516,12 +1516,27 @@ class NgDevGetController extends XFrontBase
 			if ( $num_files > 0)    {
 				$mapHouseList['CoverImg'] = $dir.$picfiles[2];
 				$mapHouseList['CoverImgtn'] = $dirtn.$picfiles[2];
+				//CDN FULL URL
+				if ( $val->src  != 'CREA'){
+					$mapHouseList['CdnCoverImg'] = $this->TREB_MID_HOST."Photo".$val->ml_num."/".$picfiles[2];
+					$mapHouseList['CdnCoverImgtn'] = $this->TREB_TN_HOST."Photo".$val->ml_num."/".$picfiles[2];
+				} else {
+					$mapHouseList['CdnCoverImg'] = $this->CREA_MID_HOST.$county."/Photo".$val->ml_num."/".$picfiles[2];
+					$mapHouseList['CdnCoverImgtn'] = $this->CREA_TN_HOST.$county."/Photo".$val->ml_num."/".$picfiles[2];
+				}
+				
 			}else {
 				$mapHouseList['CoverImg'] = $this->IMG_ZANWU;
 				$mapHouseList['CoverImgtn'] = $this->IMG_ZANWU;
+				//CDN FULL URL
+				$mapHouseList['CdnCoverImg'] = $this->IMG_ZANWU;
+				$mapHouseList['CdnCoverImgtn'] = $this->IMG_ZANWU;
 			}
 			$mapHouseList['CoverImg'] = $this->maskVOW($val->src,$mapHouseList['CoverImg'],$this->IMG_ZANWU);
 			$mapHouseList['CoverImgtn'] = $this->maskVOW($val->src,$mapHouseList['CoverImgtn'],$this->IMG_ZANWU);
+			
+			$mapHouseList['CdnCoverImg'] = $this->maskVOW($val->src,$mapHouseList['CdnCoverImg'],$this->IMG_ZANWU);
+			$mapHouseList['CdnCoverImgtn'] = $this->maskVOW($val->src,$mapHouseList['CdnCoverImgtn'],$this->IMG_ZANWU);
 
 
 			$result['Data']['HouseList'][] = $mapHouseList;
