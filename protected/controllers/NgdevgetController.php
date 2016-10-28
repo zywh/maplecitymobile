@@ -25,6 +25,7 @@ class NgDevGetController extends XFrontBase
     private $PROFILE_CENTER_MAX = 10;
 	private $STR_MEMBER_ONLY = '登录用户可见';
 	private $IMG_ZANWU = 'static/images/zanwu.jpg';
+	private $IMG_MEMBER = 'static/images/memberonly.jpg';
 
     function __construct() {
                 ini_set("display_errors", "1"); // shows all errors
@@ -1544,14 +1545,14 @@ class NgDevGetController extends XFrontBase
 				$mapHouseList['CoverImg'] = $this->IMG_ZANWU;
 				$mapHouseList['CoverImgtn'] = $this->IMG_ZANWU;
 				//CDN FULL URL
-				$mapHouseList['CdnCoverImg'] = $this->IMG_ZANWU;
-				$mapHouseList['CdnCoverImgtn'] = $this->IMG_ZANWU;
+				$mapHouseList['CdnCoverImg'] = $this.imgHost.$this->IMG_ZANWU;
+				$mapHouseList['CdnCoverImgtn'] = $this.imgHost.$this->IMG_ZANWU;
 			}
-			$mapHouseList['CoverImg'] = $this->maskVOW($val->src,$mapHouseList['CoverImg'],$this->IMG_ZANWU);
-			$mapHouseList['CoverImgtn'] = $this->maskVOW($val->src,$mapHouseList['CoverImgtn'],$this->IMG_ZANWU);
+			$mapHouseList['CoverImg'] = $this->maskVOW($val->src,$mapHouseList['CoverImg'],$this->IMG_MEMBER);
+			$mapHouseList['CoverImgtn'] = $this->maskVOW($val->src,$mapHouseList['CoverImgtn'],$this->IMG_MEMBER);
 			
-			$mapHouseList['CdnCoverImg'] = $this->maskVOW($val->src,$mapHouseList['CdnCoverImg'],$this->IMG_ZANWU);
-			$mapHouseList['CdnCoverImgtn'] = $this->maskVOW($val->src,$mapHouseList['CdnCoverImgtn'],$this->IMG_ZANWU);
+			$mapHouseList['CdnCoverImg'] = $this->maskVOW($val->src,$mapHouseList['CdnCoverImg'],$this.imgHost.$this->IMG_MEMBER);
+			$mapHouseList['CdnCoverImgtn'] = $this->maskVOW($val->src,$mapHouseList['CdnCoverImgtn'],$this.imgHost.$this->IMG_MEMBER);
 
 
 			$result['Data']['HouseList'][] = $mapHouseList;
