@@ -1089,7 +1089,8 @@ class NgDevGetController extends XFrontBase
 						$house[$key] = '';
 					}
 				}
-				$photos=array($this->IMG_ZANWU);
+				$photos=array($this->IMG_MEMBER);
+				$cdn_photos=array($this->imgHost.$this->IMG_MEMBER);
 			}
 		}
 
@@ -1497,6 +1498,7 @@ class NgDevGetController extends XFrontBase
 		
 		foreach ($house as $val) {
 			$mapHouseList = array();
+			$mapHouseList['Src'] = $val->src;
 			$mapHouseList['ListDate'] = $val->pix_updt;
 			$mapHouseList['Beds'] = $this->maskVOW($val->src,$val->br);
 			$mapHouseList['Baths'] = $this->maskVOW($val->src,$val->bath_tot);
