@@ -1495,22 +1495,7 @@ class NgDevGetController extends XFrontBase
 			$mapHouseList['CdnCoverImg'] = $this->maskVOW($val->src,$pics['CdnCoverImg'],$this->imgHost.$this->IMG_MEMBER);
 			$mapHouseList['CdnCoverImgtn'] = $this->maskVOW($val->src,$pics['CdnCoverImg'],$this->imgHost.$this->IMG_MEMBER);
 			
-			/*
-			$mapHouseList['CoverImg'] = $pics['CoverImg'];
-			$mapHouseList['CoverImgtn'] = $pics['CoverImgtn'];
-			$mapHouseList['CdnCoverImg'] = $pics['CdnCoverImg'];
-			$mapHouseList['CdnCoverImgtn'] = $pics['CdnCoverImgtn'];
-			
-			
-			
-			$picList['CoverImg'] = $this->maskVOW($src,$picList['CoverImg'],$this->IMG_MEMBER);
-			$picList['CoverImgtn'] = $this->maskVOW($src,$picList['CoverImgtn'],$this->IMG_MEMBER);
-			$picList['CdnCoverImg'] = $this->maskVOW($src,$picList['CdnCoverImg'],$this->imgHost.$this->IMG_MEMBER);
-			$picList['CdnCoverImgtn'] = $this->maskVOW($src,$picList['CdnCoverImgtn'],$this->imgHost.$this->IMG_MEMBER);
-	*/
 		
-
-
 			$result['Data']['HouseList'][] = $mapHouseList;
 
 
@@ -1556,15 +1541,7 @@ class NgDevGetController extends XFrontBase
 						$p3 = $this->TREB_TN_HOST."Photo".$ml_num."/"."Photo".$ml_num."-1.jpeg";
 						$p4 = $this->CREA_TN_HOST.$county."/Photo".$ml_num."/".$picfiles[2];
 						$picList['CdnCoverImgtn'] = ($src != "CREA")? $p3: $p4;
-						/*
-						if ( $src  != 'CREA'){
-							$picList['CdnCoverImg'] = $this->TREB_MID_HOST."Photo".$ml_num."/"."Photo".$ml_num."-1.jpeg";
-							$picList['CdnCoverImgtn'] = $this->TREB_TN_HOST."Photo".$ml_num."/"."Photo".$ml_num."-1.jpeg";
-						} else {
-							$picList['CdnCoverImg'] = $this->CREA_MID_HOST.$county."/Photo".$ml_num."/".$picfiles[2];
-							$picList['CdnCoverImgtn'] = $this->CREA_TN_HOST.$county."/Photo".$ml_num."/".$picfiles[2];
-						}
-						*/
+					
 						
 					}else {
 						
@@ -1572,11 +1549,12 @@ class NgDevGetController extends XFrontBase
 						 $picList['CdnCoverImg'] = $this->imgHost.$this->IMG_ZANWU;
 						 $picList['CdnCoverImgtn'] = $this->imgHost.$this->IMG_ZANWU;
 					}
+					/*
 					$picList['CoverImg'] = $this->maskVOW($src,$picList['CoverImg'],$this->IMG_MEMBER);
 					$picList['CoverImgtn'] = $this->maskVOW($src,$picList['CoverImgtn'],$this->IMG_MEMBER);
 					$picList['CdnCoverImg'] = $this->maskVOW($src,$picList['CdnCoverImg'],$this->imgHost.$this->IMG_MEMBER);
 					$picList['CdnCoverImgtn'] = $this->maskVOW($src,$picList['CdnCoverImgtn'],$this->imgHost.$this->IMG_MEMBER);
-					
+					*/
 				}
 			}
 			
