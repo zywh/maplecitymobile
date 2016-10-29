@@ -1518,7 +1518,15 @@ class NgDevGetController extends XFrontBase
 			$mapHouseList['Country'] = $val->city_id;
 			$mapHouseList['ProvinceEname'] = $val->county;
 			$mapHouseList['ProvinceCname'] = $val->city->name;
-			$county = $val->county;
+			//$county = $val->county;
+			
+			$pics = $this->getPicture($val->county,$val->ml_num,$val->src);
+			$mapHouseList['CoverImg'] = $pics['CoverImg'];
+			$mapHouseList['CoverImgtn'] = $pics['CoverImgtn'];
+			$mapHouseList['CdnCoverImg'] = $pics['CdnCoverImg'];
+			$mapHouseList['CdnCoverImgtn'] = $pics['CdnCoverImgtn'];
+
+			/*
 			$county = preg_replace('/\s+/', '', $county);
 			$county = str_replace("&","",$county);
 			$dir="mlspic/crea/creamid/".$county."/Photo".$val->ml_num."/";
@@ -1544,8 +1552,7 @@ class NgDevGetController extends XFrontBase
 				}
 				
 			}else {
-				//$mapHouseList['CoverImg'] = $this->IMG_ZANWU;
-				//$mapHouseList['CoverImgtn'] = $this->IMG_ZANWU;
+			
 				//CDN FULL URL
 				 $mapHouseList['CdnCoverImg'] = $this->imgHost.$this->IMG_ZANWU;
 				 $mapHouseList['CdnCoverImgtn'] = $this->imgHost.$this->IMG_ZANWU;
@@ -1555,9 +1562,8 @@ class NgDevGetController extends XFrontBase
 			
 			 $mapHouseList['CdnCoverImg'] = $this->maskVOW($val->src,$mapHouseList['CdnCoverImg'],$this->imgHost.$this->IMG_MEMBER);
 			 $mapHouseList['CdnCoverImgtn'] = $this->maskVOW($val->src,$mapHouseList['CdnCoverImgtn'],$this->imgHost.$this->IMG_MEMBER);
-			//$mapHouseList['CdnCoverImg'] = $this->maskVOW($val->src,$mapHouseList['CdnCoverImg'],$this->IMG_MEMBER);
-			//$mapHouseList['CdnCoverImgtn'] = $this->maskVOW($val->src,$mapHouseList['CdnCoverImgtn'],$this->IMG_MEMBER);
 			
+			*/
 
 
 			$result['Data']['HouseList'][] = $mapHouseList;
@@ -1567,6 +1573,51 @@ class NgDevGetController extends XFrontBase
 		return $result;
 	}
 	
+	function getPicture($county,$ml_num,$src){
+			
+			$county = preg_replace('/\s+/', '', $county);
+			$county = str_replace("&","",$county);
+			$dir="mlspic/crea/creamid/".$county."/Photo".$ml_num."/";
+			$dirtn="mlspic/crea/creatn/".$county."/Photo".$ml_num."/";
+			$num_files = 0;
+
+			if(is_dir($dir)){
+				$picfiles =  scandir($dir);
+				$num_files = count(scandir($dir))-2;
+			}
+		
+
+			if ( $num_files > 0)    {
+				$picList['CoverImg'] = $dir.$picfiles[2];
+				$picList['CoverImgtn'] = $dirtn.$picfiles[2];
+				//CDN FULL URL
+				if ( $src  != 'CREA'){
+					$picList['CdnCoverImg'] = $this->TREB_MID_HOST."Photo".$ml_num."/"."Photo".$ml_num.".jpeg";
+					$picList['CdnCoverImgtn'] = $this->TREB_TN_HOST."Photo".$ml_num."/"."Photo".$ml_num.".jpeg";
+				} else {
+					$picList['CdnCoverImg'] = $this->CREA_MID_HOST.$county."/Photo".$ml_num."/".$picfiles[2];
+					$picList['CdnCoverImgtn'] = $this->CREA_TN_HOST.$county."/Photo".$ml_num."/".$picfiles[2];
+				}
+				
+			}else {
+				
+				//CDN FULL URL
+				 $picList['CdnCoverImg'] = $this->imgHost.$this->IMG_ZANWU;
+				 $picList['CdnCoverImgtn'] = $this->imgHost.$this->IMG_ZANWU;
+			}
+			$picList['CoverImg'] = $this->maskVOW($src,$picList['CoverImg'],$this->IMG_MEMBER);
+			$picList['CoverImgtn'] = $this->maskVOW($src,$picList['CoverImgtn'],$this->IMG_MEMBER);
+			
+			 $picList['CdnCoverImg'] = $this->maskVOW($src,$picList['CdnCoverImg'],$this->imgHost.$this->IMG_MEMBER);
+			 $picList['CdnCoverImgtn'] = $this->maskVOW($src,$picList['CdnCoverImgtn'],$this->imgHost.$this->IMG_MEMBER);
+			
+			
+
+		
+			return $picList;
+			
+
+	}
 	function houseOption($postParms){
 		  //根据条件查询地图
             $criteria = new CDbCriteria();
