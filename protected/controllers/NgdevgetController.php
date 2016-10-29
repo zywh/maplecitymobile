@@ -1489,11 +1489,25 @@ class NgDevGetController extends XFrontBase
 			//$county = $val->county;
 			
 			$pics = $this->getPicture($val->county,$val->ml_num,$val->src,0,$val->pic_num);
+			$mapHouseList['CoverImg'] = $this->maskVOW($val->src,$pics['CoverImg'],$this->IMG_MEMBER);
+			
+			$mapHouseList['CoverImgtn'] = $this->maskVOW($val->src,$pics['CoverImgtn'],$this->IMG_MEMBER);
+			$mapHouseList['CdnCoverImg'] = $this->maskVOW($val->src,$pics['CdnCoverImg'],$this->imgHost.$this->IMG_MEMBER);
+			$mapHouseList['CdnCoverImgtn'] = $this->maskVOW($val->src,$pics['CdnCoverImg'],$this->imgHost.$this->IMG_MEMBER);
+			
+			/*
 			$mapHouseList['CoverImg'] = $pics['CoverImg'];
 			$mapHouseList['CoverImgtn'] = $pics['CoverImgtn'];
 			$mapHouseList['CdnCoverImg'] = $pics['CdnCoverImg'];
 			$mapHouseList['CdnCoverImgtn'] = $pics['CdnCoverImgtn'];
-
+			
+			
+			
+			$picList['CoverImg'] = $this->maskVOW($src,$picList['CoverImg'],$this->IMG_MEMBER);
+			$picList['CoverImgtn'] = $this->maskVOW($src,$picList['CoverImgtn'],$this->IMG_MEMBER);
+			$picList['CdnCoverImg'] = $this->maskVOW($src,$picList['CdnCoverImg'],$this->imgHost.$this->IMG_MEMBER);
+			$picList['CdnCoverImgtn'] = $this->maskVOW($src,$picList['CdnCoverImgtn'],$this->imgHost.$this->IMG_MEMBER);
+	*/
 		
 
 
