@@ -1028,42 +1028,10 @@ class NgDevGetController extends XFrontBase
             $exchangeRate = $exchangeRateList[0]->rate;
         }
 
-		$pics = $this->getPicture($house->county,$house->ml_num,$house->src,1);
+		$pics = $this->getPicture($house->county,$house->ml_num,$house->src,1,$house->pic_num);
 		$photos = $pics['photos'];
 		$cdn_photos = $pics['cdn_photos'];
-        /*
-		$county = $house->county;
-        $county = preg_replace('/\s+/', '', $county);
-        $county = str_replace("&","",$county);
-	    $rdir=$county."/Photo".$house->ml_num."/";
-        $dir="mlspic/crea/".$rdir;
-		$photos = array();
-		$cdn_photos = array();
-
-        if (is_dir($dir)){
-            $picfiles =  scandir($dir);
-            $num_files = count($picfiles)-2;
-			if ( $num_files > 0)    {
-				for ($x = 2; $x <= $num_files + 1; $x++) {
-					if ( $house->src  != 'CREA'){
-						$cdn_photos[] = $this->TREB_IMG_HOST."Photo".$house->ml_num."/".$picfiles[$x];
-						
-					} else {
-						$cdn_photos[] = $this->CREA_IMG_HOST.$county."/Photo".$house->ml_num."/".$picfiles[$x];
-						
-					}
-					
-					
-					$photos[] = $rdir.$picfiles[$x];
-				}    
-			}
-        } 
-
-		if ( count($photos) == 0 ) {
-			$photos = array($this->IMG_ZANWU);
-			$cdn_photos = array($this->IMG_ZANWU);
-		}
-		*/
+   
 		
 		$isFav = 0;
 		if ($username != 'NO') {
@@ -1520,7 +1488,7 @@ class NgDevGetController extends XFrontBase
 			$mapHouseList['ProvinceCname'] = $val->city->name;
 			//$county = $val->county;
 			
-			$pics = $this->getPicture($val->county,$val->ml_num,$val->src,0);
+			$pics = $this->getPicture($val->county,$val->ml_num,$val->src,0,$val->pic_num);
 			$mapHouseList['CoverImg'] = $pics['CoverImg'];
 			$mapHouseList['CoverImgtn'] = $pics['CoverImgtn'];
 			$mapHouseList['CdnCoverImg'] = $pics['CdnCoverImg'];
@@ -1536,7 +1504,7 @@ class NgDevGetController extends XFrontBase
 		return $result;
 	}
 	
-	function getPicture($county,$ml_num,$src,$fullList){
+	function getPicture($county,$ml_num,$src,$fullList,$pic_num){
 			
 			$county = preg_replace('/\s+/', '', $county);
 			$county = str_replace("&","",$county);
@@ -1546,66 +1514,96 @@ class NgDevGetController extends XFrontBase
 			
 			//Return CDN and non-CDN thumbnail and medium picture
 			if ( $fullList == 0){
-				if(is_dir($dir)){
-					$picfiles =  scandir($dir);
-					$num_files = count(scandir($dir))-2;
-				}
-			
-
-				if ( $num_files > 0)    {
-					$picList['CoverImg'] = $dir.$picfiles[2];
-					$picList['CoverImgtn'] = $dirtn.$picfiles[2];
-					//CDN FULL URL
-					if ( $src  != 'CREA'){
-						$picList['CdnCoverImg'] = $this->TREB_MID_HOST."Photo".$ml_num."/"."Photo".$ml_num."-1.jpeg";
-						$picList['CdnCoverImgtn'] = $this->TREB_TN_HOST."Photo".$ml_num."/"."Photo".$ml_num."-1.jpeg";
-					} else {
-						$picList['CdnCoverImg'] = $this->CREA_MID_HOST.$county."/Photo".$ml_num."/".$picfiles[2];
-						$picList['CdnCoverImgtn'] = $this->CREA_TN_HOST.$county."/Photo".$ml_num."/".$picfiles[2];
+				if ( $pic_num > 0) { //Treb picture meta data is updated after 2016/10/29
+				
+					$p1 = $this->TREB_MID_HOST."Photo".$ml_num."/"."Photo".$ml_num."-1.jpeg";
+					$p2 = $this->CREA_MID_HOST.$county."/Photo".$ml_num."/".$ml_num."-1.jpg";
+					$picList['CdnCoverImg'] = ($src != "CREA")? $p1: $p2;
+					
+					$p3 = $this->TREB_TN_HOST."Photo".$ml_num."/"."Photo".$ml_num."-1.jpeg";
+					$p4 = $this->CREA_TN_HOST.$county."/Photo".$ml_num."/".$ml_num."-1.jpg";
+					$picList['CdnCoverImgtn'] = ($src != "CREA")? $p3: $p4;
+				
+				} else {  //fall back to scan dir if num = 0
+					if(is_dir($dir)){
+						$picfiles =  scandir($dir);
+						$num_files = count(scandir($dir))-2;
 					}
+				
+
+					if ( $num_files > 0)    {
+						$picList['CoverImg'] = $dir.$picfiles[2];
+						$picList['CoverImgtn'] = $dirtn.$picfiles[2];
+						//CDN FULL URL
+						$p1 = $this->TREB_MID_HOST."Photo".$ml_num."/"."Photo".$ml_num."-1.jpeg";
+						$p2 = $this->CREA_MID_HOST.$county."/Photo".$ml_num."/".$picfiles[2];
+						$picList['CdnCoverImg'] = ($src != "CREA")? $p1: $p2;
+						
+						$p3 = $this->TREB_TN_HOST."Photo".$ml_num."/"."Photo".$ml_num."-1.jpeg";
+						$p4 = $this->CREA_TN_HOST.$county."/Photo".$ml_num."/".$picfiles[2];
+						$picList['CdnCoverImgtn'] = ($src != "CREA")? $p3: $p4;
+						/*
+						if ( $src  != 'CREA'){
+							$picList['CdnCoverImg'] = $this->TREB_MID_HOST."Photo".$ml_num."/"."Photo".$ml_num."-1.jpeg";
+							$picList['CdnCoverImgtn'] = $this->TREB_TN_HOST."Photo".$ml_num."/"."Photo".$ml_num."-1.jpeg";
+						} else {
+							$picList['CdnCoverImg'] = $this->CREA_MID_HOST.$county."/Photo".$ml_num."/".$picfiles[2];
+							$picList['CdnCoverImgtn'] = $this->CREA_TN_HOST.$county."/Photo".$ml_num."/".$picfiles[2];
+						}
+						*/
+						
+					}else {
+						
+						//CDN FULL URL
+						 $picList['CdnCoverImg'] = $this->imgHost.$this->IMG_ZANWU;
+						 $picList['CdnCoverImgtn'] = $this->imgHost.$this->IMG_ZANWU;
+					}
+					$picList['CoverImg'] = $this->maskVOW($src,$picList['CoverImg'],$this->IMG_MEMBER);
+					$picList['CoverImgtn'] = $this->maskVOW($src,$picList['CoverImgtn'],$this->IMG_MEMBER);
+					$picList['CdnCoverImg'] = $this->maskVOW($src,$picList['CdnCoverImg'],$this->imgHost.$this->IMG_MEMBER);
+					$picList['CdnCoverImgtn'] = $this->maskVOW($src,$picList['CdnCoverImgtn'],$this->imgHost.$this->IMG_MEMBER);
 					
-				}else {
-					
-					//CDN FULL URL
-					 $picList['CdnCoverImg'] = $this->imgHost.$this->IMG_ZANWU;
-					 $picList['CdnCoverImgtn'] = $this->imgHost.$this->IMG_ZANWU;
 				}
-				$picList['CoverImg'] = $this->maskVOW($src,$picList['CoverImg'],$this->IMG_MEMBER);
-				$picList['CoverImgtn'] = $this->maskVOW($src,$picList['CoverImgtn'],$this->IMG_MEMBER);
-				$picList['CdnCoverImg'] = $this->maskVOW($src,$picList['CdnCoverImg'],$this->imgHost.$this->IMG_MEMBER);
-				$picList['CdnCoverImgtn'] = $this->maskVOW($src,$picList['CdnCoverImgtn'],$this->imgHost.$this->IMG_MEMBER);
 			}
 			
 			//Return CDN and non-CDN full picture list
 			if ( $fullList == 1){
-				$rdir=$county."/Photo".$ml_num."/";
-				$dir="mlspic/crea/".$rdir;
-				$photos = array();
-				$cdn_photos = array();
-				if (is_dir($dir)){
-					$picfiles =  scandir($dir);
-					$num_files = count($picfiles)-2;
-					if ( $num_files > 0)    {
-						for ($x = 2; $x <= $num_files + 1; $x++) {
-							if ( $src  != 'CREA'){
-								$fileIndex = $x - 1;
-								$cdn_photos[] = $this->TREB_IMG_HOST."Photo".$ml_num."/"."Photo".$ml_num."-".$fileIndex.".jpeg";
-								
-							} else {
-								$cdn_photos[] = $this->CREA_IMG_HOST.$county."/Photo".$ml_num."/".$picfiles[$x];
-								
-							}
-							
-							
-							$photos[] = $rdir.$picfiles[$x];
-						}    
+				if ( $pic_num > 0) { //Treb picture meta data is updated after 2016/10/29
+					for ($x = 1; $x <= $pic_num; $x++) {
+						
+						$p1 = $this->TREB_IMG_HOST."Photo".$ml_num."/"."Photo".$ml_num."-".$x.".jpeg";
+						$p2 = $this->CREA_IMG_HOST.$county."/Photo".$ml_num."/"."Photo".$ml_num."-".$x.".jpg";
+						$p3 = "Photo".$ml_num."/"."Photo".$ml_num."-".$x.".jpeg"; 
+						$p4 = $county."/Photo".$ml_num."/"."Photo".$ml_num."-".$x.".jpg"; 
+						$cdn_photos[] = ($src != "CREA")? $p1: $p2;
+						$photos[] = ($src != "CREA")? $p3: $p4; //backward compatible with 0.0.6. No prefix host
 					}
+				} else {
+					$rdir=$county."/Photo".$ml_num."/";
+					$dir="mlspic/crea/".$rdir;
+					$photos = array();
+					$cdn_photos = array();
+					if (is_dir($dir)){
+						$picfiles =  scandir($dir);
+						$num_files = count($picfiles)-2;
+						if ( $num_files > 0)    {
+							for ($x = 2; $x <= $num_files + 1; $x++) {
+								$fileIndex = $x - 1;
+								$p1 = $this->TREB_IMG_HOST."Photo".$ml_num."/"."Photo".$ml_num."-".$fileIndex.".jpeg";
+								$p2 = $this->CREA_IMG_HOST.$county."/Photo".$ml_num."/".$picfiles[$x];
+								$cdn_photos[] = ($src != "CREA")? $p1: $p2;
+							
+								$photos[] = $rdir.$picfiles[$x];
+							}    
+						}
 					
+					}
+			
 				} 
 
 				if ( count($photos) == 0 ) {
 					$photos = array($this->IMG_ZANWU);
-					$cdn_photos = array($this->IMG_ZANWU);
+					$cdn_photos = array($this->imgHost.$this->IMG_ZANWU);
 				}
 				
 				$picList['photos'] = $photos;
