@@ -1468,6 +1468,16 @@ class NgDevGetController extends XFrontBase
 			$mapHouseList = array();
 			$mapHouseList['Src'] = $val->src;
 			$mapHouseList['ListDate'] = $val->pix_updt;
+			$mapHouseList['Beds'] = $val->br;
+			$mapHouseList['Baths'] = $val->bath_tot;
+			$mapHouseList['Kitchen'] = $val->num_kit;
+			$mapHouseList['GeocodeLat'] = $val->latitude;
+			$mapHouseList['GeocodeLng'] = $val->longitude;
+			$mapHouseList['Address'] = !empty($val->addr)?$val->addr : "不详";
+			$mapHouseList['SaleLease'] = $val->s_r; 
+			$mapHouseList['Price'] = $val->lp_dol;
+			
+			/*
 			$mapHouseList['Beds'] = $this->maskVOW($val->src,$val->br);
 			$mapHouseList['Baths'] = $this->maskVOW($val->src,$val->bath_tot);
 			$mapHouseList['Kitchen'] = $this->maskVOW($val->src,$val->num_kit);
@@ -1478,10 +1488,11 @@ class NgDevGetController extends XFrontBase
 			//$mapHouseList['sqft'] = $val->sqft;
 			$mapHouseList['Price'] = $this->maskVOW($val->src,$val->lp_dol);
 			//$mapHouseList['Id'] = $val->id;
+			$mapHouseList['Zip'] = $this->maskVOW($val->src,$val->zip);
+			*/
 			$mapHouseList['HouseType'] = !empty($val->propertyType->name) ? $val->propertyType->name : '其他';
 			$mapHouseList['MunicipalityName'] = !empty($val->mname->municipality_cname)? ($val->mname->municipality_cname):"其他";
 			$mapHouseList['CountryName'] = $val->municipality;
-			$mapHouseList['Zip'] = $this->maskVOW($val->src,$val->zip);
 			$mapHouseList['MLS'] = $val->ml_num;
 			$mapHouseList['Country'] = $val->city_id;
 			$mapHouseList['ProvinceEname'] = $val->county;
@@ -1492,9 +1503,9 @@ class NgDevGetController extends XFrontBase
 			$mapHouseList['CoverImg'] = $this->maskVOW($val->src,$pics['CoverImg'],$this->IMG_MEMBER);
 			
 			$mapHouseList['CoverImgtn'] = $this->maskVOW($val->src,$pics['CoverImgtn'],$this->IMG_MEMBER);
-			$mapHouseList['CdnCoverImg'] = $this->maskVOW($val->src,$pics['CdnCoverImg'],$this->imgHost.$this->IMG_MEMBER);
-			$mapHouseList['CdnCoverImgtn'] = $this->maskVOW($val->src,$pics['CdnCoverImg'],$this->imgHost.$this->IMG_MEMBER);
-			
+			$mapHouseList['CdnCoverImg'] = $pics['CdnCoverImg'];
+			$mapHouseList['CdnCoverImgtn'] = $pics['CdnCoverImg'];
+			$mapHouseList['MemberOnlyImg'] = $this->imgHost.$this->IMG_MEMBER;
 		
 			$result['Data']['HouseList'][] = $mapHouseList;
 
