@@ -6,6 +6,7 @@
     "email": "info@maplecity.com.cn",
     "phone": "400-990-0393",
 	"feedbackEmail": "info@maplecity.com.cn",
+	"mcihost": "http://m.maplecity.com.cn/ion2",
 	"projectRest": "index.php?r=ngget/getProjects",
 	"mapHouseRest": "index.php?r=ngget/getMapHouse",
 	"getHouseList": "index.php?r=ngget/getHouseList",
