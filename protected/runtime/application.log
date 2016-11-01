@@ -8716,3 +8716,93 @@ Stack trace:
 REQUEST_URI=/index.php?r=ngdevget/getHouseDetail
 HTTP_REFERER=http://localhost:8100/
 ---
+2016/11/02 00:29:10 [error] [exception.Auth0\SDK\Exception\InvalidTokenException] exception 'Auth0\SDK\Exception\InvalidTokenException' with message 'Wrong number of segments' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:38
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1093): Auth0\SDK\Auth0JWT::decode('null', Array, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NgdevgetController.php(1768): NgDevGetController->isValidIdToken()
+#2 /var/www/mhtml/protected/controllers/NgdevgetController.php(1503): NgDevGetController->maskVOW('VOW', NULL, 'static/images/m...')
+#3 /var/www/mhtml/protected/controllers/NgdevgetController.php(245): NgDevGetController->house2Array(Array, 0, 'house')
+#4 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetMapHouse()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getMap...')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=ngdevget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/11/02 00:29:12 [error] [exception.Auth0\SDK\Exception\InvalidTokenException] exception 'Auth0\SDK\Exception\InvalidTokenException' with message 'Wrong number of segments' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:38
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1093): Auth0\SDK\Auth0JWT::decode('null', Array, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NgdevgetController.php(1768): NgDevGetController->isValidIdToken()
+#2 /var/www/mhtml/protected/controllers/NgdevgetController.php(1503): NgDevGetController->maskVOW('VOW', NULL, 'static/images/m...')
+#3 /var/www/mhtml/protected/controllers/NgdevgetController.php(245): NgDevGetController->house2Array(Array, 0, 'house')
+#4 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetMapHouse()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getMap...')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=ngdevget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/11/02 00:29:13 [error] [exception.Auth0\SDK\Exception\InvalidTokenException] exception 'Auth0\SDK\Exception\InvalidTokenException' with message 'Wrong number of segments' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:38
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1093): Auth0\SDK\Auth0JWT::decode('null', Array, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NgdevgetController.php(1768): NgDevGetController->isValidIdToken()
+#2 /var/www/mhtml/protected/controllers/NgdevgetController.php(1503): NgDevGetController->maskVOW('VOW', NULL, 'static/images/m...')
+#3 /var/www/mhtml/protected/controllers/NgdevgetController.php(245): NgDevGetController->house2Array(Array, 0, 'house')
+#4 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetMapHouse()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getMap...')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=ngdevget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/11/02 00:29:14 [error] [exception.Auth0\SDK\Exception\InvalidTokenException] exception 'Auth0\SDK\Exception\InvalidTokenException' with message 'Wrong number of segments' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:38
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1093): Auth0\SDK\Auth0JWT::decode('null', Array, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NgdevgetController.php(1768): NgDevGetController->isValidIdToken()
+#2 /var/www/mhtml/protected/controllers/NgdevgetController.php(1503): NgDevGetController->maskVOW('VOW', NULL, 'static/images/m...')
+#3 /var/www/mhtml/protected/controllers/NgdevgetController.php(245): NgDevGetController->house2Array(Array, 0, 'house')
+#4 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetMapHouse()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getMap...')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=ngdevget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
+2016/11/02 00:29:15 [error] [exception.Auth0\SDK\Exception\InvalidTokenException] exception 'Auth0\SDK\Exception\InvalidTokenException' with message 'Wrong number of segments' in /var/www/mhtml/protected/vendor/auth0/auth0-php/src/Auth0JWT.php:38
+Stack trace:
+#0 /var/www/mhtml/protected/controllers/NgdevgetController.php(1093): Auth0\SDK\Auth0JWT::decode('null', Array, 'Wg1qczn2IKXHEfz...', Array)
+#1 /var/www/mhtml/protected/controllers/NgdevgetController.php(1768): NgDevGetController->isValidIdToken()
+#2 /var/www/mhtml/protected/controllers/NgdevgetController.php(1503): NgDevGetController->maskVOW('VOW', NULL, 'static/images/m...')
+#3 /var/www/mhtml/protected/controllers/NgdevgetController.php(245): NgDevGetController->house2Array(Array, 0, 'house')
+#4 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetMapHouse()
+#5 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#6 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#7 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getMapHouse')
+#9 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getMap...')
+#10 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#11 /var/www/mhtml/index.php(19): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=ngdevget/getMapHouse
+HTTP_REFERER=http://localhost:8100/
+---
