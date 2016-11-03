@@ -1524,7 +1524,7 @@ class NgDevGetController extends XFrontBase
 			
 			//Return CDN and non-CDN thumbnail and medium picture
 			if ( $fullList == 0){
-				if ( $pic_num > 0) { //Treb picture meta data is updated after 2016/10/29
+				if (( $pic_num > 0)&&($src !="CREA" )) { //Treb picture meta data is updated after 2016/10/29
 				
 					$p1 = $this->TREB_MID_HOST."Photo".$ml_num."/"."Photo".$ml_num."-1.jpeg";
 					$p2 = $this->CREA_MID_HOST.$county."/Photo".$ml_num."/".$ml_num."-1.jpg";
@@ -1571,7 +1571,7 @@ class NgDevGetController extends XFrontBase
 			
 			//Return CDN and non-CDN full picture list
 			if ( $fullList == 1){
-				if ( $pic_num > 0) { //Treb picture meta data is updated after 2016/10/29
+				if (( $pic_num > 0)&&($src !="CREA" )) { //Treb picture meta data is updated after 2016/10/29
 					for ($x = 1; $x <= $pic_num; $x++) {
 						
 						$p1 = $this->TREB_IMG_HOST."Photo".$ml_num."/"."Photo".$ml_num."-".$x.".jpeg";
