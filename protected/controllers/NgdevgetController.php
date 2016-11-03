@@ -1630,6 +1630,11 @@ class NgDevGetController extends XFrontBase
 					
 				$criteria->addCondition('s_r = "Sale"');
 			} 
+			
+				
+			if ($postParms['oh'] == "true" )  {
+				$criteria->addCondition('oh_date1 > "2016"');
+			} 
 	
 
             //卫生间数量 1-5
