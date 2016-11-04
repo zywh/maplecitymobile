@@ -7,6 +7,8 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="Cache-Control" content="no-siteapp" />
+	<meta name="apple-itunes-app" content="app-id=1124669887">
+
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="format-detection" content="telephone=no">
