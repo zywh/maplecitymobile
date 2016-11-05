@@ -8937,3 +8937,213 @@ Stack trace:
 REQUEST_URI=/index.php?r=ngdevget/getCityList
 HTTP_REFERER=http://i.citym.ca/
 ---
+2016/11/05 08:54:10 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'. The SQL statement executed was: 
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like 'w bo te%' 
+			AND  m.count > 1 order by count desc limit 8.
+2016/11/05 08:54:10 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/NgdevgetController.php(952): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetSchoolAutoComplete()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolAutoCo...')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getSch...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngdevget/getSchoolAutoComplete
+---
+2016/11/05 08:54:11 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'. The SQL statement executed was: 
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like 'w bo te%' 
+			AND  m.count > 1 order by count desc limit 8.
+2016/11/05 08:54:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/NgdevgetController.php(952): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetSchoolAutoComplete()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolAutoCo...')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getSch...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngdevget/getSchoolAutoComplete
+---
+2016/11/05 08:54:11 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'. The SQL statement executed was: 
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like 'w bo te%' 
+			AND  m.count > 1 order by count desc limit 8.
+2016/11/05 08:54:11 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/NgdevgetController.php(952): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetSchoolAutoComplete()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolAutoCo...')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getSch...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngdevget/getSchoolAutoComplete
+---
+2016/11/05 08:54:12 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'. The SQL statement executed was: 
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like 'w bo te%' 
+			AND  m.count > 1 order by count desc limit 8.
+2016/11/05 08:54:12 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/NgdevgetController.php(952): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetSchoolAutoComplete()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolAutoCo...')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getSch...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngdevget/getSchoolAutoComplete
+---
+2016/11/05 08:54:13 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'. The SQL statement executed was: 
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like 'w bo te%' 
+			AND  m.count > 1 order by count desc limit 8.
+2016/11/05 08:54:13 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/NgdevgetController.php(952): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetSchoolAutoComplete()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolAutoCo...')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getSch...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngdevget/getSchoolAutoComplete
+---
+2016/11/05 08:54:14 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'. The SQL statement executed was: 
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like 'w bo te%' 
+			AND  m.count > 1 order by count desc limit 8.
+2016/11/05 08:54:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/NgdevgetController.php(952): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetSchoolAutoComplete()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolAutoCo...')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getSch...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngdevget/getSchoolAutoComplete
+---
+2016/11/05 08:54:14 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'. The SQL statement executed was: 
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like 'w bo te%' 
+			AND  m.count > 1 order by count desc limit 8.
+2016/11/05 08:54:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/NgdevgetController.php(952): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetSchoolAutoComplete()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolAutoCo...')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getSch...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngdevget/getSchoolAutoComplete
+---
+2016/11/05 08:54:15 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'. The SQL statement executed was: 
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like 'w bo te%' 
+			AND  m.count > 1 order by count desc limit 8.
+2016/11/05 08:54:15 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/NgdevgetController.php(952): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetSchoolAutoComplete()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolAutoCo...')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getSch...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngdevget/getSchoolAutoComplete
+---
+2016/11/05 08:54:16 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'. The SQL statement executed was: 
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like 'w bo te%' 
+			AND  m.count > 1 order by count desc limit 8.
+2016/11/05 08:54:16 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/NgdevgetController.php(952): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetSchoolAutoComplete()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolAutoCo...')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getSch...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngdevget/getSchoolAutoComplete
+---
+2016/11/05 08:54:17 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'. The SQL statement executed was: 
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like 'w bo te%' 
+			AND  m.count > 1 order by count desc limit 8.
+2016/11/05 08:54:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/NgdevgetController.php(952): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): NgDevGetController->actionGetSchoolAutoComplete()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolAutoCo...')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('ngdevget/getSch...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=ngdevget/getSchoolAutoComplete
+---
