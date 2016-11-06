@@ -5,7 +5,7 @@ Yii::import('application.vendor.*');
 require_once('autoload.php'); 
 spl_autoload_register(array('YiiBase','autoload'));
 
-class NgDevGet2Controller extends XFrontBase
+class NgGet2Controller extends XFrontBase
 {
 	
     //private $imgHost ="http://m.maplecity.com.cn/";
