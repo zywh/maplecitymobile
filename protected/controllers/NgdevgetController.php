@@ -1530,12 +1530,12 @@ class NgDevGetController extends XFrontBase
 				//if (( $pic_num > 0)&&($src !="CREA" )) { //Treb picture meta data is updated after 2016/10/29
 				if ( $pic_num > 0) { //Treb picture meta data is updated after 2016/10/29
 				
-					$p1 = $this->TREB_MID_HOST."Photo".$ml_num."/"."Photo".$ml_num."-1.jpeg";
-					$p2 = $this->CREA_MID_HOST.$county."/Photo".$ml_num."/".$ml_num."-1.jpg";
+					$p1 = $this->TREB_MID_HOST."Photo".$ml_num."/Photo".$ml_num."-1.jpeg";
+					$p2 = $this->CREA_MID_HOST.$county."/Photo".$ml_num."/Photo".$ml_num."-1.jpg";
 					$picList['CdnCoverImg'] = ($src != "CREA")? $p1: $p2;
 					
-					$p3 = $this->TREB_TN_HOST."Photo".$ml_num."/"."Photo".$ml_num."-1.jpeg";
-					$p4 = $this->CREA_TN_HOST.$county."/Photo".$ml_num."/".$ml_num."-1.jpg";
+					$p3 = $this->TREB_TN_HOST."Photo".$ml_num."/Photo".$ml_num."-1.jpeg";
+					$p4 = $this->CREA_TN_HOST.$county."/Photo".$ml_num."/Photo".$ml_num."-1.jpg";
 					$picList['CdnCoverImgtn'] = ($src != "CREA")? $p3: $p4;
 				
 				} else {  //fall back to scan dir if num = 0
