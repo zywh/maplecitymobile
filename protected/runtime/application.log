@@ -6686,3 +6686,91 @@ Stack trace:
 #10 {main}
 REQUEST_URI=/index.php?r=ngget2/getCityList
 ---
+2016/11/15 07:39:47 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'. The SQL statement executed was: 
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like 'wen ge%' 
+			AND  m.count > 1 order by count desc limit 10.
+2016/11/15 07:39:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/MapController.php(663): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetSchoolAutoComplete()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolautoco...')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getSchoolau...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=map/getSchoolautocomplete&term=wen%E2%80%86ge
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---
+2016/11/15 07:39:47 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'. The SQL statement executed was: 
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like 'wen ge%' 
+			AND  m.count > 1 order by count desc limit 10.
+2016/11/15 07:39:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/MapController.php(663): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetSchoolAutoComplete()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolautoco...')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getSchoolau...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=map/getSchoolautocomplete&term=wen%E2%80%86ge
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---
+2016/11/15 07:39:48 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'. The SQL statement executed was: 
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like 'wen ge h%' 
+			AND  m.count > 1 order by count desc limit 10.
+2016/11/15 07:39:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/MapController.php(663): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetSchoolAutoComplete()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolautoco...')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getSchoolau...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=map/getSchoolautocomplete&term=wen%E2%80%86ge%E2%80%86h
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---
+2016/11/15 07:39:49 [error] [system.db.CDbCommand] CDbCommand::() failed: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'. The SQL statement executed was: 
+			SELECT m.lat lat,m.lng lng,m.municipality citye,m.municipality_cname cityc,m.province provincee,c.name provincec 
+			FROM h_mname m, h_city c 
+			WHERE  m.province = c.englishname 
+			AND  municipality like 'wen ge h%' 
+			AND  m.count > 1 order by count desc limit 10.
+2016/11/15 07:39:49 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 无法执行 SQL 语句: SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (gbk_chinese_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation 'like'' in /var/www/mhtml/framework/yiilite.php:9341
+Stack trace:
+#0 /var/www/mhtml/framework/yiilite.php(9260): CDbCommand->queryInternal('', 0, Array)
+#1 /var/www/mhtml/protected/controllers/MapController.php(663): CDbCommand->query()
+#2 /var/www/mhtml/framework/yiilite.php(4058): MapController->actionGetSchoolAutoComplete()
+#3 /var/www/mhtml/framework/yiilite.php(3570): CInlineAction->runWithParams(Array)
+#4 /var/www/mhtml/framework/yiilite.php(3555): CController->runAction(Object(CInlineAction))
+#5 /var/www/mhtml/framework/yiilite.php(3545): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 /var/www/mhtml/framework/yiilite.php(1746): CController->run('getSchoolautoco...')
+#7 /var/www/mhtml/framework/yiilite.php(1666): CWebApplication->runController('map/getSchoolau...')
+#8 /var/www/mhtml/framework/yiilite.php(1191): CWebApplication->processRequest()
+#9 /var/www/mhtml/index.php(19): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=map/getSchoolautocomplete&term=wen%E2%80%86ge%E2%80%86h
+HTTP_REFERER=http://m.maplecity.com.cn/index.php?r=map/school
+---
